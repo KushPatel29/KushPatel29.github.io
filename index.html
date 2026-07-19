@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!-- ============================================================
+     Hand-built by Kush Patel. No framework, no build step.
+     Every number on this page is CI-verified in the repo it
+     comes from. Press Ctrl/Cmd+K — this page has a command
+     palette, because why shouldn't it.
+     ============================================================ -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -30,6 +36,7 @@
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-actions">
+      <button class="kbd-hint" id="palette-open" aria-label="Open command palette" title="Command palette"><kbd>⌘K</kbd></button>
       <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
         <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M19.4 4.6l-1.8 1.8M6.4 17.6l-1.8 1.8"/></svg>
         <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -43,6 +50,10 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
+  <svg class="hero-chart" aria-hidden="true" viewBox="0 0 1200 420" preserveAspectRatio="none">
+    <path class="hc-line hc-line-1" pathLength="1" d="M0,330 C110,315 170,255 255,262 C345,270 385,195 470,203 C560,212 600,148 690,157 C780,166 822,98 912,110 C1005,122 1065,58 1200,66" />
+    <path class="hc-line hc-line-2" pathLength="1" d="M0,390 C130,382 190,330 280,338 C370,346 420,285 510,292 C600,299 650,240 740,247 C830,254 880,196 970,204 C1060,212 1120,168 1200,172" />
+  </svg>
   <div class="container hero-grid">
     <div class="hero-copy reveal">
       <p class="eyebrow">BI &amp; Analytics Engineer · Vancouver, BC</p>
@@ -68,8 +79,8 @@
       <div class="terminal-body">
         <div class="t-line"><span class="t-prompt">$</span> <span id="typed"></span><span class="caret" id="caret"></span></div>
         <div class="t-output" id="t-output" hidden>
-          <p class="t-answer">Self-Pay — about <strong>19%</strong> of the allowed amount, far below every insured payer type.</p>
-          <pre class="t-sql">SELECT payer_type,
+          <p class="t-answer" id="t-answer">Self-Pay — about <strong>19%</strong> of the allowed amount, far below every insured payer type.</p>
+          <pre class="t-sql" id="t-sql">SELECT payer_type,
        SUM(paid_amount) /
        NULLIF(SUM(allowed_amount), 0) AS ncr
 FROM healthcare_fact_claims c
@@ -333,9 +344,20 @@ I can't do that — this is a read-only interface.</pre>
 
 <footer class="footer">
   <div class="container footer-inner">
-    <p>© <span id="year"></span> Kush Patel · Hand-built static page — no framework, no tracker, just HTML/CSS/JS. <a href="https://github.com/KushPatel29/KushPatel29.github.io" target="_blank" rel="noopener">View source ↗</a></p>
+    <p>© <span id="year"></span> Kush Patel · Hand-built — no framework, no tracker, just HTML/CSS/JS.
+    Press <kbd class="kbd-inline">Ctrl</kbd>+<kbd class="kbd-inline">K</kbd> anywhere.
+    <a href="https://github.com/KushPatel29/KushPatel29.github.io" target="_blank" rel="noopener">View source ↗</a></p>
   </div>
 </footer>
+
+<!-- ============ COMMAND PALETTE ============ -->
+<div class="palette-overlay" id="palette" hidden>
+  <div class="palette" role="dialog" aria-modal="true" aria-label="Command palette">
+    <input type="text" id="palette-input" class="palette-input" placeholder="Jump to a section, open a repo, copy my email…" autocomplete="off" spellcheck="false" aria-label="Search commands">
+    <ul class="palette-list" id="palette-list" role="listbox"></ul>
+    <p class="palette-foot"><kbd class="kbd-inline">↑↓</kbd> navigate · <kbd class="kbd-inline">↵</kbd> select · <kbd class="kbd-inline">esc</kbd> close</p>
+  </div>
+</div>
 
 <script src="main.js"></script>
 </body>
