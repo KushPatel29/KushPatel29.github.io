@@ -79,7 +79,7 @@
     </nav>
 
     <div class="nav-actions">
-      <a class="nav-resume" href="assets/resume.pdf" download>
+      <a class="nav-resume" href="assets/Kush-Patel-Resume.pdf" download>
         <span aria-hidden="true">↓</span> RESUME
       </a>
       <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch colour theme">
@@ -119,7 +119,7 @@
 
       <div class="cta-row">
         <a class="btn btn-primary" href="#work">See the work ↓</a>
-        <a class="btn btn-resume" href="assets/resume.pdf" download>
+        <a class="btn btn-resume" href="assets/Kush-Patel-Resume.pdf" download>
           <span aria-hidden="true">↓</span> Download Resume <span class="btn-sub">PDF</span>
         </a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/kush-patel-48885719b/" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -206,34 +206,34 @@ WHERE verdict = 'GO'</pre>
         <p class="domain-answer">Demand forecasting, inventory turns, days-on-hand and safety-stock coverage across a perishable network — plus the medallion pipeline and control tower that make the whole chain observable in one place.</p>
       </div>
       <div class="domain">
-        <div class="domain-head"><span class="domain-n">07</span><h3>WMS &amp; Inventory</h3></div>
-        <p class="domain-ask">“Does the system match the shelf?”</p>
-        <p class="domain-answer">Cycle-count accuracy, bin utilisation, pick/pack throughput, FEFO and expiry-risk for perishables, and lot traceability that can answer a recall question in minutes.</p>
+        <div class="domain-head"><span class="domain-n">07</span><h3>Warehouse &amp; Logistics</h3></div>
+        <p class="domain-ask">“Does the system match the shelf — and did it arrive on time?”</p>
+        <p class="domain-answer">Cycle-count accuracy, bin utilisation, pick/pack throughput and FEFO expiry-risk for perishables, with lot traceability that answers a recall question in minutes — then OTIF decomposed by lane, carrier and failure reason, with freight cost per case and the difference between a late truck and a late promise.</p>
       </div>
       <div class="domain">
-        <div class="domain-head"><span class="domain-n">08</span><h3>Logistics &amp; Fulfilment</h3></div>
-        <p class="domain-ask">“Where is OTIF really breaking?”</p>
-        <p class="domain-answer">OTIF decomposed by lane, carrier and failure reason, with freight cost per case, dock-to-stock timing and the difference between a late truck and a late promise.</p>
-      </div>
-      <div class="domain">
-        <div class="domain-head"><span class="domain-n">09</span><h3>AP &amp; AR</h3></div>
+        <div class="domain-head"><span class="domain-n">08</span><h3>AP &amp; AR</h3></div>
         <p class="domain-ask">“What do we owe, and what will we actually collect?”</p>
         <p class="domain-answer">Aging, DPO/DSO, invoice-match exceptions and credit exposure — and on the AR side, an NRV model that prices open receivables at what they'll realistically bank.</p>
       </div>
       <div class="domain">
-        <div class="domain-head"><span class="domain-n">10</span><h3>GL / P&amp;L Reconciliation</h3></div>
+        <div class="domain-head"><span class="domain-n">09</span><h3>GL / P&amp;L Reconciliation</h3></div>
         <p class="domain-ask">“Why doesn't the subledger tie to the GL?”</p>
         <p class="domain-answer">Automated ERP-vs-subledger controls that classify discrepancies, trace every dollar of variance to source, and make month-end an audit instead of a hunt.</p>
       </div>
       <div class="domain">
-        <div class="domain-head"><span class="domain-n">11</span><h3>Data Engineering &amp; BI Platform</h3></div>
+        <div class="domain-head"><span class="domain-n">10</span><h3>Data Engineering &amp; BI Platform</h3></div>
         <p class="domain-ask">“Can we trust the pipeline this all sits on?”</p>
         <p class="domain-answer">Bronze→Silver→Gold pipelines in Fabric/ADF/Synapse and dbt, star-schema models, semantic layers, RLS/OLS, and CI that breaks the build when the data drifts.</p>
       </div>
       <div class="domain">
-        <div class="domain-head"><span class="domain-n">12</span><h3>AI &amp; Machine Learning</h3></div>
+        <div class="domain-head"><span class="domain-n">11</span><h3>AI &amp; Machine Learning</h3></div>
         <p class="domain-ask">“Is there a model here, or just a metric?”</p>
         <p class="domain-answer">Forecasting, churn and flight-risk classification, recommenders, survival analysis and grounded LLM/text-to-SQL work — held to honest holdouts, fairness gates and a baseline it has to beat before it ships.</p>
+      </div>
+      <div class="domain">
+        <div class="domain-head"><span class="domain-n">12</span><h3>HR &amp; People Analytics</h3></div>
+        <p class="domain-ask">“What is labour actually costing us, and who is about to leave?”</p>
+        <p class="domain-answer">Time-and-attendance integration and punch-to-payroll reconciliation, labour cost per unit produced, overtime exposure and schedule-vs-actual variance — plus headcount, turnover and flight-risk modelling held to a fairness gate before anyone sees a name.</p>
       </div>
     </div>
   </section>
@@ -625,6 +625,7 @@ WHERE verdict = 'GO'</pre>
             <ul>
               <li>Sat with Sales, Finance and Supply Chain until we agreed on single definitions for P&amp;L/GL and operations KPIs — OTIF, inventory turns, days on hand — then built the Power BI star schemas and DAX that made those definitions the only ones available.</li>
               <li>AP and AR reporting on aging, DPO/DSO, invoice-match exceptions and credit exposure, giving Finance a working view of cash instead of a month-old snapshot.</li>
+              <li>Moved staffing decisions off gut feel with labour cost per case, overtime exposure and schedule-vs-actual variance — fed by a Synerion time-and-attendance API integration into the analytics warehouse, with punch-to-payroll reconciled so billed hours matched worked hours.</li>
               <li>Automated the reconciliation controls we used to run by hand: recurring discrepancies down ~45%, reporting errors down ~30%.</li>
             </ul>
           </div>
@@ -738,7 +739,7 @@ WHERE verdict = 'GO'</pre>
         <p class="contact-lede">I'm looking for a BI Analyst or Analytics Engineer role — Vancouver or remote. Tell me which number your leadership team argues about most and I'll tell you how I'd go about ending the argument.</p>
         <div class="cta-row">
           <a class="btn btn-primary btn-mono" href="mailto:dharma.patel552@gmail.com">dharma.patel552@gmail.com</a>
-          <a class="btn btn-resume" href="assets/resume.pdf" download>
+          <a class="btn btn-resume" href="assets/Kush-Patel-Resume.pdf" download>
             <span aria-hidden="true">↓</span> Download Resume <span class="btn-sub">PDF</span>
           </a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/kush-patel-48885719b/" target="_blank" rel="noopener">LinkedIn ↗</a>
