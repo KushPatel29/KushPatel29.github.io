@@ -1,364 +1,767 @@
 <!DOCTYPE html>
 <!-- ============================================================
-     Hand-built by Kush Patel. No framework, no build step.
-     Every number on this page is CI-verified in the repo it
-     comes from. Press Ctrl/Cmd+K — this page has a command
-     palette, because why shouldn't it.
+     Hand-built by Kush Patel. No framework, no build step, no
+     tracker. Every number on this page is CI-verified in the repo
+     it comes from. Everything you can read here is real HTML —
+     nothing on this page is drawn by JavaScript.
      ============================================================ -->
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kush Patel — BI & Analytics Engineer</title>
-<meta name="description" content="BI & Analytics Engineer in Vancouver. Eight repos, 300+ CI-verified tests, one rule: no claim without a number, and no number without a test.">
-<meta property="og:title" content="Kush Patel — BI & Analytics Engineer">
-<meta property="og:description" content="Eight repos. 300+ CI-verified tests. One rule: no claim without a number, and no number without a test that fails if it stops being true.">
-<meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
+
+<title>Kush Patel — BI &amp; Analytics Engineer | Power BI, SQL, Azure, dbt, Fabric</title>
+<meta name="description" content="BI &amp; Analytics Engineer in Vancouver — Power BI, SQL, Azure, dbt and Microsoft Fabric. Eight repos, 308 CI-verified tests, one rule: no claim without a number, and no number without a test.">
+<meta name="author" content="Kush Patel">
+<link rel="canonical" href="https://kushpatel29.github.io/">
+
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312436D'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='bold' fill='%23F7F5F0' text-anchor='middle'%3EK.%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Kush Patel — BI &amp; Analytics Engineer">
+<meta property="og:description" content="Power BI, SQL, Azure, dbt and Microsoft Fabric. Eight repos, 308 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
+<meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kush Patel — BI &amp; Analytics Engineer, Vancouver BC">
+<meta property="og:locale" content="en_CA">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kush Patel — BI &amp; Analytics Engineer">
+<meta name="twitter:description" content="Power BI, SQL, Azure, dbt and Microsoft Fabric. Eight repos, 308 CI-verified tests, one rule: no claim without a number, and no number without a test.">
+<meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
+<meta name="twitter:image:alt" content="Kush Patel — BI &amp; Analytics Engineer, Vancouver BC">
+
+<meta name="theme-color" content="#080d11" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f9fb" media="(prefers-color-scheme: light)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080d11'/%3E%3Crect x='6' y='6' width='52' height='52' rx='11' fill='none' stroke='%232aeae5' stroke-width='3'/%3E%3Ctext x='32' y='44' font-family='monospace' font-size='30' font-weight='700' fill='%232aeae5' text-anchor='middle'%3EKP%3C/text%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<!-- Set the theme before first paint so there's no flash of the wrong one. -->
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('kp-theme');
+    document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+  } catch (e) { /* private mode — the dark default on the root element already applies */ }
+})();
+</script>
 </head>
+
 <body>
 
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 <a class="skip" href="#work">Skip to the work</a>
 
-<header class="nav" id="top">
+<div class="bg-glow" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
   <div class="nav-inner">
-    <a class="brand" href="#top" aria-label="Kush Patel — home"><span class="brand-mark">K.</span> Kush Patel</a>
-    <nav aria-label="Sections">
+    <a class="brand" href="#top">
+      <span class="brand-mark">K</span>
+      <span class="brand-name">Kush Patel</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#domains">Domains</a>
       <a href="#work">Work</a>
       <a href="#method">Method</a>
       <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </nav>
+
     <div class="nav-actions">
-      <button class="kbd-hint" id="palette-open" aria-label="Open command palette" title="Command palette"><kbd>⌘K</kbd></button>
-      <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-        <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M19.4 4.6l-1.8 1.8M6.4 17.6l-1.8 1.8"/></svg>
-        <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <a class="nav-resume" href="assets/resume.pdf" download>
+        <span aria-hidden="true">↓</span> RESUME
+      </a>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch colour theme">
+        <span class="theme-dot" aria-hidden="true"></span>
+        <span id="theme-label">DARK</span>
       </button>
-      <a class="btn btn-ghost" href="https://github.com/KushPatel29" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="nav-github" href="https://github.com/KushPatel29" target="_blank" rel="noopener">GITHUB ↗</a>
     </div>
   </div>
 </header>
 
-<main>
+<main id="top">
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <svg class="hero-chart" aria-hidden="true" viewBox="0 0 1200 420" preserveAspectRatio="none">
-    <path class="hc-line hc-line-1" pathLength="1" d="M0,330 C110,315 170,255 255,262 C345,270 385,195 470,203 C560,212 600,148 690,157 C780,166 822,98 912,110 C1005,122 1065,58 1200,66" />
-    <path class="hc-line hc-line-2" pathLength="1" d="M0,390 C130,382 190,330 280,338 C370,346 420,285 510,292 C600,299 650,240 740,247 C830,254 880,196 970,204 C1060,212 1120,168 1200,172" />
-  </svg>
-  <div class="container hero-grid">
-    <div class="hero-copy reveal">
-      <p class="eyebrow">BI &amp; Analytics Engineer · Vancouver, BC</p>
-      <h1>Every number on a dashboard should be able to <em>prove itself</em>.</h1>
-      <p class="lede">
-        I'm Kush — 4+ years building finance-grade (GL/P&amp;L) and operations
-        reporting across sales, finance, and supply chain. Everything I ship
-        follows one rule: <strong>no claim without a number, and no number
-        without a test that fails if it stops being true.</strong>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow-pill">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        BI · ANALYTICS ENGINEERING · DATA ENGINEERING — VANCOUVER, BC
       </p>
-      <div class="hero-ctas">
+
+      <h1>
+        Every number on a dashboard should be able to
+        <em>prove itself.</em>
+      </h1>
+
+      <p class="lede">
+        I'm Kush. For four years I've been the person Finance calls when the
+        P&amp;L doesn't tie, Sales Ops calls when a rep's quota attainment looks
+        wrong, and the warehouse calls when the WMS and the ledger disagree about
+        what's on the shelf. Twelve reporting domains, one pipeline discipline,
+        and one thing I learned early: a dashboard nobody trusts is worse than no
+        dashboard at all — so I started testing numbers the way engineers test
+        code. <strong>No claim without a number, and no number without a test
+        that fails the build if it stops being true.</strong>
+      </p>
+
+      <div class="cta-row">
         <a class="btn btn-primary" href="#work">See the work ↓</a>
+        <a class="btn btn-resume" href="assets/resume.pdf" download>
+          <span aria-hidden="true">↓</span> Download Resume <span class="btn-sub">PDF</span>
+        </a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/kush-patel-48885719b/" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a class="btn btn-ghost" href="mailto:dharma.patel552@gmail.com">Email me</a>
       </div>
     </div>
 
-    <figure class="terminal reveal" aria-label="Sample exchange with the Ask Your Data assistant">
+    <!-- Terminal panel: deliberately stays dark in both themes. -->
+    <figure class="terminal">
+      <div class="terminal-sweep" aria-hidden="true"></div>
       <figcaption class="terminal-bar">
-        <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
-        <span class="terminal-title">ask-your-data — grounded text-to-SQL</span>
+        <span class="dot dot-red" aria-hidden="true"></span>
+        <span class="dot dot-amber" aria-hidden="true"></span>
+        <span class="dot dot-green" aria-hidden="true"></span>
+        <span class="terminal-title">ask-your-data · app/cli.py</span>
       </figcaption>
       <div class="terminal-body">
-        <div class="t-line"><span class="t-prompt">$</span> <span id="typed"></span><span class="caret" id="caret"></span></div>
-        <div class="t-output" id="t-output" hidden>
-          <p class="t-answer" id="t-answer">Self-Pay — about <strong>19%</strong> of the allowed amount, far below every insured payer type.</p>
-          <pre class="t-sql" id="t-sql">SELECT payer_type,
-       SUM(paid_amount) /
-       NULLIF(SUM(allowed_amount), 0) AS ncr
-FROM healthcare_fact_claims c
-JOIN healthcare_dim_payer p USING (payer_id)
-WHERE status = 'Paid'
-GROUP BY 1 ORDER BY ncr LIMIT 1</pre>
-        </div>
+        <p class="t-q">&gt; how many migration artifacts passed parallel-run validation?</p>
+        <p class="t-a">107 artifacts have a GO verdict.</p>
+        <pre class="t-sql">SELECT COUNT(*) FROM migration_parallel_run_results
+WHERE verdict = 'GO'</pre>
+        <p class="t-q t-q-2">&gt; delete all denied claims</p>
+        <p class="t-refuse">I can't do that — this is a read-only interface.<span class="caret" aria-hidden="true"></span></p>
+        <p class="terminal-note">Not a screenshot — the question, the SQL and the answer are all pinned by golden-question tests in CI.</p>
       </div>
-      <p class="terminal-note">Question, SQL, and answer are locked by the repo's CI golden-question tests.</p>
     </figure>
-  </div>
-</section>
+  </section>
 
-<!-- ============ STAT BAND ============ -->
-<section class="stats" aria-label="Portfolio at a glance">
-  <div class="container stat-row">
-    <div class="stat reveal"><span class="stat-n" data-count="8">0</span><span class="stat-label">public repos</span></div>
-    <div class="stat reveal"><span class="stat-n" data-count="300" data-suffix="+">0</span><span class="stat-label">CI-verified tests</span></div>
-    <div class="stat reveal"><span class="stat-n" data-count="6">0</span><span class="stat-label">business domains</span></div>
-    <div class="stat reveal"><span class="stat-n" data-count="4" data-suffix="+">0</span><span class="stat-label">years in BI &amp; analytics</span></div>
-  </div>
-</section>
+  <!-- ============ METRICS ============ -->
+  <section class="metrics" aria-label="Portfolio at a glance">
+    <div class="metric">
+      <div class="metric-value" data-count="8">8</div>
+      <div class="metric-label">public repos</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value" data-count="308">308</div>
+      <div class="metric-label">CI-verified tests</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value" data-count="12">12</div>
+      <div class="metric-label">domains I report on</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value" data-count="4" data-suffix="+">4+</div>
+      <div class="metric-label">years in BI &amp; analytics</div>
+    </div>
+  </section>
 
-<!-- ============ FEATURED WORK ============ -->
-<section id="work" class="section">
-  <div class="container">
-    <p class="eyebrow reveal">The work</p>
-    <h2 class="reveal">Eight repos. Every one rebuilds itself and re-proves its claims on every push.</h2>
-    <p class="section-sub reveal">All data is synthetic and seeded — no PHI, no real customers, no real employees. A green badge means <em>it runs</em>, not just that it's written down.</p>
+  <!-- ============ DOMAINS ============ -->
+  <section id="domains" class="section">
+    <p class="eyebrow">01 — WHAT I ACTUALLY GET ASKED</p>
+    <h2>I'm not a finance analyst who wandered into ops. I've owned the whole reporting surface.</h2>
+    <p class="section-sub">Twelve domains, one grain of truth underneath them. Each of these is a question I've been handed in a real meeting — and the model I built so nobody had to ask twice.</p>
 
-    <!-- Feature 1: Ask Your Data -->
-    <article class="feature reveal">
-      <div class="feature-media terminal-still">
-        <div class="terminal-bar"><span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span><span class="terminal-title">app/cli.py</span></div>
-        <div class="terminal-body">
-<pre class="t-sql">&gt; how many migration artifacts passed parallel-run validation?
-
-107 artifacts have a GO verdict.
-
-  SELECT COUNT(*) FROM migration_parallel_run_results
-  WHERE verdict = 'GO'
-
-&gt; delete all denied claims
-
-I can't do that — this is a read-only interface.</pre>
-        </div>
+    <div class="domain-grid">
+      <div class="domain">
+        <div class="domain-head"><span class="domain-n">01</span><h3>Sales Operations</h3></div>
+        <p class="domain-ask">“Why did we miss the number this month?”</p>
+        <p class="domain-answer">Pipeline-to-invoice reporting with governed quota, attainment and mix logic, so the variance conversation starts from an agreed baseline instead of three competing extracts.</p>
       </div>
-      <div class="feature-copy">
-        <p class="feature-kicker">Capstone · LLM engineering</p>
+      <div class="domain">
+        <div class="domain-head"><span class="domain-n">02</span><h3>Sales Rep Performance</h3></div>
+        <p class="domain-ask">“Who's actually performing, adjusted for territory?”</p>
+        <p class="domain-answer">Rep scorecards normalised for territory potential and account mix — attainment, coverage, win rate and margin per rep, with the definitions locked so nobody can re-cut them mid-quarter.</p>
+      </div>
+      <div class="domain">
+        <div class="domain-head"><span class="domain-n">03</span><h3>Customer Analytics</h3></div>
+        <p class="domain-ask">“Which customers are quietly leaving?”</p>
+        <p class="domain-answer">Cohort retention, RFM segmentation, order-frequency decay and margin-by-customer — plus the recommender that proves a simple model can beat a clever one.</p>
+      </div>
+      <div class="domain">
+        <div class="domain-head"><span class="domain-n">04</span><h3>Product &amp; Assortment</h3></div>
+        <p class="domain-ask">“Which SKUs earn their shelf space?”</p>
+        <p class="domain-answer">SKU-level velocity, contribution margin, cannibalisation and long-tail analysis; assortment views that separate products that sell from products that merely move.</p>
+      </div>
+      <div class="domain">
+        <div class="domain-head"><span class="domain-n">05</span><h3>Vendor Performance</h3></div>
+        <p class="domain-ask">“Which suppliers are costing us more than they invoice?”</p>
+        <p class="domain-answer">Vendor scorecards on fill rate, lead-time variance, price adherence and quality claims — landed-cost impact quantified rather than argued.</p>
+      </div>
+      <div class="domain">
+        <div class="domain-head"><span class="domain-n">06</span><h3>Supply Chain Planning</h3></div>
+        <p class="domain-ask">“How much should we be holding, and where?”</p>
+        <p class="domain-answer">Demand forecasting, inventory turns, days-on-hand and safety-stock coverage across a perishable network — plus the medallion pipeline and control tower that make the whole chain observable in one place.</p>
+      </div>
+      <div class="domain">
+        <div class="domain-head"><span class="domain-n">07</span><h3>WMS &amp; Inventory</h3></div>
+        <p class="domain-ask">“Does the system match the shelf?”</p>
+        <p class="domain-answer">Cycle-count accuracy, bin utilisation, pick/pack throughput, FEFO and expiry-risk for perishables, and lot traceability that can answer a recall question in minutes.</p>
+      </div>
+      <div class="domain">
+        <div class="domain-head"><span class="domain-n">08</span><h3>Logistics &amp; Fulfilment</h3></div>
+        <p class="domain-ask">“Where is OTIF really breaking?”</p>
+        <p class="domain-answer">OTIF decomposed by lane, carrier and failure reason, with freight cost per case, dock-to-stock timing and the difference between a late truck and a late promise.</p>
+      </div>
+      <div class="domain">
+        <div class="domain-head"><span class="domain-n">09</span><h3>AP &amp; AR</h3></div>
+        <p class="domain-ask">“What do we owe, and what will we actually collect?”</p>
+        <p class="domain-answer">Aging, DPO/DSO, invoice-match exceptions and credit exposure — and on the AR side, an NRV model that prices open receivables at what they'll realistically bank.</p>
+      </div>
+      <div class="domain">
+        <div class="domain-head"><span class="domain-n">10</span><h3>GL / P&amp;L Reconciliation</h3></div>
+        <p class="domain-ask">“Why doesn't the subledger tie to the GL?”</p>
+        <p class="domain-answer">Automated ERP-vs-subledger controls that classify discrepancies, trace every dollar of variance to source, and make month-end an audit instead of a hunt.</p>
+      </div>
+      <div class="domain">
+        <div class="domain-head"><span class="domain-n">11</span><h3>Data Engineering &amp; BI Platform</h3></div>
+        <p class="domain-ask">“Can we trust the pipeline this all sits on?”</p>
+        <p class="domain-answer">Bronze→Silver→Gold pipelines in Fabric/ADF/Synapse and dbt, star-schema models, semantic layers, RLS/OLS, and CI that breaks the build when the data drifts.</p>
+      </div>
+      <div class="domain">
+        <div class="domain-head"><span class="domain-n">12</span><h3>AI &amp; Machine Learning</h3></div>
+        <p class="domain-ask">“Is there a model here, or just a metric?”</p>
+        <p class="domain-answer">Forecasting, churn and flight-risk classification, recommenders, survival analysis and grounded LLM/text-to-SQL work — held to honest holdouts, fairness gates and a baseline it has to beat before it ships.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section id="work" class="section">
+    <p class="eyebrow">02 — THE WORK</p>
+    <h2>Eight projects. Every one started with a question somebody actually asked me at work.</h2>
+    <p class="section-sub">Each repo rebuilds itself from seeded synthetic data on every push — no PHI, no real customers, no real employees. If a sentence in a README stops being true, the build goes red and I find out before you do. A green badge means it <em>runs today</em>, not that it worked once on my laptop.</p>
+
+    <!-- Start-here router -->
+    <div class="router">
+      <p class="router-label">START HERE</p>
+      <ul class="router-list">
+        <li>
+          <span class="router-if">Hiring for <strong>dashboards &amp; semantic models</strong></span>
+          <span class="router-arrow" aria-hidden="true">→</span>
+          <span class="router-to"><a href="#p-gl-recon">GL / P&amp;L Reconciliation</a><a href="#p-control-tower">Supply Chain Control Tower</a></span>
+        </li>
+        <li>
+          <span class="router-if">Hiring for <strong>pipelines &amp; platform</strong></span>
+          <span class="router-arrow" aria-hidden="true">→</span>
+          <span class="router-to"><a href="#p-dbt">Supply Chain Analytics — dbt</a><a href="#p-migration">Legacy-to-Fabric Migration</a></span>
+        </li>
+        <li>
+          <span class="router-if">Hiring for <strong>ML &amp; LLM work</strong></span>
+          <span class="router-arrow" aria-hidden="true">→</span>
+          <span class="router-to"><a href="#p-ask-your-data">Ask Your Data</a><a href="#p-customer-rec">Customer Recommendation Engine</a></span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <span class="filter-label">FILTER</span>
+      <div class="filter-chips" id="filter-chips" role="group" aria-label="Filter projects by discipline">
+        <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">ALL WORK</button>
+        <button type="button" class="chip" data-filter="finance" aria-pressed="false">FINANCE &amp; CONTROLS</button>
+        <button type="button" class="chip" data-filter="supply" aria-pressed="false">SUPPLY CHAIN &amp; PLATFORM</button>
+        <button type="button" class="chip" data-filter="customer" aria-pressed="false">CUSTOMER &amp; SALES</button>
+        <button type="button" class="chip" data-filter="ai" aria-pressed="false">AI &amp; ML</button>
+      </div>
+      <span class="filter-count" id="work-count" aria-live="polite">SHOWING 8 / 8 REPOS</span>
+    </div>
+
+    <!-- Featured pair -->
+    <div class="feature-grid">
+      <article class="feature-main project" id="p-ask-your-data" data-tags="ai">
+        <p class="kicker">CAPSTONE · LLM ENGINEERING</p>
         <h3>Ask Your Data</h3>
-        <p>A grounded text-to-SQL assistant over all my portfolio datasets — 36
-        tables across 6 business domains. The model never answers from memory:
-        it writes SQL, the SQL runs behind a read-only guard, and it's shown
-        next to the answer. Self-correction is bounded and <em>proven offline in
-        CI with a scripted fake model</em>. This repo used to be a Raspberry Pi
-        voice assistant — the git history shows the pivot on purpose.</p>
-        <ul class="chips"><li>Python</li><li>DuckDB</li><li>Claude API</li><li>Streamlit</li><li class="chip-tests">64 tests</li></ul>
-        <a class="btn btn-primary" href="https://github.com/KushPatel29/IVA" target="_blank" rel="noopener">Read the story ↗</a>
-      </div>
-    </article>
+        <p class="outcome">Anyone can ask 36 tables a plain-English question and audit the SQL behind the answer.</p>
+        <p class="feature-body">This repo began life as a Raspberry Pi voice assistant. I left the pivot in the git history on purpose, because the interesting version is this one: ask a question in plain English across all 36 tables of my portfolio — six business domains — and get an answer you can audit. The model never answers from memory. It writes SQL, the SQL runs behind a read-only guard, and the query sits right next to the answer so you can disagree with it. Ask it to delete something and it refuses. Its self-correction loop is bounded and <em>proven in CI with a scripted fake model</em>, so the tests pass without ever calling a paid API.</p>
+        <ul class="tags">
+          <li>Python</li>
+          <li>DuckDB</li>
+          <li>Claude API</li>
+          <li>Streamlit</li>
+          <li class="tag-tests">64 tests ✓</li>
+        </ul>
+        <div class="feature-stats">
+          <div><div class="stat-v">36</div><div class="stat-k">TABLES QUERIED</div></div>
+          <div><div class="stat-v">6</div><div class="stat-k">BUSINESS DOMAINS</div></div>
+          <div><div class="stat-v">0</div><div class="stat-k">ANSWERS FROM MEMORY</div></div>
+        </div>
+        <a class="btn btn-primary btn-mono" href="https://github.com/KushPatel29/IVA" target="_blank" rel="noopener">READ THE STORY ↗</a>
+      </article>
 
-    <!-- Feature 2: Control Tower -->
-    <article class="feature feature-flip reveal">
-      <div class="feature-media">
-        <img src="assets/control-tower.jpg" alt="Supply Chain Control Tower — executive overview dashboard in Power BI" loading="lazy">
-      </div>
-      <div class="feature-copy">
-        <p class="feature-kicker">Data platform · Microsoft Fabric patterns</p>
-        <h3>Supply Chain Control Tower</h3>
-        <p>A medallion pipeline with a three-tier data defense — schema
-        contracts kill drift before Bronze, toxic rows quarantine with replay,
-        and a data-quality gate guards Gold. Each tier is proven by CI
-        <em>injecting the failure it exists to catch</em>. 10M-row Delta Lake
-        benchmarks, dynamic RLS/OLS verified by impersonated DAX, and a
-        four-page Power BI control tower on top.</p>
-        <ul class="chips"><li>PySpark</li><li>Delta Lake</li><li>Fabric</li><li>Power BI</li><li class="chip-tests">49 tests</li></ul>
-        <a class="btn btn-primary" href="https://github.com/KushPatel29/supply-chain-control-tower-" target="_blank" rel="noopener">Explore the repo ↗</a>
-      </div>
-    </article>
+      <a class="feature-side project card" id="p-control-tower" data-tags="supply" href="https://github.com/KushPatel29/supply-chain-control-tower-" target="_blank" rel="noopener">
+        <img src="assets/control-tower.jpg" width="1280" height="743" loading="lazy" decoding="async"
+             alt="Supply Chain Control Tower — executive overview dashboard in Power BI, showing OTIF, inventory and fill-rate KPIs">
+        <div class="card-body">
+          <p class="kicker">DATA PLATFORM · FABRIC PATTERNS</p>
+          <h3>Supply Chain Control Tower</h3>
+          <p class="outcome">Bad data gets caught at the boundary instead of on an executive's screenshot.</p>
+          <p class="card-text">Bad data doesn't announce itself; it quietly changes a number an executive already screenshotted. So this pipeline defends in three layers — schema contracts stop drift before Bronze, poisoned rows quarantine with replay, a quality gate guards Gold — and CI proves each layer by <em>injecting the exact failure it exists to catch</em>. Benchmarked at 10M rows in Delta, with row- and column-level security verified by impersonated DAX.</p>
+          <ul class="tags">
+            <li>PySpark</li>
+            <li>Delta Lake</li>
+            <li>Power BI</li>
+            <li class="tag-tests">49 tests ✓</li>
+          </ul>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 10M-row Delta benchmark · 3 defence tiers, each proven by an injected failure · 4-page control tower</p>
+          <p class="card-open"><span>OPEN REPO</span><span aria-hidden="true">↗</span></p>
+        </div>
+      </a>
+    </div>
 
-    <!-- Feature 3: Healthcare NRV -->
-    <article class="feature reveal">
-      <div class="feature-media">
-        <img src="assets/healthcare-nrv.jpg" alt="Healthcare revenue-cycle dashboard — predictive yield and Net Realizable Value page" loading="lazy">
-      </div>
-      <div class="feature-copy">
-        <p class="feature-kicker">Predictive analytics · Revenue cycle</p>
-        <h3>Healthcare Claims — Net Realizable Value</h3>
-        <p>Past reporting, into prediction: an NRV model prices <strong>$3.6M of
-        open AR</strong> at the <strong>~$1.7M it will actually collect</strong>,
-        with an expected-cash-yield worklist that tells the follow-up team which
-        claims to work first. CI enforces paid ≤ allowed ≤ submitted, NRV
-        ceilings, and AR control totals to the penny.</p>
-        <ul class="chips"><li>Python</li><li>Power BI</li><li>DAX</li><li class="chip-tests">19 tests</li></ul>
-        <a class="btn btn-primary" href="https://github.com/KushPatel29/healthcare-claims-analytics" target="_blank" rel="noopener">Explore the repo ↗</a>
-      </div>
-    </article>
-
-    <!-- Grid of the rest -->
+    <!-- The rest -->
     <div class="card-grid">
-      <article class="card reveal">
-        <img src="assets/customer-rec.jpg" alt="Customer analytics dashboard — sales overview page" loading="lazy">
+
+      <a class="project card" id="p-healthcare" data-tags="finance ai" href="https://github.com/KushPatel29/healthcare-claims-analytics" target="_blank" rel="noopener">
+        <img src="assets/healthcare-nrv.jpg" width="1280" height="763" loading="lazy" decoding="async"
+             alt="Healthcare revenue-cycle dashboard — predictive yield and Net Realizable Value page">
         <div class="card-body">
+          <div class="card-head">
+            <p class="kicker">PREDICTIVE · REVENUE CYCLE</p>
+            <p class="card-tests">19 tests ✓</p>
+          </div>
+          <h3>Healthcare Claims — NRV</h3>
+          <p class="outcome">Finance learns what $3.6M of open AR is really worth — and which claims to chase first.</p>
+          <p class="card-text">Reporting tells you $3.6M is outstanding. Finance wants to know what will actually land in the bank. This one prices open AR at the ~$1.7M it's realistically worth and hands the follow-up team a ranked worklist instead of a spreadsheet. CI enforces paid ≤ allowed ≤ submitted and ties AR control totals to the penny.</p>
+          <div class="card-stats">
+            <div><div class="stat-v">$3.6M</div><div class="stat-k">OPEN AR PRICED</div></div>
+            <div><div class="stat-v">~$1.7M</div><div class="stat-k">EXPECTED CASH</div></div>
+            <div><div class="stat-v">19</div><div class="stat-k">CI TESTS</div></div>
+          </div>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Paid ≤ allowed ≤ submitted, NRV ceilings and AR control totals reconciled to the penny on every push.</p>
+          <ul class="tags">
+            <li>Python</li>
+            <li>Power BI</li>
+            <li>DAX</li>
+          </ul>
+          <p class="card-open"><span>OPEN REPO</span><span aria-hidden="true">↗</span></p>
+        </div>
+      </a>
+
+      <a class="project card" id="p-customer-rec" data-tags="customer ai" href="https://github.com/KushPatel29/Customer-Recommendation-Engine" target="_blank" rel="noopener">
+        <img src="assets/customer-rec.jpg" width="1280" height="743" loading="lazy" decoding="async"
+             alt="Customer analytics dashboard — sales overview page with cohort and segment breakdowns">
+        <div class="card-body">
+          <div class="card-head">
+            <p class="kicker">ML SERVING · A/B</p>
+            <p class="card-tests">38 tests ✓</p>
+          </div>
           <h3>Customer Recommendation Engine</h3>
-          <p>The fancy two-stage ranker scored 80.0% hit-rate@10; plain
-          collaborative filtering scored 84.9%. The simple model ships, and CI
-          enforces that the winner keeps winning. FastAPI + Docker serving, A/B
-          framework, 7-page Power BI.</p>
-          <ul class="chips"><li>scikit-learn</li><li>FastAPI</li><li>MLflow</li><li class="chip-tests">38 tests</li></ul>
-          <a class="card-link" href="https://github.com/KushPatel29/Customer-Recommendation-Engine" target="_blank" rel="noopener">View repo ↗</a>
+          <p class="outcome">The simpler recommender ships because it wins — and CI fails if it ever stops winning.</p>
+          <p class="card-text">I built the impressive thing first: two-stage retrieval with a gradient-boosted ranker, 80.0% hit-rate@10. Plain collaborative filtering got 84.9%. So the simple one ships, the fancy one stays in the repo as evidence, and a CI test fails if the winner ever stops winning. Served with FastAPI + Docker, read in a 7-page Power BI app.</p>
+          <div class="card-stats">
+            <div><div class="stat-v">84.9%</div><div class="stat-k">HIT-RATE@10 SHIPPED</div></div>
+            <div><div class="stat-v">80.0%</div><div class="stat-k">RANKER THAT LOST</div></div>
+            <div><div class="stat-v">38</div><div class="stat-k">CI TESTS</div></div>
+          </div>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> A CI test fails the build if the shipped baseline ever stops beating the challenger.</p>
+          <ul class="tags">
+            <li>scikit-learn</li>
+            <li>FastAPI</li>
+            <li>MLflow</li>
+          </ul>
+          <p class="card-open"><span>OPEN REPO</span><span aria-hidden="true">↗</span></p>
         </div>
-      </article>
+      </a>
 
-      <article class="card reveal">
-        <img src="assets/hr-attrition.jpg" alt="HR workforce scorecard dashboard" loading="lazy">
+      <a class="project card" id="p-hr-attrition" data-tags="ai" href="https://github.com/KushPatel29/hr-attrition-analytics" target="_blank" rel="noopener">
+        <img src="assets/hr-attrition.jpg" width="1280" height="835" loading="lazy" decoding="async"
+             alt="HR workforce scorecard dashboard — headcount, attrition and flight-risk views">
         <div class="card-body">
+          <div class="card-head">
+            <p class="kicker">PEOPLE ANALYTICS · GOVERNANCE</p>
+            <p class="card-tests">52 tests ✓</p>
+          </div>
           <h3>HR Attrition Analytics</h3>
-          <p>People analytics with the guardrails real employee data demands:
-          k-anonymity masking, a disparate-impact CI gate (four-fifths rule +
-          Fisher's exact), survival analysis with honest censoring. The
-          flight-risk model uses zero protected attributes — and scores better
-          without them.</p>
-          <ul class="chips"><li>T-SQL</li><li>lifelines</li><li>Power BI</li><li class="chip-tests">52 tests</li></ul>
-          <a class="card-link" href="https://github.com/KushPatel29/hr-attrition-analytics" target="_blank" rel="noopener">View repo ↗</a>
+          <p class="outcome">Flight-risk scoring HR can defend, built without a single protected attribute.</p>
+          <p class="card-text">People data raises the stakes, so the guardrails came before the model: k-anonymity masking, a disparate-impact gate in CI (four-fifths rule plus Fisher's exact), survival analysis that's honest about censoring. The flight-risk model uses zero protected attributes — and turned out to score better without them.</p>
+          <div class="card-stats">
+            <div><div class="stat-v">0</div><div class="stat-k">PROTECTED ATTRS USED</div></div>
+            <div><div class="stat-v">4/5</div><div class="stat-k">RULE GATE IN CI</div></div>
+            <div><div class="stat-v">52</div><div class="stat-k">CI TESTS</div></div>
+          </div>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> k-anonymity masking and a disparate-impact gate run on every push, with Fisher's exact behind the alarm.</p>
+          <ul class="tags">
+            <li>T-SQL</li>
+            <li>lifelines</li>
+            <li>Power BI</li>
+          </ul>
+          <p class="card-open"><span>OPEN REPO</span><span aria-hidden="true">↗</span></p>
         </div>
-      </article>
+      </a>
 
-      <article class="card reveal">
-        <img src="assets/dbt-lineage.jpg" alt="dbt lineage graph for the supply chain analytics project" loading="lazy">
+      <a class="project card" id="p-dbt" data-tags="supply" href="https://github.com/KushPatel29/supply-chain-analytics-dbt" target="_blank" rel="noopener">
+        <img src="assets/dbt-lineage.jpg" width="1280" height="720" loading="lazy" decoding="async"
+             alt="dbt lineage graph for the supply chain analytics project, staging through to marts">
         <div class="card-body">
+          <div class="card-head">
+            <p class="kicker">TRANSFORMATION · SEMANTIC LAYER</p>
+            <p class="card-tests">53 dbt tests ✓</p>
+          </div>
           <h3>Supply Chain Analytics — dbt</h3>
-          <p>dbt Core from staging to marts on dual DuckDB/Snowflake profiles:
-          incremental models, SCD2 snapshots, a MetricFlow semantic layer, and
-          an Airflow DAG validated in CI.</p>
-          <ul class="chips"><li>dbt</li><li>MetricFlow</li><li>Airflow</li><li class="chip-tests">53 dbt tests</li></ul>
-          <a class="card-link" href="https://github.com/KushPatel29/supply-chain-analytics-dbt" target="_blank" rel="noopener">View repo ↗</a>
+          <p class="outcome">Finance and Ops stop arguing about revenue because there is one versioned definition.</p>
+          <p class="card-text">The answer to “why does Finance's revenue number differ from Ops'?” is usually that there are two definitions. This is one definition, versioned: dbt Core from staging to marts on dual DuckDB/Snowflake profiles, incremental models, SCD2 snapshots, a MetricFlow semantic layer, and an Airflow DAG that CI actually runs.</p>
+          <div class="card-stats">
+            <div><div class="stat-v">2</div><div class="stat-k">WAREHOUSE PROFILES</div></div>
+            <div><div class="stat-v">SCD2</div><div class="stat-k">SNAPSHOT HISTORY</div></div>
+            <div><div class="stat-v">53</div><div class="stat-k">DBT TESTS</div></div>
+          </div>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> One definition per metric in MetricFlow, and the Airflow DAG is executed in CI rather than described.</p>
+          <ul class="tags">
+            <li>dbt</li>
+            <li>MetricFlow</li>
+            <li>Airflow</li>
+          </ul>
+          <p class="card-open"><span>OPEN REPO</span><span aria-hidden="true">↗</span></p>
         </div>
-      </article>
+      </a>
 
-      <article class="card reveal">
-        <img src="assets/gl-recon.jpg" alt="GL reconciliation close scorecard dashboard" loading="lazy">
+      <a class="project card" id="p-gl-recon" data-tags="finance" href="https://github.com/KushPatel29/gl-reconciliation-dashboard-" target="_blank" rel="noopener">
+        <img src="assets/gl-recon.jpg" width="1280" height="743" loading="lazy" decoding="async"
+             alt="GL reconciliation close scorecard dashboard — variance classes and tie-out status">
         <div class="card-body">
+          <div class="card-head">
+            <p class="kicker">FINANCE-GRADE · CONTROLS</p>
+            <p class="card-tests">22 tests ✓</p>
+          </div>
           <h3>GL / P&amp;L Reconciliation</h3>
-          <p>ERP-vs-subledger reconciliation that detects four discrepancy
-          classes and proves every dollar of variance ties to source — then
-          re-runs the same engine, unmodified, over a FOCUS-format cloud bill
-          for FinOps chargeback.</p>
-          <ul class="chips"><li>T-SQL</li><li>SQLite</li><li>Power BI</li><li class="chip-tests">22 tests</li></ul>
-          <a class="card-link" href="https://github.com/KushPatel29/gl-reconciliation-dashboard-" target="_blank" rel="noopener">View repo ↗</a>
+          <p class="outcome">Month-end becomes an audit trail instead of a manual variance hunt.</p>
+          <p class="card-text">Month-end used to mean hunting a variance by hand. This engine finds four classes of discrepancy between ERP and subledger and proves every dollar traces back to source. Then, unmodified, I pointed it at a FOCUS-format cloud bill for FinOps chargeback — because a reconciliation is a reconciliation.</p>
+          <div class="card-stats">
+            <div><div class="stat-v">4</div><div class="stat-k">DISCREPANCY CLASSES</div></div>
+            <div><div class="stat-v">100%</div><div class="stat-k">VARIANCE TRACED</div></div>
+            <div><div class="stat-v">22</div><div class="stat-k">CI TESTS</div></div>
+          </div>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> The same engine, unmodified, reconciles a FOCUS-format cloud bill — the logic is portable, not bespoke.</p>
+          <ul class="tags">
+            <li>T-SQL</li>
+            <li>SQLite</li>
+            <li>Power BI</li>
+          </ul>
+          <p class="card-open"><span>OPEN REPO</span><span aria-hidden="true">↗</span></p>
         </div>
-      </article>
+      </a>
 
-      <article class="card reveal">
-        <img src="assets/migration.jpg" alt="Migration command center dashboard" loading="lazy">
+      <a class="project card" id="p-migration" data-tags="supply" href="https://github.com/KushPatel29/legacy-to-fabric-migration" target="_blank" rel="noopener">
+        <img src="assets/migration.jpg" width="1280" height="743" loading="lazy" decoding="async"
+             alt="Migration command centre dashboard — parallel-run validation status and cutover gate">
         <div class="card-body">
+          <div class="card-head">
+            <p class="kicker">MIGRATION · CUTOVER GATE</p>
+            <p class="card-tests">11 tests ✓</p>
+          </div>
           <h3>Legacy-to-Fabric Migration</h3>
-          <p>SSIS/SSRS to notebook pipelines with parallel-run validation and a
-          GO/NO-GO cutover gate. Negative tests prove the validator catches
-          dropped rows, offsetting errors, and phantom keys.</p>
-          <ul class="chips"><li>SSIS</li><li>SSRS</li><li>PySpark</li><li class="chip-tests">11 tests</li></ul>
-          <a class="card-link" href="https://github.com/KushPatel29/legacy-to-fabric-migration" target="_blank" rel="noopener">View repo ↗</a>
+          <p class="outcome">A cutover nobody has to take on faith — old and new run side by side until a gate decides.</p>
+          <p class="card-text">Nobody signs off on a migration because the new pipeline looks nicer. So old and new run side by side, row for row, and a GO/NO-GO gate makes the call. The negative tests are the real deliverable: I break the data on purpose to prove the validator catches dropped rows, offsetting errors, and phantom keys.</p>
+          <div class="card-stats">
+            <div><div class="stat-v">107</div><div class="stat-k">ARTIFACTS VALIDATED</div></div>
+            <div><div class="stat-v">GO/NO-GO</div><div class="stat-k">CUTOVER GATE</div></div>
+            <div><div class="stat-v">11</div><div class="stat-k">CI TESTS</div></div>
+          </div>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Negative tests break the data on purpose to prove the validator catches what a cutover can't afford to miss.</p>
+          <ul class="tags">
+            <li>SSIS</li>
+            <li>SSRS</li>
+            <li>PySpark</li>
+          </ul>
+          <p class="card-open"><span>OPEN REPO</span><span aria-hidden="true">↗</span></p>
         </div>
-      </article>
+      </a>
 
-      <article class="card card-cta reveal">
-        <div class="card-body">
-          <h3>…and the profile that ties it together</h3>
-          <p>The GitHub profile walks the whole portfolio — which repo to open
-          first, what each one proves, and the losses I keep on purpose.</p>
-          <a class="btn btn-primary" href="https://github.com/KushPatel29" target="_blank" rel="noopener">github.com/KushPatel29 ↗</a>
-        </div>
-      </article>
     </div>
-  </div>
-</section>
 
-<!-- ============ METHOD ============ -->
-<section id="method" class="section section-alt">
-  <div class="container">
-    <p class="eyebrow reveal">The method</p>
-    <h2 class="reveal">My favorite results are the losses.</h2>
-    <p class="section-sub reveal">Anyone can show a model that wins. Showing the model that lost — and shipping the boring one that beat it — is what production judgment looks like.</p>
-    <div class="method-grid">
-      <div class="method-card reveal">
-        <p class="method-num">84.9% &gt; 80.0%</p>
+    <p class="work-empty" id="work-empty" hidden>No repos in that discipline yet — try <strong>ALL WORK</strong>.</p>
+
+    <a class="profile-cta" href="https://github.com/KushPatel29" target="_blank" rel="noopener">
+      <span>
+        <strong>…and the profile that ties it together</strong>
+        Where to start, what each project is actually proving, and the losses I keep on purpose.
+      </span>
+      <span class="profile-cta-link">github.com/KushPatel29 ↗</span>
+    </a>
+  </section>
+
+  <!-- ============ METHOD ============ -->
+  <section id="method" class="section">
+    <p class="eyebrow">03 — THE METHOD</p>
+    <h2>My favourite results are the ones where I lost.</h2>
+    <p class="section-sub">Anyone can show you the model that won. I'd rather show you the one I killed and the boring baseline that beat it, because choosing what <em>not</em> to ship is most of this job.</p>
+
+    <div class="loss-grid">
+      <div class="loss">
+        <p class="loss-stat">84.9% &gt; 80.0%</p>
         <h3>The ranker lost</h3>
-        <p>A two-stage retrieval + gradient-boosted ranker lost to plain
-        collaborative filtering on a customer-disjoint holdout. The simple
-        model ships; CI enforces that the winner keeps winning.</p>
+        <p>Two-stage retrieval with a gradient-boosted ranker, beaten by plain collaborative filtering on a customer-disjoint holdout. Simplicity shipped, and a test now guards the result.</p>
       </div>
-      <div class="method-card reveal">
-        <p class="method-num">18.5% &lt; 19.6%</p>
+      <div class="loss">
+        <p class="loss-stat">18.5% &lt; 19.6%</p>
         <h3>The forecaster lost</h3>
-        <p>A gradient-boosted, direct multi-step forecaster lost to a moving
-        average on WAPE. The moving average ships, and the challenger's loss is
-        documented in the README.</p>
+        <p>A gradient-boosted multi-step forecaster lost to a moving average on WAPE. The moving average ships; the challenger's defeat is written into the README rather than quietly deleted.</p>
       </div>
-      <div class="method-card reveal">
-        <p class="method-num">p ≈ 0.23</p>
+      <div class="loss">
+        <p class="loss-stat">p ≈ 0.23</p>
         <h3>The alarm that didn't cry wolf</h3>
-        <p>A fairness screen fired on the attrition model. Fisher's exact test
-        showed small-sample noise, not bias — so it became a monitor with a CI
-        gate, not a build-breaker.</p>
+        <p>A fairness screen fired on the attrition model. Fisher's exact test showed small-sample noise rather than real bias — so I kept it as a monitored gate instead of pretending the alarm never happened.</p>
       </div>
     </div>
-    <p class="method-close reveal">Every repo also documents what I <em>deliberately didn't build</em> — no
-    vector database where SQL is the right tool, no deep learning on 38 SKUs, no
-    cloud cosplay. Knowing when a technique would be decoration is the actual skill.</p>
-  </div>
-</section>
 
-<!-- ============ EXPERIENCE ============ -->
-<section id="experience" class="section">
-  <div class="container">
-    <p class="eyebrow reveal">Where I've done this for real</p>
-    <h2 class="reveal">The repos are sharpened versions of problems I've worked professionally.</h2>
-    <div class="xp-grid">
-      <article class="xp reveal">
-        <h3>Two Rivers Specialty Meats <span class="xp-role">Data Analyst — Operations, Logistics &amp; Enterprise Reporting</span></h3>
-        <ul>
-          <li>Defined governed KPIs for P&amp;L/GL and operations (OTIF, inventory turns, days on hand) with Sales, Finance, and Supply Chain; built the Power BI star-schema models and DAX behind them.</li>
-          <li>Fabric / ADF / Synapse pipelines (SQL, PySpark) on Bronze→Silver→Gold patterns, while owning the legacy SSIS/SSRS estate.</li>
-          <li>Automated reconciliation controls cut recurring discrepancies <strong>~45%</strong> and reporting errors <strong>~30%</strong>.</li>
-          <li>FEFO/expiry-risk and lot-traceability analytics for perishable inventory; RLS/RBAC and masking for cost, margin, and people data.</li>
-        </ul>
-      </article>
-      <article class="xp reveal">
-        <h3>Shivam Investments <span class="xp-role">Financial Analyst — Data &amp; Reporting</span></h3>
-        <ul>
-          <li>GL/P&amp;L reconciliations across sources — the discipline the reconciliation repo turns into a tested engine.</li>
-          <li>Automated recurring analysis with Python + SQL feeding Power BI, cutting manual effort <strong>~40%</strong>.</li>
-        </ul>
-      </article>
-      <article class="xp xp-edu reveal">
-        <h3>Background</h3>
-        <ul>
-          <li>MPS in Analytics (Applied Machine Intelligence), Northeastern University, Vancouver — GPA 3.76</li>
-          <li>B.Eng. Computer Science, Gujarat Technological University</li>
-          <li>Microsoft Certified: Azure Data Engineer Associate (DP-203) · Fabric Analytics Engineer (DP-600) in progress</li>
-          <li>First prize, wildfire-prediction hackathon — Python + Azure + live sensors</li>
-        </ul>
-      </article>
+    <div class="pipeline-panel">
+      <p class="kicker">HOW A NUMBER GETS ONTO A DASHBOARD</p>
+      <div class="pipeline-grid">
+        <div class="pipe-step">
+          <p class="pipe-n">STEP 01</p>
+          <h4>Agree the grain</h4>
+          <p>Before a single measure, the business and I settle what one row means. Most reporting disputes are definition disputes wearing a costume.</p>
+        </div>
+        <div class="pipe-step">
+          <p class="pipe-n">STEP 02</p>
+          <h4>Contract the source</h4>
+          <p>Schema contracts at the boundary, so upstream drift fails loudly at ingestion instead of silently in a Gold table.</p>
+        </div>
+        <div class="pipe-step">
+          <p class="pipe-n">STEP 03</p>
+          <h4>Model it once</h4>
+          <p>Star schema, one semantic layer, measures reviewed like code — so there's exactly one place a KPI can be wrong, and one place to fix it.</p>
+        </div>
+        <div class="pipe-step">
+          <p class="pipe-n">STEP 04</p>
+          <h4>Test the claim</h4>
+          <p>Every headline number gets a test: control totals, ceilings, negative cases. If a claim stops being true, CI goes red.</p>
+        </div>
+        <div class="pipe-step">
+          <p class="pipe-n">STEP 05</p>
+          <h4>Ship it auditable</h4>
+          <p>The number arrives with its lineage, its SQL and its access rules attached, so anyone can check my work without asking me.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
-<!-- ============ CONTACT ============ -->
-<section id="contact" class="section section-contact">
-  <div class="container contact-inner reveal">
-    <h2>Let's put numbers you can trust in front of your executives.</h2>
-    <p>Open to BI Analyst / Analytics Engineer roles — Vancouver or remote.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-primary btn-lg" href="mailto:dharma.patel552@gmail.com">dharma.patel552@gmail.com</a>
-      <a class="btn btn-ghost btn-lg" href="https://www.linkedin.com/in/kush-patel-48885719b/" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a class="btn btn-ghost btn-lg" href="https://github.com/KushPatel29" target="_blank" rel="noopener">GitHub ↗</a>
+    <div class="principle-grid">
+      <div class="principle">
+        <h4>Beat the baseline or don't ship</h4>
+        <p>Every model is measured against the dumbest thing that could work. If the moving average wins, the moving average ships.</p>
+      </div>
+      <div class="principle">
+        <h4>Governance before dashboards</h4>
+        <p>RLS, masking and k-anonymity go in before the first visual, because retrofitting access control is how sensitive data leaks into a screenshot.</p>
+      </div>
+      <div class="principle">
+        <h4>Prove the failure path</h4>
+        <p>It isn't enough that the happy path works. I break the data on purpose in CI and prove the guard catches it.</p>
+      </div>
     </div>
-  </div>
-</section>
+
+    <p class="method-close">Every repo has a short section on what I <em>deliberately didn't build</em>: no vector database where a SQL join was the right answer, no deep learning on 38 SKUs, no cloud architecture I couldn't defend in a budget meeting. Restraint is harder to demo than complexity, so I write it down.</p>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="section">
+    <p class="eyebrow">04 — WHERE THE HABITS CAME FROM</p>
+    <h2>The repos are the clean version. These were the messy originals.</h2>
+    <p class="section-sub">Every technique in the repos above was learned somewhere with a deadline attached.</p>
+
+    <div class="xp-list">
+
+      <article class="xp">
+        <div class="xp-meta">
+          <p class="xp-period">
+            <time datetime="2023-12">DEC 2023</time> — PRESENT<span class="xp-dur" data-since="2023-12"></span>
+          </p>
+          <h3>Two Rivers Specialty Meats</h3>
+          <p class="xp-title">Data Analyst — Operations, Logistics &amp; Enterprise Reporting</p>
+          <p class="xp-where">PERMANENT FULL-TIME · NORTH VANCOUVER, BC · ON-SITE</p>
+          <p class="xp-scope">SALES OPS · WMS · LOGISTICS · VENDOR · PRODUCT · AP/AR · GL/P&amp;L · PLATFORM</p>
+          <p class="xp-summary">The only analyst across a perishable-goods supply chain, so “my domain” meant whatever number the business needed to defend that week — from a rep's attainment to a lot recall to the month-end close.</p>
+          <ul class="tags">
+            <li>Power BI</li>
+            <li>DAX</li>
+            <li>T-SQL</li>
+            <li>PySpark</li>
+            <li>Microsoft Fabric</li>
+            <li>ADF</li>
+            <li>Synapse</li>
+            <li>SSIS/SSRS</li>
+            <li>Python</li>
+          </ul>
+        </div>
+        <div class="xp-groups">
+          <div class="xp-group">
+            <p class="xp-group-label"><span>SALES OPS &amp; REP PERFORMANCE</span></p>
+            <ul>
+              <li>Built the sales operations reporting layer — pipeline to invoice — with governed quota, attainment and product-mix logic, so monthly variance reviews argued about causes instead of whose extract was right.</li>
+              <li>Rep and territory scorecards normalised for account mix and territory potential: attainment, coverage, win rate and margin per rep, with definitions locked in the model so they couldn't be re-cut mid-quarter.</li>
+            </ul>
+          </div>
+          <div class="xp-group">
+            <p class="xp-group-label"><span>CUSTOMER, PRODUCT &amp; VENDOR</span></p>
+            <ul>
+              <li>Customer analytics for a churn-sensitive book of trade accounts: cohort retention, order-frequency decay, RFM segmentation and margin by customer, which surfaced quiet attrition long before the rep noticed.</li>
+              <li>SKU and assortment analysis on velocity, contribution margin and cannibalisation — the input to real decisions about which products kept their slot.</li>
+              <li>Vendor scorecards on fill rate, lead-time variance, price adherence and quality claims, translated into landed-cost impact so procurement negotiated with numbers instead of impressions.</li>
+            </ul>
+          </div>
+          <div class="xp-group">
+            <p class="xp-group-label"><span>WMS, INVENTORY &amp; LOGISTICS</span></p>
+            <ul>
+              <li>WMS reporting for warehouse operations: cycle-count accuracy, bin utilisation and pick/pack throughput, reconciling what the system claimed against what was on the shelf.</li>
+              <li>FEFO and expiry-risk analytics plus lot traceability for perishable inventory — designed so a recall question could be answered in minutes, not a day of spreadsheets.</li>
+              <li>Decomposed OTIF by lane, carrier and failure reason alongside freight cost per case and dock-to-stock timing, separating late trucks from over-promised delivery dates.</li>
+            </ul>
+          </div>
+          <div class="xp-group">
+            <p class="xp-group-label"><span>FINANCE — GL/P&amp;L, AP &amp; AR</span></p>
+            <ul>
+              <li>Sat with Sales, Finance and Supply Chain until we agreed on single definitions for P&amp;L/GL and operations KPIs — OTIF, inventory turns, days on hand — then built the Power BI star schemas and DAX that made those definitions the only ones available.</li>
+              <li>AP and AR reporting on aging, DPO/DSO, invoice-match exceptions and credit exposure, giving Finance a working view of cash instead of a month-old snapshot.</li>
+              <li>Automated the reconciliation controls we used to run by hand: recurring discrepancies down ~45%, reporting errors down ~30%.</li>
+            </ul>
+          </div>
+          <div class="xp-group">
+            <p class="xp-group-label"><span>DATA ENGINEERING &amp; GOVERNANCE</span></p>
+            <ul>
+              <li>Built Bronze→Silver→Gold pipelines in Fabric / ADF / Synapse with SQL and PySpark while keeping the legacy SSIS/SSRS estate alive — the migration repo is that experience, minus the 6am pages.</li>
+              <li>Owned the semantic layer: star-schema models, incremental refresh, and DAX measures reviewed like code rather than accumulated like sediment.</li>
+              <li>Implemented RLS/RBAC and column masking so cost, margin and people data only reached the people entitled to it, and documented it well enough to survive an audit.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="xp">
+        <div class="xp-meta">
+          <p class="xp-period">
+            <time datetime="2020-12">DEC 2020</time> — <time datetime="2022-07">JUL 2022</time><span class="xp-dur">&nbsp;· 1 yr 8 mos</span>
+          </p>
+          <h3>Shivam Investments</h3>
+          <p class="xp-title">Financial Analyst — Data &amp; Reporting</p>
+          <p class="xp-where">PERMANENT FULL-TIME</p>
+          <p class="xp-scope">GL/P&amp;L · AP/AR · RECONCILIATION · AUTOMATION</p>
+          <p class="xp-summary">Where the reconciliation habit started: close cycles tight enough that a manual mistake showed up as a real number in front of real people.</p>
+          <ul class="tags">
+            <li>SQL</li>
+            <li>Python</li>
+            <li>Power BI</li>
+            <li>Excel</li>
+          </ul>
+        </div>
+        <div class="xp-groups">
+          <div class="xp-group">
+            <p class="xp-group-label"><span>CLOSE &amp; CONTROLS</span></p>
+            <ul>
+              <li>Reconciled GL/P&amp;L across sources every month and chased variances to source — the discipline the reconciliation repo later turned into a tested engine.</li>
+              <li>Worked AP and AR aging and exception reporting, tightening the follow-up loop on the accounts that were actually at risk.</li>
+            </ul>
+          </div>
+          <div class="xp-group">
+            <p class="xp-group-label"><span>AUTOMATION</span></p>
+            <ul>
+              <li>Replaced recurring manual analysis with Python + SQL feeding Power BI, cutting the effort around ~40% and freeing the month for questions worth asking.</li>
+              <li>Standardised the recurring reporting pack so each cycle started from the previous one's logic instead of a fresh workbook.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education" class="section">
+    <p class="eyebrow">05 — EDUCATION &amp; CREDENTIALS</p>
+    <h2>Formally trained in machine intelligence. Certified on the platform I ship on.</h2>
+
+    <div class="edu-grid">
+      <div class="edu-main">
+        <div class="edu-main-head">
+          <p class="kicker">MASTER'S DEGREE</p>
+          <p class="gpa"><span class="gpa-label">GPA</span><span class="gpa-value">3.76</span></p>
+        </div>
+        <h3>MPS, Analytics — Applied Machine Intelligence</h3>
+        <p class="edu-org">Northeastern University · Vancouver, BC</p>
+        <p class="edu-text">The degree is where the AI/ML half of this portfolio comes from — and where I learned to distrust a model that hasn't been tested against a boring baseline. Capstone: the grounded text-to-SQL assistant above.</p>
+        <ul class="tags">
+          <li>Machine Learning</li>
+          <li>Deep Learning</li>
+          <li>NLP / LLMs</li>
+          <li>Time-Series Forecasting</li>
+          <li>Statistical Inference</li>
+          <li>Data Mining</li>
+          <li>Cloud Data Platforms</li>
+        </ul>
+      </div>
+
+      <div class="edu-side">
+        <div class="edu-card">
+          <p class="kicker kicker-dim">BACHELOR'S</p>
+          <h3>B.Eng., Computer Science</h3>
+          <p class="edu-org">Gujarat Technological University</p>
+          <p class="edu-text">Engineering fundamentals — which is why the analytics work ends up in a repo with tests instead of a workbook on a shared drive.</p>
+        </div>
+        <div class="edu-card edu-award">
+          <p class="kicker">AWARD</p>
+          <h3>First prize — wildfire-prediction hackathon</h3>
+          <p class="edu-text">Python + Azure against live sensor feeds, under a clock. Won on a model that was defensible, not the one with the most moving parts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-grid">
+      <div class="cert">
+        <span class="cert-dot" aria-hidden="true"></span>
+        <div>
+          <h4>Microsoft Certified: Fabric Analytics Engineer</h4>
+          <p class="cert-code">DP-600 · IN PROGRESS</p>
+          <p class="cert-body">Lakehouse and semantic-model work in Fabric, which is the platform most of my recent pipelines and control-tower reporting run on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section section-contact">
+    <div class="contact-panel">
+      <div class="contact-rule" aria-hidden="true"></div>
+      <div class="contact-inner">
+        <h2>If your reporting layer has a trust problem, that's my favourite kind of work.</h2>
+        <p class="contact-lede">I'm looking for a BI Analyst or Analytics Engineer role — Vancouver or remote. Tell me which number your leadership team argues about most and I'll tell you how I'd go about ending the argument.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-mono" href="mailto:dharma.patel552@gmail.com">dharma.patel552@gmail.com</a>
+          <a class="btn btn-resume" href="assets/resume.pdf" download>
+            <span aria-hidden="true">↓</span> Download Resume <span class="btn-sub">PDF</span>
+          </a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/kush-patel-48885719b/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn btn-ghost" href="https://github.com/KushPatel29" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <p class="contact-creds">
+          <span>MPS ANALYTICS (APPLIED ML), NORTHEASTERN — GPA 3.76</span>
+          <span class="sep" aria-hidden="true">/</span>
+          <span>MICROSOFT CERTIFIED: FABRIC ANALYTICS ENGINEER (DP-600) — IN PROGRESS</span>
+        </p>
+      </div>
+    </div>
+  </section>
 
 </main>
 
-<footer class="footer">
-  <div class="container footer-inner">
-    <p>© <span id="year"></span> Kush Patel · Hand-built — no framework, no tracker, just HTML/CSS/JS.
-    Press <kbd class="kbd-inline">Ctrl</kbd>+<kbd class="kbd-inline">K</kbd> anywhere.
-    <a href="https://github.com/KushPatel29/KushPatel29.github.io" target="_blank" rel="noopener">View source ↗</a></p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© <span id="year">2026</span> KUSH PATEL · HAND-BUILT — NO FRAMEWORK, NO TRACKER.</span>
+    <a href="https://github.com/KushPatel29/KushPatel29.github.io" target="_blank" rel="noopener">VIEW SOURCE ↗</a>
   </div>
 </footer>
 
-<!-- ============ COMMAND PALETTE ============ -->
-<div class="palette-overlay" id="palette" hidden>
-  <div class="palette" role="dialog" aria-modal="true" aria-label="Command palette">
-    <input type="text" id="palette-input" class="palette-input" placeholder="Jump to a section, open a repo, copy my email…" autocomplete="off" spellcheck="false" aria-label="Search commands">
-    <ul class="palette-list" id="palette-list" role="listbox"></ul>
-    <p class="palette-foot"><kbd class="kbd-inline">↑↓</kbd> navigate · <kbd class="kbd-inline">↵</kbd> select · <kbd class="kbd-inline">esc</kbd> close</p>
-  </div>
-</div>
-
-<script src="main.js"></script>
+<script src="main.js" defer></script>
 </body>
 </html>
