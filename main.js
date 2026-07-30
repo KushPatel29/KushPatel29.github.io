@@ -12,6 +12,10 @@
   var root = document.documentElement;
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  function each(sel, fn, scope) {
+    Array.prototype.slice.call((scope || document).querySelectorAll(sel)).forEach(fn);
+  }
+
   /* ---------- 1. Theme toggle (persisted in localStorage) ----------
      The theme itself is applied by the inline script in <head> so
      there's no flash; this only wires up the button and the label. */
@@ -43,16 +47,19 @@
     });
   }
 
-  /* ---------- 2. Scroll progress bar ---------- */
+  /* ---------- 2. Scroll progress + back to top ---------- */
 
   var bar = document.getElementById("scroll-progress");
-  if (bar) {
+  var toTop = document.getElementById("to-top");
+
+  if (bar || toTop) {
     var ticking = false;
     var update = function () {
       ticking = false;
       var max = root.scrollHeight - root.clientHeight;
       var pct = max > 0 ? Math.min(100, (root.scrollTop / max) * 100) : 0;
-      bar.style.width = pct + "%";
+      if (bar) bar.style.width = pct + "%";
+      if (toTop) toTop.hidden = root.scrollTop < 700;
     };
     window.addEventListener("scroll", function () {
       if (ticking) return;
@@ -62,15 +69,26 @@
     update();
   }
 
-  /* ---------- 3. Work filter + live repo count ---------- */
+  /* ---------- 3. Work filter, with the state kept in the URL ----------
+     So "?filter=finance#work" can be pasted straight into an
+     application and land on exactly the subset it names. */
 
   var chips = Array.prototype.slice.call(document.querySelectorAll("#filter-chips .chip"));
   var projects = Array.prototype.slice.call(document.querySelectorAll(".project"));
   var countEl = document.getElementById("work-count");
   var emptyEl = document.getElementById("work-empty");
   var total = projects.length;
+  var FILTER_KEY = "filter";
 
-  function applyFilter(tag) {
+  function knownFilter(tag) {
+    for (var i = 0; i < chips.length; i++) {
+      if (chips[i].getAttribute("data-filter") === tag) return true;
+    }
+    return false;
+  }
+
+  function applyFilter(tag, writeUrl) {
+    if (!knownFilter(tag)) tag = "all";
     var shown = 0;
 
     projects.forEach(function (card) {
@@ -88,30 +106,66 @@
 
     if (countEl) countEl.textContent = "SHOWING " + shown + " / " + total + " REPOS";
     if (emptyEl) emptyEl.hidden = shown > 0;
+
+    if (writeUrl) writeFilterToUrl(tag);
+  }
+
+  function writeFilterToUrl(tag) {
+    if (!window.history || !window.history.replaceState) return;
+    try {
+      var url = new URL(window.location.href);
+      if (tag === "all") url.searchParams.delete(FILTER_KEY);
+      else url.searchParams.set(FILTER_KEY, tag);
+      // Anchor the shared link at the work section so it lands where it means to.
+      url.hash = tag === "all" ? url.hash : "#work";
+      window.history.replaceState(null, "", url.toString());
+    } catch (e) { /* older browser — the filter still works, it just isn't shareable */ }
+  }
+
+  function readFilterFromUrl() {
+    try {
+      return new URL(window.location.href).searchParams.get(FILTER_KEY) || "all";
+    } catch (e) {
+      return "all";
+    }
   }
 
   chips.forEach(function (chip) {
     chip.addEventListener("click", function () {
-      applyFilter(chip.getAttribute("data-filter") || "all");
+      applyFilter(chip.getAttribute("data-filter") || "all", true);
     });
   });
 
-  if (countEl && total) countEl.textContent = "SHOWING " + total + " / " + total + " REPOS";
+  if (chips.length) {
+    // Restore whatever the URL asked for, without writing it back.
+    var fromUrl = readFilterFromUrl();
+    applyFilter(fromUrl, false);
 
-  /* The "start here" router jumps to a specific card — clear any
-     active filter first so the card it points at is actually there. */
-  Array.prototype.slice
-    .call(document.querySelectorAll('.router-to a[href^="#p-"]'))
-    .forEach(function (link) {
-      link.addEventListener("click", function () { applyFilter("all"); });
-    });
+    /* The browser resolves the #hash while every card is still visible,
+       then we hide some and the target moves out from under it. Re-aim
+       once, but only when we actually changed the layout. */
+    if (fromUrl !== "all" && window.location.hash.length > 1) {
+      var landing = document.getElementById(window.location.hash.slice(1));
+      if (landing) {
+        window.requestAnimationFrame(function () {
+          landing.scrollIntoView({ block: "start" });
+        });
+      }
+    }
+  } else if (countEl && total) {
+    countEl.textContent = "SHOWING " + total + " / " + total + " REPOS";
+  }
 
-  /* ---------- 4. Sideways-scroll hint on the nav and chip strips ---------- */
+  /* Anything that jumps straight to a project card — the "start here"
+     router, the domain tiles — clears the filter first, so the card it
+     points at is actually on screen when you arrive. */
+  each('a[href^="#p-"]', function (link) {
+    link.addEventListener("click", function () { applyFilter("all", true); });
+  });
 
-  var strips = [
-    document.querySelector(".nav-links"),
-    document.getElementById("filter-chips")
-  ].filter(Boolean);
+  /* ---------- 4. Sideways-scroll hint on the chip strip ---------- */
+
+  var strips = [document.getElementById("filter-chips")].filter(Boolean);
 
   function syncStrips() {
     strips.forEach(function (el) {
@@ -124,9 +178,34 @@
   // Web fonts change the measurements, so re-check once they land.
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncStrips);
 
-  /* ---------- 5. Metric count-up ----------
-     The final values are already in the HTML. We only ever animate
-     up to them, and the animation always lands on the real number. */
+  /* ---------- 5. Compact nav menu ----------
+     The disclosure itself is native <details>; this only closes it
+     after you've picked something, or clicked away. */
+
+  var navMenu = document.getElementById("nav-menu");
+  if (navMenu) {
+    each("a", function (link) {
+      link.addEventListener("click", function () { navMenu.open = false; });
+    }, navMenu);
+
+    document.addEventListener("click", function (e) {
+      if (navMenu.open && !navMenu.contains(e.target)) navMenu.open = false;
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && navMenu.open) {
+        navMenu.open = false;
+        var btn = navMenu.querySelector("summary");
+        if (btn) btn.focus();
+      }
+    });
+  }
+
+  /* ---------- 6. Metric count-up ----------
+     The final values are already in the HTML. Two rules: we never
+     blank a number until we know the animation is actually running,
+     and a watchdog puts the true value back if it isn't. A counter
+     stuck on 0 is worse than a counter that never animated. */
 
   var metrics = Array.prototype.slice.call(document.querySelectorAll(".metric-value[data-count]"));
 
@@ -136,23 +215,33 @@
       var suffix = el.getAttribute("data-suffix") || "";
       if (!isFinite(target)) return;
 
+      var truth = target + suffix;
       var started = null;
+      var done = false;
       var DURATION = 1400;
 
+      var land = function () {
+        if (done) return;
+        done = true;
+        el.textContent = truth; // always land on the truth
+      };
+
       var step = function (now) {
-        if (started === null) started = now;
+        if (done) return;
+        if (started === null) {
+          started = now;
+          el.textContent = "0" + suffix; // only now, once we know frames are running
+        }
         var p = Math.min(1, (now - started) / DURATION);
         var eased = 1 - Math.pow(1 - p, 3);
         el.textContent = Math.round(target * eased) + suffix;
-        if (p < 1) {
-          window.requestAnimationFrame(step);
-        } else {
-          el.textContent = target + suffix; // always land on the truth
-        }
+        if (p < 1) window.requestAnimationFrame(step);
+        else land();
       };
 
-      el.textContent = "0" + suffix;
       window.requestAnimationFrame(step);
+      // Backgrounded tab, throttled rAF, anything else: never leave it at 0.
+      window.setTimeout(land, DURATION + 600);
     };
 
     var io = new IntersectionObserver(function (entries) {
@@ -166,29 +255,117 @@
     metrics.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---------- 6. Tenure, computed so it never goes stale ---------- */
+  /* ---------- 7. Scrollspy ----------
+     Marks the section you're actually reading with aria-current, in
+     both the desktop nav and the compact menu. */
 
-  Array.prototype.slice.call(document.querySelectorAll(".xp-dur[data-since]")).forEach(function (el) {
-    var parts = (el.getAttribute("data-since") || "").split("-");
-    var year = parseInt(parts[0], 10);
-    var month = parseInt(parts[1], 10);
-    if (!isFinite(year) || !isFinite(month)) return;
+  var spyLinks = Array.prototype.slice.call(
+    document.querySelectorAll('.nav-links a[href^="#"], .nav-menu-panel a[href^="#"]')
+  );
 
-    var now = new Date();
-    // Inclusive of both the start month and the current one.
-    var months = (now.getFullYear() - year) * 12 + (now.getMonth() - (month - 1)) + 1;
-    if (months < 1) return;
+  if (spyLinks.length && typeof IntersectionObserver === "function") {
+    var sections = [];
+    var seen = {};
 
-    var years = Math.floor(months / 12);
-    var rem = months % 12;
-    var out = [];
-    if (years) out.push(years + " yr" + (years > 1 ? "s" : ""));
-    if (rem) out.push(rem + " mo" + (rem > 1 ? "s" : ""));
+    spyLinks.forEach(function (link) {
+      var id = link.getAttribute("href").slice(1);
+      if (!id || seen[id]) return;
+      var el = document.getElementById(id);
+      if (!el) return;
+      seen[id] = true;
+      sections.push(el);
+    });
 
-    el.textContent = " · " + out.join(" ");
+    var visible = [];
+    var current = null;
+
+    var paint = function (id) {
+      if (id === current) return;
+      current = id;
+      spyLinks.forEach(function (link) {
+        var match = link.getAttribute("href") === "#" + id;
+        if (match) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    };
+
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var id = entry.target.id;
+        var at = visible.indexOf(id);
+        if (entry.isIntersecting && at === -1) visible.push(id);
+        else if (!entry.isIntersecting && at > -1) visible.splice(at, 1);
+      });
+
+      if (!visible.length) return;
+
+      // Whichever of the in-band sections comes first in the document wins.
+      var order = sections.map(function (s) { return s.id; });
+      var best = visible.slice().sort(function (a, b) {
+        return order.indexOf(a) - order.indexOf(b);
+      })[0];
+
+      paint(best);
+    }, { rootMargin: "-88px 0px -55% 0px", threshold: 0 });
+
+    sections.forEach(function (el) { spy.observe(el); });
+  }
+
+  /* ---------- 8. Dashboard lightbox ----------
+     The card thumbnails are a 1280px-wide capture cropped to a strip.
+     This is where the actual dashboard is legible. */
+
+  var lightbox = document.getElementById("lightbox");
+  var lightboxImg = document.getElementById("lightbox-img");
+  var lightboxCaption = document.getElementById("lightbox-caption");
+  var lightboxClose = document.getElementById("lightbox-close");
+  var lastZoomTrigger = null;
+
+  var canDialog = lightbox && typeof lightbox.showModal === "function";
+
+  each(".card-zoom", function (btn) {
+    btn.addEventListener("click", function (e) {
+      var src = btn.getAttribute("data-zoom");
+      var img = btn.querySelector("img");
+      var alt = img ? img.getAttribute("alt") || "" : "";
+      if (!src) return;
+
+      // No <dialog> support: the image itself is still one click away.
+      if (!canDialog) {
+        window.open(src, "_blank", "noopener");
+        return;
+      }
+
+      e.preventDefault();
+      lastZoomTrigger = btn;
+      lightboxImg.setAttribute("src", src);
+      lightboxImg.setAttribute("alt", alt);
+      if (lightboxCaption) lightboxCaption.textContent = alt;
+      lightbox.showModal();
+    });
   });
 
-  /* ---------- 7. Footer year ---------- */
+  if (canDialog) {
+    if (lightboxClose) {
+      lightboxClose.addEventListener("click", function () { lightbox.close(); });
+    }
+
+    // Clicking the backdrop (i.e. the dialog itself, not its contents) closes.
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) lightbox.close();
+    });
+
+    lightbox.addEventListener("close", function () {
+      lightboxImg.setAttribute("src", "");
+      lightboxImg.setAttribute("alt", "");
+      if (lastZoomTrigger) {
+        lastZoomTrigger.focus();
+        lastZoomTrigger = null;
+      }
+    });
+  }
+
+  /* ---------- 9. Footer year ---------- */
 
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();

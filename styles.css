@@ -1122,8 +1122,419 @@ main {
 .footer-inner a { color: var(--accent-dim); display: inline-flex; align-items: center; min-height: 44px; }
 .footer-inner a:hover { color: var(--accent); }
 
+/* ---------- 21. Availability line ---------- */
+
+.availability {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 22px 0 0;
+  max-width: 560px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 12px;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+  color: var(--fg-2);
+}
+.availability-dot {
+  margin-top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ok);
+  box-shadow: 0 0 0 3px var(--ok-tint);
+  flex: 0 0 auto;
+}
+.availability-contact { margin-top: 20px; max-width: 620px; }
+
+/* ---------- 22. Compact nav menu (takes over from the strip < 900px) ---------- */
+
+/* No position: relative here on purpose. The panel is wider than this
+   button and the button doesn't sit at the right edge of the bar, so
+   anchoring to it pushes the panel off-screen. It hangs off the sticky
+   header instead, which is the full width of the viewport. */
+.nav-menu { display: none; }
+.nav-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 13px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  color: var(--fg-2);
+  background: transparent;
+  cursor: pointer;
+  list-style: none;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.nav-menu-btn::-webkit-details-marker { display: none; }
+.nav-menu-btn:hover { border-color: var(--accent-line); background: var(--accent-tint); color: var(--fg); }
+.nav-menu[open] > .nav-menu-btn {
+  border-color: var(--accent-line);
+  background: var(--accent-tint);
+  color: var(--accent);
+}
+
+/* Three bars, drawn rather than fetched. */
+.nav-menu-bars {
+  position: relative;
+  width: 14px;
+  height: 10px;
+  flex: 0 0 auto;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+.nav-menu-bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 100%;
+  border-top: 2px solid currentColor;
+}
+
+.nav-menu-panel {
+  position: absolute;
+  right: var(--page-pad);
+  top: calc(100% + 8px);
+  z-index: 30;
+  min-width: 210px;
+  max-width: calc(100vw - (var(--page-pad) * 2));
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  background: var(--bg);
+  box-shadow: 0 26px 50px -22px var(--shadow);
+}
+.nav-menu-panel a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 9px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--fg-2);
+}
+.nav-menu-panel a:hover { background: var(--accent-tint); color: var(--fg); }
+
+/* ---------- 23. Scrollspy ---------- */
+
+.nav-links a[aria-current="true"],
+.nav-menu-panel a[aria-current="true"] {
+  color: var(--accent);
+  background: var(--accent-tint);
+}
+.nav-links a[aria-current="true"] { box-shadow: inset 0 -2px 0 var(--accent-line); }
+
+/* ---------- 24. Domain tiles as links ---------- */
+
+.domain {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+}
+.domain:hover { color: inherit; }
+.domain-link {
+  margin: 16px 0 0;
+  padding-top: 13px;
+  border-top: 1px solid var(--line-soft);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  color: var(--accent);
+  margin-top: auto;
+}
+.domain-link-arrow { display: inline-block; transition: transform 0.2s ease; }
+.domain:hover .domain-link-arrow { transform: translateX(3px); }
+
+/* ---------- 25. Skills index ---------- */
+
+.skills-grid {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.skill-group { padding: 26px 24px 28px; background: var(--tile); }
+.skill-group h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  font-size: 16.5px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.skill-n { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: var(--dim-2); }
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.skill-list li {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  line-height: 1.4;
+  padding: 6px 10px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  color: var(--muted);
+}
+
+.skill-honest {
+  margin-top: 22px;
+  padding: 26px 26px 28px;
+  border: 1px dashed var(--amber-line-soft);
+  border-radius: 16px;
+  background: var(--amber-tint);
+}
+.skill-honest-label {
+  margin: 0;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  color: var(--amber);
+}
+.skill-honest-body {
+  margin: 12px 0 0;
+  max-width: 680px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--muted-2);
+}
+.skill-list-dim li { border-color: var(--amber-line-soft); color: var(--muted-2); }
+.skill-honest-foot {
+  margin: 16px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  /* --dim only reaches 4.25:1 on the amber tint in the light theme. */
+  color: var(--muted-2);
+}
+
+/* ---------- 26. Card zoom + stretched repo link ----------
+   The card is no longer one big <a>. The thumbnail is its own
+   button (it opens the full capture), and the OPEN REPO link is
+   stretched back over the rest of the card so the whole body is
+   still one comfortable target. */
+
+.card-zoom {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  font: inherit;
+  color: inherit;
+}
+.card-zoom img { pointer-events: none; }
+.zoom-hint {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 7px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #f2f7f8;
+  background: rgba(4, 10, 14, 0.78);
+  border: 1px solid rgba(210, 235, 236, 0.28);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+.card-zoom:hover .zoom-hint,
+.card-zoom:focus-visible .zoom-hint { opacity: 1; transform: translateY(0); }
+
+/* It's a link now, not a caption, so it has to carry a real target size
+   even though the stretched ::after makes the whole card clickable. */
+a.card-open { color: var(--accent); min-height: 46px; }
+a.card-open:hover { color: var(--accent-hi); }
+a.card-open::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.card:has(a.card-open:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------- 27. Lightbox ---------- */
+
+.lightbox {
+  width: min(1360px, 94vw);
+  max-width: 94vw;
+  max-height: 92vh;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+  overflow: visible;
+  color: var(--fg);
+}
+.lightbox::backdrop { background: rgba(3, 7, 10, 0.86); backdrop-filter: blur(4px); }
+.lightbox-inner {
+  position: relative;
+  border: 1px solid var(--line-2);
+  border-radius: 16px;
+  background: var(--bg);
+  padding: 12px;
+}
+.lightbox img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 9px;
+  background: var(--tile);
+}
+.lightbox-caption {
+  margin: 12px 4px 4px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--muted-2);
+}
+.lightbox-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.lightbox-close:hover { border-color: var(--accent-line); background: var(--accent-tint); color: var(--accent); }
+
+/* ---------- 28. Back to top ---------- */
+
+.to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 25;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-line);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  box-shadow: 0 16px 34px -16px var(--shadow);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.to-top:hover { background: var(--accent-hi); color: var(--on-accent); transform: translateY(-2px); }
+.to-top[hidden] { display: none; }
+
+/* ---------- 29. Mobile bottom bar ---------- */
+
+.mobile-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 26;
+  display: none;
+  gap: 10px;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: var(--header-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-top: 1px solid var(--line-2);
+}
+.mobile-bar-btn {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  border-radius: 11px;
+  border: 1px solid var(--line-3);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--fg);
+}
+.mobile-bar-btn:hover { color: var(--fg); }
+.mobile-bar-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.mobile-bar-primary:hover { color: var(--on-accent); }
+
+/* ---------- 30. Experience caveat / education dates ---------- */
+
+.xp-caveat {
+  margin: 22px 0 0;
+  max-width: 720px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--dim);
+}
+.edu-period {
+  margin: 10px 0 0;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+}
+.edu-card .edu-period { color: var(--dim); }
+
+/* ---------- 31. Footer ---------- */
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  align-items: center;
+}
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  align-items: center;
+}
+.footer-updated { color: var(--dim-2); }
+
 /* ============================================================
-   21. Responsive — checked at 1024 / 900 / 768 / 620 / 390 / 360
+   32. Responsive — checked at 1024 / 900 / 768 / 620 / 460 / 390 / 360
    ============================================================ */
 
 @media (max-width: 1080px) {
@@ -1134,22 +1545,21 @@ main {
 }
 
 @media (max-width: 900px) {
-  :root { --page-pad: 24px; --anchor-offset: 118px; }
-  .nav-inner { gap: 12px 16px; padding: 8px var(--page-pad); }
-  /* Nav links drop to their own scrollable row so nothing overlaps. */
-  .nav-links {
-    order: 3;
-    flex: 1 0 100%;
-    justify-content: flex-start;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    border-top: 1px solid var(--line-soft);
-    padding-top: 2px;
-  }
-  .nav-links::-webkit-scrollbar { display: none; }
-  .nav-links a { min-height: 44px; padding: 0 12px; }
-  .nav-actions { margin-left: auto; }
+  :root { --page-pad: 24px; --anchor-offset: 76px; }
+  .nav-inner { gap: 10px; padding: 8px var(--page-pad); flex-wrap: nowrap; }
+
+  /* The old sideways-scrolling link strip hid its own scrollbar, which
+     made it easy to miss entirely. It's replaced by a real disclosure
+     menu here and by the sticky bar at the bottom of the screen. */
+  .nav-links { display: none; }
+  .nav-menu { display: inline-flex; }
+  .mobile-bar { display: flex; }
+
+  /* Room for the sticky bar so it never sits on top of the footer. */
+  body { padding-bottom: 74px; }
+  .to-top { bottom: calc(74px + env(safe-area-inset-bottom, 0px)); right: 16px; }
+
+  .nav-actions { margin-left: auto; min-width: 0; }
   .section { padding: 72px 0 0; }
   .xp { gap: 28px; }
   .xp-meta { max-width: none; flex-basis: 100%; }
@@ -1173,6 +1583,10 @@ main {
   .loss { padding: 24px 22px 26px; }
   .edu-main, .edu-card { padding: 26px 22px 28px; }
   .cert { padding: 22px 20px 24px; }
+  .skill-group { padding: 22px 20px 24px; }
+  .skill-honest { padding: 22px 20px 24px; }
+  /* On a phone there is no hover, so the affordance has to be permanent. */
+  .zoom-hint { opacity: 1; transform: none; }
 }
 
 @media (max-width: 620px) {
@@ -1216,9 +1630,12 @@ main {
 
 @media (max-width: 460px) {
   :root { --page-pad: 16px; }
-  /* GitHub is still reachable from the hero, contact panel and footer. */
+  /* GitHub is still reachable from the compact menu, hero, contact and footer. */
   .nav-github { display: none; }
   .brand-name { font-size: 14px; }
+  /* Icon-only from here down, so the header row never has to wrap. */
+  .nav-menu-btn { padding: 0 11px; gap: 0; }
+  .nav-menu-btn span:not(.nav-menu-bars) { display: none; }
   .metric-label { font-size: 11px; letter-spacing: 0.06em; }
   .card-stats { grid-template-columns: repeat(2, 1fr); }
   .card-stats > div:last-child { grid-column: 1 / -1; }
@@ -1226,15 +1643,25 @@ main {
   .router-list li { gap: 4px 8px; }
   .router-arrow { display: none; }
   .router-to { flex-basis: 100%; }
+  .lightbox-close { top: -10px; right: -10px; width: 44px; height: 44px; }
+  .footer-links { gap: 2px 14px; }
+}
+
+@media (max-width: 400px) {
+  .nav-resume { padding: 0 10px; }
+  /* Dot only. The button keeps its 44px target and its aria-label. */
+  .theme-toggle { padding: 0; width: 44px; justify-content: center; gap: 0; }
+  #theme-label { display: none; }
+  .brand { gap: 8px; }
 }
 
 @media (max-width: 380px) {
-  .nav-resume { padding: 0 10px; }
-  .theme-toggle { padding: 0 10px; }
   .btn { width: 100%; }
+  .to-top { padding: 0 13px; }
+  .to-top-text { display: none; }
 }
 
-/* ---------- 22. Motion / print ---------- */
+/* ---------- 33. Motion / print ---------- */
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -1246,9 +1673,17 @@ main {
   .bg-grid, .terminal-sweep, .caret, .pulse-dot { animation: none; }
   .caret { opacity: 1; }
   .card:hover { transform: none; }
+  .to-top:hover { transform: none; }
+  .domain:hover .domain-link-arrow { transform: none; }
+  .zoom-hint { transform: none; }
+  .lightbox::backdrop { backdrop-filter: none; }
 }
 
 @media print {
-  .site-header, .bg-glow, .bg-grid, .scroll-progress, .filter-bar, .skip { display: none; }
-  body { background: #fff; color: #000; }
+  .site-header, .bg-glow, .bg-grid, .scroll-progress, .filter-bar, .skip,
+  .to-top, .mobile-bar, .lightbox, .nav-menu, .zoom-hint { display: none !important; }
+  body { background: #fff; color: #000; padding-bottom: 0; }
+  /* Filtering is a screen affordance; paper should show everything. */
+  .is-filtered-out { display: block !important; }
+  .card, .domain, .skill-group { break-inside: avoid; }
 }
