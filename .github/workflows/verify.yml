@@ -19,6 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # check-freshness needs real history to find the last content commit.
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -26,3 +29,6 @@ jobs:
 
       - name: HEAD every internal href and asset path
         run: node tools/check-links.mjs
+
+      - name: The footer's "last updated" date must be true
+        run: node tools/check-freshness.mjs

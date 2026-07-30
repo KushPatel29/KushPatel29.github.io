@@ -21,22 +21,40 @@ number without a test.
 - `404.html` — branded not-found page, same palette and theme toggle.
 - `robots.txt`, `sitemap.xml` — crawler basics.
 - `assets/` — dashboard captures, OG banner, and `Kush-Patel-Resume.pdf`.
-- `tools/check-links.mjs` — the link checker described below.
+- `assets/fonts/` — Space Grotesk and JetBrains Mono, self-hosted (see below).
+- `tools/` — the two CI checks described below.
+
+## No third-party requests
+
+The page makes **zero** requests off its own origin. The fonts used to come
+from `fonts.googleapis.com`, which hands every visitor's IP to Google before
+first paint — while the footer claimed "no tracker". Both families are
+variable fonts, so one `woff2` each covers every weight the page uses: 53 KB
+for the pair, vendored under SIL OFL 1.1 (`assets/fonts/LICENSE.txt`).
+
+They're `<link rel="preload">`ed from the HTML because the `@font-face` rules
+live in `styles.css`, which the browser can't discover until that sheet has
+parsed.
 
 ## CI
 
-`.github/workflows/verify.yml` runs `tools/check-links.mjs` on every push and
-PR to `main`. It serves the repo the way GitHub Pages does, HEAD-requests
-**every internal href and asset path** in `index.html` and `404.html`, and
-fails the build on anything that isn't `200`. It also resolves every in-page
-`#fragment` against the real element ids, so a renamed section anchor can't
-quietly become a dead link, and asserts that all the "Download Resume" CTAs
-point at exactly `assets/Kush-Patel-Resume.pdf`.
+`.github/workflows/verify.yml` runs two checks on every push and PR to `main`.
+
+**`tools/check-links.mjs`** serves the repo the way GitHub Pages does,
+HEAD-requests **every internal href and asset path** in `index.html` and
+`404.html`, and fails the build on anything that isn't `200`. It also resolves
+every in-page `#fragment` against the real element ids, so a renamed section
+anchor can't quietly become a dead link, and asserts that all the "Download
+Resume" CTAs point at exactly `assets/Kush-Patel-Resume.pdf`.
 
 This exists because that file 404'd for a while and nothing caught it. A site
 that argues claims should be verifiable shouldn't ship an unverified one.
 
-Run it locally with `node tools/check-links.mjs` (Node 18+, no dependencies).
+**`tools/check-freshness.mjs`** fails the build if a content file changed but
+the footer's "LAST UPDATED" date wasn't moved to match — a stale date is a
+false claim like any other. Needs `fetch-depth: 0` to see real history.
+
+Run either locally with `node tools/<name>.mjs` (Node 18+, no dependencies).
 
 ## Conventions worth keeping
 
