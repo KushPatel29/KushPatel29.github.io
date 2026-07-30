@@ -5,7 +5,7 @@
      it comes from. Everything you can read here is real HTML —
      nothing on this page is drawn by JavaScript.
      ============================================================ -->
-<html lang="en" data-theme="dark">
+<html lang="en-CA" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,7 +53,13 @@
 </script>
 
 <!-- Structured data. Every fact below is also stated in the visible HTML;
-     this block exists so a crawler doesn't have to infer it. -->
+     this block exists so a crawler doesn't have to infer it.
+
+     Deliberately NO hasCredential for DP-600. schema.org has no way to say
+     "in progress", so asserting it would claim a certification I haven't
+     earned yet — in the one part of the page a machine reads and a human
+     doesn't check. The visible cert card says IN PROGRESS; don't add it
+     back here until the exam is passed. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -100,12 +106,6 @@
           "url": "https://www.gtu.ac.in/"
         }
       ],
-      "hasCredential": {
-        "@type": "EducationalOccupationalCredential",
-        "name": "Microsoft Certified: Fabric Analytics Engineer Associate (DP-600)",
-        "credentialCategory": "certificate",
-        "recognizedBy": { "@type": "Organization", "name": "Microsoft" }
-      },
       "seeks": {
         "@type": "Demand",
         "name": "Data Analyst / BI Analyst / Analytics Engineer roles",
@@ -261,7 +261,7 @@
 <main id="top">
 
   <!-- ============ HERO ============ -->
-  <section class="hero">
+  <section class="hero" aria-label="Introduction">
     <div class="hero-copy">
       <p class="eyebrow-pill">
         <span class="pulse-dot" aria-hidden="true"></span>
@@ -342,7 +342,7 @@ WHERE verdict = 'GO'</pre>
   </section>
 
   <!-- ============ DOMAINS ============ -->
-  <section id="domains" class="section">
+  <section id="domains" class="section" aria-label="Reporting domains">
     <p class="eyebrow">01 — WHAT I ACTUALLY GET ASKED</p>
     <h2>I'm not a finance analyst who wandered into ops. I've owned the whole reporting surface.</h2>
     <p class="section-sub">Twelve domains, one grain of truth underneath them. Each of these is a question I've been handed in a real meeting — and the model I built so nobody had to ask twice. <strong>Every tile links to the project that demonstrates it.</strong></p>
@@ -424,7 +424,7 @@ WHERE verdict = 'GO'</pre>
   </section>
 
   <!-- ============ WORK ============ -->
-  <section id="work" class="section">
+  <section id="work" class="section" aria-label="Projects">
     <p class="eyebrow">02 — THE WORK</p>
     <h2>Eight projects. Every one started with a question somebody actually asked me at work.</h2>
     <p class="section-sub">Each repo rebuilds itself from seeded synthetic data on every push — no PHI, no real customers, no real employees. If a sentence in a README stops being true, the build goes red and I find out before you do. A green badge means it <em>runs today</em>, not that it worked once on my laptop.</p>
@@ -707,7 +707,7 @@ WHERE verdict = 'GO'</pre>
   </section>
 
   <!-- ============ SKILLS INDEX ============ -->
-  <section id="skills" class="section">
+  <section id="skills" class="section" aria-label="Skills index">
     <p class="eyebrow">03 — SKILLS INDEX</p>
     <h2>The scannable answer to “does he know X?”</h2>
     <p class="section-sub">Nothing here is a self-assessment score out of five. Every item below appears somewhere above it — in a role I held or a repo you can open — and the last row is the list of things I've built with but never run in production, because that distinction matters more than the length of the list.</p>
@@ -840,7 +840,7 @@ WHERE verdict = 'GO'</pre>
   </section>
 
   <!-- ============ METHOD ============ -->
-  <section id="method" class="section">
+  <section id="method" class="section" aria-label="Method">
     <p class="eyebrow">04 — THE METHOD</p>
     <h2>My favourite results are the ones where I lost.</h2>
     <p class="section-sub">Anyone can show you the model that won. I'd rather show you the one I killed and the boring baseline that beat it, because choosing what <em>not</em> to ship is most of this job.</p>
@@ -913,7 +913,7 @@ WHERE verdict = 'GO'</pre>
   </section>
 
   <!-- ============ EXPERIENCE ============ -->
-  <section id="experience" class="section">
+  <section id="experience" class="section" aria-label="Experience">
     <p class="eyebrow">05 — WHERE THE HABITS CAME FROM</p>
     <h2>The repos are the clean version. These were the messy originals.</h2>
     <p class="section-sub">Every technique in the repos above was learned somewhere with a deadline attached.</p>
@@ -1034,7 +1034,7 @@ WHERE verdict = 'GO'</pre>
   </section>
 
   <!-- ============ EDUCATION ============ -->
-  <section id="education" class="section">
+  <section id="education" class="section" aria-label="Education and credentials">
     <p class="eyebrow">06 — EDUCATION &amp; CREDENTIALS</p>
     <h2>Formally trained in machine intelligence. Certified on the platform I ship on.</h2>
 
@@ -1088,7 +1088,7 @@ WHERE verdict = 'GO'</pre>
   </section>
 
   <!-- ============ CONTACT ============ -->
-  <section id="contact" class="section section-contact">
+  <section id="contact" class="section section-contact" aria-label="Contact">
     <div class="contact-panel">
       <div class="contact-rule" aria-hidden="true"></div>
       <div class="contact-inner">
