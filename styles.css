@@ -9,6 +9,44 @@
    see the "contrast-corrected" comments.
    ============================================================ */
 
+/* ---------- 0. Fonts, self-hosted ----------
+   Both families are variable, so one file covers every weight the page
+   uses (Grotesk 400/500/600/700, Mono 400/500/700) — 53 KB for the pair.
+
+   They are served from this repo rather than fonts.gstatic.com on
+   purpose. The footer claims "no tracker", and a Google Fonts embed
+   hands every visitor's IP to a third party before first paint, which
+   would make that claim untrue. It also removes two DNS + TLS
+   handshakes from the critical path.
+
+   Space Grotesk (c) Florian Karsten. JetBrains Mono (c) JetBrains s.r.o.
+   Both licensed SIL Open Font License 1.1 — see assets/fonts/LICENSE.txt.
+   font-display: swap so text paints immediately in the fallback. */
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 700;          /* variable axis */
+  font-display: swap;
+  src: url('assets/fonts/space-grotesk-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+                 U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+                 U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
+                 U+FFFD;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;          /* variable axis */
+  font-display: swap;
+  src: url('assets/fonts/jetbrains-mono-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+                 U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+                 U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
+                 U+FFFD;
+}
+
 /* ---------- 1. Palette ---------- */
 
 :root {
@@ -584,18 +622,30 @@ main {
 
 /* ---------- 11. Domains ---------- */
 
+/* Same construction as .skills-grid, for two reasons. It matches the
+   section next to it, and it removes the latent version of the bug that
+   hit Skills: this grid used to paint `gap: 1px` over a --line
+   background, which is invisible only while the tile count happens to
+   divide evenly. 12 does; a 13th domain would have put a grey slab back
+   on the page. Separate cards can't have that failure mode. */
 .domain-grid {
   margin-top: 44px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  overflow: hidden;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  gap: 18px;
 }
-.domain { padding: 26px; background: var(--tile); transition: background 0.2s ease; }
-.domain:hover { background: var(--tile-hover); }
+@media (min-width: 700px)  { .domain-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .domain-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.domain {
+  padding: 26px 24px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.domain:hover { border-color: var(--accent-line); background: var(--tile-hover); }
 .domain-head { display: flex; align-items: baseline; gap: 10px; }
 .domain-n { font-size: 11px; color: var(--dim-2); font-family: 'JetBrains Mono', monospace; }
 .domain h3 { margin: 0; font-size: 17.5px; font-weight: 600; letter-spacing: -0.015em; }

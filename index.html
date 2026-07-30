@@ -37,9 +37,13 @@
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080d11'/%3E%3Crect x='6' y='6' width='52' height='52' rx='11' fill='none' stroke='%232aeae5' stroke-width='3'/%3E%3Ctext x='32' y='44' font-family='monospace' font-size='30' font-weight='700' fill='%232aeae5' text-anchor='middle'%3EKP%3C/text%3E%3C/svg%3E">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- Fonts are served from this repo, not fonts.gstatic.com. The footer
+     says "no tracker" and a Google Fonts embed would hand every
+     visitor's IP to a third party before first paint. Preloaded because
+     they're referenced from inside styles.css, which the browser can't
+     see until that sheet has parsed. -->
+<link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 
 <!-- Set the theme before first paint so there's no flash of the wrong one. -->
@@ -372,11 +376,11 @@ WHERE verdict = 'GO'</pre>
         <p class="domain-answer">SKU-level velocity, contribution margin, cannibalisation and long-tail analysis; assortment views that separate products that sell from products that merely move.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Analytics — dbt</p>
       </a>
-      <a class="domain" href="#p-dbt">
+      <a class="domain" href="#p-ask-your-data">
         <div class="domain-head"><span class="domain-n">05</span><h3>Vendor Performance</h3></div>
         <p class="domain-ask">“Which suppliers are costing us more than they invoice?”</p>
         <p class="domain-answer">Vendor scorecards on fill rate, lead-time variance, price adherence and quality claims — landed-cost impact quantified rather than argued.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Analytics — dbt</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Ask Your Data</p>
       </a>
       <a class="domain" href="#p-control-tower">
         <div class="domain-head"><span class="domain-n">06</span><h3>Supply Chain Planning</h3></div>
