@@ -924,6 +924,16 @@ main {
   color: var(--accent);
 }
 
+/* A card can carry a live-demo link as well as its repo link. The second one
+   sits under the first without repeating the divider. */
+.card-open + .card-open {
+  margin-top: 0;
+  padding-top: 10px;
+  border-top: 0;
+}
+
+.card-open-live { color: var(--ok); }
+
 .profile-cta {
   display: flex;
   align-items: center;
