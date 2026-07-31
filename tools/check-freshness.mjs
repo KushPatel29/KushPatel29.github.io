@@ -38,11 +38,20 @@ const shown = stamp[1];
 /* What git thinks the last real content change was. */
 let lastChange = null;
 try {
-  lastChange = execFileSync(
+  /* %ct (raw Unix timestamp) rather than %cs (pre-formatted date), because
+     %cs renders in the machine's local zone while `today` below is UTC. On a
+     machine east of Greenwich those disagree for the first hours of the local
+     day — the checker would call the commit 1 Aug and today 31 Jul, and reject
+     every possible footer date. CI runs in UTC and never sees it. Formatting
+     the timestamp ourselves makes the check mean the same thing everywhere. */
+  const committedAt = execFileSync(
     "git",
-    ["log", "-1", "--format=%cs", "--", ...CONTENT],
+    ["log", "-1", "--format=%ct", "--", ...CONTENT],
     { cwd: ROOT, encoding: "utf8" }
   ).trim();
+  lastChange = committedAt
+    ? new Date(Number(committedAt) * 1000).toISOString().slice(0, 10)
+    : "";
 } catch (e) {
   console.log("• git unavailable or no history here — skipping the freshness check.");
   process.exit(0);

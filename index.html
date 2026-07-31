@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel — Data Analyst / BI &amp; Analytics Engineer | Power BI, SQL, Azure, Microsoft Fabric, dbt</title>
-<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Eight repos, 308 CI-verified tests: no claim without a number, and no number without a test.">
+<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Ten repos, 624 CI-verified tests: no claim without a number, and no number without a test.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Eight repos, 308 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
+<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Ten repos, 624 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Eight repos, 308 CI-verified tests, one rule: no claim without a number, and no number without a test.">
+<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Ten repos, 624 CI-verified tests, one rule: no claim without a number, and no number without a test.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -141,12 +141,22 @@
     {
       "@type": "CreativeWork",
       "@id": "https://kushpatel29.github.io/#p-healthcare",
-      "name": "Healthcare Claims — Net Realizable Value",
+      "name": "Health System Decision Support",
       "url": "https://kushpatel29.github.io/#p-healthcare",
       "codeRepository": "https://github.com/KushPatel29/healthcare-claims-analytics",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "Prices open accounts receivable at its expected cash value and ranks a follow-up worklist. CI enforces paid <= allowed <= submitted and ties AR control totals to the penny.",
-      "keywords": "Python, Power BI, DAX, revenue cycle, predictive analytics"
+      "description": "Canadian health authority activity analytics (CMG+/RIW, cost per weighted case, ALC, risk-adjusted readmission), SPC with Laney's overdispersion correction, and a full economic evaluation with ICER and probabilistic sensitivity — plus a US revenue-cycle NRV model. Every figure rebuilds from the command line and is guarded by a test.",
+      "keywords": "Python, Power BI, DAX, CIHI DAD, statistical process control, health economics, ICER, revenue cycle"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://kushpatel29.github.io/#p-aml-monitoring",
+      "name": "Transaction Monitoring and Anomaly Detection",
+      "url": "https://aml-transaction-monitoring.streamlit.app",
+      "codeRepository": "https://github.com/KushPatel29/aml-transaction-monitoring",
+      "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
+      "description": "Layered transaction monitoring over 100,299 synthetic payments: five explainable rules plus an unsupervised anomaly model, evaluated under entity-disjoint cross-validation and costed against a flat $10,000 threshold baseline. Every SQL feature is proven equal to a Python twin on every row.",
+      "keywords": "Python, SQLite, scikit-learn, Streamlit, anomaly detection, financial crime, AML, isolation forest"
     },
     {
       "@type": "CreativeWork",
@@ -328,11 +338,11 @@ WHERE verdict = 'GO'</pre>
   <!-- ============ METRICS ============ -->
   <section class="metrics" aria-label="Portfolio at a glance">
     <div class="metric">
-      <div class="metric-value" data-count="8">8</div>
+      <div class="metric-value" data-count="10">10</div>
       <div class="metric-label">public repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="308">308</div>
+      <div class="metric-value" data-count="624">624</div>
       <div class="metric-label">CI-verified tests</div>
     </div>
     <div class="metric">
@@ -398,7 +408,7 @@ WHERE verdict = 'GO'</pre>
         <div class="domain-head"><span class="domain-n">08</span><h3>AP &amp; AR</h3></div>
         <p class="domain-ask">“What do we owe, and what will we actually collect?”</p>
         <p class="domain-answer">Aging, DPO/DSO, invoice-match exceptions and credit exposure — and on the AR side, an NRV model that prices open receivables at what they'll realistically bank.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Healthcare Claims — NRV</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Health System Decision Support</p>
       </a>
       <a class="domain" href="#p-gl-recon">
         <div class="domain-head"><span class="domain-n">09</span><h3>GL / P&amp;L Reconciliation</h3></div>
@@ -430,7 +440,7 @@ WHERE verdict = 'GO'</pre>
   <!-- ============ WORK ============ -->
   <section id="work" class="section" aria-label="Projects">
     <p class="eyebrow">02 — THE WORK</p>
-    <h2>Eight projects. Every one started with a question somebody actually asked me at work.</h2>
+    <h2>Nine projects. Every one started with a question somebody actually asked me at work.</h2>
     <p class="section-sub">Each repo rebuilds itself from seeded synthetic data on every push — no PHI, no real customers, no real employees. If a sentence in a README stops being true, the build goes red and I find out before you do. A green badge means it <em>runs today</em>, not that it worked once on my laptop.</p>
 
     <!-- Start-here router -->
@@ -480,14 +490,17 @@ WHERE verdict = 'GO'</pre>
           <li>DuckDB</li>
           <li>Claude API</li>
           <li>Streamlit</li>
-          <li class="tag-tests">64 tests ✓</li>
+          <li class="tag-tests">99 tests ✓</li>
         </ul>
         <div class="feature-stats">
           <div><div class="stat-v">36</div><div class="stat-k">TABLES QUERIED</div></div>
           <div><div class="stat-v">6</div><div class="stat-k">BUSINESS DOMAINS</div></div>
           <div><div class="stat-v">0</div><div class="stat-k">ANSWERS FROM MEMORY</div></div>
         </div>
-        <a class="btn btn-primary btn-mono" href="https://github.com/KushPatel29/IVA" target="_blank" rel="noopener">READ THE STORY ↗</a>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-mono" href="https://ask-your-data-kp.streamlit.app" target="_blank" rel="noopener">TRY IT LIVE ↗</a>
+          <a class="btn btn-ghost btn-mono" href="https://github.com/KushPatel29/IVA" target="_blank" rel="noopener">READ THE STORY ↗</a>
+        </div>
       </article>
 
       <article class="feature-side project card" id="p-control-tower" data-tags="supply">
@@ -517,31 +530,64 @@ WHERE verdict = 'GO'</pre>
     <!-- The rest -->
     <div class="card-grid">
 
-      <article class="project card" id="p-healthcare" data-tags="finance ai">
-        <button type="button" class="card-zoom" data-zoom="assets/healthcare-nrv.jpg"
-                aria-label="Enlarge: Healthcare revenue-cycle dashboard, Net Realizable Value page">
-          <img src="assets/healthcare-nrv.jpg" width="1280" height="763" loading="lazy" decoding="async"
-               alt="Healthcare revenue-cycle dashboard — predictive yield and Net Realizable Value page">
+      <article class="project card" id="p-aml-monitoring" data-tags="finance ai">
+        <button type="button" class="card-zoom" data-zoom="assets/aml-triage.jpg"
+                aria-label="Enlarge: transaction monitoring triage console, case queue">
+          <img src="assets/aml-triage.jpg" width="1280" height="981" loading="lazy" decoding="async"
+               alt="Transaction monitoring triage console — case queue with masked entity identifiers, risk scores, typology guesses and reason codes">
           <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
         </button>
         <div class="card-body">
           <div class="card-head">
-            <p class="kicker">PREDICTIVE · REVENUE CYCLE</p>
-            <p class="card-tests">19 tests ✓</p>
+            <p class="kicker">ANOMALY DETECTION · FINANCIAL CRIME</p>
+            <p class="card-tests">154 tests ✓</p>
           </div>
-          <h3>Healthcare Claims — NRV</h3>
-          <p class="outcome">Finance learns what $3.6M of open AR is really worth — and which claims to chase first.</p>
-          <p class="card-text">Reporting tells you $3.6M is outstanding. Finance wants to know what will actually land in the bank. This one prices open AR at the ~$1.7M it's realistically worth and hands the follow-up team a ranked worklist instead of a spreadsheet. CI enforces paid ≤ allowed ≤ submitted and ties AR control totals to the penny.</p>
+          <h3>Transaction Monitoring</h3>
+          <p class="outcome">Every planted case found, on a third fewer alerts than a flat $10,000 threshold.</p>
+          <p class="card-text">A $10,000 reporting threshold catches 38 of 60 cases and raises 555 alerts doing it — and it cannot see structuring at all, because structuring is under $10,000 by definition. Five explainable rules over an unsupervised model find all 60 on 366 alerts. The honest half is in the README: ablation shows the anomaly model lifts ranking 49% but saves 1.8% at the operating point, so it earns its place on triage <em>order</em>, not on the accept/reject decision.</p>
           <div class="card-stats">
-            <div><div class="stat-v">$3.6M</div><div class="stat-k">OPEN AR PRICED</div></div>
-            <div><div class="stat-v">~$1.7M</div><div class="stat-k">EXPECTED CASH</div></div>
-            <div><div class="stat-v">19</div><div class="stat-k">CI TESTS</div></div>
+            <div><div class="stat-v">60/60</div><div class="stat-k">CASES FOUND</div></div>
+            <div><div class="stat-v">0.774</div><div class="stat-k">PR-AUC</div></div>
+            <div><div class="stat-v">−90%</div><div class="stat-k">EXPECTED COST</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Paid ≤ allowed ≤ submitted, NRV ceilings and AR control totals reconciled to the penny on every push.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 17 SQL features proven equal to their Python twins on all 100,299 rows; precision, recall and cost floors gate every push.</p>
+          <ul class="tags">
+            <li>Python</li>
+            <li>SQLite</li>
+            <li>scikit-learn</li>
+            <li>Streamlit</li>
+          </ul>
+          <a class="card-open card-open-live" href="https://aml-transaction-monitoring.streamlit.app" target="_blank" rel="noopener"><span>▶ OPEN LIVE APP</span><span aria-hidden="true">↗</span></a>
+          <a class="card-open" href="https://github.com/KushPatel29/aml-transaction-monitoring" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="project card" id="p-healthcare" data-tags="finance ai">
+        <button type="button" class="card-zoom" data-zoom="assets/healthcare-spc.jpg"
+                aria-label="Enlarge: health authority ALC, patient flow and statistical process control page">
+          <img src="assets/healthcare-spc.jpg" width="1280" height="760" loading="lazy" decoding="async"
+               alt="Health authority decision support — ALC bed equivalents by site with a Laney p-prime control chart and risk-adjusted readmission table">
+          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
+        </button>
+        <div class="card-body">
+          <div class="card-head">
+            <p class="kicker">DECISION SUPPORT · HEALTH SYSTEM</p>
+            <p class="card-tests">116 tests ✓</p>
+          </div>
+          <h3>Health System Decision Support</h3>
+          <p class="outcome">The same evidence recommends funding the programme — and refuses to — depending on how you count a bed day.</p>
+          <p class="card-text">Two health systems, one standard. A Canadian authority asks what a weighted case costs, how many beds hold people who no longer need acute care, and whether this month's readmission rate is signal or noise — so the SPC uses Laney's correction, because the metric everyone reports is 4.6× overdispersed and a naive chart fires 41 false signals across 19 of 24 months. The economic evaluation comes out <em>dominant</em> on one costing perspective and $192k/QALY on the other, and the business case says both. The US side prices $3.6M of open AR at the ~$1.7M it will actually collect.</p>
+          <div class="card-stats">
+            <div><div class="stat-v">39,567</div><div class="stat-k">DISCHARGES MODELLED</div></div>
+            <div><div class="stat-v">56.9</div><div class="stat-k">ALC BED EQUIVALENTS</div></div>
+            <div><div class="stat-v">116</div><div class="stat-k">CI TESTS</div></div>
+          </div>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Every figure rebuilds from the command line in about five seconds on the standard library alone — Power BI is a presentation layer, with no control limits or yield maths in DAX.</p>
           <ul class="tags">
             <li>Python</li>
             <li>Power BI</li>
-            <li>DAX</li>
+            <li>SPC</li>
+            <li>Health economics</li>
           </ul>
           <a class="card-open" href="https://github.com/KushPatel29/healthcare-claims-analytics" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
@@ -573,6 +619,7 @@ WHERE verdict = 'GO'</pre>
             <li>FastAPI</li>
             <li>MLflow</li>
           </ul>
+          <a class="card-open card-open-live" href="https://cross-sell-rep-console.streamlit.app" target="_blank" rel="noopener"><span>▶ OPEN LIVE APP</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/Customer-Recommendation-Engine" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
@@ -617,7 +664,7 @@ WHERE verdict = 'GO'</pre>
         <div class="card-body">
           <div class="card-head">
             <p class="kicker">TRANSFORMATION · SEMANTIC LAYER</p>
-            <p class="card-tests">53 dbt tests ✓</p>
+            <p class="card-tests">32 dbt tests ✓</p>
           </div>
           <h3>Supply Chain Analytics — dbt</h3>
           <p class="outcome">Finance and Ops stop arguing about revenue because there is one versioned definition.</p>
@@ -625,7 +672,7 @@ WHERE verdict = 'GO'</pre>
           <div class="card-stats">
             <div><div class="stat-v">2</div><div class="stat-k">WAREHOUSE PROFILES</div></div>
             <div><div class="stat-v">SCD2</div><div class="stat-k">SNAPSHOT HISTORY</div></div>
-            <div><div class="stat-v">53</div><div class="stat-k">DBT TESTS</div></div>
+            <div><div class="stat-v">32</div><div class="stat-k">DBT TESTS</div></div>
           </div>
           <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> One definition per metric in MetricFlow, and the Airflow DAG is executed in CI rather than described.</p>
           <ul class="tags">
@@ -1133,7 +1180,7 @@ WHERE verdict = 'GO'</pre>
     </nav>
     <div class="footer-meta">
       <span>© <span id="year">2026</span> KUSH PATEL · HAND-BUILT — NO FRAMEWORK, NO TRACKER.</span>
-      <span class="footer-updated">LAST UPDATED <time datetime="2026-07-30">30 JULY 2026</time></span>
+      <span class="footer-updated">LAST UPDATED <time datetime="2026-07-31">31 JULY 2026</time></span>
     </div>
   </div>
 </footer>
