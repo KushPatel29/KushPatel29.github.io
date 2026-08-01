@@ -585,13 +585,13 @@ WHERE verdict = 'GO'</pre>
       <article class="project card" id="p-marketing" data-tags="customer ai">
         <button type="button" class="card-zoom" data-zoom="assets/marketing-attribution.jpg"
                 aria-label="Enlarge: marketing attribution console comparing six models against a planted ground truth">
-          <img src="assets/marketing-attribution.jpg" width="1280" height="917" loading="lazy" decoding="async"
+          <img src="assets/marketing-attribution.jpg" width="1280" height="943" loading="lazy" decoding="async"
                alt="Marketing attribution console — every channel's share of credit under last-touch and position-based attribution, plotted against the planted incremental truth, with accuracy and budget-misallocation tables">
           <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
         </button>
         <div class="card-body">
           <div class="card-head">
-            <p class="kicker">ATTRIBUTION · CAUSAL INFERENCE</p>
+            <p class="kicker">ATTRIBUTION · SAAS GTM · CAUSAL INFERENCE</p>
             <p class="card-tests">88 tests ✓</p>
           </div>
           <h3>Marketing Attribution &amp; Incrementality</h3>
@@ -600,13 +600,14 @@ WHERE verdict = 'GO'</pre>
           <div class="card-stats">
             <div><div class="stat-v">13×</div><div class="stat-k">LAST-TOUCH OVERCREDIT</div></div>
             <div><div class="stat-v">5.76</div><div class="stat-k">BEST MODEL ERROR (PTS)</div></div>
-            <div><div class="stat-v">4.04%</div><div class="stat-k">MEASURED LIFT vs 5.50% TRUE</div></div>
+            <div><div class="stat-v">0.84</div><div class="stat-k">LTV:CAC OF THE BEST-RUN SEGMENT</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> A geo holdout settles what the models argue about: naive pre/post reads 11.0%, difference-in-differences returns an interval that covers the planted truth — and the power calculation says out loud which channel this traffic cannot test at all.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> A geo holdout settles what the models argue about: naive pre/post reads 11.0%, difference-in-differences returns an interval that covers the planted truth — and the power calculation says out loud which channel this traffic cannot test at all. 88 tests, and a LookML semantic layer parsed against the schema it claims to describe.</p>
           <ul class="tags">
             <li>Python</li>
             <li>SQL</li>
             <li>Causal inference</li>
+            <li>LookML</li>
             <li>Streamlit</li>
           </ul>
           <a class="card-open card-open-live" href="https://attribution-vs-truth.streamlit.app" target="_blank" rel="noopener"><span>▶ OPEN LIVE APP</span><span aria-hidden="true">↗</span></a>
