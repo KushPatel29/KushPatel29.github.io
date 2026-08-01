@@ -311,7 +311,7 @@
         I'm Kush. For four years I was the person Finance called when the
         P&amp;L didn't tie, Sales Ops called when a rep's quota attainment looked
         wrong, and the warehouse called when the WMS and the ledger disagreed about
-        what was on the shelf. Thirteen reporting domains, one pipeline discipline,
+        what was on the shelf. Twelve reporting domains, one pipeline discipline,
         and one thing I learned early: a dashboard nobody trusts is worse than no
         dashboard at all — so I started testing numbers the way engineers test
         code. <strong>No claim without a number, and no number without a test
@@ -366,7 +366,7 @@ WHERE verdict = 'GO'</pre>
       <div class="metric-label">CI-verified tests</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="13">13</div>
+      <div class="metric-value" data-count="12">12</div>
       <div class="metric-label">domains I report on</div>
     </div>
     <div class="metric">
@@ -379,83 +379,77 @@ WHERE verdict = 'GO'</pre>
   <section id="domains" class="section" aria-label="Reporting domains">
     <p class="eyebrow">01 — WHAT I ACTUALLY GET ASKED</p>
     <h2>I'm not a finance analyst who wandered into ops. I've owned the whole reporting surface.</h2>
-    <p class="section-sub">Thirteen domains, one grain of truth underneath them. Each of these is a question I've been handed in a real meeting — and the model I built so nobody had to ask twice. <strong>Every tile links to the project that demonstrates it.</strong></p>
+    <p class="section-sub">Twelve domains, one grain of truth underneath them. Each of these is a question I've been handed in a real meeting — and the model I built so nobody had to ask twice. <strong>Every tile links to the project that demonstrates it.</strong></p>
 
     <div class="domain-grid">
       <a class="domain" href="#p-dbt">
-        <div class="domain-head"><span class="domain-n">01</span><h3>Sales Operations</h3></div>
-        <p class="domain-ask">“Why did we miss the number this month?”</p>
-        <p class="domain-answer">Pipeline-to-invoice reporting with governed quota, attainment and mix logic, so the variance conversation starts from an agreed baseline instead of three competing extracts.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Analytics — dbt</p>
+        <div class="domain-head"><span class="domain-n">01</span><h3>Sales Operations &amp; Rep Performance</h3></div>
+        <p class="domain-ask">“Why did we miss the number — and who's actually performing?”</p>
+        <p class="domain-answer">Pipeline-to-invoice reporting with governed quota, attainment and mix logic, so the variance conversation starts from an agreed baseline instead of three competing extracts — and rep scorecards normalised for territory potential and account mix, with the definitions locked so nobody can re-cut them mid-quarter.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Customer Recommendation Engine · Supply Chain Analytics — dbt</p>
       </a>
       <a class="domain" href="#p-customer-rec">
-        <div class="domain-head"><span class="domain-n">02</span><h3>Sales Rep Performance</h3></div>
-        <p class="domain-ask">“Who's actually performing, adjusted for territory?”</p>
-        <p class="domain-answer">Rep scorecards normalised for territory potential and account mix — attainment, coverage, win rate and margin per rep, with the definitions locked so nobody can re-cut them mid-quarter.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Customer Recommendation Engine</p>
-      </a>
-      <a class="domain" href="#p-customer-rec">
-        <div class="domain-head"><span class="domain-n">03</span><h3>Customer Analytics</h3></div>
+        <div class="domain-head"><span class="domain-n">02</span><h3>Customer Analytics</h3></div>
         <p class="domain-ask">“Which customers are quietly leaving?”</p>
         <p class="domain-answer">Cohort retention, RFM segmentation, order-frequency decay and margin-by-customer — plus the recommender that proves a simple model can beat a clever one.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Customer Recommendation Engine</p>
       </a>
       <a class="domain" href="#p-dbt">
-        <div class="domain-head"><span class="domain-n">04</span><h3>Product &amp; Assortment</h3></div>
+        <div class="domain-head"><span class="domain-n">03</span><h3>Product &amp; Assortment</h3></div>
         <p class="domain-ask">“Which SKUs earn their shelf space?”</p>
         <p class="domain-answer">SKU-level velocity, contribution margin, cannibalisation and long-tail analysis; assortment views that separate products that sell from products that merely move.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Analytics — dbt</p>
       </a>
       <a class="domain" href="#p-ask-your-data">
-        <div class="domain-head"><span class="domain-n">05</span><h3>Vendor Performance</h3></div>
+        <div class="domain-head"><span class="domain-n">04</span><h3>Vendor Performance</h3></div>
         <p class="domain-ask">“Which suppliers are costing us more than they invoice?”</p>
         <p class="domain-answer">Vendor scorecards on fill rate, lead-time variance, price adherence and quality claims — landed-cost impact quantified rather than argued.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Ask Your Data</p>
       </a>
       <a class="domain" href="#p-control-tower">
-        <div class="domain-head"><span class="domain-n">06</span><h3>Supply Chain Planning</h3></div>
+        <div class="domain-head"><span class="domain-n">05</span><h3>Supply Chain Planning</h3></div>
         <p class="domain-ask">“How much should we be holding, and where?”</p>
         <p class="domain-answer">Demand forecasting, inventory turns, days-on-hand and safety-stock coverage across a perishable network — plus the medallion pipeline and control tower that make the whole chain observable in one place.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Control Tower</p>
       </a>
       <a class="domain" href="#p-control-tower">
-        <div class="domain-head"><span class="domain-n">07</span><h3>Warehouse &amp; Logistics</h3></div>
+        <div class="domain-head"><span class="domain-n">06</span><h3>Warehouse &amp; Logistics</h3></div>
         <p class="domain-ask">“Does the system match the shelf — and did it arrive on time?”</p>
         <p class="domain-answer">Cycle-count accuracy, bin utilisation, pick/pack throughput and FEFO expiry-risk for perishables, with lot traceability that answers a recall question in minutes — then OTIF decomposed by lane, carrier and failure reason, with freight cost per case and the difference between a late truck and a late promise.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Control Tower</p>
       </a>
       <a class="domain" href="#p-healthcare">
-        <div class="domain-head"><span class="domain-n">08</span><h3>AP &amp; AR</h3></div>
+        <div class="domain-head"><span class="domain-n">07</span><h3>AP &amp; AR</h3></div>
         <p class="domain-ask">“What do we owe, and what will we actually collect?”</p>
         <p class="domain-answer">Aging, DPO/DSO, invoice-match exceptions and credit exposure — and on the AR side, an NRV model that prices open receivables at what they'll realistically bank.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Health System Decision Support</p>
       </a>
       <a class="domain" href="#p-gl-recon">
-        <div class="domain-head"><span class="domain-n">09</span><h3>GL / P&amp;L Reconciliation</h3></div>
+        <div class="domain-head"><span class="domain-n">08</span><h3>GL / P&amp;L Reconciliation</h3></div>
         <p class="domain-ask">“Why doesn't the subledger tie to the GL?”</p>
         <p class="domain-answer">Automated ERP-vs-subledger controls that classify discrepancies, trace every dollar of variance to source, and make month-end an audit instead of a hunt.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> GL / P&amp;L Reconciliation</p>
       </a>
       <a class="domain" href="#p-migration">
-        <div class="domain-head"><span class="domain-n">10</span><h3>Data Engineering &amp; BI Platform</h3></div>
+        <div class="domain-head"><span class="domain-n">09</span><h3>Data Engineering &amp; BI Platform</h3></div>
         <p class="domain-ask">“Can we trust the pipeline this all sits on?”</p>
         <p class="domain-answer">Bronze→Silver→Gold pipelines in Fabric/ADF/Synapse and dbt, star-schema models, semantic layers, RLS/OLS, and CI that breaks the build when the data drifts.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Legacy-to-Fabric Migration</p>
       </a>
       <a class="domain" href="#p-ask-your-data">
-        <div class="domain-head"><span class="domain-n">11</span><h3>AI &amp; Machine Learning</h3></div>
+        <div class="domain-head"><span class="domain-n">10</span><h3>AI &amp; Machine Learning</h3></div>
         <p class="domain-ask">“Is there a model here, or just a metric?”</p>
         <p class="domain-answer">Forecasting, churn and flight-risk classification, recommenders, survival analysis and grounded LLM/text-to-SQL work — held to honest holdouts, fairness gates and a baseline it has to beat before it ships.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Ask Your Data</p>
       </a>
       <a class="domain" href="#p-hr-attrition">
-        <div class="domain-head"><span class="domain-n">12</span><h3>HR &amp; People Analytics</h3></div>
+        <div class="domain-head"><span class="domain-n">11</span><h3>HR &amp; People Analytics</h3></div>
         <p class="domain-ask">“What is labour actually costing us, and who is about to leave?”</p>
         <p class="domain-answer">Time-and-attendance integration and punch-to-payroll reconciliation, labour cost per unit produced, overtime exposure and schedule-vs-actual variance — plus headcount, turnover and flight-risk modelling held to a fairness gate before anyone sees a name.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> HR Attrition Analytics</p>
       </a>
       <a class="domain" href="#p-marketing">
-        <div class="domain-head"><span class="domain-n">13</span><h3>Marketing &amp; Growth Analytics</h3></div>
+        <div class="domain-head"><span class="domain-n">12</span><h3>Marketing &amp; Growth Analytics</h3></div>
         <p class="domain-ask">“Which channel actually earned that sale?”</p>
         <p class="domain-answer">Funnel and cohort reporting, LTV against acquisition cost, and multi-touch attribution graded against a known answer rather than argued about — with a geo holdout and a power calculation for the questions attribution genuinely cannot settle.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Marketing Attribution &amp; Incrementality</p>
