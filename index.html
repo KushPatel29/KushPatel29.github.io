@@ -123,7 +123,7 @@
       "@id": "https://kushpatel29.github.io/#p-ask-your-data",
       "name": "Ask Your Data",
       "url": "https://kushpatel29.github.io/#p-ask-your-data",
-      "codeRepository": "https://github.com/KushPatel29/IVA",
+      "codeRepository": "https://github.com/KushPatel29/ask-your-data",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
       "description": "Grounded text-to-SQL assistant over 36 tables and six business domains. The model writes SQL that runs behind a read-only guard, and the query is shown next to the answer so it can be audited.",
       "keywords": "Python, DuckDB, Claude API, Streamlit, text-to-SQL, LLM"
@@ -157,6 +157,26 @@
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
       "description": "Layered transaction monitoring over 100,299 synthetic payments: five explainable rules plus an unsupervised anomaly model, evaluated under entity-disjoint cross-validation and costed against a flat $10,000 threshold baseline. Every SQL feature is proven equal to a Python twin on every row.",
       "keywords": "Python, SQLite, scikit-learn, Streamlit, anomaly detection, financial crime, AML, isolation forest"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://kushpatel29.github.io/#p-marketing",
+      "name": "Marketing Attribution and Incrementality",
+      "url": "https://kushpatel29.github.io/#p-marketing",
+      "codeRepository": "https://github.com/KushPatel29/marketing-attribution-analytics",
+      "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
+      "description": "Multi-touch attribution graded against a planted ground truth built by counterfactual re-simulation. Six models compete — first-touch, last-touch, linear, position-based, Markov removal effect and exact Shapley — and none recovers the truth. Settled with a geo holdout, a within-geo difference-in-differences and a power calculation computed before the readout.",
+      "keywords": "Python, SQL, attribution, incrementality, causal inference, Markov chain, Shapley value, difference-in-differences, geo holdout, cohort analysis, LTV, funnel"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://kushpatel29.github.io/#p-clinical",
+      "name": "Clinical Data Management",
+      "url": "https://kushpatel29.github.io/#p-clinical",
+      "codeRepository": "https://github.com/KushPatel29/clinical-data-management",
+      "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
+      "description": "A clinical trial database defined as code: CDASH CRF metadata, an executable Data Validation Specification, SDTM DM/AE/VS mapping with conformance checks, MedDRA and WHODrug coding, and a UAT plan generated from the specification. Graded against an exhaustive manifest of injected defects — 49 planted, 49 recovered, no false positives.",
+      "keywords": "Python, CDISC, CDASH, SDTM, MedDRA, WHODrug, clinical data management, EDC, edit checks, 21 CFR Part 11"
     },
     {
       "@type": "CreativeWork",
@@ -291,7 +311,7 @@
         I'm Kush. For four years I was the person Finance called when the
         P&amp;L didn't tie, Sales Ops called when a rep's quota attainment looked
         wrong, and the warehouse called when the WMS and the ledger disagreed about
-        what was on the shelf. Twelve reporting domains, one pipeline discipline,
+        what was on the shelf. Thirteen reporting domains, one pipeline discipline,
         and one thing I learned early: a dashboard nobody trusts is worse than no
         dashboard at all — so I started testing numbers the way engineers test
         code. <strong>No claim without a number, and no number without a test
@@ -338,15 +358,15 @@ WHERE verdict = 'GO'</pre>
   <!-- ============ METRICS ============ -->
   <section class="metrics" aria-label="Portfolio at a glance">
     <div class="metric">
-      <div class="metric-value" data-count="10">10</div>
+      <div class="metric-value" data-count="11">11</div>
       <div class="metric-label">public repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="624">624</div>
+      <div class="metric-value" data-count="687">687</div>
       <div class="metric-label">CI-verified tests</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="12">12</div>
+      <div class="metric-value" data-count="13">13</div>
       <div class="metric-label">domains I report on</div>
     </div>
     <div class="metric">
@@ -359,7 +379,7 @@ WHERE verdict = 'GO'</pre>
   <section id="domains" class="section" aria-label="Reporting domains">
     <p class="eyebrow">01 — WHAT I ACTUALLY GET ASKED</p>
     <h2>I'm not a finance analyst who wandered into ops. I've owned the whole reporting surface.</h2>
-    <p class="section-sub">Twelve domains, one grain of truth underneath them. Each of these is a question I've been handed in a real meeting — and the model I built so nobody had to ask twice. <strong>Every tile links to the project that demonstrates it.</strong></p>
+    <p class="section-sub">Thirteen domains, one grain of truth underneath them. Each of these is a question I've been handed in a real meeting — and the model I built so nobody had to ask twice. <strong>Every tile links to the project that demonstrates it.</strong></p>
 
     <div class="domain-grid">
       <a class="domain" href="#p-dbt">
@@ -434,13 +454,19 @@ WHERE verdict = 'GO'</pre>
         <p class="domain-answer">Time-and-attendance integration and punch-to-payroll reconciliation, labour cost per unit produced, overtime exposure and schedule-vs-actual variance — plus headcount, turnover and flight-risk modelling held to a fairness gate before anyone sees a name.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> HR Attrition Analytics</p>
       </a>
+      <a class="domain" href="#p-marketing">
+        <div class="domain-head"><span class="domain-n">13</span><h3>Marketing &amp; Growth Analytics</h3></div>
+        <p class="domain-ask">“Which channel actually earned that sale?”</p>
+        <p class="domain-answer">Funnel and cohort reporting, LTV against acquisition cost, and multi-touch attribution graded against a known answer rather than argued about — with a geo holdout and a power calculation for the questions attribution genuinely cannot settle.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Marketing Attribution &amp; Incrementality</p>
+      </a>
     </div>
   </section>
 
   <!-- ============ WORK ============ -->
   <section id="work" class="section" aria-label="Projects">
     <p class="eyebrow">02 — THE WORK</p>
-    <h2>Nine projects. Every one started with a question somebody actually asked me at work.</h2>
+    <h2>Eleven projects. Every one started with a question somebody actually asked me at work.</h2>
     <p class="section-sub">Each repo rebuilds itself from seeded synthetic data on every push — no PHI, no real customers, no real employees. If a sentence in a README stops being true, the build goes red and I find out before you do. A green badge means it <em>runs today</em>, not that it worked once on my laptop.</p>
 
     <!-- Start-here router -->
@@ -499,7 +525,7 @@ WHERE verdict = 'GO'</pre>
         </div>
         <div class="cta-row">
           <a class="btn btn-primary btn-mono" href="https://ask-your-data-kp.streamlit.app" target="_blank" rel="noopener">TRY IT LIVE ↗</a>
-          <a class="btn btn-ghost btn-mono" href="https://github.com/KushPatel29/IVA" target="_blank" rel="noopener">READ THE STORY ↗</a>
+          <a class="btn btn-ghost btn-mono" href="https://github.com/KushPatel29/ask-your-data" target="_blank" rel="noopener">READ THE STORY ↗</a>
         </div>
       </article>
 
@@ -562,6 +588,37 @@ WHERE verdict = 'GO'</pre>
         </div>
       </article>
 
+      <article class="project card" id="p-marketing" data-tags="customer ai">
+        <button type="button" class="card-zoom" data-zoom="assets/marketing-attribution.jpg"
+                aria-label="Enlarge: marketing attribution console comparing six models against a planted ground truth">
+          <img src="assets/marketing-attribution.jpg" width="1280" height="917" loading="lazy" decoding="async"
+               alt="Marketing attribution console — every channel's share of credit under last-touch and position-based attribution, plotted against the planted incremental truth, with accuracy and budget-misallocation tables">
+          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
+        </button>
+        <div class="card-body">
+          <div class="card-head">
+            <p class="kicker">ATTRIBUTION · CAUSAL INFERENCE</p>
+            <p class="card-tests">56 tests ✓</p>
+          </div>
+          <h3>Marketing Attribution &amp; Incrementality</h3>
+          <p class="outcome">I built a dataset where the right answer is known — then watched every attribution model fail to find it.</p>
+          <p class="card-text">Attribution is the one analytics discipline where everybody argues and nobody can check, because the counterfactual isn't in the data. So this generates one: each user carries a fixed random draw, and a channel's true contribution is measured by re-running that same draw with its touches deleted. Six models compete. The exact Shapley value and a Markov chain both lose to a 40/20/40 heuristic — because every model that reads only a journey log sees how often a channel was <em>present</em>, never whether it caused anything. Last-touch hands <em>direct</em> a quarter of all conversions against a true share of 1.9%.</p>
+          <div class="card-stats">
+            <div><div class="stat-v">13×</div><div class="stat-k">LAST-TOUCH OVERCREDIT</div></div>
+            <div><div class="stat-v">5.76</div><div class="stat-k">BEST MODEL ERROR (PTS)</div></div>
+            <div><div class="stat-v">4.04%</div><div class="stat-k">MEASURED LIFT vs 5.50% TRUE</div></div>
+          </div>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> A geo holdout settles what the models argue about: naive pre/post reads 11.0%, difference-in-differences returns an interval that covers the planted truth — and the power calculation says out loud which channel this traffic cannot test at all.</p>
+          <ul class="tags">
+            <li>Python</li>
+            <li>SQL</li>
+            <li>Causal inference</li>
+            <li>Streamlit</li>
+          </ul>
+          <a class="card-open" href="https://github.com/KushPatel29/marketing-attribution-analytics" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
       <article class="project card" id="p-healthcare" data-tags="finance ai">
         <button type="button" class="card-zoom" data-zoom="assets/healthcare-spc.jpg"
                 aria-label="Enlarge: health authority ALC, patient flow and statistical process control page">
@@ -590,6 +647,37 @@ WHERE verdict = 'GO'</pre>
             <li>Health economics</li>
           </ul>
           <a class="card-open" href="https://github.com/KushPatel29/healthcare-claims-analytics" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="project card" id="p-clinical" data-tags="finance">
+        <button type="button" class="card-zoom" data-zoom="assets/clinical-dm.jpg"
+                aria-label="Enlarge: clinical data management status board">
+          <img src="assets/clinical-dm.jpg" width="1280" height="716" loading="lazy" decoding="async"
+               alt="Clinical data management status board — defect reconciliation showing 49 injected and 49 detected, open queries by age band, medical coding status, and query close rate by site">
+          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
+        </button>
+        <div class="card-body">
+          <div class="card-head">
+            <p class="kicker">REGULATED DATA · CLINICAL TRIALS</p>
+            <p class="card-tests">58 tests ✓</p>
+          </div>
+          <h3>Clinical Data Management</h3>
+          <p class="outcome">A validation suite tested only on clean data proves nothing. This one is graded against every defect that was deliberately injected.</p>
+          <p class="card-text">A trial database as code: the CRF as version-controlled metadata, the Data Validation Specification as executable declarations, SDTM mapping decided at design time, and a UAT plan generated from the specification rather than written from memory. The generator writes an exhaustive manifest of every defect it plants, and the tests demand the engine recover exactly that set — which is how it caught a visit-window check keyed on the wrong record, letting four protocol deviations pass silently. Nothing crashed; only the reconciliation noticed.</p>
+          <div class="card-stats">
+            <div><div class="stat-v">49/49</div><div class="stat-k">DEFECTS RECOVERED</div></div>
+            <div><div class="stat-v">0</div><div class="stat-k">FALSE POSITIVES</div></div>
+            <div><div class="stat-v">80</div><div class="stat-k">UAT CASES GENERATED</div></div>
+          </div>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Standard library only, and the status board above is hand-generated SVG rather than a charting dependency — a test walks the module's syntax tree and fails the build on any third-party import.</p>
+          <ul class="tags">
+            <li>Python</li>
+            <li>CDISC</li>
+            <li>CDASH/SDTM</li>
+            <li>MedDRA</li>
+          </ul>
+          <a class="card-open" href="https://github.com/KushPatel29/clinical-data-management" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
 
@@ -1180,7 +1268,7 @@ WHERE verdict = 'GO'</pre>
     </nav>
     <div class="footer-meta">
       <span>© <span id="year">2026</span> KUSH PATEL · HAND-BUILT — NO FRAMEWORK, NO TRACKER.</span>
-      <span class="footer-updated">LAST UPDATED <time datetime="2026-07-31">31 JULY 2026</time></span>
+      <span class="footer-updated">LAST UPDATED <time datetime="2026-08-01">1 AUGUST 2026</time></span>
     </div>
   </div>
 </footer>
