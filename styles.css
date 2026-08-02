@@ -509,6 +509,40 @@ main {
   color: var(--muted);
 }
 .lede strong { color: var(--fg); font-weight: 600; }
+.lede-2 { margin-top: 14px; }
+
+/* Byline: the photo is identity, not decoration — it sits with the name
+   and role rather than floating as an ornament. */
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 26px 0 0;
+}
+.byline-photo {
+  flex: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--line-3);
+  box-shadow: 0 0 0 4px var(--accent-tint);
+}
+.byline-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.byline-name {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--fg);
+}
+.byline-role {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  line-height: 1.45;
+  color: var(--dim-2);
+}
 
 /* ---------- 9. Terminal (dark in both themes) ---------- */
 
