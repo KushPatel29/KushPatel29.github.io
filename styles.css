@@ -511,6 +511,12 @@ main {
 .lede strong { color: var(--fg); font-weight: 600; }
 .lede-2 { margin-top: 14px; }
 
+/* The opening line carries the whole pitch, so it sits a step above the
+   paragraphs that explain it. The rest step down slightly — four
+   paragraphs at the full lede size overwhelmed the column. */
+.hero .lede-open { font-size: 19.5px; line-height: 1.5; color: var(--fg-2); }
+.hero .lede-2 { font-size: 16.5px; }
+
 /* Byline: the photo is identity, not decoration — it sits with the name
    and role rather than floating as an ornament. */
 .byline {
@@ -1753,6 +1759,10 @@ a.card-open::after {
   .btn { flex: 1 1 auto; padding: 12px 16px; }
   .eyebrow-pill { font-size: 10px; letter-spacing: 0.1em; padding: 8px 12px; }
   .lede { font-size: 16px; }
+  /* Keep the opener a step above the paragraphs at every width — the
+     generic .lede rule here would otherwise demote it below them. */
+  .hero .lede-open { font-size: 18px; }
+  .hero .lede-2 { font-size: 15.5px; }
   .section-sub { font-size: 15.5px; }
 
   .terminal-body { padding: 18px 14px 20px; font-size: 12px; }
