@@ -344,12 +344,17 @@
         <span class="terminal-title">ask-your-data · app/cli.py</span>
       </figcaption>
       <div class="terminal-body">
-        <p class="t-q">&gt; how many migration artifacts passed parallel-run validation?</p>
-        <p class="t-a">107 artifacts have a GO verdict.</p>
-        <pre class="t-sql">SELECT COUNT(*) FROM migration_parallel_run_results
+        <!-- The first exchange cycles through the golden questions (main.js
+             section 10). The markup below is demo 0, so with JS off or
+             reduced motion the panel still reads as a complete session. -->
+        <p class="t-q">&gt; <span id="t-typed">how many migration artifacts passed parallel-run validation?</span><span class="caret" id="t-caret" aria-hidden="true" hidden></span></p>
+        <div id="t-out">
+          <p class="t-a" id="t-a">107 artifacts have a GO verdict.</p>
+          <pre class="t-sql" id="t-sql">SELECT COUNT(*) FROM migration_parallel_run_results
 WHERE verdict = 'GO'</pre>
+        </div>
         <p class="t-q t-q-2">&gt; delete all denied claims</p>
-        <p class="t-refuse">I can't do that — this is a read-only interface.<span class="caret" aria-hidden="true"></span></p>
+        <p class="t-refuse">I can't do that — this is a read-only interface.<span class="caret" id="t-caret-rest" aria-hidden="true"></span></p>
         <p class="terminal-note">Not a screenshot — the question, the SQL and the answer are all pinned by golden-question tests in CI.</p>
       </div>
     </figure>
@@ -1265,7 +1270,7 @@ WHERE verdict = 'GO'</pre>
     </nav>
     <div class="footer-meta">
       <span>© <span id="year">2026</span> KUSH PATEL · HAND-BUILT — NO FRAMEWORK, NO TRACKER.</span>
-      <span class="footer-updated">LAST UPDATED <time datetime="2026-08-01">1 AUGUST 2026</time></span>
+      <span class="footer-updated">LAST UPDATED <time datetime="2026-08-02">2 AUGUST 2026</time></span>
     </div>
   </div>
 </footer>

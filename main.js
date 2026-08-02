@@ -369,4 +369,169 @@
 
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
+
+  /* ---------- 10. Hero terminal ----------
+     The panel is styled like a live CLI, so leaving it on one frozen frame
+     reads as a broken widget. Type each question, then reveal its answer
+     and the SQL that produced it.
+
+     Every question, answer and query below is lifted verbatim from
+     evals/golden_questions.yaml in the ask-your-data repo, and each value
+     was re-run against the warehouse rather than copied from the YAML —
+     otherwise the caption's "pinned by golden-question tests in CI" claim
+     would be decoration. The refusal underneath stays put: it is the
+     point of the panel, not one frame of it. */
+
+  var typed = document.getElementById("t-typed");
+  var termOut = document.getElementById("t-out");
+  var termA = document.getElementById("t-a");
+  var termSql = document.getElementById("t-sql");
+  var typeCaret = document.getElementById("t-caret");
+  var restCaret = document.getElementById("t-caret-rest");
+  var termPanel = typed && typed.closest ? typed.closest(".terminal") : null;
+
+  if (termPanel && termOut && termA && termSql && !reduced) {
+    var DEMOS = [
+      {
+        q: "how many migration artifacts passed parallel-run validation?",
+        a: "107 artifacts have a GO verdict.",
+        sql: "SELECT COUNT(*) FROM migration_parallel_run_results\nWHERE verdict = 'GO'"
+      },
+      {
+        q: "which payer type collects the least of what it bills?",
+        a: "Self-Pay — the lowest net collection rate of any payer type.",
+        sql: "SELECT p.payer_type,\n       SUM(paid_amount) / SUM(allowed_amount) AS ncr\nFROM healthcare_fact_claims c\nJOIN healthcare_dim_payer p ON c.payer_id = p.payer_id\nWHERE status = 'Paid'\nGROUP BY 1 ORDER BY ncr LIMIT 1"
+      },
+      {
+        q: "which department has the most flight-risk employees?",
+        a: "Data & Analytics has the most high-risk employees.",
+        sql: "SELECT department FROM hr_flight_risk_scores\nWHERE risk_band = 'High'\nGROUP BY department\nORDER BY COUNT(*) DESC LIMIT 1"
+      }
+    ];
+
+    var TYPE_MS = 26;
+    var REVEAL_MS = 380;
+    var DWELL_MS = 6200;
+    var termTimer = null;
+
+    var showCaret = function (typing) {
+      if (typeCaret) typeCaret.hidden = !typing;
+      if (restCaret) restCaret.hidden = typing;
+    };
+
+    /* The three answers are different heights (the SQL runs 2, 4 and 6
+       lines), and blanking the block during typing collapses it entirely.
+       Left alone the panel bounced 191px every cycle, in the hero, which
+       reads as breakage rather than animation. Reserve the tallest state
+       up front and hold it. Measured rather than hard-coded so it stays
+       right at every breakpoint — the mono font shrinks under 900px. */
+    var qLine = typed.parentElement;
+
+    var reserve = function () {
+      var restoreA = termA.textContent;
+      var restoreSql = termSql.textContent;
+      var restoreQ = typed.textContent;
+      termOut.style.minHeight = "0px";
+      qLine.style.minHeight = "0px";
+      var tallest = 0;
+      var tallestQ = 0;
+      DEMOS.forEach(function (d) {
+        termA.textContent = d.a;
+        termSql.textContent = d.sql;
+        typed.textContent = d.q;
+        tallest = Math.max(tallest, termOut.offsetHeight);
+        /* The longer questions wrap to a second line partway through
+           typing, which moved everything below them by 23px. Reserve the
+           tallest question too, or the panel still walks about. */
+        tallestQ = Math.max(tallestQ, qLine.offsetHeight);
+      });
+      termA.textContent = restoreA;
+      termSql.textContent = restoreSql;
+      typed.textContent = restoreQ;
+      if (tallest) termOut.style.minHeight = tallest + "px";
+      if (tallestQ) qLine.style.minHeight = tallestQ + "px";
+    };
+
+    var play = function (i) {
+      var d = DEMOS[i];
+      /* visibility, not the hidden attribute: display:none would drop the
+         reserved box and reintroduce the jump. */
+      termOut.style.visibility = "hidden";
+      showCaret(true);
+      var c = 0;
+      var type = function () {
+        if (c <= d.q.length) {
+          typed.textContent = d.q.slice(0, c);
+          c += 1;
+          termTimer = setTimeout(type, TYPE_MS);
+          return;
+        }
+        termTimer = setTimeout(function () {
+          termA.textContent = d.a;
+          termSql.textContent = d.sql;
+          termOut.style.visibility = "visible";
+          showCaret(false);
+          termTimer = setTimeout(function () {
+            play((i + 1) % DEMOS.length);
+          }, DWELL_MS);
+        }, REVEAL_MS);
+      };
+      type();
+    };
+
+    /* A backgrounded tab throttles timers into a queue that all fires at
+       once on return, which fast-forwards the cycle. Stop while hidden. */
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden && termTimer) {
+        clearTimeout(termTimer);
+        termTimer = null;
+      } else if (!document.hidden && !termTimer) {
+        play(0);
+      }
+    });
+
+    /* Deliberately not gated on IntersectionObserver. The panel sits in the
+       hero, above the fold on every viewport, so "start when scrolled into
+       view" buys nothing — and an observer that fails to fire (which is
+       exactly what happened here) leaves the terminal frozen on one frame,
+       looking like a broken widget. Start it, and let the visibility
+       handler deal with backgrounded tabs. */
+    termPanel.dataset.started = "1";
+    reserve();
+    play(0);
+
+    /* JetBrains Mono is wider than the fallback, so a first measurement
+       taken before it lands under-reserves and the panel still twitches.
+       Same reason syncStrips re-runs on fonts.ready. */
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(reserve);
+
+    /* Re-measure whenever the panel's width actually changes. A window
+       resize listener alone is not enough — the panel also reflows when a
+       scrollbar appears or the font swaps in, and those fire no resize
+       event. Width-gated so reserve()'s own height change can't loop. */
+    var reserveTimer = null;
+    var requeue = function () {
+      clearTimeout(reserveTimer);
+      reserveTimer = setTimeout(reserve, 150);
+    };
+
+    if (typeof ResizeObserver === "function") {
+      /* Starts at 0, not the current width, so the observer's initial
+         callback always re-measures at settled layout. Seeding it with
+         the live width meant a first measurement taken mid-layout — when
+         the panel was a couple of characters wide and the question
+         wrapped over 50 lines — was never corrected, and the reservation
+         stuck at 1176px. */
+      var lastWidth = 0;
+      new ResizeObserver(function () {
+        var w = termPanel.clientWidth;
+        if (w && w !== lastWidth) {
+          lastWidth = w;
+          requeue();
+        }
+      }).observe(termPanel);
+    }
+    window.addEventListener("resize", requeue);
+    window.addEventListener("load", requeue);
+  }
 })();

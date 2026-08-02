@@ -9,6 +9,11 @@
    see the "contrast-corrected" comments.
    ============================================================ */
 
+/* The `hidden` attribute loses to any explicit `display:` in author CSS,
+   which once left the command palette covering the whole page. Anything
+   the JS toggles with .hidden needs this to actually disappear. */
+[hidden] { display: none !important; }
+
 /* ---------- 0. Fonts, self-hosted ----------
    Both families are variable, so one file covers every weight the page
    uses (Grotesk 400/500/600/700, Mono 400/500/700) — 53 KB for the pair.
@@ -571,6 +576,12 @@ main {
   overflow-x: auto;
 }
 .terminal-body .t-refuse { color: var(--term-red); margin-top: 10px; }
+
+/* flow-root, so the answer block contains its children's top margins.
+   Without a block formatting context those margins collapse out of the
+   div and offsetHeight under-reports, which made the height the script
+   reserves 23px short of what the tallest demo actually needs. */
+#t-out { display: flow-root; }
 .caret {
   display: inline-block;
   width: 8px;
