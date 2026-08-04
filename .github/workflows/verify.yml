@@ -32,3 +32,6 @@ jobs:
 
       - name: The footer's "last updated" date must be true
         run: node tools/check-freshness.mjs
+
+      - name: The no-JS repo count must match the project cards
+        run: node tools/check-repo-count.mjs
