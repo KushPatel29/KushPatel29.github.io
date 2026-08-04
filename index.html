@@ -526,7 +526,11 @@ WHERE verdict = 'GO'</pre>
         <button type="button" class="chip" data-filter="customer" aria-pressed="false">CUSTOMER &amp; SALES</button>
         <button type="button" class="chip" data-filter="ai" aria-pressed="false">AI &amp; ML</button>
       </div>
-      <span class="filter-count" id="work-count" aria-live="polite">SHOWING 8 / 8 REPOS</span>
+      <!-- Server-rendered fallback for anything that doesn't run JS. main.js
+           recomputes this from document.querySelectorAll(".project").length,
+           so the number below must equal the count of .project cards on the
+           page. tools/check-repo-count.mjs fails the build when it doesn't. -->
+      <span class="filter-count" id="work-count" aria-live="polite">SHOWING 11 / 11 REPOS</span>
     </div>
 
     <!-- Featured pair -->
@@ -1203,7 +1207,7 @@ WHERE verdict = 'GO'</pre>
   <!-- ============ EDUCATION ============ -->
   <section id="education" class="section" aria-label="Education and credentials">
     <p class="eyebrow">06 — EDUCATION &amp; CREDENTIALS</p>
-    <h2>Formally trained in machine intelligence. Credentialed across the stack I ship on.</h2>
+    <h2>Formally trained in machine intelligence.</h2>
 
     <div class="edu-grid">
       <div class="edu-main">
@@ -1246,8 +1250,8 @@ WHERE verdict = 'GO'</pre>
       <div class="cert">
         <span class="cert-dot" aria-hidden="true"></span>
         <div>
-          <h4>Microsoft Certified: Fabric Analytics Engineer</h4>
-          <p class="cert-code">DP-600 · IN PROGRESS</p>
+          <h4>Microsoft DP-600</h4>
+          <p class="cert-code">Certification in progress</p>
           <p class="cert-body">Lakehouse and semantic-model work in Fabric, which is the platform most of my recent pipelines and control-tower reporting run on.</p>
         </div>
       </div>
@@ -1325,7 +1329,7 @@ WHERE verdict = 'GO'</pre>
         <p class="contact-creds">
           <span>MPS ANALYTICS (APPLIED ML), NORTHEASTERN — GPA 3.76</span>
           <span class="sep" aria-hidden="true">/</span>
-          <span>MICROSOFT CERTIFIED: FABRIC ANALYTICS ENGINEER (DP-600) — IN PROGRESS</span>
+          <span>MICROSOFT DP-600 — IN PROGRESS</span>
         </p>
       </div>
     </div>
@@ -1344,7 +1348,7 @@ WHERE verdict = 'GO'</pre>
     </nav>
     <div class="footer-meta">
       <span>© <span id="year">2026</span> KUSH PATEL · HAND-BUILT — NO FRAMEWORK, NO TRACKER.</span>
-      <span class="footer-updated">LAST UPDATED <time datetime="2026-08-02">2 AUGUST 2026</time></span>
+      <span class="footer-updated">LAST UPDATED <time datetime="2026-08-04">4 AUGUST 2026</time></span>
     </div>
   </div>
 </footer>
