@@ -174,10 +174,11 @@
       "@id": "https://kushpatel29.github.io/#p-clinical",
       "name": "Clinical Data Management",
       "url": "https://kushpatel29.github.io/#p-clinical",
+      "sameAs": "https://kush-clinical-data-dashboard.streamlit.app/",
       "codeRepository": "https://github.com/KushPatel29/clinical-data-management",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "Two regulated-data systems in one repository: a clinical trial database defined as code and an HL7 FHIR R4 warehouse on SQL Server 2022. The warehouse lands raw JSON, shreds it with T-SQL into a constrained 3NF model, loads a Kimball star with SCD Type 2 history, and generates its data dictionary, field map and ERD from the live schema.",
-      "keywords": "Python, HL7 FHIR R4, SQL Server, T-SQL, dimensional modelling, SCD Type 2, CDISC, CDASH, SDTM, clinical data management, data quality"
+      "description": "A live evidence console connecting a clinical trial database defined as code to an HL7 FHIR R4 warehouse on SQL Server 2022. It exposes cohort operations, query aging, SDTM safety, coding outcomes, quarantine reasons, SCD Type 2 history, and measured query-plan evidence.",
+      "keywords": "Python, Streamlit, HL7 FHIR R4, SQL Server, T-SQL, dimensional modelling, SCD Type 2, CDISC, CDASH, SDTM, clinical data management, data quality"
     },
     {
       "@type": "CreativeWork",
@@ -682,10 +683,11 @@ WHERE verdict = 'GO'</pre>
       </article>
 
       <article class="project card" id="p-clinical" data-tags="finance">
-        <button type="button" class="card-zoom" data-zoom="assets/clinical-dm.jpg"
-                aria-label="Enlarge: clinical data management status board">
-          <img src="assets/clinical-dm.jpg" width="1280" height="716" loading="lazy" decoding="async"
-               alt="Clinical data management status board — defect reconciliation showing 49 injected and 49 detected, open queries by age band, medical coding status, and query close rate by site">
+        <button type="button" class="card-zoom" data-zoom="assets/clinical-dashboard/overview.png"
+                aria-label="Enlarge: live Clinical Evidence Console overview">
+          <img src="assets/clinical-dashboard/overview.png" width="1280" height="720" loading="lazy" decoding="async"
+               alt="Clinical Evidence Console — cohort controls, evidence pipeline, study pulse, and sourced operational metrics">
+          <span class="clinical-live-flag" aria-hidden="true"><span></span>LIVE EVIDENCE</span>
           <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
         </button>
         <div class="card-body">
@@ -693,9 +695,23 @@ WHERE verdict = 'GO'</pre>
             <p class="kicker">REGULATED DATA · FHIR · T-SQL</p>
             <p class="card-tests">224 tests ✓</p>
           </div>
-          <h3>Clinical Data Management + FHIR Warehouse</h3>
+          <h3>Clinical Evidence Console + FHIR Warehouse</h3>
           <p class="outcome">Two regulated-data systems, one rule: every claim needs ground truth and a test that can fail.</p>
-          <p class="card-text">The trial side keeps the CRF, executable validation specification, SDTM mapping and generated UAT plan under version control. The health-system side takes a real 10,000-patient Synthea FHIR R4 export through bulk and REST ingestion, raw SQL Server JSON, a constrained 3NF model and a Kimball star with SCD Type 2 history. Invalid resources are quarantined with reasons; the data dictionary, field map and ERD are generated from the schema they describe.</p>
+          <p class="card-text">A live Streamlit evidence console now connects both halves. One cohort definition drives enrollment, query operations, SDTM safety, coding and vital-sign review; fixed FHIR views trace a deterministic 10,000-patient Synthea run through validation, raw SQL Server JSON, 3NF and a Kimball star with SCD Type 2 history. The interface keeps every claim attached to its denominator, source artifact and limitation.</p>
+          <div class="clinical-proof-strip" aria-label="Additional Clinical Evidence Console views">
+            <button type="button" class="card-zoom clinical-proof-shot" data-zoom="assets/clinical-dashboard/quality-site-102.png"
+                    aria-label="Enlarge: SITE-102 query quality drilldown">
+              <img src="assets/clinical-dashboard/quality-site-102.png" width="1280" height="720" loading="lazy" decoding="async"
+                   alt="SITE-102 query operations view with reconciliation, aging, and escalation evidence">
+              <span class="clinical-proof-label" aria-hidden="true">QUERY OPS</span>
+            </button>
+            <button type="button" class="card-zoom clinical-proof-shot" data-zoom="assets/clinical-dashboard/fhir-warehouse-proof.png"
+                    aria-label="Enlarge: FHIR warehouse scale and timing evidence">
+              <img src="assets/clinical-dashboard/fhir-warehouse-proof.png" width="1280" height="720" loading="lazy" decoding="async"
+                   alt="FHIR warehouse view with resource scale, SQL Server timing, and fact-table evidence">
+              <span class="clinical-proof-label" aria-hidden="true">FHIR → SQL</span>
+            </button>
+          </div>
           <div class="card-stats">
             <div><div class="stat-v">49/49</div><div class="stat-k">DEFECTS RECOVERED</div></div>
             <div><div class="stat-v">1.66M</div><div class="stat-k">FHIR RESOURCES</div></div>
@@ -707,7 +723,9 @@ WHERE verdict = 'GO'</pre>
             <li>HL7 FHIR R4</li>
             <li>SQL Server / T-SQL</li>
             <li>CDISC / SDTM</li>
+            <li>Streamlit</li>
           </ul>
+          <a class="card-open card-open-live" href="https://kush-clinical-data-dashboard.streamlit.app/" target="_blank" rel="noopener"><span>▶ LAUNCH LIVE CONSOLE</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/clinical-data-management" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>

@@ -1517,6 +1517,75 @@ main {
 .card-zoom:hover .zoom-hint,
 .card-zoom:focus-visible .zoom-hint { opacity: 1; transform: translateY(0); }
 
+/* The clinical card is a miniature evidence room: the live overview is the
+   door, while two smaller proof plates expose the operational and warehouse
+   layers without turning the whole portfolio into a carousel. */
+.clinical-live-flag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 9px;
+  border: 1px solid rgba(210, 235, 236, 0.3);
+  border-radius: 7px;
+  color: #f2f7f8;
+  background: rgba(4, 10, 14, 0.84);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  pointer-events: none;
+}
+.clinical-live-flag > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ok);
+  box-shadow: 0 0 0 3px rgba(140, 230, 160, 0.16);
+}
+.clinical-proof-strip {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 17px;
+}
+.clinical-proof-shot {
+  overflow: hidden;
+  border: 1px solid var(--line-2);
+  border-radius: 10px;
+  background: var(--tile);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.clinical-proof-shot:hover,
+.clinical-proof-shot:focus-visible {
+  border-color: var(--accent-line);
+  transform: translateY(-2px);
+}
+.card .clinical-proof-shot img {
+  height: 88px;
+  border: 0;
+  object-fit: cover;
+  object-position: top left;
+}
+.clinical-proof-label {
+  position: absolute;
+  left: 7px;
+  bottom: 7px;
+  padding: 4px 7px;
+  border-radius: 5px;
+  color: #f2f7f8;
+  background: rgba(4, 10, 14, 0.82);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  pointer-events: none;
+}
+
 /* It's a link now, not a caption, so it has to carry a real target size
    even though the stretched ::after makes the whole card clickable. */
 a.card-open { color: var(--accent); min-height: 46px; }
