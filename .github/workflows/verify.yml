@@ -35,3 +35,6 @@ jobs:
 
       - name: The no-JS repo count must match the project cards
         run: node tools/check-repo-count.mjs
+
+      - name: Test totals must reconcile across cards, hero, and metadata
+        run: node tools/check-test-counts.mjs
