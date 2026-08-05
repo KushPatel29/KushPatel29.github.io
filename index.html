@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel — Data Analyst / BI &amp; Analytics Engineer | Power BI, SQL, Azure, Microsoft Fabric, dbt</title>
-<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Eleven repos, 749 CI-verified tests: no claim without a number, and no number without a test.">
+<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Eleven repos, 915 CI-verified tests: no claim without a number, and no number without a test.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Eleven repos, 749 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
+<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Eleven repos, 915 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Eleven repos, 749 CI-verified tests, one rule: no claim without a number, and no number without a test.">
+<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Eleven repos, 915 CI-verified tests, one rule: no claim without a number, and no number without a test.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -176,8 +176,8 @@
       "url": "https://kushpatel29.github.io/#p-clinical",
       "codeRepository": "https://github.com/KushPatel29/clinical-data-management",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "A clinical trial database defined as code: CDASH CRF metadata, an executable Data Validation Specification, SDTM DM/AE/VS mapping with conformance checks, MedDRA and WHODrug coding, and a UAT plan generated from the specification. Graded against an exhaustive manifest of injected defects — 49 planted, 49 recovered, no false positives.",
-      "keywords": "Python, CDISC, CDASH, SDTM, MedDRA, WHODrug, clinical data management, EDC, edit checks, 21 CFR Part 11"
+      "description": "Two regulated-data systems in one repository: a clinical trial database defined as code and an HL7 FHIR R4 warehouse on SQL Server 2022. The warehouse lands raw JSON, shreds it with T-SQL into a constrained 3NF model, loads a Kimball star with SCD Type 2 history, and generates its data dictionary, field map and ERD from the live schema.",
+      "keywords": "Python, HL7 FHIR R4, SQL Server, T-SQL, dimensional modelling, SCD Type 2, CDISC, CDASH, SDTM, clinical data management, data quality"
     },
     {
       "@type": "CreativeWork",
@@ -393,7 +393,7 @@ WHERE verdict = 'GO'</pre>
       <div class="metric-label">public repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="749">749</div>
+      <div class="metric-value" data-count="915">915</div>
       <div class="metric-label">CI-verified tests</div>
     </div>
     <div class="metric">
@@ -690,23 +690,23 @@ WHERE verdict = 'GO'</pre>
         </button>
         <div class="card-body">
           <div class="card-head">
-            <p class="kicker">REGULATED DATA · CLINICAL TRIALS</p>
-            <p class="card-tests">58 tests ✓</p>
+            <p class="kicker">REGULATED DATA · FHIR · T-SQL</p>
+            <p class="card-tests">224 tests ✓</p>
           </div>
-          <h3>Clinical Data Management</h3>
-          <p class="outcome">A validation suite tested only on clean data proves nothing. This one is graded against every defect that was deliberately injected.</p>
-          <p class="card-text">A trial database as code: the CRF as version-controlled metadata, the Data Validation Specification as executable declarations, SDTM mapping decided at design time, and a UAT plan generated from the specification rather than written from memory. The generator writes an exhaustive manifest of every defect it plants, and the tests demand the engine recover exactly that set — which is how it caught a visit-window check keyed on the wrong record, letting four protocol deviations pass silently. Nothing crashed; only the reconciliation noticed.</p>
+          <h3>Clinical Data Management + FHIR Warehouse</h3>
+          <p class="outcome">Two regulated-data systems, one rule: every claim needs ground truth and a test that can fail.</p>
+          <p class="card-text">The trial side keeps the CRF, executable validation specification, SDTM mapping and generated UAT plan under version control. The health-system side takes a real 10,000-patient Synthea FHIR R4 export through bulk and REST ingestion, raw SQL Server JSON, a constrained 3NF model and a Kimball star with SCD Type 2 history. Invalid resources are quarantined with reasons; the data dictionary, field map and ERD are generated from the schema they describe.</p>
           <div class="card-stats">
             <div><div class="stat-v">49/49</div><div class="stat-k">DEFECTS RECOVERED</div></div>
-            <div><div class="stat-v">0</div><div class="stat-k">FALSE POSITIVES</div></div>
-            <div><div class="stat-v">80</div><div class="stat-k">UAT CASES GENERATED</div></div>
+            <div><div class="stat-v">1.66M</div><div class="stat-k">FHIR RESOURCES</div></div>
+            <div><div class="stat-v">10</div><div class="stat-k">T-SQL DQ GATES</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Standard library only, and the status board above is hand-generated SVG rather than a charting dependency — a test walks the module's syntax tree and fails the build on any third-party import.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> CI starts SQL Server 2022, builds the sample warehouse, plants a DQ failure to prove the gate closes, measures real execution plans, regenerates the documentation, and runs all 224 invariants.</p>
           <ul class="tags">
             <li>Python</li>
-            <li>CDISC</li>
-            <li>CDASH/SDTM</li>
-            <li>MedDRA</li>
+            <li>HL7 FHIR R4</li>
+            <li>SQL Server / T-SQL</li>
+            <li>CDISC / SDTM</li>
           </ul>
           <a class="card-open" href="https://github.com/KushPatel29/clinical-data-management" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
@@ -1348,7 +1348,7 @@ WHERE verdict = 'GO'</pre>
     </nav>
     <div class="footer-meta">
       <span>© <span id="year">2026</span> KUSH PATEL · HAND-BUILT — NO FRAMEWORK, NO TRACKER.</span>
-      <span class="footer-updated">LAST UPDATED <time datetime="2026-08-04">4 AUGUST 2026</time></span>
+      <span class="footer-updated">LAST UPDATED <time datetime="2026-08-06">6 AUGUST 2026</time></span>
     </div>
   </div>
 </footer>
