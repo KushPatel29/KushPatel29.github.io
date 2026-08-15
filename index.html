@@ -546,30 +546,71 @@ WHERE verdict = 'GO'</pre>
 
     <!-- Featured pair -->
     <div class="feature-grid">
-      <article class="feature-main project" id="p-ask-your-data" data-tags="ai">
-        <p class="kicker">CAPSTONE · LLM ENGINEERING</p>
-        <h3>Ask Your Data</h3>
-        <p class="outcome">Anyone can ask 36 tables a plain-English question and audit the SQL behind the answer.</p>
-        <p class="feature-body">This repo began life as a Raspberry Pi voice assistant. I left the pivot in the git history on purpose, because the interesting version is this one: ask a question in plain English across all 36 tables of my portfolio — six business domains — and get an answer you can audit. The model never answers from memory. It writes SQL, the SQL runs behind a read-only guard, and the query sits right next to the answer so you can disagree with it. Ask it to delete something and it refuses. Its self-correction loop is bounded and <em>proven in CI with a scripted fake model</em>, so the tests pass without ever calling a paid API.</p>
+      <article class="feature-main project" id="p-wholesale" data-tags="supply finance customer">
+        <p class="kicker">FLAGSHIP · BI PLATFORM &amp; METRIC GOVERNANCE</p>
+        <h3>Retail Analytics Platform</h3>
+        <p class="outcome">Sixteen pages, forty-two metrics, and one definition each — with the basis stated on screen.</p>
+        <p class="feature-body">This one started as a failure. The demo printed <strong>three different HHI values on three pages at the same time</strong>, an empty “Active customers” count beside a card reading 80, and three answers to “what revenue is at risk” in a single viewport. None were arithmetic mistakes — every page had written its own version of the same idea. So the fix was not a formula, it was a <em>layer</em>: every metric now lives once in <code>app/services/metrics.py</code>, and a published <a href="https://kushpatel29.github.io/wholesale-analytics-platform/metrics/" target="_blank" rel="noopener">catalogue page</a> gives each one a formula, a grain, a source table, an owner page and a <strong>gross-or-net basis</strong>, pinned by a unit test with a hand-computed expected value.</p>
+        <p class="feature-body">The demand planner produced a forecast it never scored, so it now reports <strong>variance, MAPE, signed bias and hit rate</strong> against actuals. A <a href="https://kushpatel29.github.io/wholesale-analytics-platform/finance/" target="_blank" rel="noopener">Finance page</a> carries an income statement, a balance sheet and the ratios that read them — its revenue, discounts and COGS read from the sales fact, so its top line matches the Overview instead of describing a second company. A <a href="https://kushpatel29.github.io/wholesale-analytics-platform/marketing/" target="_blank" rel="noopener">Marketing page</a> adds CAC, CPL and payback, with campaign spend reconciled to the Finance page’s marketing expense line and new customers counted by first order rather than invented.</p>
+        <p class="feature-body">Two numbers on it are deliberately unflattering. <strong>Inventory turnover appears twice</strong> — a cost-basis multiple on Finance, a usage-based one on Inventory — because they are different measures that will not agree, so each states its basis rather than quietly picking one. And <strong>ROMI reads about −758%</strong>, because the standard formula credits marketing with every dollar of company sales movement and revenue fell year-over-year for reasons campaigns do not drive. The page says so beside the number. Metrics that would need a source system this business does not have — MRR, NPS, web funnel, HRIS, market share — are catalogued as <em>not implemented, with the system each would require</em>.</p>
+        <p class="feature-body">The whole site is prerendered: a Playwright pass walks the real Flask app, freezes all 100 charts to SVG, strips every <code>&lt;script&gt;</code>, and a checker then loads each page <em>with networking blocked</em> to prove it needs no server. That is why it opens instantly while the interactive Flask tier sleeps on a free instance.</p>
+        <button type="button" class="card-zoom feature-shot" data-zoom="assets/wholesale-analytics.png"
+                aria-label="Enlarge: retail analytics executive KPI command centre">
+          <img src="assets/wholesale-analytics.png" width="1280" height="743" loading="lazy" decoding="async"
+               alt="Retail Analytics Platform — executive KPI command centre showing revenue, margin, retention, logo and revenue churn, NRR and ARPA">
+          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
+        </button>
         <ul class="tags">
           <li>Python</li>
+          <li>Flask</li>
           <li>DuckDB</li>
-          <li>Claude API</li>
-          <li>Streamlit</li>
-          <li class="tag-tests">99 tests ✓</li>
+          <li>Plotly</li>
+          <li>Playwright</li>
+          <li>Docker</li>
+          <li class="tag-tests">1194 tests ✓</li>
         </ul>
         <div class="feature-stats">
-          <div><div class="stat-v">36</div><div class="stat-k">TABLES QUERIED</div></div>
-          <div><div class="stat-v">6</div><div class="stat-k">BUSINESS DOMAINS</div></div>
-          <div><div class="stat-v">0</div><div class="stat-k">ANSWERS FROM MEMORY</div></div>
+          <div><div class="stat-v">42</div><div class="stat-k">GOVERNED METRICS</div></div>
+          <div><div class="stat-v">16</div><div class="stat-k">PAGES PRERENDERED</div></div>
+          <div><div class="stat-v">100</div><div class="stat-k">CHARTS FROZEN TO SVG</div></div>
+          <div><div class="stat-v">0</div><div class="stat-k">REQUESTS ON LOAD</div></div>
         </div>
         <div class="cta-row">
-          <a class="btn btn-primary btn-mono" href="https://ask-your-data-kp.streamlit.app" target="_blank" rel="noopener">TRY IT LIVE ↗</a>
-          <a class="btn btn-ghost btn-mono" href="https://github.com/KushPatel29/ask-your-data" target="_blank" rel="noopener">READ THE STORY ↗</a>
+          <a class="btn btn-primary btn-mono" href="https://kushpatel29.github.io/wholesale-analytics-platform/" target="_blank" rel="noopener">OPEN THE LIVE SITE ↗</a>
+          <a class="btn btn-ghost btn-mono" href="https://github.com/KushPatel29/wholesale-analytics-platform" target="_blank" rel="noopener">READ THE STORY ↗</a>
         </div>
       </article>
 
-      <article class="feature-side project card" id="p-control-tower" data-tags="supply">
+      <article class="feature-side project card" id="p-ask-your-data" data-tags="ai">
+        <button type="button" class="card-zoom" data-zoom="assets/ask-your-data.jpg"
+                aria-label="Enlarge: Ask Your Data — question, generated SQL and answer side by side">
+          <img src="assets/ask-your-data.jpg" width="1280" height="743" loading="lazy" decoding="async"
+               alt="Ask Your Data — a plain-English question with the generated SQL shown beside the answer">
+          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
+        </button>
+        <div class="card-body">
+          <p class="kicker">CAPSTONE · LLM ENGINEERING</p>
+          <h3>Ask Your Data</h3>
+          <p class="outcome">Anyone can ask 36 tables a plain-English question and audit the SQL behind the answer.</p>
+          <p class="card-text">Ask a question in plain English across all 36 tables of this portfolio — six business domains — and get an answer you can audit. The model never answers from memory: it writes SQL, the SQL runs behind a read-only guard, and the query sits next to the answer so you can disagree with it. Ask it to delete something and it refuses. Its self-correction loop is bounded and <em>proven in CI with a scripted fake model</em>, so the tests pass without calling a paid API.</p>
+          <ul class="tags">
+            <li>Python</li>
+            <li>DuckDB</li>
+            <li>Claude API</li>
+            <li class="tag-tests">99 tests ✓</li>
+          </ul>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 36 tables · 6 domains · 0 answers from memory</p>
+          <a class="card-open card-open-live" href="https://ask-your-data-kp.streamlit.app" target="_blank" rel="noopener"><span>▶ TRY IT LIVE</span><span aria-hidden="true">↗</span></a>
+          <a class="card-open" href="https://github.com/KushPatel29/ask-your-data" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- The rest -->
+    <div class="card-grid">
+
+      <article class="project card" id="p-control-tower" data-tags="supply">
         <button type="button" class="card-zoom" data-zoom="assets/control-tower.jpg"
                 aria-label="Enlarge: Supply Chain Control Tower executive overview dashboard">
           <img src="assets/control-tower.jpg" width="1280" height="743" loading="lazy" decoding="async"
@@ -591,34 +632,7 @@ WHERE verdict = 'GO'</pre>
           <a class="card-open" href="https://github.com/KushPatel29/supply-chain-control-tower" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
-    </div>
 
-    <!-- The rest -->
-    <div class="card-grid">
-
-      <article class="project card" id="p-wholesale" data-tags="supply finance customer">
-        <button type="button" class="card-zoom" data-zoom="assets/wholesale-analytics.png"
-                aria-label="Enlarge: retail analytics executive KPI command centre">
-          <img src="assets/wholesale-analytics.png" width="1280" height="743" loading="lazy" decoding="async"
-               alt="Retail Analytics Platform — executive KPI command centre showing revenue, margin, retention, churn, NRR and ARPA">
-          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
-        </button>
-        <div class="card-body">
-          <p class="kicker">BI PLATFORM · GOVERNED METRICS</p>
-          <h3>Retail Analytics Platform</h3>
-          <p class="outcome">Every number on sixteen pages traces to one definition, one test, and a stated basis.</p>
-          <p class="card-text">This demo once showed three different HHI values on three pages at the same time, because each page did its own arithmetic. Now forty-two metrics live in a single layer — forecast accuracy scored against actuals, NRR, GMROI, shrink, quota attainment, a P&amp;L and balance sheet, CAC and payback — and each carries a catalogue entry naming its formula, grain, source table and <em>gross-or-net basis</em>. Metrics that would need a source system that doesn't exist are listed as not implemented, with the system each would require, rather than filled in. The whole site is prerendered: every chart is frozen to SVG at build time, so it loads with no server and no JavaScript.</p>
-          <ul class="tags">
-            <li>Python</li>
-            <li>Flask</li>
-            <li>DuckDB</li>
-            <li class="tag-tests">1194 tests ✓</li>
-          </ul>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 16 pages, 100 charts frozen to SVG · every page renders with networking blocked · hand-computed expected value behind each metric</p>
-          <a class="card-open card-open-live" href="https://kushpatel29.github.io/wholesale-analytics-platform/" target="_blank" rel="noopener"><span>▶ OPEN LIVE SITE</span><span aria-hidden="true">↗</span></a>
-          <a class="card-open" href="https://github.com/KushPatel29/wholesale-analytics-platform" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
 
       <article class="project card" id="p-aml-monitoring" data-tags="finance ai">
         <button type="button" class="card-zoom" data-zoom="assets/aml-triage.jpg"
