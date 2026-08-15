@@ -121,12 +121,21 @@ function idsIn(html) {
 
 /* Turn a raw href into { path, fragment } relative to the site root,
    or null if it points somewhere we don't own. */
+/* Paths on this origin that are served by a sibling repo's GitHub Pages
+   deployment rather than by a file in this repository. */
+const PROJECT_PAGES = ["/wholesale-analytics-platform/"];
+
 function classify(ref, fromPage) {
   let raw = ref;
 
   if (/^https?:\/\//i.test(raw)) {
     if (!raw.startsWith(ORIGIN)) return null; // external — not ours to verify
     raw = raw.slice(ORIGIN.length) || "/";
+    /* GitHub project pages share this origin but are published from a
+       different repository, so there is no file for them in this checkout.
+       Resolving them locally reported a live 200 URL as a 404. They are as
+       external to this repo as any other host. */
+    if (PROJECT_PAGES.some((prefix) => raw.startsWith(prefix))) return null;
   } else if (/^\/\//.test(raw)) {
     return null; // protocol-relative external
   }
