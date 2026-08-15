@@ -421,7 +421,7 @@ WHERE verdict = 'GO'</pre>
   <section id="domains" class="section" aria-label="Reporting domains">
     <p class="eyebrow">01 — WHAT I ACTUALLY GET ASKED</p>
     <h2>I'm not a finance analyst who wandered into ops. I've owned the whole reporting surface.</h2>
-    <p class="section-sub">Twelve domains, one grain of truth underneath them. Each of these is a question I've been handed in a real meeting — and the model I built so nobody had to ask twice. <strong>Every tile links to the project that demonstrates it.</strong></p>
+    <p class="section-sub">Twelve domains, and the same discipline under all of them: one definition per metric, written down, tested, and labelled with its basis — so the meeting argues about the business instead of about whose number is right. Each tile is a question I've actually been handed, and the model I built so nobody had to ask twice. <strong>Every tile links to the project that demonstrates it.</strong></p>
 
     <div class="domain-grid">
       <a class="domain" href="#p-dbt">
@@ -433,7 +433,7 @@ WHERE verdict = 'GO'</pre>
       <a class="domain" href="#p-customer-rec">
         <div class="domain-head"><span class="domain-n">02</span><h3>Customer Analytics</h3></div>
         <p class="domain-ask">“Which customers are quietly leaving?”</p>
-        <p class="domain-answer">Cohort retention, RFM segmentation, order-frequency decay and margin-by-customer — plus the recommender that proves a simple model can beat a clever one.</p>
+        <p class="domain-answer">Cohort retention, RFM segmentation, order-frequency decay and margin-by-customer — with retention and churn reported as <em>rates</em> rather than counts, revenue-weighted alongside logo, and net revenue retention decomposed into new, expansion, contraction and churned. Plus the recommender that proves a simple model can beat a clever one.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Customer Recommendation Engine · Retail Analytics Platform</p>
       </a>
       <a class="domain" href="#p-dbt">
@@ -451,7 +451,7 @@ WHERE verdict = 'GO'</pre>
       <a class="domain" href="#p-control-tower">
         <div class="domain-head"><span class="domain-n">05</span><h3>Supply Chain Planning</h3></div>
         <p class="domain-ask">“How much should we be holding, and where?”</p>
-        <p class="domain-answer">Demand forecasting, inventory turns, days-on-hand and safety-stock coverage across a perishable network — plus the medallion pipeline and control tower that make the whole chain observable in one place.</p>
+        <p class="domain-answer">Demand forecasting, inventory turns, days-on-hand and safety-stock coverage across a perishable network — and a forecast that is <em>scored against actuals</em> rather than published and forgotten, reporting variance, MAPE, signed bias and hit rate. Plus the medallion pipeline and control tower that make the whole chain observable in one place.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Control Tower · Retail Analytics Platform</p>
       </a>
       <a class="domain" href="#p-control-tower">
@@ -463,13 +463,13 @@ WHERE verdict = 'GO'</pre>
       <a class="domain" href="#p-healthcare">
         <div class="domain-head"><span class="domain-n">07</span><h3>AP &amp; AR</h3></div>
         <p class="domain-ask">“What do we owe, and what will we actually collect?”</p>
-        <p class="domain-answer">Aging, DPO/DSO, invoice-match exceptions and credit exposure — and on the AR side, an NRV model that prices open receivables at what they'll realistically bank.</p>
+        <p class="domain-answer">Aging, DPO/DSO, invoice-match exceptions and credit exposure — receivable turnover on an average balance, an aging book that reconciles to the receivable it ages, and payables overdue as a share of total. On the AR side, an NRV model that prices open receivables at what they'll realistically bank.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Health System Decision Support · Retail Analytics Platform</p>
       </a>
       <a class="domain" href="#p-gl-recon">
         <div class="domain-head"><span class="domain-n">08</span><h3>GL / P&amp;L Reconciliation</h3></div>
         <p class="domain-ask">“Why doesn't the subledger tie to the GL?”</p>
-        <p class="domain-answer">Automated ERP-vs-subledger controls that classify discrepancies, trace every dollar of variance to source, and make month-end an audit instead of a hunt.</p>
+        <p class="domain-answer">Automated ERP-vs-subledger controls that classify discrepancies, trace every dollar of variance to source, and make month-end an audit instead of a hunt — alongside a full statement layer: an income statement, a balance sheet, and a gross-to-net bridge that answers “is this gross or net?” in one line.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> GL / P&amp;L Reconciliation · Retail Analytics Platform</p>
       </a>
       <a class="domain" href="#p-migration">
@@ -544,22 +544,65 @@ WHERE verdict = 'GO'</pre>
       <span class="filter-count" id="work-count" aria-live="polite">SHOWING 12 / 12 REPOS</span>
     </div>
 
-    <!-- Featured pair -->
+    <!-- Flagship, full width -->
     <div class="feature-grid">
       <article class="feature-main project" id="p-wholesale" data-tags="supply finance customer">
         <p class="kicker">FLAGSHIP · BI PLATFORM &amp; METRIC GOVERNANCE</p>
         <h3>Retail Analytics Platform</h3>
-        <p class="outcome">Sixteen pages, forty-two metrics, and one definition each — with the basis stated on screen.</p>
-        <p class="feature-body">This one started as a failure. The demo printed <strong>three different HHI values on three pages at the same time</strong>, an empty “Active customers” count beside a card reading 80, and three answers to “what revenue is at risk” in a single viewport. None were arithmetic mistakes — every page had written its own version of the same idea. So the fix was not a formula, it was a <em>layer</em>: every metric now lives once in <code>app/services/metrics.py</code>, and a published <a href="https://kushpatel29.github.io/wholesale-analytics-platform/metrics/" target="_blank" rel="noopener">catalogue page</a> gives each one a formula, a grain, a source table, an owner page and a <strong>gross-or-net basis</strong>, pinned by a unit test with a hand-computed expected value.</p>
-        <p class="feature-body">The demand planner produced a forecast it never scored, so it now reports <strong>variance, MAPE, signed bias and hit rate</strong> against actuals. A <a href="https://kushpatel29.github.io/wholesale-analytics-platform/finance/" target="_blank" rel="noopener">Finance page</a> carries an income statement, a balance sheet and the ratios that read them — its revenue, discounts and COGS read from the sales fact, so its top line matches the Overview instead of describing a second company. A <a href="https://kushpatel29.github.io/wholesale-analytics-platform/marketing/" target="_blank" rel="noopener">Marketing page</a> adds CAC, CPL and payback, with campaign spend reconciled to the Finance page’s marketing expense line and new customers counted by first order rather than invented.</p>
-        <p class="feature-body">Two numbers on it are deliberately unflattering. <strong>Inventory turnover appears twice</strong> — a cost-basis multiple on Finance, a usage-based one on Inventory — because they are different measures that will not agree, so each states its basis rather than quietly picking one. And <strong>ROMI reads about −758%</strong>, because the standard formula credits marketing with every dollar of company sales movement and revenue fell year-over-year for reasons campaigns do not drive. The page says so beside the number. Metrics that would need a source system this business does not have — MRR, NPS, web funnel, HRIS, market share — are catalogued as <em>not implemented, with the system each would require</em>.</p>
-        <p class="feature-body">The whole site is prerendered: a Playwright pass walks the real Flask app, freezes all 100 charts to SVG, strips every <code>&lt;script&gt;</code>, and a checker then loads each page <em>with networking blocked</em> to prove it needs no server. That is why it opens instantly while the interactive Flask tier sleeps on a free instance.</p>
-        <button type="button" class="card-zoom feature-shot" data-zoom="assets/wholesale-analytics.png"
-                aria-label="Enlarge: retail analytics executive KPI command centre">
-          <img src="assets/wholesale-analytics.png" width="1280" height="743" loading="lazy" decoding="async"
-               alt="Retail Analytics Platform — executive KPI command centre showing revenue, margin, retention, logo and revenue churn, NRR and ARPA">
-          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
-        </button>
+        <p class="outcome">Sixteen pages, forty-two metrics, one definition each — and the basis printed next to the number.</p>
+
+        <div class="flagship-body">
+          <div>
+            <p class="feature-body">It started as a failure. The demo printed <strong>three different HHI values on three pages at once</strong>, an empty “Active customers” count beside a card reading 80, and three answers to “what revenue is at risk” in a single viewport. None were arithmetic mistakes — every page had written its own version of the same idea. So the fix wasn’t a formula, it was a <em>layer</em>: each metric now lives once in <code>metrics.py</code>, and a published <a href="https://kushpatel29.github.io/wholesale-analytics-platform/metrics/" target="_blank" rel="noopener">catalogue</a> gives every one a formula, a grain, a source table, an owner page and a <strong>gross-or-net basis</strong> — each pinned by a test with a hand-computed expected value.</p>
+
+            <p class="feature-body">The demand planner produced a forecast nobody scored. It now reports <strong>−18.9% variance, +$881k bias and a 50% hit rate</strong> within ±10%, and publishes a 209% MAPE rather than hiding it — the number is inflated by small SKU-month denominators, which is exactly why hit rate and variance sit beside it. A <a href="https://kushpatel29.github.io/wholesale-analytics-platform/finance/" target="_blank" rel="noopener">Finance page</a> adds an income statement and balance sheet whose revenue, discounts and COGS are read from the sales fact, so its top line matches the Overview instead of describing a second company. A <a href="https://kushpatel29.github.io/wholesale-analytics-platform/marketing/" target="_blank" rel="noopener">Marketing page</a> adds acquisition economics, with campaign spend reconciled to the Finance page’s marketing expense line.</p>
+
+            <p class="feature-body">Two numbers are deliberately left unflattering. <strong>Inventory turnover appears twice</strong> — 8.1× cost-basis on Finance, usage-based on Inventory — because they are different measures that will not agree, so each states its basis instead of quietly picking one. And <strong>ROMI reads −758%</strong>, because the standard formula credits marketing with every dollar of company sales movement and revenue fell for reasons campaigns don’t drive. Metrics needing a source system this business doesn’t have — MRR, NPS, web funnel, HRIS, market share — are catalogued as <em>not implemented, with the system each would require</em>.</p>
+
+            <p class="feature-body">The site is prerendered: Playwright walks the real Flask app, freezes 100 charts to SVG, strips every <code>&lt;script&gt;</code>, and a checker then loads each page <em>with networking blocked</em> to prove it needs no server. That is why it opens instantly while the interactive Flask tier sleeps on a free instance.</p>
+          </div>
+
+          <div class="flagship-aside">
+            <button type="button" class="card-zoom feature-shot" data-zoom="assets/wholesale-analytics.png"
+                    aria-label="Enlarge: retail analytics executive KPI command centre">
+              <img src="assets/wholesale-analytics.png" width="1280" height="743" loading="lazy" decoding="async"
+                   alt="Retail Analytics Platform — executive KPI command centre showing revenue, margin, retention, logo and revenue churn, NRR and ARPA">
+              <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
+            </button>
+
+            <div class="flagship-metrics">
+              <div class="fm-group">
+                <p class="fm-head">Commercial</p>
+                <ul>
+                  <li><span>Revenue / profit</span><b>$51.0M · $11.7M</b></li>
+                  <li><span>Gross margin</span><b>23.0%</b></li>
+                  <li><span>Net revenue retention</span><b>104.4%</b></li>
+                  <li><span>Retention · logo churn</span><b>94.3% · 5.7%</b></li>
+                  <li><span>ARPA · AOV</span><b>$92,259 · $2,097</b></li>
+                </ul>
+              </div>
+              <div class="fm-group">
+                <p class="fm-head">Finance</p>
+                <ul>
+                  <li><span>Net margin</span><b>4.6%</b></li>
+                  <li><span>Current ratio</span><b>2.23×</b></li>
+                  <li><span>Working capital</span><b>$7.46M</b></li>
+                  <li><span>AR turnover · ROA</span><b>9.7× · 11.8%</b></li>
+                </ul>
+              </div>
+              <div class="fm-group">
+                <p class="fm-head">Acquisition &amp; forecast</p>
+                <ul>
+                  <li><span>CAC · payback</span><b>$17,655 · 9.1 mo</b></li>
+                  <li><span>CLV:CAC (12-mo basis)</span><b>1.32×</b></li>
+                  <li><span>Forecast variance · bias</span><b>−18.9% · +$881k</b></li>
+                  <li><span>Concentration</span><b>HHI 30 (customers)</b></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <ul class="tags">
           <li>Python</li>
           <li>Flask</li>
@@ -573,15 +616,23 @@ WHERE verdict = 'GO'</pre>
           <div><div class="stat-v">42</div><div class="stat-k">GOVERNED METRICS</div></div>
           <div><div class="stat-v">16</div><div class="stat-k">PAGES PRERENDERED</div></div>
           <div><div class="stat-v">100</div><div class="stat-k">CHARTS FROZEN TO SVG</div></div>
+          <div><div class="stat-v">7</div><div class="stat-k">NOT IMPLEMENTED, DECLARED</div></div>
           <div><div class="stat-v">0</div><div class="stat-k">REQUESTS ON LOAD</div></div>
         </div>
         <div class="cta-row">
           <a class="btn btn-primary btn-mono" href="https://kushpatel29.github.io/wholesale-analytics-platform/" target="_blank" rel="noopener">OPEN THE LIVE SITE ↗</a>
+          <a class="btn btn-ghost btn-mono" href="https://kushpatel29.github.io/wholesale-analytics-platform/metrics/" target="_blank" rel="noopener">SEE THE CATALOGUE ↗</a>
           <a class="btn btn-ghost btn-mono" href="https://github.com/KushPatel29/wholesale-analytics-platform" target="_blank" rel="noopener">READ THE STORY ↗</a>
         </div>
       </article>
 
-      <article class="feature-side project card" id="p-ask-your-data" data-tags="ai">
+
+    </div>
+
+    <!-- The rest -->
+    <div class="card-grid">
+
+      <article class="project card" id="p-ask-your-data" data-tags="ai">
         <button type="button" class="card-zoom" data-zoom="assets/ask-your-data.jpg"
                 aria-label="Enlarge: Ask Your Data — question, generated SQL and answer side by side">
           <img src="assets/ask-your-data.jpg" width="1280" height="743" loading="lazy" decoding="async"
@@ -604,11 +655,6 @@ WHERE verdict = 'GO'</pre>
           <a class="card-open" href="https://github.com/KushPatel29/ask-your-data" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
-
-    </div>
-
-    <!-- The rest -->
-    <div class="card-grid">
 
       <article class="project card" id="p-control-tower" data-tags="supply">
         <button type="button" class="card-zoom" data-zoom="assets/control-tower.jpg"
