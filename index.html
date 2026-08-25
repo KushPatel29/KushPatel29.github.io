@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel — Data Analyst / BI &amp; Analytics Engineer | Power BI, SQL, Azure, Microsoft Fabric, dbt</title>
-<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Twelve repos, 2109 CI-verified tests: no claim without a number, and no number without a test.">
+<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 2109 CI-verified tests: no claim without a number, and no number without a test.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Twelve repos, 2109 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
+<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 2109 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Twelve repos, 2109 CI-verified tests, one rule: no claim without a number, and no number without a test.">
+<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 2109 CI-verified tests, one rule: no claim without a number, and no number without a test.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -136,7 +136,7 @@
       "url": "https://kushpatel29.github.io/wholesale-analytics-platform/",
       "codeRepository": "https://github.com/KushPatel29/wholesale-analytics-platform",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "A sixteen-page Flask BI platform for a retail group, published as a prerendered static site where every chart is frozen to SVG at build time. One governed metric layer defines forty-two metrics — forecast accuracy, NRR, GMROI, shrink, quota attainment, a P&L and balance sheet, and CAC — each with a catalogue entry naming its formula, grain, source table and gross-or-net basis, and each pinned by a hand-computed unit test.",
+      "description": "A sixteen-page Flask BI platform for a retail group, published as a prerendered static site where every chart is frozen to SVG at build time. One governed layer records sixty-two metric definitions — forty-seven implemented and fifteen explicitly unavailable without a named source system — including forecast accuracy, NRR, GMROI, shrink, quota attainment, a P&L and balance sheet, and CAC.",
       "keywords": "Python, Flask, DuckDB, Plotly, metric layer, semantic layer, forecast accuracy, unit economics, static site generation"
     },
     {
@@ -400,7 +400,7 @@ WHERE verdict = 'GO'</pre>
   <!-- ============ METRICS ============ -->
   <section class="metrics" aria-label="Portfolio at a glance">
     <div class="metric">
-      <div class="metric-value" data-count="12">12</div>
+      <div class="metric-value" data-count="14">14</div>
       <div class="metric-label">public repos</div>
     </div>
     <div class="metric">
@@ -502,8 +502,8 @@ WHERE verdict = 'GO'</pre>
   <!-- ============ WORK ============ -->
   <section id="work" class="section" aria-label="Projects">
     <p class="eyebrow">02 — THE WORK</p>
-    <h2>Twelve projects. Every one started with a question somebody actually asked me at work.</h2>
-    <p class="section-sub">Each repo rebuilds itself from seeded synthetic data on every push — no PHI, no real customers, no real employees. If a sentence in a README stops being true, the build goes red and I find out before you do. A green badge means it <em>runs today</em>, not that it worked once on my laptop.</p>
+    <h2>Twelve featured projects from fourteen public repos. Every one started with a question somebody actually asked me at work.</h2>
+    <p class="section-sub">Each repo rebuilds itself from seeded synthetic data on every push — no PHI, no real customers, no real employees. If a sentence in a README stops being true, the build goes red and I find out before you do. A green badge means it <em>runs today</em>, not that it worked once on my laptop. The two public utilities outside this twelve-project showcase are the <a href="https://github.com/KushPatel29/cost-to-price-calculator" target="_blank" rel="noopener">cost-to-price calculator</a> and <a href="https://github.com/KushPatel29/inventory-analytics-app" target="_blank" rel="noopener">inventory analytics app</a>.</p>
 
     <!-- Start-here router -->
     <div class="router">
@@ -549,11 +549,11 @@ WHERE verdict = 'GO'</pre>
       <article class="feature-main project" id="p-wholesale" data-tags="supply finance customer">
         <p class="kicker">FLAGSHIP · BI PLATFORM &amp; METRIC GOVERNANCE</p>
         <h3>Retail Analytics Platform</h3>
-        <p class="outcome">Sixteen pages, forty-two metrics, one definition each — and the basis printed next to the number.</p>
+        <p class="outcome">Sixteen pages, sixty-two governed definitions: forty-seven implemented and fifteen explicit about the source system still missing.</p>
 
         <div class="flagship-body">
           <div>
-            <p class="feature-body">It started as a failure. The demo printed <strong>three different HHI values on three pages at once</strong>, an empty “Active customers” count beside a card reading 80, and three answers to “what revenue is at risk” in a single viewport. None were arithmetic mistakes — every page had written its own version of the same idea. So the fix wasn’t a formula, it was a <em>layer</em>: each metric now lives once in <code>metrics.py</code>, and a published <a href="https://kushpatel29.github.io/wholesale-analytics-platform/metrics/" target="_blank" rel="noopener">catalogue</a> gives every one a formula, a grain, a source table, an owner page and a <strong>gross-or-net basis</strong> — each pinned by a test with a hand-computed expected value.</p>
+            <p class="feature-body">It started as a failure. The demo printed <strong>three different HHI values on three pages at once</strong>, an empty “Active customers” count beside a card reading 80, and three answers to “what revenue is at risk” in a single viewport. None were arithmetic mistakes — every page had written its own version of the same idea. So the fix wasn’t a formula, it was a <em>layer</em>: the catalogue now governs <strong>62 definitions — 47 implemented and 15 explicitly unavailable</strong>. Each implemented metric lives once in <code>metrics.py</code>, and a published <a href="https://kushpatel29.github.io/wholesale-analytics-platform/metrics/" target="_blank" rel="noopener">catalogue</a> gives every one a formula, a grain, a source table, an owner page and a <strong>gross-or-net basis</strong> — each pinned by a test with a hand-computed expected value.</p>
 
             <p class="feature-body">The demand planner produced a forecast nobody scored. It now reports <strong>−18.9% variance, +$881k bias and a 50% hit rate</strong> within ±10%, and publishes a 209% MAPE rather than hiding it — the number is inflated by small SKU-month denominators, which is exactly why hit rate and variance sit beside it. A <a href="https://kushpatel29.github.io/wholesale-analytics-platform/finance/" target="_blank" rel="noopener">Finance page</a> adds an income statement and balance sheet whose revenue, discounts and COGS are read from the sales fact, so its top line matches the Overview instead of describing a second company. A <a href="https://kushpatel29.github.io/wholesale-analytics-platform/marketing/" target="_blank" rel="noopener">Marketing page</a> adds acquisition economics, with campaign spend reconciled to the Finance page’s marketing expense line.</p>
 
@@ -613,10 +613,11 @@ WHERE verdict = 'GO'</pre>
           <li class="tag-tests">1194 tests ✓</li>
         </ul>
         <div class="feature-stats">
-          <div><div class="stat-v">42</div><div class="stat-k">GOVERNED METRICS</div></div>
+          <div><div class="stat-v">62</div><div class="stat-k">GOVERNED DEFINITIONS</div></div>
+          <div><div class="stat-v">47</div><div class="stat-k">IMPLEMENTED METRICS</div></div>
           <div><div class="stat-v">16</div><div class="stat-k">PAGES PRERENDERED</div></div>
           <div><div class="stat-v">100</div><div class="stat-k">CHARTS FROZEN TO SVG</div></div>
-          <div><div class="stat-v">7</div><div class="stat-k">NOT IMPLEMENTED, DECLARED</div></div>
+          <div><div class="stat-v">15</div><div class="stat-k">NOT IMPLEMENTED, DECLARED</div></div>
           <div><div class="stat-v">0</div><div class="stat-k">REQUESTS ON LOAD</div></div>
         </div>
         <div class="cta-row">
@@ -643,10 +644,11 @@ WHERE verdict = 'GO'</pre>
           <p class="kicker">CAPSTONE · LLM ENGINEERING</p>
           <h3>Ask Your Data</h3>
           <p class="outcome">Anyone can ask 36 tables a plain-English question and audit the SQL behind the answer.</p>
-          <p class="card-text">Ask a question in plain English across all 36 tables of this portfolio — six business domains — and get an answer you can audit. The model never answers from memory: it writes SQL, the SQL runs behind a read-only guard, and the query sits next to the answer so you can disagree with it. Ask it to delete something and it refuses. Its self-correction loop is bounded and <em>proven in CI with a scripted fake model</em>, so the tests pass without calling a paid API.</p>
+          <p class="card-text">Ask a question in plain English across all 36 tables of this portfolio — six business domains — and get an answer you can audit. A local MiniLM index first retrieves nine schema tables: measured against reference-SQL ground truth, that cutoff keeps 100% table recall while using 69% less schema context. Claude then makes a real structured tool choice between writing SQL and refusing; SQL runs behind a read-only guard and appears beside the answer. The bounded correction loop is <em>proven in CI with a scripted fake model</em>, so the tests pass without calling a paid API.</p>
           <ul class="tags">
             <li>Python</li>
             <li>DuckDB</li>
+            <li>Chroma</li>
             <li>Claude API</li>
             <li class="tag-tests">99 tests ✓</li>
           </ul>
@@ -1460,7 +1462,7 @@ WHERE verdict = 'GO'</pre>
     </nav>
     <div class="footer-meta">
       <span>© <span id="year">2026</span> KUSH PATEL · HAND-BUILT — NO FRAMEWORK, NO TRACKER.</span>
-      <span class="footer-updated">LAST UPDATED <time datetime="2026-08-15">15 AUGUST 2026</time></span>
+      <span class="footer-updated">LAST UPDATED <time datetime="2026-08-25">25 AUGUST 2026</time></span>
     </div>
   </div>
 </footer>
