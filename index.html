@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel — Data Analyst / BI &amp; Analytics Engineer | Power BI, SQL, Azure, Microsoft Fabric, dbt</title>
-<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 2109 CI-verified tests: no claim without a number, and no number without a test.">
+<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 2213 CI-verified tests: no claim without a number, and no number without a test.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 2109 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
+<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 2213 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 2109 CI-verified tests, one rule: no claim without a number, and no number without a test.">
+<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 2213 CI-verified tests, one rule: no claim without a number, and no number without a test.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -404,7 +404,7 @@ WHERE verdict = 'GO'</pre>
       <div class="metric-label">public repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="2109">2109</div>
+      <div class="metric-value" data-count="2213">2213</div>
       <div class="metric-label">CI-verified tests</div>
     </div>
     <div class="metric">
@@ -555,9 +555,11 @@ WHERE verdict = 'GO'</pre>
           <div>
             <p class="feature-body">It started as a failure. The demo printed <strong>three different HHI values on three pages at once</strong>, an empty “Active customers” count beside a card reading 80, and three answers to “what revenue is at risk” in a single viewport. None were arithmetic mistakes — every page had written its own version of the same idea. So the fix wasn’t a formula, it was a <em>layer</em>: the catalogue now governs <strong>62 definitions — 47 implemented and 15 explicitly unavailable</strong>. Each implemented metric lives once in <code>metrics.py</code>, and a published <a href="https://kushpatel29.github.io/wholesale-analytics-platform/metrics/" target="_blank" rel="noopener">catalogue</a> gives every one a formula, a grain, a source table, an owner page and a <strong>gross-or-net basis</strong> — each pinned by a test with a hand-computed expected value.</p>
 
-            <p class="feature-body">The demand planner produced a forecast nobody scored. It now reports <strong>−18.9% variance, +$881k bias and a 50% hit rate</strong> within ±10%, and publishes a 209% MAPE rather than hiding it — the number is inflated by small SKU-month denominators, which is exactly why hit rate and variance sit beside it. A <a href="https://kushpatel29.github.io/wholesale-analytics-platform/finance/" target="_blank" rel="noopener">Finance page</a> adds an income statement and balance sheet whose revenue, discounts and COGS are read from the sales fact, so its top line matches the Overview instead of describing a second company. A <a href="https://kushpatel29.github.io/wholesale-analytics-platform/marketing/" target="_blank" rel="noopener">Marketing page</a> adds acquisition economics, with campaign spend reconciled to the Finance page’s marketing expense line.</p>
+            <p class="feature-body">The demand planner produced a forecast nobody scored. It now runs a rolling-origin backtest and leads with <strong>WAPE 11.6%</strong> — errors weighted by the revenue they cost — beside SMAPE 12.0%, a −$16,964 signed bias and a <strong>40% hit rate</strong> within ±10% across five complete periods. MAPE stays visible at 12.4% but is labelled diagnostic only, because small SKU-month denominators make it unreliable in exactly the cases it looks most alarming. Incomplete calendar periods are excluded, and the page says plainly when the model does not beat a naive-seasonal baseline. A <a href="https://kushpatel29.github.io/wholesale-analytics-platform/finance/" target="_blank" rel="noopener">Finance page</a> adds an income statement and balance sheet whose revenue, discounts and COGS are read from the sales fact, so its top line matches the Overview instead of describing a second company. A <a href="https://kushpatel29.github.io/wholesale-analytics-platform/marketing/" target="_blank" rel="noopener">Marketing page</a> adds acquisition economics, with campaign spend reconciled to the Finance page’s marketing expense line.</p>
 
-            <p class="feature-body">Two numbers are deliberately left unflattering. <strong>Inventory turnover appears twice</strong> — 8.1× cost-basis on Finance, usage-based on Inventory — because they are different measures that will not agree, so each states its basis instead of quietly picking one. And <strong>ROMI reads −758%</strong>, because the standard formula credits marketing with every dollar of company sales movement and revenue fell for reasons campaigns don’t drive. Metrics needing a source system this business doesn’t have — MRR, NPS, web funnel, HRIS, market share — are catalogued as <em>not implemented, with the system each would require</em>.</p>
+            <p class="feature-body">Two decisions are deliberately left unflattering. <strong>Inventory turnover appears twice</strong> — 8.1× cost-basis on Finance, usage-based on Inventory — because they are different measures that will not agree, so each states its basis instead of quietly picking one. And <strong>ROMI is withheld rather than published</strong>: the seed has campaign spend, leads and acquired accounts, but no exposure and no counterfactual. The standard formula would credit marketing with every dollar of company sales movement, which is a causal claim this data cannot support — so the catalogue carries the metric with the source contract it is waiting on. Fifteen more sit there for the same reason: MRR, NPS, web funnel, HRIS, market share, each with a paragraph naming the system it needs.</p>
+
+            <p class="feature-body">A governed catalogue does not stop five pages computing the same number five ways. Two of them were. Under one filter, revenue matched to the cent across four pages while <strong>Suppliers reported 22.3% margin against 22.96% everywhere else</strong>, and Products reported <strong>$32.5M of revenue against $51.0M</strong> — measured on a development run; the same two defects showed at the hosted cut’s own scale. Neither was a margin formula. Suppliers nullified a recorded zero before deciding whether a cost existed, so 3,056 stockout lines — nothing shipped, nothing sold — fell through to a per-unit rate and charged <strong>$333,573 for goods that never arrived</strong>. Products was summing the top 200 SKUs of 880 and printing “Products 200” beside an inventory strip reading “880 SKUs”. Reading the margin code found nothing three times, because the margin code was correct three times; querying every page bundle under one filter and diffing every shared KPI located both to the line. That diff is now a test that fails on either.</p>
 
             <p class="feature-body">The site is prerendered: Playwright walks the real Flask app, freezes 100 charts to SVG, strips every <code>&lt;script&gt;</code>, and a checker then loads each page <em>with networking blocked</em> to prove it needs no server. That is why it opens instantly while the interactive Flask tier sleeps on a free instance.</p>
           </div>
@@ -571,32 +573,33 @@ WHERE verdict = 'GO'</pre>
             </button>
 
             <div class="flagship-metrics">
+              <p class="fm-source">Read off the <a href="https://kushpatel29.github.io/wholesale-analytics-platform/" target="_blank" rel="noopener">live site</a> on its default Current FY scope, 1 Sep 2026 — so every figure is one click from being checked.</p>
               <div class="fm-group">
                 <p class="fm-head">Commercial</p>
                 <ul>
-                  <li><span>Revenue / profit</span><b>$51.0M · $11.7M</b></li>
-                  <li><span>Gross margin</span><b>23.0%</b></li>
-                  <li><span>Net revenue retention</span><b>104.4%</b></li>
-                  <li><span>Retention · logo churn</span><b>94.3% · 5.7%</b></li>
-                  <li><span>ARPA · AOV</span><b>$92,259 · $2,097</b></li>
+                  <li><span>Revenue / profit</span><b>$8.28M · $1.67M</b></li>
+                  <li><span>Margin %</span><b>20.1%</b></li>
+                  <li><span>Net revenue retention · GRR</span><b>103.5% · 85.1%</b></li>
+                  <li><span>New · returning rev share</span><b>2.7% · 97.3%</b></li>
+                  <li><span>Orders · AOV</span><b>4,184 · $1,979</b></li>
                 </ul>
               </div>
               <div class="fm-group">
-                <p class="fm-head">Finance</p>
+                <p class="fm-head">Finance (FY2025)</p>
                 <ul>
-                  <li><span>Net margin</span><b>4.6%</b></li>
-                  <li><span>Current ratio</span><b>2.23×</b></li>
-                  <li><span>Working capital</span><b>$7.46M</b></li>
-                  <li><span>AR turnover · ROA</span><b>9.7× · 11.8%</b></li>
+                  <li><span>Gross · net margin</span><b>22.1% · 2.8%</b></li>
+                  <li><span>Current ratio</span><b>1.02×</b></li>
+                  <li><span>Working capital</span><b>$42,590</b></li>
+                  <li><span>AR turnover · ROA</span><b>9.69× · 2.3%</b></li>
                 </ul>
               </div>
               <div class="fm-group">
                 <p class="fm-head">Acquisition &amp; forecast</p>
                 <ul>
-                  <li><span>CAC · payback</span><b>$17,655 · 9.1 mo</b></li>
-                  <li><span>CLV:CAC (12-mo basis)</span><b>1.32×</b></li>
-                  <li><span>Forecast variance · bias</span><b>−18.9% · +$881k</b></li>
-                  <li><span>Concentration</span><b>HHI 30 (customers)</b></li>
+                  <li><span>CAC · payback</span><b>$17,667 · 11.0 mo</b></li>
+                  <li><span>CLV:CAC (12-mo basis)</span><b>1.09×</b></li>
+                  <li><span>Forecast WAPE · hit rate</span><b>11.6% · 40%</b></li>
+                  <li><span>Concentration</span><b>HHI 181 (customers)</b></li>
                 </ul>
               </div>
             </div>
@@ -610,7 +613,7 @@ WHERE verdict = 'GO'</pre>
           <li>Plotly</li>
           <li>Playwright</li>
           <li>Docker</li>
-          <li class="tag-tests">1194 tests ✓</li>
+          <li class="tag-tests">1298 tests ✓</li>
         </ul>
         <div class="feature-stats">
           <div><div class="stat-v">62</div><div class="stat-k">GOVERNED DEFINITIONS</div></div>
@@ -619,6 +622,7 @@ WHERE verdict = 'GO'</pre>
           <div><div class="stat-v">100</div><div class="stat-k">CHARTS FROZEN TO SVG</div></div>
           <div><div class="stat-v">15</div><div class="stat-k">NOT IMPLEMENTED, DECLARED</div></div>
           <div><div class="stat-v">0</div><div class="stat-k">REQUESTS ON LOAD</div></div>
+          <div><div class="stat-v">5</div><div class="stat-k">PAGE BUNDLES RECONCILED</div></div>
         </div>
         <div class="cta-row">
           <a class="btn btn-primary btn-mono" href="https://kushpatel29.github.io/wholesale-analytics-platform/" target="_blank" rel="noopener">OPEN THE LIVE SITE ↗</a>
@@ -1462,7 +1466,7 @@ WHERE verdict = 'GO'</pre>
     </nav>
     <div class="footer-meta">
       <span>© <span id="year">2026</span> KUSH PATEL · HAND-BUILT — NO FRAMEWORK, NO TRACKER.</span>
-      <span class="footer-updated">LAST UPDATED <time datetime="2026-08-25">25 AUGUST 2026</time></span>
+      <span class="footer-updated">LAST UPDATED <time datetime="2026-09-01">1 SEPTEMBER 2026</time></span>
     </div>
   </div>
 </footer>
