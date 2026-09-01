@@ -46,3 +46,11 @@ jobs:
       # figure drifted or a pattern stopped matching.
       - name: Figures on the flagship card must still be on the live demo
         run: node tools/check-live-figures.mjs
+
+      # The footer makes a privacy claim in one part of the file and the
+      # script that could falsify it sits in another. This ties them: no
+      # analytics configured -> "NO TRACKER" is allowed; analytics live ->
+      # the footer must say "NO COOKIES". Cookie-setting and session-
+      # recording vendors are refused outright.
+      - name: The footer's privacy claim must match what the page loads
+        run: node tools/check-analytics.mjs
