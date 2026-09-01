@@ -1967,6 +1967,17 @@ a.card-open::after {
   text-transform: uppercase;
   color: var(--accent);
 }
+/* Where these numbers came from, next to the numbers. The panel used to carry
+   figures from a local run under a heading that implied the published site, and
+   a reader checks that in one click. Provenance belongs beside the claim. */
+.fm-source {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted-2);
+}
+.fm-source a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.fm-source a:hover { color: var(--accent); }
 .flagship-metrics ul { margin: 0; padding: 0; list-style: none; }
 .flagship-metrics li {
   display: flex;
