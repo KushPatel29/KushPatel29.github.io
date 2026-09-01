@@ -1500,5 +1500,35 @@ WHERE verdict = 'GO'</pre>
 </dialog>
 
 <script src="main.js" defer></script>
+
+<!-- ============================================================
+     Visit counting. GoatCounter: no cookies, no fingerprint, no
+     cross-site identity, and nothing that needs a consent banner.
+     It records a path, a referrer, a coarse country and a screen
+     size. It cannot tell you who someone is, and neither can
+     anything else that is honest about it.
+
+     Loaded last and async so it never sits in front of a paint,
+     and skipped entirely on localhost so a dev session does not
+     land in the numbers.
+
+     SITE_CODE is the subdomain of your GoatCounter account. Until
+     it is a real code this whole block is inert - no request is
+     made and the footer's "no cookies" claim stays true either
+     way. tools/check-analytics.mjs holds those two together.
+     ============================================================ -->
+<script>
+  (function () {
+    var SITE_CODE = "REPLACE-WITH-GOATCOUNTER-CODE";
+    if (!/^[a-z0-9][a-z0-9-]{1,48}$/.test(SITE_CODE)) return;      // not configured yet
+    if (!/^(www\.)?kushpatel29\.github\.io$/.test(location.hostname)) return;  // not the live site
+
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://gc.zgo.at/count.js";
+    s.setAttribute("data-goatcounter", "https://" + SITE_CODE + ".goatcounter.com/count");
+    document.head.appendChild(s);
+  })();
+</script>
 </body>
 </html>

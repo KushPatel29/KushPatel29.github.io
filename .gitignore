@@ -1,0 +1,14 @@
+# This repository is public and serves the portfolio itself, so anything
+# ignored here is ignored because a visitor could otherwise read it.
+
+# Which companies were applied to, and when. make-link.mjs keeps this so a
+# campaign tag in the dashboard can be traced back to an application months
+# later — which means it is a list of every employer approached, in order.
+# A recruiter who opens this repo (and they do, it is linked from the footer)
+# would be reading the rest of the search. Stays local.
+tools/links.tsv
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+*.swp
