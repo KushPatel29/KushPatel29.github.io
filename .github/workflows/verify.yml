@@ -38,3 +38,11 @@ jobs:
 
       - name: Test totals must reconcile across cards, hero, and metadata
         run: node tools/check-test-counts.mjs
+
+      # The only check here that reads something this repo does not control.
+      # The flagship card quotes nineteen figures off the deployed demo; it
+      # once quoted a local run's instead, and no check on either side could
+      # see it. Skips loudly (exit 0) if the demo is unreachable, fails if a
+      # figure drifted or a pattern stopped matching.
+      - name: Figures on the flagship card must still be on the live demo
+        run: node tools/check-live-figures.mjs
