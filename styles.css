@@ -861,6 +861,20 @@ main {
   font-weight: 600;
 }
 .feature-body { margin: 14px 0 0; font-size: 15.5px; line-height: 1.62; color: var(--muted); max-width: 560px; }
+
+/* Scope / Method / Findings / Actions / Limitations. The flagship had drifted
+   into five essay paragraphs; the other twelve cards each carry one dense
+   findings paragraph, and this is that shape with room for a flagship's extra
+   sections. Inline rather than a heading so the label reads as the first words
+   of the sentence, which is how a short report actually scans. */
+.report-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-right: 6px;
+}
 .feature-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(110px, 100%), max-content));
