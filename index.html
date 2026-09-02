@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel — Data Analyst / BI &amp; Analytics Engineer | Power BI, SQL, Azure, Microsoft Fabric, dbt</title>
-<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 2213 CI-verified tests: no claim without a number, and no number without a test.">
+<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 3075 CI-verified tests: no claim without a number, and no number without a test.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 2213 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
+<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 3075 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 2213 CI-verified tests, one rule: no claim without a number, and no number without a test.">
+<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 3075 CI-verified tests, one rule: no claim without a number, and no number without a test.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -126,8 +126,8 @@
       "url": "https://kushpatel29.github.io/#p-ask-your-data",
       "codeRepository": "https://github.com/KushPatel29/ask-your-data",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "Grounded text-to-SQL assistant over 36 tables and six business domains. The model writes SQL that runs behind a read-only guard, and the query is shown next to the answer so it can be audited.",
-      "keywords": "Python, DuckDB, Claude API, Streamlit, text-to-SQL, LLM"
+      "description": "Grounded text-to-SQL over 71 tables and eleven business domains, asked by voice or text. Two engines write the SQL — a deterministic keyless compiler and, with a key, a language model — and both pass through one read-only guard, structural verifier and access policy. The model's prose is verified back against the returned rows, certified metrics carry an owner and a CI-asserted value, and speech runs in-process on open models with no API key.",
+      "keywords": "Python, DuckDB, Claude API, Streamlit, text-to-SQL, LLM, semantic layer, metric layer, speech to text, text to speech, ONNX, data governance"
     },
     {
       "@type": "CreativeWork",
@@ -404,7 +404,7 @@ WHERE verdict = 'GO'</pre>
       <div class="metric-label">public repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="2213">2213</div>
+      <div class="metric-value" data-count="3075">3075</div>
       <div class="metric-label">CI-verified tests</div>
     </div>
     <div class="metric">
@@ -639,24 +639,24 @@ WHERE verdict = 'GO'</pre>
 
       <article class="project card" id="p-ask-your-data" data-tags="ai">
         <button type="button" class="card-zoom" data-zoom="assets/ask-your-data.jpg"
-                aria-label="Enlarge: Ask Your Data — question, generated SQL and answer side by side">
-          <img src="assets/ask-your-data.jpg" width="1280" height="743" loading="lazy" decoding="async"
-               alt="Ask Your Data — a plain-English question with the generated SQL shown beside the answer">
+                aria-label="Enlarge: Ask Your Data — a spoken answer with its binding trace and the SQL beneath it">
+          <img src="assets/ask-your-data.jpg" width="1280" height="670" loading="lazy" decoding="async"
+               alt="Ask Your Data — a full-sentence answer with an audio player, the compiler&#39;s binding trace showing 100% of the question bound, and the generated SQL below it">
           <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
         </button>
         <div class="card-body">
-          <p class="kicker">CAPSTONE · LLM ENGINEERING</p>
+          <p class="kicker">CAPSTONE · GOVERNED AI</p>
           <h3>Ask Your Data</h3>
-          <p class="outcome">Anyone can ask 36 tables a plain-English question and audit the SQL behind the answer.</p>
-          <p class="card-text">Ask a question in plain English across all 36 tables of this portfolio — six business domains — and get an answer you can audit. A local MiniLM index first retrieves nine schema tables: measured against reference-SQL ground truth, that cutoff keeps 100% table recall while using 69% less schema context. Claude then makes a real structured tool choice between writing SQL and refusing; SQL runs behind a read-only guard and appears beside the answer. The bounded correction loop is <em>proven in CI with a scripted fake model</em>, so the tests pass without calling a paid API.</p>
+          <p class="outcome">Ask 71 tables a question — typed or spoken — and audit the SQL behind every number.</p>
+          <p class="card-text">One rule: <em>no number without a query</em>. The live demo has no API key and does not need one — a deterministic compiler binds your words to the warehouse's own columns, values and join graph, and on its 58-question contract it is right <strong>100% of the time it answers</strong>, refusing the other twelve rather than guess. Add a key and a language model writes the SQL instead, through the same read-only guard, structural verifier and access policy; its prose is then checked back against the returned rows, so a sentence cannot quote a number the query never produced. Six certified metrics carry an owner and a CI-asserted value. Speech runs <em>inside the process</em> on open models, so it listens and answers aloud with no account and no second service.</p>
           <ul class="tags">
             <li>Python</li>
             <li>DuckDB</li>
-            <li>Chroma</li>
+            <li>ONNX</li>
             <li>Claude API</li>
-            <li class="tag-tests">99 tests ✓</li>
+            <li class="tag-tests">961 tests ✓</li>
           </ul>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 36 tables · 6 domains · 0 answers from memory</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 71 tables · 11 domains · 0 answers from memory</p>
           <a class="card-open card-open-live" href="https://ask-your-data-kp.streamlit.app" target="_blank" rel="noopener"><span>▶ TRY IT LIVE</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/ask-your-data" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
@@ -1466,7 +1466,7 @@ WHERE verdict = 'GO'</pre>
     </nav>
     <div class="footer-meta">
       <span>© <span id="year">2026</span> KUSH PATEL · HAND-BUILT — NO FRAMEWORK, NO TRACKER.</span>
-      <span class="footer-updated">LAST UPDATED <time datetime="2026-09-01">1 SEPTEMBER 2026</time></span>
+      <span class="footer-updated">LAST UPDATED <time datetime="2026-09-02">2 SEPTEMBER 2026</time></span>
     </div>
   </div>
 </footer>
