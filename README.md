@@ -38,7 +38,8 @@ parsed.
 
 ## CI
 
-`.github/workflows/verify.yml` runs two checks on every push and PR to `main`.
+`.github/workflows/verify.yml` runs a set of gates on every push and PR to
+`main`, plus a weekly run for the checks that depend on other people's servers.
 
 **`tools/check-links.mjs`** serves the repo the way GitHub Pages does,
 HEAD-requests **every internal href and asset path** in `index.html` and
@@ -53,6 +54,21 @@ that argues claims should be verifiable shouldn't ship an unverified one.
 **`tools/check-freshness.mjs`** fails the build if a content file changed but
 the footer's "LAST UPDATED" date wasn't moved to match — a stale date is a
 false claim like any other. Needs `fetch-depth: 0` to see real history.
+
+**`tools/check-live-demos.mjs`** does for external links what `check-links`
+does for internal ones: it requests every `https://` href on the page, follows
+redirects, and fails on anything unreachable. Two details it exists to get
+right. LinkedIn answers unattended requests with `999` — a profile refusing to
+be scraped, not a broken link — so that is tolerated by host. And Streamlit
+Community Cloud sleeps an app after about a week, then answers `200` with a
+wake-up page; the body is read, not just the status line, and `--strict` makes
+a sleeping app fatal. Streamlit's sign-in handshake is completed with `curl`
+rather than a hand-rolled redirect follower, which loops forever on it.
+
+It runs weekly rather than on every push: a transient outage on someone else's
+host should not block a commit. Each demo repository also carries a
+`keep-warm.yml` that pings its app every other day, so the sleep never happens
+in the first place.
 
 Run either locally with `node tools/<name>.mjs` (Node 18+, no dependencies).
 

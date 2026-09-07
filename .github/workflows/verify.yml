@@ -4,6 +4,11 @@
 name: verify
 
 on:
+  # Weekly as well as on push: the external links point at other people's
+  # servers, and a demo that has gone to sleep or moved should be found here
+  # rather than by someone following the link from a CV.
+  schedule:
+    - cron: "17 7 * * 1"
   push:
     branches: [main]
   pull_request:
@@ -54,3 +59,16 @@ jobs:
       # recording vendors are refused outright.
       - name: The footer's privacy claim must match what the page loads
         run: node tools/check-analytics.mjs
+
+  demos:
+    name: External links and live demos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Every external link and live demo answers
+        run: node tools/check-live-demos.mjs

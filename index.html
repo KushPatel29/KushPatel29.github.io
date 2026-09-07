@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel — Data Analyst / BI &amp; Analytics Engineer | Power BI, SQL, Azure, Microsoft Fabric, dbt</title>
-<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 3197 CI-verified tests: no claim without a number, and no number without a test.">
+<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 3608 CI-verified tests: no claim without a number, and no number without a test.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 3197 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
+<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 3608 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 3197 CI-verified tests, one rule: no claim without a number, and no number without a test.">
+<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 3608 CI-verified tests, one rule: no claim without a number, and no number without a test.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -146,7 +146,7 @@
       "url": "https://kushpatel29.github.io/#p-control-tower",
       "codeRepository": "https://github.com/KushPatel29/supply-chain-control-tower",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "Medallion pipeline with schema contracts, row quarantine and a Gold quality gate, each layer proven in CI by injecting the exact failure it exists to catch. Benchmarked at 10M rows in Delta.",
+      "description": "Medallion pipeline with schema contracts, row quarantine and a Gold quality gate, each layer proven in CI by injecting the exact failure it exists to catch, benchmarked at 10M rows in Delta. A six-page Power BI control tower on top of it covers global sourcing concentration and single-source risk, the perfect-order decomposition of OTIF, and a planner's stock position against policy - reorder points from King's formula, cover measured against each lane's own lead time, and the part of the shortfall a stock transfer covers instead of a purchase order.",
       "keywords": "PySpark, Delta Lake, Power BI, Microsoft Fabric, data quality, RLS"
     },
     {
@@ -404,7 +404,7 @@ WHERE verdict = 'GO'</pre>
       <div class="metric-label">public repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="3197">3197</div>
+      <div class="metric-value" data-count="3608">3608</div>
       <div class="metric-label">CI-verified tests</div>
     </div>
     <div class="metric">
@@ -672,15 +672,15 @@ WHERE verdict = 'GO'</pre>
         <div class="card-body">
           <p class="kicker">DATA PLATFORM · FABRIC PATTERNS</p>
           <h3>Supply Chain Control Tower</h3>
-          <p class="outcome">Bad data gets caught at the boundary instead of on an executive's screenshot.</p>
-          <p class="card-text">Bad data doesn't announce itself; it quietly changes a number an executive already screenshotted. So this pipeline defends in three layers — schema contracts stop drift before Bronze, poisoned rows quarantine with replay, a quality gate guards Gold — and CI proves each layer by <em>injecting the exact failure it exists to catch</em>. Benchmarked at 10M rows in Delta, with row- and column-level security verified by impersonated DAX.</p>
+          <p class="outcome">Bad data gets caught at the boundary — and the network's real problem turns out to be where the stock is, not how much.</p>
+          <p class="card-text">Bad data doesn't announce itself; it quietly changes a number an executive already screenshotted. So this pipeline defends in three layers — schema contracts stop drift before Bronze, poisoned rows quarantine with replay, a quality gate guards Gold — and CI proves each layer by <em>injecting the exact failure it exists to catch</em>. On top of it sits the analysis a multinational actually runs: an approved vendor list across nine countries (3 SKUs have no plan B; one origin carries 27% of COGS), OTIF decomposed into the two failures it hides (short-shipping, not lateness, is the bigger driver), and a planner's stock position where <em>the shortfall grew 17% while total stock barely moved</em> — the network rotating inventory into the lanes that need it least.</p>
           <ul class="tags">
             <li>PySpark</li>
             <li>Delta Lake</li>
             <li>Power BI</li>
-            <li class="tag-tests">81 tests ✓</li>
+            <li class="tag-tests">174 tests ✓</li>
           </ul>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 10M-row Delta benchmark · 3 defence tiers, each proven by an injected failure · 4-page control tower</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 10M-row Delta benchmark · 3 defence tiers, each proven by an injected failure · 6-page control tower · 25% of the replenishment gap needs no purchase order</p>
           <a class="card-open" href="https://github.com/KushPatel29/supply-chain-control-tower" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
@@ -761,15 +761,15 @@ WHERE verdict = 'GO'</pre>
         <div class="card-body">
           <div class="card-head">
             <p class="kicker">DECISION SUPPORT · HEALTH SYSTEM</p>
-            <p class="card-tests">134 tests ✓</p>
+            <p class="card-tests">171 tests ✓</p>
           </div>
           <h3>Health System Decision Support</h3>
           <p class="outcome">The same evidence recommends funding the programme — and refuses to — depending on how you count a bed day.</p>
-          <p class="card-text">Two health systems, one standard. A Canadian authority asks what a weighted case costs, how many beds hold people who no longer need acute care, and whether this month's readmission rate is signal or noise — so the SPC uses Laney's correction, because the metric everyone reports is 4.6× overdispersed and a naive chart fires 41 false signals across 19 of 24 months. The economic evaluation comes out <em>dominant</em> on one costing perspective and $192k/QALY on the other, and the business case says both. The US side prices $3.6M of open AR at the ~$1.7M it will actually collect.</p>
+          <p class="card-text">Two health systems, one standard. A Canadian authority asks what a weighted case costs, how many beds hold people who no longer need acute care, and whether this month's readmission rate is signal or noise — so the SPC uses Laney's correction, because the metric everyone reports is 4.6× overdispersed and a naive chart fires 41 false signals across 19 of 24 months. The economic evaluation comes out <em>dominant</em> on one costing perspective and $192k/QALY on the other, and the business case says both. The US side prices $3.8M of open AR at the ~$1.7M it will actually collect — then asks the three questions a denial rate cannot: which paid, clean claims came in <em>under contract</em> ($120k across three payer/service-line cells), which denials are worth appealing (a missing-information denial overturns at 82%, a timely-filing one at 11%), and whether revenue rose on volume, price or mix — here all volume, with revenue per claim <em>falling</em> as it grew.</p>
           <div class="card-stats">
             <div><div class="stat-v">39,567</div><div class="stat-k">DISCHARGES MODELLED</div></div>
             <div><div class="stat-v">56.9</div><div class="stat-k">ALC BED EQUIVALENTS</div></div>
-            <div><div class="stat-v">116</div><div class="stat-k">CI TESTS</div></div>
+            <div><div class="stat-v">171</div><div class="stat-k">CI TESTS</div></div>
           </div>
           <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Every figure rebuilds from the command line in about five seconds on the standard library alone — Power BI is a presentation layer, with no control limits or yield maths in DAX.</p>
           <ul class="tags">
@@ -840,7 +840,7 @@ WHERE verdict = 'GO'</pre>
         <div class="card-body">
           <div class="card-head">
             <p class="kicker">ML SERVING · A/B</p>
-            <p class="card-tests">56 tests ✓</p>
+            <p class="card-tests">107 tests ✓</p>
           </div>
           <h3>Customer Recommendation Engine</h3>
           <p class="outcome">The simpler recommender ships because it wins — and CI fails if it ever stops winning.</p>
@@ -871,17 +871,17 @@ WHERE verdict = 'GO'</pre>
         <div class="card-body">
           <div class="card-head">
             <p class="kicker">PEOPLE ANALYTICS · GOVERNANCE</p>
-            <p class="card-tests">70 tests ✓</p>
+            <p class="card-tests">228 tests ✓</p>
           </div>
           <h3>HR Attrition Analytics</h3>
-          <p class="outcome">Flight-risk scoring HR can defend, built without a single protected attribute.</p>
-          <p class="card-text">People data raises the stakes, so the guardrails came before the model: k-anonymity masking, a disparate-impact gate in CI (four-fifths rule plus Fisher's exact), survival analysis that's honest about censoring. The flight-risk model uses zero protected attributes — and turned out to score better without them.</p>
+          <p class="outcome">A 4.5% gender pay gap that is mostly the exchange rate, and attrition that follows the manager rather than the market.</p>
+          <p class="card-text">People data raises the stakes, so the guardrails came before the model: k-anonymity masking, a disparate-impact gate in CI (four-fifths rule plus Fisher's exact), survival analysis honest about censoring, and a flight-risk model that uses zero protected attributes. Across 2,800 people in eight countries the standard metrics stop working: pay is set to each local market, so most of a level's apparent gap is geography (Senior Manager reads 18.2% pooled, 3.4% inside a country); an attrition rate counts a managed-out low performer the same as a resigning star, and <em>56% of every exit happens in the first year</em>. "Attrition clusters by manager" is held to a permutation test that passed with the effect switched off twice before it controlled for market <em>and</em> seniority.</p>
           <div class="card-stats">
             <div><div class="stat-v">0</div><div class="stat-k">PROTECTED ATTRS USED</div></div>
-            <div><div class="stat-v">4/5</div><div class="stat-k">RULE GATE IN CI</div></div>
-            <div><div class="stat-v">52</div><div class="stat-k">CI TESTS</div></div>
+            <div><div class="stat-v">8</div><div class="stat-k">LABOUR MARKETS</div></div>
+            <div><div class="stat-v">228</div><div class="stat-k">CI TESTS</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> k-anonymity masking and a disparate-impact gate run on every push, with Fisher's exact behind the alarm.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> k-anonymity masking and a disparate-impact gate run on every push, with Fisher's exact behind the alarm · 8-page report · every headline figure fails the build if it stops being true</p>
           <ul class="tags">
             <li>T-SQL</li>
             <li>lifelines</li>
@@ -931,7 +931,7 @@ WHERE verdict = 'GO'</pre>
         <div class="card-body">
           <div class="card-head">
             <p class="kicker">FINANCE-GRADE · CONTROLS</p>
-            <p class="card-tests">51 tests ✓</p>
+            <p class="card-tests">107 tests ✓</p>
           </div>
           <h3>GL / P&amp;L Reconciliation</h3>
           <p class="outcome">Month-end becomes an audit trail instead of a manual variance hunt.</p>
@@ -962,7 +962,7 @@ WHERE verdict = 'GO'</pre>
         <div class="card-body">
           <div class="card-head">
             <p class="kicker">MIGRATION · CUTOVER GATE</p>
-            <p class="card-tests">46 tests ✓</p>
+            <p class="card-tests">62 tests ✓</p>
           </div>
           <h3>Legacy-to-Fabric Migration</h3>
           <p class="outcome">A cutover nobody has to take on faith — old and new run side by side until a gate decides.</p>
