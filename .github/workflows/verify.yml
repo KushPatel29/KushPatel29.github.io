@@ -72,3 +72,11 @@ jobs:
 
       - name: Every external link and live demo answers
         run: node tools/check-live-demos.mjs
+
+      # check-test-counts proves the badges on this page agree with each other.
+      # They can agree perfectly and all be wrong: the healthcare card, its
+      # repository's badge and the profile README all said 182 while the suite
+      # collected 345. This compares each card to the badge in the repository
+      # it links to, which is itself pinned to what pytest collects.
+      - name: Every card must match the repository it links to
+        run: node tools/check-repo-badges.mjs
