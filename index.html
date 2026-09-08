@@ -217,7 +217,7 @@
       "url": "https://kushpatel29.github.io/#p-dbt",
       "codeRepository": "https://github.com/KushPatel29/supply-chain-analytics-dbt",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "dbt Core from staging to marts on dual DuckDB and Snowflake profiles, with incremental models, SCD2 snapshots, a MetricFlow semantic layer and an Airflow DAG that CI actually executes.",
+      "description": "dbt Core from staging to marts on dual DuckDB and Snowflake profiles, with incremental models, SCD2 snapshots, a MetricFlow semantic layer, and an Airflow DAG whose import and structure CI validates.",
       "keywords": "dbt, MetricFlow, Airflow, DuckDB, Snowflake, semantic layer, SCD2"
     },
     {
@@ -405,7 +405,7 @@ WHERE verdict = 'GO'</pre>
     </div>
     <div class="metric">
       <div class="metric-value" data-count="4885">4885</div>
-      <div class="metric-label">CI-verified tests</div>
+      <div class="metric-label">CI-verified tests · 12 featured projects</div>
     </div>
     <div class="metric">
       <div class="metric-value" data-count="12">12</div>
@@ -621,7 +621,7 @@ WHERE verdict = 'GO'</pre>
           <div><div class="stat-v">16</div><div class="stat-k">PAGES PRERENDERED</div></div>
           <div><div class="stat-v">100</div><div class="stat-k">CHARTS FROZEN TO SVG</div></div>
           <div><div class="stat-v">15</div><div class="stat-k">NOT IMPLEMENTED, DECLARED</div></div>
-          <div><div class="stat-v">0</div><div class="stat-k">REQUESTS ON LOAD</div></div>
+          <div><div class="stat-v">0</div><div class="stat-k">RUNTIME DATA REQUESTS</div></div>
           <div><div class="stat-v">5</div><div class="stat-k">PAGE BUNDLES RECONCILED</div></div>
         </div>
         <div class="cta-row">
@@ -844,9 +844,9 @@ WHERE verdict = 'GO'</pre>
           </div>
           <h3>Customer Recommendation Engine</h3>
           <p class="outcome">The simpler recommender ships because it wins — and CI fails if it ever stops winning.</p>
-          <p class="card-text">I built the impressive thing first: two-stage retrieval with a gradient-boosted ranker, 80.0% hit-rate@10. Plain collaborative filtering got 84.9%. So the simple one ships, the fancy one stays in the repo as evidence, and a CI test fails if the winner ever stops winning. Served with FastAPI + Docker, read in a 9-page Power BI app — which now goes past invoice revenue, where every commercial dashboard stops. The price lever everyone governs weekly moved this book by 0.08%; the off-invoice terms nobody re-reads moved it by 4.27%, and <em>pocket margin spans 8.4 points across customers buying the same catalogue at the same prices</em>. Revenue is decomposed into price, volume and mix — reconciling to the cent — and run again on pocket margin, which is what catches a book growing its way onto accounts whose terms cost more.</p>
+          <p class="card-text">I built the impressive thing first: two-stage retrieval with a gradient-boosted ranker, 80.0% recall@10. Plain collaborative filtering got 84.9%. So the simple one ships, the fancy one stays in the repo as evidence, and a CI test fails if the winner ever stops winning. Served with FastAPI + Docker, read in a 9-page Power BI app — which now goes past invoice revenue, where every commercial dashboard stops. The price lever everyone governs weekly moved this book by 0.08%; the off-invoice terms nobody re-reads moved it by 4.27%, and <em>pocket margin spans 8.4 points across customers buying the same catalogue at the same prices</em>. Revenue is decomposed into price, volume and mix — reconciling to the cent — and run again on pocket margin, which is what catches a book growing its way onto accounts whose terms cost more.</p>
           <div class="card-stats">
-            <div><div class="stat-v">84.9%</div><div class="stat-k">HIT-RATE@10 SHIPPED</div></div>
+            <div><div class="stat-v">84.9%</div><div class="stat-k">RECALL@10 SHIPPED</div></div>
             <div><div class="stat-v">80.0%</div><div class="stat-k">RANKER THAT LOST</div></div>
             <div><div class="stat-v">$27k</div><div class="stat-k">RECOVERABLE, NO PRICE CHANGE</div></div>
           </div>
@@ -905,13 +905,13 @@ WHERE verdict = 'GO'</pre>
           </div>
           <h3>Supply Chain Analytics — dbt</h3>
           <p class="outcome">Finance and Ops stop arguing about revenue because there is one versioned definition.</p>
-          <p class="card-text">The answer to “why does Finance's revenue number differ from Ops'?” is usually that there are two definitions. This is one definition, versioned: dbt Core from staging to marts on dual DuckDB/Snowflake profiles, incremental models, SCD2 snapshots, a MetricFlow semantic layer, and an Airflow DAG that CI actually runs.</p>
+          <p class="card-text">The answer to “why does Finance's revenue number differ from Ops'?” is usually that there are two definitions. This is one definition, versioned: dbt Core from staging to marts on dual DuckDB/Snowflake profiles, incremental models, SCD2 snapshots, a MetricFlow semantic layer, and an Airflow DAG that CI loads and checks the shape of.</p>
           <div class="card-stats">
             <div><div class="stat-v">2</div><div class="stat-k">WAREHOUSE PROFILES</div></div>
             <div><div class="stat-v">SCD2</div><div class="stat-k">SNAPSHOT HISTORY</div></div>
             <div><div class="stat-v">154</div><div class="stat-k">DBT TESTS</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> One definition per metric in MetricFlow, and the Airflow DAG is executed in CI rather than described.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> One definition per metric in MetricFlow. CI builds the DuckDB target, imports the Airflow DAG through a DagBag and asserts its task graph — it does not execute a task, and the Snowflake profile ships unexercised.</p>
           <ul class="tags">
             <li>dbt</li>
             <li>MetricFlow</li>
@@ -1147,8 +1147,8 @@ WHERE verdict = 'GO'</pre>
       </div>
       <div class="loss">
         <p class="loss-stat">p ≈ 0.23</p>
-        <h3>The alarm that didn't cry wolf</h3>
-        <p>A fairness screen fired on the attrition model. Fisher's exact test showed small-sample noise rather than real bias — so I kept it as a monitored gate instead of pretending the alarm never happened.</p>
+        <h3>The alarm I could not clear</h3>
+        <p>A fairness screen fired on the attrition model. Fisher's exact came back at p ≈ 0.23, which is <em>not</em> evidence the disparity is noise — a non-significant result on a small group means the sample cannot settle the question, not that there is nothing there. So the ratio and its uncertainty stay published and the group stays on a monitor list, rather than the alarm being written off.</p>
       </div>
     </div>
 

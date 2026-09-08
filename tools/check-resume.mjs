@@ -84,13 +84,28 @@ compare(
 /* Anchored on its label: the hero band opens with a repo counter that also
    matches a bare data-count, and reading that instead compares 14 to 4,763. */
 const siteTotal = html.match(
-  /<div class="metric-value" data-count="(\d+)">\d+<\/div>\s*<div class="metric-label">CI-verified tests<\/div>/i,
+  /<div class="metric-value" data-count="(\d+)">\d+<\/div>\s*<div class="metric-label">CI-verified tests[^<]*<\/div>/i,
 );
 const resumeTotal = resume.match(/([\d,]+) automated tests/);
 compare(
   "published test total",
   siteTotal ? Number(siteTotal[1]) : null,
   resumeTotal ? Number(resumeTotal[1].replaceAll(",", "")) : null,
+);
+
+/* ---- 4. when the master's finished ---------------------------------- */
+/* The site said MAR 2024 and the PDF said APR 2024. Small, and exactly the
+   kind of thing a reader notices while cross-checking two documents. */
+const siteEdu = html.match(
+  /<p class="edu-period"><time datetime="2022-09">[^<]*<\/time>\s*—\s*<time datetime="(\d{4})-(\d{2})">/i,
+);
+const resumeEdu = resume.match(/Sep 2022\s*&ndash;\s*([A-Z][a-z]{2}) (\d{4})/);
+compare(
+  "master's end date",
+  siteEdu ? `${siteEdu[1]}-${siteEdu[2]}` : null,
+  resumeEdu
+    ? `${resumeEdu[2]}-${String(MONTHS.indexOf(resumeEdu[1].toLowerCase()) + 1).padStart(2, "0")}`
+    : null,
 );
 
 const width = Math.max(...rows.map((r) => r[0].length));

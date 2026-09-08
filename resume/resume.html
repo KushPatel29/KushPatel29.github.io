@@ -53,7 +53,12 @@
   .skill b { color: #0f1417; font-weight: 700; }
 
   /* ---------- projects ---------- */
-  .proj { margin-bottom: 5pt; }
+  /* A project split across the page break reads as two half-entries: the
+     Retail Analytics heading and its links ended page 1 while the paragraph
+     explaining them began page 2. Keep each entry, and each job, whole. */
+  .proj { margin-bottom: 5pt; break-inside: avoid; page-break-inside: avoid; }
+  .job  { break-inside: avoid; page-break-inside: avoid; }
+  h2 { break-after: avoid; page-break-after: avoid; }
   .proj-head { font-size: 9.4pt; font-weight: 700; color: #0f1417; margin-bottom: .5pt; }
   .proj-head .stack { font-weight: 400; color: #45525a; font-size: 8.6pt; }
   .proj-url { font-size: 8.2pt; color: #2c5f5c; font-weight: 600; }
@@ -77,7 +82,7 @@
 <h2>Summary</h2>
 <ul>
   <li>Analytics engineer and BI analyst with 4+ years turning raw operational data — ERP, POS, WMS, CRM, REST feeds — into governed warehouse layers and the reports the business argues from. Sole analyst across a perishable-goods supply chain, owning everything from month-end GL reconciliation to lot-level traceability.</li>
-  <li>Builds dimensional models on cloud warehouses (Microsoft Fabric, Azure Synapse, SQL Server) with Bronze/Silver/Gold medallion layers, conformed dimensions and SCD Type 1/2, orchestrated in Azure Data Factory, Fabric pipelines and Airflow.</li>
+  <li>Builds dimensional models on cloud warehouses (Microsoft Fabric, Azure Synapse, SQL Server) with Bronze/Silver/Gold medallion layers, conformed dimensions and SCD Type 1/2, orchestrated in Azure Data Factory and Fabric pipelines (Airflow in project work, not production).</li>
   <li>Delivers Power BI end to end — semantic model, DAX measure library, RLS/OLS, publish-ready reports — so Finance, Sales and Supply Chain self-serve from one definition instead of competing extracts.</li>
   <li>Treats data quality as engineering. Fourteen public repositories carry <b>4,885 automated tests</b> in CI, each pinned to a published claim: if a number in a README stops being true, the build goes red. Every project also documents where its model fails and why.</li>
 </ul>
@@ -102,8 +107,8 @@
     <li>Sole analyst for a perishable-goods distributor: integrated ERP, Square POS, workforce and REST API feeds into curated Bronze/Silver/Gold datasets serving ad hoc analysis, BI dashboards and operational reporting.</li>
     <li>Designed and built the enterprise data mart applying star schemas, conformed dimensions and slowly changing dimensions, producing reliable data products sliced by SKU, supplier, region, customer and channel.</li>
     <li>Owned Power BI end to end — semantic model design, a standardised DAX measure library, drill-through and publish-ready reports — giving Sales, Finance and Supply Chain self-service access without analyst dependency.</li>
-    <li>Engineered cloud-native ELT in Microsoft Fabric and Azure Data Factory/Synapse using SQL and PySpark, with Airflow-orchestrated jobs, incremental loads, parameterised transforms and structured error handling.</li>
-    <li>Built reconciliation controls comparing source against curated totals for GL/P&amp;L and inventory valuation, cutting discrepancies ~45% and reporting errors ~30% by resolving issues at the feed level rather than patching reports.</li>
+    <li>Engineered cloud-native ELT in Microsoft Fabric and Azure Data Factory/Synapse using SQL and PySpark, with incremental loads, parameterised transforms and structured error handling.</li>
+    <li>Built reconciliation controls comparing source against curated totals for GL/P&amp;L and inventory valuation, cutting discrepancies an estimated ~45% and reporting errors ~30% by resolving issues at the feed level rather than patching reports (internal figures, directional rather than audited).</li>
     <li>Maintained data quality across the mart: automated schema, completeness, uniqueness and referential-integrity tests, anomaly thresholds, exception logging and pipeline alerting.</li>
     <li>Implemented FEFO and lot-level traceability for recall readiness, delivered customer intelligence reporting (inactivity signals, lost-account tracking, rep coverage), and built SKU-level demand forecasting deployed as Python web apps that reduced stock-outs and perishable waste.</li>
     <li>Owned the legacy SQL Server estate through migration: maintained SSIS packages and SSRS paginated reports while refactoring priority pipelines to Fabric notebooks, validating cutover with row counts, checksums and control totals so no reporting was disrupted.</li>
@@ -119,7 +124,7 @@
   <p class="job-title">Financial Analyst — Data &amp; Reporting</p>
   <ul>
     <li>Gathered reporting requirements from portfolio and risk stakeholders and delivered Power BI dashboards with drill-through and auditable measure definitions.</li>
-    <li>Automated recurring analysis with Python (pandas) and SQL views feeding Power BI, replacing manual spreadsheet consolidation and cutting manual effort ~40%.</li>
+    <li>Automated recurring analysis with Python (pandas) and SQL views feeding Power BI, replacing manual spreadsheet consolidation and cutting manual effort an estimated ~40%.</li>
     <li>Performed GL/P&amp;L reconciliations across sources and investigated discrepancies to maintain finance-grade accuracy.</li>
   </ul>
 </div>
@@ -153,7 +158,7 @@
 <div class="proj">
   <div class="proj-head">Health System Decision Support <span class="stack">— Python, Power BI, DAX, SPC &middot; 345 tests</span></div>
   <div class="proj-url">github.com/KushPatel29/healthcare-claims-analytics</div>
-  <p>CIHI-DAD-shaped activity with cost per weighted case, ALC bed equivalents and statistical process control using Laney's correction — because the readmission metric everyone reports is 4.6&times; overdispersed and a naive chart fires 41 false signals across 19 of 24 months. The US side prices $3.6M of open AR at the ~$1.7M it will actually collect. Fully synthetic; no PHI.</p>
+  <p>CIHI-DAD-shaped activity with cost per weighted case, ALC bed equivalents and statistical process control using Laney's correction — because the readmission metric everyone reports is 4.6&times; overdispersed and a naive chart fires 41 false signals across 19 of 24 months. The US side prices $3.8M of open AR at the ~$1.7M it will actually collect. Fully synthetic; no PHI.</p>
 </div>
 
 <div class="proj">
@@ -165,7 +170,7 @@
 <h2>Education</h2>
 <div class="edu">
   <span><b>Northeastern University</b> — Master of Professional Studies in Analytics (Applied Machine Intelligence), GPA 3.76/4.0 &middot; Vancouver, BC</span>
-  <span class="edu-when">Sep 2022 &ndash; Apr 2024</span>
+  <span class="edu-when">Sep 2022 &ndash; Mar 2024</span>
 </div>
 <div class="edu">
   <span><b>Gujarat Technological University</b> — Bachelor of Engineering, Computer Science &middot; India</span>
