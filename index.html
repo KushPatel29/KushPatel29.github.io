@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel — Data Analyst / BI &amp; Analytics Engineer | Power BI, SQL, Azure, Microsoft Fabric, dbt</title>
-<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 5021 Automated tests across twelve featured projects using reproducible synthetic data.">
+<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 5025 Automated tests across twelve featured projects using reproducible synthetic data.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 5021 Automated tests across twelve featured projects using reproducible synthetic data.">
+<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 5025 Automated tests across twelve featured projects using reproducible synthetic data.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 5021 Automated tests across twelve featured projects using reproducible synthetic data.">
+<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 5025 Automated tests across twelve featured projects using reproducible synthetic data.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -373,7 +373,7 @@ WHERE verdict = 'GO'</pre>
       <div class="metric-label">public project repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="5021">5021</div>
+      <div class="metric-value" data-count="5025">5025</div>
       <div class="metric-label">Automated tests · 12 featured projects</div>
     </div>
     <div class="metric">
@@ -758,14 +758,14 @@ WHERE verdict = 'GO'</pre>
         <div class="card-body">
           <div class="card-head">
             <p class="kicker">ML SERVING · A/B</p>
-            <p class="card-tests">313 tests ✓</p>
+            <p class="card-tests">317 tests ✓</p>
           </div>
           <h3>Customer Recommendation Engine</h3>
           <p class="outcome">Collaborative filtering recovered 84.9% of hidden items in its top ten recommendations.</p>
-          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">I built the impressive thing first: two-stage retrieval with a gradient-boosted ranker, 80.0% recall@10. Plain collaborative filtering got 84.9%. The simpler model serves the demo. CI guards the fixed benchmark; a stronger validated challenger can replace it. Served with FastAPI + Docker, read in a 9-page Power BI app — which now goes past invoice revenue, where every commercial dashboard stops. The price lever everyone governs weekly moved this book by 0.08%; the off-invoice terms nobody re-reads moved it by 4.27%, and <em>pocket margin spans 8.4 points across customers buying the same catalogue at the same prices</em>. Revenue is decomposed into price, volume and mix — reconciling to the cent — and run again on pocket margin, which is what catches a book growing its way onto accounts whose terms cost more.</p></details>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">I built the impressive thing first: two-stage retrieval with a gradient-boosted ranker, 81.2% recall@10. Plain collaborative filtering got 84.9%. The simpler model serves the demo. CI guards the fixed benchmark; a stronger validated challenger can replace it. Served with FastAPI + Docker, read in a 9-page Power BI app — which now goes past invoice revenue, where every commercial dashboard stops. The price lever everyone governs weekly moved this book by 0.08%; the off-invoice terms nobody re-reads moved it by 4.27%, and <em>pocket margin spans 8.4 points across customers buying the same catalogue at the same prices</em>. Revenue is decomposed into price, volume and mix — reconciling to the cent — and run again on pocket margin, which is what catches a book growing its way onto accounts whose terms cost more.</p></details>
           <div class="card-stats">
             <div><div class="stat-v">84.9%</div><div class="stat-k">RECALL@10 SHIPPED</div></div>
-            <div><div class="stat-v">80.0%</div><div class="stat-k">RANKER THAT LOST</div></div>
+            <div><div class="stat-v">81.2%</div><div class="stat-k">RANKER THAT LOST</div></div>
             <div><div class="stat-v">$27k</div><div class="stat-k">RECOVERABLE, NO PRICE CHANGE</div></div>
           </div>
           <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Warm-customer basket holdout; the ranker uses separate customer-disjoint label training. Offline recall does not measure sales lift.</p>
@@ -1219,7 +1219,7 @@ WHERE verdict = 'GO'</pre>
     <details open class="section-details"><summary>Read my modelling and validation approach</summary>
     <div class="loss-grid">
       <div class="loss">
-        <p class="loss-stat">84.9% &gt; 80.0%</p>
+        <p class="loss-stat">84.9% &gt; 81.2%</p>
         <h3>The ranker lost</h3>
         <p>Two-stage retrieval with a gradient-boosted ranker, beaten by plain collaborative filtering on a warm-customer basket holdout; the ranker uses customer-disjoint label training. The fixed benchmark is checked in CI.</p>
       </div>
