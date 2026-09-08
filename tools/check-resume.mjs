@@ -84,7 +84,7 @@ compare(
 /* Anchored on its label: the hero band opens with a repo counter that also
    matches a bare data-count, and reading that instead compares 14 to 4,763. */
 const siteTotal = html.match(
-  /<div class="metric-value" data-count="(\d+)">\d+<\/div>\s*<div class="metric-label">CI-verified tests[^<]*<\/div>/i,
+  /<div class="metric-value" data-count="(\d+)">\d+<\/div>\s*<div class="metric-label">Automated tests[^<]*<\/div>/i,
 );
 const resumeTotal = resume.match(/([\d,]+) automated tests/);
 compare(
