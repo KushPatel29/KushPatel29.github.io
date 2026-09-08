@@ -67,6 +67,13 @@ jobs:
       - name: The résumé must not contradict the page that links it
         run: node tools/check-resume.mjs
 
+      # A screenshot swap once left healthcare-spc declaring a height 17px
+      # taller than the file, and three "PNGs" here are JPEGs. Neither is
+      # visible on the page; both are visible to a reader as a jump on load
+      # or a wrong content type.
+      - name: Images must be the size and format the page claims
+        run: node tools/check-images.mjs
+
   demos:
     name: External links and live demos
     runs-on: ubuntu-latest
