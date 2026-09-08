@@ -107,6 +107,15 @@
     if (countEl) countEl.textContent = "SHOWING " + shown + " / " + total + " REPOS";
     if (emptyEl) emptyEl.hidden = shown > 0;
 
+    var more = document.getElementById("more-projects");
+    if (more) {
+      if (tag !== "all") more.open = true;
+      var summary = more.querySelector("summary");
+      if (summary) summary.textContent = tag === "all"
+        ? "Explore 9 more projects — AI, healthcare, people analytics and data platforms"
+        : "More projects matching this filter";
+    }
+
     if (writeUrl) writeFilterToUrl(tag);
   }
 
@@ -136,22 +145,38 @@
     });
   });
 
-  if (chips.length) {
-    // Restore whatever the URL asked for, without writing it back.
-    var fromUrl = readFilterFromUrl();
-    applyFilter(fromUrl, false);
-
-    /* The browser resolves the #hash while every card is still visible,
-       then we hide some and the target moves out from under it. Re-aim
-       once, but only when we actually changed the layout. */
-    if (fromUrl !== "all" && window.location.hash.length > 1) {
-      var landing = document.getElementById(window.location.hash.slice(1));
-      if (landing) {
-        window.requestAnimationFrame(function () {
-          landing.scrollIntoView({ block: "start" });
-        });
+  function restoreLocation() {
+    var tag = readFilterFromUrl();
+    var id;
+    try { id = decodeURIComponent(window.location.hash.slice(1)); }
+    catch (e) { id = ""; }
+    var landing = id && document.getElementById(id);
+    // A shared project link takes priority over a conflicting discipline.
+    if (landing && landing.classList.contains("project")) {
+      var tags = (landing.getAttribute("data-tags") || "").split(/\s+/);
+      if (tag !== "all" && tags.indexOf(tag) === -1) {
+        tag = "all";
+        writeFilterToUrl(tag);
       }
     }
+    applyFilter(tag, false);
+    if (landing) {
+      // Deep links must also work when their destination is in a disclosure.
+      var parent = landing.parentElement;
+      while (parent) {
+        if (parent.tagName === "DETAILS") parent.open = true;
+        parent = parent.parentElement;
+      }
+      window.requestAnimationFrame(function () {
+        landing.scrollIntoView({ block: "start" });
+      });
+    }
+  }
+
+  if (chips.length) {
+    restoreLocation();
+    window.addEventListener("popstate", restoreLocation);
+    window.addEventListener("hashchange", restoreLocation);
   } else if (countEl && total) {
     countEl.textContent = "SHOWING " + total + " / " + total + " REPOS";
   }
@@ -160,7 +185,15 @@
      router, the domain tiles — clears the filter first, so the card it
      points at is actually on screen when you arrive. */
   each('a[href^="#p-"]', function (link) {
-    link.addEventListener("click", function () { applyFilter("all", true); });
+    link.addEventListener("click", function () {
+      applyFilter("all", true);
+      var target = document.getElementById(link.getAttribute("href").slice(1));
+      var parent = target && target.parentElement;
+      while (parent) {
+        if (parent.tagName === "DETAILS") parent.open = true;
+        parent = parent.parentElement;
+      }
+    });
   });
 
   /* ---------- 4. Sideways-scroll hint on the chip strip ---------- */
@@ -413,6 +446,9 @@
     var REVEAL_MS = 380;
     var DWELL_MS = 6200;
     var termTimer = null;
+    var motionToggle = document.getElementById("terminal-motion");
+    var paused = false;
+    var demoIndex = 0;
 
     var showCaret = function (typing) {
       if (typeCaret) typeCaret.hidden = !typing;
@@ -453,6 +489,8 @@
     };
 
     var play = function (i) {
+      if (paused) return;
+      demoIndex = i;
       var d = DEMOS[i];
       /* visibility, not the hidden attribute: display:none would drop the
          reserved box and reintroduce the jump. */
@@ -485,7 +523,7 @@
       if (document.hidden && termTimer) {
         clearTimeout(termTimer);
         termTimer = null;
-      } else if (!document.hidden && !termTimer) {
+      } else if (!document.hidden && !termTimer && !paused) {
         play(0);
       }
     });
@@ -499,6 +537,29 @@
     termPanel.dataset.started = "1";
     reserve();
     play(0);
+
+    if (motionToggle) {
+      motionToggle.hidden = false;
+      motionToggle.addEventListener("click", function () {
+        paused = !paused;
+        clearTimeout(termTimer);
+        termTimer = null;
+        motionToggle.setAttribute("aria-pressed", paused ? "true" : "false");
+        motionToggle.textContent = paused ? "Play animation" : "Pause animation";
+        termPanel.classList.toggle("is-paused", paused);
+        if (paused) {
+          // Freeze a complete, readable answer rather than half a question.
+          var demo = DEMOS[demoIndex];
+          typed.textContent = demo.q;
+          termA.textContent = demo.a;
+          termSql.textContent = demo.sql;
+          termOut.style.visibility = "visible";
+          showCaret(false);
+        } else {
+          play(demoIndex);
+        }
+      });
+    }
 
     /* JetBrains Mono is wider than the fallback, so a first measurement
        taken before it lands under-reserves and the panel still twitches.
