@@ -22,7 +22,7 @@ if (cardCounts.length === 0) {
 
 const total = cardCounts.reduce((sum, count) => sum + count, 0);
 const hero = html.match(
-  /<div class="metric-value" data-count="(\d+)">(\d+)<\/div>\s*<div class="metric-label">CI-verified tests<\/div>/i,
+  /<div class="metric-value" data-count="(\d+)">(\d+)<\/div>\s*<div class="metric-label">CI-verified tests[^<]*<\/div>/i,
 );
 
 if (!hero) {
