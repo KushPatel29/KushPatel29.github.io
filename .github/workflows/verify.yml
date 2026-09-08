@@ -60,6 +60,13 @@ jobs:
       - name: The footer's privacy claim must match what the page loads
         run: node tools/check-analytics.mjs
 
+      # Five CTAs on this page hand over a PDF. It had drifted into saying the
+      # Two Rivers role was current while the experience section said it ended,
+      # and into naming a different city than the byline. Nothing could see it:
+      # every other gate reads index.html, and the PDF had no source to read.
+      - name: The résumé must not contradict the page that links it
+        run: node tools/check-resume.mjs
+
   demos:
     name: External links and live demos
     runs-on: ubuntu-latest
