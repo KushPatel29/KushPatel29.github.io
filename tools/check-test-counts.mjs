@@ -50,4 +50,40 @@ if (
   process.exit(1);
 }
 
+/*
+   A card can also print its test count a second time, in a "CI TESTS" stat
+   tile a few centimetres under its own badge. Nothing read those tiles, so
+   three of them sat at numbers the cards had long outgrown -- healthcare
+   showed 182 against 171, migration 88 against 11. On a page whose whole
+   argument is that its numbers are checked, a card disagreeing with itself
+   is the most expensive kind of stale. Each tile must equal the badge on
+   the card it belongs to.
+*/
+const cards = [...html.matchAll(/<article\b[^>]*\bid="(p-[a-z-]+)"[\s\S]*?<\/article>/gi)];
+const tileMismatches = [];
+
+for (const [cardHtml, cardId] of cards) {
+  const badge = cardHtml.match(
+    /<(?:p|li)\s+class="(?:card-tests|tag-tests)">\s*(\d+)(?:\s+dbt)?\s+tests\b/i,
+  );
+  if (!badge) continue;
+
+  for (const tile of cardHtml.matchAll(
+    /<div class="stat-v">([\d,]+)<\/div>\s*<div class="stat-k">[^<]*\bTESTS?\b[^<]*<\/div>/gi,
+  )) {
+    const tileCount = Number(tile[1].replaceAll(",", ""));
+    if (tileCount !== Number(badge[1])) {
+      tileMismatches.push(`${cardId}: badge ${badge[1]}, stat tile ${tile[1]}`);
+    }
+  }
+}
+
+if (tileMismatches.length > 0) {
+  console.error(`\n✗ ${tileMismatches.length} card(s) disagree with themselves:`);
+  for (const line of tileMismatches) console.error(`    ${line}`);
+  console.error("  a card's CI TESTS tile must match its own badge");
+  process.exit(1);
+}
+
+console.log(`stat tiles:     ${cards.length} cards scanned, every CI TESTS tile matches its badge`);
 console.log("✓ every published test total reconciles");

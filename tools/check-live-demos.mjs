@@ -51,6 +51,18 @@ const UA_BROWSER =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
   "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36";
 
+/* Demos advertised in a repository README but never linked from this page.
+   They used to fall outside this gate entirely, because it only reads the
+   two pages above -- and cost-to-price-calculator duly went to sleep while
+   its README still called it a "Live app" and the project section here sent
+   readers to that repo by name. A demo is a claim wherever it is published,
+   so the ones this site does not itself link are listed explicitly. */
+const OFF_PAGE_DEMOS = [
+  ["https://cost-to-price-calculator.streamlit.app", "cost-to-price-calculator README"],
+  ["https://inventory-analytics-app.onrender.com", "inventory-analytics-app README"],
+  ["https://wholesale-analytics-platform.onrender.com", "wholesale-analytics-platform README"],
+];
+
 function externalLinks() {
   const found = new Map();
   for (const page of PAGES) {
@@ -61,6 +73,9 @@ function externalLinks() {
       const url = m[1].replace(/#.*$/, "");
       if (!found.has(url)) found.set(url, page);
     }
+  }
+  for (const [url, where] of OFF_PAGE_DEMOS) {
+    if (!found.has(url)) found.set(url, where);
   }
   return [...found.entries()].sort();
 }
