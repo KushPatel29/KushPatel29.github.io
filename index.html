@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!-- ============================================================
      Hand-built by Kush Patel. No framework, no build step, no
-     tracker. Every number on this page is CI-verified in the repo
-     it comes from. Everything you can read here is real HTML —
-     nothing on this page is drawn by JavaScript.
+     tracker. Project workflows check their documented benchmarks.
+     All portfolio content is accessible in the HTML, with optional
+     JavaScript enhancements for filtering, animation and previews.
      ============================================================ -->
 <html lang="en-CA" data-theme="dark">
 <head>
@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel — Data Analyst / BI &amp; Analytics Engineer | Power BI, SQL, Azure, Microsoft Fabric, dbt</title>
-<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 4885 CI-verified tests: no claim without a number, and no number without a test.">
+<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 4885 CI-verified tests across twelve featured projects using reproducible synthetic data.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 4885 CI-verified tests, one rule: no claim without a number, and no number without a test that fails if it stops being true.">
+<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 4885 CI-verified tests across twelve featured projects using reproducible synthetic data.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public repos, 4885 CI-verified tests, one rule: no claim without a number, and no number without a test.">
+<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 4885 CI-verified tests across twelve featured projects using reproducible synthetic data.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -197,7 +197,7 @@
       "url": "https://kushpatel29.github.io/#p-customer-rec",
       "codeRepository": "https://github.com/KushPatel29/Customer-Recommendation-Engine",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "Collaborative filtering beat a two-stage gradient-boosted ranker on a customer-disjoint holdout, so the simpler model ships and a CI test fails if it ever stops winning. Served with FastAPI and Docker. The analytics layer walks list price down to what reached the bank through five named off-invoice terms, measures the pocket-price band across customers, and decomposes revenue into price, volume and mix on both invoice revenue and pocket margin.",
+      "description": "Collaborative filtering beat a two-stage gradient-boosted ranker on a warm-customer basket holdout, with customer-disjoint training for the ranker. The fixed benchmark is checked in CI. Served with FastAPI and Docker. The analytics layer walks list price down to what reached the bank through five named off-invoice terms, measures the pocket-price band across customers, and decomposes revenue into price, volume and mix on both invoice revenue and pocket margin.",
       "keywords": "scikit-learn, FastAPI, MLflow, Docker, recommender systems, A/B testing"
     },
     {
@@ -261,15 +261,13 @@
       <span class="brand-name">Kush Patel</span>
     </a>
 
-    <nav class="nav-links" aria-label="Sections">
-      <a href="#domains">Domains</a>
-      <a href="#work">Work</a>
-      <a href="#skills">Skills</a>
-      <a href="#method">Method</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <nav class="nav-links" aria-label="Sections"><a href="#work">Work</a>
+<a href="#experience">Experience</a>
+<a href="#skills">Skills</a>
+<a href="#domains">Domains</a>
+<a href="#method">Method</a>
+<a href="#education">Education</a>
+<a href="#contact">Contact</a></nav>
 
     <div class="nav-actions">
       <!-- Under 900px the section links above are hidden and this takes over:
@@ -280,16 +278,13 @@
           <span class="nav-menu-bars" aria-hidden="true"></span>
           <span>MENU</span>
         </summary>
-        <nav class="nav-menu-panel" aria-label="Sections (compact)">
-          <a href="#domains">Domains</a>
-          <a href="#work">Work</a>
-          <a href="#skills">Skills index</a>
-          <a href="#method">Method</a>
-          <a href="#experience">Experience</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
-          <a href="https://github.com/KushPatel29" target="_blank" rel="noopener">GitHub ↗</a>
-        </nav>
+        <nav class="nav-menu-panel" aria-label="Sections (compact)"><a href="#work">Work</a>
+<a href="#experience">Experience</a>
+<a href="#skills">Skills index</a>
+<a href="#domains">Domains</a>
+<a href="#method">Method</a>
+<a href="#education">Education</a>
+<a href="#contact">Contact</a><a href="https://github.com/KushPatel29" target="_blank" rel="noopener">GitHub ↗</a></nav>
       </details>
 
       <a class="nav-resume" href="assets/Kush-Patel-Resume.pdf" download>
@@ -314,10 +309,7 @@
         BI · ANALYTICS ENGINEERING · DATA ENGINEERING — OPEN ACROSS CANADA
       </p>
 
-      <h1>
-        Every number on a dashboard should be able to
-        <em>prove itself.</em>
-      </h1>
+      <h1>Data Analyst &amp;<br>BI / Analytics Engineer</h1>
 
       <div class="byline">
         <img class="byline-photo" src="assets/kush-patel.jpg" width="60" height="60"
@@ -328,32 +320,8 @@
         </span>
       </div>
 
-      <p class="lede lede-open">
-        For four years I've been the analyst people call when the numbers disagree.
-      </p>
-
-      <p class="lede lede-2">
-        Finance, when the P&amp;L didn't tie. Sales Ops, when a rep's quota
-        attainment looked wrong. The warehouse, when the WMS and the ledger
-        disagreed about what was actually on the shelf. Usually all three were
-        right — they'd just never agreed what the number meant.
-      </p>
-
-      <p class="lede lede-2">
-        I came to analytics from a computer science degree, so the fix I reached
-        for was an engineering one: agree the definition, build it once, write the
-        test that fails when it drifts. A Master's in Analytics filled in the
-        statistics. The conviction came from the phone — a dashboard nobody trusts
-        is worse than no dashboard at all.
-      </p>
-
-      <p class="lede lede-2">
-        Everything below is the receipt. Repos that rebuild themselves from a fixed
-        seed and re-run their own proofs on every push: <strong>no claim without a
-        number, no number without a test that fails the build the moment it stops
-        being true.</strong> Each one documents what it still gets wrong, which is
-        usually the more interesting half.
-      </p>
+      <p class="lede lede-open">Power BI, SQL, Python and Microsoft Fabric.</p>
+      <p class="lede lede-2">4+ years building reporting for finance, sales and supply chain. I turn operational data into governed models, reconciled metrics and dashboards people can use to make decisions.</p>
 
       <p class="availability">
         <span class="availability-dot" aria-hidden="true"></span>
@@ -362,12 +330,12 @@
       </p>
 
       <div class="cta-row">
-        <a class="btn btn-primary" href="#work">See the work ↓</a>
+        <a class="btn btn-primary" href="#work">View selected projects ↓</a>
         <a class="btn btn-resume" href="assets/Kush-Patel-Resume.pdf" download>
           <span aria-hidden="true">↓</span> Download Resume <span class="btn-sub">PDF</span>
         </a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/kush-patel-48885719b/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a class="btn btn-ghost" href="mailto:dharma.patel552@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="mailto:dharma.patel552@gmail.com">Contact me</a>
       </div>
     </div>
 
@@ -378,7 +346,8 @@
         <span class="dot dot-red" aria-hidden="true"></span>
         <span class="dot dot-amber" aria-hidden="true"></span>
         <span class="dot dot-green" aria-hidden="true"></span>
-        <span class="terminal-title">ask-your-data · app/cli.py</span>
+        <span class="terminal-title">Ask Your Data · example query</span>
+        <button type="button" id="terminal-motion" class="terminal-motion" aria-pressed="false" hidden>Pause animation</button>
       </figcaption>
       <div class="terminal-body">
         <!-- The first exchange cycles through the golden questions (main.js
@@ -392,7 +361,7 @@ WHERE verdict = 'GO'</pre>
         </div>
         <p class="t-q t-q-2">&gt; delete all denied claims</p>
         <p class="t-refuse">I can't do that — this is a read-only interface.<span class="caret" id="t-caret-rest" aria-hidden="true"></span></p>
-        <p class="terminal-note">Not a screenshot — the question, the SQL and the answer are all pinned by golden-question tests in CI.</p>
+        <p class="terminal-note">Recorded example from the tested query contract. Try your own question in the Ask Your Data demo.</p>
       </div>
     </figure>
   </section>
@@ -401,7 +370,7 @@ WHERE verdict = 'GO'</pre>
   <section class="metrics" aria-label="Portfolio at a glance">
     <div class="metric">
       <div class="metric-value" data-count="14">14</div>
-      <div class="metric-label">public repos</div>
+      <div class="metric-label">public project repos</div>
     </div>
     <div class="metric">
       <div class="metric-value" data-count="4885">4885</div>
@@ -418,92 +387,11 @@ WHERE verdict = 'GO'</pre>
   </section>
 
   <!-- ============ DOMAINS ============ -->
-  <section id="domains" class="section" aria-label="Reporting domains">
-    <p class="eyebrow">01 — WHAT I ACTUALLY GET ASKED</p>
-    <h2>I'm not a finance analyst who wandered into ops. I've owned the whole reporting surface.</h2>
-    <p class="section-sub">Twelve domains, and the same discipline under all of them: one definition per metric, written down, tested, and labelled with its basis — so the meeting argues about the business instead of about whose number is right. Each tile is a question I've actually been handed, and the model I built so nobody had to ask twice. <strong>Every tile links to the project that demonstrates it.</strong></p>
-
-    <div class="domain-grid">
-      <a class="domain" href="#p-dbt">
-        <div class="domain-head"><span class="domain-n">01</span><h3>Sales Operations &amp; Rep Performance</h3></div>
-        <p class="domain-ask">“Why did we miss the number — and who's actually performing?”</p>
-        <p class="domain-answer">Pipeline-to-invoice reporting with governed quota, attainment and mix logic, so the variance conversation starts from an agreed baseline instead of three competing extracts — and rep scorecards normalised for territory potential and account mix, with the definitions locked so nobody can re-cut them mid-quarter.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Customer Recommendation Engine · Supply Chain Analytics — dbt · Retail Analytics Platform</p>
-      </a>
-      <a class="domain" href="#p-customer-rec">
-        <div class="domain-head"><span class="domain-n">02</span><h3>Customer Analytics</h3></div>
-        <p class="domain-ask">“Which customers are quietly leaving?”</p>
-        <p class="domain-answer">Cohort retention, RFM segmentation, order-frequency decay and margin-by-customer — with retention and churn reported as <em>rates</em> rather than counts, revenue-weighted alongside logo, and net revenue retention decomposed into new, expansion, contraction and churned. Plus the recommender that proves a simple model can beat a clever one.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Customer Recommendation Engine · Retail Analytics Platform</p>
-      </a>
-      <a class="domain" href="#p-dbt">
-        <div class="domain-head"><span class="domain-n">03</span><h3>Product &amp; Assortment</h3></div>
-        <p class="domain-ask">“Which SKUs earn their shelf space?”</p>
-        <p class="domain-answer">SKU-level velocity, contribution margin, cannibalisation and long-tail analysis; assortment views that separate products that sell from products that merely move.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Analytics — dbt</p>
-      </a>
-      <a class="domain" href="#p-ask-your-data">
-        <div class="domain-head"><span class="domain-n">04</span><h3>Vendor Performance</h3></div>
-        <p class="domain-ask">“Which suppliers are costing us more than they invoice?”</p>
-        <p class="domain-answer">Vendor scorecards on fill rate, lead-time variance, price adherence and quality claims — landed-cost impact quantified rather than argued.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Ask Your Data</p>
-      </a>
-      <a class="domain" href="#p-control-tower">
-        <div class="domain-head"><span class="domain-n">05</span><h3>Supply Chain Planning</h3></div>
-        <p class="domain-ask">“How much should we be holding, and where?”</p>
-        <p class="domain-answer">Demand forecasting, inventory turns, days-on-hand and safety-stock coverage across a perishable network — and a forecast that is <em>scored against actuals</em> rather than published and forgotten, reporting variance, MAPE, signed bias and hit rate. Plus the medallion pipeline and control tower that make the whole chain observable in one place.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Control Tower · Retail Analytics Platform</p>
-      </a>
-      <a class="domain" href="#p-control-tower">
-        <div class="domain-head"><span class="domain-n">06</span><h3>Warehouse &amp; Logistics</h3></div>
-        <p class="domain-ask">“Does the system match the shelf — and did it arrive on time?”</p>
-        <p class="domain-answer">Cycle-count accuracy, bin utilisation, pick/pack throughput and FEFO expiry-risk for perishables, with lot traceability that answers a recall question in minutes — then OTIF decomposed by lane, carrier and failure reason, with freight cost per case and the difference between a late truck and a late promise.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Control Tower</p>
-      </a>
-      <a class="domain" href="#p-healthcare">
-        <div class="domain-head"><span class="domain-n">07</span><h3>AP &amp; AR</h3></div>
-        <p class="domain-ask">“What do we owe, and what will we actually collect?”</p>
-        <p class="domain-answer">Aging, DPO/DSO, invoice-match exceptions and credit exposure — receivable turnover on an average balance, an aging book that reconciles to the receivable it ages, and payables overdue as a share of total. On the AR side, an NRV model that prices open receivables at what they'll realistically bank.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Health System Decision Support · Retail Analytics Platform</p>
-      </a>
-      <a class="domain" href="#p-gl-recon">
-        <div class="domain-head"><span class="domain-n">08</span><h3>GL / P&amp;L Reconciliation</h3></div>
-        <p class="domain-ask">“Why doesn't the subledger tie to the GL?”</p>
-        <p class="domain-answer">Automated ERP-vs-subledger controls that classify discrepancies, trace every dollar of variance to source, and make month-end an audit instead of a hunt — alongside a full statement layer: an income statement, a balance sheet, and a gross-to-net bridge that answers “is this gross or net?” in one line.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> GL / P&amp;L Reconciliation · Retail Analytics Platform</p>
-      </a>
-      <a class="domain" href="#p-migration">
-        <div class="domain-head"><span class="domain-n">09</span><h3>Data Engineering &amp; BI Platform</h3></div>
-        <p class="domain-ask">“Can we trust the pipeline this all sits on?”</p>
-        <p class="domain-answer">Bronze→Silver→Gold pipelines in Fabric/ADF/Synapse and dbt, star-schema models, semantic layers, RLS/OLS, and CI that breaks the build when the data drifts.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Legacy-to-Fabric Migration · Retail Analytics Platform</p>
-      </a>
-      <a class="domain" href="#p-ask-your-data">
-        <div class="domain-head"><span class="domain-n">10</span><h3>AI &amp; Machine Learning</h3></div>
-        <p class="domain-ask">“Is there a model here, or just a metric?”</p>
-        <p class="domain-answer">Forecasting, churn and flight-risk classification, recommenders, survival analysis and grounded LLM/text-to-SQL work — held to honest holdouts, fairness gates and a baseline it has to beat before it ships.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Ask Your Data</p>
-      </a>
-      <a class="domain" href="#p-hr-attrition">
-        <div class="domain-head"><span class="domain-n">11</span><h3>HR &amp; People Analytics</h3></div>
-        <p class="domain-ask">“What is labour actually costing us, and who is about to leave?”</p>
-        <p class="domain-answer">Time-and-attendance integration and punch-to-payroll reconciliation, labour cost per unit produced, overtime exposure and schedule-vs-actual variance — plus headcount, turnover and flight-risk modelling held to a fairness gate before anyone sees a name.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> HR Attrition Analytics</p>
-      </a>
-      <a class="domain" href="#p-marketing">
-        <div class="domain-head"><span class="domain-n">12</span><h3>Marketing &amp; Growth Analytics</h3></div>
-        <p class="domain-ask">“Which channel actually earned that sale?”</p>
-        <p class="domain-answer">Funnel and cohort reporting, LTV against acquisition cost, and multi-touch attribution graded against a known answer rather than argued about — with a geo holdout and a power calculation for the questions attribution genuinely cannot settle.</p>
-        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Marketing Attribution &amp; Incrementality · Retail Analytics Platform</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- ============ WORK ============ -->
   <section id="work" class="section" aria-label="Projects">
-    <p class="eyebrow">02 — THE WORK</p>
-    <h2>Twelve featured projects from fourteen public repos. Every one started with a question somebody actually asked me at work.</h2>
-    <p class="section-sub">Each repo rebuilds itself from seeded synthetic data on every push — no PHI, no real customers, no real employees. If a sentence in a README stops being true, the build goes red and I find out before you do. A green badge means it <em>runs today</em>, not that it worked once on my laptop. The two public utilities outside this twelve-project showcase are the <a href="https://github.com/KushPatel29/cost-to-price-calculator" target="_blank" rel="noopener">cost-to-price calculator</a> and <a href="https://github.com/KushPatel29/inventory-analytics-app" target="_blank" rel="noopener">inventory analytics app</a>.</p>
+    <p class="eyebrow">SELECTED WORK</p>
+    <h2>Selected work in BI and analytics engineering</h2>
+    <p class="section-sub">Start with Retail Analytics, GL Reconciliation and the Supply Chain Control Tower. All project results use seeded synthetic data; dollar outcomes are modelled, not employer-realized savings. Repository workflows check documented invariants at their linked commits.</p>
+    <p class="demo-note">Demo taking time to load? Hosted apps may need to wake up. Every project has an expandable screenshot and source code here, so you can inspect the work immediately.</p>
 
     <!-- Start-here router -->
     <div class="router">
@@ -536,6 +424,8 @@ WHERE verdict = 'GO'</pre>
         <button type="button" class="chip" data-filter="supply" aria-pressed="false">SUPPLY CHAIN &amp; PLATFORM</button>
         <button type="button" class="chip" data-filter="customer" aria-pressed="false">CUSTOMER &amp; SALES</button>
         <button type="button" class="chip" data-filter="ai" aria-pressed="false">AI &amp; ML</button>
+        <button type="button" class="chip" data-filter="health" aria-pressed="false">HEALTHCARE</button>
+        <button type="button" class="chip" data-filter="people" aria-pressed="false">PEOPLE ANALYTICS</button>
       </div>
       <!-- Server-rendered fallback for anything that doesn't run JS. main.js
            recomputes this from document.querySelectorAll(".project").length,
@@ -553,7 +443,8 @@ WHERE verdict = 'GO'</pre>
 
         <div class="flagship-body">
           <div>
-            <p class="feature-body"><strong class="report-label">Scope.</strong> A retail chain's merchandising and replenishment platform, not a dashboard: incremental ETL into a day-partitioned parquet lake, a DuckDB query layer, row-level security down to one manager's own store book, and sixteen pages published as a prerendered site that makes no request on load.</p>
+            <details class="case-details"><summary>Read the case study</summary>
+            <p class="feature-body"><strong class="report-label">Scope.</strong> A retail chain's merchandising and replenishment platform, not a dashboard: incremental ETL into a day-partitioned parquet lake, a DuckDB query layer, row-level security down to one manager's own store book, and sixteen pages published as a prerendered site with no runtime data requests.</p>
 
             <p class="feature-body"><strong class="report-label">Method.</strong> Every metric that appears on more than one page is defined once. The catalogue governs <strong>62 definitions — 47 implemented</strong> with a formula, grain, source, owner and gross-or-net basis, and <strong>15 withheld</strong>, each naming the source system it would need. Then the check that matters: query every page's bundle under one filter and diff every shared KPI.</p>
 
@@ -562,6 +453,7 @@ WHERE verdict = 'GO'</pre>
             <p class="feature-body"><strong class="report-label">Actions.</strong> Both cost expressions corrected and the eleven cells wired to the payload that already held them. The KPI diff is now a test that fails the build on either defect. Forecast accuracy leads with <strong>WAPE 11.6%</strong> and a 40% hit rate from a rolling-origin backtest, with MAPE demoted to a labelled diagnostic because small SKU-month denominators make it least reliable where it looks most alarming.</p>
 
             <p class="feature-body"><strong class="report-label">Limitations.</strong> <strong>ROMI is withheld</strong>: spend and wins exist, exposure and a counterfactual do not, and the standard formula would credit marketing with every dollar the company moved. Inventory turnover appears twice on different bases, each stated on screen rather than quietly reconciled. Excess and dead stock need a SKU×date snapshot the order-line grain cannot give, so they are absent instead of wrong.</p>
+            </details>
           </div>
 
           <div class="flagship-aside">
@@ -572,7 +464,7 @@ WHERE verdict = 'GO'</pre>
               <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
             </button>
 
-            <div class="flagship-metrics">
+            <details class="case-details flagship-metrics"><summary>Inspect the reported metrics</summary>
               <p class="fm-source">Read off the <a href="https://kushpatel29.github.io/wholesale-analytics-platform/" target="_blank" rel="noopener">live site</a> on its default Current FY scope, 1 Sep 2026 — so every figure is one click from being checked.</p>
               <div class="fm-group">
                 <p class="fm-head">Commercial</p>
@@ -604,7 +496,7 @@ WHERE verdict = 'GO'</pre>
               </div>
             </div>
           </div>
-        </div>
+        </details>
 
         <ul class="tags">
           <li>Python</li>
@@ -625,7 +517,7 @@ WHERE verdict = 'GO'</pre>
           <div><div class="stat-v">5</div><div class="stat-k">PAGE BUNDLES RECONCILED</div></div>
         </div>
         <div class="cta-row">
-          <a class="btn btn-primary btn-mono" href="https://kushpatel29.github.io/wholesale-analytics-platform/" target="_blank" rel="noopener">OPEN THE LIVE SITE ↗</a>
+          <a class="btn btn-primary btn-mono" href="https://kushpatel29.github.io/wholesale-analytics-platform/" target="_blank" rel="noopener">BROWSE DASHBOARDS ↗</a>
           <a class="btn btn-ghost btn-mono" href="https://kushpatel29.github.io/wholesale-analytics-platform/metrics/" target="_blank" rel="noopener">SEE THE CATALOGUE ↗</a>
           <a class="btn btn-ghost btn-mono" href="https://github.com/KushPatel29/wholesale-analytics-platform" target="_blank" rel="noopener">READ THE STORY ↗</a>
         </div>
@@ -636,8 +528,63 @@ WHERE verdict = 'GO'</pre>
 
     <!-- The rest -->
     <div class="card-grid">
-
-      <article class="project card" id="p-ask-your-data" data-tags="ai">
+<article class="project card" id="p-gl-recon" data-tags="finance">
+        <button type="button" class="card-zoom" data-zoom="assets/gl-recon.jpg"
+                aria-label="Enlarge: GL reconciliation close scorecard dashboard">
+          <img src="assets/gl-recon.jpg" width="1280" height="743" loading="lazy" decoding="async"
+               alt="GL reconciliation close scorecard dashboard — variance classes and tie-out status">
+          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
+        </button>
+        <div class="card-body">
+          <div class="card-head">
+            <p class="kicker">FINANCE-GRADE · CONTROLS</p>
+            <p class="card-tests">350 tests ✓</p>
+          </div>
+          <h3>GL / P&amp;L Reconciliation</h3>
+          <p class="outcome">Month-end becomes an audit trail instead of a manual variance hunt.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">Month-end used to mean hunting a variance by hand. This engine finds four classes of discrepancy between ERP and subledger and proves every dollar traces back to source. Then, unmodified, I pointed it at a FOCUS-format cloud bill for FinOps chargeback — because a reconciliation is a reconciliation. It now also asks the question reconciliation cannot: were the entries posted under control? All 5,400 are tested, not a sample of forty — and each test is scored against a population it should not fire on, so <em>3 of 8 are reported as non-findings</em> rather than as hundreds of exceptions nobody would read.</p></details>
+          <div class="card-stats">
+            <div><div class="stat-v">4</div><div class="stat-k">DISCREPANCY CLASSES</div></div>
+            <div><div class="stat-v">100%</div><div class="stat-k">VARIANCE TRACED</div></div>
+            <div><div class="stat-v">88%</div><div class="stat-k">OF SELF-APPROVALS: 2 PEOPLE</div></div>
+          </div>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> The same engine, unmodified, reconciles a FOCUS-format cloud bill — the logic is portable, not bespoke · 33% of exceptions were closed without fixing anything upstream, so they come back next month</p>
+          <ul class="tags">
+            <li>T-SQL</li>
+            <li>SQLite</li>
+            <li>Power BI</li>
+            <li>Tableau</li>
+          </ul>
+          <a class="card-open" href="https://github.com/KushPatel29/gl-reconciliation-dashboard" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+<article class="project card" id="p-control-tower" data-tags="supply">
+        <button type="button" class="card-zoom" data-zoom="assets/control-tower.jpg"
+                aria-label="Enlarge: Supply Chain Control Tower executive overview dashboard">
+          <img src="assets/control-tower.jpg" width="1280" height="743" loading="lazy" decoding="async"
+               alt="Supply Chain Control Tower — executive overview dashboard in Power BI, showing OTIF, inventory and fill-rate KPIs">
+          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
+        </button>
+        <div class="card-body">
+          <p class="kicker">DATA PLATFORM · FABRIC PATTERNS</p>
+          <h3>Supply Chain Control Tower</h3>
+          <p class="outcome">Bad data gets caught at the boundary — and the network's real problem turns out to be where the stock is, not how much.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">Bad data doesn't announce itself; it quietly changes a number an executive already screenshotted. So this pipeline defends in three layers — schema contracts stop drift before Bronze, poisoned rows quarantine with replay, a quality gate guards Gold — and CI proves each layer by <em>injecting the exact failure it exists to catch</em>. On top of it sits the analysis a multinational actually runs: an approved vendor list across nine countries (3 SKUs have no plan B; one origin carries 27% of COGS), OTIF decomposed into the two failures it hides (short-shipping, not lateness, is the bigger driver), and a planner's stock position where <em>the shortfall grew 17% while total stock barely moved</em> — the network rotating inventory into the lanes that need it least. Then the inbound half: 3,106 purchase-order lines scored on delivery, quality, cost and responsiveness against published targets rather than against each other, where <em>9 of 15 suppliers sit in a different band than their contract calls them</em> — the contractual tier is never an input to the score, so the gap is a measurement, not a restatement. And the service policy nobody had ever priced: the textbook ABC ladder, applied at constant spend, <em>loses 0.57 points of unit fill</em>, because it protects revenue and a fill rate on units is not revenue.</p></details>
+          <ul class="tags">
+            <li>PySpark</li>
+            <li>Delta Lake</li>
+            <li>Power BI</li>
+            <li class="tag-tests">404 tests ✓</li>
+          </ul>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 10M-row Delta benchmark · 3 defence tiers, each proven by an injected failure · 8-page control tower · 25% of the replenishment gap needs no purchase order · $1,239,065 modelled working-capital release at identical service</p>
+          <a class="card-open" href="https://github.com/KushPatel29/supply-chain-control-tower" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+</div>
+    <details id="more-projects" class="section-details more-projects">
+      <summary>Explore 9 more projects — AI, healthcare, people analytics and data platforms</summary>
+      <div class="card-grid">
+<article class="project card" id="p-ask-your-data" data-tags="ai">
         <button type="button" class="card-zoom" data-zoom="assets/ask-your-data.jpg"
                 aria-label="Enlarge: Ask Your Data — a spoken answer with its binding trace and the SQL beneath it">
           <img src="assets/ask-your-data.jpg" width="1280" height="670" loading="lazy" decoding="async"
@@ -648,7 +595,7 @@ WHERE verdict = 'GO'</pre>
           <p class="kicker">CAPSTONE · GOVERNED AI</p>
           <h3>Ask Your Data</h3>
           <p class="outcome">Ask 71 tables a question — typed or spoken — and audit the SQL behind every number.</p>
-          <p class="card-text">One rule: <em>no number without a query</em>. The live demo has no API key and does not need one — a deterministic compiler binds your words to the warehouse's own columns, values and join graph, and on its 58-question contract it is right <strong>100% of the time it answers</strong>, refusing the other twelve rather than guess. Add a key and a language model writes the SQL instead, through the same read-only guard, structural verifier and access policy; its prose is then checked back against the returned rows, so a sentence cannot quote a number the query never produced. Six certified metrics carry an owner and a CI-asserted value. Speech runs <em>inside the process</em> on open models, so it listens and answers aloud with no account and no second service.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">One rule: <em>no number without a query</em>. The live demo has no API key and does not need one — a deterministic compiler binds your words to the warehouse's own columns, values and join graph, and its 58-question contract records <strong>46 correct answers, 0 incorrect and 12 refusals</strong>. This measures the fixed contract, not accuracy on every possible question. Add a key and a language model writes the SQL instead, through the same read-only guard, structural verifier and access policy; its prose is then checked back against the returned rows, so a sentence cannot quote a number the query never produced. Six certified metrics carry an owner and a CI-asserted value. Speech runs <em>inside the process</em> on open models, so it listens and answers aloud with no account and no second service.</p></details>
           <ul class="tags">
             <li>Python</li>
             <li>DuckDB</li>
@@ -661,32 +608,7 @@ WHERE verdict = 'GO'</pre>
           <a class="card-open" href="https://github.com/KushPatel29/ask-your-data" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
-
-      <article class="project card" id="p-control-tower" data-tags="supply">
-        <button type="button" class="card-zoom" data-zoom="assets/control-tower.jpg"
-                aria-label="Enlarge: Supply Chain Control Tower executive overview dashboard">
-          <img src="assets/control-tower.jpg" width="1280" height="743" loading="lazy" decoding="async"
-               alt="Supply Chain Control Tower — executive overview dashboard in Power BI, showing OTIF, inventory and fill-rate KPIs">
-          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
-        </button>
-        <div class="card-body">
-          <p class="kicker">DATA PLATFORM · FABRIC PATTERNS</p>
-          <h3>Supply Chain Control Tower</h3>
-          <p class="outcome">Bad data gets caught at the boundary — and the network's real problem turns out to be where the stock is, not how much.</p>
-          <p class="card-text">Bad data doesn't announce itself; it quietly changes a number an executive already screenshotted. So this pipeline defends in three layers — schema contracts stop drift before Bronze, poisoned rows quarantine with replay, a quality gate guards Gold — and CI proves each layer by <em>injecting the exact failure it exists to catch</em>. On top of it sits the analysis a multinational actually runs: an approved vendor list across nine countries (3 SKUs have no plan B; one origin carries 27% of COGS), OTIF decomposed into the two failures it hides (short-shipping, not lateness, is the bigger driver), and a planner's stock position where <em>the shortfall grew 17% while total stock barely moved</em> — the network rotating inventory into the lanes that need it least. Then the inbound half: 3,106 purchase-order lines scored on delivery, quality, cost and responsiveness against published targets rather than against each other, where <em>9 of 15 suppliers sit in a different band than their contract calls them</em> — the contractual tier is never an input to the score, so the gap is a measurement, not a restatement. And the service policy nobody had ever priced: the textbook ABC ladder, applied at constant spend, <em>loses 0.57 points of unit fill</em>, because it protects revenue and a fill rate on units is not revenue.</p>
-          <ul class="tags">
-            <li>PySpark</li>
-            <li>Delta Lake</li>
-            <li>Power BI</li>
-            <li class="tag-tests">404 tests ✓</li>
-          </ul>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 10M-row Delta benchmark · 3 defence tiers, each proven by an injected failure · 8-page control tower · 25% of the replenishment gap needs no purchase order · $1,239,065 of working capital released at identical service</p>
-          <a class="card-open" href="https://github.com/KushPatel29/supply-chain-control-tower" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
-
-
-      <article class="project card" id="p-aml-monitoring" data-tags="finance ai">
+<article class="project card" id="p-aml-monitoring" data-tags="finance ai">
         <button type="button" class="card-zoom" data-zoom="assets/aml-triage.jpg"
                 aria-label="Enlarge: transaction monitoring triage console, case queue">
           <img src="assets/aml-triage.jpg" width="1280" height="981" loading="lazy" decoding="async"
@@ -700,13 +622,13 @@ WHERE verdict = 'GO'</pre>
           </div>
           <h3>Transaction Monitoring</h3>
           <p class="outcome">Every planted case found, on a third fewer alerts than a flat $10,000 threshold.</p>
-          <p class="card-text">A $10,000 reporting threshold catches 38 of 60 cases and raises 555 alerts doing it — and it cannot see structuring at all, because structuring is under $10,000 by definition. Five explainable rules over an unsupervised model find all 60 on 366 alerts. The honest half is in the README: ablation shows the anomaly model lifts ranking 49% but saves 1.8% at the operating point, so it earns its place on triage <em>order</em>, not on the accept/reject decision.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">A $10,000 reporting threshold catches 38 of 60 cases and raises 555 alerts doing it — and it cannot see structuring at all, because structuring is under $10,000 by definition. Five explainable rules over an unsupervised model find all 60 on 366 alerts. The honest half is in the README: ablation shows the anomaly model lifts ranking 49% but saves 1.8% at the operating point, so it earns its place on triage <em>order</em>, not on the accept/reject decision.</p></details>
           <div class="card-stats">
             <div><div class="stat-v">60/60</div><div class="stat-k">CASES FOUND</div></div>
             <div><div class="stat-v">0.774</div><div class="stat-k">PR-AUC</div></div>
             <div><div class="stat-v">−90%</div><div class="stat-k">EXPECTED COST</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 17 SQL features proven equal to their Python twins on all 100,299 rows; precision, recall and cost floors gate every push.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 16.4% precision at 100% planted-case recall. Cost estimates are illustrative; 17 SQL features are cross-checked against Python on 100,299 rows.</p>
           <ul class="tags">
             <li>Python</li>
             <li>SQLite</li>
@@ -717,8 +639,7 @@ WHERE verdict = 'GO'</pre>
           <a class="card-open" href="https://github.com/KushPatel29/aml-transaction-monitoring" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
-
-      <article class="project card" id="p-marketing" data-tags="customer ai">
+<article class="project card" id="p-marketing" data-tags="customer ai">
         <button type="button" class="card-zoom" data-zoom="assets/marketing-attribution.jpg"
                 aria-label="Enlarge: marketing attribution console comparing six models against a planted ground truth">
           <img src="assets/marketing-attribution.jpg" width="1280" height="943" loading="lazy" decoding="async"
@@ -732,7 +653,7 @@ WHERE verdict = 'GO'</pre>
           </div>
           <h3>Marketing Attribution &amp; Incrementality</h3>
           <p class="outcome">I built a dataset where the right answer is known — then watched every attribution model fail to find it.</p>
-          <p class="card-text">Attribution is the one analytics discipline where everybody argues and nobody can check, because the counterfactual isn't in the data. So this generates one: each user carries a fixed random draw, and a channel's true contribution is measured by re-running that same draw with its touches deleted. Six models compete. The exact Shapley value and a Markov chain both lose to a 40/20/40 heuristic — because every model that reads only a journey log sees how often a channel was <em>present</em>, never whether it caused anything. Last-touch hands <em>direct</em> a quarter of all conversions against a true share of 1.9%. A second act asks the same questions of a B2B SaaS motion — CRM pipeline, an ARR waterfall, NRR versus GRR, quota and capacity — and finds the segment with the fastest cycle and the best coverage is the one that loses money.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">Attribution is the one analytics discipline where everybody argues and nobody can check, because the counterfactual isn't in the data. So this generates one: each user carries a fixed random draw, and a channel's true contribution is measured by re-running that same draw with its touches deleted. Six models compete. The exact Shapley value and a Markov chain both lose to a 40/20/40 heuristic — because every model that reads only a journey log sees how often a channel was <em>present</em>, never whether it caused anything. Last-touch hands <em>direct</em> a quarter of all conversions against a true share of 1.9%. A second act asks the same questions of a B2B SaaS motion — CRM pipeline, an ARR waterfall, NRR versus GRR, quota and capacity — and finds the segment with the fastest cycle and the best coverage is the one that loses money.</p></details>
           <div class="card-stats">
             <div><div class="stat-v">13×</div><div class="stat-k">LAST-TOUCH OVERCREDIT</div></div>
             <div><div class="stat-v">5.76</div><div class="stat-k">BEST MODEL ERROR (PTS)</div></div>
@@ -750,8 +671,7 @@ WHERE verdict = 'GO'</pre>
           <a class="card-open" href="https://github.com/KushPatel29/marketing-attribution-analytics" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
-
-      <article class="project card" id="p-healthcare" data-tags="finance ai">
+<article class="project card" id="p-healthcare" data-tags="finance health">
         <button type="button" class="card-zoom" data-zoom="assets/healthcare-spc.jpg"
                 aria-label="Enlarge: health authority ALC, patient flow and statistical process control page">
           <img src="assets/healthcare-spc.jpg" width="1280" height="760" loading="lazy" decoding="async"
@@ -765,7 +685,7 @@ WHERE verdict = 'GO'</pre>
           </div>
           <h3>Health System Decision Support</h3>
           <p class="outcome">The same evidence recommends funding the programme — and refuses to — depending on how you count a bed day.</p>
-          <p class="card-text">Two health systems, one standard. A Canadian authority asks what a weighted case costs, how many beds hold people who no longer need acute care, and whether this month's readmission rate is signal or noise — so the SPC uses Laney's correction, because the metric everyone reports is 4.6× overdispersed and a naive chart fires 41 false signals across 19 of 24 months. The economic evaluation comes out <em>dominant</em> on one costing perspective and $192k/QALY on the other, and the business case says both. The US side prices $3.8M of open AR at the ~$1.7M it will actually collect — then asks the three questions a denial rate cannot: which paid, clean claims came in <em>under contract</em> ($120k across three payer/service-line cells), which denials are worth appealing (a missing-information denial overturns at 82%, a timely-filing one at 11%), and whether revenue rose on volume, price or mix — here all volume, with revenue per claim <em>falling</em> as it grew.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">Two health systems, one standard. A Canadian authority asks what a weighted case costs, how many beds hold people who no longer need acute care, and whether this month's readmission rate is signal or noise — so the SPC uses Laney's correction, because the metric everyone reports is 4.6× overdispersed and a naive chart fires 41 false signals across 19 of 24 months. The economic evaluation comes out <em>dominant</em> on one costing perspective and $192k/QALY on the other, and the business case says both. The US side prices $3.8M of open AR at the ~$1.7M it will actually collect — then asks the three questions a denial rate cannot: which paid, clean claims came in <em>under contract</em> ($120k across three payer/service-line cells), which denials are worth appealing (a missing-information denial overturns at 82%, a timely-filing one at 11%), and whether revenue rose on volume, price or mix — here all volume, with revenue per claim <em>falling</em> as it grew.</p></details>
           <div class="card-stats">
             <div><div class="stat-v">39,567</div><div class="stat-k">DISCHARGES MODELLED</div></div>
             <div><div class="stat-v">56.9</div><div class="stat-k">ALC BED EQUIVALENTS</div></div>
@@ -781,8 +701,7 @@ WHERE verdict = 'GO'</pre>
           <a class="card-open" href="https://github.com/KushPatel29/healthcare-claims-analytics" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
-
-      <article class="project card" id="p-clinical" data-tags="finance">
+<article class="project card" id="p-clinical" data-tags="health">
         <button type="button" class="card-zoom" data-zoom="assets/clinical-dashboard/overview.png"
                 aria-label="Enlarge: live Clinical Evidence Console overview">
           <img src="assets/clinical-dashboard/overview.png" width="1280" height="720" loading="lazy" decoding="async"
@@ -797,7 +716,7 @@ WHERE verdict = 'GO'</pre>
           </div>
           <h3>Clinical Evidence Console + FHIR Warehouse</h3>
           <p class="outcome">Two regulated-data systems, one rule: every claim needs ground truth and a test that can fail.</p>
-          <p class="card-text">A live Streamlit evidence console now connects both halves. One cohort definition drives enrollment, query operations, SDTM safety, coding and vital-sign review; fixed FHIR views trace a deterministic 10,000-patient Synthea run through validation, raw SQL Server JSON, 3NF and a Kimball star with SCD Type 2 history. The interface keeps every claim attached to its denominator, source artifact and limitation.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">A live Streamlit evidence console now connects both halves. One cohort definition drives enrollment, query operations, SDTM safety, coding and vital-sign review; fixed FHIR views trace a deterministic 10,000-patient Synthea run through validation, raw SQL Server JSON, 3NF and a Kimball star with SCD Type 2 history. The interface keeps every claim attached to its denominator, source artifact and limitation.</p></details>
           <div class="clinical-proof-strip" aria-label="Additional Clinical Evidence Console views">
             <button type="button" class="card-zoom clinical-proof-shot" data-zoom="assets/clinical-dashboard/quality-site-102.png"
                     aria-label="Enlarge: SITE-102 query quality drilldown">
@@ -817,7 +736,7 @@ WHERE verdict = 'GO'</pre>
             <div><div class="stat-v">1.66M</div><div class="stat-k">FHIR RESOURCES</div></div>
             <div><div class="stat-v">10</div><div class="stat-k">T-SQL DQ GATES</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> CI starts SQL Server 2022, builds the sample warehouse, plants a DQ failure to prove the gate closes, measures real execution plans, regenerates the documentation, and runs all 224 invariants.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> CI starts SQL Server 2022, builds the sample warehouse, plants a DQ failure to prove the gate closes, measures real execution plans, regenerates the documentation, and checks the warehouse invariants alongside the console tests; the badge above counts the complete suite.</p>
           <ul class="tags">
             <li>Python</li>
             <li>HL7 FHIR R4</li>
@@ -829,8 +748,7 @@ WHERE verdict = 'GO'</pre>
           <a class="card-open" href="https://github.com/KushPatel29/clinical-data-management" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
-
-      <article class="project card" id="p-customer-rec" data-tags="customer ai">
+<article class="project card" id="p-customer-rec" data-tags="customer ai">
         <button type="button" class="card-zoom" data-zoom="assets/customer-rec.jpg"
                 aria-label="Enlarge: Customer analytics dashboard, sales overview page">
           <img src="assets/customer-rec.jpg" width="1280" height="743" loading="lazy" decoding="async"
@@ -843,14 +761,14 @@ WHERE verdict = 'GO'</pre>
             <p class="card-tests">300 tests ✓</p>
           </div>
           <h3>Customer Recommendation Engine</h3>
-          <p class="outcome">The simpler recommender ships because it wins — and CI fails if it ever stops winning.</p>
-          <p class="card-text">I built the impressive thing first: two-stage retrieval with a gradient-boosted ranker, 80.0% recall@10. Plain collaborative filtering got 84.9%. So the simple one ships, the fancy one stays in the repo as evidence, and a CI test fails if the winner ever stops winning. Served with FastAPI + Docker, read in a 9-page Power BI app — which now goes past invoice revenue, where every commercial dashboard stops. The price lever everyone governs weekly moved this book by 0.08%; the off-invoice terms nobody re-reads moved it by 4.27%, and <em>pocket margin spans 8.4 points across customers buying the same catalogue at the same prices</em>. Revenue is decomposed into price, volume and mix — reconciling to the cent — and run again on pocket margin, which is what catches a book growing its way onto accounts whose terms cost more.</p>
+          <p class="outcome">Collaborative filtering recovered 84.9% of hidden items in its top ten recommendations.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">I built the impressive thing first: two-stage retrieval with a gradient-boosted ranker, 80.0% recall@10. Plain collaborative filtering got 84.9%. The simpler model serves the demo. CI guards the fixed benchmark; a stronger validated challenger can replace it. Served with FastAPI + Docker, read in a 9-page Power BI app — which now goes past invoice revenue, where every commercial dashboard stops. The price lever everyone governs weekly moved this book by 0.08%; the off-invoice terms nobody re-reads moved it by 4.27%, and <em>pocket margin spans 8.4 points across customers buying the same catalogue at the same prices</em>. Revenue is decomposed into price, volume and mix — reconciling to the cent — and run again on pocket margin, which is what catches a book growing its way onto accounts whose terms cost more.</p></details>
           <div class="card-stats">
             <div><div class="stat-v">84.9%</div><div class="stat-k">RECALL@10 SHIPPED</div></div>
             <div><div class="stat-v">80.0%</div><div class="stat-k">RANKER THAT LOST</div></div>
             <div><div class="stat-v">$27k</div><div class="stat-k">RECOVERABLE, NO PRICE CHANGE</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> A CI test fails the build if the shipped baseline ever stops beating the challenger.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Warm-customer basket holdout; the ranker uses separate customer-disjoint label training. Offline recall does not measure sales lift.</p>
           <ul class="tags">
             <li>scikit-learn</li>
             <li>FastAPI</li>
@@ -860,8 +778,7 @@ WHERE verdict = 'GO'</pre>
           <a class="card-open" href="https://github.com/KushPatel29/Customer-Recommendation-Engine" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
-
-      <article class="project card" id="p-hr-attrition" data-tags="ai">
+<article class="project card" id="p-hr-attrition" data-tags="people ai">
         <button type="button" class="card-zoom" data-zoom="assets/hr-attrition.jpg"
                 aria-label="Enlarge: HR workforce scorecard dashboard">
           <img src="assets/hr-attrition.jpg" width="1280" height="835" loading="lazy" decoding="async"
@@ -875,7 +792,7 @@ WHERE verdict = 'GO'</pre>
           </div>
           <h3>HR Attrition Analytics</h3>
           <p class="outcome">A 4.5% gender pay gap that is mostly the exchange rate, and attrition that follows the manager rather than the market.</p>
-          <p class="card-text">People data raises the stakes, so the guardrails came before the model: k-anonymity masking, a disparate-impact gate in CI (four-fifths rule plus Fisher's exact), survival analysis honest about censoring, and a flight-risk model that uses zero protected attributes. Across 2,800 people in eight countries the standard metrics stop working: pay is set to each local market, so most of a level's apparent gap is geography (Senior Manager reads 18.2% pooled, 3.4% inside a country); an attrition rate counts a managed-out low performer the same as a resigning star, and <em>56% of every exit happens in the first year</em>. "Attrition clusters by manager" is held to a permutation test that passed with the effect switched off twice before it controlled for market <em>and</em> seniority.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">People data raises the stakes, so the guardrails came before the model: k-anonymity masking, a disparate-impact gate in CI (four-fifths rule plus Fisher's exact), survival analysis honest about censoring, and a flight-risk model that uses zero protected attributes. Across 2,800 people in eight countries the standard metrics stop working: pay is set to each local market, so most of a level's apparent gap is geography (Senior Manager reads 18.2% pooled, 3.4% inside a country); an attrition rate counts a managed-out low performer the same as a resigning star, and <em>56% of every exit happens in the first year</em>. "Attrition clusters by manager" is held to a permutation test that passed with the effect switched off twice before it controlled for market <em>and</em> seniority.</p></details>
           <div class="card-stats">
             <div><div class="stat-v">0</div><div class="stat-k">PROTECTED ATTRS USED</div></div>
             <div><div class="stat-v">8</div><div class="stat-k">LABOUR MARKETS</div></div>
@@ -890,8 +807,7 @@ WHERE verdict = 'GO'</pre>
           <a class="card-open" href="https://github.com/KushPatel29/hr-attrition-analytics" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
-
-      <article class="project card" id="p-dbt" data-tags="supply">
+<article class="project card" id="p-dbt" data-tags="supply">
         <button type="button" class="card-zoom" data-zoom="assets/dbt-lineage.jpg"
                 aria-label="Enlarge: dbt lineage graph, staging through to marts">
           <img src="assets/dbt-lineage.jpg" width="1280" height="720" loading="lazy" decoding="async"
@@ -905,7 +821,7 @@ WHERE verdict = 'GO'</pre>
           </div>
           <h3>Supply Chain Analytics — dbt</h3>
           <p class="outcome">Finance and Ops stop arguing about revenue because there is one versioned definition.</p>
-          <p class="card-text">The answer to “why does Finance's revenue number differ from Ops'?” is usually that there are two definitions. This is one definition, versioned: dbt Core from staging to marts on dual DuckDB/Snowflake profiles, incremental models, SCD2 snapshots, a MetricFlow semantic layer, and an Airflow DAG that CI loads and checks the shape of.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">The answer to “why does Finance's revenue number differ from Ops'?” is usually that there are two definitions. This is one definition, versioned: dbt Core from staging to marts on dual DuckDB/Snowflake profiles, incremental models, SCD2 snapshots, a MetricFlow semantic layer, and an Airflow DAG that CI loads and checks the shape of.</p></details>
           <div class="card-stats">
             <div><div class="stat-v">2</div><div class="stat-k">WAREHOUSE PROFILES</div></div>
             <div><div class="stat-v">SCD2</div><div class="stat-k">SNAPSHOT HISTORY</div></div>
@@ -920,39 +836,7 @@ WHERE verdict = 'GO'</pre>
           <a class="card-open" href="https://github.com/KushPatel29/supply-chain-analytics-dbt" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
-
-      <article class="project card" id="p-gl-recon" data-tags="finance">
-        <button type="button" class="card-zoom" data-zoom="assets/gl-recon.jpg"
-                aria-label="Enlarge: GL reconciliation close scorecard dashboard">
-          <img src="assets/gl-recon.jpg" width="1280" height="743" loading="lazy" decoding="async"
-               alt="GL reconciliation close scorecard dashboard — variance classes and tie-out status">
-          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
-        </button>
-        <div class="card-body">
-          <div class="card-head">
-            <p class="kicker">FINANCE-GRADE · CONTROLS</p>
-            <p class="card-tests">350 tests ✓</p>
-          </div>
-          <h3>GL / P&amp;L Reconciliation</h3>
-          <p class="outcome">Month-end becomes an audit trail instead of a manual variance hunt.</p>
-          <p class="card-text">Month-end used to mean hunting a variance by hand. This engine finds four classes of discrepancy between ERP and subledger and proves every dollar traces back to source. Then, unmodified, I pointed it at a FOCUS-format cloud bill for FinOps chargeback — because a reconciliation is a reconciliation. It now also asks the question reconciliation cannot: were the entries posted under control? All 5,400 are tested, not a sample of forty — and each test is scored against a population it should not fire on, so <em>3 of 8 are reported as non-findings</em> rather than as hundreds of exceptions nobody would read.</p>
-          <div class="card-stats">
-            <div><div class="stat-v">4</div><div class="stat-k">DISCREPANCY CLASSES</div></div>
-            <div><div class="stat-v">100%</div><div class="stat-k">VARIANCE TRACED</div></div>
-            <div><div class="stat-v">88%</div><div class="stat-k">OF SELF-APPROVALS: 2 PEOPLE</div></div>
-          </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> The same engine, unmodified, reconciles a FOCUS-format cloud bill — the logic is portable, not bespoke · 33% of exceptions were closed without fixing anything upstream, so they come back next month</p>
-          <ul class="tags">
-            <li>T-SQL</li>
-            <li>SQLite</li>
-            <li>Power BI</li>
-            <li>Tableau</li>
-          </ul>
-          <a class="card-open" href="https://github.com/KushPatel29/gl-reconciliation-dashboard" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
-
-      <article class="project card" id="p-migration" data-tags="supply">
+<article class="project card" id="p-migration" data-tags="supply">
         <button type="button" class="card-zoom" data-zoom="assets/migration.jpg"
                 aria-label="Enlarge: Migration command centre dashboard, parallel-run validation and cutover gate">
           <img src="assets/migration.jpg" width="1280" height="743" loading="lazy" decoding="async"
@@ -966,7 +850,7 @@ WHERE verdict = 'GO'</pre>
           </div>
           <h3>Legacy-to-Fabric Migration</h3>
           <p class="outcome">A cutover nobody has to take on faith — old and new run side by side until a gate decides.</p>
-          <p class="card-text">Nobody signs off on a migration because the new pipeline looks nicer. So old and new run side by side, row for row, and a GO/NO-GO gate makes the call. The negative tests are the real deliverable: I break the data on purpose to prove the validator catches dropped rows, offsetting errors, and phantom keys.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">Nobody signs off on a migration because the new pipeline looks nicer. So old and new run side by side, row for row, and a GO/NO-GO gate makes the call. The negative tests are the real deliverable: I break the data on purpose to prove the validator catches dropped rows, offsetting errors, and phantom keys.</p></details>
           <div class="card-stats">
             <div><div class="stat-v">107</div><div class="stat-k">ARTIFACTS VALIDATED</div></div>
             <div><div class="stat-v">GO/NO-GO</div><div class="stat-k">CUTOVER GATE</div></div>
@@ -981,9 +865,9 @@ WHERE verdict = 'GO'</pre>
           <a class="card-open" href="https://github.com/KushPatel29/legacy-to-fabric-migration" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
-
-    </div>
-
+</div>
+</details>
+<p class="demo-note">More operational tools: <a href="https://github.com/KushPatel29/cost-to-price-calculator" target="_blank" rel="noopener">Cost-to-Price Calculator</a> and <a href="https://github.com/KushPatel29/inventory-analytics-app" target="_blank" rel="noopener">Inventory Analytics</a>.</p>
     <p class="work-empty" id="work-empty" hidden>No repos in that discipline yet — try <strong>ALL WORK</strong>.</p>
 
     <a class="profile-cta" href="https://github.com/KushPatel29" target="_blank" rel="noopener">
@@ -994,11 +878,128 @@ WHERE verdict = 'GO'</pre>
       <span class="profile-cta-link">github.com/KushPatel29 ↗</span>
     </a>
   </section>
+<section id="experience" class="section" aria-label="Experience">
+    <p class="eyebrow">EXPERIENCE</p>
+    <h2>Professional experience</h2>
+    <p class="section-sub">Paid roles in operational and financial reporting; project-only tools are distinguished in the skills index.</p>
 
-  <!-- ============ SKILLS INDEX ============ -->
-  <section id="skills" class="section" aria-label="Skills index">
-    <p class="eyebrow">03 — SKILLS INDEX</p>
-    <h2>The scannable answer to “does he know X?”</h2>
+    <div class="xp-list">
+
+      <article class="xp">
+        <div class="xp-meta">
+          <p class="xp-period">
+            <time datetime="2023-12">DEC 2023</time> — <time datetime="2026-06">JUN 2026</time><span class="xp-dur">&nbsp;· 2 yrs 7 mos</span>
+          </p>
+          <h3>Two Rivers Specialty Meats</h3>
+          <p class="xp-title">Data Analyst — Operations, Logistics &amp; Enterprise Reporting</p>
+          <p class="xp-where">PERMANENT FULL-TIME · NORTH VANCOUVER, BC · ON-SITE</p>
+          <p class="xp-scope">SALES OPS · WMS · LOGISTICS · VENDOR · PRODUCT · AP/AR · GL/P&amp;L · PLATFORM</p>
+          <p class="xp-summary">I was the only analyst across a perishable-goods supply chain, so “my domain” meant whatever number the business needed to defend that week — from a rep's attainment to a lot recall to the month-end close.</p>
+          <ul class="tags">
+            <li>Power BI</li>
+            <li>DAX</li>
+            <li>T-SQL</li>
+            <li>PySpark</li>
+            <li>Microsoft Fabric</li>
+            <li>ADF</li>
+            <li>Synapse</li>
+            <li>SSIS/SSRS</li>
+            <li>Python</li>
+          </ul>
+        </div>
+        <p class="xp-highlights">Built governed Power BI reporting across sales, inventory and finance; owned Fabric / ADF / Synapse pipelines and reconciliation controls. Internal estimates: recurring discrepancies down ~45%, reporting errors down ~30%.</p>
+<details class="case-details xp-details"><summary>Responsibilities and examples</summary><div class="xp-groups">
+          <div class="xp-group">
+            <p class="xp-group-label"><span>SALES OPS &amp; REP PERFORMANCE</span></p>
+            <ul>
+              <li>Built the sales operations reporting layer — pipeline to invoice — with governed quota, attainment and product-mix logic, so monthly variance reviews argued about causes instead of whose extract was right.</li>
+              <li>Built rep and territory scorecards normalised for account mix and territory potential: attainment, coverage, win rate and margin per rep, with definitions locked in the model so they couldn't be re-cut mid-quarter.</li>
+            </ul>
+          </div>
+          <div class="xp-group">
+            <p class="xp-group-label"><span>CUSTOMER, PRODUCT &amp; VENDOR</span></p>
+            <ul>
+              <li>Delivered customer analytics for a churn-sensitive book of trade accounts — cohort retention, order-frequency decay, RFM segmentation and margin by customer — which surfaced quiet attrition long before the rep noticed.</li>
+              <li>Ran SKU and assortment analysis on velocity, contribution margin and cannibalisation, which fed real decisions about which products kept their slot.</li>
+              <li>Built vendor scorecards on fill rate, lead-time variance, price adherence and quality claims, and translated them into landed-cost impact so procurement negotiated with numbers instead of impressions.</li>
+            </ul>
+          </div>
+          <div class="xp-group">
+            <p class="xp-group-label"><span>WMS, INVENTORY &amp; LOGISTICS</span></p>
+            <ul>
+              <li>Built WMS reporting for warehouse operations — cycle-count accuracy, bin utilisation and pick/pack throughput — reconciling what the system claimed against what was actually on the shelf.</li>
+              <li>Developed FEFO and expiry-risk analytics plus lot traceability for perishable inventory, designed so a recall question could be answered in minutes rather than a day of spreadsheets.</li>
+              <li>Decomposed OTIF by lane, carrier and failure reason alongside freight cost per case and dock-to-stock timing, separating late trucks from over-promised delivery dates.</li>
+            </ul>
+          </div>
+          <div class="xp-group">
+            <p class="xp-group-label"><span>FINANCE — GL/P&amp;L, AP &amp; AR</span></p>
+            <ul>
+              <li>Sat with Sales, Finance and Supply Chain until we agreed on single definitions for P&amp;L/GL and operations KPIs — OTIF, inventory turns, days on hand — then built the Power BI star schemas and DAX that made those definitions the only ones available.</li>
+              <li>Built AP and AR reporting on aging, DPO/DSO, invoice-match exceptions and credit exposure, which gave Finance a working view of cash instead of a month-old snapshot.</li>
+              <li>Moved staffing decisions off gut feel with labour cost per case, overtime exposure and schedule-vs-actual variance — fed by a Synerion time-and-attendance API integration into the analytics warehouse, with punch-to-payroll reconciled so billed hours matched worked hours.</li>
+              <li>Automated the reconciliation controls we used to run by hand: recurring discrepancies down ~45%, reporting errors down ~30%.</li>
+            </ul>
+          </div>
+          <div class="xp-group">
+            <p class="xp-group-label"><span>DATA ENGINEERING &amp; GOVERNANCE</span></p>
+            <ul>
+              <li>Built Bronze→Silver→Gold pipelines in Fabric / ADF / Synapse with SQL and PySpark while keeping the legacy SSIS/SSRS estate alive — the migration repo is that experience, minus the 6am pages.</li>
+              <li>Owned the semantic layer: star-schema models, incremental refresh, and DAX measures reviewed like code rather than accumulated like sediment.</li>
+              <li>Implemented RLS/RBAC and column masking so cost, margin and people data only reached the people entitled to it, and documented it well enough to survive an audit.</li>
+            </ul>
+          </div>
+        </div></details></article>
+
+      <article class="xp">
+        <div class="xp-meta">
+          <p class="xp-period">
+            <time datetime="2020-12">DEC 2020</time> — <time datetime="2022-07">JUL 2022</time><span class="xp-dur">&nbsp;· 1 yr 8 mos</span>
+          </p>
+          <h3>Shivam Investments</h3>
+          <p class="xp-title">Financial Analyst — Data &amp; Reporting</p>
+          <p class="xp-where">PERMANENT FULL-TIME</p>
+          <p class="xp-scope">GL/P&amp;L · AP/AR · RECONCILIATION · AUTOMATION</p>
+          <p class="xp-summary">Where the reconciliation habit started: close cycles tight enough that a manual mistake showed up as a real number in front of real people.</p>
+          <ul class="tags">
+            <li>SQL</li>
+            <li>Python</li>
+            <li>Power BI</li>
+            <li>Excel</li>
+          </ul>
+        </div>
+        <p class="xp-highlights">Reconciled GL/P&amp;L and AP/AR reporting, then automated recurring analysis with Python, SQL and Power BI. Internal estimate: reporting effort down ~40%.</p>
+<details class="case-details xp-details"><summary>Responsibilities and examples</summary><div class="xp-groups">
+          <div class="xp-group">
+            <p class="xp-group-label"><span>CLOSE &amp; CONTROLS</span></p>
+            <ul>
+              <li>Reconciled GL/P&amp;L across sources every month and chased variances to source — the discipline the reconciliation repo later turned into a tested engine.</li>
+              <li>Worked AP and AR aging and exception reporting, tightening the follow-up loop on the accounts that were actually at risk.</li>
+            </ul>
+          </div>
+          <div class="xp-group">
+            <p class="xp-group-label"><span>AUTOMATION</span></p>
+            <ul>
+              <li>Replaced recurring manual analysis with Python + SQL feeding Power BI, cutting the effort around ~40% and freeing the month for questions worth asking.</li>
+              <li>Standardised the recurring reporting pack so each cycle started from the previous one's logic instead of a fresh workbook.</li>
+            </ul>
+          </div>
+        </div></details></article>
+
+    </div>
+
+    <!-- The site's whole argument is that claims carry their provenance.
+         These two roles predate the repos, so their numbers can't. -->
+    <p class="xp-caveat">
+      A note on the percentages above: the ~45%, ~30% and ~40% improvements are
+      internal estimates drawn from company reporting at the time. Unlike the
+      figures in the projects section, they aren't reproducible from a public
+      repo, and I'd treat them as directional rather than audited.
+    </p>
+  </section>
+<section id="skills" class="section" aria-label="Skills index">
+    <p class="eyebrow">SKILLS</p>
+    <h2>Tools and working practices</h2>
     <p class="section-sub">Nothing here is a self-assessment score out of five. Every item below appears somewhere above it — in a role I held or a repo you can open — and the last row is the list of things I've built with but never run in production, because that distinction matters more than the length of the list.</p>
 
     <div class="skills-grid">
@@ -1106,9 +1107,10 @@ WHERE verdict = 'GO'</pre>
     <div class="skill-honest">
       <p class="skill-honest-label">USED, NOT YET SHIPPED TO PRODUCTION</p>
       <p class="skill-honest-body">
-        These are built and tested in my own repos against seeded synthetic data — not
-        run against a live production workload with real users behind them. I'd rather
-        you knew which half of the list is which:
+        These appear in portfolio projects rather than paid production work.
+        Validation varies by tool: local pipelines run in CI; Airflow checks cover
+        DAG import and structure, and Snowflake configuration has not been exercised
+        against a live account.
       </p>
       <ul class="skill-list skill-list-dim">
         <li>dbt Core</li>
@@ -1127,18 +1129,99 @@ WHERE verdict = 'GO'</pre>
       <p class="skill-honest-foot">Everything not in this row was used in a paid role, on data other people made decisions with.</p>
     </div>
   </section>
+<section id="domains" class="section" aria-label="Reporting domains">
+    <p class="eyebrow">REPORTING DOMAINS</p>
+    <h2>Reporting across finance, sales and operations</h2>
+    <p class="section-sub">Twelve domains, and the same discipline under all of them: one definition per metric, written down, tested, and labelled with its basis — so the meeting argues about the business instead of about whose number is right. Each tile is a question I've actually been handed, and the model I built so nobody had to ask twice. <strong>Each tile links to a related implementation; its case study states the scope.</strong></p>
 
-  <!-- ============ METHOD ============ -->
-  <section id="method" class="section" aria-label="Method">
-    <p class="eyebrow">04 — THE METHOD</p>
+    <details class="section-details"><summary>Explore 12 reporting domains</summary>
+    <div class="domain-grid">
+      <a class="domain" href="#p-wholesale">
+        <div class="domain-head"><span class="domain-n">01</span><h3>Sales Operations &amp; Rep Performance</h3></div>
+        <p class="domain-ask">“Why did we miss the number — and who's actually performing?”</p>
+        <p class="domain-answer">Pipeline-to-invoice reporting with governed quota, attainment and mix logic, so the variance conversation starts from an agreed baseline instead of three competing extracts — and rep scorecards normalised for territory potential and account mix, with the definitions locked so nobody can re-cut them mid-quarter.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Retail Analytics Platform</p>
+      </a>
+      <a class="domain" href="#p-customer-rec">
+        <div class="domain-head"><span class="domain-n">02</span><h3>Customer Analytics</h3></div>
+        <p class="domain-ask">“Which customers are quietly leaving?”</p>
+        <p class="domain-answer">Cohort retention, RFM segmentation, order-frequency decay and margin-by-customer — with retention and churn reported as <em>rates</em> rather than counts, revenue-weighted alongside logo, and net revenue retention decomposed into new, expansion, contraction and churned. Plus the recommender that proves a simple model can beat a clever one.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Customer Recommendation Engine · Retail Analytics Platform</p>
+      </a>
+      <a class="domain" href="#p-dbt">
+        <div class="domain-head"><span class="domain-n">03</span><h3>Product &amp; Assortment</h3></div>
+        <p class="domain-ask">“Which SKUs earn their shelf space?”</p>
+        <p class="domain-answer">SKU-level velocity, contribution margin, cannibalisation and long-tail analysis; assortment views that separate products that sell from products that merely move.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Analytics — dbt</p>
+      </a>
+      <a class="domain" href="#p-control-tower">
+        <div class="domain-head"><span class="domain-n">04</span><h3>Vendor Performance</h3></div>
+        <p class="domain-ask">“Which suppliers are costing us more than they invoice?”</p>
+        <p class="domain-answer">Vendor scorecards on fill rate, lead-time variance, price adherence and quality claims — landed-cost impact quantified rather than argued.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Control Tower</p>
+      </a>
+      <a class="domain" href="#p-control-tower">
+        <div class="domain-head"><span class="domain-n">05</span><h3>Supply Chain Planning</h3></div>
+        <p class="domain-ask">“How much should we be holding, and where?”</p>
+        <p class="domain-answer">Demand forecasting, inventory turns, days-on-hand and safety-stock coverage across a perishable network — and a forecast that is <em>scored against actuals</em> rather than published and forgotten, reporting variance, MAPE, signed bias and hit rate. Plus the medallion pipeline and control tower that make the whole chain observable in one place.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Control Tower · Retail Analytics Platform</p>
+      </a>
+      <a class="domain" href="#p-control-tower">
+        <div class="domain-head"><span class="domain-n">06</span><h3>Warehouse &amp; Logistics</h3></div>
+        <p class="domain-ask">“Does the system match the shelf — and did it arrive on time?”</p>
+        <p class="domain-answer">Cycle-count accuracy, bin utilisation, pick/pack throughput and FEFO expiry-risk for perishables, with lot traceability that answers a recall question in minutes — then OTIF decomposed by lane, carrier and failure reason, with freight cost per case and the difference between a late truck and a late promise.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Supply Chain Control Tower</p>
+      </a>
+      <a class="domain" href="#p-healthcare">
+        <div class="domain-head"><span class="domain-n">07</span><h3>AP &amp; AR</h3></div>
+        <p class="domain-ask">“What do we owe, and what will we actually collect?”</p>
+        <p class="domain-answer">Aging, DPO/DSO, invoice-match exceptions and credit exposure — receivable turnover on an average balance, an aging book that reconciles to the receivable it ages, and payables overdue as a share of total. On the AR side, an NRV model that prices open receivables at what they'll realistically bank.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Health System Decision Support · Retail Analytics Platform</p>
+      </a>
+      <a class="domain" href="#p-gl-recon">
+        <div class="domain-head"><span class="domain-n">08</span><h3>GL / P&amp;L Reconciliation</h3></div>
+        <p class="domain-ask">“Why doesn't the subledger tie to the GL?”</p>
+        <p class="domain-answer">Automated ERP-vs-subledger controls that classify discrepancies, trace every dollar of variance to source, and make month-end an audit instead of a hunt — alongside a full statement layer: an income statement, a balance sheet, and a gross-to-net bridge that answers “is this gross or net?” in one line.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> GL / P&amp;L Reconciliation · Retail Analytics Platform</p>
+      </a>
+      <a class="domain" href="#p-migration">
+        <div class="domain-head"><span class="domain-n">09</span><h3>Data Engineering &amp; BI Platform</h3></div>
+        <p class="domain-ask">“Can we trust the pipeline this all sits on?”</p>
+        <p class="domain-answer">Bronze→Silver→Gold pipelines in Fabric/ADF/Synapse and dbt, star-schema models, semantic layers, RLS/OLS, and CI that breaks the build when the data drifts.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Legacy-to-Fabric Migration · Retail Analytics Platform</p>
+      </a>
+      <a class="domain" href="#p-ask-your-data">
+        <div class="domain-head"><span class="domain-n">10</span><h3>AI &amp; Machine Learning</h3></div>
+        <p class="domain-ask">“Is there a model here, or just a metric?”</p>
+        <p class="domain-answer">Forecasting, churn and flight-risk classification, recommenders, survival analysis and grounded LLM/text-to-SQL work — held to honest holdouts, fairness gates and a baseline it has to beat before it ships.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Ask Your Data</p>
+      </a>
+      <a class="domain" href="#p-hr-attrition">
+        <div class="domain-head"><span class="domain-n">11</span><h3>HR &amp; People Analytics</h3></div>
+        <p class="domain-ask">“What is labour actually costing us, and who is about to leave?”</p>
+        <p class="domain-answer">Time-and-attendance integration and punch-to-payroll reconciliation, labour cost per unit produced, overtime exposure and schedule-vs-actual variance — plus headcount, turnover and flight-risk modelling held to a fairness gate before anyone sees a name.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> HR Attrition Analytics</p>
+      </a>
+      <a class="domain" href="#p-marketing">
+        <div class="domain-head"><span class="domain-n">12</span><h3>Marketing &amp; Growth Analytics</h3></div>
+        <p class="domain-ask">“Which channel actually earned that sale?”</p>
+        <p class="domain-answer">Funnel and cohort reporting, LTV against acquisition cost, and multi-touch attribution graded against a known answer rather than argued about — with a geo holdout and a power calculation for the questions attribution genuinely cannot settle.</p>
+        <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> Marketing Attribution &amp; Incrementality · Retail Analytics Platform</p>
+      </a>
+    </div>
+    </details>
+  </section>
+<section id="method" class="section" aria-label="Method">
+    <p class="eyebrow">METHOD</p>
     <h2>My favourite results are the ones where I lost.</h2>
     <p class="section-sub">Anyone can show you the model that won. I'd rather show you the one I killed and the boring baseline that beat it, because choosing what <em>not</em> to ship is most of this job.</p>
 
+    <details class="section-details"><summary>Read my modelling and validation approach</summary>
     <div class="loss-grid">
       <div class="loss">
         <p class="loss-stat">84.9% &gt; 80.0%</p>
         <h3>The ranker lost</h3>
-        <p>Two-stage retrieval with a gradient-boosted ranker, beaten by plain collaborative filtering on a customer-disjoint holdout. Simplicity shipped, and a test now guards the result.</p>
+        <p>Two-stage retrieval with a gradient-boosted ranker, beaten by plain collaborative filtering on a warm-customer basket holdout; the ranker uses customer-disjoint label training. The fixed benchmark is checked in CI.</p>
       </div>
       <div class="loss">
         <p class="loss-stat">18.5% &lt; 19.6%</p>
@@ -1199,133 +1282,11 @@ WHERE verdict = 'GO'</pre>
     </div>
 
     <p class="method-close">Every repo has a short section on what I <em>deliberately didn't build</em>: no vector database where a SQL join was the right answer, no deep learning on 38 SKUs, no cloud architecture I couldn't defend in a budget meeting. Restraint is harder to demo than complexity, so I write it down.</p>
+    </details>
   </section>
-
-  <!-- ============ EXPERIENCE ============ -->
-  <section id="experience" class="section" aria-label="Experience">
-    <p class="eyebrow">05 — WHERE THE HABITS CAME FROM</p>
-    <h2>The repos are the clean version. These were the messy originals.</h2>
-    <p class="section-sub">Every technique in the repos above was learned somewhere with a deadline attached.</p>
-
-    <div class="xp-list">
-
-      <article class="xp">
-        <div class="xp-meta">
-          <p class="xp-period">
-            <time datetime="2023-12">DEC 2023</time> — <time datetime="2026-06">JUN 2026</time><span class="xp-dur">&nbsp;· 2 yrs 7 mos</span>
-          </p>
-          <h3>Two Rivers Specialty Meats</h3>
-          <p class="xp-title">Data Analyst — Operations, Logistics &amp; Enterprise Reporting</p>
-          <p class="xp-where">PERMANENT FULL-TIME · NORTH VANCOUVER, BC · ON-SITE</p>
-          <p class="xp-scope">SALES OPS · WMS · LOGISTICS · VENDOR · PRODUCT · AP/AR · GL/P&amp;L · PLATFORM</p>
-          <p class="xp-summary">I was the only analyst across a perishable-goods supply chain, so “my domain” meant whatever number the business needed to defend that week — from a rep's attainment to a lot recall to the month-end close.</p>
-          <ul class="tags">
-            <li>Power BI</li>
-            <li>DAX</li>
-            <li>T-SQL</li>
-            <li>PySpark</li>
-            <li>Microsoft Fabric</li>
-            <li>ADF</li>
-            <li>Synapse</li>
-            <li>SSIS/SSRS</li>
-            <li>Python</li>
-          </ul>
-        </div>
-        <div class="xp-groups">
-          <div class="xp-group">
-            <p class="xp-group-label"><span>SALES OPS &amp; REP PERFORMANCE</span></p>
-            <ul>
-              <li>Built the sales operations reporting layer — pipeline to invoice — with governed quota, attainment and product-mix logic, so monthly variance reviews argued about causes instead of whose extract was right.</li>
-              <li>Built rep and territory scorecards normalised for account mix and territory potential: attainment, coverage, win rate and margin per rep, with definitions locked in the model so they couldn't be re-cut mid-quarter.</li>
-            </ul>
-          </div>
-          <div class="xp-group">
-            <p class="xp-group-label"><span>CUSTOMER, PRODUCT &amp; VENDOR</span></p>
-            <ul>
-              <li>Delivered customer analytics for a churn-sensitive book of trade accounts — cohort retention, order-frequency decay, RFM segmentation and margin by customer — which surfaced quiet attrition long before the rep noticed.</li>
-              <li>Ran SKU and assortment analysis on velocity, contribution margin and cannibalisation, which fed real decisions about which products kept their slot.</li>
-              <li>Built vendor scorecards on fill rate, lead-time variance, price adherence and quality claims, and translated them into landed-cost impact so procurement negotiated with numbers instead of impressions.</li>
-            </ul>
-          </div>
-          <div class="xp-group">
-            <p class="xp-group-label"><span>WMS, INVENTORY &amp; LOGISTICS</span></p>
-            <ul>
-              <li>Built WMS reporting for warehouse operations — cycle-count accuracy, bin utilisation and pick/pack throughput — reconciling what the system claimed against what was actually on the shelf.</li>
-              <li>Developed FEFO and expiry-risk analytics plus lot traceability for perishable inventory, designed so a recall question could be answered in minutes rather than a day of spreadsheets.</li>
-              <li>Decomposed OTIF by lane, carrier and failure reason alongside freight cost per case and dock-to-stock timing, separating late trucks from over-promised delivery dates.</li>
-            </ul>
-          </div>
-          <div class="xp-group">
-            <p class="xp-group-label"><span>FINANCE — GL/P&amp;L, AP &amp; AR</span></p>
-            <ul>
-              <li>Sat with Sales, Finance and Supply Chain until we agreed on single definitions for P&amp;L/GL and operations KPIs — OTIF, inventory turns, days on hand — then built the Power BI star schemas and DAX that made those definitions the only ones available.</li>
-              <li>Built AP and AR reporting on aging, DPO/DSO, invoice-match exceptions and credit exposure, which gave Finance a working view of cash instead of a month-old snapshot.</li>
-              <li>Moved staffing decisions off gut feel with labour cost per case, overtime exposure and schedule-vs-actual variance — fed by a Synerion time-and-attendance API integration into the analytics warehouse, with punch-to-payroll reconciled so billed hours matched worked hours.</li>
-              <li>Automated the reconciliation controls we used to run by hand: recurring discrepancies down ~45%, reporting errors down ~30%.</li>
-            </ul>
-          </div>
-          <div class="xp-group">
-            <p class="xp-group-label"><span>DATA ENGINEERING &amp; GOVERNANCE</span></p>
-            <ul>
-              <li>Built Bronze→Silver→Gold pipelines in Fabric / ADF / Synapse with SQL and PySpark while keeping the legacy SSIS/SSRS estate alive — the migration repo is that experience, minus the 6am pages.</li>
-              <li>Owned the semantic layer: star-schema models, incremental refresh, and DAX measures reviewed like code rather than accumulated like sediment.</li>
-              <li>Implemented RLS/RBAC and column masking so cost, margin and people data only reached the people entitled to it, and documented it well enough to survive an audit.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <article class="xp">
-        <div class="xp-meta">
-          <p class="xp-period">
-            <time datetime="2020-12">DEC 2020</time> — <time datetime="2022-07">JUL 2022</time><span class="xp-dur">&nbsp;· 1 yr 8 mos</span>
-          </p>
-          <h3>Shivam Investments</h3>
-          <p class="xp-title">Financial Analyst — Data &amp; Reporting</p>
-          <p class="xp-where">PERMANENT FULL-TIME</p>
-          <p class="xp-scope">GL/P&amp;L · AP/AR · RECONCILIATION · AUTOMATION</p>
-          <p class="xp-summary">Where the reconciliation habit started: close cycles tight enough that a manual mistake showed up as a real number in front of real people.</p>
-          <ul class="tags">
-            <li>SQL</li>
-            <li>Python</li>
-            <li>Power BI</li>
-            <li>Excel</li>
-          </ul>
-        </div>
-        <div class="xp-groups">
-          <div class="xp-group">
-            <p class="xp-group-label"><span>CLOSE &amp; CONTROLS</span></p>
-            <ul>
-              <li>Reconciled GL/P&amp;L across sources every month and chased variances to source — the discipline the reconciliation repo later turned into a tested engine.</li>
-              <li>Worked AP and AR aging and exception reporting, tightening the follow-up loop on the accounts that were actually at risk.</li>
-            </ul>
-          </div>
-          <div class="xp-group">
-            <p class="xp-group-label"><span>AUTOMATION</span></p>
-            <ul>
-              <li>Replaced recurring manual analysis with Python + SQL feeding Power BI, cutting the effort around ~40% and freeing the month for questions worth asking.</li>
-              <li>Standardised the recurring reporting pack so each cycle started from the previous one's logic instead of a fresh workbook.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- The site's whole argument is that claims carry their provenance.
-         These two roles predate the repos, so their numbers can't. -->
-    <p class="xp-caveat">
-      A note on the percentages above: the ~45%, ~30% and ~40% improvements are
-      internal estimates drawn from company reporting at the time. Unlike the
-      figures in the projects section, they aren't reproducible from a public
-      repo, and I'd treat them as directional rather than audited.
-    </p>
-  </section>
-
-  <!-- ============ EDUCATION ============ -->
-  <section id="education" class="section" aria-label="Education and credentials">
-    <p class="eyebrow">06 — EDUCATION &amp; CREDENTIALS</p>
-    <h2>Formally trained in machine intelligence.</h2>
+<section id="education" class="section" aria-label="Education and credentials">
+    <p class="eyebrow">EDUCATION &amp; CREDENTIALS</p>
+    <h2>Education and credentials</h2>
 
     <div class="edu-grid">
       <div class="edu-main">
@@ -1376,7 +1337,7 @@ WHERE verdict = 'GO'</pre>
       <div class="cert">
         <span class="cert-dot" aria-hidden="true"></span>
         <div>
-          <h4>Google Data Analytics Professional Certificate</h4>
+          <h4><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/XZRHJQKA8B3M" target="_blank" rel="noopener">Google Data Analytics Professional Certificate ↗</a></h4>
           <p class="cert-code">GOOGLE · OCT 2023 · XZRHJQKA8B3M</p>
           <p class="cert-body">The full eight-course track plus the capstone case study — the end-to-end habit of ask, prepare, process, analyse, share, act.</p>
         </div>
@@ -1384,7 +1345,7 @@ WHERE verdict = 'GO'</pre>
       <div class="cert">
         <span class="cert-dot" aria-hidden="true"></span>
         <div>
-          <h4>SQL for Data Science</h4>
+          <h4><a href="https://www.coursera.org/account/accomplishments/certificate/02MQDX1MTDNZ" target="_blank" rel="noopener">SQL for Data Science ↗</a></h4>
           <p class="cert-code">UC DAVIS · JAN 2025 · 02MQDX1MTDNZ</p>
           <p class="cert-body">Window functions, CTEs and query profiling — the SQL that the HR and GL repos are actually written in.</p>
         </div>
@@ -1423,9 +1384,7 @@ WHERE verdict = 'GO'</pre>
       </div>
     </div>
   </section>
-
-  <!-- ============ CONTACT ============ -->
-  <section id="contact" class="section section-contact" aria-label="Contact">
+<section id="contact" class="section section-contact" aria-label="Contact">
     <div class="contact-panel">
       <div class="contact-rule" aria-hidden="true"></div>
       <div class="contact-inner">
