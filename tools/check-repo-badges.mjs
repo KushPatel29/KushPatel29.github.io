@@ -39,7 +39,6 @@ const TIMEOUT_MS = 20_000;
    simply nothing here to compare against, and inventing a second source of
    truth for them would be worse than saying so. */
 const NO_BADGE = new Set([
-  "wholesale-analytics-platform",
   "supply-chain-analytics-dbt",
 ]);
 
@@ -101,7 +100,8 @@ for (const { cardId, count, repo } of cards) {
   /* Thousands separators are percent-encoded in shields.io URLs: 1,098 is
      written tests-1%2C098%20passing. Strip the encoding, not the digits — a
      regex that grabs runs of digits also finds the "20" in %20passing. */
-  const m = body.match(/badge\/tests-([\d%C,]+)%20passing/i);
+  const m = body.match(/badge\/tests-([\d%C,]+)%20passing/i)
+    || body.match(/\|\s*\*\*Structure\*\*\s*\|[^\n]*?([\d,]+)\s+tests\b/i);
   if (!m) {
     bad.push(`${cardId}: ${repo}/README.md has no \`tests-N passing\` badge`);
     continue;
