@@ -112,7 +112,7 @@
       if (tag !== "all") more.open = true;
       var summary = more.querySelector("summary");
       if (summary) summary.textContent = tag === "all"
-        ? "Explore 9 more projects — AI, healthcare, people analytics and data platforms"
+        ? "Nine more projects — AI, healthcare, people analytics and data platforms"
         : "More projects matching this filter";
     }
 
