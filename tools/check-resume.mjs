@@ -108,6 +108,41 @@ compare(
     : null,
 );
 
+/* ---- 5. every per-project figure the résumé quotes ------------------ */
+/* The résumé names six projects and gives each a test count. Those are the
+   same numbers as the cards on the page, and they drift for the same reason
+   the totals do — except the totals are checked and these were not. The
+   retail figure sat at 1,391 against a card reading 1,408, which is exactly
+   the gap this file exists to close, one level down. */
+const cardCounts = new Map();
+for (const [cardHtml] of html.matchAll(/<article\b[^>]*\bid="p-[a-z-]+"[\s\S]*?<\/article>/gi)) {
+  const badge = cardHtml.match(/<(?:p|li)\s+class="(?:card-tests|tag-tests)">\s*(\d+)(?:\s+dbt)?\s+tests\b/i);
+  const repo = cardHtml.match(/github\.com\/KushPatel29\/([A-Za-z0-9_.-]+)/);
+  if (badge && repo) cardCounts.set(repo[1].toLowerCase(), Number(badge[1]));
+}
+
+/* The résumé states the count in the heading and the repository on the line
+   below it, so the count comes first. */
+const resumeFigures = [...resume.matchAll(
+  /([\d,]+)\s+tests\b[\s\S]{0,240}?github\.com\/KushPatel29\/([A-Za-z0-9_.-]+)/gi,
+)].map((m) => [m[0], m[2], m[1]]);
+const figureRows = [];
+for (const [, repo, count] of resumeFigures) {
+  const key = repo.toLowerCase();
+  const onCard = cardCounts.get(key);
+  if (onCard === undefined) continue;
+  const stated = Number(count.replaceAll(",", ""));
+  figureRows.push([`${repo} tests`, onCard, stated, onCard === stated]);
+}
+if (figureRows.length === 0) {
+  console.error("✗ no per-project test figures found in the résumé — has it changed shape?");
+  process.exit(1);
+}
+for (const [label, a, b, ok] of figureRows) {
+  rows.push([label, a, b, ok]);
+  if (!ok) failures.push(label);
+}
+
 const width = Math.max(...rows.map((r) => r[0].length));
 for (const [label, a, b, ok] of rows) {
   console.log(`${ok ? "✓" : "✗"} ${label.padEnd(width)}  site: ${String(a).padEnd(14)} résumé: ${b}`);
