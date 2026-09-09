@@ -84,7 +84,7 @@
   <li>Analytics engineer and BI analyst with 4+ years turning raw operational data — ERP, POS, WMS, CRM, REST feeds — into governed warehouse layers and the reports the business argues from. Sole analyst across a perishable-goods supply chain, owning everything from month-end GL reconciliation to lot-level traceability.</li>
   <li>Builds dimensional models on cloud warehouses (Microsoft Fabric, Azure Synapse, SQL Server) with Bronze/Silver/Gold medallion layers, conformed dimensions and SCD Type 1/2, orchestrated in Azure Data Factory and Fabric pipelines (Airflow in project work, not production).</li>
   <li>Delivers Power BI end to end — semantic model, DAX measure library, RLS/OLS, publish-ready reports — so Finance, Sales and Supply Chain self-serve from one definition instead of competing extracts.</li>
-  <li>Treats data quality as engineering. Twelve featured projects carry <b>5,025 automated tests</b> in CI, checking documented invariants and benchmark results. Fourteen public project repositories include reproducible synthetic data and implementation notes.</li>
+  <li>Treats data quality as engineering. Twelve featured projects carry <b>5,173 automated tests</b> in CI, checking documented invariants and benchmark results. Fourteen public project repositories include reproducible synthetic data and implementation notes.</li>
 </ul>
 
 <h2>Technical Skills</h2>
@@ -144,25 +144,25 @@
 </div>
 
 <div class="proj">
-  <div class="proj-head">Supply Chain Control Tower <span class="stack">— Microsoft Fabric, PySpark, Delta Lake, Power BI &middot; 409 tests</span></div>
+  <div class="proj-head">Supply Chain Control Tower <span class="stack">— Microsoft Fabric, PySpark, Delta Lake, Power BI &middot; 437 tests</span></div>
   <div class="proj-url">github.com/KushPatel29/supply-chain-control-tower</div>
   <p>A lakehouse medallion pipeline with a three-tier defence: versioned data contracts kill structural drift before Bronze, quarantine-and-replay isolates toxic rows, and a 20-check data-quality gate guards Gold — a critical failure halts publication. Adds global sourcing and King's-formula reorder points. Dynamic RLS and OLS verified by DAX impersonation against a pandas cross-check.</p>
 </div>
 
 <div class="proj">
-  <div class="proj-head">GL / P&amp;L Reconciliation &amp; Cloud Chargeback <span class="stack">— Python, SQL, Power BI, Tableau &middot; 350 tests</span></div>
+  <div class="proj-head">GL / P&amp;L Reconciliation &amp; Cloud Chargeback <span class="stack">— Python, SQL, Power BI, Tableau &middot; 368 tests</span></div>
   <div class="proj-url">github.com/KushPatel29/gl-reconciliation-dashboard</div>
   <p>Turns month-end into an audit trail instead of a manual variance hunt: 95.7% match rate, 230 exceptions and $823K impact, each classified missing, timing, amount or duplicate, with ten accounts flagged out of tolerance and a documented SOX control. A FinOps second act maps FOCUS-shaped cloud billing through the same engine unmodified, with allocation coverage tying to the penny. Ships a generated Tableau workbook verified against the Python results.</p>
 </div>
 
 <div class="proj">
-  <div class="proj-head">Health System Decision Support <span class="stack">— Python, Power BI, DAX, SPC &middot; 345 tests</span></div>
+  <div class="proj-head">Health System Decision Support <span class="stack">— Python, Power BI, DAX, SPC &middot; 375 tests</span></div>
   <div class="proj-url">github.com/KushPatel29/healthcare-claims-analytics</div>
   <p>CIHI-DAD-shaped activity with cost per weighted case, ALC bed equivalents and statistical process control using Laney's correction — because the readmission metric everyone reports is 4.6&times; overdispersed and a naive chart fires 41 false signals across 19 of 24 months. The US side prices $3.8M of open AR at the ~$1.7M it will actually collect. Fully synthetic; no PHI.</p>
 </div>
 
 <div class="proj">
-  <div class="proj-head">Legacy-to-Fabric Migration <span class="stack">— SQL Server, SSIS, SSRS, T-SQL, Fabric &middot; 88 tests</span></div>
+  <div class="proj-head">Legacy-to-Fabric Migration <span class="stack">— SQL Server, SSIS, SSRS, T-SQL, Fabric &middot; 101 tests</span></div>
   <div class="proj-url">github.com/KushPatel29/legacy-to-fabric-migration</div>
   <p>A cutover nobody has to take on faith: legacy SSIS/SSRS and the Fabric replacement run side by side, with row counts, checksums and control totals compared automatically and a gate that decides when the old system can be retired.</p>
 </div>
