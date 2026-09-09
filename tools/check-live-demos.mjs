@@ -175,14 +175,38 @@ if (links.length === 0) {
 
 let failures = 0;
 let sleeping = 0;
+let slow = 0;
+
+/* One retry, on failure only.
+   A free-tier Render dyno that has been idle for a fortnight can take longer
+   than the timeout above to answer its first request, and does answer the
+   second. That happened on 2026-09-09: thirty links, all reachable from a
+   laptop minutes later, and the build was red. A one-shot check against thirty
+   third-party hosts will do that periodically, and a gate that cries wolf is a
+   gate people stop reading.
+
+   This does not weaken it. A link that is genuinely dead fails twice, and one
+   that needed a second ask is reported as such rather than quietly passed —
+   a demo that takes a minute to wake is worth knowing about, just not worth
+   failing a build over. */
+async function checkTwice(url) {
+  const first = await check(url);
+  if (first.ok) return first;
+  await new Promise((r) => setTimeout(r, 5_000));
+  const second = await check(url);
+  return second.ok ? { ...second, retried: true } : second;
+}
 
 for (const [url, page] of links) {
-  const r = await check(url);
+  const r = await checkTwice(url);
   if (!r.ok) {
     failures += 1;
     console.error(
       `✗ ${url}  (${page})  ${r.status || r.error || "unreachable"}`,
     );
+  } else if (r.retried) {
+    slow += 1;
+    console.log(`✓ ${url}  ${r.status}  (answered on the second ask)`);
   } else if (r.asleep) {
     sleeping += 1;
     console.error(`⚠ ${url}  (${page})  200 but the app is asleep`);
@@ -193,7 +217,8 @@ for (const [url, page] of links) {
 
 console.log(
   `\n${links.length} external links checked, ` +
-    `${failures} unreachable, ${sleeping} asleep`,
+    `${failures} unreachable, ${sleeping} asleep` +
+    (slow ? `, ${slow} answered only on the second ask` : ""),
 );
 
 if (failures > 0 || (STRICT && sleeping > 0)) {
