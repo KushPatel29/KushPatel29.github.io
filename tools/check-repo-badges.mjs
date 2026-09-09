@@ -61,10 +61,34 @@ function cardsFromPage() {
 }
 
 async function readme(repo) {
+  /* raw.githubusercontent is a Fastly CDN serving `cache-control: max-age=300`.
+     A push that updates a repository's README and this page in the same minute
+     is then compared against the pre-push README on whichever edge answers,
+     which turned this job red on 2026-09-09 for a set of cards that were all
+     correct — curl read 203 from one edge while Node read 142 from another,
+     `x-cache: HIT`, for five minutes. The contents API is not served from that
+     cache, so ask it first; it is rate-limited when unauthenticated (CI passes
+     GITHUB_TOKEN, a laptop usually does not), which is why raw stays as the
+     fallback rather than the other way round. */
+  const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
+  const headers = { "user-agent": "check-repo-badges", "cache-control": "no-cache" };
+  if (token) headers.authorization = `Bearer ${token}`;
+
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/KushPatel29/${repo}/contents/README.md`,
+      { headers: { ...headers, accept: "application/vnd.github.raw" },
+        signal: AbortSignal.timeout(TIMEOUT_MS) },
+    );
+    if (res.ok) return await res.text();
+  } catch {
+    /* rate limited, offline, or the API is down — fall through to raw */
+  }
+
   for (const branch of ["main", "master"]) {
     const url = `https://raw.githubusercontent.com/KushPatel29/${repo}/${branch}/README.md`;
     try {
-      const res = await fetch(url, { signal: AbortSignal.timeout(TIMEOUT_MS) });
+      const res = await fetch(url, { headers, signal: AbortSignal.timeout(TIMEOUT_MS) });
       if (res.ok) return await res.text();
     } catch {
       /* try the other branch, then report unreachable */
