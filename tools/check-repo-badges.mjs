@@ -38,9 +38,12 @@ const TIMEOUT_MS = 20_000;
    counts are covered by the suite guard inside the repository itself; there is
    simply nothing here to compare against, and inventing a second source of
    truth for them would be worse than saying so. */
-const NO_BADGE = new Set([
-  "supply-chain-analytics-dbt",
-]);
+/* Repositories whose README states no test count at all. Empty, and worth
+   keeping empty: supply-chain-analytics-dbt sat here because its badge reads
+   `dbt tests-154 across 15 models` rather than `tests-N passing`, so the
+   exemption written for "has no badge" was quietly covering "has a badge this
+   file cannot parse" -- leaving the largest unverified number on the page. */
+const NO_BADGE = new Set([]);
 
 /* Card -> (badge, repo). Each card's own markup names the repository it
    links to, so the pairing is read off the page rather than hardcoded. */
@@ -123,8 +126,15 @@ for (const { cardId, count, repo } of cards) {
 
   /* Thousands separators are percent-encoded in shields.io URLs: 1,098 is
      written tests-1%2C098%20passing. Strip the encoding, not the digits — a
-     regex that grabs runs of digits also finds the "20" in %20passing. */
+     regex that grabs runs of digits also finds the "20" in %20passing, and
+     the "15" in the dbt badge's "across 15 models".
+
+     Three shapes, because three repositories state the number differently:
+       tests-659%20passing              the shields badge most repos carry
+       dbt%20tests-154%20across%2015…   the dbt project, counted by dbt build
+       | **Structure** | … 1,408 tests  the wholesale README's table row */
   const m = body.match(/badge\/tests-([\d%C,]+)%20passing/i)
+    || body.match(/badge\/dbt(?:%20|\s)tests-([\d%C,]+)%20across/i)
     || body.match(/\|\s*\*\*Structure\*\*\s*\|[^\n]*?([\d,]+)\s+tests\b/i);
   if (!m) {
     bad.push(`${cardId}: ${repo}/README.md has no \`tests-N passing\` badge`);
