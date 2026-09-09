@@ -85,5 +85,43 @@ if (tileMismatches.length > 0) {
   process.exit(1);
 }
 
+/*
+   A card can print its count a third time, in prose. The marketing card's
+   badge said 91 while the sentence four lines under it said 90 -- the badge
+   and the stat tile agreed with each other and with the repo, so every gate
+   above this one passed. On a page whose whole argument is that its numbers
+   are checked, a card contradicting itself in the paragraph a reader actually
+   reads is the most expensive kind of stale. Any count written as "N tests"
+   anywhere inside a card must equal that card's badge.
+*/
+const proseMismatches = [];
+
+for (const [cardHtml, cardId] of cards) {
+  const badge = cardHtml.match(
+    /<(?:p|li)\s+class="(?:card-tests|tag-tests)">\s*(\d+)(?:\s+dbt)?\s+tests\b/i,
+  );
+  if (!badge) continue;
+
+  const prose = cardHtml
+    .replace(/<(p|li)\s+class="(?:card-tests|tag-tests)">[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<[^>]+>/g, " ");
+
+  for (const hit of prose.matchAll(/([\d,]+)\s+(?:dbt\s+)?(?:unit\s+)?tests?\b/gi)) {
+    const said = Number(hit[1].replaceAll(",", ""));
+    if (said !== Number(badge[1])) {
+      proseMismatches.push(`${cardId}: badge ${badge[1]}, prose says ${hit[1]}`);
+    }
+  }
+}
+
+if (proseMismatches.length > 0) {
+  console.error(`\n✗ ${proseMismatches.length} card(s) contradict their own badge in prose:`);
+  for (const line of proseMismatches) console.error(`    ${line}`);
+  console.error("  a card's prose must not quote a test count its badge disagrees with");
+  process.exit(1);
+}
+
+console.log(`prose counts:   every "N tests" written inside a card matches its badge`);
+
 console.log(`stat tiles:     ${cards.length} cards scanned, every CI TESTS tile matches its badge`);
 console.log("✓ every published test total reconciles");
