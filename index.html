@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel — Data Analyst / BI &amp; Analytics Engineer | Power BI, SQL, Azure, Microsoft Fabric, dbt</title>
-<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 6432 Automated tests across twelve featured projects using reproducible synthetic data.">
+<meta name="description" content="Data Analyst / BI &amp; Analytics Engineer — Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 8887 Automated tests across thirteen featured projects using reproducible synthetic data.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 6432 Automated tests across twelve featured projects using reproducible synthetic data.">
+<meta property="og:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 8887 Automated tests across thirteen featured projects using reproducible synthetic data.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer">
-<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 6432 Automated tests across twelve featured projects using reproducible synthetic data.">
+<meta name="twitter:description" content="Power BI, SQL, Azure, Microsoft Fabric and dbt. Open to roles across Canada. Fourteen public project repos; 8887 Automated tests across thirteen featured projects using reproducible synthetic data.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Data Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -119,6 +119,16 @@
       "workLocation": { "@type": "Country", "name": "Canada" }
     },
 
+    {
+      "@type": "CreativeWork",
+      "@id": "https://kushpatel29.github.io/#p-pricing-analytics",
+      "name": "Pricing & Costing Analytics",
+      "url": "https://kushpatel29.github.io/#p-pricing-analytics",
+      "codeRepository": "https://github.com/KushPatel29/cost-to-price-calculator",
+      "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
+      "description": "A pricing analyst's working set for a B2B wholesale distributor: the price waterfall from list to pocket, elasticity and the optimal-price rule, competitive index and cost pass-through, standard-costing variances and a margin bridge that sums exactly, unit economics and break-even, scenario modelling, forecasting chosen by rolling-origin backtest, deal guardrails, and one ordered recommendation per product. Seventeen Streamlit pages and a generated nineteen-page Power BI project over the same data, with an SAP-shaped ERP extract whose injected defects every quality rule finds and whose reconciliation balances to zero.",
+      "keywords": "pricing analytics, price waterfall, pocket margin, price elasticity, cost pass-through, standard costing, purchase price variance, margin bridge, unit economics, break-even, scenario modelling, forecasting, deal guardrails, Power BI, PBIR, TMDL, DuckDB, Streamlit, data quality, reconciliation"
+    },
     {
       "@type": "CreativeWork",
       "@id": "https://kushpatel29.github.io/#p-ask-your-data",
@@ -373,8 +383,8 @@ WHERE verdict = 'GO'</pre>
       <div class="metric-label">public project repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="6432">6432</div>
-      <div class="metric-label">Automated tests · 12 featured projects</div>
+      <div class="metric-value" data-count="8887">8887</div>
+      <div class="metric-label">Automated tests · 13 featured projects</div>
     </div>
     <div class="metric">
       <div class="metric-value" data-count="12">12</div>
@@ -431,7 +441,7 @@ WHERE verdict = 'GO'</pre>
            recomputes this from document.querySelectorAll(".project").length,
            so the number below must equal the count of .project cards on the
            page. tools/check-repo-count.mjs fails the build when it doesn't. -->
-      <span class="filter-count" id="work-count" aria-live="polite">SHOWING 12 / 12 REPOS</span>
+      <span class="filter-count" id="work-count" aria-live="polite">SHOWING 13 / 13 REPOS</span>
     </div>
 
     <!-- Flagship, full width -->
@@ -528,6 +538,30 @@ WHERE verdict = 'GO'</pre>
 
     <!-- The rest -->
     <div class="card-grid">
+<article class="project card" id="p-pricing-analytics" data-tags="finance supply">
+        <button type="button" class="card-zoom" data-zoom="assets/pricing-analytics.jpg"
+                aria-label="Enlarge: Pricing and Costing Analytics — the executive summary, with pocket revenue, margin, leakage and the realisation opportunity">
+          <img src="assets/pricing-analytics.jpg" width="1280" height="670" loading="lazy" decoding="async"
+               alt="Pricing and Costing Analytics — executive summary showing pocket revenue, pocket margin, revenue leakage and realisation opportunity, above realised price against cost and a margin-leakage trend">
+          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
+        </button>
+        <div class="card-body">
+          <p class="kicker">PRICING &amp; MARGIN · DECISION SUPPORT</p>
+          <h3>Pricing &amp; Costing Analytics</h3>
+          <p class="outcome">The list price is not the price. <strong>18.2% of it never arrives</strong> — and this says which points to go and get.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">A pricing analyst's whole job, from a vendor invoice to a decision somebody has to defend on Monday. Margin is expressed on <em>pocket</em> price — after every discount, rebate, payment term, freight allowance and return — because a margin quoted on list is the number that lets a deal look healthy while losing money. The output is not an elasticity, it is a sentence: six ordered actions across 240 products, <strong>worth $2.65M of annual gross margin</strong>, each carrying the reason it was chosen and a confidence about the <em>evidence</em> rather than the size of the prize.<br><br>The part I would ask about first: <em>the dataset is built so the analysis can be caught being wrong</em>. Elasticity, cost pass-through and segment price sensitivity are seeded deliberately and taken back out through the real code — estimated category elasticities preserve the seeded ordering at a rank correlation of <strong>0.95</strong>, and every pass-through estimate lands attenuated toward zero, which is what a regression on a noisy realisation of a decision does. Getting there took four attempts: price that moves only with time is collinear with the trend, and no elasticity is recoverable from it at all.<br><br>Underneath, the ERP layer arrives the way an ERP does — SAP-shaped billing items with missing standard costs, duplicated lines, UOM mismatches and orphan customers injected on purpose. All twelve quality rules find something, and the reconciliation walks the extract down to the staged total with every exclusion named and <strong>$0.00 unexplained</strong>. Six marts are computed a second time in DuckDB and held to the pandas ones at 1e-8, which is how the price-band median was caught being <em>five percent</em> apart under the same column name.</p></details>
+          <ul class="tags">
+            <li>Python</li>
+            <li>DuckDB</li>
+            <li>Power BI</li>
+            <li>Streamlit</li>
+            <li class="tag-tests">2455 tests ✓</li>
+          </ul>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 17 app pages · 19-page generated Power BI report, 191 visuals · 98.5% data-quality score, reconciliation balances to $0.00 · elasticity recovered at ρ 0.95 against seeded truth</p>
+          <a class="card-open card-open-live" href="https://cost-to-price-calculator.streamlit.app" target="_blank" rel="noopener"><span>▶ TRY IT LIVE</span><span aria-hidden="true">↗</span></a>
+          <a class="card-open" href="https://github.com/KushPatel29/cost-to-price-calculator" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
 <article class="project card" id="p-gl-recon" data-tags="finance">
         <button type="button" class="card-zoom" data-zoom="assets/gl-recon.jpg"
                 aria-label="Enlarge: GL reconciliation close scorecard dashboard">
@@ -867,7 +901,7 @@ WHERE verdict = 'GO'</pre>
       </article>
 </div>
 </details>
-<p class="demo-note">More operational tools: <a href="https://github.com/KushPatel29/cost-to-price-calculator" target="_blank" rel="noopener">Cost-to-Price Calculator</a> and <a href="https://github.com/KushPatel29/inventory-analytics-app" target="_blank" rel="noopener">Inventory Analytics</a>.</p>
+<p class="demo-note">More operational tools: <a href="https://github.com/KushPatel29/inventory-analytics-app" target="_blank" rel="noopener">Inventory Analytics</a>.</p>
     <p class="work-empty" id="work-empty" hidden>No repos in that discipline yet — try <strong>ALL WORK</strong>.</p>
 
     <a class="profile-cta" href="https://github.com/KushPatel29" target="_blank" rel="noopener">
