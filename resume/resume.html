@@ -72,7 +72,7 @@
 
 <header>
   <h1>Kush Patel</h1>
-  <p class="role">Data Analyst &nbsp;|&nbsp; BI &amp; Analytics Engineer &nbsp;|&nbsp; Power BI &middot; SQL &middot; Python &middot; Microsoft Fabric &middot; dbt</p>
+  <p class="role">Business Analyst &nbsp;|&nbsp; BI &amp; Analytics Engineer &nbsp;|&nbsp; Process Improvement &middot; Power BI &middot; SQL &middot; Microsoft Fabric &middot; GIS Data</p>
   <p class="contact">
     <span class="item">Vancouver, BC</span><span class="sep">|</span><span class="item">+1 (778) 637-1602</span><span class="sep">|</span><span class="item">dharma.patel552@gmail.com</span><span class="sep">|</span><span class="item">linkedin.com/in/kush-patel-48885719b</span><span class="sep">|</span><span class="item">github.com/KushPatel29</span><span class="sep">|</span><span class="item">kushpatel29.github.io</span>
   </p>
@@ -81,16 +81,17 @@
 
 <h2>Summary</h2>
 <ul>
-  <li>Analytics engineer and BI analyst with 4+ years turning raw operational data — ERP, POS, WMS, CRM, REST feeds — into governed warehouse layers and the reports the business argues from. Sole analyst across a perishable-goods supply chain, owning everything from month-end GL reconciliation to lot-level traceability.</li>
+  <li>Business analyst and BI / analytics engineer with 4+ years turning operational needs and raw data — ERP, POS, WMS, CRM, REST feeds — into governed processes, warehouse layers and decision-ready reporting. Sole analyst across a perishable-goods supply chain, owning work from stakeholder requirements to month-end reconciliation and lot-level traceability.</li>
   <li>Builds dimensional models on cloud warehouses (Microsoft Fabric, Azure Synapse, SQL Server) with Bronze/Silver/Gold medallion layers, conformed dimensions and SCD Type 1/2, orchestrated in Azure Data Factory and Fabric pipelines (Airflow in project work, not production).</li>
   <li>Delivers Power BI end to end — semantic model, DAX measure library, RLS/OLS, publish-ready reports — so Finance, Sales and Supply Chain self-serve from one definition instead of competing extracts.</li>
-  <li>Treats data quality as engineering. Thirteen featured projects carry <b>9,070 automated tests</b> in CI, checking documented invariants and benchmark results. Fourteen public project repositories include reproducible synthetic data and implementation notes.</li>
+  <li>Treats requirements, acceptance and data quality as one traceable delivery chain. Thirteen featured projects carry <b>9,076 automated tests</b> in CI; fourteen public repositories include reproducible data, business cases, process maps, project controls, UAT and change/adoption artifacts.</li>
 </ul>
 
 <h2>Technical Skills</h2>
+<p class="skill"><b>Business Analysis &amp; Delivery:</b> requirements gathering, stakeholder analysis, workshop planning, current/future-state mapping, business cases, charters, RACI/RAID/status reporting, requirements traceability, UAT, change and adoption planning</p>
 <p class="skill"><b>Warehousing &amp; Lakehouse:</b> Microsoft Fabric (Lakehouse, Warehouse, OneLake, Direct Lake), Azure Synapse Analytics, SQL Server, PostgreSQL, DuckDB, Delta Lake, Snowflake (dual-target dbt profile)</p>
 <p class="skill"><b>ELT / Orchestration:</b> Azure Data Factory, Fabric Data Pipelines &amp; Dataflows Gen2, dbt Core, Apache Airflow, SSIS, SQL Server Agent, incremental and CDC-style loads, schema-drift contracts, quarantine-and-replay</p>
-<p class="skill"><b>BI &amp; Semantic Layer:</b> Power BI (DAX, Power Query, TMDL/PBIR, calculation groups, RLS/OLS, VertiPaq tuning), SSRS paginated reporting, Tableau, Streamlit, Plotly</p>
+<p class="skill"><b>BI, Semantic &amp; Spatial:</b> Power BI (DAX, Power Query, TMDL/PBIR, RLS/OLS), SSRS, Tableau, Streamlit, Plotly; GIS requirements, WGS 84, GeoJSON and QGIS/ArcGIS interoperability (portfolio project)</p>
 <p class="skill"><b>Languages:</b> SQL (T-SQL, window functions, CTEs), Python (pandas, NumPy, scikit-learn, Flask, FastAPI), PySpark, DAX, M</p>
 <p class="skill"><b>Modelling &amp; Governance:</b> Kimball star schemas, conformed dimensions, SCD Type 1/2, metric catalogues with owner and grain, data lineage, RLS/RBAC and column masking, de-identification (Safe Harbor, k-anonymity), cutover runbooks</p>
 <p class="skill"><b>Quality &amp; Delivery:</b> pytest, dbt tests, pandera contracts, referential-integrity and control-total checks, anomaly thresholds, reconciliation gates, Git, GitHub Actions, Docker</p>
@@ -129,7 +130,7 @@
   </ul>
 </div>
 
-<h2>Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— all public, all CI-tested: github.com/KushPatel29</span></h2>
+<h2>Selected Business Analysis &amp; Analytics Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public and CI-tested: github.com/KushPatel29</span></h2>
 
 <div class="proj">
   <div class="proj-head">Retail Analytics Platform <span class="stack">— Python, Flask, DuckDB, Plotly, Playwright, Docker &middot; 1,412 tests</span></div>
@@ -144,9 +145,9 @@
 </div>
 
 <div class="proj">
-  <div class="proj-head">Supply Chain Control Tower <span class="stack">— Microsoft Fabric, PySpark, Delta Lake, Power BI &middot; 659 tests</span></div>
+  <div class="proj-head">Supply Chain Control Tower <span class="stack">— Microsoft Fabric, Power BI, GIS / GeoJSON &middot; 665 tests</span></div>
   <div class="proj-url">github.com/KushPatel29/supply-chain-control-tower</div>
-  <p>A lakehouse medallion pipeline with a three-tier defence: versioned data contracts kill structural drift before Bronze, quarantine-and-replay isolates toxic rows, and a 20-check data-quality gate guards Gold — a critical failure halts publication. Adds global sourcing and King's-formula reorder points. Dynamic RLS and OLS verified by DAX impersonation against a pandas cross-check.</p>
+  <p>Pairs an inventory/supplier exception process with a tested control tower: current/future state, requirements, RACI, exception controls and adoption measures. A GIS extension publishes 23 governed WGS 84 points, QGIS/ArcGIS-ready GeoJSON and nearest-node screening, with synthetic coordinates and straight-line distance labelled.</p>
 </div>
 
 <div class="proj">
@@ -164,7 +165,7 @@
 <div class="proj">
   <div class="proj-head">Legacy-to-Fabric Migration <span class="stack">— SQL Server, SSIS, SSRS, T-SQL, Fabric &middot; 203 tests</span></div>
   <div class="proj-url">github.com/KushPatel29/legacy-to-fabric-migration</div>
-  <p>A cutover nobody has to take on faith: legacy SSIS/SSRS and the Fabric replacement run side by side, with row counts, checksums and control totals compared automatically and a gate that decides when the old system can be retired.</p>
+  <p>A cutover nobody has to take on faith: legacy and Fabric run side by side until an automated gate decides. The BA pack adds a charter, stakeholder/RACI and workshop plans, process maps, traceable requirements, RAID/status controls, UAT and change/adoption. Design-only extensions specify Microsoft 365 governance and GIS integration requirements without claiming production administration.</p>
 </div>
 
 <h2>Education</h2>
