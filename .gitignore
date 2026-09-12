@@ -12,3 +12,6 @@ tools/links.tsv
 .DS_Store
 Thumbs.db
 *.swp
+
+# Local render and browser-profile QA artifacts
+tmp/

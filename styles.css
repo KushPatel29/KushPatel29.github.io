@@ -1479,7 +1479,7 @@ main {
   color: var(--fg);
 }
 
-/* Full-width strip under the six cards. Deliberately lighter than they
+/* Full-width strip under the skills cards. Deliberately lighter than they
    are — no fill, dashed rule — so it reads as a footnote to the grid
    rather than a seventh category. */
 .skill-honest {
@@ -2046,3 +2046,162 @@ a.card-open::after {
 
 .xp-highlights { color: var(--muted); line-height: 1.7; margin: 0; }
 .xp-details { grid-column: 1 / -1; }
+
+/* ---------- Business-analysis decision trail ----------
+   A working artifact index, shaped like a delivery path rather than a second
+   collection of generic project cards. */
+.decision-trail {
+  align-self: start;
+  width: 100%;
+  margin: 12px 0 0;
+  border: 1px solid var(--line-2);
+  border-radius: 16px;
+  background: var(--panel);
+  overflow: hidden;
+}
+.decision-trail-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.decision-trail-head span {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+.decision-trail-head strong { font-size: 14px; font-weight: 600; color: var(--fg); }
+.decision-trail-list {
+  position: relative;
+  margin: 0;
+  padding: 8px 20px;
+  list-style: none;
+}
+.decision-trail-list::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  bottom: 28px;
+  left: 36px;
+  width: 1px;
+  background: var(--accent-line-soft);
+}
+.decision-trail-list li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  padding: 11px 0;
+}
+.trail-index {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--accent-line-soft);
+  border-radius: 50%;
+  background: var(--tile);
+  color: var(--accent);
+  font: 600 10px/1 'JetBrains Mono', ui-monospace, monospace;
+}
+.decision-trail-list li > span:last-child { display: flex; flex-direction: column; gap: 2px; }
+.decision-trail-list strong { font-size: 14px; color: var(--fg); }
+.decision-trail-list a {
+  width: fit-content;
+  color: var(--muted);
+  font: 11.5px/1.5 'JetBrains Mono', ui-monospace, monospace;
+  text-decoration: none;
+}
+.decision-trail-list a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.decision-trail-note {
+  margin: 0;
+  padding: 15px 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted-2);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.ba-section { padding-top: 82px; }
+.ba-ledger {
+  margin-top: 34px;
+  border-top: 1px solid var(--line-2);
+}
+.ba-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.7fr) minmax(320px, 2.1fr) auto;
+  align-items: center;
+  gap: 28px;
+  min-height: 96px;
+  padding: 18px 2px;
+  border-bottom: 1px solid var(--line-2);
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.18s ease, padding 0.18s ease;
+}
+.ba-row:hover { padding-left: 14px; padding-right: 14px; background: var(--accent-tint); }
+.ba-stage {
+  display: flex;
+  gap: 10px;
+  color: var(--accent);
+  font: 600 10.5px/1.4 'JetBrains Mono', ui-monospace, monospace;
+  letter-spacing: 0.08em;
+}
+.ba-stage > span { color: var(--dim-2); }
+.ba-output { display: flex; flex-direction: column; gap: 5px; }
+.ba-output strong { color: var(--fg); font-size: 17px; }
+.ba-output small { color: var(--muted); font-size: 13px; line-height: 1.55; }
+.ba-link {
+  color: var(--amber-2);
+  font: 600 10.5px/1.4 'JetBrains Mono', ui-monospace, monospace;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.ba-boundary {
+  max-width: 92ch;
+  margin: 22px 0 0;
+  padding-left: 16px;
+  border-left: 2px solid var(--amber-line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.ba-boundary strong { color: var(--amber-2); }
+
+.skill-group-ba { border-color: var(--accent-line-soft); background: var(--accent-tint); }
+.skill-blueprint {
+  margin-top: 12px;
+  padding: 22px 24px;
+  border-left: 2px solid var(--accent);
+  background: var(--panel-soft);
+}
+.skill-blueprint .skill-honest-body { max-width: 92ch; }
+.skill-blueprint a {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--accent);
+  font: 600 12px/1.5 'JetBrains Mono', ui-monospace, monospace;
+  text-underline-offset: 3px;
+}
+.skill-blueprint a + a { margin-left: 22px; }
+a.card-open-evidence { color: var(--amber-2); }
+a.card-open-evidence:hover { color: var(--amber); }
+
+@media (min-width: 700px) { .skill-group-ba { grid-column: 1 / -1; } }
+@media (max-width: 760px) {
+  .decision-trail-head { flex-direction: column; gap: 5px; }
+  .ba-row { grid-template-columns: 1fr; gap: 8px; padding: 20px 0; }
+  .ba-row:hover { padding-left: 10px; padding-right: 10px; }
+  .ba-link { margin-top: 4px; }
+  .skill-blueprint a { display: block; }
+  .skill-blueprint a + a { margin-left: 0; }
+}
+@media (max-width: 1080px) { .decision-trail { max-width: 700px; } }
+@media print {
+  .decision-trail, .ba-row, .skill-blueprint { break-inside: avoid; }
+  .decision-trail-list a::after, .ba-row::after, .skill-blueprint a::after { content: ' (' attr(href) ')'; }
+}
