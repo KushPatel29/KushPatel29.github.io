@@ -905,6 +905,11 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
   gap: 24px;
 }
+.primary-projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+@media (max-width: 760px) {
+  .primary-projects { grid-template-columns: minmax(0, 1fr); }
+}
 
 .card {
   position: relative;
@@ -2277,10 +2282,10 @@ a.card-open::after {
   display: block;
   padding: 10px 12px;
   border-top: 1px solid var(--line-2);
-  color: var(--muted);
+  color: var(--term-fg);
   font: 10.5px/1.45 'JetBrains Mono', ui-monospace, monospace;
 }
-.gis-companion > span strong { color: var(--amber-2); margin-right: 6px; }
+.gis-companion > span strong { color: var(--term-amber); margin-right: 6px; }
 .gis-proof-links {
   grid-column: 1 / -1;
   display: grid;
@@ -2303,6 +2308,7 @@ a.card-open::after {
 .gis-proof-links a:focus-visible { background: var(--accent-tint); color: var(--accent-hi); }
 
 .skill-group-ba { border-color: var(--accent-line-soft); background: var(--accent-tint); }
+.skill-group-ba .skill-n { color: var(--muted-2); }
 .skill-blueprint {
   margin-top: 12px;
   padding: 22px 24px;
