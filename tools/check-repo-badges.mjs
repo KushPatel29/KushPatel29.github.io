@@ -88,7 +88,10 @@ async function readme(repo) {
     /* rate limited, offline, or the API is down — fall through to raw */
   }
 
-  for (const branch of ["main", "master"]) {
+  /* `HEAD` follows the repository's configured default branch. Try it before
+     conventional branch names so an obsolete, still-present `main` branch
+     cannot silently override a current `master` README (or vice versa). */
+  for (const branch of ["HEAD", "main", "master"]) {
     const url = `https://raw.githubusercontent.com/KushPatel29/${repo}/${branch}/README.md`;
     try {
       const res = await fetch(url, { headers, signal: AbortSignal.timeout(TIMEOUT_MS) });
