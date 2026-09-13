@@ -1429,10 +1429,11 @@ main {
   justify-content: start;
   gap: 18px;
 }
-@media (min-width: 700px)  { .skills-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1100px) { .skills-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 700px)  { .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
 .skill-group {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   /* Equal vertical padding, so a short card can't look collapsed. */
@@ -1467,12 +1468,15 @@ main {
   list-style: none;
 }
 .skill-list li {
+  max-width: 100%;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 11px;
   line-height: 1.45;
   padding: 5px 9px;
-  /* The label never breaks mid-phrase; the container wraps instead. */
-  white-space: nowrap;
+  /* Most labels remain a single phrase; unusually specific evidence labels
+     may wrap inside their chip instead of widening the whole page. */
+  white-space: normal;
+  overflow-wrap: anywhere;
   border: 1px solid var(--line-2);
   border-radius: 6px;
   color: var(--muted);

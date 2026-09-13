@@ -79,10 +79,14 @@ Run a check locally with `node tools/<name>.mjs` (Node 18+, no dependencies).
 - **Content lives in HTML, not JS.** The count-up animates *up to* a number
   that is already in the markup, and a watchdog restores the real value if the
   animation never runs — so it can never render a zero.
-- **The hero decision trail is an artifact index, not decoration.** Keep each
-  stage linked to evidence and preserve the boundary note for simulated work.
+- **The hero terminal is tested evidence, not decoration.** Its questions and
+  answers come from the Ask Your Data golden contract; keep the pause control,
+  reduced-motion state, and complete no-JavaScript fallback.
+- **The BA evidence ledger is an artifact index, not a keyword list.** Keep each
+  row linked to reviewable evidence and preserve the boundary notes for
+  simulated, project-only, and design-only work.
 - **Filters are data-driven.** Each project carries `data-tags`; the chip
-  count is derived, so adding a ninth repo needs no JS change. Filter state
+  count is derived, so adding another repo needs no JS change. Filter state
   round-trips through `?filter=`. A direct project anchor takes priority over
   a conflicting filter and opens any containing disclosure.
 - **Cards have separate controls.** The thumbnail opens a lightbox, native
@@ -94,5 +98,6 @@ Run a check locally with `node tools/<name>.mjs` (Node 18+, no dependencies).
 - Grid tracks use `minmax(min(Npx, 100%), 1fr)` — the bare `minmax(Npx, 1fr)`
   form overflows narrow phones.
 
-Checked at 360 / 390 / 768 / 1280 px: no horizontal page scroll, no nav
-overlap, all tap targets ≥ 44 px, and zero contrast failures in either theme.
+Checked at 390 / 768 / 1440 px in light and dark themes: no horizontal page
+scroll, no nav overlap, all tap targets ≥ 44 px, and zero automated WCAG
+violations.

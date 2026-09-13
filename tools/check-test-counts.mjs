@@ -22,7 +22,7 @@ if (cardCounts.length === 0) {
 
 const total = cardCounts.reduce((sum, count) => sum + count, 0);
 const hero = html.match(
-  /<div class="metric-value" data-count="(\d+)">(\d+)<\/div>\s*<div class="metric-label">Automated tests[^<]*<\/div>/i,
+  /<div class="metric-value" data-count="(\d+)">([\d,]+)<\/div>\s*<div class="metric-label">Automated tests[^<]*<\/div>/i,
 );
 
 if (!hero) {
@@ -31,8 +31,8 @@ if (!hero) {
 }
 
 const heroTarget = Number(hero[1]);
-const heroText = Number(hero[2]);
-const metadataCounts = [...html.matchAll(/content="[^"]*\b([\d,]+) Automated tests\b/gi)]
+const heroText = Number(hero[2].replaceAll(",", ""));
+const metadataCounts = [...html.matchAll(/content="[^"]*?([\d][\d,]*)\s+automated tests\b/gi)]
   .map((match) => Number(match[1].replaceAll(",", "")));
 
 console.log(`project badges: ${cardCounts.join(" + ")} = ${total}`);

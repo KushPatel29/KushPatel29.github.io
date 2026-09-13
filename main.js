@@ -248,7 +248,8 @@
       var suffix = el.getAttribute("data-suffix") || "";
       if (!isFinite(target)) return;
 
-      var truth = target + suffix;
+      var format = function (value) { return value.toLocaleString("en-CA") + suffix; };
+      var truth = format(target);
       var started = null;
       var done = false;
       var DURATION = 1400;
@@ -263,11 +264,11 @@
         if (done) return;
         if (started === null) {
           started = now;
-          el.textContent = "0" + suffix; // only now, once we know frames are running
+          el.textContent = format(0); // only now, once we know frames are running
         }
         var p = Math.min(1, (now - started) / DURATION);
         var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(target * eased) + suffix;
+        el.textContent = format(Math.round(target * eased));
         if (p < 1) window.requestAnimationFrame(step);
         else land();
       };
