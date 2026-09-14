@@ -3,7 +3,7 @@
 My Business Analyst / BI & Analytics Engineer portfolio — live at **[kushpatel29.github.io](https://kushpatel29.github.io/)**.
 
 Hand-built static page: one HTML file, one stylesheet, one script. No
-framework, no build step, no tracker. The dashboard screenshots are real
+framework, no production build step, no tracker. The dashboard screenshots are real
 captures from my repos. Reported project benchmarks and documented invariants
 are checked by the linked repository workflows. Project data is synthetic and
 dollar outcomes are modelled; employment improvements are internal estimates.
@@ -19,13 +19,15 @@ production experience.
   sRGB conversions so it renders the same everywhere. Both themes are checked
   against WCAG AA.
 - `main.js` — progressive enhancement only: theme toggle, scroll progress,
-  work filter, count-up, scrollspy, lightbox, back-to-top and an animation pause control. If it never loads,
+  work filter, scrollspy, lightbox, back-to-top and an animation pause control. If it never loads,
   the page still reads correctly and every project remains accessible through native disclosures.
 - `404.html` — branded not-found page, same palette and theme toggle.
 - `robots.txt`, `sitemap.xml` — crawler basics.
 - `assets/` — dashboard captures, OG banner, and `Kush-Patel-Resume.pdf`.
 - `assets/fonts/` — Space Grotesk and JetBrains Mono, self-hosted (see below).
-- `tools/` — the CI checks described below.
+- `tools/` — dependency-free content contracts and the local test server.
+- `tests/` — Playwright user-flow, accessibility and visual-regression contracts.
+- `DEPLOYMENT.md` — release, smoke-test and rollback runbook.
 
 ## No third-party requests
 
@@ -41,8 +43,10 @@ parsed.
 
 ## CI
 
-`.github/workflows/verify.yml` runs a set of gates on every push and PR to
-`main`, plus a weekly run for the checks that depend on other people's servers.
+`.github/workflows/verify.yml` runs content, browser, accessibility, visual and
+Lighthouse gates on every push and PR to `main`, plus a weekly run for checks
+that depend on other people's servers. Third-party Actions are pinned to full
+commit SHAs and Dependabot proposes reviewed updates.
 
 **`tools/check-links.mjs`** serves the repo the way GitHub Pages does,
 HEAD-requests **every internal href and asset path** in `index.html` and
@@ -72,13 +76,16 @@ External checks run on pushes, PRs and the weekly schedule. Hosted demos can
 still sleep or suffer transient outages; the homepage keeps screenshots and
 source links available independently of those services.
 
-Run a check locally with `node tools/<name>.mjs` (Node 18+, no dependencies).
+Run the dependency-free contracts with `pnpm test:contracts`. Run the complete
+browser suite with `pnpm test:e2e`, and the performance budgets with
+`pnpm test:lighthouse`. Node 22 and the version of pnpm declared in
+`package.json` are the release baseline.
 
 ## Conventions worth keeping
 
-- **Content lives in HTML, not JS.** The count-up animates *up to* a number
-  that is already in the markup, and a watchdog restores the real value if the
-  animation never runs — so it can never render a zero.
+- **Content lives in HTML, not JS.** Published figures stay static in the DOM.
+  Motion never replaces a true metric with an intermediate or inaccessible
+  value.
 - **The hero terminal is tested evidence, not decoration.** Its questions and
   answers come from the Ask Your Data golden contract; keep the pause control,
   reduced-motion state, and complete no-JavaScript fallback.
@@ -98,6 +105,7 @@ Run a check locally with `node tools/<name>.mjs` (Node 18+, no dependencies).
 - Grid tracks use `minmax(min(Npx, 100%), 1fr)` — the bare `minmax(Npx, 1fr)`
   form overflows narrow phones.
 
-Checked at 390 / 768 / 1440 px in light and dark themes: no horizontal page
-scroll, no nav overlap, all tap targets ≥ 44 px, and zero automated WCAG
-violations.
+The Playwright matrix exercises desktop and mobile Chromium in light and dark
+themes. Visual baselines protect the hero and recruiter fast track; axe checks
+block serious or critical accessibility violations; Lighthouse enforces
+performance, accessibility, best-practice and SEO budgets.
