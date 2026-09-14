@@ -11,7 +11,9 @@
    redirects, and fail on anything that is not reachable. For
    Streamlit Community Cloud links the body is read as well as
    the status line, because a sleeping app answers 200 with a
-   wake-up page.
+   wake-up page. Windows uses the installed Playwright browser when
+   available: Schannel can fail before HTTP in restricted sessions,
+   which is not evidence that eight unrelated demos are unavailable.
 
    Runs on a schedule rather than on every push: these are other
    people's servers, and a transient outage should not block a
@@ -33,6 +35,7 @@ const TMP = os.tmpdir();
 const COOKIE_JAR = path.join(TMP, "portfolio-demo-cookies.txt");
 const BODY_FILE = path.join(TMP, "portfolio-demo-body.html");
 const TIMEOUT_MS = 45_000;
+let localBrowser = null;
 
 /* Hosts that rate-limit or block unattended HEAD requests. They are still
    checked, with a GET and a browser-ish user agent. */
@@ -148,8 +151,63 @@ function checkWithCurl(url) {
   }
 }
 
+function localChromiumPath() {
+  const browserRoot = path.join(ROOT, ".cache", "ms-playwright");
+  if (!fs.existsSync(browserRoot)) return null;
+  const builds = fs.readdirSync(browserRoot).sort().reverse();
+  for (const build of builds) {
+    const candidates = [
+      path.join(browserRoot, build, "chrome-headless-shell-win64", "chrome-headless-shell.exe"),
+      path.join(browserRoot, build, "chrome-win64", "chrome.exe"),
+    ];
+    for (const candidate of candidates) if (fs.existsSync(candidate)) return candidate;
+  }
+  return null;
+}
+
+async function checkWithBrowser(url) {
+  try {
+    const { chromium } = await import("@playwright/test");
+    if (!localBrowser) {
+      const executablePath = localChromiumPath();
+      localBrowser = await chromium.launch({
+        headless: true,
+        ...(executablePath ? { executablePath } : {}),
+      });
+    }
+    const page = await localBrowser.newPage({ userAgent: UA_BROWSER });
+    try {
+      const response = await page.goto(url, {
+        waitUntil: "domcontentloaded",
+        timeout: TIMEOUT_MS,
+      });
+      await page.waitForTimeout(1_000);
+      const body = await page.locator("body").innerText().catch(() => "");
+      const status = response?.status() || 0;
+      return {
+        status,
+        ok: status >= 200 && status < 400,
+        asleep: ASLEEP.test(body),
+        browserFallback: true,
+      };
+    } finally {
+      await page.close();
+    }
+  } catch (error) {
+    return { status: 0, ok: false, asleep: false, error: `browser: ${error.message}` };
+  }
+}
+
 async function check(url) {
-  if (/streamlit\.app/i.test(url)) return checkWithCurl(url);
+  if (/streamlit\.app/i.test(url)) {
+    if (process.platform === "win32") {
+      const browserResult = await checkWithBrowser(url);
+      if (browserResult.ok || !/Cannot find package|browserType\.launch/i.test(browserResult.error || "")) {
+        return browserResult;
+      }
+    }
+    return checkWithCurl(url);
+  }
   const useGet = NEEDS_GET.some((re) => re.test(url));
   try {
     const { res, looped } = await walk(url, useGet);
@@ -210,6 +268,8 @@ for (const [url, page] of links) {
   } else if (r.asleep) {
     sleeping += 1;
     console.error(`⚠ ${url}  (${page})  200 but the app is asleep`);
+  } else if (r.browserFallback) {
+    console.log(`✓ ${url}  ${r.status}  (checked in Chromium)`);
   } else {
     console.log(`✓ ${url}  ${r.status}`);
   }
@@ -220,6 +280,8 @@ console.log(
     `${failures} unreachable, ${sleeping} asleep` +
     (slow ? `, ${slow} answered only on the second ask` : ""),
 );
+
+if (localBrowser) await localBrowser.close();
 
 if (failures > 0 || (STRICT && sleeping > 0)) {
   console.error("\n✗ a link on the page does not lead anywhere useful");

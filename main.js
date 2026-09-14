@@ -28,7 +28,8 @@
     if (toggle) {
       toggle.setAttribute(
         "aria-label",
-        "Switch to " + (theme === "light" ? "dark" : "light") + " theme"
+        (theme === "light" ? "Light" : "Dark") +
+          " theme. Switch to " + (theme === "light" ? "dark" : "light") + " theme"
       );
     }
   }
@@ -234,62 +235,7 @@
     });
   }
 
-  /* ---------- 6. Metric count-up ----------
-     The final values are already in the HTML. Two rules: we never
-     blank a number until we know the animation is actually running,
-     and a watchdog puts the true value back if it isn't. A counter
-     stuck on 0 is worse than a counter that never animated. */
-
-  var metrics = Array.prototype.slice.call(document.querySelectorAll(".metric-value[data-count]"));
-
-  if (metrics.length && !reduced && typeof IntersectionObserver === "function") {
-    var run = function (el) {
-      var target = parseInt(el.getAttribute("data-count"), 10);
-      var suffix = el.getAttribute("data-suffix") || "";
-      if (!isFinite(target)) return;
-
-      var format = function (value) { return value.toLocaleString("en-CA") + suffix; };
-      var truth = format(target);
-      var started = null;
-      var done = false;
-      var DURATION = 1400;
-
-      var land = function () {
-        if (done) return;
-        done = true;
-        el.textContent = truth; // always land on the truth
-      };
-
-      var step = function (now) {
-        if (done) return;
-        if (started === null) {
-          started = now;
-          el.textContent = format(0); // only now, once we know frames are running
-        }
-        var p = Math.min(1, (now - started) / DURATION);
-        var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = format(Math.round(target * eased));
-        if (p < 1) window.requestAnimationFrame(step);
-        else land();
-      };
-
-      window.requestAnimationFrame(step);
-      // Backgrounded tab, throttled rAF, anything else: never leave it at 0.
-      window.setTimeout(land, DURATION + 600);
-    };
-
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        io.unobserve(entry.target);
-        run(entry.target);
-      });
-    }, { rootMargin: "0px 0px -10% 0px" });
-
-    metrics.forEach(function (el) { io.observe(el); });
-  }
-
-  /* ---------- 7. Scrollspy ----------
+  /* ---------- 6. Scrollspy ----------
      Marks the section you're actually reading with aria-current, in
      both the desktop nav and the compact menu. */
 
@@ -345,7 +291,7 @@
     sections.forEach(function (el) { spy.observe(el); });
   }
 
-  /* ---------- 8. Dashboard lightbox ----------
+  /* ---------- 7. Dashboard lightbox ----------
      The card thumbnails are a 1280px-wide capture cropped to a strip.
      This is where the actual dashboard is legible. */
 
@@ -399,12 +345,12 @@
     });
   }
 
-  /* ---------- 9. Footer year ---------- */
+  /* ---------- 8. Footer year ---------- */
 
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  /* ---------- 10. Hero terminal ----------
+  /* ---------- 9. Hero terminal ----------
      The panel is styled like a live CLI, so leaving it on one frozen frame
      reads as a broken widget. Type each question, then reveal its answer
      and the SQL that produced it.

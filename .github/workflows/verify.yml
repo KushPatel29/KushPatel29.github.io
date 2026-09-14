@@ -23,20 +23,23 @@ jobs:
     name: Internal links and assets
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           # check-freshness needs real history to find the last content commit.
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: HEAD every internal href and asset path
         run: node tools/check-links.mjs
 
       - name: The footer's "last updated" date must be true
         run: node tools/check-freshness.mjs
+
+      - name: Footer, structured data and sitemap dates must agree
+        run: node tools/check-sitemap.mjs
 
       - name: The no-JS repo count must match the project cards
         run: node tools/check-repo-count.mjs
@@ -74,15 +77,56 @@ jobs:
       - name: Images must be the size and format the page claims
         run: node tools/check-images.mjs
 
+      - name: Workflow dependencies must be immutable
+        run: node tools/check-actions-pinned.mjs
+
+  quality:
+    name: Browser, accessibility and performance quality
+    needs: links
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+
+      - name: Enable the repository-pinned package manager
+        run: |
+          corepack enable
+          corepack prepare pnpm@11.19.0 --activate
+
+      - name: Install quality-gate dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install the tested browser
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Exercise recruiter flows, accessibility and visual contracts
+        run: pnpm test:e2e
+
+      - name: Enforce Lighthouse budgets
+        run: pnpm test:lighthouse
+
+      - name: Preserve diagnostic reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: portfolio-quality-reports
+          path: artifacts/
+          if-no-files-found: ignore
+          retention-days: 7
+
   demos:
     name: External links and live demos
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Every external link and live demo answers
         run: node tools/check-live-demos.mjs

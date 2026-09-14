@@ -1,0 +1,21 @@
+{
+  "name": "kush-patel-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production quality gates for Kush Patel's static portfolio.",
+  "packageManager": "pnpm@11.19.0",
+  "scripts": {
+    "serve": "node tools/serve.mjs",
+    "test:contracts": "node tools/check-links.mjs && node tools/check-freshness.mjs && node tools/check-sitemap.mjs && node tools/check-repo-count.mjs && node tools/check-test-counts.mjs && node tools/check-analytics.mjs && node tools/check-resume.mjs && node tools/check-images.mjs && node tools/check-actions-pinned.mjs",
+    "test:e2e": "playwright test",
+    "test:accessibility": "playwright test tests/accessibility.spec.mjs",
+    "test:visual": "playwright test tests/visual.spec.mjs",
+    "test:lighthouse": "lhci autorun",
+    "test": "pnpm test:contracts && pnpm test:e2e"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@lhci/cli": "0.15.1",
+    "@playwright/test": "1.63.0"
+  }
+}

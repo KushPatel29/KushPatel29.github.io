@@ -15,3 +15,9 @@ Thumbs.db
 
 # Local render and browser-profile QA artifacts
 tmp/
+node_modules/
+artifacts/
+.lighthouseci/
+.cache/
+playwright-report/
+test-results/
