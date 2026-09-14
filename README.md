@@ -106,6 +106,8 @@ browser suite with `pnpm test:e2e`, and the performance budgets with
   form overflows narrow phones.
 
 The Playwright matrix exercises desktop and mobile Chromium in light and dark
-themes. Visual baselines protect the hero and recruiter fast track; axe checks
-block serious or critical accessibility violations; Lighthouse enforces
-performance, accessibility, best-practice and SEO budgets.
+themes. Local visual baselines protect the hero and recruiter fast track; the
+hosted Linux gate captures those same views as review artifacts and enforces
+cross-platform geometry contracts, avoiding font-rasterization false positives.
+axe checks block serious or critical accessibility violations; Lighthouse
+enforces performance, accessibility, best-practice and SEO budgets.

@@ -17,6 +17,9 @@ export default defineConfig({
     reducedMotion: "reduce",
     trace: "on-first-retry",
     screenshot: "only-on-failure",
+    ...(process.env.PLAYWRIGHT_EXECUTABLE_PATH
+      ? { launchOptions: { executablePath: process.env.PLAYWRIGHT_EXECUTABLE_PATH } }
+      : {}),
   },
   webServer: process.env.PLAYWRIGHT_EXTERNAL_SERVER
     ? undefined
