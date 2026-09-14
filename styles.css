@@ -2233,7 +2233,7 @@ a.card-open::after {
   min-width: 0;
   display: grid;
   grid-template-columns: minmax(0, 1.18fr) minmax(240px, 0.78fr) minmax(260px, 0.88fr);
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto auto auto;
   gap: 0 30px;
   padding: 30px 28px 26px;
 }
@@ -2247,7 +2247,7 @@ a.card-open::after {
   line-height: 1.04;
   letter-spacing: -0.035em;
 }
-.gis-proof-brief > p:not(.kicker) {
+.gis-proof-brief > p:not(.kicker):not(.gis-proof-cta) {
   grid-column: 1;
   grid-row: 3;
   margin: 0;
@@ -2255,9 +2255,14 @@ a.card-open::after {
   font-size: 14px;
   line-height: 1.65;
 }
+.gis-proof-brief > .gis-proof-cta {
+  grid-column: 1;
+  grid-row: 4;
+  margin: 16px 0 0;
+}
 .gis-proof-facts {
   grid-column: 2;
-  grid-row: 1 / 4;
+  grid-row: 1 / 5;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0 18px;
@@ -2279,7 +2284,7 @@ a.card-open::after {
 }
 .gis-companion {
   grid-column: 3;
-  grid-row: 1 / 4;
+  grid-row: 1 / 5;
   align-self: stretch;
   border: 1px solid var(--line-2);
   background: #071014;
@@ -2355,7 +2360,7 @@ a.card-open-evidence:hover { color: var(--amber); }
   .gis-proof-brief { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr); gap: 0 24px; }
   .gis-proof-brief .kicker,
   .gis-proof-brief h3,
-  .gis-proof-brief > p:not(.kicker) { grid-column: 1 / -1; }
+  .gis-proof-brief > p:not(.kicker) { grid-column: 1 / -1; grid-row: auto; }
   .gis-proof-facts { grid-column: 1; grid-row: auto; align-self: start; margin: 24px 0; }
   .gis-companion { grid-column: 2; grid-row: auto; align-self: end; margin: 24px 0; }
   .gis-proof-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
