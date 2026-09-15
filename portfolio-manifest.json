@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 14,
-    "automatedTests": 9441
+    "automatedTests": 9468
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -60,15 +60,16 @@
       "repository": "https://github.com/KushPatel29/inventory-analytics-app",
       "liveApp": "https://inventory-analytics-app.onrender.com/",
       "liveStatus": "live-demo",
-      "testCount": 289,
+      "testCount": 316,
       "testCommand": "pytest",
       "dataClassification": "synthetic-and-session-upload",
       "priority": "flagship",
-      "productShape": "Planner workbench and inventory-policy simulator",
+      "productShape": "Planner workbench with governed network policy lab and inventory action register",
       "primaryDecision": "Should a planner buy, transfer, count, expedite, hold, or review inventory?",
-      "capabilities": ["inventory", "forecasting", "operations", "duckdb", "business-analysis"],
+      "capabilities": ["inventory", "forecasting", "operations", "policy-simulation", "service-cost-frontier", "duckdb", "business-analysis"],
       "evidence": [
-        "https://github.com/KushPatel29/inventory-analytics-app/blob/master/docs/business-analysis-and-interview-guide.md"
+        "https://github.com/KushPatel29/inventory-analytics-app/blob/main/docs/business-analysis-and-interview-guide.md",
+        "https://github.com/KushPatel29/inventory-analytics-app/blob/main/invapp/analytics/policy_simulation.py"
       ]
     },
     {
