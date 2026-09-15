@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 14,
-    "automatedTests": 9427
+    "automatedTests": 9441
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -40,16 +40,17 @@
       "repository": "https://github.com/KushPatel29/supply-chain-control-tower",
       "liveApp": "https://kush-network-risk-decision-room.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 690,
+      "testCount": 704,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "flagship",
-      "productShape": "Event-driven operational control tower with a GIS scenario room",
+      "productShape": "Event-driven operational control tower with GIS scenario and incident-command workspaces",
       "primaryDecision": "Which network disruption should be escalated, and which recovery action is defensible?",
-      "capabilities": ["supply-chain", "gis", "streaming", "power-bi", "business-analysis"],
+      "capabilities": ["supply-chain", "gis", "streaming", "power-bi", "business-analysis", "incident-response", "decision-governance"],
       "evidence": [
         "https://github.com/KushPatel29/supply-chain-control-tower/blob/master/docs/business_process_improvement_case.md",
-        "https://github.com/KushPatel29/supply-chain-control-tower/blob/master/docs/gis_network_analysis.md"
+        "https://github.com/KushPatel29/supply-chain-control-tower/blob/master/docs/gis_network_analysis.md",
+        "https://github.com/KushPatel29/supply-chain-control-tower/blob/master/app/incident_command.py"
       ]
     },
     {
