@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 14,
-    "automatedTests": 9425
+    "automatedTests": 9427
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -241,7 +241,7 @@
       "repository": "https://github.com/KushPatel29/legacy-to-fabric-migration",
       "liveApp": "https://kush-asset-management-decision-board.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 238,
+      "testCount": 240,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "flagship",
