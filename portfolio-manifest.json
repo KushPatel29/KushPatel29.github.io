@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 14,
-    "automatedTests": 10926
+    "automatedTests": 10937
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -22,15 +22,17 @@
       "repository": "https://github.com/KushPatel29/wholesale-analytics-platform",
       "liveApp": "https://kushpatel29.github.io/wholesale-analytics-platform/",
       "liveStatus": "live-demo",
-      "testCount": 1412,
+      "testCount": 1423,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "flagship",
-      "productShape": "Governed multi-role analytics platform with a static executive briefing",
-      "primaryDecision": "Which commercial and operating exceptions require action now?",
-      "capabilities": ["business-analysis", "analytics-engineering", "decision-support", "governance"],
+      "productShape": "Governed multi-role analytics platform with a data-product control room and static executive briefing",
+      "primaryDecision": "Is this data release trustworthy, and which commercial or operating exception requires action now?",
+      "capabilities": ["business-analysis", "analytics-engineering", "decision-support", "governance", "data-products", "data-contracts", "release-assurance"],
       "evidence": [
-        "https://kushpatel29.github.io/wholesale-analytics-platform/metrics/"
+        "https://kushpatel29.github.io/wholesale-analytics-platform/metrics/",
+        "https://github.com/KushPatel29/wholesale-analytics-platform/blob/main/governance/data_products.yml",
+        "https://github.com/KushPatel29/wholesale-analytics-platform/blob/main/docs/data-product-control-room.md"
       ]
     },
     {
