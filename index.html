@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel | Business Analyst &amp; Analytics Engineer | Canada</title>
-<meta name="description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 10,937 automated tests.">
+<meta name="description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 10,963 automated tests.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel | Business Analyst &amp; Analytics Engineer | Canada">
-<meta property="og:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 10,937 automated tests.">
+<meta property="og:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 10,963 automated tests.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel | Business Analyst &amp; Analytics Engineer | Canada">
-<meta name="twitter:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 10,937 automated tests.">
+<meta name="twitter:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 10,963 automated tests.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Business Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -255,8 +255,8 @@
       "url": "https://kushpatel29.github.io/#p-gl-recon",
       "codeRepository": "https://github.com/KushPatel29/gl-reconciliation-dashboard",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "Automated ERP-versus-subledger controls that classify four kinds of discrepancy and trace every dollar of variance to source. The same engine, unmodified, reconciles a FOCUS-format cloud bill. Journal-entry control testing runs on every entry rather than a sample - self-approval, delegated-authority breaches, threshold avoidance, round dollars and Benford conformity - with each test measured against a population it should not fire on, and exception ageing and clearing SLA by owner on the other side of the reconciliation.",
-      "keywords": "T-SQL, SQLite, Power BI, reconciliation, financial controls, FinOps"
+      "description": "A governed period-close control that reconciles ERP and subledger evidence, tests the full journal population, and turns 60 account-periods into risk-tiered certification decisions. Strict auto-certification gates, named preparer and reviewer routes, source hashes, decision fingerprints and a controlled re-verification probe make the evidence inspectable without claiming a human approval.",
+      "keywords": "T-SQL, SQLite, Power BI, reconciliation, close certification, financial controls, segregation of duties, FinOps"
     },
     {
       "@type": "CreativeWork",
@@ -402,7 +402,7 @@ WHERE verdict = 'GO'</pre>
       <div class="metric-label">public project repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="10937">10,937</div>
+      <div class="metric-value" data-count="10963">10,963</div>
       <div class="metric-label">Automated tests protecting rules, contracts &amp; evidence</div>
     </div>
     <div class="metric">
@@ -910,24 +910,28 @@ WHERE verdict = 'GO'</pre>
         </button>
         <div class="card-body">
           <div class="card-head">
-            <p class="kicker">FINANCE-GRADE · CONTROLS</p>
-            <p class="card-tests">682 tests ✓</p>
+            <p class="kicker">FINANCE-GRADE · CLOSE CERTIFICATION</p>
+            <p class="card-tests">708 tests ✓</p>
           </div>
           <h3>GL / P&amp;L Reconciliation</h3>
-          <p class="outcome">Month-end becomes an audit trail instead of a manual variance hunt.</p>
-          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">Month-end used to mean hunting a variance by hand. This engine finds four classes of discrepancy between ERP and subledger and proves every dollar traces back to source. Then, unmodified, I pointed it at a FOCUS-format cloud bill for FinOps chargeback — because a reconciliation is a reconciliation. It now also asks the question reconciliation cannot: were the entries posted under control? All 5,400 are tested, not a sample of forty — and each test is scored against a population it should not fire on, so <em>3 of 8 are reported as non-findings</em> rather than as hundreds of exceptions nobody would read.</p></details>
+          <p class="outcome">Month-end evidence becomes an explicit certify, review or block decision—not another green dashboard.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">The engine finds four discrepancy classes between ERP and subledger, traces every dollar to source and evaluates all 5,400 journal entries against controls measured on the population where each should not fire. The new GL-REC-01 certification layer then evaluates all 60 account-periods against a versioned 0.5% tolerance, exception state, resolution quality and 10-day SLA. It assigns risk-tiered preparer/reviewer routes, enforces segregation of duties, fingerprints its evidence and deliberately invalidates one prior decision in a controlled re-verification probe. The result is honest: <em>8 auto-certified, 9 prepared for review and 43 blocked</em>; no human approval is fabricated.</p></details>
           <div class="card-stats">
-            <div><div class="stat-v">4</div><div class="stat-k">DISCREPANCY CLASSES</div></div>
-            <div><div class="stat-v">100%</div><div class="stat-k">VARIANCE TRACED</div></div>
-            <div><div class="stat-v">88%</div><div class="stat-k">OF SELF-APPROVALS: 2 PEOPLE</div></div>
+            <div><div class="stat-v">60</div><div class="stat-k">ACCOUNT-PERIOD DECISIONS</div></div>
+            <div><div class="stat-v">43</div><div class="stat-k">CLOSE BLOCKERS</div></div>
+            <div><div class="stat-v">100%</div><div class="stat-k">SOD ROUTING PASS</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> The same engine, unmodified, reconciles a FOCUS-format cloud bill — the logic is portable, not bespoke · 33% of exceptions were closed without fixing anything upstream, so they come back next month</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Governed GL-REC-01 policy · strict low-risk auto-certification · named preparer/reviewer route · 6 critical / 20 high / 26 medium / 8 low-risk decisions.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Five source hashes · register fingerprint · controlled source-change probe moves exactly one account-period from certified to blocked without mutating committed evidence.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> The same reconciliation engine, unmodified, also reconciles a FOCUS-format cloud bill; 33% of exceptions were absorbed rather than fixed upstream.</p>
           <ul class="tags">
             <li>T-SQL</li>
             <li>SQLite</li>
             <li>Power BI</li>
             <li>Tableau</li>
+            <li>Control governance</li>
           </ul>
+          <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/output/close_certification_packet.md" target="_blank" rel="noopener"><span>OPEN CLOSE PACKET</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/gl-reconciliation-dashboard" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
@@ -1532,7 +1536,7 @@ WHERE verdict = 'GO'</pre>
       <a class="domain" href="#p-gl-recon">
         <div class="domain-head"><span class="domain-n">08</span><h3>GL / P&amp;L Reconciliation</h3></div>
         <p class="domain-ask">“Why doesn't the subledger tie to the GL?”</p>
-        <p class="domain-answer">Automated ERP-vs-subledger controls that classify discrepancies, trace every dollar of variance to source, and make month-end an audit instead of a hunt — alongside a full statement layer: an income statement, a balance sheet, and a gross-to-net bridge that answers “is this gross or net?” in one line.</p>
+        <p class="domain-answer">Automated ERP-vs-subledger controls classify discrepancies and trace every dollar to source. A governed certification layer then assigns each account-period a risk tier, accountable review route and explicit certify, review or block state, with evidence fingerprints and re-verification.</p>
         <p class="domain-link"><span class="domain-link-arrow" aria-hidden="true">→</span> GL / P&amp;L Reconciliation · Retail Analytics Platform</p>
       </a>
       <a class="domain" href="#p-migration">
