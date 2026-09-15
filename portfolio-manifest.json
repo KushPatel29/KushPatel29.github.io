@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 14,
-    "automatedTests": 10937
+    "automatedTests": 10963
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -134,14 +134,18 @@
       "repository": "https://github.com/KushPatel29/gl-reconciliation-dashboard",
       "liveApp": null,
       "liveStatus": "repository-only",
-      "testCount": 682,
+      "testCount": 708,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
-      "productShape": "Period-close control and exception-resolution workflow",
-      "primaryDecision": "Can this account be certified, or which evidenced break must be resolved first?",
-      "capabilities": ["finance", "reconciliation", "controls", "power-bi", "tableau"],
-      "evidence": []
+      "productShape": "Risk-tiered period-close certification and exception-resolution control",
+      "primaryDecision": "Can this account-period be certified, which independent review is required, or what evidence blocks close?",
+      "capabilities": ["finance", "reconciliation", "close-certification", "segregation-of-duties", "controls", "power-bi", "tableau"],
+      "evidence": [
+        "https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/output/close_certification_packet.md",
+        "https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/governance/close_certification_policy.json",
+        "https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/docs/CLOSE_CERTIFICATION_RUNBOOK.md"
+      ]
     },
     {
       "id": "aml-transaction-monitoring",
