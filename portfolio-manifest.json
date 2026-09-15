@@ -85,8 +85,11 @@
       "priority": "flagship",
       "productShape": "Governed analytical copilot with an auditable compiler and evaluation lab",
       "primaryDecision": "Can this business question be answered safely, reproducibly, and with traceable SQL?",
-      "capabilities": ["governed-ai", "text-to-sql", "semantic-layer", "duckdb", "responsible-ai"],
-      "evidence": []
+      "capabilities": ["governed-ai", "text-to-sql", "semantic-layer", "model-assurance", "role-policy", "red-team", "duckdb", "responsible-ai"],
+      "evidence": [
+        "https://github.com/KushPatel29/ask-your-data/blob/main/docs/ASSURANCE_CASE.md",
+        "https://github.com/KushPatel29/ask-your-data/blob/main/evals/assurance_release.yaml"
+      ]
     },
     {
       "id": "health-system-decision-support",

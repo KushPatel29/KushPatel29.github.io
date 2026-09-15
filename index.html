@@ -141,8 +141,9 @@
       "url": "https://kushpatel29.github.io/#p-ask-your-data",
       "codeRepository": "https://github.com/KushPatel29/ask-your-data",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "Grounded text-to-SQL over 71 tables and eleven business domains, asked by voice or text. Two engines write the SQL — a deterministic keyless compiler and, with a key, a language model — and both pass through one read-only guard, structural verifier and access policy. The model's prose is verified back against the returned rows, certified metrics carry an owner and a CI-asserted value, and speech runs in-process on open models with no API key.",
-      "keywords": "Python, DuckDB, Claude API, Streamlit, text-to-SQL, LLM, semantic layer, metric layer, speech to text, text to speech, ONNX, data governance"
+      "sameAs": "https://ask-your-data-kp.streamlit.app",
+      "description": "Grounded text-to-SQL over 71 tables and eleven business domains, asked by voice or text. A deterministic keyless compiler and optional model path share one access policy, structural verifier, read-only guard and bounded executor. The Trust Center adds a versioned release decision over six governed suites, fifteen red-team cases across nine threat families, a four-role policy matrix, five reconciled runtime budgets and an explicitly open live-model rerun gate. A traceable business case covers stakeholders, options, requirements, UAT, rollout and the production boundary.",
+      "keywords": "Python, DuckDB, Streamlit, text-to-SQL, LLM, semantic layer, metric layer, release assurance, red team, role policy, prompt injection, model governance, speech to text, text to speech, ONNX, data governance"
     },
     {
       "@type": "CreativeWork",
@@ -815,17 +816,27 @@ WHERE verdict = 'GO'</pre>
         <div class="card-body">
           <p class="kicker">CAPSTONE · GOVERNED AI</p>
           <h3>Ask Your Data</h3>
-          <p class="outcome">Ask 71 tables a question — typed or spoken — and audit the SQL behind every number.</p>
-          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">One rule: <em>no number without a query</em>. The live demo has no API key and does not need one — a deterministic compiler binds your words to the warehouse's own columns, values and join graph, and its 58-question contract records <strong>46 correct answers, 0 incorrect and 12 refusals</strong>. This measures the fixed contract, not accuracy on every possible question. Add a key and a language model writes the SQL instead, through the same read-only guard, structural verifier and access policy; its prose is then checked back against the returned rows, so a sentence cannot quote a number the query never produced. Six certified metrics carry an owner and a CI-asserted value. Speech runs <em>inside the process</em> on open models, so it listens and answers aloud with no account and no second service.</p></details>
+          <p class="outcome">Ask 71 tables a question — typed or spoken — then inspect the SQL, controls and release evidence behind the answer.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">One rule: <em>no number without a query</em>. The live demo has no API key and does not need one — a deterministic compiler binds your words to the warehouse's columns, values and join graph, and its 58-question contract records <strong>46 correct answers, 0 incorrect and 12 refusals</strong>. Add a key and a language model writes SQL through the same default-deny access policy, structural verifier, read-only guard and bounded executor. The Trust Center turns scattered tests into a governed release decision: six versioned suites, fifteen adversarial prompts across nine threat families, an example four-role policy matrix, five code-reconciled runtime budgets and an intentionally open live-model gate. The companion business case traces stakeholders, options, requirements, UAT, rollout and the boundary between a proven synthetic demonstration and production approval.</p></details>
+          <div class="card-stats">
+            <div><div class="stat-v">71</div><div class="stat-k">GOVERNED TABLES</div></div>
+            <div><div class="stat-v">15</div><div class="stat-k">RED-TEAM CASES</div></div>
+            <div><div class="stat-v">1,127</div><div class="stat-k">CI TESTS</div></div>
+          </div>
           <ul class="tags">
             <li>Python</li>
             <li>DuckDB</li>
             <li>ONNX</li>
             <li>Claude API</li>
+            <li>Streamlit</li>
+            <li>Responsible AI</li>
             <li class="tag-tests">1127 tests ✓</li>
           </ul>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 71 tables · 11 domains · 0 answers from memory</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Two governed engines · 71 tables · 11 domains · inspectable SQL, returned rows, binding trace and physical plan · zero answers from memory.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Assurance lab: six suites · 15 adversarial prompts · nine threat families · four-role policy · five runtime budgets · live-model gate kept explicitly open after provider or prompt changes.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Decision-ready BA case: stakeholders and decision rights · current/future state · options · 14 requirements · ten UAT scenarios · staged rollout, rollback and outcome measures.</p>
           <a class="card-open card-open-live" href="https://ask-your-data-kp.streamlit.app" target="_blank" rel="noopener"><span>▶ TRY IT LIVE</span><span aria-hidden="true">↗</span></a>
+          <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/ask-your-data/blob/main/docs/ASSURANCE_CASE.md" target="_blank" rel="noopener"><span>VIEW ASSURANCE &amp; BUSINESS CASE</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/ask-your-data" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
