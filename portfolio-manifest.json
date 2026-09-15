@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 14,
-    "automatedTests": 10412
+    "automatedTests": 10925
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -113,7 +113,7 @@
       "repository": "https://github.com/KushPatel29/pricing-costing-analytics",
       "liveApp": "https://cost-to-price-calculator.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 2638,
+      "testCount": 3151,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
