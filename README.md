@@ -28,6 +28,9 @@ production experience.
 - `tools/` — dependency-free content contracts and the local test server.
 - `tests/` — Playwright user-flow, accessibility and visual-regression contracts.
 - `DEPLOYMENT.md` — release, smoke-test and rollback runbook.
+- `portfolio-manifest.json` — the machine-readable control plane for every
+  promoted project's title, repository, live-app status, data boundary,
+  test count, decision and evidence links.
 
 ## No third-party requests
 
@@ -47,6 +50,12 @@ parsed.
 Lighthouse gates on every push and PR to `main`, plus a weekly run for checks
 that depend on other people's servers. Third-party Actions are pinned to full
 commit SHAs and Dependabot proposes reviewed updates.
+
+**`tools/check-portfolio-manifest.mjs`** reconciles all fourteen project
+records to the actual HTML. A release fails when a card title, repository,
+live-app link, test count, total, or verification date drifts. It also requires
+an explicit data classification, primary decision and product shape, keeping
+the portfolio's public claims and product strategy in one reviewable place.
 
 **`tools/check-links.mjs`** serves the repo the way GitHub Pages does,
 HEAD-requests **every internal href and asset path** in `index.html` and
