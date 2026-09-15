@@ -132,11 +132,15 @@ for (const { cardId, count, repo } of cards) {
      regex that grabs runs of digits also finds the "20" in %20passing, and
      the "15" in the dbt badge's "across 15 models".
 
-     Three shapes, because three repositories state the number differently:
+     Four shapes, because the repositories state the number differently:
        tests-659%20passing              the shields badge most repos carry
+       tests-814%20collected            the control tower's, whose own test pins
+                                        the word: the suite skips 68 tests on a
+                                        machine without the lake, so "passing"
+                                        would claim more than a run shows
        dbt%20tests-154%20across%2015…   the dbt project, counted by dbt build
        | **Structure** | … 1,408 tests  the wholesale README's table row */
-  const m = body.match(/badge\/tests-([\d%C,]+)%20passing/i)
+  const m = body.match(/badge\/tests-([\d%C,]+)%20(?:passing|collected)/i)
     || body.match(/badge\/dbt(?:%20|\s)tests-([\d%C,]+)%20across/i)
     || body.match(/\|\s*\*\*Structure\*\*\s*\|[^\n]*?([\d,]+)\s+tests\b/i);
   if (!m) {
