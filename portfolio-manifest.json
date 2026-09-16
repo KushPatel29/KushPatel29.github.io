@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 14,
-    "automatedTests": 11084
+    "automatedTests": 11096
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -100,7 +100,7 @@
       "repository": "https://github.com/KushPatel29/healthcare-claims-analytics",
       "liveApp": null,
       "liveStatus": "repository-only",
-      "testCount": 807,
+      "testCount": 819,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
