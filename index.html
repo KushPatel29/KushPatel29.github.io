@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel | Business Analyst &amp; Analytics Engineer | Canada</title>
-<meta name="description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,119 automated tests.">
+<meta name="description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,150 automated tests.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel | Business Analyst &amp; Analytics Engineer | Canada">
-<meta property="og:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,119 automated tests.">
+<meta property="og:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,150 automated tests.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel | Business Analyst &amp; Analytics Engineer | Canada">
-<meta name="twitter:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,119 automated tests.">
+<meta name="twitter:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,150 automated tests.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Business Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -131,8 +131,8 @@
       "url": "https://kushpatel29.github.io/#p-pricing-analytics",
       "codeRepository": "https://github.com/KushPatel29/pricing-costing-analytics",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "A pricing analyst's working set for a B2B wholesale distributor: the price waterfall from list to pocket, elasticity and the optimal-price rule, competitive index and cost pass-through, standard-costing variances and a margin bridge that sums exactly, unit economics and break-even, scenario modelling, forecasting chosen by rolling-origin backtest, deal guardrails, and one ordered recommendation per product. Seventeen Streamlit pages and a generated nineteen-page Power BI project over the same data, with an SAP-shaped ERP extract whose injected defects every quality rule finds and whose reconciliation balances to zero.",
-      "keywords": "pricing analytics, price waterfall, pocket margin, price elasticity, cost pass-through, standard costing, purchase price variance, margin bridge, unit economics, break-even, scenario modelling, forecasting, deal guardrails, Power BI, PBIR, TMDL, DuckDB, Streamlit, data quality, reconciliation"
+      "description": "A governed pricing decision system for a B2B wholesale distributor: price waterfall from list to pocket, elasticity, cost pass-through, costing variances, scenario modelling, forecasting, deal guardrails and one ordered recommendation per product. An eighteen-page Streamlit app now routes 240 product proposals to named review authority, keeps 161 material decisions explicitly open, and monitors 2,075 historical price changes over fixed pre/post windows without presenting observational movement as causal benefit. A generated nineteen-page Power BI project and SAP-shaped ERP extract share the same reconciled evidence.",
+      "keywords": "pricing analytics, pricing governance, price realization, approval workflow, price waterfall, pocket margin, price elasticity, cost pass-through, standard costing, margin bridge, scenario modelling, deal guardrails, Power BI, PBIR, TMDL, DuckDB, Streamlit, data quality, reconciliation"
     },
     {
       "@type": "CreativeWork",
@@ -402,7 +402,7 @@ WHERE verdict = 'GO'</pre>
       <div class="metric-label">public project repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="11119">11,119</div>
+      <div class="metric-value" data-count="11150">11,150</div>
       <div class="metric-label">Automated tests protecting rules, contracts &amp; evidence</div>
     </div>
     <div class="metric">
@@ -890,16 +890,17 @@ WHERE verdict = 'GO'</pre>
           <p class="kicker">PRICING &amp; MARGIN · DECISION SUPPORT</p>
           <h3>Pricing &amp; Costing Analytics</h3>
           <p class="outcome">The list price is not the price. <strong>18.2% of it never arrives</strong> — and this says which points to go and get.</p>
-          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">A pricing analyst's whole job, from a vendor invoice to a decision somebody has to defend on Monday. Margin is expressed on <em>pocket</em> price — after every discount, rebate, payment term, freight allowance and return — because a margin quoted on list is the number that lets a deal look healthy while losing money. The output is not an elasticity, it is a sentence: six ordered actions across 240 products, <strong>worth $2.65M of annual gross margin</strong>, each carrying the reason it was chosen and a confidence about the <em>evidence</em> rather than the size of the prize.<br><br>The part I would ask about first: <em>the dataset is built so the analysis can be caught being wrong</em>. Elasticity, cost pass-through and segment price sensitivity are seeded deliberately and taken back out through the real code — estimated category elasticities preserve the seeded ordering at a rank correlation of <strong>0.95</strong>, and every pass-through estimate lands attenuated toward zero, which is what a regression on a noisy realisation of a decision does. Getting there took four attempts: price that moves only with time is collinear with the trend, and no elasticity is recoverable from it at all.<br><br>Underneath, the ERP layer arrives the way an ERP does — SAP-shaped billing items with missing standard costs, duplicated lines, UOM mismatches and orphan customers injected on purpose. All twelve quality rules find something, and the reconciliation walks the extract down to the staged total with every exclusion named and <strong>$0.00 unexplained</strong>. Six marts are computed a second time in DuckDB and held to the pandas ones at 1e-8, which is how the price-band median was caught being <em>five percent</em> apart under the same column name.</p></details>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">A pricing analyst's whole job, from a vendor invoice to a decision somebody has to defend on Monday. Margin is expressed on <em>pocket</em> price — after every discount, rebate, payment term, freight allowance and return — because a margin quoted on list is the number that lets a deal look healthy while losing money. The output is not an elasticity, it is a sentence: six ordered actions across 240 products, <strong>worth $2.65M of annual gross margin</strong>, each carrying the reason it was chosen and a confidence about the <em>evidence</em> rather than the size of the prize.<br><br>The governed decision room makes the operating boundary explicit. It registers all 240 proposals, routes each material request to named authority, leaves <strong>161 human decisions open</strong>, and reports a <strong>6 pass / 2 review / 0 block</strong> release posture. It then follows 2,075 approved historical changes through fixed three-month pre/post windows; 1,132 stay on an explanation queue instead of becoming a benefit claim. The monitor is labelled observational, and the public app cannot approve or publish a customer price.<br><br>The part I would ask about first: <em>the dataset is built so the analysis can be caught being wrong</em>. Elasticity, cost pass-through and segment price sensitivity are seeded deliberately and taken back out through the real code — estimated category elasticities preserve the seeded ordering at a rank correlation of <strong>0.95</strong>, and every pass-through estimate lands attenuated toward zero, which is what a regression on a noisy realisation of a decision does. Getting there took four attempts: price that moves only with time is collinear with the trend, and no elasticity is recoverable from it at all.<br><br>Underneath, the ERP layer arrives the way an ERP does — SAP-shaped billing items with missing standard costs, duplicated lines, UOM mismatches and orphan customers injected on purpose. All twelve quality rules find something, and the reconciliation walks the extract down to the staged total with every exclusion named and <strong>$0.00 unexplained</strong>. Six marts are computed a second time in DuckDB and held to the pandas ones at 1e-8, which is how the price-band median was caught being <em>five percent</em> apart under the same column name.</p></details>
           <ul class="tags">
             <li>Python</li>
             <li>DuckDB</li>
             <li>Power BI</li>
             <li>Streamlit</li>
-            <li class="tag-tests">3151 tests ✓</li>
+            <li class="tag-tests">3182 tests ✓</li>
           </ul>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 17 app pages · 19-page generated Power BI report, 189 visuals rendering with 0 broken · 98.5% data-quality score, reconciliation balances to $0.00 · elasticity recovered at ρ 0.95 against seeded truth</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Governed pricing decision room · 6/2/0 release gates · 240 proposals with named review authority · 2,075 historical changes monitored · 18 app pages · 19-page generated Power BI report, 352 visuals rendering with 0 broken</p>
           <a class="card-open card-open-live" href="https://cost-to-price-calculator.streamlit.app" target="_blank" rel="noopener"><span>▶ TRY IT LIVE</span><span aria-hidden="true">↗</span></a>
+          <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/pricing-costing-analytics/blob/main/output/pricing_decision_packet.md" target="_blank" rel="noopener"><span>VIEW DECISION PACKET</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/pricing-costing-analytics" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
