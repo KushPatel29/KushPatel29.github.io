@@ -104,11 +104,13 @@
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
-      "productShape": "Health-system performance and intervention evidence pack",
-      "primaryDecision": "Which operational signal warrants intervention, and is the expected benefit worth the cost?",
-      "capabilities": ["healthcare", "spc", "health-economics", "power-bi", "business-analysis"],
+      "productShape": "Governed health-system intervention release and revenue-cycle prevention evidence pack",
+      "primaryDecision": "Should transitional care be approved, under which costing perspective and implementation conditions, and is the evidence ready for release?",
+      "capabilities": ["healthcare", "decision-assurance", "measure-governance", "equity-monitoring", "small-cell-policy", "spc", "health-economics", "revenue-cycle", "power-bi", "business-analysis"],
       "evidence": [
-        "https://github.com/KushPatel29/healthcare-claims-analytics/blob/master/docs/BUSINESS_CASE.md"
+        "https://github.com/KushPatel29/healthcare-claims-analytics/blob/master/output/health_intervention_decision_packet.md",
+        "https://github.com/KushPatel29/healthcare-claims-analytics/blob/master/output/evidence_release_gates.csv",
+        "https://github.com/KushPatel29/healthcare-claims-analytics/blob/master/docs/DECISION_ASSURANCE_RUNBOOK.md"
       ]
     },
     {
@@ -160,8 +162,12 @@
       "priority": "specialist",
       "productShape": "Investigator case workbench with entity-centred evidence",
       "primaryDecision": "Which alert deserves investigation, and what evidence supports its disposition?",
-      "capabilities": ["aml", "machine-learning", "investigation", "explainability", "streamlit"],
-      "evidence": []
+      "capabilities": ["aml", "machine-learning", "investigation", "explainability", "governance", "streamlit"],
+      "evidence": [
+        "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/investigation_decision_packet.md",
+        "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/investigation_manifest.json",
+        "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/docs/INVESTIGATOR_WORKFLOW.md"
+      ]
     },
     {
       "id": "marketing-attribution",
@@ -190,10 +196,13 @@
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
-      "productShape": "FHIR ingestion and governed evidence-review console",
-      "primaryDecision": "Is this versioned cohort and endpoint evidence valid, reproducible, and review-ready?",
-      "capabilities": ["fhir", "clinical-data", "sql-server", "data-quality", "streamlit"],
+      "productShape": "FHIR ingestion and governed clinical data-cut release console",
+      "primaryDecision": "Can this versioned clinical data cut be released, which evidence still requires review, or what source change must close it?",
+      "capabilities": ["fhir", "clinical-data", "cohort-versioning", "release-governance", "reverification", "sql-server", "data-quality", "streamlit"],
       "evidence": [
+        "https://github.com/KushPatel29/clinical-data-management/blob/main/output/clinical_evidence_release_packet.md",
+        "https://github.com/KushPatel29/clinical-data-management/blob/main/governance/evidence_release_policy.json",
+        "https://github.com/KushPatel29/clinical-data-management/blob/main/docs/EVIDENCE_RELEASE_RUNBOOK.md",
         "https://github.com/KushPatel29/clinical-data-management/blob/main/output/uat_plan.md"
       ]
     },
