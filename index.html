@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel | Business Analyst &amp; Analytics Engineer | Canada</title>
-<meta name="description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 10,964 automated tests.">
+<meta name="description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 10,990 automated tests.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel | Business Analyst &amp; Analytics Engineer | Canada">
-<meta property="og:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 10,964 automated tests.">
+<meta property="og:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 10,990 automated tests.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel | Business Analyst &amp; Analytics Engineer | Canada">
-<meta name="twitter:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 10,964 automated tests.">
+<meta name="twitter:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 10,990 automated tests.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Business Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -215,8 +215,8 @@
       "sameAs": "https://kush-clinical-data-dashboard.streamlit.app/",
       "codeRepository": "https://github.com/KushPatel29/clinical-data-management",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "A live evidence console connecting a clinical trial database defined as code to an HL7 FHIR R4 warehouse on SQL Server 2022. It exposes cohort operations, query aging, SDTM safety, coding outcomes, quarantine reasons, SCD Type 2 history, and measured query-plan evidence.",
-      "keywords": "Python, Streamlit, HL7 FHIR R4, SQL Server, T-SQL, dimensional modelling, SCD Type 2, CDISC, CDASH, SDTM, clinical data management, data quality"
+      "description": "A governed clinical data-cut console connecting trial operations to an HL7 FHIR R4 warehouse on SQL Server 2022. Three versioned cohorts, seven release gates, 12 source hashes and controlled re-verification produce an honest REVIEW REQUIRED decision while preserving explicit quarantine, UAT and non-approval boundaries.",
+      "keywords": "Python, Streamlit, HL7 FHIR R4, SQL Server, T-SQL, clinical data cut, cohort versioning, evidence release, SCD Type 2, CDISC, CDASH, SDTM, clinical data management, data quality"
     },
     {
       "@type": "CreativeWork",
@@ -402,7 +402,7 @@ WHERE verdict = 'GO'</pre>
       <div class="metric-label">public project repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="10964">10,964</div>
+      <div class="metric-value" data-count="10990">10,990</div>
       <div class="metric-label">Automated tests protecting rules, contracts &amp; evidence</div>
     </div>
     <div class="metric">
@@ -1008,12 +1008,12 @@ WHERE verdict = 'GO'</pre>
         </button>
         <div class="card-body">
           <div class="card-head">
-            <p class="kicker">REGULATED DATA · FHIR · T-SQL</p>
-            <p class="card-tests">255 tests ✓</p>
+            <p class="kicker">REGULATED DATA · GOVERNED DATA CUT</p>
+            <p class="card-tests">281 tests ✓</p>
           </div>
           <h3>Clinical Evidence Console + FHIR Warehouse</h3>
-          <p class="outcome">Two regulated-data systems, one rule: every claim needs ground truth and a test that can fail.</p>
-          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">A live Streamlit evidence console now connects both halves. One cohort definition drives enrollment, query operations, SDTM safety, coding and vital-sign review; fixed FHIR views trace a deterministic 10,000-patient Synthea run through validation, raw SQL Server JSON, 3NF and a Kimball star with SCD Type 2 history. The interface keeps every claim attached to its denominator, source artifact and limitation.</p></details>
+          <p class="outcome">A clinical data cut becomes an inspectable release decision—not a folder labelled final.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">A live Streamlit console connects trial operations to a deterministic 10,000-patient FHIR R4 warehouse on SQL Server 2022. The CDM-REL-01 layer versions three cohorts, reconciles their membership and evidence counts, evaluates seven gates, fingerprints 12 required sources and proves a one-subject mismatch moves the data cut to BLOCKED. The current verdict is deliberately <em>REVIEW REQUIRED</em>: five gates pass, while the row-level operational quarantine ledger is not publicly retained and 80 generated UAT cases are not presented as executed. Zero human approvals are fabricated.</p></details>
           <div class="clinical-proof-strip" aria-label="Additional Clinical Evidence Console views">
             <button type="button" class="card-zoom clinical-proof-shot" data-zoom="assets/clinical-dashboard/quality-site-102.jpg"
                     aria-label="Enlarge: SITE-102 query quality drilldown">
@@ -1029,19 +1029,22 @@ WHERE verdict = 'GO'</pre>
             </button>
           </div>
           <div class="card-stats">
-            <div><div class="stat-v">49/49</div><div class="stat-k">DEFECTS RECOVERED</div></div>
-            <div><div class="stat-v">1.66M</div><div class="stat-k">FHIR RESOURCES</div></div>
-            <div><div class="stat-v">10</div><div class="stat-k">T-SQL DQ GATES</div></div>
+            <div><div class="stat-v">3</div><div class="stat-k">VERSIONED COHORTS</div></div>
+            <div><div class="stat-v">5 / 7</div><div class="stat-k">RELEASE GATES PASS</div></div>
+            <div><div class="stat-v">12</div><div class="stat-k">SOURCE HASHES</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> CI starts SQL Server 2022, builds the sample warehouse, plants a DQ failure to prove the gate closes, measures real execution plans, regenerates the documentation, and checks the warehouse invariants alongside the console tests; the badge above counts the complete suite.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> CDM-REL-01: 120/120 cohort identity reconciliation · 49/49 planted defects to query identities · 0 implemented SDTM findings · 24 expected FHIR rejects across eight classes.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> CI starts SQL Server 2022, proves the DQ gate can fail, recovers the exact quarantine manifest, measures execution plans and rebuilds the data-cut packet from source evidence.</p>
           <ul class="tags">
             <li>Python</li>
             <li>HL7 FHIR R4</li>
             <li>SQL Server / T-SQL</li>
             <li>CDISC / SDTM</li>
+            <li>Release governance</li>
             <li>Streamlit</li>
           </ul>
           <a class="card-open card-open-live" href="https://kush-clinical-data-dashboard.streamlit.app/" target="_blank" rel="noopener"><span>▶ LAUNCH LIVE CONSOLE</span><span aria-hidden="true">↗</span></a>
+          <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/clinical-data-management/blob/main/output/clinical_evidence_release_packet.md" target="_blank" rel="noopener"><span>OPEN DATA-CUT PACKET</span><span aria-hidden="true">↗</span></a>
           <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/clinical-data-management/blob/main/output/uat_plan.md" target="_blank" rel="noopener"><span>VIEW UAT PLAN</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/clinical-data-management" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
