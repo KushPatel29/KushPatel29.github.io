@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 14,
-    "automatedTests": 10964
+    "automatedTests": 10990
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -186,14 +186,17 @@
       "repository": "https://github.com/KushPatel29/clinical-data-management",
       "liveApp": "https://kush-clinical-data-dashboard.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 255,
+      "testCount": 281,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
-      "productShape": "FHIR ingestion and governed evidence-review console",
-      "primaryDecision": "Is this versioned cohort and endpoint evidence valid, reproducible, and review-ready?",
-      "capabilities": ["fhir", "clinical-data", "sql-server", "data-quality", "streamlit"],
+      "productShape": "FHIR ingestion and governed clinical data-cut release console",
+      "primaryDecision": "Can this versioned clinical data cut be released, which evidence still requires review, or what source change must close it?",
+      "capabilities": ["fhir", "clinical-data", "cohort-versioning", "release-governance", "reverification", "sql-server", "data-quality", "streamlit"],
       "evidence": [
+        "https://github.com/KushPatel29/clinical-data-management/blob/main/output/clinical_evidence_release_packet.md",
+        "https://github.com/KushPatel29/clinical-data-management/blob/main/governance/evidence_release_policy.json",
+        "https://github.com/KushPatel29/clinical-data-management/blob/main/docs/EVIDENCE_RELEASE_RUNBOOK.md",
         "https://github.com/KushPatel29/clinical-data-management/blob/main/output/uat_plan.md"
       ]
     },
