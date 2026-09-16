@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 14,
-    "automatedTests": 11045
+    "automatedTests": 11073
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -156,14 +156,18 @@
       "repository": "https://github.com/KushPatel29/aml-transaction-monitoring",
       "liveApp": "https://aml-transaction-monitoring.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 155,
+      "testCount": 183,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
       "productShape": "Investigator case workbench with entity-centred evidence",
       "primaryDecision": "Which alert deserves investigation, and what evidence supports its disposition?",
-      "capabilities": ["aml", "machine-learning", "investigation", "explainability", "streamlit"],
-      "evidence": []
+      "capabilities": ["aml", "machine-learning", "investigation", "explainability", "governance", "streamlit"],
+      "evidence": [
+        "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/investigation_decision_packet.md",
+        "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/investigation_manifest.json",
+        "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/docs/INVESTIGATOR_WORKFLOW.md"
+      ]
     },
     {
       "id": "marketing-attribution",
