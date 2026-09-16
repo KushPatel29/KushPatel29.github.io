@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-09-15",
+  "lastVerified": "2026-09-16",
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 14,
-    "automatedTests": 10990
+    "automatedTests": 11042
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -100,15 +100,17 @@
       "repository": "https://github.com/KushPatel29/healthcare-claims-analytics",
       "liveApp": null,
       "liveStatus": "repository-only",
-      "testCount": 755,
+      "testCount": 807,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
-      "productShape": "Health-system performance and intervention evidence pack",
-      "primaryDecision": "Which operational signal warrants intervention, and is the expected benefit worth the cost?",
-      "capabilities": ["healthcare", "spc", "health-economics", "power-bi", "business-analysis"],
+      "productShape": "Governed health-system intervention release and revenue-cycle prevention evidence pack",
+      "primaryDecision": "Should transitional care be approved, under which costing perspective and implementation conditions, and is the evidence ready for release?",
+      "capabilities": ["healthcare", "decision-assurance", "measure-governance", "equity-monitoring", "small-cell-policy", "spc", "health-economics", "revenue-cycle", "power-bi", "business-analysis"],
       "evidence": [
-        "https://github.com/KushPatel29/healthcare-claims-analytics/blob/master/docs/BUSINESS_CASE.md"
+        "https://github.com/KushPatel29/healthcare-claims-analytics/blob/master/output/health_intervention_decision_packet.md",
+        "https://github.com/KushPatel29/healthcare-claims-analytics/blob/master/output/evidence_release_gates.csv",
+        "https://github.com/KushPatel29/healthcare-claims-analytics/blob/master/docs/DECISION_ASSURANCE_RUNBOOK.md"
       ]
     },
     {
