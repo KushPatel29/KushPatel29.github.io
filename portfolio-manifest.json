@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 14,
-    "automatedTests": 11119
+    "automatedTests": 11150
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -120,14 +120,18 @@
       "repository": "https://github.com/KushPatel29/pricing-costing-analytics",
       "liveApp": "https://cost-to-price-calculator.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 3151,
+      "testCount": 3182,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
-      "productShape": "Pricing-policy simulator and approval workflow",
-      "primaryDecision": "Which price change protects margin while respecting demand uncertainty and policy constraints?",
-      "capabilities": ["pricing", "costing", "causal-inference", "power-bi", "streamlit"],
-      "evidence": []
+      "productShape": "Governed pricing decision room with approval routing and post-change realization monitoring",
+      "primaryDecision": "Which price proposal can enter human review, who owns it, and did an approved historical move reach pocket price?",
+      "capabilities": ["pricing", "costing", "decision-governance", "approval-routing", "price-realization", "causal-boundaries", "power-bi", "streamlit"],
+      "evidence": [
+        "https://github.com/KushPatel29/pricing-costing-analytics/blob/main/output/pricing_decision_packet.md",
+        "https://github.com/KushPatel29/pricing-costing-analytics/blob/main/output/pricing_decision_manifest.json",
+        "https://github.com/KushPatel29/pricing-costing-analytics/blob/main/governance/PRICING_DECISION_GOVERNANCE.md"
+      ]
     },
     {
       "id": "gl-reconciliation",
