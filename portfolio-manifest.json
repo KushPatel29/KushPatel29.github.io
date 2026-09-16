@@ -227,16 +227,20 @@
       "cardId": "p-hr-attrition",
       "title": "HR Attrition Analytics",
       "repository": "https://github.com/KushPatel29/hr-attrition-analytics",
-      "liveApp": null,
-      "liveStatus": "repository-only",
+      "liveApp": "https://kush-workforce-decision-room.streamlit.app/",
+      "liveStatus": "live-demo",
       "testCount": 822,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
       "productShape": "Responsible aggregate workforce decision-support and intervention tracker",
       "primaryDecision": "Which aggregate workforce risk merits a supportive, measurable, non-punitive intervention?",
-      "capabilities": ["workforce-analytics", "survival-analysis", "responsible-ai", "power-bi"],
-      "evidence": []
+      "capabilities": ["workforce-analytics", "survival-analysis", "responsible-ai", "power-bi", "intervention-governance", "nist-ai-rmf", "release-assurance"],
+      "evidence": [
+        "https://github.com/KushPatel29/hr-attrition-analytics/blob/master/output/responsible_use_decision_packet.md",
+        "https://github.com/KushPatel29/hr-attrition-analytics/blob/master/output/responsible_use_manifest.json",
+        "https://github.com/KushPatel29/hr-attrition-analytics/blob/master/governance/RESPONSIBLE_USE.md"
+      ]
     },
     {
       "id": "supply-chain-analytics-dbt",
