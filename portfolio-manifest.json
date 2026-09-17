@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-09-16",
+  "lastVerified": "2026-09-17",
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 14,
-    "automatedTests": 11150
+    "automatedTests": 11187
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -176,18 +176,22 @@
     {
       "id": "marketing-attribution",
       "cardId": "p-marketing",
-      "title": "Marketing Attribution & Incrementality",
+      "title": "Marketing Measurement & Investment Decision Room",
       "repository": "https://github.com/KushPatel29/marketing-attribution-analytics",
       "liveApp": "https://attribution-vs-truth.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 91,
+      "testCount": 128,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
       "productShape": "Causal measurement laboratory and constrained budget allocator",
       "primaryDecision": "Which channel caused incremental value, and how should the next budget be allocated?",
-      "capabilities": ["marketing", "causal-inference", "experimentation", "lookml", "streamlit"],
-      "evidence": []
+      "capabilities": ["marketing", "causal-inference", "experimentation", "budget-optimization", "decision-governance", "lookml", "streamlit"],
+      "evidence": [
+        "https://github.com/KushPatel29/marketing-attribution-analytics/blob/main/output/marketing_investment_memo.md",
+        "https://github.com/KushPatel29/marketing-attribution-analytics/blob/main/output/marketing_investment_decision.json",
+        "https://github.com/KushPatel29/marketing-attribution-analytics/blob/main/docs/decision-room.md"
+      ]
     },
     {
       "id": "clinical-data-management",
