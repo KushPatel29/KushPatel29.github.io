@@ -241,12 +241,12 @@
     {
       "@type": "CreativeWork",
       "@id": "https://kushpatel29.github.io/#p-dbt",
-      "name": "Supply Chain Analytics — dbt",
+      "name": "Supply Chain Analytics — dbt Release Control Room",
       "url": "https://kushpatel29.github.io/#p-dbt",
       "codeRepository": "https://github.com/KushPatel29/supply-chain-analytics-dbt",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "dbt Core from staging to marts on dual DuckDB and Snowflake profiles, with incremental models, SCD2 snapshots, a MetricFlow semantic layer, and an Airflow DAG whose import and structure CI validates.",
-      "keywords": "dbt, MetricFlow, Airflow, DuckDB, Snowflake, semantic layer, SCD2"
+      "description": "A governed dbt release control room with an enforced executive-mart contract, 157 dbt tests, semantic-to-physical reconciliation, deterministic downstream change impact, integrity-hashed release evidence and model-level run lineage. DuckDB is executed; Snowflake and Airflow boundaries are explicit.",
+      "keywords": "dbt, MetricFlow, Airflow, DuckDB, Snowflake, semantic layer, data contracts, change impact, lineage, release governance"
     },
     {
       "@type": "CreativeWork",
@@ -1171,23 +1171,26 @@ WHERE verdict = 'GO'</pre>
         </button>
         <div class="card-body">
           <div class="card-head">
-            <p class="kicker">TRANSFORMATION · SEMANTIC LAYER</p>
+            <p class="kicker">DATA CONTRACTS · RELEASE GOVERNANCE</p>
             <p class="card-tests">157 dbt tests ✓</p>
           </div>
-          <h3>Supply Chain Analytics — dbt</h3>
-          <p class="outcome">Finance and Ops stop arguing about revenue because there is one versioned definition.</p>
-          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">The answer to “why does Finance's revenue number differ from Ops'?” is usually that there are two definitions. This is one definition, versioned: dbt Core from staging to marts on dual DuckDB/Snowflake profiles, incremental models, SCD2 snapshots, a MetricFlow semantic layer, and an Airflow DAG that CI loads and checks the shape of.</p></details>
+          <h3>Supply Chain Analytics — dbt Release Control Room</h3>
+          <p class="outcome">A model change ships only when its contract holds, governed metrics reconcile and downstream impact is reviewable.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">The project turns dbt artifacts into a release decision. An enforced contract protects the executive KPI mart; five MetricFlow metrics reconcile to physical marts; a checksum baseline and dependency traversal identify changed and impacted nodes; and every build emits an integrity-hashed release packet plus model-level lineage events. Incremental facts, SCD2 history and the structurally validated Airflow DAG remain part of the underlying platform.</p></details>
           <div class="card-stats">
-            <div><div class="stat-v">2</div><div class="stat-k">WAREHOUSE PROFILES</div></div>
-            <div><div class="stat-v">SCD2</div><div class="stat-k">SNAPSHOT HISTORY</div></div>
+            <div><div class="stat-v">$0.00</div><div class="stat-k">REVENUE DELTA</div></div>
+            <div><div class="stat-v">15</div><div class="stat-k">LINEAGE EVENTS</div></div>
             <div><div class="stat-v">157</div><div class="stat-k">DBT TESTS</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> One definition per metric in MetricFlow. CI builds the DuckDB target, imports the Airflow DAG through a DagBag and asserts its task graph — it does not execute a task, and the Snowflake profile ships unexercised.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Latest packet: APPROVE. Eight governance tests prove impact fan-out and tamper detection. CI executes DuckDB and imports the Airflow DAG; it does not schedule Airflow or exercise Snowflake.</p>
           <ul class="tags">
             <li>dbt</li>
             <li>MetricFlow</li>
             <li>Airflow</li>
+            <li>Data contracts</li>
           </ul>
+          <a class="card-open" href="https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/output/analytics_engineering_release_memo.md" target="_blank" rel="noopener"><span>OPEN RELEASE MEMO</span><span aria-hidden="true">↗</span></a>
+          <a class="card-open" href="https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/docs/RELEASE_OPERATIONS.md" target="_blank" rel="noopener"><span>OPEN OPERATOR RUNBOOK</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/supply-chain-analytics-dbt" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
