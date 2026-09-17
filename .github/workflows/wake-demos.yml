@@ -1,0 +1,52 @@
+# Streamlit Community Cloud puts an app to sleep after twelve hours without
+# a visitor. This visits every Streamlit demo the site links to, wakes any
+# that are asleep, and goes red if one will not come up or its first page
+# shows an exception. tools/wake-streamlit-demos.mjs has the detail, and the
+# reason the six per-repository keep-warm jobs it replaces never worked.
+#
+# Every three hours: GitHub starts scheduled runs late on free runners (the
+# old jobs fired four to five hours after their cron), so three hours keeps
+# the longest real gap, even with one run dropped, inside the twelve.
+#
+# GitHub pauses scheduled workflows in a repository with no commits for sixty
+# days. This repository is the one that changes most, which is why the job
+# lives here; if it is ever paused, the Actions tab turns it back on.
+name: wake-demos
+
+on:
+  schedule:
+    - cron: "23 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wake-demos
+  cancel-in-progress: false
+
+jobs:
+  wake:
+    name: Every Streamlit demo is awake and renders
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+
+      - name: Enable the repository-pinned package manager
+        run: |
+          corepack enable
+          corepack prepare pnpm@11.19.0 --activate
+
+      - name: Install the pinned Playwright
+        run: pnpm install --frozen-lockfile
+
+      - name: Install a headless browser
+        run: pnpm exec playwright install --with-deps --only-shell chromium
+
+      - name: Visit every demo, waking the ones that sleep
+        run: node tools/wake-streamlit-demos.mjs

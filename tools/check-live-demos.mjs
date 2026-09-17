@@ -9,11 +9,13 @@
 
    So: request every external href on the page, follow
    redirects, and fail on anything that is not reachable. For
-   Streamlit Community Cloud links the body is read as well as
-   the status line, because a sleeping app answers 200 with a
-   wake-up page. Windows uses the installed Playwright browser when
-   available: Schannel can fail before HTTP in restricted sessions,
-   which is not evidence that eight unrelated demos are unavailable.
+   Streamlit Community Cloud links the platform is also asked
+   whether the app is running, because a sleeping app answers
+   200 with a wake-up page. (wake-streamlit-demos.mjs is the job
+   that keeps them from sleeping; this one only reports.)
+   Windows uses the installed Playwright browser when available:
+   Schannel can fail before HTTP in restricted sessions, which is
+   not evidence that eight unrelated demos are unavailable.
 
    Runs on a schedule rather than on every push: these are other
    people's servers, and a transient outage should not block a
@@ -127,6 +129,24 @@ async function walk(url, useGet) {
   return { res, final: current, looped: true };
 }
 
+/* Reading the body never catches a sleeping app under curl: the sleep screen
+   is drawn by JavaScript, so a sleeping app's HTML is the same shell a running
+   one serves. The platform's own status endpoint does say, with the cookie the
+   page visit just set: 5 is running, 12 is asleep. */
+function platformSaysAsleep(url) {
+  try {
+    const out = execFileSync(
+      "curl",
+      ["-sS", "-L", "--max-time", "30", "-c", COOKIE_JAR, "-b", COOKIE_JAR,
+       "-A", UA_BROWSER, `${url.replace(/\/+$/, "")}/api/v2/app/status`],
+      { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] },
+    );
+    return JSON.parse(out).status === 12;
+  } catch {
+    return false;
+  }
+}
+
 /* Streamlit's sign-in handshake is browser-specific: it 303s to
    share.streamlit.io/-/auth/app, which answers 404 to a hand-rolled follower
    however the cookies are carried, and 200 to curl with a cookie jar. Rather
@@ -145,7 +165,8 @@ function checkWithCurl(url) {
     );
     const status = Number(out.trim());
     const body = fs.existsSync(BODY_FILE) ? fs.readFileSync(BODY_FILE, "utf8") : "";
-    return { status, ok: status >= 200 && status < 400, asleep: ASLEEP.test(body) };
+    const ok = status >= 200 && status < 400;
+    return { status, ok, asleep: ASLEEP.test(body) || (ok && platformSaysAsleep(url)) };
   } catch (err) {
     return { status: 0, ok: false, asleep: false, error: "curl: " + err.message };
   }
