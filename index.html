@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel | Business Analyst &amp; Analytics Engineer | Canada</title>
-<meta name="description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,150 automated tests.">
+<meta name="description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,187 automated tests.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel | Business Analyst &amp; Analytics Engineer | Canada">
-<meta property="og:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,150 automated tests.">
+<meta property="og:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,187 automated tests.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel | Business Analyst &amp; Analytics Engineer | Canada">
-<meta name="twitter:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,150 automated tests.">
+<meta name="twitter:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,187 automated tests.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Business Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -73,7 +73,7 @@
       "url": "https://kushpatel29.github.io/",
       "name": "Kush Patel — Business Analyst & Analytics Engineer",
       "inLanguage": "en-CA",
-      "dateModified": "2026-09-16",
+      "dateModified": "2026-09-17",
       "mainEntity": { "@id": "https://kushpatel29.github.io/#kushpatel" },
       "about": { "@id": "https://kushpatel29.github.io/#kushpatel" },
       "primaryImageOfPage": "https://kushpatel29.github.io/assets/og-banner.png"
@@ -200,12 +200,12 @@
     {
       "@type": "CreativeWork",
       "@id": "https://kushpatel29.github.io/#p-marketing",
-      "name": "Marketing Attribution and Incrementality",
+      "name": "Marketing Measurement and Investment Decision Room",
       "url": "https://attribution-vs-truth.streamlit.app",
       "codeRepository": "https://github.com/KushPatel29/marketing-attribution-analytics",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "Multi-touch attribution graded against a planted ground truth built by counterfactual re-simulation. Six models compete — first-touch, last-touch, linear, position-based, Markov removal effect and exact Shapley — and none recovers the truth. Settled with a geo holdout, a within-geo difference-in-differences and a power calculation computed before the readout.",
-      "keywords": "Python, SQL, attribution, incrementality, causal inference, Markov chain, Shapley value, difference-in-differences, geo holdout, cohort analysis, LTV, funnel"
+      "description": "A governed causal-measurement laboratory and paid-media decision room. It grades six attribution models against planted truth, calibrates paid search with a powered geo holdout, reconciles reported, attributed and incremental outcomes, and produces a budget-neutral downside-weighted allocation with channel guardrails, test gates, named authorities and a signed decision packet.",
+      "keywords": "Python, SQL, attribution, incrementality, causal inference, geo holdout, decision governance, constrained budget allocation, uncertainty, Streamlit, LookML"
     },
     {
       "@type": "CreativeWork",
@@ -402,7 +402,7 @@ WHERE verdict = 'GO'</pre>
       <div class="metric-label">public project repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="11150">11,150</div>
+      <div class="metric-value" data-count="11187">11,187</div>
       <div class="metric-label">Automated tests protecting rules, contracts &amp; evidence</div>
     </div>
     <div class="metric">
@@ -973,32 +973,33 @@ WHERE verdict = 'GO'</pre>
       </article>
 <article class="project card" id="p-marketing" data-tags="customer ai">
         <button type="button" class="card-zoom" data-zoom="assets/marketing-attribution.jpg"
-                aria-label="Enlarge: marketing attribution console comparing six models against a planted ground truth">
+                aria-label="Enlarge: marketing measurement and investment decision room">
           <img src="assets/marketing-attribution.jpg" width="1280" height="943" loading="lazy" decoding="async"
-               alt="Marketing attribution console — every channel's share of credit under last-touch and position-based attribution, plotted against the planted incremental truth, with accuracy and budget-misallocation tables">
+               alt="Marketing measurement and investment decision room with causal evidence, budget guardrails and release gates">
           <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
         </button>
         <div class="card-body">
           <div class="card-head">
-            <p class="kicker">ATTRIBUTION · SAAS GTM · CAUSAL INFERENCE</p>
-            <p class="card-tests">91 tests ✓</p>
+            <p class="kicker">MEASUREMENT · CAUSAL INFERENCE · BUDGET GOVERNANCE</p>
+            <p class="card-tests">128 tests ✓</p>
           </div>
-          <h3>Marketing Attribution &amp; Incrementality</h3>
-          <p class="outcome">I built a dataset where the right answer is known — then watched every attribution model fail to find it.</p>
-          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">Attribution is the one analytics discipline where everybody argues and nobody can check, because the counterfactual isn't in the data. So this generates one: each user carries a fixed random draw, and a channel's true contribution is measured by re-running that same draw with its touches deleted. Six models compete. The exact Shapley value and a Markov chain both lose to a 40/20/40 heuristic — because every model that reads only a journey log sees how often a channel was <em>present</em>, never whether it caused anything. Last-touch hands <em>direct</em> a quarter of all conversions against a true share of 1.9%. A second act asks the same questions of a B2B SaaS motion — CRM pipeline, an ARR waterfall, NRR versus GRR, quota and capacity — and finds the segment with the fastest cycle and the best coverage is the one that loses money.</p></details>
+          <h3>Marketing Measurement &amp; Investment Decision Room</h3>
+          <p class="outcome">I turned an attribution bake-off into a governed investment decision — while keeping attribution, experiments and planning priors rigorously separate.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">The project still begins with a falsifiable test: each synthetic user carries a fixed random draw, so every channel's true incremental contribution can be measured by counterfactual re-simulation. Six attribution models are graded against that truth; none recovers it. A powered geo holdout then supplies the causal lane. The new decision room starts with the business question, selects attribution, lift testing or experiment-calibrated MMM honestly, and refuses to fit MMM to only twelve months of data. It reconciles platform-reported, attributed and incremental conversions without forcing them to agree, then allocates the same paid-media budget across diminishing-return curves using explicit floors, caps and a 65% downside weight. Only paid search is experiment-calibrated; the other three channel changes remain visibly test-gated.</p></details>
           <div class="card-stats">
-            <div><div class="stat-v">13×</div><div class="stat-k">LAST-TOUCH OVERCREDIT</div></div>
-            <div><div class="stat-v">5.76</div><div class="stat-k">BEST MODEL ERROR (PTS)</div></div>
-            <div><div class="stat-v">0.84</div><div class="stat-k">LTV:CAC OF THE BEST-RUN SEGMENT</div></div>
+            <div><div class="stat-v">3.0%</div><div class="stat-k">MODELLED ORDER UPLIFT</div></div>
+            <div><div class="stat-v">1 / 4</div><div class="stat-k">EXPERIMENT-CALIBRATED</div></div>
+            <div><div class="stat-v">$37.2K</div><div class="stat-k">BUDGET HELD CONSTANT</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> A geo holdout settles what the models argue about: naive pre/post reads 11.0%, difference-in-differences returns an interval that covers the planted truth — and the power calculation says out loud which channel this traffic cannot test at all. 91 tests, and a LookML semantic layer parsed against the schema it claims to describe.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 128 tests protect the powered geo readout, method-selection contract, three-way outcome reconciliation, concave response curves, budget neutrality, per-channel floors/caps and release gates, named approval authority and reproducible SHA-256 decision packet.</p>
           <ul class="tags">
             <li>Python</li>
             <li>SQL</li>
             <li>Causal inference</li>
-            <li>LookML</li>
+            <li>Decision governance</li>
             <li>Streamlit</li>
           </ul>
+          <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/marketing-attribution-analytics/blob/main/output/marketing_investment_memo.md" target="_blank" rel="noopener"><span>OPEN DECISION MEMO</span><span aria-hidden="true">↗</span></a>
           <a class="card-open card-open-live" href="https://attribution-vs-truth.streamlit.app" target="_blank" rel="noopener"><span>▶ OPEN LIVE APP</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/marketing-attribution-analytics" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
@@ -1792,7 +1793,7 @@ WHERE verdict = 'GO'</pre>
     </nav>
     <div class="footer-meta">
       <span>© <span id="year">2026</span> KUSH PATEL · HAND-BUILT — NO FRAMEWORK, NO TRACKER.</span>
-      <span class="footer-updated">LAST UPDATED <time datetime="2026-09-16">16 SEPTEMBER 2026</time></span>
+      <span class="footer-updated">LAST UPDATED <time datetime="2026-09-17">17 SEPTEMBER 2026</time></span>
     </div>
   </div>
 </footer>
