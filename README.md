@@ -76,13 +76,25 @@ does for internal ones: it requests every `https://` href on the page, follows
 redirects, and fails on anything unreachable. Two details it exists to get
 right. LinkedIn answers unattended requests with `999` — a profile refusing to
 be scraped, not a broken link — so that is tolerated by host. And Streamlit
-Community Cloud sleeps an app after about a week, then answers `200` with a
-wake-up page; the body is read, not just the status line, and `--strict` makes
-a sleeping app fatal. Streamlit's sign-in handshake is completed with `curl`
-rather than a hand-rolled redirect follower, which loops forever on it.
+Community Cloud sleeps an app after twelve hours without a visitor, then
+answers `200` with a wake-up page that JavaScript draws, so the HTML alone
+cannot tell. The gate asks the platform instead (`/api/v2/app/status`: `5`
+running, `12` asleep), and `--strict` makes a sleeping app fatal. Streamlit's
+sign-in handshake is completed with `curl` rather than a hand-rolled redirect
+follower, which loops forever on it.
+
+**`tools/wake-streamlit-demos.mjs`** keeps those demos awake. Every three hours
+`.github/workflows/wake-demos.yml` opens each Streamlit app the page or the
+manifest links to in a real browser, presses "get this app back up" when it is
+asleep, waits for the platform to report it running, and fails unless its first
+page renders without a Python exception. It replaced a curl ping in each app
+repository that stayed green for days while the demos slept: a fetch that never
+opens a session is not a visitor, and every other day is not inside twelve
+hours. A renamed or deleted app fails in seconds rather than after the wake
+budget.
 
 External checks run on pushes, PRs and the weekly schedule. Hosted demos can
-still sleep or suffer transient outages; the homepage keeps screenshots and
+still suffer outages the waker cannot fix; the homepage keeps screenshots and
 source links available independently of those services.
 
 Run the dependency-free contracts with `pnpm test:contracts`. Run the complete
