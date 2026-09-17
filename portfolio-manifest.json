@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 14,
-    "automatedTests": 11187
+    "automatedTests": 11208
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -217,18 +217,22 @@
     {
       "id": "customer-recommendation-engine",
       "cardId": "p-customer-rec",
-      "title": "Customer Recommendation Engine",
+      "title": "Recommendation Product Decision Room",
       "repository": "https://github.com/KushPatel29/Customer-Recommendation-Engine",
       "liveApp": "https://cross-sell-rep-console.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 793,
+      "testCount": 814,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
-      "productShape": "Recommendation API, experimentation console and representative-assist surface",
+      "productShape": "Governed recommendation release room, resilient API, experimentation console and representative-assist surface",
       "primaryDecision": "Which eligible next-best item should be offered, why, and under which guardrails?",
-      "capabilities": ["recommendations", "fastapi", "mlflow", "experimentation", "power-bi"],
-      "evidence": []
+      "capabilities": ["recommendations", "multi-objective-evaluation", "slice-analysis", "fastapi", "safe-fallback", "mlflow", "experimentation", "power-bi"],
+      "evidence": [
+        "https://github.com/KushPatel29/Customer-Recommendation-Engine/blob/main/output/recommendation_release_memo.md",
+        "https://github.com/KushPatel29/Customer-Recommendation-Engine/blob/main/output/recommendation_release_packet.json",
+        "https://github.com/KushPatel29/Customer-Recommendation-Engine/blob/main/output/recommendation_slice_evaluation.csv"
+      ]
     },
     {
       "id": "hr-attrition-analytics",
