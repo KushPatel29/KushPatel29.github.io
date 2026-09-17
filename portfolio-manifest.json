@@ -277,7 +277,7 @@
     {
       "id": "supply-chain-analytics-dbt",
       "cardId": "p-dbt",
-      "title": "Supply Chain Analytics — dbt",
+      "title": "Supply Chain Analytics — dbt Release Control Room",
       "repository": "https://github.com/KushPatel29/supply-chain-analytics-dbt",
       "liveApp": null,
       "liveStatus": "repository-only",
@@ -285,10 +285,15 @@
       "testCommand": "dbt build",
       "dataClassification": "synthetic",
       "priority": "specialist",
-      "productShape": "Contracted semantic and lineage platform",
+      "productShape": "Contracted analytics release control room",
       "primaryDecision": "Can this metric or model change ship without breaking governed downstream consumers?",
-      "capabilities": ["dbt", "metricflow", "airflow", "data-contracts", "analytics-engineering"],
-      "evidence": []
+      "capabilities": ["dbt", "metricflow", "airflow", "data-contracts", "analytics-engineering", "change-impact", "run-lineage", "release-assurance"],
+      "evidence": [
+        "https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/output/analytics_engineering_release_memo.md",
+        "https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/output/analytics_engineering_release_packet.json",
+        "https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/output/change_impact.csv",
+        "https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/docs/RELEASE_OPERATIONS.md"
+      ]
     },
     {
       "id": "legacy-to-fabric-migration",
