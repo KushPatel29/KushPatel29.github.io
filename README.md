@@ -51,7 +51,7 @@ Lighthouse gates on every push and PR to `main`, plus a weekly run for checks
 that depend on other people's servers. Third-party Actions are pinned to full
 commit SHAs and Dependabot proposes reviewed updates.
 
-**`tools/check-portfolio-manifest.mjs`** reconciles all fourteen project
+**`tools/check-portfolio-manifest.mjs`** reconciles all fifteen project
 records to the actual HTML. A release fails when a card title, repository,
 live-app link, test count, total, or verification date drifts. It also requires
 an explicit data classification, primary decision and product shape, keeping

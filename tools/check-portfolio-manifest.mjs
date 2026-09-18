@@ -60,9 +60,12 @@ const seenCards = new Set();
 const seenRepos = new Set();
 const allowedStatus = new Set(["live-demo", "repository-only"]);
 const allowedPriority = new Set(["flagship", "specialist"]);
+// public-open-data: real records published under an open licence (the
+// wildfire forecast reads NFDB and CWFIS under the Open Government Licence).
 const allowedClassification = new Set([
   "synthetic",
   "synthetic-and-session-upload",
+  "public-open-data",
 ]);
 
 for (const project of manifest.projects ?? []) {

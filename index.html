@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel | Business Analyst &amp; Analytics Engineer | Canada</title>
-<meta name="description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,217 automated tests.">
+<meta name="description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—15 projects backed by 11,328 automated tests.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel | Business Analyst &amp; Analytics Engineer | Canada">
-<meta property="og:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,217 automated tests.">
+<meta property="og:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—15 projects backed by 11,328 automated tests.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel | Business Analyst &amp; Analytics Engineer | Canada">
-<meta name="twitter:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—14 projects backed by 11,217 automated tests.">
+<meta name="twitter:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—15 projects backed by 11,328 automated tests.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Business Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -260,6 +260,16 @@
     },
     {
       "@type": "CreativeWork",
+      "@id": "https://kushpatel29.github.io/#p-wildfire",
+      "name": "Canada Wildfire Risk",
+      "url": "https://kushpatel29.github.io/#p-wildfire",
+      "codeRepository": "https://github.com/KushPatel29/wildfire-prediction-app",
+      "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
+      "description": "A daily seven-day wildfire ignition-risk forecast for Canada's 771 one-degree fire cells, built on the National Fire Database, CWFIS station weather and satellite hotspots. A from-source Fire Weather Index implementation feeds an averaged XGBoost classifier and Poisson count model, calibrated and scored once on the 2020-2024 seasons against climatology and FWI baselines (ROC-AUC 0.807; 36.7% of fires in each day's riskiest tenth). The 2026 season is graded against satellite detections, the forecast is rebuilt twice a day in GitHub Actions, and an eight-page Power BI dashboard is generated from spec. It began as a first-prize 2024 hackathon project, whose model is rebuilt and re-scored out of time.",
+      "keywords": "wildfire, fire weather index, forecasting, XGBoost, Poisson regression, isotonic calibration, out-of-time evaluation, GIS, geospatial, open data, CWFIS, NFDB, Power BI, PBIR, TMDL, GitHub Actions, Streamlit"
+    },
+    {
+      "@type": "CreativeWork",
       "@id": "https://kushpatel29.github.io/#p-migration",
       "name": "Legacy-to-Fabric Migration",
       "url": "https://kushpatel29.github.io/#p-migration",
@@ -398,11 +408,11 @@ WHERE verdict = 'GO'</pre>
   <!-- ============ METRICS ============ -->
   <section class="metrics" aria-label="Portfolio at a glance">
     <div class="metric">
-      <div class="metric-value" data-count="14">14</div>
+      <div class="metric-value" data-count="15">15</div>
       <div class="metric-label">public project repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="11217">11,217</div>
+      <div class="metric-value" data-count="11328">11,328</div>
       <div class="metric-label">Automated tests protecting rules, contracts &amp; evidence</div>
     </div>
     <div class="metric">
@@ -622,8 +632,8 @@ WHERE verdict = 'GO'</pre>
   <!-- ============ WORK ============ -->
   <section id="work" class="section" aria-label="Projects">
     <p class="eyebrow">COMPLETE PROJECT ARCHIVE</p>
-    <h2>Fourteen tested builds across business transformation and analytics</h2>
-    <p class="section-sub">Use the filters to inspect the discipline most relevant to your team. All project results use seeded synthetic data; dollar outcomes are modelled, not employer-realized savings. Repository workflows check documented invariants at their linked commits.</p>
+    <h2>Fifteen tested builds across business transformation and analytics</h2>
+    <p class="section-sub">Use the filters to inspect the discipline most relevant to your team. Project results use seeded synthetic data, except the wildfire forecast, which runs on public Canadian fire and weather records; dollar outcomes are modelled, not employer-realized savings. Repository workflows check documented invariants at their linked commits.</p>
     <p class="demo-note">Demo taking time to load? Hosted apps may need to wake up. Every project has an expandable screenshot and source code here, so you can inspect the work immediately.</p>
 
     <!-- Filter bar -->
@@ -644,7 +654,7 @@ WHERE verdict = 'GO'</pre>
            recomputes this from document.querySelectorAll(".project").length,
            so the number below must equal the count of .project cards on the
            page. tools/check-repo-count.mjs fails the build when it doesn't. -->
-      <span class="filter-count" id="work-count" aria-live="polite">SHOWING 14 / 14 REPOS</span>
+      <span class="filter-count" id="work-count" aria-live="polite">SHOWING 15 / 15 REPOS</span>
     </div>
 
     <!-- Flagship, full width -->
@@ -840,6 +850,39 @@ WHERE verdict = 'GO'</pre>
           <a class="card-open card-open-live" href="https://ask-your-data-kp.streamlit.app" target="_blank" rel="noopener"><span>▶ TRY IT LIVE</span><span aria-hidden="true">↗</span></a>
           <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/ask-your-data/blob/main/docs/ASSURANCE_CASE.md" target="_blank" rel="noopener"><span>VIEW ASSURANCE &amp; BUSINESS CASE</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/ask-your-data" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+<article class="project card" id="p-wildfire" data-tags="ai gis">
+        <button type="button" class="card-zoom" data-zoom="assets/wildfire-risk.jpg"
+                aria-label="Enlarge: seven-day wildfire risk map of Canada">
+          <img src="assets/wildfire-risk.jpg" width="1280" height="1063" loading="lazy" decoding="async"
+               alt="Seven-day wildfire risk — Canada's one-degree cells coloured by the calibrated chance of a new fire, with satellite hotspots from the last 48 hours">
+          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
+        </button>
+        <div class="card-body">
+          <div class="card-head">
+            <p class="kicker">FORECASTING · GIS · PUBLIC DATA</p>
+            <p class="card-tests">108 tests ✓</p>
+          </div>
+          <h3>Canada Wildfire Risk</h3>
+          <p class="outcome">Rank Canada’s 771 fire cells every morning — and say plainly where fire weather alone does just as well.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">A first-prize 2024 hackathon project, rebuilt from a yearly area-burned regression into a daily seven-day forecast on real public records: 164,707 fires from the National Fire Database, 3,198 CWFIS weather stations and 4.1 million cell-days. The Canadian Fire Weather Index System is implemented from Van Wagner and replayed against CWFIS’s published codes before anything relies on it. Two XGBoost models — a classifier and a Poisson count — are averaged and isotonically calibrated, trained on 2000–2016, tuned on 2017–2019 and scored once on 2020–2024, beside two baselines: each cell’s normal rate for the month and an FWI regression. Re-ranked each morning, the riskiest tenth of cells held 36.7% of the 26,975 fires reported. The 2026 season is graded against satellite hotspots, where FWI alone nearly matches the model, and the README says so. GitHub Actions rebuilds the forecast twice a day from live CWFIS and Open-Meteo data, and an eight-page Power BI dashboard is generated from spec and reconciled to the same evidence files. The original random forest is rebuilt too: its R² falls from 0.351 on a random split to 0.201 out of time.</p></details>
+          <div class="card-stats">
+            <div><div class="stat-v">0.807</div><div class="stat-k">ROC-AUC OUT OF TIME</div></div>
+            <div><div class="stat-v">36.7%</div><div class="stat-k">FIRES IN THE DAY’S TOP 10%</div></div>
+            <div><div class="stat-v">4.1M</div><div class="stat-k">CELL-DAYS MODELLED</div></div>
+          </div>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 108 tests replay real station seasons through the FWI code, hold the model card to its metrics file, reconcile every dashboard table to its source and check the live forecast assembly. Not an official fire-danger product.</p>
+          <ul class="tags">
+            <li>Python</li>
+            <li>XGBoost</li>
+            <li>FWI System</li>
+            <li>GIS</li>
+            <li>Power BI</li>
+            <li>GitHub Actions</li>
+          </ul>
+          <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/wildfire-prediction-app#what-it-scored-on-seasons-it-never-saw" target="_blank" rel="noopener"><span>VIEW MODEL RESULTS</span><span aria-hidden="true">↗</span></a>
+          <a class="card-open" href="https://github.com/KushPatel29/wildfire-prediction-app" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
 <article class="project card" id="p-healthcare" data-tags="finance health business">
@@ -1129,7 +1172,7 @@ WHERE verdict = 'GO'</pre>
         <div class="card-body">
           <div class="card-head">
             <p class="kicker">TRANSFORMATION · SEMANTIC LAYER</p>
-            <p class="card-tests">154 dbt tests ✓</p>
+            <p class="card-tests">157 dbt tests ✓</p>
           </div>
           <h3>Supply Chain Analytics — dbt</h3>
           <p class="outcome">Finance and Ops stop arguing about revenue because there is one versioned definition.</p>
@@ -1137,7 +1180,7 @@ WHERE verdict = 'GO'</pre>
           <div class="card-stats">
             <div><div class="stat-v">2</div><div class="stat-k">WAREHOUSE PROFILES</div></div>
             <div><div class="stat-v">SCD2</div><div class="stat-k">SNAPSHOT HISTORY</div></div>
-            <div><div class="stat-v">154</div><div class="stat-k">DBT TESTS</div></div>
+            <div><div class="stat-v">157</div><div class="stat-k">DBT TESTS</div></div>
           </div>
           <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> One definition per metric in MetricFlow. CI builds the DuckDB target, imports the Airflow DAG through a DagBag and asserts its task graph — it does not execute a task, and the Snowflake profile ships unexercised.</p>
           <ul class="tags">

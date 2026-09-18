@@ -4,8 +4,8 @@
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
-    "promotedProjects": 14,
-    "automatedTests": 11217
+    "promotedProjects": 15,
+    "automatedTests": 11328
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -91,6 +91,26 @@
       "evidence": [
         "https://github.com/KushPatel29/ask-your-data/blob/main/docs/ASSURANCE_CASE.md",
         "https://github.com/KushPatel29/ask-your-data/blob/main/evals/assurance_release.yaml"
+      ]
+    },
+    {
+      "id": "canada-wildfire-risk",
+      "cardId": "p-wildfire",
+      "title": "Canada Wildfire Risk",
+      "repository": "https://github.com/KushPatel29/wildfire-prediction-app",
+      "liveApp": null,
+      "liveStatus": "repository-only",
+      "testCount": 108,
+      "testCommand": "pytest",
+      "dataClassification": "public-open-data",
+      "priority": "specialist",
+      "productShape": "Daily seven-day wildfire ignition-risk forecast with an out-of-time model card, a satellite-graded season check and a generated Power BI dashboard",
+      "primaryDecision": "Which of Canada's 771 fire cells should be watched this week, and how much better is that ranking than fire weather or climatology alone?",
+      "capabilities": ["forecasting", "machine-learning", "gis", "model-assurance", "power-bi", "open-data"],
+      "evidence": [
+        "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/reports/metrics.json",
+        "https://github.com/KushPatel29/wildfire-prediction-app/tree/main/powerbi",
+        "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/.github/workflows/forecast.yml"
       ]
     },
     {
@@ -261,7 +281,7 @@
       "repository": "https://github.com/KushPatel29/supply-chain-analytics-dbt",
       "liveApp": null,
       "liveStatus": "repository-only",
-      "testCount": 154,
+      "testCount": 157,
       "testCommand": "dbt build",
       "dataClassification": "synthetic",
       "priority": "specialist",
