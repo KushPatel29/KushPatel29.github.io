@@ -25,7 +25,7 @@ test("project filters remain shareable and only reveal matching work", async ({ 
 
   await expect(page).toHaveURL(/\?filter=ai#work$/);
   await expect(page.getByRole("button", { name: "AI & ML" })).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator("#work-count")).toContainText(/SHOWING [1-9]\d* \/ 14 REPOS/);
+  await expect(page.locator("#work-count")).toContainText(/SHOWING [1-9]\d* \/ 15 REPOS/);
 
   const tags = await page.locator(".project:not(.is-filtered-out)").evaluateAll((cards) =>
     cards.map((card) => card.getAttribute("data-tags") || ""),
