@@ -43,6 +43,7 @@ const ASLEEP = 12;
 const MISSING = "no such app";
 const WAKE_BUDGET_MS = 10 * 60_000;
 const RENDER_BUDGET_MS = 3 * 60_000;
+const RENDER_ATTEMPTS = 2;
 const SETTLE_MS = 15_000;
 
 function origin(url) {
@@ -140,13 +141,29 @@ async function visit(browser, url) {
       say(`running after ${Math.round((Date.now() - started) / 1000)}s`);
     }
 
-    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 90_000 });
+    /* "Running" is the platform's word for the container, not for the app's
+       first script run: a demo that has just woken can take minutes to draw,
+       and the workforce room missed a three-minute wait once and rendered
+       fine on the next run. A reload and a second wait cost less than a false
+       alarm that teaches everyone to ignore this job. */
     const app = page.frameLocator("iframe[title='streamlitApp']");
-    await app.locator("[data-testid='stApp']").waitFor({ timeout: RENDER_BUDGET_MS });
-    await app
-      .locator("[data-testid='stMainBlockContainer'] [data-testid='stElementContainer']")
-      .first()
-      .waitFor({ timeout: RENDER_BUDGET_MS });
+    const drawn = async () => {
+      await app.locator("[data-testid='stApp']").waitFor({ timeout: RENDER_BUDGET_MS });
+      await app
+        .locator("[data-testid='stMainBlockContainer'] [data-testid='stElementContainer']")
+        .first()
+        .waitFor({ timeout: RENDER_BUDGET_MS });
+    };
+    for (let attempt = 1; ; attempt += 1) {
+      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 90_000 });
+      try {
+        await drawn();
+        break;
+      } catch (error) {
+        if (attempt === RENDER_ATTEMPTS) throw error;
+        say(`nothing drawn in ${RENDER_BUDGET_MS / 60_000} minutes; reloading`);
+      }
+    }
     await page.waitForTimeout(SETTLE_MS);
 
     const errors = app.locator("[data-testid='stException']");
