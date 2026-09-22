@@ -264,6 +264,7 @@
       "name": "Canada Wildfire Risk",
       "url": "https://kushpatel29.github.io/#p-wildfire",
       "codeRepository": "https://github.com/KushPatel29/wildfire-prediction-app",
+      "sameAs": "https://wildfire-prediction-app1.streamlit.app",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
       "description": "A daily seven-day wildfire ignition-risk forecast for Canada's 771 one-degree fire cells, built on the National Fire Database, CWFIS station weather and satellite hotspots. A from-source Fire Weather Index implementation feeds an averaged XGBoost classifier and Poisson count model, calibrated and scored once on the 2020-2024 seasons against climatology and FWI baselines (ROC-AUC 0.807; 36.7% of fires in each day's riskiest tenth). The 2026 season is graded against satellite detections, the forecast is rebuilt twice a day in GitHub Actions, and an eight-page Power BI dashboard is generated from spec. It began as a first-prize 2024 hackathon project, whose model is rebuilt and re-scored out of time.",
       "keywords": "wildfire, fire weather index, forecasting, XGBoost, Poisson regression, isotonic calibration, out-of-time evaluation, GIS, geospatial, open data, CWFIS, NFDB, Power BI, PBIR, TMDL, GitHub Actions, Streamlit"
@@ -872,7 +873,7 @@ WHERE verdict = 'GO'</pre>
             <div><div class="stat-v">36.7%</div><div class="stat-k">FIRES IN THE DAY’S TOP 10%</div></div>
             <div><div class="stat-v">4.1M</div><div class="stat-k">CELL-DAYS MODELLED</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 108 tests replay real station seasons through the FWI code, hold the model card to its metrics file, reconcile every dashboard table to its source and check the live forecast assembly. Not an official fire-danger product.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 108 tests replay real station seasons through the FWI code, hold the model card to its metrics file, reconcile every dashboard table to its source and check the live forecast assembly. The live app reads the forecast GitHub Actions publishes twice a day. Not an official fire-danger product.</p>
           <ul class="tags">
             <li>Python</li>
             <li>XGBoost</li>
@@ -882,6 +883,7 @@ WHERE verdict = 'GO'</pre>
             <li>GitHub Actions</li>
           </ul>
           <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/wildfire-prediction-app#what-it-scored-on-seasons-it-never-saw" target="_blank" rel="noopener"><span>VIEW MODEL RESULTS</span><span aria-hidden="true">↗</span></a>
+          <a class="card-open card-open-live" href="https://wildfire-prediction-app1.streamlit.app" target="_blank" rel="noopener"><span>▶ OPEN LIVE APP</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/wildfire-prediction-app" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
