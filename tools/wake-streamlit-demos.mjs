@@ -42,8 +42,8 @@ const RUNNING = 5;
 const ASLEEP = 12;
 const MISSING = "no such app";
 const WAKE_BUDGET_MS = 10 * 60_000;
-const RENDER_BUDGET_MS = 3 * 60_000;
-const RENDER_ATTEMPTS = 2;
+const RENDER_BUDGET_MS = 8 * 60_000;
+const RELOAD_AFTER_MS = 3 * 60_000;
 const SETTLE_MS = 15_000;
 
 function origin(url) {
@@ -117,13 +117,13 @@ async function visit(browser, url) {
   try {
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 90_000 });
     let current = await status();
-    const arrived = current;
     /* A renamed or deleted app is a dead link, not a slow start: say so now
        rather than after the whole wake budget. */
     if (current === MISSING) throw new Error("Streamlit has no app at this address (404)");
+    say(current === RUNNING ? "running on arrival" : current === ASLEEP ? "asleep on arrival"
+      : `status ${current} on arrival`);
 
     if (current !== RUNNING) {
-      say(`status ${current} on arrival`);
       say((await pressWake(30_000)) ? "pressed the wake button" : "no wake button; waiting for it to start");
       let lastPress = Date.now();
       while (current !== RUNNING && Date.now() - started < WAKE_BUDGET_MS) {
@@ -142,28 +142,47 @@ async function visit(browser, url) {
     }
 
     /* "Running" is the platform's word for the container, not for the app's
-       first script run: a demo that has just woken can take minutes to draw,
-       and the workforce room missed a three-minute wait once and rendered
-       fine on the next run. A reload and a second wait cost less than a false
-       alarm that teaches everyone to ignore this job. */
+       first script run. Three runs between 18 and 20 September failed here on
+       apps the platform called running, and each drew in about a minute on
+       the next run. So: while the app's own status widget says its script is
+       still running, keep waiting rather than reloading - a reload starts the
+       script again - and reload only a page that has drawn no app at all.
+       When the budget runs out, say what the frame was showing. */
     const app = page.frameLocator("iframe[title='streamlitApp']");
-    const drawn = async () => {
-      await app.locator("[data-testid='stApp']").waitFor({ timeout: RENDER_BUDGET_MS });
-      await app
-        .locator("[data-testid='stMainBlockContainer'] [data-testid='stElementContainer']")
-        .first()
-        .waitFor({ timeout: RENDER_BUDGET_MS });
-    };
-    for (let attempt = 1; ; attempt += 1) {
-      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 90_000 });
+    const content = app
+      .locator("[data-testid='stMainBlockContainer'] [data-testid='stElementContainer']")
+      .first();
+    const renderStarted = Date.now();
+    let reloaded = false;
+    let sawScriptRunning = false;
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 90_000 });
+    for (;;) {
       try {
-        await drawn();
+        await content.waitFor({ timeout: 20_000 });
         break;
-      } catch (error) {
-        if (attempt === RENDER_ATTEMPTS) throw error;
-        say(`nothing drawn in ${RENDER_BUDGET_MS / 60_000} minutes; reloading`);
+      } catch {
+        /* not drawn yet */
+      }
+      const shell = await app.locator("[data-testid='stApp']").count().catch(() => 0);
+      const running = await app.locator("[data-testid='stStatusWidget']").count().catch(() => 0);
+      sawScriptRunning ||= running > 0;
+      const waited = Date.now() - renderStarted;
+      if (waited > RENDER_BUDGET_MS) {
+        const shown = (await app.locator("body").innerText({ timeout: 5_000 }).catch(() => ""))
+          .replace(/\s+/g, " ").trim().slice(0, 140);
+        const minutes = Math.round(waited / 60_000);
+        throw new Error(
+          `nothing drawn in ${minutes} minute${minutes === 1 ? "" : "s"} ` +
+          `(app shell ${shell ? "loaded" : "missing"}; script ${running ? "still running" : sawScriptRunning ? "ran and stopped" : "never seen running"}` +
+          `${reloaded ? "; reloaded once" : ""}; frame shows "${shown || "nothing"}")`);
+      }
+      if (!shell && !reloaded && waited > RELOAD_AFTER_MS) {
+        say(`no app shell after ${Math.round(waited / 1000)}s; reloading`);
+        await page.reload({ waitUntil: "domcontentloaded", timeout: 90_000 });
+        reloaded = true;
       }
     }
+    say(`first page drawn after ${Math.round((Date.now() - renderStarted) / 1000)}s`);
     await page.waitForTimeout(SETTLE_MS);
 
     const errors = app.locator("[data-testid='stException']");
@@ -171,7 +190,7 @@ async function visit(browser, url) {
       const text = (await errors.first().innerText()).split("\n").slice(0, 2).join(" | ");
       throw new Error(`first page renders a Python exception: ${text}`);
     }
-    say(arrived === RUNNING ? "was awake; first page renders" : "first page renders");
+    say("no exception on the first page");
     ok = true;
   } catch (error) {
     say(error.message.split("\n")[0]);
@@ -197,11 +216,18 @@ if (isMain) {
   const results = await Promise.all(demos.map((url) => visit(browser, url)));
   await browser.close();
 
+  /* Job logs are 403 to anyone without admin on the repository, but
+     annotations are public through the check-runs API. So every demo's whole
+     trail is published as one: a notice when it served, an error when it did
+     not. That is how "was it asleep, and how long did it take to draw" gets
+     answered for a run nobody watched. */
   for (const r of results) {
     const mark = r.ok ? "✓" : "✗";
-    console.log(`${mark} ${r.url}  (${r.seconds}s)  ${r.log.join("; ")}`);
-    if (!r.ok && process.env.GITHUB_ACTIONS) {
-      console.log(`::error title=Demo down::${r.url}: ${r.log.at(-1)}`);
+    const trail = r.log.join("; ");
+    console.log(`${mark} ${r.url}  (${r.seconds}s)  ${trail}`);
+    if (process.env.GITHUB_ACTIONS) {
+      const level = r.ok ? "notice title=Demo served" : "error title=Demo down";
+      console.log(`::${level}::${r.url} (${r.seconds}s): ${trail}`);
     }
   }
   const failed = results.filter((r) => !r.ok).length;
