@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 15,
-    "automatedTests": 11337
+    "automatedTests": 11340
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -100,7 +100,7 @@
       "repository": "https://github.com/KushPatel29/wildfire-prediction-app",
       "liveApp": "https://wildfire-prediction-app1.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 108,
+      "testCount": 111,
       "testCommand": "pytest",
       "dataClassification": "public-open-data",
       "priority": "specialist",
