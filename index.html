@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel | Business Analyst &amp; Analytics Engineer | Canada</title>
-<meta name="description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—15 projects backed by 11,337 automated tests.">
+<meta name="description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—15 projects backed by 11,340 automated tests.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel | Business Analyst &amp; Analytics Engineer | Canada">
-<meta property="og:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—15 projects backed by 11,337 automated tests.">
+<meta property="og:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—15 projects backed by 11,340 automated tests.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel | Business Analyst &amp; Analytics Engineer | Canada">
-<meta name="twitter:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—15 projects backed by 11,337 automated tests.">
+<meta name="twitter:description" content="Business Analyst and Analytics Engineer portfolio: governed decision systems across assets, operations, Power BI, GIS and supply chains—15 projects backed by 11,340 automated tests.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — Business Analyst / BI &amp; Analytics Engineer, open to roles across Canada">
 
@@ -266,7 +266,7 @@
       "codeRepository": "https://github.com/KushPatel29/wildfire-prediction-app",
       "sameAs": "https://wildfire-prediction-app1.streamlit.app",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "A daily seven-day wildfire ignition-risk forecast for Canada's 771 one-degree fire cells, built on the National Fire Database, CWFIS station weather and satellite hotspots. A from-source Fire Weather Index implementation feeds an averaged XGBoost classifier and Poisson count model, calibrated and scored once on the 2020-2024 seasons against climatology and FWI baselines (ROC-AUC 0.807; 36.7% of fires in each day's riskiest tenth). The 2026 season is graded against satellite detections, the forecast is rebuilt twice a day in GitHub Actions, and an eight-page Power BI dashboard is generated from spec. It began as a first-prize 2024 hackathon project, whose model is rebuilt and re-scored out of time.",
+      "description": "A daily seven-day wildfire ignition-risk forecast for Canada's 753 one-degree fire cells, built on the National Fire Database, CWFIS station weather and satellite hotspots. A from-source Fire Weather Index implementation feeds an averaged XGBoost classifier and Poisson count model, calibrated and scored once on the 2020-2024 seasons against climatology and FWI baselines (ROC-AUC 0.881; 57.5% of fires in each day's riskiest tenth, after a fix that returned 97.7% of fires to their own cells). The 2026 season is graded against satellite detections, the forecast is rebuilt twice a day in GitHub Actions, and an eight-page Power BI dashboard is generated from spec. It began as a first-prize 2024 hackathon project, whose model is rebuilt and re-scored out of time.",
       "keywords": "wildfire, fire weather index, forecasting, XGBoost, Poisson regression, isotonic calibration, out-of-time evaluation, GIS, geospatial, open data, CWFIS, NFDB, Power BI, PBIR, TMDL, GitHub Actions, Streamlit"
     },
     {
@@ -413,7 +413,7 @@ WHERE verdict = 'GO'</pre>
       <div class="metric-label">public project repos</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="11337">11,337</div>
+      <div class="metric-value" data-count="11340">11,340</div>
       <div class="metric-label">Automated tests protecting rules, contracts &amp; evidence</div>
     </div>
     <div class="metric">
@@ -863,17 +863,17 @@ WHERE verdict = 'GO'</pre>
         <div class="card-body">
           <div class="card-head">
             <p class="kicker">FORECASTING · GIS · PUBLIC DATA</p>
-            <p class="card-tests">108 tests ✓</p>
+            <p class="card-tests">111 tests ✓</p>
           </div>
           <h3>Canada Wildfire Risk</h3>
-          <p class="outcome">Rank Canada’s 771 fire cells every morning — and say plainly where fire weather alone does just as well.</p>
-          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">A first-prize 2024 hackathon project, rebuilt from a yearly area-burned regression into a daily seven-day forecast on real public records: 164,707 fires from the National Fire Database, 3,198 CWFIS weather stations and 4.1 million cell-days. The Canadian Fire Weather Index System is implemented from Van Wagner and replayed against CWFIS’s published codes before anything relies on it. Two XGBoost models — a classifier and a Poisson count — are averaged and isotonically calibrated, trained on 2000–2016, tuned on 2017–2019 and scored once on 2020–2024, beside two baselines: each cell’s normal rate for the month and an FWI regression. Re-ranked each morning, the riskiest tenth of cells held 36.7% of the 26,975 fires reported. The 2026 season is graded against satellite hotspots, where FWI alone nearly matches the model, and the README says so. GitHub Actions rebuilds the forecast twice a day from live CWFIS and Open-Meteo data, and an eight-page Power BI dashboard is generated from spec and reconciled to the same evidence files. The original random forest is rebuilt too: its R² falls from 0.351 on a random split to 0.201 out of time.</p></details>
+          <p class="outcome">Rank Canada’s 753 fire cells every morning, and the riskiest tenth holds 57.5% of the fires that start — on seasons the model never saw.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">A first-prize 2024 hackathon project, rebuilt from a yearly area-burned regression into a daily seven-day forecast on real public records: 164,707 fires from the National Fire Database, 3,198 CWFIS weather stations and 4.0 million cell-days. The Canadian Fire Weather Index System is implemented from Van Wagner and replayed against CWFIS’s published codes before anything relies on it. Two XGBoost models — a classifier and a Poisson count — are averaged and isotonically calibrated, trained on 2000–2016, tuned on 2017–2019 and scored once on 2020–2024, beside two baselines: each cell’s normal rate for the month and an FWI regression. Re-ranked each morning, the riskiest tenth of cells held 57.5% of the 27,147 fires reported. Graded against this season’s satellite hotspots it still beats FWI alone, by less: 0.743 to 0.724. Those figures come after a fix: a pandas index misalignment had put 97.7% of fires in another fire’s cell, so the model had been trained and scored on a scrambled record. It showed on a map of the grid’s provinces, with Nova Scotia’s fires in the Yukon, and the README keeps the before and after. GitHub Actions rebuilds the forecast twice a day from live CWFIS and Open-Meteo data, and an eight-page Power BI dashboard is generated from spec and reconciled to the same evidence files. The original random forest is rebuilt too: its R² falls from 0.351 on a random split to 0.201 out of time.</p></details>
           <div class="card-stats">
-            <div><div class="stat-v">0.807</div><div class="stat-k">ROC-AUC OUT OF TIME</div></div>
-            <div><div class="stat-v">36.7%</div><div class="stat-k">FIRES IN THE DAY’S TOP 10%</div></div>
-            <div><div class="stat-v">4.1M</div><div class="stat-k">CELL-DAYS MODELLED</div></div>
+            <div><div class="stat-v">0.881</div><div class="stat-k">ROC-AUC OUT OF TIME</div></div>
+            <div><div class="stat-v">57.5%</div><div class="stat-k">FIRES IN THE DAY’S TOP 10%</div></div>
+            <div><div class="stat-v">97.7%</div><div class="stat-k">OF FIRES IN THE WRONG CELL, FOUND AND FIXED</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 108 tests replay real station seasons through the FWI code, hold the model card to its metrics file, reconcile every dashboard table to its source and check the live forecast assembly. The live app reads the forecast GitHub Actions publishes twice a day. Not an official fire-danger product.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 111 tests replay real station seasons through the FWI code, keep every fire in its own cell, hold the model card to its metrics file and reconcile every dashboard table to its source. The live app reads the forecast GitHub Actions publishes twice a day. Not an official fire-danger product.</p>
           <ul class="tags">
             <li>Python</li>
             <li>XGBoost</li>
@@ -882,6 +882,7 @@ WHERE verdict = 'GO'</pre>
             <li>Power BI</li>
             <li>GitHub Actions</li>
           </ul>
+          <a class="card-open card-open-evidence" href="wildfire/"><span>THIS WEEK’S FORECAST</span><span aria-hidden="true">→</span></a>
           <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/wildfire-prediction-app#what-it-scored-on-seasons-it-never-saw" target="_blank" rel="noopener"><span>VIEW MODEL RESULTS</span><span aria-hidden="true">↗</span></a>
           <a class="card-open card-open-live" href="https://wildfire-prediction-app1.streamlit.app" target="_blank" rel="noopener"><span>▶ OPEN LIVE APP</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/wildfire-prediction-app" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
