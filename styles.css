@@ -1411,6 +1411,8 @@ main {
 .edu-card h3 { margin: 12px 0 0; font-size: 20px; font-weight: 600; letter-spacing: -0.018em; }
 .edu-card .edu-org { font-size: 14.5px; color: var(--muted); }
 .edu-card .edu-text { font-size: 14px; line-height: 1.58; color: var(--muted-2); }
+/* A link inside running text needs more than colour to be seen as one (WCAG 1.4.1). */
+.edu-text a { text-decoration: underline; text-underline-offset: 2px; }
 .edu-award { border-color: var(--amber-line-soft); background: var(--amber-tint); }
 
 .cert-grid {
