@@ -196,7 +196,7 @@
     {
       "id": "marketing-attribution",
       "cardId": "p-marketing",
-      "title": "Marketing Measurement & Investment Decision Room",
+      "title": "Marketing Attribution & Incrementality",
       "repository": "https://github.com/KushPatel29/marketing-attribution-analytics",
       "liveApp": "https://attribution-vs-truth.streamlit.app",
       "liveStatus": "live-demo",
@@ -237,7 +237,7 @@
     {
       "id": "customer-recommendation-engine",
       "cardId": "p-customer-rec",
-      "title": "Recommendation Product Decision Room",
+      "title": "Customer Recommendation Engine",
       "repository": "https://github.com/KushPatel29/Customer-Recommendation-Engine",
       "liveApp": "https://cross-sell-rep-console.streamlit.app",
       "liveStatus": "live-demo",
@@ -277,7 +277,7 @@
     {
       "id": "supply-chain-analytics-dbt",
       "cardId": "p-dbt",
-      "title": "Supply Chain Analytics — dbt Release Control Room",
+      "title": "Supply Chain Analytics — dbt",
       "repository": "https://github.com/KushPatel29/supply-chain-analytics-dbt",
       "liveApp": null,
       "liveStatus": "repository-only",
