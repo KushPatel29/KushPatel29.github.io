@@ -47,6 +47,15 @@ jobs:
       - name: Test totals must reconcile across cards, hero, and metadata
         run: node tools/check-test-counts.mjs
 
+      # Role fit is a worksheet of claims. Every row names its source, the
+      # chip says the same as the tick, the "Tied out" totals equal the rows
+      # above them, and each reading list lands on a card on this page.
+      - name: Role fit rows, sources and totals must reconcile
+        run: node tools/check-role-fit.mjs
+
+      - name: Project and live-demo counts must match the manifest
+        run: node tools/check-headline-counts.mjs
+
       # The only check here that reads something this repo does not control.
       # The flagship card quotes nineteen figures off the deployed demo; it
       # once quoted a local run's instead, and no check on either side could

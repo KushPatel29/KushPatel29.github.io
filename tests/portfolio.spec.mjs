@@ -1,22 +1,86 @@
 import { expect, test } from "@playwright/test";
 
-test("the first screen leads to three inspectable flagship decisions", async ({ page }) => {
+const ROLES = [
+  "data-analyst",
+  "bi-developer",
+  "analytics-engineer",
+  "data-engineer",
+  "business-analyst",
+  "financial-analyst",
+  "supply-chain-analyst",
+  "data-scientist",
+];
+
+test("the first screen routes a hiring manager to their role", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.locator("h1")).toContainText("governed decision systems");
-  await expect(page.locator("#featured .decision-case")).toHaveCount(3);
-  await expect(page.getByRole("link", { name: /open live board/i })).toHaveAttribute(
-    "href",
-    "https://kush-asset-management-decision-board.streamlit.app/",
+  await expect(page.locator("h1")).toBeVisible();
+  const primary = page.locator(".hero .btn-primary");
+  await expect(primary).toHaveAttribute("href", "#fit");
+
+  const tabs = page.getByRole("tab");
+  await expect(tabs).toHaveCount(ROLES.length);
+  await expect(tabs.first()).toHaveAttribute("aria-selected", "true");
+  await expect(page.locator(".fit-panel:not([hidden])")).toHaveCount(1);
+  await expect(page.locator("#fit-data-analyst")).toBeVisible();
+});
+
+test("choosing a role shows only that evidence and makes the view shareable", async ({ page }) => {
+  await page.goto("/");
+  const tab = page.getByRole("tab", { name: /Data Engineer/ });
+  await tab.click();
+
+  await expect(tab).toHaveAttribute("aria-selected", "true");
+  await expect(page).toHaveURL(/\?role=data-engineer#fit$/);
+  await expect(page.locator("#fit-data-engineer")).toBeVisible();
+  await expect(page.locator(".fit-panel:not([hidden])")).toHaveCount(1);
+
+  // Arrow keys move between roles, the way a tab list should.
+  await tab.focus();
+  await page.keyboard.press("ArrowRight");
+  const next = page.getByRole("tab", { name: /Business Analyst/ });
+  await expect(next).toBeFocused();
+  await expect(next).toHaveAttribute("aria-selected", "true");
+  await expect(page.locator("#fit-business-analyst")).toBeVisible();
+});
+
+test("an application link opens straight on its role", async ({ page }) => {
+  await page.goto("/?utm_source=application&role=financial-analyst#fit");
+  await expect(page.getByRole("tab", { name: /Financial Analyst/ })).toHaveAttribute("aria-selected", "true");
+  await expect(page.locator("#fit-financial-analyst")).toBeVisible();
+  await expect(page.locator("#fit-data-analyst")).toBeHidden();
+
+  await page.goto("/#fit-data-scientist");
+  await expect(page.locator("#fit-data-scientist")).toBeVisible();
+});
+
+test("every role's reading list points at a project on this page", async ({ page }) => {
+  await page.goto("/");
+  const targets = await page.locator(".fit-start a").evaluateAll((links) =>
+    links.map((link) => link.getAttribute("href")),
   );
-  await expect(page.getByRole("link", { name: /try inventory analytics/i })).toHaveAttribute(
-    "href",
-    "https://inventory-analytics-app.onrender.com/",
-  );
-  await expect(page.getByRole("link", { name: /try decision assurance/i })).toHaveAttribute(
-    "href",
-    "https://kush-network-risk-decision-room.streamlit.app/",
-  );
+  expect(targets.length).toBe(ROLES.length * 3);
+  for (const href of targets) {
+    expect(href.startsWith("#")).toBe(true);
+    await expect(page.locator(href)).toHaveCount(1);
+  }
+
+  // Following one lands on the card with its section open, even from a
+  // collapsed "more projects" disclosure.
+  await page.getByRole("tab", { name: /Analytics Engineer/ }).click();
+  await page.locator("#fit-analytics-engineer .fit-start a").first().click();
+  await expect(page.locator("#p-dbt")).toBeVisible();
+});
+
+test("without JavaScript every role is still readable", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  await page.goto("/");
+  for (const role of ROLES) {
+    await expect(page.locator(`#fit-${role}`)).toBeVisible();
+  }
+  await expect(page.locator(".fit-tabs a")).toHaveCount(ROLES.length);
+  await context.close();
 });
 
 test("project filters remain shareable and only reveal matching work", async ({ page }) => {

@@ -70,7 +70,155 @@
     update();
   }
 
-  /* ---------- 3. Work filter, with the state kept in the URL ----------
+  /* ---------- 3. Role fit ----------
+     Eight panels, one per role family. Without this script they are a
+     list of links followed by all eight panels; here they become tabs.
+     ?role=<slug> (or #fit-<slug>) opens one directly, which is the link an
+     application should carry: tools/make-link.mjs writes it. Runs before
+     the work filter because restoreLocation() scrolls to the hash target,
+     and a #fit-<slug> panel has to be the visible one when it does. */
+
+  var fitList = document.querySelector(".fit-tabs");
+  var fitTabs = fitList ? Array.prototype.slice.call(fitList.querySelectorAll(".fit-tab")) : [];
+  var fitPanels = fitTabs.map(function (tab) {
+    return document.getElementById((tab.getAttribute("href") || "").slice(1));
+  });
+  var ROLE_KEY = "role";
+
+  function copyText(text, button, doneLabel, failLabel) {
+    var original = button.getAttribute("data-label") || button.textContent;
+    button.setAttribute("data-label", original);
+    var finish = function (ok) {
+      button.textContent = ok ? doneLabel : failLabel;
+      window.setTimeout(function () { button.textContent = original; }, 2400);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(
+        function () { finish(true); },
+        function () { finish(false); }
+      );
+    } else {
+      finish(false);
+    }
+  }
+
+  if (fitTabs.length && fitPanels.every(Boolean)) {
+    var fitIndexOf = function (slug) {
+      for (var i = 0; i < fitPanels.length; i++) {
+        if (fitPanels[i].getAttribute("data-role") === slug) return i;
+      }
+      return -1;
+    };
+
+    var fitRoleUrl = function (slug) {
+      var url = new URL(window.location.href);
+      url.searchParams.set(ROLE_KEY, slug);
+      url.hash = "fit";
+      return url;
+    };
+
+    var selectRole = function (index, opts) {
+      opts = opts || {};
+      fitTabs.forEach(function (tab, i) {
+        var on = i === index;
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+        tab.setAttribute("tabindex", on ? "0" : "-1");
+        fitPanels[i].hidden = !on;
+      });
+      if (opts.focus) fitTabs[index].focus();
+      if (opts.writeUrl && window.history && window.history.replaceState) {
+        try {
+          window.history.replaceState(null, "", fitRoleUrl(fitPanels[index].getAttribute("data-role")).toString());
+        } catch (e) { /* older browser: the tab still changes, it just isn't shareable */ }
+      }
+    };
+
+    fitList.setAttribute("role", "tablist");
+    fitTabs.forEach(function (tab, i) {
+      var panel = fitPanels[i];
+      tab.setAttribute("role", "tab");
+      tab.setAttribute("aria-controls", panel.id);
+      panel.setAttribute("role", "tabpanel");
+      panel.setAttribute("aria-labelledby", tab.id);
+      panel.setAttribute("tabindex", "0");
+
+      tab.addEventListener("click", function (e) {
+        e.preventDefault();
+        selectRole(i, { writeUrl: true });
+      });
+    });
+
+    fitList.addEventListener("keydown", function (e) {
+      var current = fitTabs.indexOf(document.activeElement);
+      if (current === -1) return;
+      var next = null;
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") next = (current + 1) % fitTabs.length;
+      else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = (current - 1 + fitTabs.length) % fitTabs.length;
+      else if (e.key === "Home") next = 0;
+      else if (e.key === "End") next = fitTabs.length - 1;
+      else if (e.key === " " || e.key === "Spacebar") next = current;
+      if (next === null) return;
+      e.preventDefault();
+      selectRole(next, { focus: true, writeUrl: true });
+    });
+
+    /* On a phone the worksheet is restyled with display:block, which drops
+       the table semantics browsers derive from the markup. Restating them
+       as ARIA roles keeps each row readable as a row. */
+    each(".tieout", function (table) {
+      table.setAttribute("role", "table");
+      each("thead, tbody, tfoot", function (g) { g.setAttribute("role", "rowgroup"); }, table);
+      each("tr", function (r) { r.setAttribute("role", "row"); }, table);
+      each("thead th", function (c) { c.setAttribute("role", "columnheader"); }, table);
+      each("tbody th, tfoot th", function (c) { c.setAttribute("role", "rowheader"); }, table);
+      each("td", function (c) { c.setAttribute("role", "cell"); }, table);
+    });
+
+    var fitFromLocation = function () {
+      var slug = null;
+      try { slug = new URL(window.location.href).searchParams.get(ROLE_KEY); } catch (e) { slug = null; }
+      var hash = window.location.hash.slice(1);
+      if (hash.indexOf("fit-") === 0 && fitIndexOf(hash.slice(4)) > -1) slug = hash.slice(4);
+      var index = slug ? fitIndexOf(slug) : -1;
+      return index > -1 ? index : 0;
+    };
+
+    selectRole(fitFromLocation(), {});
+
+    window.addEventListener("hashchange", function () {
+      var hash = window.location.hash.slice(1);
+      if (hash.indexOf("fit-") === 0 && fitIndexOf(hash.slice(4)) > -1) {
+        selectRole(fitIndexOf(hash.slice(4)), {});
+      }
+    });
+
+    each(".fit-copy", function (button) {
+      button.hidden = false;
+      button.addEventListener("click", function () {
+        var slug = button.getAttribute("data-role");
+        // The shared link carries the view and nothing else: not the campaign
+        // tag or filter that happened to bring this visitor here.
+        var clean = new URL(window.location.origin + window.location.pathname);
+        clean.searchParams.set(ROLE_KEY, slug);
+        clean.hash = "fit";
+        // The address bar shows the same view, so the fallback message is true.
+        if (window.history && window.history.replaceState) {
+          try { window.history.replaceState(null, "", fitRoleUrl(slug).toString()); } catch (e) { /* ignore */ }
+        }
+        copyText(clean.toString(), button, "Link copied", "Copy the address bar instead");
+      });
+    });
+  }
+
+  var copyEmail = document.getElementById("copy-email");
+  if (copyEmail) {
+    copyEmail.hidden = false;
+    copyEmail.addEventListener("click", function () {
+      copyText(copyEmail.getAttribute("data-copy"), copyEmail, "Email copied", "Copy blocked: use the address");
+    });
+  }
+
+  /* ---------- 4. Work filter, with the state kept in the URL ----------
      So "?filter=finance#work" can be pasted straight into an
      application and land on exactly the subset it names. */
 
@@ -113,7 +261,7 @@
       if (tag !== "all") more.open = true;
       var summary = more.querySelector("summary");
       if (summary) summary.textContent = tag === "all"
-        ? "Nine more projects — finance, regulated data, customer analytics and platforms"
+        ? "Eight more projects — pricing, dbt, financial crime, marketing, recommendations, people analytics, clinical data and migration"
         : "More projects matching this filter";
     }
 
@@ -197,7 +345,7 @@
     });
   });
 
-  /* ---------- 4. Sideways-scroll hint on the chip strip ---------- */
+  /* ---------- 5. Sideways-scroll hint on the chip strip ---------- */
 
   var strips = [document.getElementById("filter-chips")].filter(Boolean);
 
@@ -212,7 +360,7 @@
   // Web fonts change the measurements, so re-check once they land.
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncStrips);
 
-  /* ---------- 5. Compact nav menu ----------
+  /* ---------- 6. Compact nav menu ----------
      The disclosure itself is native <details>; this only closes it
      after you've picked something, or clicked away. */
 
@@ -235,7 +383,7 @@
     });
   }
 
-  /* ---------- 6. Scrollspy ----------
+  /* ---------- 7. Scrollspy ----------
      Marks the section you're actually reading with aria-current, in
      both the desktop nav and the compact menu. */
 
@@ -291,7 +439,7 @@
     sections.forEach(function (el) { spy.observe(el); });
   }
 
-  /* ---------- 7. Dashboard lightbox ----------
+  /* ---------- 8. Dashboard lightbox ----------
      The card thumbnails are a 1280px-wide capture cropped to a strip.
      This is where the actual dashboard is legible. */
 
@@ -345,12 +493,12 @@
     });
   }
 
-  /* ---------- 8. Footer year ---------- */
+  /* ---------- 9. Footer year ---------- */
 
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  /* ---------- 9. Hero terminal ----------
+  /* ---------- 10. Hero terminal ----------
      The panel is styled like a live CLI, so leaving it on one frozen frame
      reads as a broken widget. Type each question, then reveal its answer
      and the SQL that produced it.
