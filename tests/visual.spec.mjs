@@ -18,30 +18,29 @@ async function assertResponsiveShell(page, projectName) {
     viewport: window.innerWidth,
     scrollWidth: document.documentElement.scrollWidth,
     hero: document.querySelector(".hero")?.getBoundingClientRect(),
-    featured: document.querySelector("#featured")?.getBoundingClientRect(),
-    cases: [...document.querySelectorAll("#featured .decision-case")].map((node) =>
-      node.getBoundingClientRect(),
-    ),
+    fit: document.querySelector("#fit")?.getBoundingClientRect(),
+    tabs: [...document.querySelectorAll("#fit .fit-tab")].map((node) => node.getBoundingClientRect()),
+    panels: [...document.querySelectorAll("#fit .fit-panel")]
+      .filter((node) => !node.hidden)
+      .map((node) => node.getBoundingClientRect()),
   }));
 
   expect(shell.scrollWidth, "the page must not introduce horizontal overflow").toBeLessThanOrEqual(
     shell.viewport + 1,
   );
   expect(shell.hero?.width, "hero must remain visible").toBeGreaterThan(shell.viewport * 0.8);
-  expect(shell.featured?.width, "featured section must remain visible").toBeGreaterThan(
-    shell.viewport * 0.8,
-  );
-  expect(shell.cases).toHaveLength(3);
-  for (const box of shell.cases) {
-    expect(box.width, "each decision case must remain visible").toBeGreaterThan(0);
-    expect(box.height, "each decision case must retain a usable height").toBeGreaterThan(0);
+  expect(shell.fit?.width, "role fit must remain visible").toBeGreaterThan(shell.viewport * 0.8);
+  expect(shell.tabs).toHaveLength(8);
+  for (const box of shell.tabs) {
+    expect(box.width, "each role tab must remain visible").toBeGreaterThan(0);
+    expect(box.height, "each role tab must keep a usable target").toBeGreaterThanOrEqual(44);
   }
+  expect(shell.panels, "exactly one role panel shows at a time").toHaveLength(1);
+  expect(shell.panels[0].height).toBeGreaterThan(0);
 
-  if (projectName.includes("desktop")) {
-    expect(shell.cases[0].width).toBeGreaterThan(shell.cases[1].width * 1.15);
-  } else {
-    expect(shell.cases[0].width).toBeGreaterThan(shell.viewport * 0.8);
-  }
+  // Four tabs to a row on a desktop, two on a phone.
+  const firstRow = shell.tabs.filter((box) => Math.abs(box.top - shell.tabs[0].top) < 2).length;
+  expect(firstRow).toBe(projectName.includes("desktop") ? 4 : 2);
 }
 
 test.beforeEach(async ({ page }) => {
@@ -62,26 +61,27 @@ test("hero visual contract", async ({ page }, testInfo) => {
   });
 });
 
-test("flagship decision index visual contract in both themes", async ({ page }, testInfo) => {
-  const section = page.locator("#featured");
+test("role fit visual contract in both themes", async ({ page }, testInfo) => {
+  const section = page.locator("#fit");
 
   if (inCi) {
     await assertResponsiveShell(page, testInfo.project.name);
-    await captureCiReview(page, testInfo, "featured-dark", section);
+    await captureCiReview(page, testInfo, "fit-dark", section);
     await page.locator("#theme-toggle").click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
-    await captureCiReview(page, testInfo, "featured-light", section);
+    await captureCiReview(page, testInfo, "fit-light", section);
     return;
   }
 
-  await expect(section).toHaveScreenshot("featured-dark.png", {
+  await assertResponsiveShell(page, testInfo.project.name);
+  await expect(section).toHaveScreenshot("fit-dark.png", {
     animations: "disabled",
     maxDiffPixelRatio: 0.02,
   });
 
   await page.locator("#theme-toggle").click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
-  await expect(section).toHaveScreenshot("featured-light.png", {
+  await expect(section).toHaveScreenshot("fit-light.png", {
     animations: "disabled",
     maxDiffPixelRatio: 0.02,
   });

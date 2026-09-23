@@ -386,8 +386,10 @@ main {
     content-visibility: auto;
     contain-intrinsic-size: auto 1200px;
   }
-  #business-analysis { contain-intrinsic-size: auto 2600px; }
-  #work { contain-intrinsic-size: auto 6800px; }
+  /* Sized to the desktop render so a jump to a later anchor lands close
+     before the section has painted; `auto` keeps the real height after. */
+  #business-analysis { contain-intrinsic-size: auto 1380px; }
+  #work { contain-intrinsic-size: auto 4700px; }
 }
 
 .eyebrow {
@@ -682,219 +684,6 @@ main {
   line-height: 1.35;
 }
 
-/* ---------- 11. Recruiter fast track ----------
-
-   This is an editorial decision index, not another card grid. The asset case
-   carries the larger first column because it demonstrates the complete path
-   from governed source evidence to an investment posture. The two operations
-   cases sit beside it as concise, parallel proofs. */
-
-.flagship-path { padding-top: 78px; }
-.flagship-intro {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(250px, 0.42fr);
-  gap: 24px 54px;
-  align-items: end;
-}
-.flagship-intro .eyebrow,
-.flagship-intro h2 { grid-column: 1; }
-.flagship-intro h2 { margin-top: 14px; }
-.flagship-intro .section-sub { grid-column: 1; margin-top: 0; }
-.flagship-reading-time {
-  grid-column: 2;
-  grid-row: 2 / 4;
-  margin: 0;
-  padding: 4px 0 4px 20px;
-  border-left: 2px solid var(--accent-line);
-  color: var(--muted-2);
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.decision-index {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 42px;
-  border-top: 1px solid var(--line-3);
-  border-bottom: 1px solid var(--line-3);
-}
-.decision-case {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  padding: 32px 0;
-}
-.decision-case:nth-child(2) {
-  padding-right: 36px;
-  border-right: 1px solid var(--line-3);
-}
-.decision-case:nth-child(3) { padding-left: 36px; }
-.decision-case-lead {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  grid-template-rows: auto auto 1fr;
-  gap: 0 56px;
-  padding: 38px 0;
-  border-bottom: 1px solid var(--line-3);
-  background: linear-gradient(110deg, transparent 58%, var(--accent-tint));
-}
-.decision-case-lead .decision-case-head,
-.decision-case-lead h3,
-.decision-case-lead .decision-answer { grid-column: 1; }
-.decision-case-lead .decision-proof {
-  grid-column: 2;
-  grid-row: 1 / 3;
-  align-self: start;
-  margin-top: 0;
-  padding: 8px 0 0;
-  border-top: 0;
-}
-.decision-case-lead .decision-actions {
-  grid-column: 2;
-  grid-row: 3;
-  align-self: end;
-}
-.decision-case-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px 16px;
-}
-.decision-domain,
-.decision-status {
-  margin: 0;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 11.5px;
-  line-height: 1.4;
-}
-.decision-domain { color: var(--amber-2); }
-.decision-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  color: var(--dim);
-}
-.decision-status::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--ok);
-  box-shadow: 0 0 0 3px var(--ok-tint);
-}
-.decision-case h3 {
-  margin: 18px 0 0;
-  max-width: 22ch;
-  font-size: clamp(21px, 2.35vw, 31px);
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  font-weight: 600;
-}
-.decision-case:not(.decision-case-lead) h3 {
-  font-size: clamp(19px, 1.85vw, 24px);
-  max-width: 28ch;
-}
-.decision-answer {
-  margin: 16px 0 0;
-  max-width: 61ch;
-  color: var(--muted);
-  font-size: 14.5px;
-  line-height: 1.62;
-}
-.decision-proof {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin: 28px 0 0;
-  padding: 22px 0 0;
-  border-top: 1px solid var(--line);
-}
-.decision-proof div { min-width: 0; }
-.decision-proof dt {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: clamp(22px, 2.6vw, 31px);
-  line-height: 1;
-  color: var(--fg);
-}
-.decision-proof dd {
-  margin: 8px 0 0;
-  color: var(--dim);
-  font-size: 12px;
-  line-height: 1.4;
-}
-.decision-evidence {
-  margin: 17px 0 0;
-  color: var(--dim);
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 11.5px;
-  line-height: 1.65;
-}
-.decision-evidence strong { color: var(--fg-2); font-weight: 600; }
-.decision-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 18px;
-  margin-top: auto;
-  padding-top: 24px;
-}
-.decision-actions .btn { margin: 0; }
-.decision-text-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  color: var(--accent);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: var(--accent-line-soft);
-  text-underline-offset: 4px;
-}
-.decision-text-link:hover { text-decoration-color: currentColor; }
-.decision-live-link { color: var(--fg-2); }
-.fast-track-boundary {
-  max-width: 96ch;
-  margin: 18px 0 0;
-  color: var(--dim);
-  font-size: 12.5px;
-  line-height: 1.6;
-}
-.fast-track-boundary strong { color: var(--muted-2); }
-
-@media (max-width: 900px) {
-  .flagship-intro { grid-template-columns: 1fr; gap: 16px; }
-  .flagship-intro .eyebrow,
-  .flagship-intro h2,
-  .flagship-intro .section-sub,
-  .flagship-reading-time { grid-column: 1; grid-row: auto; }
-  .flagship-reading-time { max-width: 700px; }
-  .decision-index { grid-template-columns: 1fr; grid-template-rows: auto; }
-  .decision-case,
-  .decision-case-lead {
-    grid-column: auto;
-    display: flex;
-    padding: 28px 0;
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-    background: none;
-  }
-  .decision-case:nth-child(2),
-  .decision-case:nth-child(3) { padding: 28px 0; border-right: 0; }
-  .decision-case-lead .decision-proof { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
-  .decision-case:last-child { border-bottom: 0; }
-}
-
-@media (max-width: 520px) {
-  .flagship-path { padding-top: 62px; }
-  .decision-index { margin-top: 32px; }
-  .decision-proof { gap: 12px; }
-  .decision-proof dd { font-size: 11px; }
-  .decision-actions { align-items: stretch; }
-  .decision-actions .btn { width: 100%; }
-}
-
 /* ---------- 12. Domains ---------- */
 
 /* Same construction as .skills-grid, for two reasons. It matches the
@@ -932,46 +721,6 @@ main {
   font-style: italic;
 }
 .domain-answer { margin: 10px 0 0; font-size: 14px; line-height: 1.58; color: var(--muted-2); }
-
-/* ---------- 13. Work — legacy router ---------- */
-
-.router {
-  margin-top: 34px;
-  padding: 22px 26px 24px;
-  border: 1px solid var(--accent-line-soft);
-  border-radius: 14px;
-  background: var(--accent-tint);
-}
-.router-label { margin: 0; font-size: 11px; letter-spacing: 0.16em; color: var(--accent); }
-.router-list { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-.router-list li {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 2px 10px;
-  font-size: 14.5px;
-  line-height: 1.5;
-  color: var(--muted-2);
-}
-.router-if strong { color: var(--fg); font-weight: 600; }
-.router-arrow { color: var(--accent); }
-/* Rendered as chips, not inline text: an obvious affordance and a
-   comfortable thumb target — this is the shortcut a hiring manager
-   on a phone is most likely to reach for. */
-.router-to { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-.router-to a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 0 13px;
-  border: 1px solid var(--accent-line-soft);
-  border-radius: 9px;
-  background: var(--panel);
-  color: var(--accent);
-  font-size: 13.5px;
-  font-weight: 500;
-}
-.router-to a:hover { border-color: var(--accent-line); background: var(--tile-hover); color: var(--accent-hi); }
 
 /* ---------- 14. Work — filter bar ---------- */
 
@@ -1714,36 +1463,12 @@ main {
   color: var(--fg);
 }
 
-/* Full-width strip under the skills cards. Deliberately lighter than they
-   are — no fill, dashed rule — so it reads as a footnote to the grid
-   rather than a seventh category. */
-.skill-honest {
-  margin-top: 18px;
-  padding: 24px;
-  border: 1px dashed var(--amber-line-soft);
-  border-radius: 14px;
-  background: transparent;
-}
-.skill-honest-label {
-  margin: 0;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  color: var(--amber);
-}
-.skill-honest-body {
-  margin: 12px 0 0;
-  max-width: 680px;
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--muted-2);
-}
-.skill-list-dim li { border-color: var(--amber-line-soft); color: var(--muted-2); }
+/* The one caveat the chips can't carry on their own. */
 .skill-honest-foot {
-  margin: 16px 0 0;
-  font-size: 13px;
-  line-height: 1.55;
-  /* --dim only reaches 4.25:1 on the amber tint in the light theme. */
+  margin: 18px 0 0;
+  max-width: 820px;
+  font-size: 13.5px;
+  line-height: 1.6;
   color: var(--muted-2);
 }
 
@@ -1784,18 +1509,7 @@ main {
   pointer-events: none;
 }
 .card-zoom:hover .zoom-hint,
-.card-zoom:focus-visible .zoom-hint,
-.live-app-preview:hover .zoom-hint,
-.live-app-preview:focus-visible .zoom-hint { opacity: 1; transform: translateY(0); }
-
-.live-app-preview {
-  position: relative;
-  z-index: 2;
-  display: block;
-  width: 100%;
-  color: inherit;
-  cursor: pointer;
-}
+.card-zoom:focus-visible .zoom-hint { opacity: 1; transform: translateY(0); }
 
 /* The clinical card is a miniature evidence room: the live overview is the
    door, while two smaller proof plates expose the operational and warehouse
@@ -2082,7 +1796,6 @@ a.card-open::after {
   .edu-main, .edu-card { padding: 26px 22px 28px; }
   .cert { padding: 22px 20px 24px; }
   .skill-group { padding: 22px 20px; }
-  .skill-honest { padding: 20px; }
   /* On a phone there is no hover, so the affordance has to be permanent. */
   .zoom-hint { opacity: 1; transform: none; }
 }
@@ -2294,85 +2007,6 @@ a.card-open::after {
 .xp-highlights { color: var(--muted); line-height: 1.7; margin: 0; }
 .xp-details { grid-column: 1 / -1; }
 
-/* ---------- Business-analysis decision trail ----------
-   A working artifact index, shaped like a delivery path rather than a second
-   collection of generic project cards. */
-.decision-trail {
-  align-self: start;
-  width: 100%;
-  margin: 12px 0 0;
-  border: 1px solid var(--line-2);
-  border-radius: 16px;
-  background: var(--panel);
-  overflow: hidden;
-}
-.decision-trail-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 18px 20px;
-  border-bottom: 1px solid var(--line);
-}
-.decision-trail-head span {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-}
-.decision-trail-head strong { font-size: 14px; font-weight: 600; color: var(--fg); }
-.decision-trail-list {
-  position: relative;
-  margin: 0;
-  padding: 8px 20px;
-  list-style: none;
-}
-.decision-trail-list::before {
-  content: '';
-  position: absolute;
-  top: 28px;
-  bottom: 28px;
-  left: 36px;
-  width: 1px;
-  background: var(--accent-line-soft);
-}
-.decision-trail-list li {
-  position: relative;
-  display: grid;
-  grid-template-columns: 34px 1fr;
-  gap: 12px;
-  padding: 11px 0;
-}
-.trail-index {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--accent-line-soft);
-  border-radius: 50%;
-  background: var(--tile);
-  color: var(--accent);
-  font: 600 10px/1 'JetBrains Mono', ui-monospace, monospace;
-}
-.decision-trail-list li > span:last-child { display: flex; flex-direction: column; gap: 2px; }
-.decision-trail-list strong { font-size: 14px; color: var(--fg); }
-.decision-trail-list a {
-  width: fit-content;
-  color: var(--muted);
-  font: 11.5px/1.5 'JetBrains Mono', ui-monospace, monospace;
-  text-decoration: none;
-}
-.decision-trail-list a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-.decision-trail-note {
-  margin: 0;
-  padding: 15px 20px;
-  border-top: 1px solid var(--line);
-  color: var(--muted-2);
-  font-size: 12.5px;
-  line-height: 1.55;
-}
-
 .ba-section { padding-top: 82px; }
 .ba-ledger {
   margin-top: 34px;
@@ -2380,7 +2014,9 @@ a.card-open::after {
 }
 .ba-row {
   display: grid;
-  grid-template-columns: minmax(150px, 0.7fr) minmax(320px, 2.1fr) auto;
+  /* A fixed last track: sized per row by its own link text, the middle
+     column started at a different x on every row. */
+  grid-template-columns: minmax(150px, 0.7fr) minmax(320px, 2.1fr) 132px;
   align-items: center;
   gap: 28px;
   min-height: 96px;
@@ -2403,6 +2039,7 @@ a.card-open::after {
 .ba-output strong { color: var(--fg); font-size: 17px; }
 .ba-output small { color: var(--muted); font-size: 13px; line-height: 1.55; }
 .ba-link {
+  justify-self: end;
   color: var(--amber-2);
   font: 600 10.5px/1.4 'JetBrains Mono', ui-monospace, monospace;
   letter-spacing: 0.06em;
@@ -2419,196 +2056,454 @@ a.card-open::after {
 }
 .ba-boundary strong { color: var(--amber-2); }
 
-/* GIS proof suite: one dominant map, one smaller acceptance artifact, and a
-   compact evidence rail. Screenshots remain uncropped so map labels and
-   synthetic-data limitations stay readable. */
-.gis-proof-suite {
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-top: 42px;
-  border: 1px solid var(--line-2);
-  background: var(--panel-soft);
-  box-shadow: 0 24px 60px -42px var(--shadow);
-}
-.gis-proof-map {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #071014;
-  border-bottom: 1px solid var(--line-2);
-}
-.gis-map-button { overflow: hidden; }
-.gis-map-button img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
-}
-.gis-map-caption {
-  width: 100%;
-  margin: 0;
-  padding: 12px 16px;
-  border-top: 1px solid rgba(122, 168, 171, 0.24);
-  color: #9fb2b5;
-  background: #071014;
-  font: 10.5px/1.5 'JetBrains Mono', ui-monospace, monospace;
-}
-.gis-map-caption strong { color: #46e5d5; margin-right: 8px; }
-.gis-proof-brief {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(240px, 0.78fr) minmax(260px, 0.88fr);
-  grid-template-rows: auto auto auto auto;
-  gap: 0 30px;
-  padding: 30px 28px 26px;
-}
-.gis-proof-brief .kicker { grid-column: 1; grid-row: 1; }
-.gis-proof-brief h3 {
-  grid-column: 1;
-  grid-row: 2;
-  margin: 10px 0 12px;
-  color: var(--fg);
-  font-size: clamp(24px, 2.25vw, 34px);
-  line-height: 1.04;
-  letter-spacing: -0.035em;
-}
-.gis-proof-brief > p:not(.kicker):not(.gis-proof-cta) {
-  grid-column: 1;
-  grid-row: 3;
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.65;
-}
-.gis-proof-brief > .gis-proof-cta {
-  grid-column: 1;
-  grid-row: 4;
-  margin: 16px 0 0;
-}
-.gis-proof-facts {
-  grid-column: 2;
-  grid-row: 1 / 5;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 18px;
-  margin: 0;
-}
-.gis-proof-facts > div {
-  padding: 12px 0 11px;
-  border-top: 1px solid var(--line-2);
-}
-.gis-proof-facts dt {
-  color: var(--accent);
-  font: 700 24px/1 'JetBrains Mono', ui-monospace, monospace;
-}
-.gis-proof-facts dd {
-  margin: 7px 0 0;
-  color: var(--muted-2);
-  font-size: 11.5px;
-  line-height: 1.45;
-}
-.gis-companion {
-  grid-column: 3;
-  grid-row: 1 / 5;
-  align-self: stretch;
-  border: 1px solid var(--line-2);
-  background: #071014;
-  text-align: left;
-}
-.gis-companion-hint { top: 10px; bottom: auto; }
-.gis-companion img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
-}
-.gis-companion > span {
-  display: block;
-  padding: 10px 12px;
-  border-top: 1px solid var(--line-2);
-  color: var(--term-fg);
-  font: 10.5px/1.45 'JetBrains Mono', ui-monospace, monospace;
-}
-.gis-companion > span strong { color: var(--term-amber); margin-right: 6px; }
-.gis-proof-links {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid var(--line-2);
-}
-.gis-proof-links a {
-  display: flex;
-  align-items: center;
-  min-height: 52px;
-  padding: 12px 18px;
-  border-right: 1px solid var(--line-2);
-  color: var(--accent);
-  font: 600 10.5px/1.4 'JetBrains Mono', ui-monospace, monospace;
-  letter-spacing: 0.055em;
-  text-decoration: none;
-}
-.gis-proof-links a:last-child { border-right: 0; }
-.gis-proof-links a:hover,
-.gis-proof-links a:focus-visible { background: var(--accent-tint); color: var(--accent-hi); }
-
-.skill-group-ba { border-color: var(--accent-line-soft); background: var(--accent-tint); }
-.skill-group-ba .skill-n { color: var(--muted-2); }
-.skill-blueprint {
-  margin-top: 12px;
-  padding: 22px 24px;
-  border-left: 2px solid var(--accent);
-  background: var(--panel-soft);
-}
-.skill-blueprint .skill-honest-body { max-width: 92ch; }
-.skill-blueprint a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  margin-top: 2px;
-  padding: 7px 0;
-  color: var(--accent);
-  font: 600 12px/1.5 'JetBrains Mono', ui-monospace, monospace;
-  text-underline-offset: 3px;
-}
-.skill-blueprint a + a { margin-left: 22px; }
 a.card-open-evidence { color: var(--amber-2); }
 a.card-open-evidence:hover { color: var(--amber); }
 
-@media (min-width: 700px) { .skill-group-ba { grid-column: 1 / -1; } }
 @media (max-width: 760px) {
-  .decision-trail-head { flex-direction: column; gap: 5px; }
   .ba-row { grid-template-columns: 1fr; gap: 8px; padding: 20px 0; }
   .ba-row:hover { padding-left: 10px; padding-right: 10px; }
-  .ba-link { margin-top: 4px; }
-  .skill-blueprint a { display: block; }
-  .skill-blueprint a + a { margin-left: 0; }
+  .ba-link { margin-top: 4px; justify-self: start; }
 }
-@media (max-width: 980px) {
-  .gis-proof-brief { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr); gap: 0 24px; }
-  .gis-proof-brief .kicker,
-  .gis-proof-brief h3,
-  .gis-proof-brief > p:not(.kicker) { grid-column: 1 / -1; grid-row: auto; }
-  .gis-proof-facts { grid-column: 1; grid-row: auto; align-self: start; margin: 24px 0; }
-  .gis-companion { grid-column: 2; grid-row: auto; align-self: end; margin: 24px 0; }
-  .gis-proof-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .gis-proof-links a:nth-child(2) { border-right: 0; }
-  .gis-proof-links a:nth-child(-n+2) { border-bottom: 1px solid var(--line-2); }
-}
-@media (max-width: 620px) {
-  .gis-proof-suite { margin-top: 32px; }
-  .gis-proof-brief { display: block; padding: 24px 20px 20px; }
-  .gis-proof-brief h3 { font-size: 28px; }
-  .gis-companion { margin-top: 22px; }
-  .gis-proof-links { grid-template-columns: 1fr; }
-  .gis-proof-links a,
-  .gis-proof-links a:nth-child(2) { border-right: 0; border-bottom: 1px solid var(--line-2); }
-  .gis-proof-links a:last-child { border-bottom: 0; }
-}
-@media (max-width: 1080px) { .decision-trail { max-width: 700px; } }
 @media print {
-  .decision-trail, .ba-row, .skill-blueprint, .gis-proof-suite { break-inside: avoid; }
-  .decision-trail-list a::after, .ba-row::after, .skill-blueprint a::after { content: ' (' attr(href) ')'; }
+  .ba-row { break-inside: avoid; }
+  .ba-row::after { content: ' (' attr(href) ')'; }
+}
+
+/* ---------- 34. Utilities ---------- */
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* The credential line under the role: the degree is a screening question,
+   so it sits where the eye already is rather than eight sections down. */
+.byline-cred {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  line-height: 1.45;
+  color: var(--accent-dim);
+}
+
+/* ---------- 35. Role fit ----------
+   A reconciliation worksheet, because that is the habit the whole page is
+   selling. Each row is a requirement ticked against where it was done. The
+   tick's form says what kind of evidence it is (solid for a paid role,
+   dashed for a public project, a diamond for the degree) and the Source
+   column says it again in words, so nothing rests on colour. The totals
+   row carries a single rule above and a double rule below, the way a
+   ledger total does. */
+
+.fit { padding-top: 84px; }
+.fit-intro { max-width: 860px; }
+
+.fit-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 34px;
+}
+.fit-tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  min-height: 66px;
+  padding: 12px 16px;
+  border: 1px solid var(--line-2);
+  border-radius: 12px;
+  background: var(--panel);
+  color: var(--fg);
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.fit-tab:hover { border-color: var(--accent-line); background: var(--tile-hover); color: var(--fg); }
+.fit-tab-name { font-size: 15px; font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; }
+.fit-tab-alias {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--dim);
+}
+.fit-tab[aria-selected="true"] {
+  border-color: var(--accent);
+  background: var(--accent-tint);
+  box-shadow: inset 0 0 0 1px var(--accent-line);
+}
+.fit-tab[aria-selected="true"] .fit-tab-name { color: var(--accent); }
+.fit-tab[aria-selected="true"] .fit-tab-alias { color: var(--fg-2); }
+
+.fit-panels { margin-top: 16px; }
+.fit-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 34px 44px;
+  align-items: start;
+  padding: 34px;
+  border: 1px solid var(--accent-line-soft);
+  border-radius: 18px;
+  background: linear-gradient(150deg, var(--accent-wash), var(--panel) 62%);
+  scroll-margin-top: var(--anchor-offset);
+}
+/* Without JavaScript every panel shows, one under the other. */
+.fit-panel + .fit-panel { margin-top: 18px; }
+.fit-panel:focus-visible { outline-offset: 4px; }
+
+.fit-role {
+  margin: 0;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--amber);
+}
+.fit-brief h3 {
+  margin: 12px 0 0;
+  font-size: clamp(22px, 2.2vw, 29px);
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+.fit-pitch { margin: 14px 0 0; font-size: 15px; line-height: 1.62; color: var(--muted); }
+
+.fit-start-label {
+  margin: 26px 0 0;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--dim);
+}
+/* Numbered because it is a reading order: open the first one first. */
+.fit-start {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: fit-start;
+}
+.fit-start a {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 2px 10px;
+  padding: 11px 14px 12px 12px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--panel);
+  color: var(--fg);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+.fit-start a::before {
+  counter-increment: fit-start;
+  content: counter(fit-start, decimal-leading-zero);
+  grid-row: 1 / 3;
+  padding-top: 2px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--accent);
+}
+.fit-start a:hover { border-color: var(--accent-line); background: var(--tile-hover); color: var(--fg); transform: translateX(2px); }
+.fit-start strong { font-size: 14.5px; font-weight: 600; line-height: 1.35; }
+.fit-start span { font-size: 13px; line-height: 1.45; color: var(--muted-2); }
+
+.fit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  margin-top: 22px;
+}
+.fit-copy,
+.btn-copy {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px dashed var(--line-3);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--fg-2);
+  font: 500 13px/1.2 'Space Grotesk', 'Segoe UI', Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.fit-copy:hover,
+.btn-copy:hover { border-color: var(--accent-line); background: var(--accent-tint); color: var(--fg); }
+.btn-copy { min-height: 48px; padding: 12px 20px; font-size: 14.5px; }
+
+/* The worksheet itself. */
+.tieout {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.tieout thead th {
+  padding: 0 14px 11px 0;
+  border-bottom: 1px solid var(--line-3);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: left;
+  color: var(--dim);
+}
+.tieout thead th:last-child { text-align: right; padding-right: 0; }
+.tieout tbody th,
+.tieout tbody td {
+  padding: 14px 14px 14px 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  text-align: left;
+}
+.tieout tbody th {
+  position: relative;
+  width: 31%;
+  padding-left: 26px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--fg);
+}
+/* The tick. Decorative: the Source column says the same thing in words. */
+.tieout tbody th::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+.tieout tr[data-source="paid"] th::before { background: var(--ok); color: var(--bg); }
+.tieout tr[data-source="project"] th::before { border: 1px dashed var(--accent); color: var(--accent); }
+.tieout tr[data-source="degree"] th::before { content: "\25C6"; border: 1px solid var(--amber-line); color: var(--amber); font-size: 8px; }
+.tieout tbody td { line-height: 1.58; color: var(--muted); }
+.tieout tbody td a {
+  color: var(--fg-2);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-line);
+  text-underline-offset: 3px;
+}
+.tieout tbody td a:hover { color: var(--accent); text-decoration-color: currentColor; }
+.tieout tbody td:last-child { width: 1%; padding-right: 0; text-align: right; white-space: nowrap; }
+
+.src {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.src-paid { border: 1px solid var(--ok-line); background: var(--ok-tint); color: var(--ok); }
+.src-project { border: 1px dashed var(--accent-line); color: var(--accent); }
+.src-degree { border: 1px solid var(--amber-line-soft); background: var(--amber-tint); color: var(--amber-2); }
+
+.tieout tfoot th,
+.tieout tfoot td {
+  padding: 13px 0 12px;
+  border-top: 1px solid var(--muted-2);
+  border-bottom: 3px double var(--muted-2);
+  text-align: left;
+}
+.tieout tfoot th {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+.tieout tfoot td { text-align: right; }
+.tie {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-left: 20px;
+  font-size: 13px;
+  color: var(--muted-2);
+}
+.tie b {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.fit-legend {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px 28px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted-2);
+}
+.fit-legend .src { margin-right: 8px; }
+.fit-legend a { color: var(--fg-2); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 900px) {
+  .fit-legend { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 1100px) {
+  .fit-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fit-panel { grid-template-columns: 1fr; gap: 30px; }
+}
+
+/* On a phone the worksheet reflows into one block per requirement. main.js
+   restates the table roles, because display:block strips the semantics
+   assistive technology would otherwise read from the markup. */
+@media (max-width: 640px) {
+  .fit { padding-top: 64px; }
+  .fit-tabs { gap: 8px; }
+  .fit-tab { min-height: 60px; padding: 10px 12px; }
+  .fit-tab-name { font-size: 14px; }
+  .fit-tab-alias { letter-spacing: 0; }
+  .fit-panel { padding: 24px 18px; border-radius: 16px; }
+
+  .tieout, .tieout tbody, .tieout tfoot, .tieout tr, .tieout th, .tieout td { display: block; width: auto; }
+  .tieout thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .tieout tbody tr { padding: 14px 0 15px; border-bottom: 1px solid var(--line); }
+  .tieout tbody th,
+  .tieout tbody td { width: auto; padding: 0 0 0 26px; border: 0; }
+  .tieout tbody th::before { top: 1px; }
+  .tieout tbody td { margin-top: 6px; }
+  .tieout tbody td:last-child { width: auto; margin-top: 8px; text-align: left; }
+  .tieout tfoot tr {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 14px;
+    padding: 12px 0 10px;
+    border-top: 1px solid var(--muted-2);
+    border-bottom: 3px double var(--muted-2);
+  }
+  .tieout tfoot th,
+  .tieout tfoot td { padding: 0; border: 0; }
+  .tieout tfoot td { text-align: left; }
+  .tie { margin: 0 14px 0 0; }
+}
+
+/* ---------- 36. Skills: paid role vs public project ---------- */
+
+.skill-group h3 { margin-bottom: 2px; }
+.skill-sub {
+  margin: 16px 0 0;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ok);
+}
+.skill-sub-project { color: var(--accent); }
+.skill-sub + .skill-list { margin-top: 8px; }
+.skill-list-project li {
+  border-style: dashed;
+  border-color: var(--accent-line-soft);
+  color: var(--muted-2);
+}
+
+/* ---------- 37. Quick answers ---------- */
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 44px;
+  margin: 34px 0 0;
+}
+.faq-item { padding: 20px 0 22px; border-top: 1px solid var(--line); }
+.faq-item dt { font-size: 16.5px; font-weight: 600; line-height: 1.35; letter-spacing: -0.012em; color: var(--fg); }
+.faq-item dd { margin: 8px 0 0; font-size: 15px; line-height: 1.62; color: var(--muted); }
+.faq-item dd a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 760px) {
+  .faq-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- 38. Contact portrait ----------
+   A face at the point of asking. Head and shoulders rather than a thumbnail
+   circle: at this size the lettering behind reads as the university banner
+   it is, where a tight circle turned it into red noise. */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 172px minmax(0, 1fr);
+  gap: 32px 48px;
+  align-items: start;
+}
+.contact-portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid var(--line-3);
+  box-shadow: 0 30px 60px -32px var(--shadow);
+}
+.contact-copy { min-width: 0; }
+
+@media (max-width: 760px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 26px; }
+  .contact-portrait { width: 132px; }
+}
+
+@media print {
+  .fit-tabs, .fit-copy, .btn-copy { display: none !important; }
+  .fit-panel[hidden] { display: grid !important; }
+  .fit-panel { break-inside: avoid; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fit-start a:hover { transform: none; }
+}
+
+/* ---------- 39. Experience as a two-column record ----------
+   The role's facts on the left, what it produced on the right. As a
+   wrapping flex row the facts sat alone in a 340px column with the rest
+   of the line empty, and the results started below them. */
+
+.xp {
+  display: grid;
+  grid-template-columns: minmax(0, 330px) minmax(0, 1fr);
+  grid-template-areas:
+    "meta highlights"
+    "meta details";
+  gap: 20px 56px;
+  align-items: start;
+}
+.xp-meta { grid-area: meta; max-width: none; }
+.xp-highlights {
+  grid-area: highlights;
+  padding-left: 14px;
+  border-left: 2px solid var(--accent-line);
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--fg-2);
+}
+.xp-details { grid-area: details; margin: 0; }
+.xp-details > summary { padding-top: 0; }
+
+@media (max-width: 900px) {
+  .xp {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "meta" "highlights" "details";
+    gap: 20px;
+  }
 }
