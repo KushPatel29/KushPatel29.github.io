@@ -86,11 +86,11 @@
   <li>Data analyst and BI / analytics engineer with 4+ years turning raw operational and financial data (ERP, POS, WMS, workforce and REST feeds) into governed warehouse layers, Power BI reporting and decisions that Sales, Finance and Supply Chain can defend. Sole analyst across a perishable-goods supply chain; before that, a financial analyst running month-end GL/P&amp;L reconciliations.</li>
   <li>Builds dimensional models on cloud warehouses (Microsoft Fabric, Azure Synapse, SQL Server) with Bronze/Silver/Gold medallion layers, conformed dimensions and SCD Type 1/2, orchestrated in Azure Data Factory and Fabric pipelines (dbt and Airflow in project work, not production).</li>
   <li>Delivers Power BI end to end — semantic model, DAX measure library, RLS, publish-ready reports — and treats data quality as a control: automated reconciliation cut recurring discrepancies an estimated ~45% by fixing issues at the feed rather than in the report.</li>
-  <li>Fifteen public projects carry <b>11,340 automated tests</b> in CI, twelve with live demos, spanning BI, analytics engineering, data engineering, forecasting, anomaly detection, text-to-SQL and business-analysis delivery (requirements, UAT, business cases).</li>
+  <li>Sixteen public projects carry <b>11,470 automated tests</b> in CI, twelve with live demos, spanning BI, analytics engineering, data engineering, forecasting, anomaly detection, text-to-SQL and business-analysis delivery (requirements, UAT, business cases).</li>
 </ul>
 
 <h2>Technical Skills</h2>
-<p class="skill"><b>BI &amp; Visualization:</b> Power BI (DAX, Power Query/M, semantic models, RLS/OLS, incremental refresh, TMDL/PBIR), SSRS paginated reports, Tableau, Excel, Streamlit, Plotly</p>
+<p class="skill"><b>BI &amp; Visualization:</b> Power BI (DAX, Power Query/M, semantic models, RLS/OLS, incremental refresh, TMDL/PBIR), SSRS paginated reports, Tableau, Excel (Power Pivot, dynamic arrays, LAMBDA, what-if data tables), Streamlit, Plotly</p>
 <p class="skill"><b>Languages:</b> SQL (T-SQL, window functions, CTEs), Python (pandas, NumPy, scikit-learn, Flask, FastAPI), PySpark, DAX, M</p>
 <p class="skill"><b>Warehousing &amp; Lakehouse:</b> Microsoft Fabric (Lakehouse, Warehouse, OneLake, Direct Lake), Azure Synapse Analytics, SQL Server, PostgreSQL, DuckDB, Delta Lake, Snowflake (dual-target dbt profile)</p>
 <p class="skill"><b>ELT / Orchestration:</b> Azure Data Factory, Fabric Data Pipelines &amp; Dataflows Gen2, dbt Core, Apache Airflow, SSIS, SQL Server Agent, REST API integration, incremental and CDC-style loads, schema-drift contracts, quarantine-and-replay</p>
@@ -157,6 +157,12 @@
   <div class="proj-head">GL / P&amp;L Reconciliation <span class="stack">— SQL, Python, Power BI, Tableau &middot; 710 tests</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/gl-reconciliation-dashboard">github.com/KushPatel29/gl-reconciliation-dashboard</a></div>
   <p><b>Month-end close controls:</b> Classifies ERP-versus-subledger discrepancies, traces every dollar to source and tests all 5,400 journal entries against controls. A certification layer evaluates 60 account-periods against a versioned tolerance and SLA: 8 auto-certified, 9 routed to a named reviewer and 43 blocked, with segregation of duties enforced and no approval fabricated. The same engine reconciles a FOCUS-format cloud bill unmodified.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">Utility FP&amp;A Model in Excel <span class="stack">— Excel, Power Query, Power Pivot / DAX, LINEST &middot; 130 tests</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/excel-fpa-model">github.com/KushPatel29/excel-fpa-model</a></div>
+  <p><b>Plan, variance and forecast on public filings:</b> Portland General Electric modelled from EIA monthly sales, twelve years of FERC Form 1 and NOAA degree days. A LINEST weather model and a plan rebuilt from prior-year data split a $100.9M first-half miss into weather, price and usage to the dollar; a four-year backtest showed load forecastable to about 4% while price follows rate cases. An independent pandas model holds every figure to the cent.</p>
 </div>
 
 <div class="proj">
