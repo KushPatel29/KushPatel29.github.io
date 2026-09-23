@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 16,
-    "automatedTests": 11470
+    "automatedTests": 12520
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -176,11 +176,11 @@
     {
       "id": "excel-fpa-model",
       "cardId": "p-excel-fpa",
-      "title": "Utility FP&A Model in Excel",
+      "title": "Utility FP&A in Excel and Power BI",
       "repository": "https://github.com/KushPatel29/excel-fpa-model",
       "liveApp": null,
       "liveStatus": "repository-only",
-      "testCount": 130,
+      "testCount": 1180,
       "testCommand": "pytest",
       "dataClassification": "public-open-data",
       "priority": "flagship",
@@ -196,7 +196,8 @@
         "regression",
         "forecasting",
         "scenario-analysis",
-        "energy"
+        "energy",
+        "power-bi"
       ],
       "evidence": [
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/workbook/PGE_Utility_FPA_Model.xlsx",
