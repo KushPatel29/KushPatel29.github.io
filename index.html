@@ -243,8 +243,8 @@
       "url": "https://kushpatel29.github.io/#p-dbt",
       "codeRepository": "https://github.com/KushPatel29/supply-chain-analytics-dbt",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "description": "A governed dbt release control room with an enforced executive-mart contract, 157 dbt tests, semantic-to-physical reconciliation, deterministic downstream change impact, integrity-hashed release evidence and model-level run lineage. DuckDB is executed; Snowflake and Airflow boundaries are explicit.",
-      "keywords": "dbt, MetricFlow, Airflow, DuckDB, Snowflake, semantic layer, data contracts, change impact, lineage, release governance"
+      "description": "A governed dbt release control room with an enforced executive-mart contract, 157 dbt tests, semantic-to-physical reconciliation, deterministic downstream change impact, integrity-hashed release evidence and model-level run lineage. Built on DuckDB in CI and on Databricks (serverless SQL warehouse, Unity Catalog), with every mart total reconciled between the two; Snowflake and Airflow boundaries are explicit.",
+      "keywords": "dbt, Databricks, Unity Catalog, Delta Lake, MetricFlow, Airflow, DuckDB, Snowflake, semantic layer, data contracts, change impact, lineage, release governance"
     },
     {
       "@type": "CreativeWork",
@@ -555,9 +555,10 @@ WHERE verdict = 'GO'</pre>
             <tr data-source="paid"><th scope="row">A semantic or metric layer</th><td>Owned the production Power BI semantic layer. In public, <a href="#p-dbt">MetricFlow metrics</a> reconcile to the marts they summarise.</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="paid"><th scope="row">Definitions agreed with the business</th><td>Worked with Sales, Finance and Supply Chain until P&amp;L, OTIF, inventory turns and days on hand each had exactly one definition.</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="project"><th scope="row">Data tests in CI</th><td>Schema contracts, quarantined bad rows and a quality gate, each proven by <a href="#p-control-tower">injecting the exact failure</a> it exists to catch.</td><td><span class="src src-project">Public project</span></td></tr>
+            <tr data-source="project"><th scope="row">A cloud warehouse</th><td>The same <a href="#p-dbt">dbt project</a> built on Databricks (serverless SQL warehouse, Unity Catalog, Delta): 180 of 180 nodes green, and all 41 mart totals equal the DuckDB build.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">Git and CI for analytics code</th><td>All 16 public repositories run their test suites in GitHub Actions on every push.</td><td><span class="src src-project">Public project</span></td></tr>
           </tbody>
-          <tfoot><tr data-paid="3" data-project="3" data-degree="0"><th scope="row">Tied out</th><td colspan="2"><span class="tie"><span>Paid roles</span><b>3</b></span><span class="tie"><span>Public projects</span><b>3</b></span></td></tr></tfoot>
+          <tfoot><tr data-paid="3" data-project="4" data-degree="0"><th scope="row">Tied out</th><td colspan="2"><span class="tie"><span>Paid roles</span><b>3</b></span><span class="tie"><span>Public projects</span><b>4</b></span></td></tr></tfoot>
         </table>
       </article>
 
@@ -585,7 +586,7 @@ WHERE verdict = 'GO'</pre>
             <tr data-source="paid"><th scope="row">Source-system integration</th><td>ERP, Square POS, workforce and REST API feeds into the warehouse, including the Synerion time-and-attendance API.</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="paid"><th scope="row">Data quality and alerting</th><td>Automated schema, completeness, uniqueness and referential-integrity tests, with anomaly thresholds, exception logging and pipeline alerts.</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="paid"><th scope="row">Migration with validation</th><td>Refactored priority pipelines into Fabric notebooks, validating cutover with row counts, checksums and control totals so no report broke. In public: a <a href="#p-migration">GO/NO-GO gate</a> across 107 artifacts.</td><td><span class="src src-paid">Paid role</span></td></tr>
-            <tr data-source="project"><th scope="row">Working at scale</th><td>A <a href="#p-control-tower">medallion pipeline</a> benchmarked at 10 million rows in Delta Lake.</td><td><span class="src src-project">Public project</span></td></tr>
+            <tr data-source="project"><th scope="row">Working at scale</th><td>A <a href="#p-control-tower">medallion pipeline</a> benchmarked at 10 million rows in Delta Lake, and a <a href="#p-dbt">dbt project</a> run on a Databricks SQL warehouse.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">CI/CD, contracts and orchestration</th><td>GitHub Actions on every repository, Docker images built in CI, an <a href="#p-dbt">Airflow DAG</a>, and a <a href="#p-excel-fpa">66-file public-finance ingestion</a> that fails on unexpected headers or item labels.</td><td><span class="src src-project">Public project</span></td></tr>
           </tbody>
           <tfoot><tr data-paid="4" data-project="2" data-degree="0"><th scope="row">Tied out</th><td colspan="2"><span class="tie"><span>Paid roles</span><b>4</b></span><span class="tie"><span>Public projects</span><b>2</b></span></td></tr></tfoot>
@@ -1124,7 +1125,7 @@ WHERE verdict = 'GO'</pre>
         </button>
         <div class="card-body">
           <div class="card-head">
-            <p class="kicker">ANALYTICS ENGINEERING · DATA CONTRACTS</p>
+            <p class="kicker">ANALYTICS ENGINEERING · DBT ON DATABRICKS</p>
             <p class="card-tests">157 dbt tests ✓</p>
           </div>
           <h3>Supply Chain Analytics — dbt</h3>
@@ -1132,17 +1133,18 @@ WHERE verdict = 'GO'</pre>
           <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">The project turns dbt artifacts into a release decision. An enforced contract protects the executive KPI mart; five MetricFlow metrics reconcile to physical marts; a checksum baseline and dependency traversal identify changed and impacted nodes; and every build emits an integrity-hashed release packet plus model-level lineage events. Incremental facts, SCD2 history and the structurally validated Airflow DAG remain part of the underlying platform.</p></details>
           <div class="card-stats">
             <div><div class="stat-v">$0.00</div><div class="stat-k">REVENUE DELTA</div></div>
-            <div><div class="stat-v">15</div><div class="stat-k">LINEAGE EVENTS</div></div>
+            <div><div class="stat-v">41/41</div><div class="stat-k">TOTALS MATCH ON DATABRICKS</div></div>
             <div><div class="stat-v">157</div><div class="stat-k">DBT TESTS</div></div>
           </div>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Latest packet: APPROVE. Eight governance tests prove impact fan-out and tamper detection. CI executes DuckDB and imports the Airflow DAG; it does not schedule Airflow or exercise Snowflake.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Built on DuckDB in CI every week, and on a Databricks serverless SQL warehouse on 24 Sep 2026: 180 of 180 nodes green. The Databricks port found a real type drift that the enforced contract stopped. Airflow is checked, not scheduled; Snowflake has never run.</p>
           <ul class="tags">
             <li>dbt</li>
+            <li>Databricks</li>
             <li>MetricFlow</li>
             <li>Airflow</li>
             <li>Data contracts</li>
           </ul>
-          <a class="card-open card-open-evidence" href="dbt-docs/"><span>BROWSE THE DBT DOCS: CATALOG AND LINEAGE</span><span aria-hidden="true">→</span></a>
+          <a class="card-open card-open-evidence" href="dbt-docs/"><span>BROWSE THE DBT DOCS, BUILT ON DATABRICKS</span><span aria-hidden="true">→</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/output/analytics_engineering_release_memo.md" target="_blank" rel="noopener"><span>OPEN RELEASE MEMO</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/docs/RELEASE_OPERATIONS.md" target="_blank" rel="noopener"><span>OPEN OPERATOR RUNBOOK</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/supply-chain-analytics-dbt" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
@@ -1616,6 +1618,7 @@ WHERE verdict = 'GO'</pre>
         <ul class="skill-list skill-list-project">
           <li>dbt Core</li>
           <li>MetricFlow</li>
+          <li>Databricks SQL warehouse</li>
           <li>DuckDB</li>
           <li>SQLite</li>
           <li>Snowflake (profile only)</li>
