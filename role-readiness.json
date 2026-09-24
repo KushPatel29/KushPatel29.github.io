@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "lastVerified": "2026-09-24",
+  "name": "Portfolio evidence score",
+  "purpose": "A transparent measure of how strongly the public portfolio and documented paid work support each role; it is not a hiring guarantee.",
+  "certificationsIncluded": false,
+  "weights": {
+    "paidWorkEvidence": 0.35,
+    "publicArtifactEvidence": 0.30,
+    "roleRequirementCoverage": 0.20,
+    "validationAndReproducibility": 0.15
+  },
+  "roles": [
+    {
+      "role": "Data Analyst",
+      "score": 9.6,
+      "evidence": ["paid cross-functional analysis", "SQL and Python", "Power BI ownership", "public decision products"]
+    },
+    {
+      "role": "BI / Power BI Developer",
+      "score": 9.5,
+      "evidence": ["paid semantic-model and DAX ownership", "RLS and incremental refresh", "versioned PBIP/TMDL reports", "cross-tool tie-outs"]
+    },
+    {
+      "role": "Supply Chain & Operations Analyst",
+      "score": 9.5,
+      "evidence": ["paid perishable-goods operations analytics", "ERP/POS/WMS/workforce integration", "OTIF, FEFO and vendor scorecards", "forecasting and inventory-policy products"]
+    },
+    {
+      "role": "Business Analyst",
+      "score": 9.3,
+      "evidence": ["paid requirements and adoption work", "traceability and UAT", "process maps and business cases", "decision-ready scenario models"]
+    },
+    {
+      "role": "Data Engineer",
+      "score": 9.3,
+      "evidence": ["paid Fabric/ADF/Synapse ELT", "source-system integration", "tested medallion pipelines", "contracts, quarantine and cutover controls"]
+    },
+    {
+      "role": "Analytics Engineer",
+      "score": 9.2,
+      "evidence": ["paid dimensional and semantic modelling", "dbt contracts and unit tests", "MetricFlow metrics", "source-contract and schema-drift controls"]
+    },
+    {
+      "role": "Financial Analyst",
+      "score": 9.2,
+      "evidence": ["paid GL/P&L reconciliation", "AP/AR and working capital", "variance and margin analysis", "three tested Excel finance models"]
+    },
+    {
+      "role": "Data Scientist",
+      "score": 9.0,
+      "evidence": ["paid production forecasting", "out-of-time ML evaluation", "causal experiment design", "anomaly, survival and LLM assurance work"]
+    }
+  ]
+}
