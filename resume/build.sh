@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
 # Render resume/resume.html to assets/Kush-Patel-Resume.pdf.
 #
+# RESUME_SRC and RESUME_OUT override the input and output, so a copy tailored
+# for one application renders somewhere private (tmp/ is gitignored) instead of
+# over the PDF the site hands out:
+#   RESUME_SRC=tmp/role-fit/acme/resume.html RESUME_OUT=tmp/role-fit/acme/Kush-Patel-Resume.pdf bash resume/build.sh
+#
 # The page count is asserted rather than assumed. The previous résumé grew to
 # three pages without anyone noticing, and the third held four lines.
 set -euo pipefail
 
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 root="$(dirname "$here")"
-src="$here/resume.html"
-out="$root/assets/Kush-Patel-Resume.pdf"
+src="${RESUME_SRC:-$here/resume.html}"
+out="${RESUME_OUT:-$root/assets/Kush-Patel-Resume.pdf}"
+[ -f "$src" ] || { echo "error: no résumé source at $src" >&2; exit 1; }
+mkdir -p "$(dirname "$out")"
 
 chrome=""
 for candidate in \
@@ -22,7 +29,8 @@ done
 [ -n "$chrome" ] || { echo "error: no Chrome or Chromium found" >&2; exit 1; }
 
 # Windows Chrome needs a file:// URL with a drive letter, not an MSYS path.
-url="file:///$(cd "$here" && pwd -W 2>/dev/null || echo "$here")/resume.html"
+srcdir="$(cd "$(dirname "$src")" && (pwd -W 2>/dev/null || pwd))"
+url="file:///${srcdir}/$(basename "$src")"
 
 "$chrome" --headless=new --disable-gpu --no-pdf-header-footer \
   --virtual-time-budget=8000 --print-to-pdf="$out" "$url" >/dev/null 2>&1
