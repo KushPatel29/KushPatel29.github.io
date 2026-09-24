@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-09-23",
+  "lastVerified": "2026-09-24",
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 16,
-    "automatedTests": 12520
+    "automatedTests": 12551
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -176,16 +176,16 @@
     {
       "id": "excel-fpa-model",
       "cardId": "p-excel-fpa",
-      "title": "Utility FP&A in Excel and Power BI",
+      "title": "Finance Decision Models in Excel and Power BI",
       "repository": "https://github.com/KushPatel29/excel-fpa-model",
       "liveApp": null,
       "liveStatus": "repository-only",
-      "testCount": 1180,
+      "testCount": 1211,
       "testCommand": "pytest",
-      "dataClassification": "public-open-data",
+      "dataClassification": "public-open-data-and-synthetic",
       "priority": "flagship",
-      "productShape": "Utility FP&A workbook on public filings: FERC P&L, price-volume-mix, weather-normalized plan with variance bridge and backtest, rolling forecast, scenarios and peer benchmark, calculated entirely by Excel",
-      "primaryDecision": "Why did the utility miss plan, how much was weather, and where will the year land?",
+      "productShape": "Three tested Excel finance decision models: utility FP&A plus Power BI, B.C. local-government benchmarking and capital planning, and a preserved distributor FP&A model",
+      "primaryDecision": "What changed, how does performance compare, and what do the operating, capital, debt and working-capital scenarios imply?",
       "capabilities": [
         "finance",
         "fp-and-a",
@@ -197,10 +197,15 @@
         "forecasting",
         "scenario-analysis",
         "energy",
-        "power-bi"
+        "power-bi",
+        "public-sector-finance",
+        "working-capital",
+        "data-contracts"
       ],
       "evidence": [
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/workbook/PGE_Utility_FPA_Model.xlsx",
+        "https://github.com/KushPatel29/excel-fpa-model/blob/main/examples/bc-local-government/BC_Local_Government_Finance_Model.xlsx",
+        "https://github.com/KushPatel29/excel-fpa-model/blob/main/examples/kestrel-bay/Kestrel_Bay_FPA_Model.xlsx",
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/docs/board_pack.pdf",
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/data/sources.json",
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/model/reference.py"

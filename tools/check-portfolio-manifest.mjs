@@ -66,6 +66,7 @@ const allowedClassification = new Set([
   "synthetic",
   "synthetic-and-session-upload",
   "public-open-data",
+  "public-open-data-and-synthetic",
 ]);
 
 for (const project of manifest.projects ?? []) {
