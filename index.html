@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kush Patel | Data Analyst · BI &amp; Analytics Engineer | Vancouver, Canada</title>
-<meta name="description" content="Data analyst and BI / analytics engineer with 4+ years in finance, sales and supply-chain reporting: Power BI, SQL, Python, Microsoft Fabric and dbt. 16 public projects, 12 live demos, 12,558 automated tests.">
+<meta name="description" content="Data analyst and BI / analytics engineer with 4+ years in finance, sales and supply-chain reporting: Power BI, SQL, Python, Microsoft Fabric, Databricks and dbt. 16 public projects, 12 live demos, 12,568 automated tests.">
 <meta name="author" content="Kush Patel">
 <link rel="canonical" href="https://kushpatel29.github.io/">
 
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kush Patel">
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel | Data Analyst · BI &amp; Analytics Engineer | Vancouver, Canada">
-<meta property="og:description" content="Data analyst and BI / analytics engineer with 4+ years in finance, sales and supply-chain reporting: Power BI, SQL, Python, Microsoft Fabric and dbt. 16 public projects, 12 live demos, 12,558 automated tests.">
+<meta property="og:description" content="Data analyst and BI / analytics engineer with 4+ years in finance, sales and supply-chain reporting: Power BI, SQL, Python, Microsoft Fabric, Databricks and dbt. 16 public projects, 12 live demos, 12,568 automated tests.">
 <meta property="og:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel | Data Analyst · BI &amp; Analytics Engineer | Vancouver, Canada">
-<meta name="twitter:description" content="Data analyst and BI / analytics engineer with 4+ years in finance, sales and supply-chain reporting: Power BI, SQL, Python, Microsoft Fabric and dbt. 16 public projects, 12 live demos, 12,558 automated tests.">
+<meta name="twitter:description" content="Data analyst and BI / analytics engineer with 4+ years in finance, sales and supply-chain reporting: Power BI, SQL, Python, Microsoft Fabric, Databricks and dbt. 16 public projects, 12 live demos, 12,568 automated tests.">
 <meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-banner.png">
 <meta name="twitter:image:alt" content="Kush Patel — data analyst, BI and analytics engineer in Vancouver, open to data roles across Canada">
 
@@ -431,7 +431,7 @@ WHERE verdict = 'GO'</pre>
       <div class="metric-label">live demos you can open now</div>
     </div>
     <div class="metric">
-      <div class="metric-value" data-count="12558">12,558</div>
+      <div class="metric-value" data-count="12568">12,568</div>
       <div class="metric-label">Automated tests behind the published numbers</div>
     </div>
   </section>
@@ -862,18 +862,20 @@ WHERE verdict = 'GO'</pre>
           <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
         </button>
         <div class="card-body">
-          <p class="kicker">DATA PLATFORM · FABRIC PATTERNS</p>
+          <p class="kicker">DATA PLATFORM · FABRIC PATTERNS, RUN ON DATABRICKS</p>
           <h3>Supply Chain Control Tower</h3>
           <p class="outcome">Bad data gets caught at the boundary — and the network's real problem turns out to be where the stock is, not how much.</p>
           <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">Bad data doesn't announce itself; it quietly changes a number an executive already screenshotted. So this pipeline defends in three layers — schema contracts stop drift before Bronze, poisoned rows quarantine with replay, a quality gate guards Gold — and CI proves each layer by <em>injecting the exact failure it exists to catch</em>. On top of it sits the analysis a multinational actually runs: an approved vendor list across eleven countries (25 SKUs have no plan B; one origin carries 29.7% of COGS), OTIF decomposed into the two failures it hides (short-shipping, not lateness, is the bigger driver), and a planner's stock position where <em>the shortfall grew 15.2% while total stock barely moved</em> — the network rotating inventory into the lanes that need it least. Then the inbound half: 11,604 purchase-order lines scored on delivery, quality, cost and responsiveness against published targets rather than against each other, where <em>18 of 24 suppliers sit in a different band than their contract calls them</em> — the contractual tier is never an input to the score, so the gap is a measurement, not a restatement. And the service policy nobody had ever priced: the textbook ABC ladder, applied at constant spend, <em>loses 1.72 points of unit fill</em>, because it protects revenue and a fill rate on units is not revenue.</p></details>
           <ul class="tags">
             <li>PySpark</li>
+            <li>Databricks</li>
             <li>Delta Lake</li>
             <li>Power BI</li>
             <li>GIS / GeoJSON</li>
             <li>Streamlit</li>
-            <li class="tag-tests">826 tests ✓</li>
+            <li class="tag-tests">836 tests ✓</li>
           </ul>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> The PySpark notebooks ran as a Databricks job (serverless, Unity Catalog), twice: 18 of 18 quality checks passed, the MERGE rerun changed nothing, and all 36 gold totals match the local pipeline to the cent, after the run caught a rounding mismatch worth $13.85 on $110.4M.</p>
           <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> 10M-row Delta benchmark · 3 defence tiers, each proven by an injected failure · 8-page Power BI control tower · 12% of the replenishment gap needs no purchase order · $1,517,878 modelled working-capital release at identical service</p>
           <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Live disruption studio: country and node scenarios, five response playbooks and an owner-routed action queue — 13 P0 actions in the Mexico scenario — over 34 governed WGS 84 network points. Synthetic coordinates and straight-line distances are labelled.</p>
           <a class="card-open card-open-live" href="https://kush-network-risk-decision-room.streamlit.app/" target="_blank" rel="noopener"><span>▶ TRY DECISION STUDIO</span><span aria-hidden="true">↗</span></a>

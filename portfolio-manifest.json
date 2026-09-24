@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 16,
-    "automatedTests": 12558
+    "automatedTests": 12568
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -42,7 +42,7 @@
       "repository": "https://github.com/KushPatel29/supply-chain-control-tower",
       "liveApp": "https://kush-network-risk-decision-room.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 826,
+      "testCount": 836,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "flagship",

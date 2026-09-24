@@ -74,7 +74,7 @@
 
 <header>
   <h1>Kush Patel</h1>
-  <p class="role">Data Analyst &nbsp;|&nbsp; BI &amp; Analytics Engineer &nbsp;|&nbsp; Power BI &middot; SQL &middot; Python &middot; Microsoft Fabric &middot; dbt</p>
+  <p class="role">Data Analyst &nbsp;|&nbsp; BI &amp; Analytics Engineer &nbsp;|&nbsp; Power BI &middot; SQL &middot; Python &middot; Microsoft Fabric &middot; Databricks &middot; dbt</p>
   <p class="contact">
     <span class="item">Vancouver, BC</span><span class="sep">|</span><span class="item"><a href="tel:+17786371602">+1 (778) 637-1602</a></span><span class="sep">|</span><span class="item"><a href="mailto:dharma.patel552@gmail.com">dharma.patel552@gmail.com</a></span><span class="sep">|</span><span class="item"><a href="https://www.linkedin.com/in/kush-patel-48885719b/">linkedin.com/in/kush-patel-48885719b</a></span><span class="sep">|</span><span class="item"><a href="https://github.com/KushPatel29">github.com/KushPatel29</a></span><span class="sep">|</span><span class="item"><a href="https://kushpatel29.github.io/">kushpatel29.github.io</a></span>
   </p>
@@ -86,13 +86,13 @@
   <li>Data analyst and BI / analytics engineer with 4+ years turning raw operational and financial data (ERP, POS, WMS, workforce and REST feeds) into governed warehouse layers, Power BI reporting and decisions that Sales, Finance and Supply Chain can defend. Sole analyst across a perishable-goods supply chain; before that, a financial analyst running month-end GL/P&amp;L reconciliations.</li>
   <li>Builds dimensional models on cloud warehouses (Microsoft Fabric, Azure Synapse, SQL Server) with Bronze/Silver/Gold medallion layers, conformed dimensions and SCD Type 1/2, orchestrated in Azure Data Factory and Fabric pipelines (dbt and Airflow in project work, not production).</li>
   <li>Delivers Power BI end to end — semantic model, DAX measure library, RLS, publish-ready reports — and treats data quality as a control: automated reconciliation cut recurring discrepancies an estimated ~45% by fixing issues at the feed rather than in the report.</li>
-  <li>Sixteen public projects carry <b>12,558 automated tests</b> in CI, twelve with live demos, spanning BI, analytics engineering, data engineering, forecasting, anomaly detection, text-to-SQL and business-analysis delivery (requirements, UAT, business cases).</li>
+  <li>Sixteen public projects carry <b>12,568 automated tests</b> in CI, twelve with live demos, spanning BI, analytics engineering, data engineering, forecasting, anomaly detection, text-to-SQL and business-analysis delivery (requirements, UAT, business cases).</li>
 </ul>
 
 <h2>Technical Skills</h2>
 <p class="skill"><b>BI &amp; Visualization:</b> Power BI (DAX, Power Query/M, semantic models, RLS/OLS, incremental refresh, TMDL/PBIR), SSRS paginated reports, Tableau, Excel (Power Pivot, dynamic arrays, LAMBDA, what-if data tables), Streamlit, Plotly</p>
 <p class="skill"><b>Languages:</b> SQL (T-SQL, window functions, CTEs), Python (pandas, NumPy, scikit-learn, Flask, FastAPI), PySpark, DAX, M</p>
-<p class="skill"><b>Warehousing &amp; Lakehouse:</b> Microsoft Fabric (Lakehouse, Warehouse, OneLake, Direct Lake), Azure Synapse Analytics, SQL Server, PostgreSQL, DuckDB, Delta Lake, Snowflake (dual-target dbt profile)</p>
+<p class="skill"><b>Warehousing &amp; Lakehouse:</b> Microsoft Fabric (Lakehouse, Warehouse, OneLake, Direct Lake), Azure Synapse Analytics, SQL Server, PostgreSQL, Databricks (SQL warehouse, serverless jobs, Unity Catalog), DuckDB, Delta Lake, Snowflake (dbt profile, not yet run)</p>
 <p class="skill"><b>ELT / Orchestration:</b> Azure Data Factory, Fabric Data Pipelines &amp; Dataflows Gen2, dbt Core, Apache Airflow, SSIS, SQL Server Agent, REST API integration, incremental and CDC-style loads, schema-drift contracts, quarantine-and-replay</p>
 <p class="skill"><b>Modelling &amp; Governance:</b> Kimball star schemas, conformed dimensions, SCD Type 1/2, metric catalogues with owner and grain, data lineage, RLS/RBAC and column masking, de-identification (k-anonymity), reconciliation and control totals, cutover validation</p>
 <p class="skill"><b>Analytics &amp; ML:</b> forecasting with rolling-origin backtests, classification (XGBoost, logistic regression), anomaly detection, survival analysis, recommender systems, geo holdouts and difference-in-differences, LLM text-to-SQL; always graded against a simple baseline</p>
@@ -142,7 +142,7 @@
 </div>
 
 <div class="proj">
-  <div class="proj-head">Supply Chain Control Tower <span class="stack">— Microsoft Fabric patterns, PySpark, Delta Lake, Power BI, Streamlit &middot; 826 tests</span></div>
+  <div class="proj-head">Supply Chain Control Tower <span class="stack">— Microsoft Fabric patterns run on Databricks, PySpark, Delta Lake, Power BI, Streamlit &middot; 836 tests</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-control-tower">github.com/KushPatel29/supply-chain-control-tower</a> &middot; live: <a href="https://kush-network-risk-decision-room.streamlit.app/">kush-network-risk-decision-room.streamlit.app</a></div>
   <p><b>Data platform and operations analytics:</b> A medallion pipeline defended in three layers — schema contracts before Bronze, row quarantine with replay, a quality gate on Gold — each proven in CI by injecting the failure it exists to catch, and benchmarked at 10M rows in Delta Lake. The eight-page Power BI control tower shows short-shipping, not lateness, is the bigger OTIF driver; a live studio routes disruption scenarios to owner-assigned actions.</p>
 </div>
