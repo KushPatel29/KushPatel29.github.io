@@ -123,7 +123,7 @@ function idsIn(html) {
    or null if it points somewhere we don't own. */
 /* Paths on this origin that are served by a sibling repo's GitHub Pages
    deployment rather than by a file in this repository. */
-const PROJECT_PAGES = ["/wholesale-analytics-platform/"];
+const PROJECT_PAGES = ["/wholesale-analytics-platform/", "/inventory-analytics-app/"];
 
 function classify(ref, fromPage) {
   let raw = ref;

@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 16,
-    "automatedTests": 12568
+    "automatedTests": 12601
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -60,9 +60,9 @@
       "cardId": "p-inventory",
       "title": "Inventory Analytics · Operations Decision Studio",
       "repository": "https://github.com/KushPatel29/inventory-analytics-app",
-      "liveApp": "https://inventory-analytics-app.onrender.com/",
+      "liveApp": "https://kushpatel29.github.io/inventory-analytics-app/",
       "liveStatus": "live-demo",
-      "testCount": 316,
+      "testCount": 349,
       "testCommand": "pytest",
       "dataClassification": "synthetic-and-session-upload",
       "priority": "flagship",
