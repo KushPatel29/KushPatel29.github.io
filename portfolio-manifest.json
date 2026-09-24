@@ -4,8 +4,8 @@
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
-    "promotedProjects": 16,
-    "automatedTests": 12601
+    "promotedProjects": 17,
+    "automatedTests": 12754
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -180,11 +180,11 @@
       "repository": "https://github.com/KushPatel29/excel-fpa-model",
       "liveApp": null,
       "liveStatus": "repository-only",
-      "testCount": 1218,
+      "testCount": 1190,
       "testCommand": "pytest",
       "dataClassification": "public-open-data-and-synthetic",
       "priority": "flagship",
-      "productShape": "Three tested Excel finance decision models: utility FP&A plus Power BI, B.C. local-government benchmarking and capital planning, and a preserved distributor FP&A model",
+      "productShape": "Two tested Excel finance decision models: utility FP&A plus Power BI on public filings, and a preserved distributor FP&A model",
       "primaryDecision": "What changed, how does performance compare, and what do the operating, capital, debt and working-capital scenarios imply?",
       "capabilities": [
         "finance",
@@ -209,6 +209,34 @@
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/docs/board_pack.pdf",
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/data/sources.json",
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/model/reference.py"
+      ]
+    },
+    {
+      "id": "bc-local-government-finance",
+      "cardId": "p-bc-finance",
+      "title": "B.C. Local-Government Finance",
+      "repository": "https://github.com/KushPatel29/bc-local-government-finance",
+      "liveApp": null,
+      "liveStatus": "repository-only",
+      "testCount": 181,
+      "testCommand": "pytest",
+      "dataClassification": "public-open-data",
+      "priority": "flagship",
+      "productShape": "Contracted pipeline, dbt model and Excel planning workbook over every B.C. municipality's official filings",
+      "primaryDecision": "Is a municipality keeping up with its infrastructure, and what would closing the gap cost in tax and borrowing?",
+      "capabilities": [
+        "public-sector",
+        "finance",
+        "data-contracts",
+        "dbt",
+        "duckdb",
+        "excel",
+        "power-query",
+        "capital-planning"
+      ],
+      "evidence": [
+        "https://github.com/KushPatel29/bc-local-government-finance/blob/main/README.md",
+        "https://github.com/KushPatel29/bc-local-government-finance/blob/main/docs/board_pack.pdf"
       ]
     },
     {
