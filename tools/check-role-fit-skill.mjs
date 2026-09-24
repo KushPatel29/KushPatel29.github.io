@@ -133,6 +133,35 @@ if (snapshot) {
   if (!/Two Rivers Specialty Meats/.test(snapshot)) fail("snapshot résumé section lost the Experience entries");
 }
 
+/* ---------- job-scout ---------- */
+/* The scheduled scout builds on this skill. Its dedupe key is its memory
+   between runs: if the key for the same posting ever changed, every run
+   would re-screen (and re-pack) jobs it had already handled. */
+const SCOUT_DIR = path.join(ROOT, ".claude", "skills", "job-scout");
+const scout = read(path.join(SCOUT_DIR, "SKILL.md"));
+if (!scout) {
+  fail(".claude/skills/job-scout/SKILL.md is missing");
+} else {
+  const sfront = scout.match(/^---\n([\s\S]*?)\n---\n/);
+  const sname = sfront?.[1].match(/^name:\s*(.+)$/m)?.[1].trim();
+  const sdesc = sfront?.[1].match(/^description:\s*(.+)$/m)?.[1].trim() || "";
+  if (sname !== "job-scout") fail(`job-scout SKILL.md name is "${sname}"`);
+  if (!sdesc || sdesc.length > 1024) fail(`job-scout description is ${sdesc.length} characters (1–1024 allowed)`);
+  for (const ref of new Set(scout.match(/\.claude\/skills\/[\w-]+\/scripts\/[\w.-]+/g) || [])) {
+    if (!fs.existsSync(path.join(ROOT, ref))) fail(`job-scout SKILL.md points at ${ref}, which does not exist`);
+  }
+  const keyOf = (...args) =>
+    JSON.parse(execFileSync(process.execPath, [path.join(SCOUT_DIR, "scripts", "job-key.mjs"), ...args], { encoding: "utf8" })).key;
+  try {
+    const a = keyOf("Northwind Grocers", "Business Intelligence (BI) Analyst - Portfolio Reporting", "Vancouver, BC");
+    const b = keyOf("Northwind Grocers Inc.", "Business Intelligence (BI) Analyst - Portfolio Reporting (Contract)", "Vancouver, British Columbia");
+    if (a !== "JK-508a53fb4a") fail(`job-key.mjs changed its output (${a}); every stored key would stop matching`);
+    if (a !== b) fail("job-key.mjs no longer treats a cross-posted variant of the same job as the same key");
+  } catch (e) {
+    fail(`job-key.mjs failed: ${(e.stderr || e.message).toString().trim().split("\n")[0]}`);
+  }
+}
+
 /* ---------- privacy ---------- */
 const ignore = read(path.join(ROOT, ".gitignore")) || "";
 if (!/^tmp\/$/m.test(ignore)) fail("tmp/ is no longer gitignored, but the skill saves application reports there");
@@ -142,4 +171,4 @@ if (failures.length) {
   for (const f of failures) console.error("  - " + f);
   process.exit(1);
 }
-console.log(`✓ role-fit skill: ${manifest.projects.length} projects, résumé dates and Role fit views match the published evidence`);
+console.log(`✓ role-fit skill: ${manifest.projects.length} projects, résumé dates and Role fit views match the published evidence; job-scout keys are stable`);

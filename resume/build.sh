@@ -23,7 +23,8 @@ for candidate in \
   "/c/Program Files (x86)/Google/Chrome/Application/chrome.exe" \
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
   "$(command -v google-chrome || true)" \
-  "$(command -v chromium || true)"; do
+  "$(command -v chromium || true)" \
+  "/opt/pw-browsers/chromium"; do
   [ -n "$candidate" ] && [ -x "$candidate" ] && { chrome="$candidate"; break; }
 done
 [ -n "$chrome" ] || { echo "error: no Chrome or Chromium found" >&2; exit 1; }
@@ -32,12 +33,19 @@ done
 srcdir="$(cd "$(dirname "$src")" && (pwd -W 2>/dev/null || pwd))"
 url="file:///${srcdir}/$(basename "$src")"
 
-"$chrome" --headless=new --disable-gpu --no-pdf-header-footer \
+# Chrome refuses to start as root without --no-sandbox, which is how CI
+# containers and cloud sessions run it. A desktop never takes this branch.
+sandbox=()
+[ "$(id -u)" = "0" ] && sandbox=(--no-sandbox)
+
+"$chrome" ${sandbox[@]+"${sandbox[@]}"} --headless=new --disable-gpu --no-pdf-header-footer \
   --virtual-time-budget=8000 --print-to-pdf="$out" "$url" >/dev/null 2>&1
 
 [ -s "$out" ] || { echo "error: no PDF was written" >&2; exit 1; }
 
-pages="$(python -c "import pypdf,sys; print(len(pypdf.PdfReader(sys.argv[1]).pages))" "$out")"
+# PYTHON picks the interpreter that has pypdf (a venv, for example).
+py="${PYTHON:-python}"
+pages="$("$py" -c "import pypdf,sys; print(len(pypdf.PdfReader(sys.argv[1]).pages))" "$out")"
 echo "rendered $(basename "$out") — ${pages} page(s)"
 if [ "$pages" -ne 2 ]; then
   echo "error: expected 2 pages, got ${pages}. Tighten the source before shipping." >&2
@@ -45,6 +53,6 @@ if [ "$pages" -ne 2 ]; then
 fi
 
 # A résumé whose text cannot be selected cannot be parsed by an ATS either.
-chars="$(python -c "import pypdf,sys; r=pypdf.PdfReader(sys.argv[1]); print(sum(len(p.extract_text() or '') for p in r.pages))" "$out")"
+chars="$("$py" -c "import pypdf,sys; r=pypdf.PdfReader(sys.argv[1]); print(sum(len(p.extract_text() or '') for p in r.pages))" "$out")"
 echo "extractable text: ${chars} characters"
 [ "$chars" -gt 4000 ] || { echo "error: too little extractable text — is it rendering as images?" >&2; exit 1; }

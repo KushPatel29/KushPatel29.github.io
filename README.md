@@ -50,6 +50,14 @@ to the manifest and résumé in CI. Reports and tailored résumés go under `tmp
 which is gitignored for the same reason `tools/links.tsv` is: this repository is
 public, and an application list is not.
 
+`.claude/skills/job-scout/` builds on it: a scheduled run finds the last day's
+Canadian postings, screens each with role-fit analysis, and prepares an
+application pack for the best matches (a tailored résumé that must pass
+`scripts/ats_check.py`, a fit report, a cover note and an outreach draft) in a
+private page. It never submits an application or sends a message: those stay
+with me. Its dedupe key (`scripts/job-key.mjs`) is held stable by the same
+contract.
+
 A tailored résumé renders without touching the published PDF:
 
 ```

@@ -112,7 +112,7 @@ can substitute for. Total years count, but years with a particular tool do not
 |---|---|
 | Work authorization / sponsorship | Canada: met. Anything else: **unknown**. Ask; never assume. |
 | Location / on-site / relocation | Vancouver; open to remote and relocation across Canada. Outside Canada: unknown. Hybrid in another Canadian city: met (relocation stated). |
-| Minimum total years | compare against 4 yrs 3 mos paid. If 1 year short with strong core coverage: flag as soft. If 2+ years short: unmet. |
+| Minimum total years | compare against 4 yrs 3 mos paid. If 1 year short with strong core coverage: flag as soft. If 2+ years short: unmet. **"N years or an equivalent combination of education and experience"** is soft, not a gate: count the MPS and B.Eng. as the posting invites, and say so. |
 | Required degree | B.Eng. CS, MPS Analytics. |
 | Required certification or designation | only completed certs count. DP-600 in progress = unmet, but say "in progress". |
 | Clearance, licence, language, travel, shifts | not stated → unknown; ask. |
