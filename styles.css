@@ -1996,6 +1996,7 @@ a.card-open::after {
 .section-details > summary { border-bottom: 1px solid var(--line); margin-bottom: 20px; }
 .demo-note { max-width: 80ch; color: var(--muted); font-size: 14px; line-height: 1.6; margin: 18px 0; }
 .demo-note a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.section-sub a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .card-open::after { display: none; }
 .card-open { min-height: 44px; position: relative; }
 .card-tests, .stat-k, .skill-tags li, .cert-code { font-size: 11px; }
