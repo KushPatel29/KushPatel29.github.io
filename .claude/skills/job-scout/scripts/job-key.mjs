@@ -12,8 +12,9 @@
      node job-key.mjs "<company>" "<title>" "<location>"
    Prints JSON: {"key":"JK-3f9a…","slug":"2026-09-24-northwind-grocers-bi-analyst…","basis":"…"}
 
-   The key goes into the title of the Drive marker file, so the
-   next run finds it with `title contains 'JK-…'`.
+   The key is the document id in the queue's `postings` collection
+   and a field in its weekly `seen` document, so the next run can
+   tell in one read which postings it has already screened.
 
    No dependencies. Node 18+.
    ============================================================ */
