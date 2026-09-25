@@ -11,9 +11,9 @@
 ## Data flow
 
 1. A browser event contract validates names and required properties.
-2. Consented events are routed to GA4 and PostHog.
-3. GA4 exports nested daily event tables to BigQuery.
-4. dbt flattens parameters, deduplicates events, and normalizes sources.
+2. The implemented browser dispatcher emits local custom events after consent; optional GA4 and PostHog hooks are present but not configured.
+3. A committed 20-event CSV is the only executed source. BigQuery is an untested reference target.
+4. dbt on DuckDB types, deduplicates, excludes ineligible events, and normalizes sources.
 5. Intermediate models reconstruct sessions, journeys, and attribution.
 6. Facts and marts aggregate engagement and conversion behavior.
 7. Tests gate the export consumed by the public dashboard.
@@ -24,11 +24,11 @@
 |---|---|---|---|
 | CI | Pull-request validation | DuckDB | deterministic seed |
 | Demo | Public portfolio showcase | static aggregate | synthetic and labeled |
-| Production | Genuine portfolio analytics | BigQuery | consented production events |
+| Reference target | Future genuine analytics | BigQuery profile (not run) | none |
 
 ## Incremental strategy
 
-Production event and session models reprocess a rolling three-day window and merge by stable keys. This handles delayed GA4 exports and corrects sessions affected by late events while limiting scan volume. Backfills use explicit date bounds.
+The rolling three-day merge is a proposed production pattern, not an implemented model in this fixture. The executed DuckDB models rebuild the small deterministic seed in full.
 
 ## Cost controls
 

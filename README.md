@@ -13,13 +13,13 @@ as client or production experience.
 ## New flagship: Portfolio Intelligence Platform
 
 The portfolio now includes its own measurement-system case study: **[Portfolio
-Intelligence Platform](https://kush-portfolio-intelligence.kush007.chatgpt.site/)**.
-It covers acquisition, engagement, conversion, retention, p75 Core Web Vitals,
-error-free sessions and collection health; pairs a consent-aware GA4/PostHog
-router with a BigQuery production design; and ships a reproducible DuckDB/dbt
-path with 15 automated data tests. The public dashboard is explicitly synthetic.
-Account-specific analytics IDs and credentials remain documented activation
-steps, not implied production traffic.
+Intelligence Platform](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/)**.
+It demonstrates acquisition, engagement and conversion calculations from a
+committed 20-event fixture, plus honest unavailable states for retention and
+Core Web Vitals where the sample has no evidence. A consent-aware provider
+adapter and BigQuery profile are reference designs, explicitly not activated.
+The implemented DuckDB/dbt path and generated dashboard output run in root CI
+with 15 automated data tests. No number is presented as real portfolio traffic.
 
 Its complete source, event contract, governed metric catalog, architecture,
 privacy boundary and reviewer setup are under

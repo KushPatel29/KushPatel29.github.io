@@ -46,7 +46,7 @@ const COUNT_CLAIMS = [
   ["description: live demos", /content="[^"]*?\b(\d+) live demos\b/g, liveCount, html],
   ["work heading", /\b([A-Z][a-z]+) projects, each ending in a finding\b/g, manifestCount, plain],
   ["work summary", /\b([A-Z][a-z]+) run live in the browser\b/g, liveCount, plain],
-  ["role fit evidence row", /\bAll (\d+) public projects publish a test command\b/g, manifestCount, plain],
+  ["role fit CI row", /\bAll (\d+) public projects run automated validation\b/g, manifestCount, plain],
   ["FAQ: projects", /\bAll (\d+) projects are public\b/g, manifestCount, plain],
   ["FAQ: live demos", /\b(\d+) also run as live demos\b/g, liveCount, plain],
 ];

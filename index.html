@@ -126,12 +126,12 @@
       "@type": "CreativeWork",
       "@id": "https://kushpatel29.github.io/#p-portfolio-intelligence",
       "name": "Portfolio Intelligence Platform",
-      "url": "https://kush-portfolio-intelligence.kush007.chatgpt.site/",
+      "url": "https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/",
       "codeRepository": "https://github.com/KushPatel29/kushpatel29.github.io/tree/main/projects/portfolio-intelligence-platform",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "sameAs": "https://kush-portfolio-intelligence.kush007.chatgpt.site/",
-      "description": "A consent-aware web analytics measurement system spanning acquisition, engagement, conversion, retention, Core Web Vitals and data quality. It combines versioned browser events, GA4 and PostHog adapters, a BigQuery production design, reproducible DuckDB and dbt models, fifteen automated checks, governed metric contracts and a clearly labelled synthetic public dashboard.",
-      "keywords": "web analytics, product analytics, analytics engineering, GA4, PostHog, BigQuery, dbt, DuckDB, Core Web Vitals, retention cohorts, attribution, metric governance, data quality, privacy"
+      "sameAs": "https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/",
+      "description": "A reproducible web analytics case study built from a committed twenty-event synthetic fixture. DuckDB and dbt produce tested session and conversion models, root CI regenerates the public dashboard data, and unavailable retention or performance measures remain visibly unavailable instead of being invented.",
+      "keywords": "web analytics, product analytics, analytics engineering, dbt, DuckDB, synthetic fixture, Core Web Vitals instrumentation, attribution, metric governance, data quality, privacy"
     },
     {
       "@type": "CreativeWork",
@@ -578,7 +578,7 @@ WHERE verdict = 'GO'</pre>
             <tr data-source="project"><th scope="row">Data tests in CI</th><td>Schema contracts, quarantined bad rows and a quality gate, each proven by <a href="#p-control-tower">injecting the exact failure</a> it exists to catch.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">A cloud warehouse</th><td>The same <a href="#p-dbt">dbt project</a> built on Databricks (serverless SQL warehouse, Unity Catalog, Delta): 180 of 180 nodes green, and all 41 mart totals equal the DuckDB build.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">Tests on messy real data</th><td>A <a href="#p-bc-finance">dbt project</a> on the Province’s filings: 31 data tests, a written list of the Province’s known defects, and a gold layer rebuilt identically in CI.<td><span class="src src-project">Public project</span></td></tr>
-            <tr data-source="project"><th scope="row">Git and CI for analytics code</th><td>All 18 public projects publish a test command and reproducible evidence.</td><td><span class="src src-project">Public project</span></td></tr>
+            <tr data-source="project"><th scope="row">Git and CI for analytics code</th><td>All 18 public projects run automated validation in GitHub Actions; this repository's root workflow directly rebuilds Portfolio Intelligence.</td><td><span class="src src-project">Public project</span></td></tr>
           </tbody>
           <tfoot><tr data-paid="3" data-project="5" data-degree="0"><th scope="row">Tied out</th><td colspan="2"><span class="tie"><span>Paid roles</span><b>3</b></span><span class="tie"><span>Public projects</span><b>5</b></span></td></tr></tfoot>
         </table>
@@ -878,33 +878,6 @@ WHERE verdict = 'GO'</pre>
 
     <!-- Six projects that between them cover every role in Role fit -->
     <div class="card-grid primary-projects">
-<article class="project card portfolio-intelligence-card" id="p-portfolio-intelligence" data-tags="bi engineering customer business">
-        <div class="analytics-card-visual" role="img" aria-label="Portfolio Intelligence dashboard preview with acquisition, engagement, conversion, retention, performance and data-quality signals">
-          <div class="analytics-visual-top"><span>PORTFOLIO / INTELLIGENCE</span><b>● LIVE</b></div>
-          <div class="analytics-visual-kpis"><span><small>USERS</small><strong>1,284</strong></span><span><small>ENGAGEMENT</small><strong>58.1%</strong></span><span><small>HIGH INTENT</small><strong>12.3%</strong></span></div>
-          <div class="analytics-visual-trace"><i style="--h:42%"></i><i style="--h:58%"></i><i style="--h:51%"></i><i style="--h:74%"></i><i style="--h:67%"></i><i style="--h:88%"></i><i style="--h:79%"></i><i style="--h:96%"></i></div>
-          <div class="analytics-visual-foot"><span>LCP P75 <b>1.84s</b></span><span>W4 RETENTION <b>20%</b></span><span>CONTRACTS <b>100%</b></span></div>
-        </div>
-        <div class="card-body">
-          <p class="kicker">WEB ANALYTICS · METRIC GOVERNANCE · DATA PRODUCT</p>
-          <h3>Portfolio Intelligence Platform</h3>
-          <p class="outcome">A page counter became a governed measurement system: six metric families connect acquisition, engagement, conversion, retention, real-user performance and collection health.</p>
-          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">The browser contract accepts only registered, versioned events after consent and attaches pseudonymous visitor and 30-minute session identities. GA4 and PostHog adapters feed a BigQuery production design; a DuckDB seed makes the transformation path reproducible for any reviewer. dbt normalizes events, rebuilds sessions, applies bot, internal, automated-test and synthetic exclusions, and publishes session and conversion marts behind a passing 20-node gate. The public experience is deliberately honest: all values are labeled synthetic. It still demonstrates the operating product—period controls, funnels, channel mix, project depth, cohort retention, p75 LCP / INP / CLS / FCP / TTFB, privacy-safe error health, data-quality service levels, metric contracts and interactive lineage.</p></details>
-          <div class="card-stats">
-            <div><div class="stat-v">6</div><div class="stat-k">METRIC FAMILIES</div></div>
-            <div><div class="stat-v">20</div><div class="stat-k">DBT NODES PASS</div></div>
-            <div><div class="stat-v">15</div><div class="stat-k">QUALITY CHECKS</div></div>
-          </div>
-          <ul class="tags">
-            <li>GA4</li><li>PostHog</li><li>BigQuery</li><li>dbt</li><li>DuckDB</li><li>Core Web Vitals</li><li class="tag-tests">15 tests ✓</li>
-          </ul>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Reproducible evidence: 4 models, 1 deterministic seed and 15 assertions complete as a 20-node dbt build with zero errors or warnings.</p>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Measurement quality is part of the product: 100% event-contract and consent-state targets, attribution coverage, duplicate and late-arrival monitoring, explicit exclusions and zero direct PII.</p>
-          <a class="card-open card-open-live" href="https://kush-portfolio-intelligence.kush007.chatgpt.site/" target="_blank" rel="noopener"><span>▶ EXPLORE LIVE DATA PRODUCT</span><span aria-hidden="true">↗</span></a>
-          <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/kushpatel29.github.io/tree/main/projects/portfolio-intelligence-platform" target="_blank" rel="noopener"><span>READ ARCHITECTURE &amp; METRICS</span><span aria-hidden="true">↗</span></a>
-          <a class="card-open" href="https://github.com/KushPatel29/kushpatel29.github.io" target="_blank" rel="noopener"><span>OPEN REPOSITORY</span><span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
 <article class="project card" id="p-control-tower" data-tags="bi engineering supply business gis">
         <button type="button" class="card-zoom" data-zoom="assets/control-tower.jpg"
                 aria-label="Enlarge: Supply Chain Control Tower executive overview dashboard">
@@ -1142,8 +1115,29 @@ WHERE verdict = 'GO'</pre>
       </article>
 </div>
     <details id="more-projects" class="section-details more-projects">
-      <summary>Nine more projects — health, pricing, dbt, financial crime, marketing, recommendations, people analytics, clinical data and migration</summary>
+      <summary>Ten more projects — web analytics, health, pricing, dbt, financial crime, marketing, recommendations, people analytics, clinical data and migration</summary>
       <div class="card-grid">
+<article class="project card portfolio-intelligence-card" id="p-portfolio-intelligence" data-tags="bi engineering customer business">
+        <div class="analytics-card-visual" role="img" aria-label="Synthetic Portfolio Intelligence fixture preview generated from 20 committed events">
+          <div class="analytics-visual-top"><span>PORTFOLIO / INTELLIGENCE</span><b>SYNTHETIC FIXTURE</b></div>
+          <div class="analytics-visual-kpis"><span><small>ELIGIBLE USERS</small><strong>5</strong></span><span><small>SESSIONS</small><strong>6</strong></span><span><small>EVENTS</small><strong>20</strong></span></div>
+          <div class="analytics-visual-trace"><i style="--h:42%"></i><i style="--h:58%"></i><i style="--h:51%"></i><i style="--h:74%"></i><i style="--h:67%"></i><i style="--h:88%"></i><i style="--h:79%"></i><i style="--h:96%"></i></div>
+          <div class="analytics-visual-foot"><span>DBT <b>20 / 20</b></span><span>EXCLUDED <b>3</b></span><span>DIRECT PII <b>0</b></span></div>
+        </div>
+        <div class="card-body">
+          <p class="kicker">WEB ANALYTICS · REPRODUCIBLE FIXTURE · METRIC GOVERNANCE</p>
+          <h3>Portfolio Intelligence Platform</h3>
+          <p class="outcome">A transparent analytics engineering case study: tested dbt relations generate every displayed KPI from one committed 20-event synthetic fixture.</p>
+          <details class="case-details"><summary>Approach, evidence and boundary</summary><p class="card-text">DuckDB and dbt type, deduplicate and sessionize the fixture, exclude one bot, one internal and one synthetic event, then publish session and conversion marts. A root GitHub Actions job rebuilds all 20 nodes, runs 15 assertions, regenerates the dashboard JSON and fails on drift. The dashboard shows real fixture outputs—five eligible users and six sessions—and leaves retention and Core Web Vitals unavailable because four days of synthetic events cannot support them. A consent-aware browser dispatcher and performance observers are implemented locally. GA4, PostHog and BigQuery remain explicitly unactivated reference integrations and are not claimed as project experience.</p></details>
+          <div class="card-stats"><div><div class="stat-v">20</div><div class="stat-k">MODELED EVENTS</div></div><div><div class="stat-v">20</div><div class="stat-k">DBT NODES PASS</div></div><div><div class="stat-v">15</div><div class="stat-k">CI ASSERTIONS</div></div></div>
+          <ul class="tags"><li>dbt Core</li><li>DuckDB</li><li>GitHub Actions</li><li>Event contracts</li><li>Web Vitals API</li><li class="tag-tests">15 tests ✓</li></ul>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Root CI proves the exact chain: seed → four dbt models → 15 passing assertions → generated dashboard JSON → committed-output drift check.</p>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Evidence limits are visible in the UI: synthetic source, tiny-sample warning, unavailable cohorts and RUM measures, and zero claims of production traffic.</p>
+          <a class="card-open card-open-live" href="https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/" target="_blank" rel="noopener"><span>▶ OPEN GITHUB PAGES CASE STUDY</span><span aria-hidden="true">↗</span></a>
+          <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/kushpatel29.github.io/tree/main/projects/portfolio-intelligence-platform" target="_blank" rel="noopener"><span>READ SOURCE &amp; VALIDATION LIMITS</span><span aria-hidden="true">↗</span></a>
+          <a class="card-open" href="https://github.com/KushPatel29/kushpatel29.github.io" target="_blank" rel="noopener"><span>OPEN REPOSITORY</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
 <article class="project card" id="p-healthcare" data-tags="bi health finance business">
         <button type="button" class="card-zoom" data-zoom="assets/healthcare-spc.jpg"
                 aria-label="Enlarge: health authority ALC, patient flow and statistical process control page">
