@@ -3,7 +3,7 @@
 My data analyst and BI / analytics engineer portfolio — live at **[kushpatel29.github.io](https://kushpatel29.github.io/)**.
 
 Hand-built static page: one HTML file, one stylesheet, one script. No
-framework, no production build step, no tracker. The dashboard screenshots are real
+framework, no production build step, no cookies. The dashboard screenshots are real
 captures from my repos. Reported project benchmarks and documented invariants
 are checked by the linked repository workflows. Project data is synthetic and
 dollar outcomes are modelled; employment improvements are internal estimates.
@@ -87,17 +87,24 @@ RESUME_SRC=tmp/role-fit/acme/resume.html RESUME_OUT=tmp/role-fit/acme/Kush-Patel
   promoted project's title, repository, live-app status, data boundary,
   test count, decision and evidence links.
 
-## No third-party requests
+## Third-party requests: one counter, nothing before first paint
 
-The page makes **zero** requests off its own origin. The fonts used to come
-from `fonts.googleapis.com`, which hands every visitor's IP to Google before
-first paint — while the footer claimed "no tracker". Both families are
+Everything the page needs to render comes from its own origin. The fonts used
+to come from `fonts.googleapis.com`, which hands every visitor's IP to Google
+before first paint — while the footer claimed "no tracker". Both families are
 variable fonts, so one `woff2` each covers every weight the page uses: 53 KB
 for the pair, vendored under SIL OFL 1.1 (`assets/fonts/LICENSE.txt`).
 
 They're `<link rel="preload">`ed from the HTML because the `@font-face` rules
 live in `styles.css`, which the browser can't discover until that sheet has
 parsed.
+
+The one exception is visit counting. [GoatCounter](https://www.goatcounter.com/)
+(`kushpatel.goatcounter.com`) loads last and async from `gc.zgo.at`, only on the
+live hostname, and sets no cookies — so the footer says "NO COOKIES", not
+"NO TRACKER", and `tools/check-analytics.mjs` fails the build if those two ever
+disagree. It is what makes the per-application links from `tools/make-link.mjs`
+worth sending: each tag shows up as a campaign in the dashboard.
 
 ## CI
 
