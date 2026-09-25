@@ -52,9 +52,9 @@ nav a.active::after { content: ""; position: absolute; height: 2px; background: 
 .hero-heading h1 { font-size: clamp(2.6rem, 5.2vw, 5.25rem); line-height: .98; letter-spacing: -.055em; margin: 0; max-width: 860px; }
 .hero-heading h1 span { color: #6c7a87; font-weight: 500; }
 .hero-heading p { max-width: 670px; color: #596673; font-size: 1.05rem; margin: 1.4rem 0 0; }
-.range-control { display: flex; border: 1px solid #cbd4d3; padding: 3px; background: #e9edec; flex: none; }
-.range-control button { border: 0; background: transparent; padding: .55rem .75rem; cursor: pointer; font-family: "IBM Plex Mono", monospace; font-size: .72rem; }
-.range-control button.selected { background: var(--ink); color: white; }
+/* The fixture covers a few days, so the page states its window instead of
+   offering date ranges that would all show the same numbers. */
+.hero-heading .fixture-window { margin: 0; border: 1px solid #cbd4d3; padding: .6rem .8rem; background: #e9edec; flex: 0 1 auto; max-width: 100%; font: 500 .72rem/1.5 "IBM Plex Mono", monospace; color: var(--ink); white-space: nowrap; }
 .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); background: white; box-shadow: var(--shadow); }
 .metric-card { min-height: 200px; padding: 1.35rem; position: relative; overflow: hidden; border-right: 1px solid var(--line); }
 .metric-card:last-child { border-right: 0; }
@@ -74,6 +74,10 @@ nav a.active::after { content: ""; position: absolute; height: 2px; background: 
 .sparkline.blue path:not(.area) { stroke: var(--blue); }.sparkline.blue .area { fill: rgba(90,167,255,.09); }
 .sparkline.violet path:not(.area) { stroke: var(--violet); }.sparkline.violet .area { fill: rgba(154,133,255,.09); }
 .sparkline.amber path:not(.area) { stroke: var(--amber); }.sparkline.amber .area { fill: rgba(242,181,91,.09); }
+.sparkline circle { fill: var(--teal); }
+.sparkline.blue circle { fill: var(--blue); }
+.sparkline.violet circle { fill: var(--violet); }
+.sparkline.amber circle { fill: var(--amber); }
 .primary-grid { margin-top: 1rem; display: grid; grid-template-columns: 1.45fr 1fr; gap: 1rem; }
 .panel { background: white; border: 1px solid var(--line); box-shadow: 0 8px 30px rgba(7,17,31,.04); }
 .panel-head { padding: 1.35rem 1.5rem 1rem; display: flex; justify-content: space-between; gap: 1rem; align-items: start; border-bottom: 1px solid var(--line); }
@@ -171,10 +175,37 @@ dialog { width:min(540px,calc(100% - 2rem));border:0;padding:2rem;box-shadow:0 3
 button:focus-visible,a:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
 @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media (max-width: 980px){nav{display:none}.top-actions{margin-left:auto}.metric-grid{grid-template-columns:1fr 1fr}.metric-card:nth-child(2){border-right:0}.metric-card:nth-child(-n+2){border-bottom:1px solid var(--line)}.primary-grid,.project-layout,.quality-grid{grid-template-columns:1fr}.lineage-workbench{grid-template-columns:1fr}.metric-list{border-right:0;display:grid;grid-template-columns:1fr 1fr}.metric-list button{border-right:1px solid #2a3948}.paths{grid-template-columns:120px 1fr minmax(220px,.8fr);padding:1.5rem}.arch-flow{flex-wrap:wrap}.arch-flow>i{transform:rotate(90deg)}.contract-grid{grid-template-columns:1fr 1fr}.contract-grid div:nth-child(2){border-right:0}.contract-grid div:nth-child(-n+2){border-bottom:1px solid #2a3948}.principles{grid-template-columns:1fr}.principles article{border-right:0;border-bottom:1px solid var(--line)}}
-@media (max-width: 660px){.topbar{height:62px}.brand span:last-child{display:none}.live-pill{display:none}.section-shell{width:min(100% - 2rem,1440px)}.hero{padding-top:2rem}.eyebrow-row{align-items:start;gap:1rem}.as-of{text-align:right}.hero-heading{display:block}.hero-heading p{font-size:.95rem}.range-control{margin-top:1.5rem;width:max-content}.metric-grid{grid-template-columns:1fr}.metric-card{border-right:0;border-bottom:1px solid var(--line)!important}.metric-card:last-child{border-bottom:0!important}.primary-grid{display:block}.acquisition-panel{margin-top:1rem}.funnel-row{grid-template-columns:105px 1fr 48px;gap:.55rem}.funnel-copy{display:block}.donut-wrap{flex-direction:column}.section-heading{display:block}.section-heading>p{margin-top:1rem}.project-header,.project-row{grid-template-columns:minmax(160px,1.4fr) .55fr .65fr}.project-header span:nth-child(3),#project-rows .project-row>span:nth-child(3){display:none}.paths{grid-template-columns:1fr;min-height:0}.path-lines{display:none}.path-outcomes{margin-top:.5rem}.metric-list{grid-template-columns:1fr}.lineage-detail{padding:1.25rem}.contract-grid{grid-template-columns:1fr}.contract-grid div{border-right:0!important;border-bottom:1px solid #2a3948}.lineage-flow{align-items:stretch}.lineage-flow i{align-self:center}.quality-score{display:block}.score-ring{margin-bottom:1.5rem}.arch-flow{display:grid;grid-template-columns:1fr}.arch-flow>i{transform:rotate(90deg);text-align:center}.arch-node,.arch-group{width:100%}.principles{border-top:1px solid var(--line)}.closing-actions{flex-direction:column}.closing-actions a{display:block}footer,footer div{display:block}footer>p{margin-top:1rem}.top-actions{gap:.4rem}}
+@media (max-width: 660px){.topbar{height:62px}.brand span:last-child{display:none}.live-pill{display:none}.section-shell{width:min(100% - 2rem,1440px)}.hero{padding-top:2rem}.eyebrow-row{align-items:start;gap:1rem}.as-of{text-align:right}.hero-heading{display:block}.hero-heading p{font-size:.95rem}.hero-heading .fixture-window{margin-top:1.5rem;width:auto;max-width:100%;white-space:normal;font-size:.72rem}.metric-grid{grid-template-columns:1fr}.metric-card{border-right:0;border-bottom:1px solid var(--line)!important}.metric-card:last-child{border-bottom:0!important}.primary-grid{display:block}.acquisition-panel{margin-top:1rem}.funnel-row{grid-template-columns:105px 1fr 48px;gap:.55rem}.funnel-copy{display:block}.donut-wrap{flex-direction:column}.section-heading{display:block}.section-heading>p{margin-top:1rem}.project-header,.project-row{grid-template-columns:minmax(160px,1.4fr) .55fr .65fr}.project-header span:nth-child(3),#project-rows .project-row>span:nth-child(3){display:none}.paths{grid-template-columns:1fr;min-height:0}.path-lines{display:none}.path-outcomes{margin-top:.5rem}.metric-list{grid-template-columns:1fr}.lineage-detail{padding:1.25rem}.contract-grid{grid-template-columns:1fr}.contract-grid div{border-right:0!important;border-bottom:1px solid #2a3948}.lineage-flow{align-items:stretch}.lineage-flow i{align-self:center}.quality-score{display:block}.score-ring{margin-bottom:1.5rem}.arch-flow{display:grid;grid-template-columns:1fr}.arch-flow>i{transform:rotate(90deg);text-align:center}.arch-node,.arch-group{width:100%}.principles{border-top:1px solid var(--line)}.closing-actions{flex-direction:column}.closing-actions a{display:block}footer,footer div{display:block}footer>p{margin-top:1rem}.top-actions{gap:.4rem}}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.bar-track i{animation:none}}
 @media (max-width: 980px){.metric-catalog-grid{grid-template-columns:repeat(3,1fr)}.modern-grid{grid-template-columns:1fr}.vitals-panel{grid-row:auto}.health-panel{grid-column:auto}}
 @media (max-width: 660px){.metric-switcher{display:grid;grid-template-columns:1fr 1fr}.metric-switcher button{text-align:left}.metric-catalog-grid{grid-template-columns:1fr 1fr}.modern-panel{padding:1rem}.cohort-table{font-size:.62rem}}
 .fixture-disclosure{margin-top:72px;background:#fff0c7;border-bottom:1px solid #dfbd5a;color:#3d300d;padding:.72rem clamp(1rem,3vw,3.5rem);display:flex;gap:1rem;justify-content:center;align-items:center;font:.72rem "IBM Plex Mono",monospace}.fixture-disclosure strong{background:var(--amber);padding:.25rem .45rem}.fixture-disclosure span{max-width:850px}.consent-panel{margin-top:1rem;border:1px solid var(--line);background:white;padding:1.4rem;display:grid;grid-template-columns:1.5fr 1fr;gap:1.5rem;align-items:center}.consent-panel>div>span{font:.65rem "IBM Plex Mono",monospace;color:var(--teal-dark)}.consent-panel h3{margin:.35rem 0;font-size:1rem}.consent-panel p{margin:0;color:var(--muted);font-size:.8rem}.consent-actions{display:flex;gap:.5rem;flex-wrap:wrap}.consent-actions button{border:1px solid var(--ink);background:var(--ink);color:white;padding:.65rem .8rem;cursor:pointer}.consent-actions button+button{background:white;color:var(--ink)}.consent-actions small{width:100%;color:var(--muted);font:.65rem "IBM Plex Mono",monospace}
 .signal-card.teal .kicker,.signal-card.teal>span,.quality-score .kicker{color:var(--ink);opacity:1}
 @media(max-width:660px){.fixture-disclosure{margin-top:62px;display:block}.fixture-disclosure span{display:block;margin-top:.5rem}.consent-panel{grid-template-columns:1fr}}
+
+/* Narrow screens. Plain 1fr tracks grow to their widest child (the cohort
+   table, the project rows), which pushed the page wider than a phone.
+   minmax(0, 1fr) lets them shrink; wide content scrolls inside its panel. */
+@media (max-width: 980px){
+  nav{display:flex;flex:1 1 auto;min-width:0;margin:0;overflow-x:auto;scrollbar-width:none}
+  nav::-webkit-scrollbar{display:none}
+  nav a{padding:0 .7rem;white-space:nowrap}
+  nav a.active::after{left:.7rem;right:.7rem}
+  .modern-grid,.primary-grid,.project-layout,.quality-grid{grid-template-columns:minmax(0,1fr)}
+  .modern-grid>*,.primary-grid>*,.project-layout>*,.quality-grid>*{min-width:0}
+  .project-table{overflow-x:auto}
+  .lineage-workbench{grid-template-columns:minmax(0,1fr)}
+  .lineage-workbench>*{min-width:0}
+  .metric-list{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .metric-list button{min-width:0;white-space:normal}
+}
+@media (max-width: 660px){
+  .topbar{gap:.75rem}
+  .project-header,.project-row{grid-template-columns:minmax(0,1.4fr) .55fr .65fr;gap:.6rem}
+  .project-header,#project-rows .project-row{padding-left:1rem;padding-right:1rem}
+  .eyebrow-row{flex-wrap:wrap}
+  .as-of{text-align:left}
+  .metric-list{grid-template-columns:minmax(0,1fr)}
+}
+/* Scrollable tables take keyboard focus so they can be scrolled without a mouse. */
+.project-table:focus-visible,.cohort-table:focus-visible{outline:2px solid var(--teal-dark);outline-offset:2px}
