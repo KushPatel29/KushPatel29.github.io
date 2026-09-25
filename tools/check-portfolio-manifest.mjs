@@ -30,7 +30,7 @@ function textOnly(value) {
 
 function normalizedUrl(value) {
   if (value === null) return null;
-  const parsed = new URL(value);
+  const parsed = new URL(value, "https://kushpatel29.github.io/");
   parsed.hash = "";
   if (parsed.pathname !== "/") parsed.pathname = parsed.pathname.replace(/\/$/, "");
   return parsed.toString().replace(/\/$/, "");
@@ -139,7 +139,7 @@ for (const project of manifest.projects ?? []) {
     fail(`${label}: manifest repository does not match ${project.cardId}`);
   }
   if (project.liveApp) {
-    const cardUrls = [...card.matchAll(/href="(https:\/\/[^\"]+)"/gi)]
+    const cardUrls = [...card.matchAll(/href="([^\"]+)"/gi)]
       .map((item) => normalizedUrl(item[1]));
     if (!cardUrls.includes(normalizedUrl(project.liveApp))) {
       fail(`${label}: manifest liveApp is not linked from ${project.cardId}`);
