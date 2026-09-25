@@ -37,6 +37,7 @@ const TMP = os.tmpdir();
 const COOKIE_JAR = path.join(TMP, "portfolio-demo-cookies.txt");
 const BODY_FILE = path.join(TMP, "portfolio-demo-body.html");
 const TIMEOUT_MS = 45_000;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 let localBrowser = null;
 
 /* Hosts that rate-limit or block unattended HEAD requests. They are still
@@ -127,6 +128,48 @@ async function walk(url, useGet) {
     return { res, final: current };
   }
   return { res, final: current, looped: true };
+}
+
+/* GitHub's HTML endpoints rate-limit shared Actions runner IPs even when every
+   link exists. Validate the same repository objects through GitHub's API and
+   use the workflow's read-only token in CI. This still fails deleted repos,
+   branches, files and folders, without turning a transient 429 into a red
+   portfolio build. */
+function githubApiUrl(value) {
+  const parsed = new URL(value);
+  const parts = parsed.pathname.split("/").filter(Boolean);
+  if (parts.length === 1) {
+    return `https://api.github.com/users/${encodeURIComponent(parts[0])}`;
+  }
+  if (parts.length < 2) return null;
+  const [owner, repo, kind, ref, ...rest] = parts;
+  const base = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`;
+  if (!["blob", "tree", "raw"].includes(kind)) return base;
+  if (!ref) return null;
+  const resource = rest.map(encodeURIComponent).join("/");
+  return `${base}/contents/${resource}?ref=${encodeURIComponent(ref)}`;
+}
+
+async function checkGithub(url) {
+  const apiUrl = githubApiUrl(url);
+  if (!apiUrl) return { status: 0, ok: false, asleep: false, error: "unsupported GitHub URL" };
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  try {
+    const res = await fetch(apiUrl, {
+      headers: {
+        "user-agent": UA,
+        accept: "application/vnd.github+json",
+        ...(GITHUB_TOKEN ? { authorization: `Bearer ${GITHUB_TOKEN}` } : {}),
+      },
+      signal: controller.signal,
+    });
+    return { status: res.status, ok: res.ok, asleep: false, api: true };
+  } catch (error) {
+    return { status: 0, ok: false, asleep: false, error: error.message };
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 /* Reading the body never catches a sleeping app under curl: the sleep screen
@@ -220,6 +263,18 @@ async function checkWithBrowser(url) {
 }
 
 async function check(url) {
+  if (/^https:\/\/github\.com\//i.test(url)) {
+    const apiResult = await checkGithub(url);
+    if (!apiResult.ok && !GITHUB_TOKEN && [403, 429].includes(apiResult.status)) {
+      try {
+        const { res, looped } = await walk(url, false);
+        return { status: res.status, ok: res.ok && !looped, asleep: false, looped };
+      } catch (error) {
+        return { status: 0, ok: false, asleep: false, error: error.message };
+      }
+    }
+    return apiResult;
+  }
   if (/streamlit\.app/i.test(url)) {
     if (process.platform === "win32") {
       const browserResult = await checkWithBrowser(url);

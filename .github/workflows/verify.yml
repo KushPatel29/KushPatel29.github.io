@@ -178,6 +178,8 @@ jobs:
 
       - name: Every external link and live demo answers
         run: node tools/check-live-demos.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
       # check-test-counts proves the badges on this page agree with each other.
       # They can agree perfectly and all be wrong: the healthcare card, its
