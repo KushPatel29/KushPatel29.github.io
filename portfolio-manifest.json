@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-09-24",
+  "lastVerified": "2026-09-25",
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
-    "promotedProjects": 17,
-    "automatedTests": 12754
+    "promotedProjects": 18,
+    "automatedTests": 12769
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -15,6 +15,26 @@
     "production-pattern": "The project demonstrates a production pattern without claiming enterprise operating scale."
   },
   "projects": [
+    {
+      "id": "portfolio-intelligence-platform",
+      "cardId": "p-portfolio-intelligence",
+      "title": "Portfolio Intelligence Platform",
+      "repository": "https://github.com/KushPatel29/kushpatel29.github.io",
+      "liveApp": "https://kush-portfolio-intelligence.kush007.chatgpt.site/",
+      "liveStatus": "live-demo",
+      "testCount": 15,
+      "testCommand": "dbt build --project-dir dbt --profiles-dir dbt",
+      "dataClassification": "synthetic",
+      "priority": "flagship",
+      "productShape": "Consent-aware web analytics measurement system and governed public data product",
+      "primaryDecision": "Which portfolio experiences earn attention, create intent, retain evaluators, and remain trustworthy and fast?",
+      "capabilities": ["web-analytics", "analytics-engineering", "dbt", "metric-governance", "retention", "core-web-vitals", "privacy"],
+      "evidence": [
+        "https://kush-portfolio-intelligence.kush007.chatgpt.site/",
+        "https://github.com/KushPatel29/kushpatel29.github.io/tree/main/projects/portfolio-intelligence-platform",
+        "https://github.com/KushPatel29/kushpatel29.github.io/blob/main/projects/portfolio-intelligence-platform/docs/metric-definitions.md"
+      ]
+    },
     {
       "id": "wholesale-analytics",
       "cardId": "p-wholesale",

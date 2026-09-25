@@ -1,0 +1,21 @@
+event_id,anonymous_user_id,event_name,event_timestamp,page_path,project_id,source,medium,is_bot,is_internal,is_synthetic,engagement_seconds
+e001,u001,page_viewed,2026-09-20 10:00:00,/,,google,organic,0,0,0,20
+e002,u001,project_viewed,2026-09-20 10:02:00,/projects/wholesale,wholesale-analytics,google,organic,0,0,0,48
+e003,u001,resume_viewed,2026-09-20 10:05:00,/resume,,google,organic,0,0,0,25
+e004,u002,page_viewed,2026-09-20 11:00:00,/,,linkedin,social,0,0,0,18
+e005,u002,project_viewed,2026-09-20 11:04:00,/projects/customer-intelligence,customer-intelligence,linkedin,social,0,0,0,72
+e006,u002,case_study_viewed,2026-09-20 11:08:00,/projects/customer-intelligence,customer-intelligence,linkedin,social,0,0,0,80
+e007,u002,contact_clicked,2026-09-20 11:12:00,/contact,,linkedin,social,0,0,0,4
+e008,u003,page_viewed,2026-09-21 09:00:00,/,,(direct),(none),0,0,0,12
+e009,u003,project_viewed,2026-09-21 09:03:00,/projects/wildfire,wildfire-risk,(direct),(none),0,0,0,66
+e010,u003,linkedin_clicked,2026-09-21 09:10:00,/about,,(direct),(none),0,0,0,3
+e011,u004,page_viewed,2026-09-21 14:00:00,/,,github,referral,0,0,0,7
+e012,u004,project_viewed,2026-09-21 14:02:00,/projects/wholesale,wholesale-analytics,github,referral,0,0,0,31
+e013,u004,resume_downloaded,2026-09-21 14:07:00,/resume,,github,referral,0,0,0,2
+e014,u005,page_viewed,2026-09-22 08:00:00,/,,google,organic,1,0,0,0
+e015,u006,page_viewed,2026-09-22 08:30:00,/,,direct,(none),0,1,0,9
+e016,u007,page_viewed,2026-09-22 09:00:00,/,,synthetic,test,0,0,1,25
+e017,u008,page_viewed,2026-09-23 12:00:00,/,,google,organic,0,0,0,35
+e018,u008,project_viewed,2026-09-23 12:06:00,/projects/mobility,mobility-operations,google,organic,0,0,0,49
+e019,u008,page_viewed,2026-09-23 13:00:00,/about,,google,organic,0,0,0,21
+e020,u008,resume_viewed,2026-09-23 13:05:00,/resume,,google,organic,0,0,0,18

@@ -10,6 +10,21 @@ dollar outcomes are modelled; employment improvements are internal estimates.
 Simulations and design-only work are labelled explicitly rather than presented
 as client or production experience.
 
+## New flagship: Portfolio Intelligence Platform
+
+The portfolio now includes its own measurement-system case study: **[Portfolio
+Intelligence Platform](https://kush-portfolio-intelligence.kush007.chatgpt.site/)**.
+It covers acquisition, engagement, conversion, retention, p75 Core Web Vitals,
+error-free sessions and collection health; pairs a consent-aware GA4/PostHog
+router with a BigQuery production design; and ships a reproducible DuckDB/dbt
+path with 15 automated data tests. The public dashboard is explicitly synthetic.
+Account-specific analytics IDs and credentials remain documented activation
+steps, not implied production traffic.
+
+Its complete source, event contract, governed metric catalog, architecture,
+privacy boundary and reviewer setup are under
+[`projects/portfolio-intelligence-platform/`](projects/portfolio-intelligence-platform/README.md).
+
 ## Role fit: one page, eight roles
 
 The page is written for every role I apply to, and **Role fit** is how one page
@@ -86,6 +101,8 @@ RESUME_SRC=tmp/role-fit/acme/resume.html RESUME_OUT=tmp/role-fit/acme/Kush-Patel
 - `portfolio-manifest.json` — the machine-readable control plane for every
   promoted project's title, repository, live-app status, data boundary,
   test count, decision and evidence links.
+- `projects/portfolio-intelligence-platform/` — source and documentation for
+  the portfolio's own governed web-analytics data product.
 
 ## Third-party requests: one counter, nothing before first paint
 
@@ -113,7 +130,7 @@ Lighthouse gates on every push and PR to `main`, plus a weekly run for checks
 that depend on other people's servers. Third-party Actions are pinned to full
 commit SHAs and Dependabot proposes reviewed updates.
 
-**`tools/check-portfolio-manifest.mjs`** reconciles all seventeen project
+**`tools/check-portfolio-manifest.mjs`** reconciles all eighteen project
 records to the actual HTML. A release fails when a card title, repository,
 live-app link, test count, total, or verification date drifts. It also requires
 an explicit data classification, primary decision and product shape, keeping
@@ -122,7 +139,7 @@ the portfolio's public claims and product strategy in one reviewable place.
 **`tools/check-role-fit.mjs`** reads every Role fit panel and fails if a row
 has no source, if its chip disagrees with its tick, if the "Tied out" totals
 differ from the rows above them, or if a reading-list link lands nowhere.
-**`tools/check-headline-counts.mjs`** holds the "17 projects / 12 live demos"
+**`tools/check-headline-counts.mjs`** holds the "18 projects / 13 live demos"
 figures — hero band, link-preview descriptions and prose headings, digits or
 words — to the manifest.
 

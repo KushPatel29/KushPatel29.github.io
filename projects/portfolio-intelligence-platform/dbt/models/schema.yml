@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: stg_events
+    description: Typed, deduplicated event records with explicit analytics eligibility.
+    columns:
+      - name: event_id
+        tests: [not_null, unique]
+      - name: event_name
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [page_viewed, project_viewed, case_study_viewed, resume_viewed, resume_downloaded, linkedin_clicked, contact_clicked]
+      - name: event_timestamp
+        tests: [not_null]
+
+  - name: fct_sessions
+    description: One row per reconstructed eligible session.
+    columns:
+      - name: session_id
+        tests: [not_null, unique]
+      - name: anonymous_user_id
+        tests: [not_null]
+      - name: session_start_at
+        tests: [not_null]
+      - name: pageviews
+        tests: [not_null]
+
+  - name: mart_conversion
+    description: Governed daily engagement and conversion metrics.
+    columns:
+      - name: session_date
+        tests: [not_null, unique]
+      - name: sessions
+        tests: [not_null]

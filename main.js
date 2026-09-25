@@ -253,7 +253,7 @@
       chip.setAttribute("aria-pressed", active ? "true" : "false");
     });
 
-    if (countEl) countEl.textContent = "SHOWING " + shown + " / " + total + " REPOS";
+    if (countEl) countEl.textContent = "SHOWING " + shown + " / " + total + " PROJECTS";
     if (emptyEl) emptyEl.hidden = shown > 0;
 
     var more = document.getElementById("more-projects");
@@ -327,7 +327,7 @@
     window.addEventListener("popstate", restoreLocation);
     window.addEventListener("hashchange", restoreLocation);
   } else if (countEl && total) {
-    countEl.textContent = "SHOWING " + total + " / " + total + " REPOS";
+    countEl.textContent = "SHOWING " + total + " / " + total + " PROJECTS";
   }
 
   /* Anything that jumps straight to a project card — the "start here"

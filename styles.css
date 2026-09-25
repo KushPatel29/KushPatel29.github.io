@@ -2523,3 +2523,28 @@ a.card-open-evidence:hover { color: var(--amber); }
     gap: 20px;
   }
 }
+
+/* Portfolio Intelligence: a lightweight dashboard preview built from live UI tokens. */
+.analytics-card-visual {
+  min-height: 255px;
+  padding: 22px;
+  color: #eafdf8;
+  background: #07111f;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 18px;
+}
+.analytics-visual-top,.analytics-visual-foot { display:flex; justify-content:space-between; gap:12px; font-size:10px; letter-spacing:.08em; }
+.analytics-visual-top b { color:#57e6c2; font-weight:600; }
+.analytics-visual-kpis { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid #263746; }
+.analytics-visual-kpis span { padding:13px; border-right:1px solid #263746; }
+.analytics-visual-kpis span:last-child { border-right:0; }
+.analytics-visual-kpis small { display:block; color:#8494a3; font-size:9px; }
+.analytics-visual-kpis strong { display:block; margin-top:5px; color:#fff; font:600 20px/1 var(--sans); }
+.analytics-visual-trace { min-height:76px; display:flex; align-items:end; gap:6px; border-bottom:1px solid #334553; }
+.analytics-visual-trace i { height:var(--h); flex:1; background:#57e6c2; opacity:.78; }
+.analytics-visual-foot { color:#8494a3; }
+.analytics-visual-foot b { color:#fff; }
+@media (max-width:460px){.analytics-card-visual{padding:16px}.analytics-visual-kpis strong{font-size:16px}.analytics-visual-foot{display:grid;grid-template-columns:1fr 1fr}}
