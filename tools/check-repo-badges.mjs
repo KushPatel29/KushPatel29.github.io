@@ -55,15 +55,22 @@ function cardsFromPage() {
     const badge = cardHtml.match(
       /<(?:p|li)\s+class="(?:card-tests|tag-tests)">\s*(\d+)(?:\s+dbt)?\s+tests\b/i,
     );
-    const repo = cardHtml.match(/github\.com\/KushPatel29\/([A-Za-z0-9_.-]+)/);
-    if (badge && repo) {
-      out.push({ cardId, count: Number(badge[1]), repo: repo[1] });
+    const repoLink = cardHtml.match(
+      /https:\/\/github\.com\/KushPatel29\/[A-Za-z0-9_.-]+(?:\/tree\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_./-]+)?/i,
+    );
+    if (badge && repoLink) {
+      const parts = new URL(repoLink[0]).pathname.split("/").filter(Boolean);
+      const repo = parts[1];
+      const ref = parts[2] === "tree" ? parts[3] : null;
+      const directory = parts[2] === "tree" ? parts.slice(4).join("/") : "";
+      const readmePath = directory ? `${directory}/README.md` : "README.md";
+      out.push({ cardId, count: Number(badge[1]), repo, ref, readmePath });
     }
   }
   return out;
 }
 
-async function readme(repo) {
+async function readme(repo, readmePath, ref) {
   /* raw.githubusercontent is a Fastly CDN serving `cache-control: max-age=300`.
      A push that updates a repository's README and this page in the same minute
      is then compared against the pre-push README on whichever edge answers,
@@ -78,8 +85,10 @@ async function readme(repo) {
   if (token) headers.authorization = `Bearer ${token}`;
 
   try {
+    const encodedPath = readmePath.split("/").map(encodeURIComponent).join("/");
+    const refQuery = ref ? `?ref=${encodeURIComponent(ref)}` : "";
     const res = await fetch(
-      `https://api.github.com/repos/KushPatel29/${repo}/contents/README.md`,
+      `https://api.github.com/repos/KushPatel29/${repo}/contents/${encodedPath}${refQuery}`,
       { headers: { ...headers, accept: "application/vnd.github.raw" },
         signal: AbortSignal.timeout(TIMEOUT_MS) },
     );
@@ -91,8 +100,8 @@ async function readme(repo) {
   /* `HEAD` follows the repository's configured default branch. Try it before
      conventional branch names so an obsolete, still-present `main` branch
      cannot silently override a current `master` README (or vice versa). */
-  for (const branch of ["HEAD", "main", "master"]) {
-    const url = `https://raw.githubusercontent.com/KushPatel29/${repo}/${branch}/README.md`;
+  for (const branch of [...new Set([ref, "HEAD", "main", "master"].filter(Boolean))]) {
+    const url = `https://raw.githubusercontent.com/KushPatel29/${repo}/${branch}/${readmePath}`;
     try {
       const res = await fetch(url, { headers, signal: AbortSignal.timeout(TIMEOUT_MS) });
       if (res.ok) return await res.text();
@@ -113,14 +122,14 @@ const bad = [];
 let unreachable = 0;
 let skipped = 0;
 
-for (const { cardId, count, repo } of cards) {
+for (const { cardId, count, repo, ref, readmePath } of cards) {
   if (NO_BADGE.has(repo)) {
     skipped += 1;
     console.log(`- ${cardId}  ${repo}  no README badge to compare (card says ${count})`);
     continue;
   }
 
-  const body = await readme(repo);
+  const body = await readme(repo, readmePath, ref);
   if (body === null) {
     unreachable += 1;
     console.log(`? ${cardId}  ${repo}  README unreachable`);
@@ -144,13 +153,13 @@ for (const { cardId, count, repo } of cards) {
     || body.match(/badge\/dbt(?:%20|\s)tests-([\d%C,]+)%20across/i)
     || body.match(/\|\s*\*\*Structure\*\*\s*\|[^\n]*?([\d,]+)\s+tests\b/i);
   if (!m) {
-    bad.push(`${cardId}: ${repo}/README.md has no \`tests-N passing\` badge`);
+    bad.push(`${cardId}: ${repo}/${readmePath} has no recognized test badge`);
     continue;
   }
   const claimed = Number(m[1].replaceAll("%2C", "").replaceAll(",", ""));
 
   if (claimed !== count) {
-    bad.push(`${cardId}: card says ${count}, ${repo}/README.md says ${claimed}`);
+    bad.push(`${cardId}: card says ${count}, ${repo}/${readmePath} says ${claimed}`);
   } else {
     console.log(`✓ ${cardId}  ${repo}  ${count}`);
   }
