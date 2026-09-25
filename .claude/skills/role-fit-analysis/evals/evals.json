@@ -1,0 +1,52 @@
+{
+  "skill_name": "role-fit-analysis",
+  "note": "All three postings in files/ are fictional, written to exercise one decision path each. Re-run after any change to SKILL.md or the references; the expected decisions below follow from the current evidence and should only change when the evidence does.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "analytics-engineer-depth-and-adjacent-gaps",
+      "prompt": "found this analytics engineer role at northwind grocers, toronto hybrid. should i apply? what would you change on my resume? posting is in evals/files/analytics-engineer-northwind.txt",
+      "files": ["evals/files/analytics-engineer-northwind.txt"],
+      "expected_output": "Apply now (competitive). Production dbt flagged as a depth gap and the screen risk, Snowflake and Looker as adjacent-tool gaps, code review as unknown. At most three edits, led by surfacing the dbt project. Matches references/example-report.md in substance.",
+      "assertions": [
+        {"text": "Decision is 'Apply now' (competitive), not Skip or Stretch", "type": "judgment"},
+        {"text": "Production dbt (2+ years) is classified as a depth gap, not a match and not a hard gate", "type": "judgment"},
+        {"text": "Snowflake is not claimed as used; it is described as never run / profile only", "type": "contains-boundary"},
+        {"text": "Looker is treated as an adjacent-tool gap and is not added to the résumé", "type": "judgment"},
+        {"text": "Toronto location is 'met' via stated relocation across Canada, not assumed from elsewhere", "type": "judgment"},
+        {"text": "No more than three résumé edits are proposed, each citing existing evidence", "type": "count"},
+        {"text": "No résumé edit adds a tool from inventory §5 or drops a qualifier such as 'not production' or 'internal estimate'", "type": "judgment"},
+        {"text": "Evidence fit and visible fit are both reported with their totals", "type": "structure"}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "data-analyst-strong-match-wording-only",
+      "prompt": "Can you run a role fit on this one before I apply today? evals/files/data-analyst-coastal.txt",
+      "files": ["evals/files/data-analyst-coastal.txt"],
+      "expected_output": "Apply now (strong): every Must row is PAID. Only optional wording edits, e.g. 'ETL' alongside 'ELT' and surfacing fill rate from the vendor scorecards, with no invented KPIs.",
+      "assertions": [
+        {"text": "Decision is 'Apply now' (strong)", "type": "judgment"},
+        {"text": "All hard gates are met: Vancouver hybrid, Canada eligibility, 2+ years (4 yrs 3 mos), quantitative bachelor's", "type": "judgment"},
+        {"text": "'ETL tools' is identified as a wording gap mapped to Azure Data Factory / Fabric pipelines / SSIS", "type": "judgment"},
+        {"text": "Edits are presented as optional quick wins, not as a precondition to applying", "type": "judgment"},
+        {"text": "Fill rate is sourced to Two Rivers vendor scorecards and is not added to the governed-KPI list as if it had been one", "type": "judgment"},
+        {"text": "Logistics industry experience is not overstated: Two Rivers is a distributor with logistics analytics, not a freight carrier", "type": "judgment"}
+      ]
+    },
+    {
+      "id": 3,
+      "name": "senior-bsa-hard-gates-skip",
+      "prompt": "recruiter sent me this senior business systems analyst role in seattle, thoughts? evals/files/senior-bsa-meridian.txt",
+      "files": ["evals/files/senior-bsa-meridian.txt"],
+      "expected_output": "Skip on unmet hard gates (7+ years vs 4 yrs 3 mos, CBAP required, people management), with US work authorization and on-site Seattle as unknowns, not assumed. Short report: gates table plus where to aim instead. No résumé edits.",
+      "assertions": [
+        {"text": "Decision is Skip, naming the unmet gates: 7+ years, CBAP, managing analysts", "type": "judgment"},
+        {"text": "US work authorization is marked unknown (not met, not unmet-by-assumption) and raised as a question", "type": "judgment"},
+        {"text": "No requirement table or résumé edits follow the Skip", "type": "structure"},
+        {"text": "Salesforce, Jira and HIPAA are not claimed anywhere", "type": "judgment"},
+        {"text": "Suggests where to aim instead (e.g. intermediate BA / data-focused BA roles in Canada)", "type": "judgment"}
+      ]
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 My data analyst and BI / analytics engineer portfolio — live at **[kushpatel29.github.io](https://kushpatel29.github.io/)**.
 
 Hand-built static page: one HTML file, one stylesheet, one script. No
-framework, no production build step, no tracker. The dashboard screenshots are real
+framework, no production build step, no cookies. The dashboard screenshots are real
 captures from my repos. Reported project benchmarks and documented invariants
 are checked by the linked repository workflows. Project data is synthetic and
 dollar outcomes are modelled; employment improvements are internal estimates.
@@ -32,6 +32,38 @@ tagging it for the visit counter; `--as <view>` overrides the guess and
 `--roles` lists the views. Without JavaScript the tabs are plain links and all
 eight panels render, so nothing is hidden from crawlers or text browsers.
 
+## Role-fit analysis skill
+
+Role fit shows every role at once. For one specific posting,
+`.claude/skills/role-fit-analysis/` is a Claude Code skill that runs the same
+comparison a posting at a time: it splits the job description into weighted
+requirements, matches each to paid work, a public project or the master's,
+separates **wording gaps** (the evidence exists, the résumé says it
+differently) from **real gaps** (nothing to point at), decides apply now /
+apply after tailoring / stretch / skip, and proposes at most three résumé
+edits, each tied to existing evidence.
+
+It reads the evidence live — `scripts/evidence-snapshot.mjs` prints the
+résumé, the manifest and every Role fit row — and falls back to a ledger in
+`references/evidence-inventory.md` that `tools/check-role-fit-skill.mjs` holds
+to the manifest and résumé in CI. Reports and tailored résumés go under `tmp/`,
+which is gitignored for the same reason `tools/links.tsv` is: this repository is
+public, and an application list is not.
+
+`.claude/skills/job-scout/` builds on it: a scheduled run finds the last day's
+Canadian postings, screens each with role-fit analysis, and prepares an
+application pack for the best matches (a tailored résumé that must pass
+`scripts/ats_check.py`, a fit report, a cover note and an outreach draft) in a
+private page. It never submits an application or sends a message: those stay
+with me. Its dedupe key (`scripts/job-key.mjs`) is held stable by the same
+contract.
+
+A tailored résumé renders without touching the published PDF:
+
+```
+RESUME_SRC=tmp/role-fit/acme/resume.html RESUME_OUT=tmp/role-fit/acme/Kush-Patel-Resume.pdf bash resume/build.sh
+```
+
 ## What's here
 
 - `index.html` — all of the content, as real HTML. Nothing on this page is
@@ -48,23 +80,31 @@ eight panels render, so nothing is hidden from crawlers or text browsers.
 - `assets/` — dashboard captures, OG banner, and `Kush-Patel-Resume.pdf`.
 - `assets/fonts/` — Space Grotesk and JetBrains Mono, self-hosted (see below).
 - `tools/` — dependency-free content contracts and the local test server.
+- `.claude/skills/role-fit-analysis/` — per-posting job-fit analysis (see above).
 - `tests/` — Playwright user-flow, accessibility and visual-regression contracts.
 - `DEPLOYMENT.md` — release, smoke-test and rollback runbook.
 - `portfolio-manifest.json` — the machine-readable control plane for every
   promoted project's title, repository, live-app status, data boundary,
   test count, decision and evidence links.
 
-## No third-party requests
+## Third-party requests: one counter, nothing before first paint
 
-The page makes **zero** requests off its own origin. The fonts used to come
-from `fonts.googleapis.com`, which hands every visitor's IP to Google before
-first paint — while the footer claimed "no tracker". Both families are
+Everything the page needs to render comes from its own origin. The fonts used
+to come from `fonts.googleapis.com`, which hands every visitor's IP to Google
+before first paint — while the footer claimed "no tracker". Both families are
 variable fonts, so one `woff2` each covers every weight the page uses: 53 KB
 for the pair, vendored under SIL OFL 1.1 (`assets/fonts/LICENSE.txt`).
 
 They're `<link rel="preload">`ed from the HTML because the `@font-face` rules
 live in `styles.css`, which the browser can't discover until that sheet has
 parsed.
+
+The one exception is visit counting. [GoatCounter](https://www.goatcounter.com/)
+(`kushpatel.goatcounter.com`) loads last and async from `gc.zgo.at`, only on the
+live hostname, and sets no cookies — so the footer says "NO COOKIES", not
+"NO TRACKER", and `tools/check-analytics.mjs` fails the build if those two ever
+disagree. It is what makes the per-application links from `tools/make-link.mjs`
+worth sending: each tag shows up as a campaign in the dashboard.
 
 ## CI
 
@@ -73,7 +113,7 @@ Lighthouse gates on every push and PR to `main`, plus a weekly run for checks
 that depend on other people's servers. Third-party Actions are pinned to full
 commit SHAs and Dependabot proposes reviewed updates.
 
-**`tools/check-portfolio-manifest.mjs`** reconciles all sixteen project
+**`tools/check-portfolio-manifest.mjs`** reconciles all seventeen project
 records to the actual HTML. A release fails when a card title, repository,
 live-app link, test count, total, or verification date drifts. It also requires
 an explicit data classification, primary decision and product shape, keeping
@@ -82,7 +122,7 @@ the portfolio's public claims and product strategy in one reviewable place.
 **`tools/check-role-fit.mjs`** reads every Role fit panel and fails if a row
 has no source, if its chip disagrees with its tick, if the "Tied out" totals
 differ from the rows above them, or if a reading-list link lands nowhere.
-**`tools/check-headline-counts.mjs`** holds the "16 projects / 12 live demos"
+**`tools/check-headline-counts.mjs`** holds the "17 projects / 12 live demos"
 figures — hero band, link-preview descriptions and prose headings, digits or
 words — to the manifest.
 

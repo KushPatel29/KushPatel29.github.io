@@ -79,6 +79,12 @@ jobs:
       - name: The résumé must not contradict the page that links it
         run: node tools/check-resume.mjs
 
+      # The job-fit skill tells a hiring decision what Kush can prove. Its
+      # fallback evidence ledger is a copy of the manifest and résumé, and a
+      # copy drifts; this holds it to the originals.
+      - name: The role-fit skill must cite the current evidence
+        run: node tools/check-role-fit-skill.mjs
+
       # A screenshot swap once left healthcare-spc declaring a height 17px
       # taller than the file, and three "PNGs" here are JPEGs. Neither is
       # visible on the page; both are visible to a reader as a jump on load
