@@ -1,0 +1,27 @@
+FICTIONAL TEST POSTING — written for skill evaluation, not a real job.
+
+Analytics Engineer — Northwind Grocers (Toronto, ON · Hybrid, 3 days in office)
+Salary: $95,000–$115,000 CAD
+
+About the role
+You will own the transformation layer between our raw data and the dashboards
+our merchandising, supply chain and finance teams use every day.
+
+What you'll do
+- Build and maintain dbt models in Snowflake, from staging through marts
+- Define and document core business metrics with finance and merchandising
+- Write data tests and maintain CI for our analytics codebase
+- Partner with data engineering on Airflow-orchestrated pipelines
+- Support self-serve analytics in Looker
+
+Requirements
+- 3+ years in analytics engineering, BI or data analysis
+- 2+ years of production dbt experience
+- Strong SQL and dimensional modelling (Kimball)
+- Experience with a cloud data warehouse (Snowflake preferred)
+- Git and code review workflows
+
+Nice to have
+- LookML
+- Python
+- Retail or grocery industry experience

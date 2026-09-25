@@ -1,0 +1,26 @@
+FICTIONAL TEST POSTING — written for skill evaluation, not a real job.
+
+Data Analyst, Operations — Coastal Freight Co. (Vancouver, BC · Hybrid)
+
+We're looking for a data analyst to turn our operational data into insight.
+
+Responsibilities
+- Build and maintain dashboards and KPI reporting for operations leadership
+- Pull and transform data from our ERP and warehouse management system using ETL tools
+- Conduct ad hoc analysis to identify cost and service improvement opportunities
+- Work with stakeholders to gather reporting requirements
+- Ensure data accuracy through validation and reconciliation
+
+Qualifications
+- Bachelor's degree in a quantitative field
+- 2+ years' experience as a data or business analyst
+- Advanced SQL
+- Experience with Power BI or Tableau
+- Experience with cloud data warehouse technologies
+- Strong Excel skills
+- Excellent communication skills
+
+Assets
+- Logistics or transportation industry experience
+- Python
+- Knowledge of on-time delivery and fill-rate metrics

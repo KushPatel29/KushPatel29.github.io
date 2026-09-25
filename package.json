@@ -7,7 +7,7 @@
   "scripts": {
     "serve": "node tools/serve.mjs",
     "test:manifest": "node tools/check-portfolio-manifest.mjs",
-    "test:contracts": "node tools/check-portfolio-manifest.mjs && node tools/check-role-fit.mjs && node tools/check-role-readiness.mjs && node tools/check-headline-counts.mjs && node tools/check-links.mjs && node tools/check-freshness.mjs && node tools/check-sitemap.mjs && node tools/check-repo-count.mjs && node tools/check-test-counts.mjs && node tools/check-analytics.mjs && node tools/check-resume.mjs && node tools/check-images.mjs && node tools/check-actions-pinned.mjs",
+    "test:contracts": "node tools/check-portfolio-manifest.mjs && node tools/check-role-fit.mjs && node tools/check-role-readiness.mjs && node tools/check-headline-counts.mjs && node tools/check-links.mjs && node tools/check-freshness.mjs && node tools/check-sitemap.mjs && node tools/check-repo-count.mjs && node tools/check-test-counts.mjs && node tools/check-analytics.mjs && node tools/check-resume.mjs && node tools/check-role-fit-skill.mjs && node tools/check-images.mjs && node tools/check-actions-pinned.mjs",
     "test:e2e": "playwright test",
     "test:accessibility": "playwright test tests/accessibility.spec.mjs",
     "test:visual": "playwright test tests/visual.spec.mjs",

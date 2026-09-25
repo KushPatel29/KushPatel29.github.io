@@ -1,0 +1,20 @@
+FICTIONAL TEST POSTING — written for skill evaluation, not a real job.
+
+Senior Business Systems Analyst — Meridian Health Partners (Seattle, WA · On-site)
+
+Responsibilities
+- Lead requirements elicitation for Salesforce Health Cloud implementation
+- Write user stories and acceptance criteria in Jira for Agile delivery teams
+- Facilitate UAT and manage defect triage
+- Manage and mentor a team of two junior analysts
+
+Requirements
+- 7+ years as a business or systems analyst
+- CBAP certification required
+- 3+ years Salesforce configuration experience
+- Experience in healthcare payer or provider environments; HIPAA knowledge
+- Must be authorized to work in the United States without sponsorship
+
+Preferred
+- SQL
+- Process mapping (BPMN)
