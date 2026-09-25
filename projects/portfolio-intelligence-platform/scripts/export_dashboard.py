@@ -15,9 +15,7 @@ def percent(numerator, denominator):
     return f"{(100 * numerator / denominator if denominator else 0):.1f}%"
 
 
-def dataset(connection, days):
-    maximum = connection.execute("select max(session_date) from fct_sessions").fetchone()[0]
-    cutoff = connection.execute(f"select ?::date - interval {days - 1} day", [maximum]).fetchone()[0]
+def dataset(connection, cutoff):
     row = connection.execute(
         """select count(*), count(distinct anonymous_user_id), sum(is_engaged),
                   sum(case when projects_viewed > 0 then 1 else 0 end),
@@ -78,9 +76,42 @@ def dataset(connection, days):
     }
 
 
+def daily(connection):
+    """One row per calendar day of the fixture window, days without sessions included.
+
+    The dashboard draws its sparklines from these rows and nothing else, so a
+    trend line can only ever show what the tested session fact contains.
+    """
+    rows = connection.execute(
+        """with days as (
+               select unnest(generate_series(
+                   (select min(session_date) from fct_sessions),
+                   (select max(session_date) from fct_sessions),
+                   interval 1 day))::date as day
+           )
+           select day,
+                  count(s.session_id),
+                  count(distinct s.anonymous_user_id),
+                  coalesce(sum(s.is_engaged), 0),
+                  coalesce(sum(case when s.projects_viewed > 0 then 1 else 0 end), 0),
+                  coalesce(sum(s.has_high_intent_action), 0)
+           from days left join fct_sessions s on s.session_date = days.day
+           group by day order by day"""
+    ).fetchall()
+    return [
+        {"date": str(day), "sessions": sessions, "users": users, "engagedSessions": engaged,
+         "projectSessions": projects, "highIntentSessions": intent}
+        for day, sessions, users, engaged, projects, intent in rows
+    ]
+
+
 def main():
     connection = duckdb.connect(str(DATABASE), read_only=True)
-    datasets = {str(days): dataset(connection, days) for days in (30, 90, 365)}
+    window_start, window_end = connection.execute(
+        "select min(session_date), max(session_date) from fct_sessions"
+    ).fetchone()
+    fixture = dataset(connection, window_start)
+    fixture["daily"] = daily(connection)
     raw, eligible, users = connection.execute(
         """select count(*), sum(case when is_analytics_eligible then 1 else 0 end),
                   count(distinct case when is_analytics_eligible then anonymous_user_id end)
@@ -95,8 +126,10 @@ def main():
             "eventRows": raw, "eligibleEvents": eligible, "excludedEvents": raw - eligible,
             "eligibleUsers": users, "duplicateEventIds": duplicates,
             "dataThrough": str(connection.execute("select max(event_date) from stg_events").fetchone()[0]),
+            "windowStart": str(window_start), "windowEnd": str(window_end),
+            "windowDays": (window_end - window_start).days + 1,
         },
-        "datasets": datasets,
+        "fixture": fixture,
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")

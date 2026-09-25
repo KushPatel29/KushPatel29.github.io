@@ -6,287 +6,136 @@
     "excludedEvents": 3,
     "eligibleUsers": 5,
     "duplicateEventIds": 0,
-    "dataThrough": "2026-09-23"
+    "dataThrough": "2026-09-23",
+    "windowStart": "2026-09-20",
+    "windowEnd": "2026-09-23",
+    "windowDays": 4
   },
-  "datasets": {
-    "30": {
-      "visitors": "5",
-      "sessions": "6",
-      "engagement": "100.0%",
-      "projectRate": "83.3%",
-      "conversion": "83.3%",
-      "changes": {
-        "visitors": "fixture",
-        "engagement": "fixture",
-        "projectRate": "fixture",
-        "conversion": "fixture"
-      },
-      "funnel": {
-        "landing": [
-          6,
-          "100.0%"
-        ],
-        "project": [
-          5,
-          "83.3%"
-        ],
-        "caseStudy": [
-          1,
-          "16.7%"
-        ],
-        "resume": [
-          3,
-          "50.0%"
-        ],
-        "contact": [
-          1,
-          "16.7%"
-        ]
-      },
-      "projects": [
-        [
-          "Retail Analytics Platform",
-          "BI & metric governance",
-          2,
-          "50.0%",
-          "100.0%"
-        ],
-        [
-          "Customer Intelligence",
-          "Product analytics",
-          1,
-          "100.0%",
-          "100.0%"
-        ],
-        [
-          "Mobility Operations",
-          "Operations analytics",
-          1,
-          "100.0%",
-          "0.0%"
-        ],
-        [
-          "Canada Wildfire Risk",
-          "ML & geospatial",
-          1,
-          "100.0%",
-          "100.0%"
-        ]
-      ],
-      "sources": [
-        [
-          "google",
-          3,
-          "50.0%"
-        ],
-        [
-          "(direct)",
-          1,
-          "16.7%"
-        ],
-        [
-          "github",
-          1,
-          "16.7%"
-        ],
-        [
-          "linkedin",
-          1,
-          "16.7%"
-        ]
-      ],
-      "facts": {
-        "pageviews": 6,
-        "engagedSeconds": 511,
-        "resumeSessions": 3,
-        "contactSessions": 1
-      }
+  "fixture": {
+    "visitors": "5",
+    "sessions": "6",
+    "engagement": "100.0%",
+    "projectRate": "83.3%",
+    "conversion": "83.3%",
+    "changes": {
+      "visitors": "fixture",
+      "engagement": "fixture",
+      "projectRate": "fixture",
+      "conversion": "fixture"
     },
-    "90": {
-      "visitors": "5",
-      "sessions": "6",
-      "engagement": "100.0%",
-      "projectRate": "83.3%",
-      "conversion": "83.3%",
-      "changes": {
-        "visitors": "fixture",
-        "engagement": "fixture",
-        "projectRate": "fixture",
-        "conversion": "fixture"
-      },
-      "funnel": {
-        "landing": [
-          6,
-          "100.0%"
-        ],
-        "project": [
-          5,
-          "83.3%"
-        ],
-        "caseStudy": [
-          1,
-          "16.7%"
-        ],
-        "resume": [
-          3,
-          "50.0%"
-        ],
-        "contact": [
-          1,
-          "16.7%"
-        ]
-      },
-      "projects": [
-        [
-          "Retail Analytics Platform",
-          "BI & metric governance",
-          2,
-          "50.0%",
-          "100.0%"
-        ],
-        [
-          "Customer Intelligence",
-          "Product analytics",
-          1,
-          "100.0%",
-          "100.0%"
-        ],
-        [
-          "Mobility Operations",
-          "Operations analytics",
-          1,
-          "100.0%",
-          "0.0%"
-        ],
-        [
-          "Canada Wildfire Risk",
-          "ML & geospatial",
-          1,
-          "100.0%",
-          "100.0%"
-        ]
+    "funnel": {
+      "landing": [
+        6,
+        "100.0%"
       ],
-      "sources": [
-        [
-          "google",
-          3,
-          "50.0%"
-        ],
-        [
-          "(direct)",
-          1,
-          "16.7%"
-        ],
-        [
-          "github",
-          1,
-          "16.7%"
-        ],
-        [
-          "linkedin",
-          1,
-          "16.7%"
-        ]
+      "project": [
+        5,
+        "83.3%"
       ],
-      "facts": {
-        "pageviews": 6,
-        "engagedSeconds": 511,
-        "resumeSessions": 3,
-        "contactSessions": 1
-      }
+      "caseStudy": [
+        1,
+        "16.7%"
+      ],
+      "resume": [
+        3,
+        "50.0%"
+      ],
+      "contact": [
+        1,
+        "16.7%"
+      ]
     },
-    "365": {
-      "visitors": "5",
-      "sessions": "6",
-      "engagement": "100.0%",
-      "projectRate": "83.3%",
-      "conversion": "83.3%",
-      "changes": {
-        "visitors": "fixture",
-        "engagement": "fixture",
-        "projectRate": "fixture",
-        "conversion": "fixture"
-      },
-      "funnel": {
-        "landing": [
-          6,
-          "100.0%"
-        ],
-        "project": [
-          5,
-          "83.3%"
-        ],
-        "caseStudy": [
-          1,
-          "16.7%"
-        ],
-        "resume": [
-          3,
-          "50.0%"
-        ],
-        "contact": [
-          1,
-          "16.7%"
-        ]
-      },
-      "projects": [
-        [
-          "Retail Analytics Platform",
-          "BI & metric governance",
-          2,
-          "50.0%",
-          "100.0%"
-        ],
-        [
-          "Customer Intelligence",
-          "Product analytics",
-          1,
-          "100.0%",
-          "100.0%"
-        ],
-        [
-          "Mobility Operations",
-          "Operations analytics",
-          1,
-          "100.0%",
-          "0.0%"
-        ],
-        [
-          "Canada Wildfire Risk",
-          "ML & geospatial",
-          1,
-          "100.0%",
-          "100.0%"
-        ]
+    "projects": [
+      [
+        "Retail Analytics Platform",
+        "BI & metric governance",
+        2,
+        "50.0%",
+        "100.0%"
       ],
-      "sources": [
-        [
-          "google",
-          3,
-          "50.0%"
-        ],
-        [
-          "(direct)",
-          1,
-          "16.7%"
-        ],
-        [
-          "github",
-          1,
-          "16.7%"
-        ],
-        [
-          "linkedin",
-          1,
-          "16.7%"
-        ]
+      [
+        "Customer Intelligence",
+        "Product analytics",
+        1,
+        "100.0%",
+        "100.0%"
       ],
-      "facts": {
-        "pageviews": 6,
-        "engagedSeconds": 511,
-        "resumeSessions": 3,
-        "contactSessions": 1
+      [
+        "Mobility Operations",
+        "Operations analytics",
+        1,
+        "100.0%",
+        "0.0%"
+      ],
+      [
+        "Canada Wildfire Risk",
+        "ML & geospatial",
+        1,
+        "100.0%",
+        "100.0%"
+      ]
+    ],
+    "sources": [
+      [
+        "google",
+        3,
+        "50.0%"
+      ],
+      [
+        "(direct)",
+        1,
+        "16.7%"
+      ],
+      [
+        "github",
+        1,
+        "16.7%"
+      ],
+      [
+        "linkedin",
+        1,
+        "16.7%"
+      ]
+    ],
+    "facts": {
+      "pageviews": 6,
+      "engagedSeconds": 511,
+      "resumeSessions": 3,
+      "contactSessions": 1
+    },
+    "daily": [
+      {
+        "date": "2026-09-20",
+        "sessions": 2,
+        "users": 2,
+        "engagedSessions": 2,
+        "projectSessions": 2,
+        "highIntentSessions": 2
+      },
+      {
+        "date": "2026-09-21",
+        "sessions": 2,
+        "users": 2,
+        "engagedSessions": 2,
+        "projectSessions": 2,
+        "highIntentSessions": 2
+      },
+      {
+        "date": "2026-09-22",
+        "sessions": 0,
+        "users": 0,
+        "engagedSessions": 0,
+        "projectSessions": 0,
+        "highIntentSessions": 0
+      },
+      {
+        "date": "2026-09-23",
+        "sessions": 2,
+        "users": 1,
+        "engagedSessions": 2,
+        "projectSessions": 1,
+        "highIntentSessions": 1
       }
-    }
+    ]
   }
 }
