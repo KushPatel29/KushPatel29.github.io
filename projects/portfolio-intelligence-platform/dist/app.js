@@ -1,6 +1,5 @@
-let datasets = {};
+let fixture = null;
 let metadata = {};
-let currentRange = "90";
 
 const definitions = {
   unique_visitors: { title:"Eligible fixture users", body:"Distinct pseudonymous users remaining after bot, internal, and synthetic exclusions in the deterministic seed.", grain:"User × fixture", owner:"Analytics Engineering" },
@@ -26,7 +25,7 @@ function metricFamilies(data) {
 }
 
 function renderMetricFamily(family) {
-  const data = datasets[currentRange];
+  const data = fixture;
   const target = document.querySelector("#metric-catalog");
   if (!data || !target) return;
   target.innerHTML = metricFamilies(data)[family].map(([name,value,note]) => `<article><span>${name}</span><strong>${value}</strong><small>${note}</small></article>`).join("");
@@ -42,18 +41,45 @@ function renderSources(data) {
   document.querySelector("#traffic-legend").innerHTML = data.sources.map((row,index) => `<li><i class="${classes[index]}"></i><span>${labels[row[0]]||row[0]}</span><b>${row[2]}</b></li>`).join("");
 }
 
-function setRange(range) {
-  const data = datasets[range];
+/* Sparklines come only from the fixture's daily rows. A day without sessions
+   has no rate, so it is drawn as a gap rather than as an invented value. */
+const sparkSeries = {
+  visitors: day => day.users,
+  engagement: day => day.sessions ? 100 * day.engagedSessions / day.sessions : null,
+  projectRate: day => day.sessions ? 100 * day.projectSessions / day.sessions : null,
+  conversion: day => day.sessions ? 100 * day.highIntentSessions / day.sessions : null
+};
+function renderSparklines(days) {
+  document.querySelectorAll("[data-spark]").forEach(svg => {
+    const pick = sparkSeries[svg.dataset.spark];
+    if (!pick || !days.length) return;
+    const values = days.map(pick);
+    const isCount = svg.dataset.spark === "visitors";
+    const max = isCount ? Math.max(1, ...values.filter(v => v !== null)) : 100;
+    const x = i => days.length === 1 ? 90 : 4 + i * (172 / (days.length - 1));
+    const y = v => 38 - (v / max) * 34;
+    const segments = [];
+    let current = [];
+    values.forEach((v, i) => { if (v === null) { if (current.length) segments.push(current); current = []; } else current.push(`${x(i).toFixed(1)} ${y(v).toFixed(1)}`); });
+    if (current.length) segments.push(current);
+    const line = segments.map(points => `M${points.join(" L")}`).join(" ");
+    const dots = values.map((v, i) => v === null ? "" : `<circle cx="${x(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="2.5"/>`).join("");
+    svg.innerHTML = `${line ? `<path d="${line}"/>` : ""}${dots}`;
+    const name = svg.getAttribute("aria-label").split(" by day")[0];
+    const spoken = days.map((day, i) => `${day.date.slice(5)}: ${values[i] === null ? "no sessions" : isCount ? values[i] : `${values[i].toFixed(0)}%`}`).join(", ");
+    svg.setAttribute("aria-label", `${name} by day, ${spoken}`);
+  });
+}
+
+function render(data) {
   if (!data) return;
-  currentRange = range;
   ["visitors","sessions","engagement","projectRate","conversion"].forEach(key => document.querySelectorAll(`[data-metric="${key}"]`).forEach(el => el.textContent=data[key]));
   Object.entries(data.changes).forEach(([key,value]) => { const el=document.querySelector(`[data-change="${key}"]`); if(el) el.textContent=value; });
   Object.entries(data.funnel).forEach(([key,[count,rate]]) => { const value=document.querySelector(`[data-funnel-value="${key}"]`); const rateEl=document.querySelector(`[data-funnel-rate="${key}"]`); if(value) value.textContent=count; if(rateEl) rateEl.textContent=rate; const bar=value?.closest(".funnel-row")?.querySelector(".bar-track i"); if(bar) bar.style.setProperty("--w",rate); });
-  renderProjects(data.projects); renderSources(data);
+  renderProjects(data.projects); renderSources(data); renderSparklines(data.daily || []);
   const active=document.querySelector("[data-metric-tab][aria-selected='true']"); renderMetricFamily(active?.dataset.metricTab||"acquisition");
 }
 
-document.querySelectorAll(".range-control button").forEach(button => button.addEventListener("click",()=>{ document.querySelectorAll(".range-control button").forEach(b=>{b.classList.remove("selected");b.setAttribute("aria-pressed","false")}); button.classList.add("selected");button.setAttribute("aria-pressed","true");setRange(button.dataset.range); }));
 document.querySelectorAll("[data-metric-tab]").forEach(button => button.addEventListener("click",()=>{ document.querySelectorAll("[data-metric-tab]").forEach(item=>{item.classList.toggle("selected",item===button);item.setAttribute("aria-selected",item===button?"true":"false")});renderMetricFamily(button.dataset.metricTab); }));
 
 const dialog=document.querySelector("#definition-dialog");
@@ -74,4 +100,4 @@ document.querySelectorAll("main section[id]").forEach(section=>observer.observe(
 document.querySelectorAll("[data-consent]").forEach(button=>button.addEventListener("click",()=>{ const choice=button.dataset.consent;localStorage.setItem("analytics_consent",choice);document.querySelector("#consent-status").textContent=choice==="granted"?"Local demo events enabled":"Telemetry remains off";if(choice==="granted"){window.portfolioAnalytics?.track("consent_updated",{consent_source:"dashboard_control"});window.portfolioAnalytics?.track("page_viewed",{page_title:document.title});}}));
 if(localStorage.getItem("analytics_consent")==="granted"){document.querySelector("#consent-status").textContent="Local demo events enabled";window.portfolioAnalytics?.track("page_viewed",{page_title:document.title});}
 
-fetch("./data/dashboard.json").then(response=>{if(!response.ok)throw new Error("fixture unavailable");return response.json();}).then(payload=>{metadata=payload.metadata;datasets=payload.datasets;document.querySelector("#fixture-meta").textContent=`${metadata.eventRows} modeled events · ${metadata.eligibleEvents} eligible · through ${metadata.dataThrough}`;setRange("90");}).catch(()=>{document.querySelector("#fixture-meta").textContent="Fixture failed to load; inspect the committed JSON.";});
+fetch("./data/dashboard.json").then(response=>{if(!response.ok)throw new Error("fixture unavailable");return response.json();}).then(payload=>{metadata=payload.metadata;fixture=payload.fixture;document.querySelector("#fixture-meta").textContent=`${metadata.eventRows} modeled events · ${metadata.eligibleEvents} eligible · through ${metadata.dataThrough}`;document.querySelector("#fixture-window").textContent=`Fixture window · ${metadata.windowDays} days · ${metadata.windowStart} to ${metadata.windowEnd}`;render(fixture);}).catch(()=>{document.querySelector("#fixture-meta").textContent="Fixture failed to load; inspect the committed JSON.";});

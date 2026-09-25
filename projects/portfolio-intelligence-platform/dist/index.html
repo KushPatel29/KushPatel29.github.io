@@ -51,11 +51,7 @@
           <h1 id="overview-title">Behavior, modeled.<br><span>Decisions, explained.</span></h1>
           <p>A reproducible measurement case study: one small synthetic event fixture, transformed and tested in dbt, then exported to this static dashboard.</p>
         </div>
-        <div class="range-control" role="group" aria-label="Date range">
-          <button type="button" data-range="30">30D</button>
-          <button type="button" data-range="90" class="selected" aria-pressed="true">90D</button>
-          <button type="button" data-range="365">1Y</button>
-        </div>
+        <p class="fixture-window" id="fixture-window">Fixture window · loading</p>
       </div>
 
       <div class="metric-grid" aria-label="Headline metrics">
@@ -63,33 +59,33 @@
           <div class="metric-label"><span>Unique visitors</span><button class="info" data-definition="unique_visitors" aria-label="View unique visitors definition">i</button></div>
           <div class="metric-value" data-metric="visitors">5</div>
           <div class="metric-foot"><span class="up" data-change="visitors">fixture</span><span>eligible users</span></div>
-          <svg class="sparkline" viewBox="0 0 180 42" role="img" aria-label="Unique visitors trend"><path class="area" d="M0 40 L0 31 15 33 30 26 45 29 60 19 75 22 90 13 105 18 120 9 135 11 150 5 165 8 180 2 180 40Z"/><path d="M0 31 15 33 30 26 45 29 60 19 75 22 90 13 105 18 120 9 135 11 150 5 165 8 180 2"/></svg>
+          <svg class="sparkline" data-spark="visitors" viewBox="0 0 180 42" role="img" aria-label="Unique visitors by day: loading"></svg>
         </article>
         <article class="metric-card">
           <div class="metric-label"><span>Engagement rate</span><button class="info" data-definition="engagement_rate" aria-label="View engagement rate definition">i</button></div>
           <div class="metric-value" data-metric="engagement">100.0%</div>
           <div class="metric-foot"><span class="up" data-change="engagement">fixture</span><span>engaged sessions</span></div>
-          <svg class="sparkline blue" viewBox="0 0 180 42" role="img" aria-label="Engagement rate trend"><path class="area" d="M0 40 L0 30 15 27 30 29 45 23 60 25 75 18 90 20 105 14 120 16 135 11 150 13 165 7 180 9 180 40Z"/><path d="M0 30 15 27 30 29 45 23 60 25 75 18 90 20 105 14 120 16 135 11 150 13 165 7 180 9"/></svg>
+          <svg class="sparkline blue" data-spark="engagement" viewBox="0 0 180 42" role="img" aria-label="Engagement rate by day: loading"></svg>
         </article>
         <article class="metric-card">
           <div class="metric-label"><span>Project view rate</span><button class="info" data-definition="project_view_rate" aria-label="View project view rate definition">i</button></div>
           <div class="metric-value" data-metric="projectRate">83.3%</div>
           <div class="metric-foot"><span class="up" data-change="projectRate">fixture</span><span>of eligible sessions</span></div>
-          <svg class="sparkline violet" viewBox="0 0 180 42" role="img" aria-label="Project view rate trend"><path class="area" d="M0 40 L0 33 15 29 30 31 45 22 60 24 75 20 90 14 105 16 120 10 135 14 150 7 165 9 180 4 180 40Z"/><path d="M0 33 15 29 30 31 45 22 60 24 75 20 90 14 105 16 120 10 135 14 150 7 165 9 180 4"/></svg>
+          <svg class="sparkline violet" data-spark="projectRate" viewBox="0 0 180 42" role="img" aria-label="Project view rate by day: loading"></svg>
         </article>
         <article class="metric-card">
           <div class="metric-label"><span>High-intent rate</span><button class="info" data-definition="high_intent_rate" aria-label="View high-intent rate definition">i</button></div>
           <div class="metric-value" data-metric="conversion">83.3%</div>
           <div class="metric-foot"><span class="up" data-change="conversion">fixture</span><span>resume, LinkedIn, contact</span></div>
-          <svg class="sparkline amber" viewBox="0 0 180 42" role="img" aria-label="High intent rate trend"><path class="area" d="M0 40 L0 35 15 31 30 34 45 27 60 29 75 21 90 24 105 19 120 13 135 16 150 10 165 12 180 6 180 40Z"/><path d="M0 35 15 31 30 34 45 27 60 29 75 21 90 24 105 19 120 13 135 16 150 10 165 12 180 6"/></svg>
+          <svg class="sparkline amber" data-spark="conversion" viewBox="0 0 180 42" role="img" aria-label="High intent rate by day: loading"></svg>
         </article>
       </div>
 
       <div class="primary-grid">
         <article class="panel funnel-panel">
           <div class="panel-head">
-            <div><p class="kicker">RECRUITER JOURNEY</p><h2>Conversion funnel</h2></div>
-            <span class="panel-meta">Session scope</span>
+            <div><p class="kicker">RECRUITER JOURNEY</p><h2>Sessions reaching each step</h2></div>
+            <span class="panel-meta">Steps are not nested</span>
           </div>
           <div class="funnel" id="funnel-chart" aria-label="Recruiter conversion funnel">
             <div class="funnel-row"><div class="funnel-copy"><strong>Landing</strong><span data-funnel-value="landing">6</span></div><div class="bar-track"><i style="--w:100%"></i></div><b>100%</b></div>
@@ -128,7 +124,7 @@
       <div class="project-layout">
         <article class="panel project-panel">
           <div class="panel-head"><div><p class="kicker">PROJECT PERFORMANCE</p><h3>Content that moves decisions</h3></div><span class="panel-meta">Ranked by intent score</span></div>
-          <div class="project-table" role="table" aria-label="Project performance">
+          <div class="project-table" role="table" aria-label="Project performance" tabindex="0">
             <div class="project-row project-header" role="row"><span role="columnheader">Project</span><span role="columnheader">Views</span><span role="columnheader">Deep read</span><span role="columnheader">Action rate</span></div>
             <div id="project-rows"></div>
           </div>
@@ -191,7 +187,7 @@
 
         <article class="modern-panel cohort-panel">
           <div class="modern-head"><div><span>Retention</span><h3>Return cohort</h3></div><b>Insufficient history</b></div>
-          <div class="cohort-table" role="table" aria-label="Weekly visitor retention cohorts">
+          <div class="cohort-table" role="table" aria-label="Weekly visitor retention cohorts" tabindex="0">
             <div class="cohort-row cohort-header" role="row"><span role="columnheader">Cohort</span><span role="columnheader">W0</span><span role="columnheader">W1</span><span role="columnheader">W2</span><span role="columnheader">W3</span><span role="columnheader">W4</span></div>
             <div class="cohort-row" role="row"><span role="cell">Fixture</span><b role="cell" class="h5">5 users</b><b role="cell" class="empty">—</b><b role="cell" class="empty">—</b><b role="cell" class="empty">—</b><b role="cell" class="empty">—</b></div>
           </div>
