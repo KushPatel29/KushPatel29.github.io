@@ -46,7 +46,7 @@ if (!skill) {
   console.error(`✗ ${rel(skillPath)} is missing`);
   process.exit(1);
 }
-const front = skill.match(/^---\n([\s\S]*?)\n---\n/);
+const front = skill.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
 if (!front) {
   fail("SKILL.md has no YAML frontmatter");
 } else {
@@ -142,7 +142,7 @@ const scout = read(path.join(SCOUT_DIR, "SKILL.md"));
 if (!scout) {
   fail(".claude/skills/job-scout/SKILL.md is missing");
 } else {
-  const sfront = scout.match(/^---\n([\s\S]*?)\n---\n/);
+  const sfront = scout.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
   const sname = sfront?.[1].match(/^name:\s*(.+)$/m)?.[1].trim();
   const sdesc = sfront?.[1].match(/^description:\s*(.+)$/m)?.[1].trim() || "";
   if (sname !== "job-scout") fail(`job-scout SKILL.md name is "${sname}"`);

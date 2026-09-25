@@ -1,5 +1,5 @@
 /* ============================================================
-   check-repo-count.mjs — the filter bar prints "SHOWING n / N REPOS".
+   check-repo-count.mjs — the filter bar prints "SHOWING n / N PROJECTS".
 
    main.js overwrites that span on load, computing N from the number
    of .project cards actually in the DOM. But the static HTML carries
@@ -43,18 +43,18 @@ const cards = [...html.matchAll(/<[a-z]+\b[^>]*\sclass="([^"]*)"/gi)].filter(
 ).length;
 
 const shown = html.match(
-  /<span class="filter-count" id="work-count"[^>]*>SHOWING (\d+) \/ (\d+) REPOS<\/span>/
+  /<span class="filter-count" id="work-count"[^>]*>SHOWING (\d+) \/ (\d+) PROJECTS<\/span>/
 );
 
 if (!shown) {
-  console.error('✗ could not find the #work-count "SHOWING n / N REPOS" fallback in index.html');
+  console.error('✗ could not find the #work-count "SHOWING n / N PROJECTS" fallback in index.html');
   process.exit(1);
 }
 
 const [, fallbackShown, fallbackTotal] = shown.map(Number);
 
 console.log(`.project cards in the DOM: ${cards}`);
-console.log(`hardcoded fallback:        SHOWING ${fallbackShown} / ${fallbackTotal} REPOS`);
+console.log(`hardcoded fallback:        SHOWING ${fallbackShown} / ${fallbackTotal} PROJECTS`);
 
 if (cards === 0) {
   console.error("\n✗ no .project cards found — the parser or the markup changed.\n");
@@ -64,9 +64,9 @@ if (cards === 0) {
 /* Unfiltered is the state the static HTML ships in, so both halves are N. */
 if (fallbackTotal !== cards || fallbackShown !== cards) {
   console.error(
-    `\n✗ The no-JS fallback says "SHOWING ${fallbackShown} / ${fallbackTotal} REPOS", ` +
+    `\n✗ The no-JS fallback says "SHOWING ${fallbackShown} / ${fallbackTotal} PROJECTS", ` +
     `but there are ${cards} .project cards on the page.\n` +
-    `  Set it to "SHOWING ${cards} / ${cards} REPOS" in index.html.\n`
+    `  Set it to "SHOWING ${cards} / ${cards} PROJECTS" in index.html.\n`
   );
   process.exit(1);
 }

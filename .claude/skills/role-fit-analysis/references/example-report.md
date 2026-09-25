@@ -33,14 +33,14 @@ Rule path: no gate unmet → must ≥ 60% and no real gap on a core row → visi
 | 2 | "in Snowflake" / "Snowflake preferred" | 2 | Fabric Warehouse, Synapse (paid); dbt profile for Snowflake exists but has **never run** | adjacent | 0.5 / 0.5 | Adjacent tool |
 | 3 | "Define and document core business metrics with finance and merchandising" | 2 | Two Rivers: governed KPIs agreed with Sales, Finance, Supply Chain, with documented definitions; 62 governed metrics `#p-wholesale` | PAID | 1.0 / 1.0 | Match |
 | 4 | "Write data tests" | 2 | Two Rivers: automated schema, completeness, uniqueness, RI tests | PAID | 1.0 / 1.0 | Match |
-| 5 | "maintain CI for our analytics codebase" | 2 | GitHub Actions on all 17 repos | PROJECT | 0.7 / 0.7 | Match (project tier) |
+| 5 | "maintain CI for our analytics codebase" | 2 | Published validation evidence across all 18 projects | PROJECT | 0.7 / 0.7 | Match (project tier) |
 | 6 | "Partner with data engineering on Airflow-orchestrated pipelines" | 2 | Airflow DAG in `#p-dbt` (checked, not scheduled); ADF/Fabric orchestration at Two Rivers | PROJECT | 0.7 / 0.7 | Match (project tier) |
 | 7 | "Support self-serve analytics in Looker" | 2 | Power BI self-serve rollout with RLS at Two Rivers | adjacent | 0.5 / 0.5 | Adjacent tool |
 | 8 | "2+ years of production dbt experience" | 3 | dbt is project-only (résumé says "not production") | PROJECT | 0.35 / 0.35 | **Depth gap (core)** |
 | 9 | "Strong SQL" | 3 | T-SQL daily at Two Rivers | PAID | 1.0 / 1.0 | Match |
 | 10 | "dimensional modelling (Kimball)" | 3 | Two Rivers enterprise mart: star schemas, conformed dims, SCD | PAID | 1.0 / 1.0 | Match |
 | 11 | "Experience with a cloud data warehouse" | 3 | Microsoft Fabric, Azure Synapse | PAID | 1.0 / 1.0 | Match |
-| 12 | "Git" | 3 | all 17 public repos | PROJECT | 0.7 / 0.7 | Match (project tier) |
+| 12 | "Git" | 3 | all 18 public projects in GitHub | PROJECT | 0.7 / 0.7 | Match (project tier) |
 | 13 | "code review workflows" | 3 | not evidenced; sole analyst, and review practice in the repos isn't stated | — | 0 / 0 | **Unknown** |
 | 14 | "LookML" (nice to have) | 1 | LookML model + 3 views in Marketing Attribution `#p-marketing`, schema-checked in CI | PROJECT | 0.7 / 0 | Surfacing |
 | 15 | "Python" (nice to have) | 1 | Shivam automation; Two Rivers forecasting apps | PAID | 1.0 / 1.0 | Match |

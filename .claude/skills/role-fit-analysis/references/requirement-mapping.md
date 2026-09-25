@@ -64,7 +64,7 @@ evidence, it is a real gap.
 | "automation", "streamline reporting" | Python/SQL automation (~40%, internal estimate) | PAID |
 | "big data", "Spark" | PySpark in Fabric/Synapse | PAID |
 | "semantic layer", "metrics layer" | Power BI semantic model (paid); MetricFlow (project) | PAID |
-| "version control", "CI/CD", "software engineering practices" | Git + GitHub Actions on 17 repos | PROJECT |
+| "version control", "CI/CD", "software engineering practices" | Git plus published validation evidence across 18 projects | PROJECT |
 | "statistics", "regression", "hypothesis testing" | geo holdout, diff-in-diff, permutation test, survival, LINEST; MPS | PROJECT+DEGREE |
 | "experimentation", "A/B testing" | pre-registered experiment design, geo holdout | PROJECT |
 | "R or Python", "Python or similar" | Python | PAID |

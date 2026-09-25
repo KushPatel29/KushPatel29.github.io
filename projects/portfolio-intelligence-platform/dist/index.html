@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio Intelligence is Kush Patel's end-to-end analytics engineering data product: governed metrics, behavioral funnels, dbt lineage, and data quality in one public dashboard.">
+  <meta name="theme-color" content="#07111f">
+  <title>Portfolio Intelligence — Kush Patel</title>
+  <link rel="canonical" href="https://kush-portfolio-intelligence.kush007.chatgpt.site/">
+  <meta property="og:title" content="Portfolio Intelligence — Kush Patel">
+  <meta property="og:description" content="An end-to-end analytics engineering data product with behavioral funnels, governed metrics, dbt lineage, and data quality.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kush-portfolio-intelligence.kush007.chatgpt.site/">
+  <link rel="preload" href="./assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2307111f'/%3E%3Cpath d='M7 23V15h4v8H7Zm7 0V9h4v14h-4Zm7 0V5h4v18h-4Z' fill='%2344e0bd'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to analytics</a>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#overview" aria-label="Portfolio Intelligence home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>PORTFOLIO <b>INTELLIGENCE</b></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a class="active" href="#overview">Overview</a>
+      <a href="#journeys">Journeys</a>
+      <a href="#measurement">Metrics</a>
+      <a href="#lineage">Lineage</a>
+      <a href="#quality">Quality</a>
+    </nav>
+    <div class="top-actions">
+      <span class="live-pill"><span class="pulse" aria-hidden="true"></span> Pipeline healthy</span>
+      <a class="icon-button" href="https://github.com/kushpatel29" aria-label="Kush Patel on GitHub" target="_blank" rel="noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7A11.5 11.5 0 0 0 8.36 23.1c.58.1.79-.25.79-.56v-2.2c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.74-1.55-2.57-.3-5.27-1.29-5.27-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18a10.97 10.97 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.71 5.39-5.29 5.68.42.36.79 1.06.79 2.14v3.23c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section-shell" id="overview" aria-labelledby="overview-title">
+      <div class="eyebrow-row">
+        <p class="eyebrow">Analytics engineering data product</p>
+        <p class="as-of">DEMO DATASET <span>•</span> refreshed <time id="refresh-time">Sep 25, 2026 02:18 UTC</time></p>
+      </div>
+      <div class="hero-heading">
+        <div>
+          <h1 id="overview-title">Behavior, modeled.<br><span>Decisions, explained.</span></h1>
+          <p>From raw event streams to governed metrics—an end-to-end view of how visitors discover, evaluate, and act on portfolio work.</p>
+        </div>
+        <div class="range-control" role="group" aria-label="Date range">
+          <button type="button" data-range="30">30D</button>
+          <button type="button" data-range="90" class="selected" aria-pressed="true">90D</button>
+          <button type="button" data-range="365">1Y</button>
+        </div>
+      </div>
+
+      <div class="metric-grid" aria-label="Headline metrics">
+        <article class="metric-card accent-card">
+          <div class="metric-label"><span>Unique visitors</span><button class="info" data-definition="unique_visitors" aria-label="View unique visitors definition">i</button></div>
+          <div class="metric-value" data-metric="visitors">1,284</div>
+          <div class="metric-foot"><span class="up" data-change="visitors">+18.6%</span><span>vs prior period</span></div>
+          <svg class="sparkline" viewBox="0 0 180 42" role="img" aria-label="Unique visitors trend"><path class="area" d="M0 40 L0 31 15 33 30 26 45 29 60 19 75 22 90 13 105 18 120 9 135 11 150 5 165 8 180 2 180 40Z"/><path d="M0 31 15 33 30 26 45 29 60 19 75 22 90 13 105 18 120 9 135 11 150 5 165 8 180 2"/></svg>
+        </article>
+        <article class="metric-card">
+          <div class="metric-label"><span>Engagement rate</span><button class="info" data-definition="engagement_rate" aria-label="View engagement rate definition">i</button></div>
+          <div class="metric-value" data-metric="engagement">58.1%</div>
+          <div class="metric-foot"><span class="up" data-change="engagement">+4.2 pts</span><span>engaged sessions</span></div>
+          <svg class="sparkline blue" viewBox="0 0 180 42" role="img" aria-label="Engagement rate trend"><path class="area" d="M0 40 L0 30 15 27 30 29 45 23 60 25 75 18 90 20 105 14 120 16 135 11 150 13 165 7 180 9 180 40Z"/><path d="M0 30 15 27 30 29 45 23 60 25 75 18 90 20 105 14 120 16 135 11 150 13 165 7 180 9"/></svg>
+        </article>
+        <article class="metric-card">
+          <div class="metric-label"><span>Project view rate</span><button class="info" data-definition="project_view_rate" aria-label="View project view rate definition">i</button></div>
+          <div class="metric-value" data-metric="projectRate">67.4%</div>
+          <div class="metric-foot"><span class="up" data-change="projectRate">+7.8 pts</span><span>of eligible sessions</span></div>
+          <svg class="sparkline violet" viewBox="0 0 180 42" role="img" aria-label="Project view rate trend"><path class="area" d="M0 40 L0 33 15 29 30 31 45 22 60 24 75 20 90 14 105 16 120 10 135 14 150 7 165 9 180 4 180 40Z"/><path d="M0 33 15 29 30 31 45 22 60 24 75 20 90 14 105 16 120 10 135 14 150 7 165 9 180 4"/></svg>
+        </article>
+        <article class="metric-card">
+          <div class="metric-label"><span>High-intent rate</span><button class="info" data-definition="high_intent_rate" aria-label="View high-intent rate definition">i</button></div>
+          <div class="metric-value" data-metric="conversion">12.3%</div>
+          <div class="metric-foot"><span class="up" data-change="conversion">+2.1 pts</span><span>resume or contact</span></div>
+          <svg class="sparkline amber" viewBox="0 0 180 42" role="img" aria-label="High intent rate trend"><path class="area" d="M0 40 L0 35 15 31 30 34 45 27 60 29 75 21 90 24 105 19 120 13 135 16 150 10 165 12 180 6 180 40Z"/><path d="M0 35 15 31 30 34 45 27 60 29 75 21 90 24 105 19 120 13 135 16 150 10 165 12 180 6"/></svg>
+        </article>
+      </div>
+
+      <div class="primary-grid">
+        <article class="panel funnel-panel">
+          <div class="panel-head">
+            <div><p class="kicker">RECRUITER JOURNEY</p><h2>Conversion funnel</h2></div>
+            <span class="panel-meta">Session scope</span>
+          </div>
+          <div class="funnel" id="funnel-chart" aria-label="Recruiter conversion funnel">
+            <div class="funnel-row"><div class="funnel-copy"><strong>Landing</strong><span data-funnel-value="landing">1,743</span></div><div class="bar-track"><i style="--w:100%"></i></div><b>100%</b></div>
+            <div class="funnel-row"><div class="funnel-copy"><strong>Project viewed</strong><span data-funnel-value="project">1,175</span></div><div class="bar-track"><i style="--w:67.4%"></i></div><b data-funnel-rate="project">67.4%</b></div>
+            <div class="funnel-row"><div class="funnel-copy"><strong>Case study</strong><span data-funnel-value="caseStudy">610</span></div><div class="bar-track"><i style="--w:35%"></i></div><b data-funnel-rate="caseStudy">35.0%</b></div>
+            <div class="funnel-row"><div class="funnel-copy"><strong>Resume</strong><span data-funnel-value="resume">331</span></div><div class="bar-track"><i style="--w:19%"></i></div><b data-funnel-rate="resume">19.0%</b></div>
+            <div class="funnel-row"><div class="funnel-copy"><strong>Contact</strong><span data-funnel-value="contact">105</span></div><div class="bar-track"><i style="--w:6%"></i></div><b data-funnel-rate="contact">6.0%</b></div>
+          </div>
+          <div class="funnel-insight"><span aria-hidden="true">↗</span><p><strong>Best leverage point</strong><br>Case-study visitors convert to resume views at <b>2.7×</b> the site average.</p></div>
+        </article>
+
+        <article class="panel acquisition-panel">
+          <div class="panel-head">
+            <div><p class="kicker">ACQUISITION</p><h2>Traffic mix</h2></div>
+            <span class="panel-meta">Last non-direct</span>
+          </div>
+          <div class="donut-wrap">
+            <div class="donut" id="traffic-donut" role="img" aria-label="Traffic source distribution"><div><strong data-metric="sessions">1,743</strong><span>sessions</span></div></div>
+            <ul class="legend" id="traffic-legend">
+              <li><i class="c1"></i><span>Organic search</span><b>34%</b></li>
+              <li><i class="c2"></i><span>LinkedIn</span><b>27%</b></li>
+              <li><i class="c3"></i><span>Direct</span><b>21%</b></li>
+              <li><i class="c4"></i><span>GitHub</span><b>11%</b></li>
+              <li><i class="c5"></i><span>Other</span><b>7%</b></li>
+            </ul>
+          </div>
+          <div class="source-note"><span>01</span><p><b>Organic search</b> brings the most visitors. <b>LinkedIn</b> produces the highest contact rate.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell data-section" id="journeys" aria-labelledby="journey-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Behavioral analytics</p><h2 id="journey-title">What visitors evaluate</h2></div>
+        <p>Project interest joined with journey depth and downstream action—not vanity pageviews.</p>
+      </div>
+      <div class="project-layout">
+        <article class="panel project-panel">
+          <div class="panel-head"><div><p class="kicker">PROJECT PERFORMANCE</p><h3>Content that moves decisions</h3></div><span class="panel-meta">Ranked by intent score</span></div>
+          <div class="project-table" role="table" aria-label="Project performance">
+            <div class="project-row project-header" role="row"><span role="columnheader">Project</span><span role="columnheader">Views</span><span role="columnheader">Deep read</span><span role="columnheader">Action rate</span></div>
+            <div id="project-rows"></div>
+          </div>
+        </article>
+        <aside class="insight-stack">
+          <article class="signal-card teal"><p class="kicker">BEHAVIORAL SIGNAL</p><strong>3.2×</strong><p>Engaged visitors are more likely to open a resume than single-page visitors.</p><span>Modeled in <code>mart_conversion</code></span></article>
+          <article class="signal-card dark"><p class="kicker">TOP JOURNEY</p><div class="journey-mini"><span>Home</span><i>→</i><span>Project</span><i>→</i><span>Resume</span></div><strong>19.4%</strong><p>of high-intent sessions follow this path.</p></article>
+        </aside>
+      </div>
+
+      <article class="panel path-panel">
+        <div class="panel-head"><div><p class="kicker">JOURNEY MODEL</p><h3>Paths to high intent</h3></div><span class="panel-meta">Top 4 of 28 modeled paths</span></div>
+        <div class="paths" id="paths-chart">
+          <div class="path-start"><span>Landing</span><b>1,743</b></div>
+          <div class="path-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="path-outcomes">
+            <div><span>Project → Resume</span><b>19.4%</b></div>
+            <div><span>Project → GitHub</span><b>14.1%</b></div>
+            <div><span>About → Resume</span><b>11.8%</b></div>
+            <div><span>Case study → Contact</span><b>7.3%</b></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section-shell measurement-section" id="measurement" aria-labelledby="measurement-title">
+      <div class="section-heading">
+        <div><p class="section-intro-label">Measurement system</p><h2 id="measurement-title">The metrics modern teams actually need</h2></div>
+        <p>Acquisition, engagement, conversion, retention, experience, and collection health—defined at the right grain and connected to action.</p>
+      </div>
+
+      <div class="metric-switcher" role="tablist" aria-label="Metric families">
+        <button type="button" role="tab" aria-selected="true" data-metric-tab="acquisition">Acquisition</button>
+        <button type="button" role="tab" aria-selected="false" data-metric-tab="engagement">Engagement</button>
+        <button type="button" role="tab" aria-selected="false" data-metric-tab="conversion">Conversion</button>
+        <button type="button" role="tab" aria-selected="false" data-metric-tab="retention">Retention</button>
+        <button type="button" role="tab" aria-selected="false" data-metric-tab="experience">Experience</button>
+        <button type="button" role="tab" aria-selected="false" data-metric-tab="health">Data health</button>
+      </div>
+      <div class="metric-catalog-grid" id="metric-catalog" role="tabpanel" aria-live="polite">
+        <article><span>Users</span><strong>1,284</strong><small>Distinct eligible visitors</small></article>
+        <article><span>New-user rate</span><strong>71.6%</strong><small>First observed in period</small></article>
+        <article><span>Sessions</span><strong>1,743</strong><small>30-minute inactivity boundary</small></article>
+        <article><span>Sessions / user</span><strong>1.36</strong><small>Visit frequency</small></article>
+        <article><span>Organic share</span><strong>34.0%</strong><small>Last non-direct channel</small></article>
+        <article><span>Campaign conversion</span><strong>8.7%</strong><small>UTM-attributed contact intent</small></article>
+      </div>
+
+      <div class="modern-grid">
+        <article class="modern-panel vitals-panel">
+          <div class="modern-head"><div><span>Page experience</span><h3>Core Web Vitals, p75</h3></div><b>88% good visits</b></div>
+          <div class="vital-list">
+            <div><span><i class="vital-good"></i>LCP</span><strong>1.84 s</strong><small>Good ≤ 2.5 s</small></div>
+            <div><span><i class="vital-good"></i>INP</span><strong>148 ms</strong><small>Good ≤ 200 ms</small></div>
+            <div><span><i class="vital-good"></i>CLS</span><strong>0.04</strong><small>Good ≤ 0.10</small></div>
+            <div><span><i class="vital-good"></i>TTFB</span><strong>410 ms</strong><small>Good ≤ 800 ms</small></div>
+            <div><span><i class="vital-watch"></i>FCP</span><strong>1.62 s</strong><small>Watch mobile</small></div>
+          </div>
+        </article>
+
+        <article class="modern-panel cohort-panel">
+          <div class="modern-head"><div><span>Retention</span><h3>Return cohort</h3></div><b>Weekly visitors</b></div>
+          <div class="cohort-table" role="table" aria-label="Weekly visitor retention cohorts">
+            <div class="cohort-row cohort-header" role="row"><span>Cohort</span><span>W0</span><span>W1</span><span>W2</span><span>W3</span><span>W4</span></div>
+            <div class="cohort-row" role="row"><span>Aug 24</span><b class="h5">100%</b><b class="h3">24%</b><b class="h2">17%</b><b class="h2">15%</b><b class="h1">11%</b></div>
+            <div class="cohort-row" role="row"><span>Aug 31</span><b class="h5">100%</b><b class="h3">27%</b><b class="h2">19%</b><b class="h2">14%</b><b class="empty">—</b></div>
+            <div class="cohort-row" role="row"><span>Sep 07</span><b class="h5">100%</b><b class="h4">31%</b><b class="h2">18%</b><b class="empty">—</b><b class="empty">—</b></div>
+            <div class="cohort-row" role="row"><span>Sep 14</span><b class="h5">100%</b><b class="h4">29%</b><b class="empty">—</b><b class="empty">—</b><b class="empty">—</b></div>
+          </div>
+          <p class="modern-note">Technical evaluators return at 2.1× the all-visitor rate after opening two or more repositories.</p>
+        </article>
+
+        <article class="modern-panel health-panel">
+          <div class="modern-head"><div><span>Collection quality</span><h3>Can this data be trusted?</h3></div><b>Healthy</b></div>
+          <div class="health-bars">
+            <div><p><span>Event contract coverage</span><b>99.4%</b></p><i><em style="--w:99.4%"></em></i></div>
+            <div><p><span>Consent state recorded</span><b>100%</b></p><i><em style="--w:100%"></em></i></div>
+            <div><p><span>Known channel attribution</span><b>96.8%</b></p><i><em style="--w:96.8%"></em></i></div>
+            <div><p><span>Error-free sessions</span><b>99.8%</b></p><i><em style="--w:99.8%"></em></i></div>
+          </div>
+          <div class="health-foot"><span>8.4% bot/internal excluded</span><span>0.8% late-arriving events</span><span>0 PII fields collected</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell lineage-section" id="lineage" aria-labelledby="lineage-title">
+      <div class="section-heading inverse">
+        <div><p class="eyebrow">Metric governance</p><h2 id="lineage-title">Every number has a trail</h2></div>
+        <p>Select a metric to inspect its definition, owner, transformation path, and freshness contract.</p>
+      </div>
+      <div class="lineage-workbench">
+        <div class="metric-list" role="tablist" aria-label="Metric definitions">
+          <button role="tab" aria-selected="true" data-lineage="resume_conversion">Resume conversion rate <span>→</span></button>
+          <button role="tab" aria-selected="false" data-lineage="engagement_rate">Engagement rate <span>→</span></button>
+          <button role="tab" aria-selected="false" data-lineage="project_depth">Project depth <span>→</span></button>
+          <button role="tab" aria-selected="false" data-lineage="contact_rate">Contact rate <span>→</span></button>
+        </div>
+        <article class="lineage-detail" id="lineage-detail" aria-live="polite">
+          <div class="definition-head"><div><p class="kicker">METRIC CONTRACT</p><h3>Resume conversion rate</h3></div><span class="certified">✓ Certified</span></div>
+          <p class="formula"><code>sessions_with_resume_action / eligible_sessions</code></p>
+          <div class="contract-grid"><div><span>VALUE</span><b>19.0%</b></div><div><span>OWNER</span><b>Analytics Engineering</b></div><div><span>GRAIN</span><b>Session × day</b></div><div><span>FRESHNESS</span><b>&lt; 24 hours</b></div></div>
+          <div class="lineage-flow" aria-label="Metric lineage">
+            <button type="button"><small>SOURCE</small><b>GA4 events_*</b></button><i>→</i><button type="button"><small>STAGING</small><b>stg_ga4_events</b></button><i>→</i><button type="button"><small>FACT</small><b>fct_sessions</b></button><i>→</i><button type="button" class="active-node"><small>MART</small><b>mart_conversion</b></button>
+          </div>
+          <p class="contract-note">Excludes internal, bot, synthetic, and consent-denied sessions. A resume view or download qualifies once per session.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell quality-section" id="quality" aria-labelledby="quality-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Reliability & DataOps</p><h2 id="quality-title">Built to be trusted</h2></div>
+        <p>Tests, contracts, incremental processing, and transparent demo boundaries are part of the product—not footnotes.</p>
+      </div>
+      <div class="quality-grid">
+        <article class="quality-score">
+          <div class="score-ring"><strong>15</strong><span>/ 15</span></div>
+          <div><p class="kicker">DATA TESTS PASSING</p><h3>All systems operational</h3><p>Schema, business-rule, relationship, freshness, and unit tests passed on the latest build.</p></div>
+        </article>
+        <article class="test-list panel">
+          <div class="test-row"><span class="check">✓</span><div><b>Schema contracts</b><small>Unique, not-null, accepted values</small></div><strong>8/8</strong></div>
+          <div class="test-row"><span class="check">✓</span><div><b>Business rules</b><small>Session order, valid counts, eligibility</small></div><strong>2/2</strong></div>
+          <div class="test-row"><span class="check">✓</span><div><b>Relationships</b><small>Facts resolve to governed dimensions</small></div><strong>3/3</strong></div>
+          <div class="test-row"><span class="check">✓</span><div><b>Freshness & unit tests</b><small>Late arrivals and incremental merges</small></div><strong>2/2</strong></div>
+        </article>
+      </div>
+
+      <div class="architecture" aria-label="Data platform architecture">
+        <div class="arch-head"><p class="kicker">PRODUCTION ARCHITECTURE</p><span>Free-tier-first stack</span></div>
+        <div class="arch-flow">
+          <div class="arch-group sources"><small>COLLECT</small><div><span>GA4</span><span>PostHog</span><span>Web Vitals</span></div></div>
+          <i>→</i>
+          <div class="arch-node"><small>WAREHOUSE</small><b>BigQuery</b><span>raw / bronze</span></div>
+          <i>→</i>
+          <div class="arch-node featured"><small>TRANSFORM</small><b>dbt Core</b><span>staging → marts</span></div>
+          <i>→</i>
+          <div class="arch-node"><small>CONSUME</small><b>Data product</b><span>metrics / lineage</span></div>
+        </div>
+        <div class="orchestration"><span>GitHub Actions</span><i></i><span>CI + scheduled ELT + quality gates</span></div>
+      </div>
+
+      <div class="principles">
+        <article><span>01</span><h3>Privacy by design</h3><p>Consent-aware activation, anonymous identifiers, least-data collection, and no public individual-level data.</p></article>
+        <article><span>02</span><h3>Real and demo stay separate</h3><p>This showcase uses a labeled synthetic dataset. Production models exclude synthetic traffic through explicit flags.</p></article>
+        <article><span>03</span><h3>Cost-aware engineering</h3><p>Partition pruning, incremental merges, rolling late-arrival windows, and aggregate exports minimize scan volume.</p></article>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="section-shell closing-inner">
+        <p class="eyebrow">Portfolio intelligence platform</p>
+        <h2>A portfolio project that behaves like a production analytics system.</h2>
+        <p>Instrumentation → warehouse → transformation → governed metrics → public data product.</p>
+        <div class="closing-actions">
+          <a href="https://github.com/kushpatel29" target="_blank" rel="noreferrer">Explore GitHub <span>↗</span></a>
+          <a href="#lineage" class="secondary">Inspect metric lineage <span>→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="definition-dialog" aria-labelledby="dialog-title">
+    <form method="dialog"><button class="dialog-close" aria-label="Close definition">×</button></form>
+    <p class="kicker">GOVERNED METRIC</p>
+    <h2 id="dialog-title">Metric definition</h2>
+    <p id="dialog-description"></p>
+    <div class="dialog-meta" id="dialog-meta"></div>
+  </dialog>
+
+  <footer><div><span>KP / 2026</span><p>Designed and engineered by <strong>Kush Patel</strong></p></div><p>Demo data • privacy-first • reproducible models</p></footer>
+  <script src="./app.js"></script>
+</body>
+</html>
