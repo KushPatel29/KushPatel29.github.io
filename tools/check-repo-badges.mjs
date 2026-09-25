@@ -55,11 +55,14 @@ function cardsFromPage() {
     const badge = cardHtml.match(
       /<(?:p|li)\s+class="(?:card-tests|tag-tests)">\s*(\d+)(?:\s+dbt)?\s+tests\b/i,
     );
-    const repoLink = cardHtml.match(
-      /https:\/\/github\.com\/KushPatel29\/[A-Za-z0-9_.-]+(?:\/tree\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_./-]+)?/i,
-    );
+    const repoLinks = [...cardHtml.matchAll(
+      /https:\/\/github\.com\/KushPatel29\/[^"\s<]+/gi,
+    )].map(match => match[0]);
+    const repoLink = repoLinks.find(link => /\/tree\/[^/]+\/projects\//i.test(new URL(link).pathname))
+      || repoLinks.find(link => new URL(link).pathname.split("/").filter(Boolean).length === 2)
+      || repoLinks[0];
     if (badge && repoLink) {
-      const parts = new URL(repoLink[0]).pathname.split("/").filter(Boolean);
+      const parts = new URL(repoLink).pathname.split("/").filter(Boolean);
       const repo = parts[1];
       const ref = parts[2] === "tree" ? parts[3] : null;
       const directory = parts[2] === "tree" ? parts.slice(4).join("/") : "";
@@ -149,7 +152,7 @@ for (const { cardId, count, repo, ref, readmePath } of cards) {
                                         would claim more than a run shows
        dbt%20tests-154%20across%2015…   the dbt project, counted by dbt build
        | **Structure** | … 1,408 tests  the wholesale README's table row */
-  const m = body.match(/badge\/tests-([\d%C,]+)%20(?:passing|collected)/i)
+  const m = body.match(/badge\/(?:dbt(?:%20|\s))?tests-([\d%C,]+)%20(?:passing|collected)/i)
     || body.match(/badge\/dbt(?:%20|\s)tests-([\d%C,]+)%20across/i)
     || body.match(/\|\s*\*\*Structure\*\*\s*\|[^\n]*?([\d,]+)\s+tests\b/i);
   if (!m) {
