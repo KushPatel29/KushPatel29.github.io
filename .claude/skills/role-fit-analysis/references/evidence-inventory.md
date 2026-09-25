@@ -112,7 +112,7 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Data quality tests, contracts, quarantine, alerting | PAID+PROJECT | Two Rivers tests/alerts; control tower, BC finance contracts | — |
 | Migration with cutover validation | PAID+PROJECT | Two Rivers; Legacy-to-Fabric Migration repo | — |
 | REST API integration | PAID | Synerion time-and-attendance API | — |
-| Git, GitHub Actions CI, Docker | PROJECT | all 18 public projects publish validation evidence | Git use in paid work not stated |
+| Git, GitHub Actions CI, Docker | PROJECT | all 18 public projects run automated validation; Portfolio Intelligence runs in this repo's root workflow | Git use in paid work not stated |
 | Stakeholder engagement, requirements, KPI definitions, acceptance criteria | PAID | Two Rivers (Sales, Finance, Supply Chain); Shivam (portfolio/risk) | — |
 | Process mapping, UAT plans, traceability, business cases, RACI/RAID | PROJECT | inventory BA case (13 reqs, 12 UAT), clinical UAT plan, migration charter/RACI, supply-chain process case | documents are portfolio artifacts, not employer deliverables |
 | Change and adoption | PAID | widened Power BI self-service with RLS at Two Rivers | — |
@@ -166,7 +166,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 
 | Project | Anchor | Tests | Data | Live | Strongest for |
 |---|---|---|---|---|---|
-| Portfolio Intelligence Platform | p-portfolio-intelligence | 15 | synthetic | yes | AE, DA — web analytics, metric governance, retention, Core Web Vitals |
+| Portfolio Intelligence Platform | p-portfolio-intelligence | 15 | synthetic | yes | AE, DA — 20-event fixture, dbt-to-JSON lineage, metric governance, explicit unavailable states |
 | Retail Analytics Platform | p-wholesale | 1423 | synthetic | yes | DA, AE, BI — metric governance, 62 governed metrics, margin root cause |
 | Supply Chain Control Tower | p-control-tower | 836 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |

@@ -1,6 +1,6 @@
 # Governed metric catalog
 
-Every published value has a definition, grain, owner, exclusion policy, and freshness expectation. The public dashboard uses a clearly labeled synthetic dataset; these same contracts are designed for production events.
+Every published value has a definition, grain, owner, exclusion policy, and freshness expectation. Only acquisition, engagement, conversion, and fixture-health values are populated. Retention and experience values remain unavailable because the four-day seed has no cohort history or real-user monitoring data.
 
 ## Eligibility and identity
 

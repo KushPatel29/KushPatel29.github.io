@@ -8,7 +8,7 @@
 - Raw events are retained privately; only aggregates are public.
 - Session replay masks text and inputs by default and is disabled on sensitive routes.
 - Internal, bot, synthetic, and monitoring traffic remains traceable but ineligible.
-- Deletion and retention settings are configured in each provider.
+- If a provider is activated later, its deletion and retention settings must be configured before collection begins.
 
 ## Public dashboard threshold
 
@@ -16,4 +16,4 @@ Segments with fewer than 10 eligible sessions are suppressed or combined into â€
 
 ## Demo boundary
 
-The deployed dashboard uses deterministic synthetic aggregates and says so visibly. Synthetic generation is used to validate models and presentation, never to inflate production claims.
+The deployed dashboard reads `dist/data/dashboard.json`, generated from the committed 20-event seed after dbt passes. It says so visibly. The local consent demo has no configured provider, so its events do not leave the browser.

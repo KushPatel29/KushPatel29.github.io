@@ -1,6 +1,6 @@
 # Portfolio Intelligence Platform
 
-**Status: complete · [Open the live data product](https://kush-portfolio-intelligence.kush007.chatgpt.site/)**
+**Status: complete · [Open the GitHub Pages case study](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/)**
 
 A portfolio-grade web analytics system that joins consent-aware browser instrumentation, governed event and metric contracts, reproducible dbt models, automated quality gates, and an interactive executive dashboard. The public experience uses a clearly labeled synthetic dataset; no demo values are presented as real visitor behavior.
 
@@ -14,7 +14,7 @@ This project treats those questions as a small analytics product, with collectio
 
 1. Change the 30 / 90 / 365-day range and inspect the KPI, acquisition, funnel, and project views.
 2. Open **Metrics** to switch among acquisition, engagement, conversion, retention, experience, and data-health families.
-3. Inspect p75 Core Web Vitals, a cohort matrix, and collection-quality service levels.
+3. Inspect the explicit unavailable states for retention and Core Web Vitals—the fixture does not pretend to contain evidence it lacks.
 4. Open **Lineage** to see definitions, grain, ownership, freshness, and source-to-mart paths.
 5. Review **Quality** for the 15-test gate and the local-to-production architecture.
 
@@ -23,11 +23,12 @@ This project treats those questions as a small analytics product, with collectio
 ```mermaid
 flowchart LR
   B[Browser] -->|versioned, consented events| R{Router}
-  R --> G[GA4]
-  R --> P[PostHog]
+  R -. unactivated adapter .-> G[GA4 reference]
+  R -. unactivated adapter .-> P[PostHog reference]
   B --> W[Web Vitals + error signals]
-  G --> BQ[(BigQuery raw export)]
-  BQ --> S[dbt staging]
+  G -. untested target .-> BQ[(BigQuery profile)]
+  B[Browser] --> SEED[20-event fixture]
+  SEED --> S[dbt staging on DuckDB]
   S --> I[sessionization + eligibility]
   I --> F[facts + conversion marts]
   F --> Q{15 quality tests}
@@ -36,7 +37,7 @@ flowchart LR
   P -. product exploration .-> I
 ```
 
-The deterministic CI path runs on DuckDB, so every reviewer can reproduce the model without a cloud account. The production design swaps the adapter for BigQuery and consumes the GA4 export.
+The implemented path runs on DuckDB in the repository's root CI. GA4, PostHog, and BigQuery are clearly marked reference integration points: no provider ID is configured and no claim of provider experience is made.
 
 ## Modern measurement coverage
 
@@ -45,8 +46,8 @@ The deterministic CI path runs on DuckDB, so every reviewer can reproduce the mo
 | Acquisition | users, new users, sessions, sessions/user, channel share, campaign conversion |
 | Engagement | engaged sessions/rate/time, views/session, scroll completion, project depth |
 | Conversion | high intent, resume view/download, GitHub CTR, contact rate, funnel completion |
-| Retention | returning-user rate, W1/W4 retention, return frequency, evaluator return, days to return |
-| Experience | LCP, INP, CLS, FCP and TTFB p75; good-CWV share; error-free sessions |
+| Retention | definitions and honest unavailable states; four days is insufficient for W1/W4 cohorts |
+| Experience | collectors and thresholds implemented; values unavailable because no RUM provider is active |
 | Data health | contract/consent coverage, attribution coverage, duplicates, late arrivals, exclusions |
 
 Exact formulas, grains, owners, exclusions, and service levels live in [`docs/metric-definitions.md`](docs/metric-definitions.md). The UI, documentation, and warehouse semantics use the same vocabulary.
@@ -65,11 +66,11 @@ Exact formulas, grains, owners, exclusions, and service levels live in [`docs/me
 
 | Layer | Tool | Reason |
 |---|---|---|
-| Collection | GA4 + PostHog adapters | complementary acquisition and product signals; public browser IDs only |
+| Collection | allowlisted browser dispatcher | implemented locally; GA4/PostHog hooks remain unactivated references |
 | Performance | PerformanceObserver | native Web Vitals and error-health capture without a paid SDK |
-| Warehouse | BigQuery design / DuckDB demo | production-scale export path plus a zero-cost reproducible local path |
+| Warehouse | DuckDB implemented / BigQuery profile only | reproducible evidence without implying the cloud target has run |
 | Transformation | dbt Core | documented SQL lineage, tests, modular models, adapter portability |
-| Automation | GitHub Actions templates | pull-request quality gate and scheduled production-build pattern |
+| Automation | root GitHub Actions workflow | rebuilds dbt, regenerates JSON, and rejects output drift |
 | Data product | semantic HTML, CSS, vanilla JS | fast, accessible, dependency-light public experience |
 | Hosting | ChatGPT Sites | HTTPS public showcase with no paid infrastructure |
 
@@ -82,7 +83,7 @@ analytics/       Consent-aware dispatcher and Web Vitals collection
 dbt/             Seed, staging, sessions, facts, mart, macros, and tests
 dist/            Deployed interactive analytics data product
 docs/            Architecture, data model, event plan, metrics, and privacy
-.github/         CI and scheduled production-build workflow templates
+scripts/         Deterministic export from tested dbt relations to dashboard JSON
 ```
 
 ## Run it in under five minutes
@@ -90,10 +91,10 @@ docs/            Architecture, data model, event plan, metrics, and privacy
 Preview the data product:
 
 ```bash
-python -m http.server 4173 --directory dist
+python -m http.server 4173
 ```
 
-Then open `http://localhost:4173`.
+Then open `http://localhost:4173/dist/`.
 
 Reproduce the analytics pipeline with the free DuckDB adapter:
 
@@ -106,12 +107,12 @@ dbt seed --project-dir dbt --profiles-dir dbt
 dbt build --project-dir dbt --profiles-dir dbt
 ```
 
-Expected gate: **PASS across 20 dbt nodes, including 15 data tests**. The suite covers uniqueness, nullability, accepted values, relationships, session ordering, conversion bounds, and business-rule integrity.
+Expected gate: **PASS across 20 dbt nodes, including 15 data tests**. The suite covers uniqueness, nullability, accepted values, session ordering, conversion bounds, and business-rule integrity. Root CI then runs `scripts/export_dashboard.py` and fails if `dist/data/dashboard.json` changes.
 
 ## Data model and contract
 
 ```text
-raw_events (deterministic seed or GA4 export)
+raw_events (committed deterministic seed)
   └─ stg_events            normalized and typed events
       └─ int_sessions      30-minute reconstruction + eligibility
           ├─ fct_sessions  one row per session
@@ -137,10 +138,11 @@ Never commit provider secrets or publish person-level event exports.
 
 - [x] Interactive 30 / 90 / 365-day views
 - [x] Six-family modern metric explorer
-- [x] p75 Core Web Vitals and error-health measurement
-- [x] Weekly retention cohorts
+- [x] Core Web Vitals collectors and metric contracts
+- [ ] Real p75 Web Vitals — unavailable until a consented RUM provider is activated
+- [ ] Weekly retention cohorts — unavailable in a four-day fixture
 - [x] Metric contracts and interactive lineage
-- [x] Consent-aware dual-provider router
+- [x] Consent-aware allowlisted dispatcher with unactivated provider hooks
 - [x] Reproducible DuckDB/dbt pipeline
 - [x] Fifteen automated data tests
 - [x] Responsive and keyboard-accessible interface
@@ -150,7 +152,7 @@ Never commit provider secrets or publish person-level event exports.
 ## Deliberate limitations
 
 - Public dashboard values are a fixed synthetic aggregate, so the demo remains deterministic and privacy-safe.
-- GA4, PostHog, and BigQuery require account-specific IDs or credentials and are not activated in this repository.
+- GA4, PostHog, and BigQuery have never been run for this project. They are reference hooks and a profile, not evidence of hands-on provider use.
 - DuckDB exercises the transformation contract; production-scale partitioning and clustering are BigQuery concerns documented in [`docs/architecture.md`](docs/architecture.md).
 - A real deployment should add consent-mode UI appropriate to its jurisdiction and legal review.
 
