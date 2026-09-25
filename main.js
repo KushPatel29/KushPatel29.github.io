@@ -261,7 +261,7 @@
       if (tag !== "all") more.open = true;
       var summary = more.querySelector("summary");
       if (summary) summary.textContent = tag === "all"
-        ? "Nine more projects — health, pricing, dbt, financial crime, marketing, recommendations, people analytics, clinical data and migration"
+        ? "Nine more projects — web analytics, health, dbt, financial crime, marketing, recommendations, people analytics, clinical data and migration"
         : "More projects matching this filter";
     }
 
