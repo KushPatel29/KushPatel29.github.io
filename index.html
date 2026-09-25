@@ -876,7 +876,7 @@ WHERE verdict = 'GO'</pre>
 
     </div>
 
-    <!-- Six projects that between them cover every role in Role fit -->
+    <!-- Eight projects that between them cover every role in Role fit -->
     <div class="card-grid primary-projects">
 <article class="project card" id="p-control-tower" data-tags="bi engineering supply business gis">
         <button type="button" class="card-zoom" data-zoom="assets/control-tower.jpg"
@@ -974,6 +974,39 @@ WHERE verdict = 'GO'</pre>
           </ul>
           <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/output/close_certification_packet.md" target="_blank" rel="noopener"><span>OPEN CLOSE PACKET</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/gl-reconciliation-dashboard" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="project card" id="p-pricing-analytics" data-tags="bi finance supply">
+        <button type="button" class="card-zoom" data-zoom="assets/pricing-analytics.jpg"
+                aria-label="Enlarge: Pricing and Costing Analytics — the executive summary, with pocket revenue, margin, leakage and the realisation opportunity">
+          <img src="assets/pricing-analytics.jpg" width="1280" height="670" loading="lazy" decoding="async"
+               alt="Pricing and Costing Analytics — executive summary showing pocket revenue, pocket margin, revenue leakage and realisation opportunity, above realised price against cost and a margin-leakage trend">
+          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
+        </button>
+        <div class="card-body">
+          <div class="card-head">
+            <p class="kicker">PRICING &amp; MARGIN · DECISION SUPPORT</p>
+            <p class="card-tests">3182 tests ✓</p>
+          </div>
+          <h3>Pricing &amp; Costing Analytics</h3>
+          <p class="outcome">The list price is not the price. <strong>18.2% of it never arrives</strong>, and this says which points to go and get.</p>
+          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">Margin here is measured on <em>pocket</em> price: what is left after every discount, rebate, payment term, freight allowance and return. A margin quoted on list price lets a deal look healthy while it loses money. The output is a recommendation, not an elasticity: six ordered actions across 240 products, <strong>worth $2.65M of annual gross margin</strong>. Each says why it was chosen and how strong its evidence is.<br><br>A review log says who decides what. All 240 proposals are logged, and each material one goes to a named approver. <strong>161 still wait on a human decision</strong>, and the release checks read <strong>6 passed, 2 in review, 0 blocked</strong>. It then follows 2,075 approved past changes through fixed three-month before-and-after windows. 1,132 stay on a queue for explanation instead of being counted as a benefit. The monitor is labelled observational, and the public app cannot approve or publish a customer price.<br><br>What I would ask about first: <em>the dataset is built so the analysis can be caught being wrong</em>. Elasticity, cost pass-through and segment price sensitivity are planted on purpose, then recovered by the real code. The estimated category elasticities keep the planted order, at a rank correlation of <strong>0.95</strong>. Every pass-through estimate comes out pulled toward zero, which is what a regression on noisy data should do. It took four attempts: when price moves only with time, it cannot be separated from the trend, and no elasticity can be recovered.<br><br>Underneath, the ERP data arrives the way ERP data does: SAP-shaped billing lines with missing standard costs, duplicate lines, unit-of-measure mismatches and orphan customers, all planted on purpose. All twelve quality rules find something. The reconciliation walks the extract down to the staged total, names every exclusion and leaves <strong>$0.00 unexplained</strong>. Six marts are computed a second time in DuckDB and held to the pandas versions at 1e-8. That is how a price-band median was caught <em>five percent</em> apart under the same column name.</p></details>
+          <div class="card-stats">
+            <div><div class="stat-v">18.2%</div><div class="stat-k">OF LIST PRICE NEVER ARRIVES</div></div>
+            <div><div class="stat-v">$2.65M</div><div class="stat-k">MODELLED ANNUAL MARGIN</div></div>
+            <div><div class="stat-v">240</div><div class="stat-k">PROPOSALS ROUTED TO REVIEW</div></div>
+          </div>
+          <ul class="tags">
+            <li>Python</li>
+            <li>DuckDB</li>
+            <li>Power BI</li>
+            <li>Streamlit</li>
+          </ul>
+          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Seeded elasticity ordering recovered at rank correlation 0.95 · $0.00 unexplained in the ERP reconciliation · 240 proposals routed to named review authority · 2,075 historical changes monitored · 18 app pages · 19-page generated Power BI report, 352 visuals rendering with 0 broken</p>
+          <a class="card-open card-open-live" href="https://cost-to-price-calculator.streamlit.app" target="_blank" rel="noopener"><span>▶ TRY IT LIVE</span><span aria-hidden="true">↗</span></a>
+          <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/pricing-costing-analytics/blob/main/output/pricing_decision_packet.md" target="_blank" rel="noopener"><span>VIEW DECISION PACKET</span><span aria-hidden="true">↗</span></a>
+          <a class="card-open" href="https://github.com/KushPatel29/pricing-costing-analytics" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
 <article class="project card" id="p-excel-fpa" data-tags="finance business bi energy">
@@ -1115,7 +1148,7 @@ WHERE verdict = 'GO'</pre>
       </article>
 </div>
     <details id="more-projects" class="section-details more-projects">
-      <summary>Ten more projects — web analytics, health, pricing, dbt, financial crime, marketing, recommendations, people analytics, clinical data and migration</summary>
+      <summary>Nine more projects — web analytics, health, dbt, financial crime, marketing, recommendations, people analytics, clinical data and migration</summary>
       <div class="card-grid">
 <article class="project card portfolio-intelligence-card" id="p-portfolio-intelligence" data-tags="bi engineering customer business">
         <div class="analytics-card-visual" role="img" aria-label="Synthetic Portfolio Intelligence fixture preview generated from 20 committed events">
@@ -1169,31 +1202,6 @@ WHERE verdict = 'GO'</pre>
           </ul>
           <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/healthcare-claims-analytics/blob/master/output/health_intervention_decision_packet.md" target="_blank" rel="noopener"><span>VIEW DECISION PACKET</span><span aria-hidden="true">↗</span></a>
           <a class="card-open" href="https://github.com/KushPatel29/healthcare-claims-analytics" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
-<article class="project card" id="p-pricing-analytics" data-tags="bi finance supply">
-        <button type="button" class="card-zoom" data-zoom="assets/pricing-analytics.jpg"
-                aria-label="Enlarge: Pricing and Costing Analytics — the executive summary, with pocket revenue, margin, leakage and the realisation opportunity">
-          <img src="assets/pricing-analytics.jpg" width="1280" height="670" loading="lazy" decoding="async"
-               alt="Pricing and Costing Analytics — executive summary showing pocket revenue, pocket margin, revenue leakage and realisation opportunity, above realised price against cost and a margin-leakage trend">
-          <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
-        </button>
-        <div class="card-body">
-          <p class="kicker">PRICING &amp; MARGIN · DECISION SUPPORT</p>
-          <h3>Pricing &amp; Costing Analytics</h3>
-          <p class="outcome">The list price is not the price. <strong>18.2% of it never arrives</strong>, and this says which points to go and get.</p>
-          <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">Margin here is measured on <em>pocket</em> price: what is left after every discount, rebate, payment term, freight allowance and return. A margin quoted on list price lets a deal look healthy while it loses money. The output is a recommendation, not an elasticity: six ordered actions across 240 products, <strong>worth $2.65M of annual gross margin</strong>. Each says why it was chosen and how strong its evidence is.<br><br>A review log says who decides what. All 240 proposals are logged, and each material one goes to a named approver. <strong>161 still wait on a human decision</strong>, and the release checks read <strong>6 passed, 2 in review, 0 blocked</strong>. It then follows 2,075 approved past changes through fixed three-month before-and-after windows. 1,132 stay on a queue for explanation instead of being counted as a benefit. The monitor is labelled observational, and the public app cannot approve or publish a customer price.<br><br>What I would ask about first: <em>the dataset is built so the analysis can be caught being wrong</em>. Elasticity, cost pass-through and segment price sensitivity are planted on purpose, then recovered by the real code. The estimated category elasticities keep the planted order, at a rank correlation of <strong>0.95</strong>. Every pass-through estimate comes out pulled toward zero, which is what a regression on noisy data should do. It took four attempts: when price moves only with time, it cannot be separated from the trend, and no elasticity can be recovered.<br><br>Underneath, the ERP data arrives the way ERP data does: SAP-shaped billing lines with missing standard costs, duplicate lines, unit-of-measure mismatches and orphan customers, all planted on purpose. All twelve quality rules find something. The reconciliation walks the extract down to the staged total, names every exclusion and leaves <strong>$0.00 unexplained</strong>. Six marts are computed a second time in DuckDB and held to the pandas versions at 1e-8. That is how a price-band median was caught <em>five percent</em> apart under the same column name.</p></details>
-          <ul class="tags">
-            <li>Python</li>
-            <li>DuckDB</li>
-            <li>Power BI</li>
-            <li>Streamlit</li>
-            <li class="tag-tests">3182 tests ✓</li>
-          </ul>
-          <p class="proof"><span class="proof-tick" aria-hidden="true">✓</span> Seeded elasticity ordering recovered at rank correlation 0.95 · $0.00 unexplained in the ERP reconciliation · 240 proposals routed to named review authority · 2,075 historical changes monitored · 18 app pages · 19-page generated Power BI report, 352 visuals rendering with 0 broken</p>
-          <a class="card-open card-open-live" href="https://cost-to-price-calculator.streamlit.app" target="_blank" rel="noopener"><span>▶ TRY IT LIVE</span><span aria-hidden="true">↗</span></a>
-          <a class="card-open card-open-evidence" href="https://github.com/KushPatel29/pricing-costing-analytics/blob/main/output/pricing_decision_packet.md" target="_blank" rel="noopener"><span>VIEW DECISION PACKET</span><span aria-hidden="true">↗</span></a>
-          <a class="card-open" href="https://github.com/KushPatel29/pricing-costing-analytics" target="_blank" rel="noopener"><span>OPEN REPO</span><span aria-hidden="true">↗</span></a>
         </div>
       </article>
 <article class="project card" id="p-dbt" data-tags="engineering supply">
