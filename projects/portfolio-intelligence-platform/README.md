@@ -1,5 +1,7 @@
 # Portfolio Intelligence Platform
 
+![dbt tests](https://img.shields.io/badge/dbt%20tests-15%20passing-08695e)
+
 **Status: complete · [Open the GitHub Pages case study](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/)**
 
 A portfolio-grade web analytics system that joins consent-aware browser instrumentation, governed event and metric contracts, reproducible dbt models, automated quality gates, and an interactive executive dashboard. The public experience uses a clearly labeled synthetic dataset; no demo values are presented as real visitor behavior.
