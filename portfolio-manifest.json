@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-09-25",
+  "lastVerified": "2026-09-26",
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
-    "promotedProjects": 18,
-    "automatedTests": 12769
+    "promotedProjects": 19,
+    "automatedTests": 12816
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -33,6 +33,26 @@
         "https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/",
         "https://github.com/KushPatel29/kushpatel29.github.io/tree/main/projects/portfolio-intelligence-platform",
         "https://github.com/KushPatel29/kushpatel29.github.io/blob/main/projects/portfolio-intelligence-platform/docs/metric-definitions.md"
+      ]
+    },
+    {
+      "id": "growthops-os",
+      "cardId": "p-growthops",
+      "title": "GrowthOps OS",
+      "repository": "https://github.com/KushPatel29/GrowthOps-OS",
+      "liveApp": "https://growthops-os.streamlit.app/",
+      "liveStatus": "live-demo",
+      "testCount": 47,
+      "testCommand": "pytest",
+      "dataClassification": "synthetic",
+      "priority": "flagship",
+      "productShape": "Growth and revenue measurement system with exact reconciliation, change diagnostics, lifecycle automation and a claim-validated morning brief",
+      "primaryDecision": "Which revenue number is right, what changed and why, and what should the growth team do this morning?",
+      "capabilities": ["marketing", "attribution", "revenue-reconciliation", "anomaly-detection", "experimentation", "crm-migration", "workflow-automation", "dbt", "llm-guardrails", "streamlit"],
+      "evidence": [
+        "https://github.com/KushPatel29/GrowthOps-OS/blob/main/docs/case-study.md",
+        "https://github.com/KushPatel29/GrowthOps-OS/blob/main/docs/metric-catalog.md",
+        "https://github.com/KushPatel29/GrowthOps-OS/blob/main/evals/narrative_guardrail_cases.json"
       ]
     },
     {

@@ -19,7 +19,7 @@ whose duties are pipelines is a data engineering role.
 
 | Family (common titles) | Core requirements that decide fit | Role fit view | Lead with | Usual real-gap risks |
 |---|---|---|---|---|
-| **Data Analyst** (insights, reporting, operations, product, marketing analyst) | SQL; a BI tool; stakeholder questions → findings; data quality | `data-analyst` | Retail Analytics Platform, Pricing & Costing, Finance models | product/web analytics (GA4, event data, A/B platforms); a named BI tool other than Power BI |
+| **Data Analyst** (insights, reporting, operations, product, marketing analyst) | SQL; a BI tool; stakeholder questions → findings; data quality | `data-analyst` | Retail Analytics Platform, Pricing & Costing, Finance models; GrowthOps OS for marketing, growth and revenue-ops postings (attribution, platform vs CRM vs cash reconciliation, UTM/CRM hygiene, funnel, A/B test readout) | live GA4 / ad-platform / HubSpot account work (GrowthOps uses synthetic data and simulated adapters); a named BI tool other than Power BI |
 | **BI / Reporting Analyst, BI Developer** | Power BI or named BI tool; data modelling; DAX; RLS; report delivery | `bi-developer` | Supply Chain Control Tower, GL Recon, Health System | Tableau/Looker/Qlik as *primary* tool in a job; SSAS; PL-300 required |
 | **Analytics Engineer** | dbt; dimensional modelling; tests/CI; cloud warehouse; metric definitions | `analytics-engineer` | Supply Chain Analytics — dbt, Retail Analytics Platform, BC finance | dbt **in production**; Snowflake/BigQuery named as required; Looker/LookML in production |
 | **Data Engineer** | pipelines/ELT; orchestration; cloud platform; data quality; scale | `data-engineer` | Control Tower, Legacy-to-Fabric Migration, BC finance | AWS/GCP; Kafka/streaming; Terraform; Airflow in production; years of pure DE |
@@ -64,7 +64,7 @@ evidence, it is a real gap.
 | "automation", "streamline reporting" | Python/SQL automation (~40%, internal estimate) | PAID |
 | "big data", "Spark" | PySpark in Fabric/Synapse | PAID |
 | "semantic layer", "metrics layer" | Power BI semantic model (paid); MetricFlow (project) | PAID |
-| "version control", "CI/CD", "software engineering practices" | Git plus automated validation in GitHub Actions across 18 projects | PROJECT |
+| "version control", "CI/CD", "software engineering practices" | Git plus automated validation in GitHub Actions across 19 projects | PROJECT |
 | "statistics", "regression", "hypothesis testing" | geo holdout, diff-in-diff, permutation test, survival, LINEST; MPS | PROJECT+DEGREE |
 | "experimentation", "A/B testing" | pre-registered experiment design, geo holdout | PROJECT |
 | "R or Python", "Python or similar" | Python | PAID |
