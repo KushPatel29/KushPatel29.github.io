@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
-inventory-verified: 2026-09-24
-manifest-totals: 19 projects · 12816 tests
+inventory-verified: 2026-09-26
+manifest-totals: 19 projects · 12825 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -131,6 +131,9 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Healthcare / FHIR / clinical data | PROJECT | health system, clinical console | **synthetic data**, no healthcare employer |
 | AML / financial crime | PROJECT | transaction monitoring | synthetic data |
 | Marketing attribution, LookML semantic layer | PROJECT | marketing attribution repo: `looker/` model + 3 views (win rate, ACV, NRR, GRR…), parsed and schema-checked in CI | LookML as code; running it in a Looker instance is not stated |
+| Email analytics (deliverability, human vs machine opens, CTR, newsletter → pipeline) | PROJECT | GrowthOps OS `email_analytics.py`, `mart_email_performance` | synthetic sends; no email platform (Klaviyo, HubSpot, Mailchimp) used |
+| HubSpot data model (lifecyclestage, dealstage, owners, custom properties, import files, CRM v3 search payloads) | PROJECT | GrowthOps OS `hubspot.py`, `docs/hubspot-mapping.md` | mapping and files only; **no hands-on HubSpot portal** — HubSpot itself stays in §5 |
+| Short-link / UTM governance (Bitly-style) | PROJECT | GrowthOps OS link audit, `mart_link_hygiene`; campaign-link builder | synthetic links; no Bitly account |
 | Public-sector finance | PROJECT | BC local-government finance (public data) | — |
 
 ## 5. Not evidenced anywhere
@@ -140,7 +143,7 @@ new facts in the conversation (then treat the new fact as user-stated and say
 so): AWS (any service, incl. Redshift, S3, Glue), GCP / BigQuery, Snowflake
 execution, Looker (the product), Qlik, Alteryx, SAS, R, VBA/macros, SAP as a
 user (only SAP-shaped synthetic extracts), Oracle, NetSuite, Dynamics 365,
-Salesforce, HubSpot, GA4 / web analytics, Jira, Confluence, Agile/Scrum
+Salesforce, HubSpot (hands-on in a portal; the data-model mapping in §4 is PROJECT), GA4 / web analytics, Jira, Confluence, Agile/Scrum
 ceremonies, Kafka or production streaming, Terraform / IaC, Kubernetes, SSAS,
 dbt Cloud, Hadoop, data-catalog tools (Purview, Collibra, Alation), Lean / Six
 Sigma, formal BRDs or Agile user stories, HIPAA / PHIPA / PIPEDA compliance
@@ -167,7 +170,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Project | Anchor | Tests | Data | Live | Strongest for |
 |---|---|---|---|---|---|
 | Portfolio Intelligence Platform | p-portfolio-intelligence | 15 | synthetic | yes | AE, DA — 20-event fixture, dbt-to-JSON lineage, metric governance, explicit unavailable states |
-| GrowthOps OS | p-growthops | 47 | synthetic | yes | marketing/growth DA, revenue ops, AE — platform vs CRM vs cash reconciliation, anomaly root cause, UTM and CRM hygiene, webhook automation, LLM guardrail evals |
+| GrowthOps OS | p-growthops | 56 | synthetic | yes | marketing/growth DA, revenue ops, AE — platform vs CRM vs cash reconciliation, anomaly root cause, paid efficiency to cost per booked call, email analytics and deliverability, UTM/short-link and CRM hygiene, HubSpot property mapping (no portal), written daily update, webhook automation, LLM guardrail evals |
 | Retail Analytics Platform | p-wholesale | 1423 | synthetic | yes | DA, AE, BI — metric governance, 62 governed metrics, margin root cause |
 | Supply Chain Control Tower | p-control-tower | 836 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |

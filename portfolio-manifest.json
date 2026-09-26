@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 19,
-    "automatedTests": 12816
+    "automatedTests": 12825
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -42,13 +42,13 @@
       "repository": "https://github.com/KushPatel29/GrowthOps-OS",
       "liveApp": "https://growthops-os.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 47,
+      "testCount": 56,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "flagship",
       "productShape": "Growth and revenue measurement system with exact reconciliation, change diagnostics, lifecycle automation and a claim-validated morning brief",
       "primaryDecision": "Which revenue number is right, what changed and why, and what should the growth team do this morning?",
-      "capabilities": ["marketing", "attribution", "revenue-reconciliation", "anomaly-detection", "experimentation", "crm-migration", "workflow-automation", "dbt", "llm-guardrails", "streamlit"],
+      "capabilities": ["marketing", "attribution", "revenue-reconciliation", "anomaly-detection", "experimentation", "email-analytics", "utm-governance", "crm-migration", "hubspot-mapping", "workflow-automation", "dbt", "llm-guardrails", "streamlit"],
       "evidence": [
         "https://github.com/KushPatel29/GrowthOps-OS/blob/main/docs/case-study.md",
         "https://github.com/KushPatel29/GrowthOps-OS/blob/main/docs/metric-catalog.md",
