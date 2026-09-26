@@ -33,7 +33,7 @@ Rule path: no gate unmet → must ≥ 60% and no real gap on a core row → visi
 | 2 | "in Snowflake" / "Snowflake preferred" | 2 | Fabric Warehouse, Synapse (paid); dbt profile for Snowflake exists but has **never run** | adjacent | 0.5 / 0.5 | Adjacent tool |
 | 3 | "Define and document core business metrics with finance and merchandising" | 2 | Two Rivers: governed KPIs agreed with Sales, Finance, Supply Chain, with documented definitions; 62 governed metrics `#p-wholesale` | PAID | 1.0 / 1.0 | Match |
 | 4 | "Write data tests" | 2 | Two Rivers: automated schema, completeness, uniqueness, RI tests | PAID | 1.0 / 1.0 | Match |
-| 5 | "maintain CI for our analytics codebase" | 2 | Automated validation in GitHub Actions across all 18 projects | PROJECT | 0.7 / 0.7 | Match (project tier) |
+| 5 | "maintain CI for our analytics codebase" | 2 | Automated validation in GitHub Actions across all 19 projects | PROJECT | 0.7 / 0.7 | Match (project tier) |
 | 6 | "Partner with data engineering on Airflow-orchestrated pipelines" | 2 | Airflow DAG in `#p-dbt` (checked, not scheduled); ADF/Fabric orchestration at Two Rivers | PROJECT | 0.7 / 0.7 | Match (project tier) |
 | 7 | "Support self-serve analytics in Looker" | 2 | Power BI self-serve rollout with RLS at Two Rivers | adjacent | 0.5 / 0.5 | Adjacent tool |
 | 8 | "2+ years of production dbt experience" | 3 | dbt is project-only (résumé says "not production") | PROJECT | 0.35 / 0.35 | **Depth gap (core)** |

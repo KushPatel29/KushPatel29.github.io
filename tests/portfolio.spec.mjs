@@ -1,4 +1,9 @@
+import fs from "node:fs";
 import { expect, test } from "@playwright/test";
+
+// The project total comes from the manifest, so adding a project cannot silently break this spec.
+const PROJECT_COUNT = JSON.parse(fs.readFileSync(new URL("../portfolio-manifest.json", import.meta.url), "utf8"))
+  .projects.length;
 
 const ROLES = [
   "data-analyst",
@@ -89,7 +94,7 @@ test("project filters remain shareable and only reveal matching work", async ({ 
 
   await expect(page).toHaveURL(/\?filter=ai#work$/);
   await expect(page.getByRole("button", { name: "AI & ML" })).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator("#work-count")).toContainText(/SHOWING [1-9]\d* \/ 18 PROJECTS/);
+  await expect(page.locator("#work-count")).toContainText(new RegExp(`SHOWING [1-9]\\d* / ${PROJECT_COUNT} PROJECTS`));
 
   const tags = await page.locator(".project:not(.is-filtered-out)").evaluateAll((cards) =>
     cards.map((card) => card.getAttribute("data-tags") || ""),

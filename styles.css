@@ -884,6 +884,15 @@ main {
   .primary-projects { grid-template-columns: minmax(0, 1fr); }
 }
 
+/* A featured card spans both columns: screenshot beside the case on wide
+   screens, stacked like every other card on phones. */
+.primary-projects .card-wide { grid-column: 1 / -1; }
+@media (min-width: 761px) {
+  .card.card-wide { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+  .card.card-wide .card-zoom { border-right: 1px solid var(--line-soft); }
+  .card.card-wide img { height: 100%; min-height: 340px; border-bottom: 0; }
+}
+
 .card {
   position: relative;
   display: flex;
