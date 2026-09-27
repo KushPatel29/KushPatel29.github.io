@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 19,
-    "automatedTests": 13153
+    "automatedTests": 13319
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -42,7 +42,7 @@
       "repository": "https://github.com/KushPatel29/GrowthOps-OS",
       "liveApp": "https://growthops-os.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 384,
+      "testCount": 550,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "flagship",

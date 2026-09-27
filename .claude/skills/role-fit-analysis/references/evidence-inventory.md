@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
 inventory-verified: 2026-09-26
-manifest-totals: 19 projects · 13153 tests
+manifest-totals: 19 projects · 13319 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -170,7 +170,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Project | Anchor | Tests | Data | Live | Strongest for |
 |---|---|---|---|---|---|
 | Portfolio Intelligence Platform | p-portfolio-intelligence | 15 | synthetic | yes | AE, DA — 20-event fixture, dbt-to-JSON lineage, metric governance, explicit unavailable states |
-| GrowthOps OS | p-growthops | 384 | synthetic | yes | marketing/growth DA, revenue ops, AE, BI — generated 7-page Power BI report (211 DAX measures, SVG KPI tiles, DAX-written summary) and a formula-driven Excel workbook with a campaign scorecard, agreeing to the cent; platform vs CRM vs cash reconciliation, anomaly root cause, paid efficiency to cost per booked call, email analytics and deliverability, UTM/short-link and CRM hygiene, HubSpot property mapping (no portal), written daily update, webhook automation with a retry/alert worker, keyless local RAG ask-your-data, production operations (auth, signed webhooks, metrics, backups, containers) |
+| GrowthOps OS | p-growthops | 550 | synthetic | yes | marketing/growth DA, revenue ops, AE, BI — generated 7-page Power BI report (211 DAX measures, SVG KPI tiles, DAX-written summary) and a formula-driven Excel workbook with a campaign scorecard, agreeing to the cent; platform vs CRM vs cash reconciliation, anomaly root cause, paid efficiency to cost per booked call, email analytics and deliverability, UTM/short-link and CRM hygiene, HubSpot property mapping (no portal), written daily update, webhook automation with a retry/alert worker, keyless local RAG ask-your-data, production operations (auth, signed webhooks, metrics, backups, containers) |
 | Retail Analytics Platform | p-wholesale | 1423 | synthetic | yes | DA, AE, BI — metric governance, 62 governed metrics, margin root cause |
 | Supply Chain Control Tower | p-control-tower | 836 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |
