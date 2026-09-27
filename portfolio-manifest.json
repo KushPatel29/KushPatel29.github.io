@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 19,
-    "automatedTests": 12848
+    "automatedTests": 13091
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -42,14 +42,15 @@
       "repository": "https://github.com/KushPatel29/GrowthOps-OS",
       "liveApp": "https://growthops-os.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 79,
+      "testCount": 322,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "flagship",
       "productShape": "Growth and revenue measurement system with exact reconciliation, change diagnostics, lifecycle automation and a claim-validated morning brief",
       "primaryDecision": "Which revenue number is right, what changed and why, and what should the growth team do this morning?",
-      "capabilities": ["marketing", "attribution", "revenue-reconciliation", "anomaly-detection", "experimentation", "email-analytics", "utm-governance", "crm-migration", "hubspot-mapping", "workflow-automation", "dbt", "keyless-rag", "production-operations", "streamlit"],
+      "capabilities": ["marketing", "attribution", "revenue-reconciliation", "anomaly-detection", "experimentation", "email-analytics", "utm-governance", "crm-migration", "hubspot-mapping", "workflow-automation", "dbt", "keyless-rag", "production-operations", "streamlit", "power-bi", "dax", "excel"],
       "evidence": [
+        "https://github.com/KushPatel29/GrowthOps-OS/blob/main/docs/power-bi-handoff.md",
         "https://github.com/KushPatel29/GrowthOps-OS/blob/main/docs/case-study.md",
         "https://github.com/KushPatel29/GrowthOps-OS/blob/main/docs/metric-catalog.md",
         "https://github.com/KushPatel29/GrowthOps-OS/blob/main/evals/narrative_guardrail_cases.json"
