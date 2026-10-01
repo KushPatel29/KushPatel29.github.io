@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
-inventory-verified: 2026-09-26
-manifest-totals: 19 projects · 13442 tests
+inventory-verified: 2026-10-01
+manifest-totals: 20 projects · 13571 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -112,7 +112,7 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Data quality tests, contracts, quarantine, alerting | PAID+PROJECT | Two Rivers tests/alerts; control tower, BC finance contracts | — |
 | Migration with cutover validation | PAID+PROJECT | Two Rivers; Legacy-to-Fabric Migration repo | — |
 | REST API integration | PAID | Synerion time-and-attendance API | — |
-| Git, GitHub Actions CI, Docker | PROJECT | all 19 public projects run automated validation; Portfolio Intelligence runs in this repo's root workflow | Git use in paid work not stated |
+| Git, GitHub Actions CI, Docker | PROJECT | all 20 public projects run automated validation; Portfolio Intelligence runs in this repo's root workflow | Git use in paid work not stated |
 | Stakeholder engagement, requirements, KPI definitions, acceptance criteria | PAID | Two Rivers (Sales, Finance, Supply Chain); Shivam (portfolio/risk) | — |
 | Process mapping, UAT plans, traceability, business cases, RACI/RAID | PROJECT | inventory BA case (13 reqs, 12 UAT), clinical UAT plan, migration charter/RACI, supply-chain process case | documents are portfolio artifacts, not employer deliverables |
 | Change and adoption | PAID | widened Power BI self-service with RLS at Two Rivers | — |
@@ -134,6 +134,9 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Email analytics (deliverability, human vs machine opens, CTR, newsletter → pipeline) | PROJECT | GrowthOps OS `email_analytics.py`, `mart_email_performance` | synthetic sends; no email platform (Klaviyo, HubSpot, Mailchimp) used |
 | HubSpot data model (lifecyclestage, dealstage, owners, custom properties, import files, CRM v3 search payloads) | PROJECT | GrowthOps OS `hubspot.py`, `docs/hubspot-mapping.md` | mapping and files |
 | HubSpot hands-on (portal build via API: properties, pipelines, Imports API, lists, workflows, dashboard; two-way sync with field-ownership contract, approved change sets, signed webhooks, tasks; products, line items, tickets) | PROJECT | GrowthOps OS `hubspot_portal.py`, `hubspot_sync.py`, `docs/hubspot-production.md`, `docs/hubspot-sync.md` | a HubSpot **developer test account** with synthetic data, built through the APIs and HubSpot's connector; not a company's production portal, no HubSpot admin role, no marketing emails sent |
+| HubSpot CRM development (developer projects platform 2026.09: private apps, UI-extension CRM cards in React/TypeScript, app functions, public endpoint functions, custom workflow actions, webhook subscriptions with v3 signature checks) | PROJECT | HubSpot CRM Platform `hubspot/` (apps.mjs + build.mjs generate one project per business; cards tested with HubSpot's createRenderer); all four cards used on real records, a HubSpot workflow ran the custom action, a HubSpot-delivered webhook was verified (`docs/live-evidence.md`) | four **developer test accounts**, synthetic data; private static-auth apps, **not** a marketplace OAuth app; no paid CRM-developer role |
+| CRM-as-code: custom objects, pipelines, association labels, idempotent keyed loads | PROJECT | HubSpot CRM Platform `crm_platform/` (schema engine plans, applies and re-plans to zero; never deletes; 2,977 records and 3,393 associations loaded live, rerun planned 0 writes) | developer test accounts, not a company's production portal |
+| Salesforce data model (custom objects, fields, picklists as SFDX source) | PROJECT | HubSpot CRM Platform `salesforce/` compiled from the same model, CI `--check` gate | **generated and checked, never deployed to an org**; no Apex, Flows or Lightning components |
 | Short-link / UTM governance (Bitly-style) | PROJECT | GrowthOps OS link audit, `mart_link_hygiene`; campaign-link builder | synthetic links; no Bitly account |
 | Public-sector finance | PROJECT | BC local-government finance (public data) | — |
 
@@ -144,7 +147,7 @@ new facts in the conversation (then treat the new fact as user-stated and say
 so): AWS (any service, incl. Redshift, S3, Glue), GCP / BigQuery, Snowflake
 execution, Looker (the product), Qlik, Alteryx, SAS, R, VBA/macros, SAP as a
 user (only SAP-shaped synthetic extracts), Oracle, NetSuite, Dynamics 365,
-Salesforce, HubSpot in a company's production portal (the developer-test-account build in §4 is PROJECT), GA4 / web analytics, Jira, Confluence, Agile/Scrum
+Salesforce as an org (deploys, Apex, Flows, Lightning; the SFDX metadata in §4 is generated, never deployed), HubSpot in a company's production portal (the developer-test-account builds in §4 are PROJECT), HubSpot marketplace/OAuth app publishing, GA4 / web analytics, Jira, Confluence, Agile/Scrum
 ceremonies, Kafka or production streaming, Terraform / IaC, Kubernetes, SSAS,
 dbt Cloud, Hadoop, data-catalog tools (Purview, Collibra, Alation), Lean / Six
 Sigma, formal BRDs or Agile user stories, HIPAA / PHIPA / PIPEDA compliance
@@ -172,6 +175,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 |---|---|---|---|---|---|
 | Portfolio Intelligence Platform | p-portfolio-intelligence | 15 | synthetic | yes | AE, DA — 20-event fixture, dbt-to-JSON lineage, metric governance, explicit unavailable states |
 | GrowthOps OS | p-growthops | 673 | synthetic | yes | marketing/growth DA, revenue ops, AE, BI — generated 7-page Power BI report (215 DAX measures, SVG KPI tiles, DAX-written summary) and a formula-driven Excel workbook with a campaign scorecard, agreeing to the cent; platform vs CRM vs cash reconciliation, anomaly root cause, paid efficiency to cost per booked call, email analytics and deliverability, UTM/short-link and CRM hygiene, HubSpot in a developer test account (portal build, two-way sync under a field contract, approved change sets, signed webhooks, products/line items/tickets), written daily update, webhook automation with a retry/alert worker, keyless local RAG ask-your-data, production operations (auth, signed webhooks, metrics, backups, containers) |
+| HubSpot CRM Platform | p-hubspot-crm | 129 | synthetic | no | CRM developer, HubSpot developer, RevOps engineering — CRM-as-code for four businesses (custom objects, pipelines, association labels, keyed loads rerun to zero writes), a private app per business with React CRM cards, app functions, a custom workflow action and signed webhooks, all live in developer test accounts; same model compiled to Salesforce SFDX metadata |
 | Retail Analytics Platform | p-wholesale | 1423 | synthetic | yes | DA, AE, BI — metric governance, 62 governed metrics, margin root cause |
 | Supply Chain Control Tower | p-control-tower | 836 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |

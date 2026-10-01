@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-09-30",
+  "lastVerified": "2026-10-01",
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
-    "promotedProjects": 19,
-    "automatedTests": 13442
+    "promotedProjects": 20,
+    "automatedTests": 13571
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -54,6 +54,26 @@
         "https://github.com/KushPatel29/GrowthOps-OS/blob/main/docs/case-study.md",
         "https://github.com/KushPatel29/GrowthOps-OS/blob/main/docs/metric-catalog.md",
         "https://github.com/KushPatel29/GrowthOps-OS/blob/main/evals/narrative_guardrail_cases.json"
+      ]
+    },
+    {
+      "id": "hubspot-crm-platform",
+      "cardId": "p-hubspot-crm",
+      "title": "HubSpot CRM Platform",
+      "repository": "https://github.com/KushPatel29/hubspot-crm-platform",
+      "liveApp": null,
+      "liveStatus": "repository-only",
+      "testCount": 129,
+      "testCommand": "pytest && npm test --prefix hubspot",
+      "dataClassification": "synthetic",
+      "priority": "flagship",
+      "productShape": "CRM-as-code for four businesses in HubSpot developer test accounts: a schema engine, a keyed record loader, a private app per business with CRM cards, app functions, a workflow action and signed webhooks, and the same model compiled to Salesforce metadata",
+      "primaryDecision": "What does each business's CRM need, and can it be built, loaded and rerun from code without duplicating records or overwriting what people have changed?",
+      "capabilities": ["hubspot", "crm-development", "custom-objects", "ui-extensions", "app-functions", "workflow-actions", "webhooks", "crm-as-code", "salesforce-metadata"],
+      "evidence": [
+        "https://github.com/KushPatel29/hubspot-crm-platform/blob/main/README.md",
+        "https://github.com/KushPatel29/hubspot-crm-platform/blob/main/docs/live-evidence.md",
+        "https://github.com/KushPatel29/hubspot-crm-platform/blob/main/docs/runbook.md"
       ]
     },
     {

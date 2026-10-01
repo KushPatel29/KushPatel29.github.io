@@ -27,6 +27,7 @@ whose duties are pipelines is a data engineering role.
 | **Financial / FP&A Analyst** | Excel modelling; variance; close/reconciliation; budgeting and forecasting | `financial-analyst` | Finance models (Excel + Power BI), GL Recon, Pricing | CPA/CFA; paid budgeting/FP&A cycle; three-statement/DCF; named ERP (SAP, Oracle, NetSuite) |
 | **Supply Chain / Operations Analyst** | inventory; OTIF/service; demand forecasting; ERP/WMS data | `supply-chain-analyst` | Inventory Analytics, Control Tower, dbt | named planning systems (SAP APO/IBP, Kinaxis, Blue Yonder); manufacturing/MRP |
 | **Data Scientist / ML** | modelling; evaluation; statistics; experimentation; production ML | `data-scientist` | Wildfire, Transaction Monitoring, Ask Your Data | production ML ownership; deep learning in a job; PhD; MLOps platforms |
+| **CRM Developer** (HubSpot developer, CRM engineer, RevOps engineer, CRM integration developer) | CRM data model (custom objects, properties, pipelines, associations); CRM APIs and integrations; UI extensions/cards; workflow automation; webhooks | `data-engineer` (the site has no CRM view; link `#p-hubspot-crm` directly) | HubSpot CRM Platform, then GrowthOps OS (two-way HubSpot sync under a field contract) | CRM work in a job (all of it is PROJECT, in developer test accounts); Salesforce as a deployed org, Apex, Flows, Lightning; marketplace/OAuth app publishing; HubSpot or Salesforce certifications |
 
 **Adjacent roles** (data governance / data quality analyst, analytics consultant,
 revenue or sales-ops analyst, people analytics, healthcare data analyst,
@@ -64,7 +65,7 @@ evidence, it is a real gap.
 | "automation", "streamline reporting" | Python/SQL automation (~40%, internal estimate) | PAID |
 | "big data", "Spark" | PySpark in Fabric/Synapse | PAID |
 | "semantic layer", "metrics layer" | Power BI semantic model (paid); MetricFlow (project) | PAID |
-| "version control", "CI/CD", "software engineering practices" | Git plus automated validation in GitHub Actions across 19 projects | PROJECT |
+| "version control", "CI/CD", "software engineering practices" | Git plus automated validation in GitHub Actions across 20 projects | PROJECT |
 | "statistics", "regression", "hypothesis testing" | geo holdout, diff-in-diff, permutation test, survival, LINEST; MPS | PROJECT+DEGREE |
 | "experimentation", "A/B testing" | pre-registered experiment design, geo holdout | PROJECT |
 | "R or Python", "Python or similar" | Python | PAID |
