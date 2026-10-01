@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 20,
-    "automatedTests": 13580
+    "automatedTests": 13614
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -63,13 +63,13 @@
       "repository": "https://github.com/KushPatel29/hubspot-crm-platform",
       "liveApp": null,
       "liveStatus": "repository-only",
-      "testCount": 138,
-      "testCommand": "pytest && npm test --prefix hubspot",
+      "testCount": 172,
+      "testCommand": "pytest && npm test --prefix hubspot && npm test --prefix salesforce/meridian",
       "dataClassification": "synthetic",
       "priority": "flagship",
       "productShape": "CRM-as-code for four businesses in HubSpot developer test accounts: a schema engine, a keyed record loader, a private app per business with CRM cards, app functions, a workflow action and signed webhooks, and the same model compiled to Salesforce metadata",
       "primaryDecision": "What does each business's CRM need, and can it be built, loaded and rerun from code without duplicating records or overwriting what people have changed?",
-      "capabilities": ["hubspot", "crm-development", "custom-objects", "ui-extensions", "app-functions", "workflow-actions", "webhooks", "crm-as-code", "salesforce-metadata"],
+      "capabilities": ["hubspot", "crm-development", "custom-objects", "ui-extensions", "app-functions", "workflow-actions", "webhooks", "oauth", "crm-as-code", "salesforce-metadata", "apex", "lightning-web-components"],
       "evidence": [
         "https://github.com/KushPatel29/hubspot-crm-platform/blob/main/README.md",
         "https://github.com/KushPatel29/hubspot-crm-platform/blob/main/docs/live-evidence.md",
