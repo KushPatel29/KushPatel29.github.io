@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 20,
-    "automatedTests": 13624
+    "automatedTests": 13628
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -63,7 +63,7 @@
       "repository": "https://github.com/KushPatel29/hubspot-crm-platform",
       "liveApp": null,
       "liveStatus": "repository-only",
-      "testCount": 174,
+      "testCount": 178,
       "testCommand": "pytest && npm test --prefix hubspot && npm test --prefix salesforce/meridian",
       "dataClassification": "synthetic",
       "priority": "flagship",
