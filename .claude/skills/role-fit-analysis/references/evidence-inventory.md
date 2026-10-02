@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
 inventory-verified: 2026-10-01
-manifest-totals: 20 projects · 13622 tests
+manifest-totals: 20 projects · 13624 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -178,7 +178,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 |---|---|---|---|---|---|
 | Portfolio Intelligence Platform | p-portfolio-intelligence | 15 | synthetic | yes | AE, DA — 20-event fixture, dbt-to-JSON lineage, metric governance, explicit unavailable states |
 | GrowthOps OS | p-growthops | 673 | synthetic | yes | marketing/growth DA, revenue ops, AE, BI — generated 7-page Power BI report (215 DAX measures, SVG KPI tiles, DAX-written summary) and a formula-driven Excel workbook with a campaign scorecard, agreeing to the cent; platform vs CRM vs cash reconciliation, anomaly root cause, paid efficiency to cost per booked call, email analytics and deliverability, UTM/short-link and CRM hygiene, HubSpot in a developer test account (portal build, two-way sync under a field contract, approved change sets, signed webhooks, products/line items/tickets), written daily update, webhook automation with a retry/alert worker, keyless local RAG ask-your-data, production operations (auth, signed webhooks, metrics, backups, containers) |
-| HubSpot CRM Platform | p-hubspot-crm | 172 | synthetic | no | CRM developer, HubSpot developer, RevOps engineering — CRM-as-code for four businesses (custom objects, pipelines, association labels, keyed loads rerun to zero writes), a private app per business with React CRM cards, app functions, a custom workflow action and signed webhooks, all live in developer test accounts; an idempotency key against duplicate deals (checked live); an OAuth connector; the same model compiled to Salesforce SFDX metadata, with the guardrail in Apex, an LWC and a Flow (not yet run in an org) |
+| HubSpot CRM Platform | p-hubspot-crm | 174 | synthetic | no | CRM developer, HubSpot developer, RevOps engineering — CRM-as-code for four businesses (custom objects, pipelines, association labels, keyed loads rerun to zero writes), a private app per business with React CRM cards, app functions, a custom workflow action and signed webhooks, all live in developer test accounts; an idempotency key against duplicate deals (checked live); an OAuth connector; the same model compiled to Salesforce SFDX metadata, with the guardrail in Apex, an LWC and a Flow, deployed to a Developer Edition org (11 Apex tests pass there; the same records loaded by key and re-planned to zero) |
 | Retail Analytics Platform | p-wholesale | 1431 | synthetic | yes | DA, AE, BI — metric governance, 62 governed metrics, margin root cause |
 | Supply Chain Control Tower | p-control-tower | 836 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |
