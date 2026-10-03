@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
 inventory-verified: 2026-10-03
-manifest-totals: 20 projects · 13676 tests
+manifest-totals: 20 projects · 13677 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -182,7 +182,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Retail Analytics Platform | p-wholesale | 1431 | synthetic | yes | DA, AE, BI — metric governance, 62 governed metrics, margin root cause |
 | Supply Chain Control Tower | p-control-tower | 836 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |
-| Ask Your Data | p-ask-your-data | 1162 | synthetic-and-session-upload | yes | DS, AE — governed text-to-SQL, 46/0/12 contract |
+| Ask Your Data | p-ask-your-data | 1163 | synthetic-and-session-upload | yes | DS, AE — governed text-to-SQL, 46/0/12 contract |
 | Canada Wildfire Risk | p-wildfire | 111 | public-open-data | yes | DS — XGBoost, ROC-AUC 0.881 out of time, GitHub Actions |
 | Health System Decision Support | p-healthcare | 819 | synthetic | no | healthcare DA/BA — SPC, decision packet |
 | Pricing & Costing Analytics | p-pricing-analytics | 3182 | synthetic | yes | DA, FA — pocket-price waterfall, approval routing |
