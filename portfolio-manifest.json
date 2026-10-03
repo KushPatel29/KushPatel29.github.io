@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-10-02",
+  "lastVerified": "2026-10-03",
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 20,
-    "automatedTests": 13628
+    "automatedTests": 13676
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -142,7 +142,7 @@
       "repository": "https://github.com/KushPatel29/ask-your-data",
       "liveApp": "https://ask-your-data-kp.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 1128,
+      "testCount": 1162,
       "testCommand": "pytest",
       "dataClassification": "synthetic-and-session-upload",
       "priority": "flagship",
@@ -347,7 +347,7 @@
       "repository": "https://github.com/KushPatel29/clinical-data-management",
       "liveApp": "https://kush-clinical-data-dashboard.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 281,
+      "testCount": 295,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",

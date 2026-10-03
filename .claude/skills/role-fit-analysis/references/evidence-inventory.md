@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
-inventory-verified: 2026-10-02
-manifest-totals: 20 projects · 13628 tests
+inventory-verified: 2026-10-03
+manifest-totals: 20 projects · 13676 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -182,7 +182,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Retail Analytics Platform | p-wholesale | 1431 | synthetic | yes | DA, AE, BI — metric governance, 62 governed metrics, margin root cause |
 | Supply Chain Control Tower | p-control-tower | 836 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |
-| Ask Your Data | p-ask-your-data | 1128 | synthetic-and-session-upload | yes | DS, AE — governed text-to-SQL, 46/0/12 contract |
+| Ask Your Data | p-ask-your-data | 1162 | synthetic-and-session-upload | yes | DS, AE — governed text-to-SQL, 46/0/12 contract |
 | Canada Wildfire Risk | p-wildfire | 111 | public-open-data | yes | DS — XGBoost, ROC-AUC 0.881 out of time, GitHub Actions |
 | Health System Decision Support | p-healthcare | 819 | synthetic | no | healthcare DA/BA — SPC, decision packet |
 | Pricing & Costing Analytics | p-pricing-analytics | 3182 | synthetic | yes | DA, FA — pocket-price waterfall, approval routing |
@@ -191,7 +191,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | B.C. Local-Government Finance | p-bc-finance | 181 | public-open-data | no | AE, FA, public sector — 90 contracted files, dbt 31 tests |
 | Transaction Monitoring | p-aml-monitoring | 183 | synthetic | yes | DS, fincrime — 60/60 planted cases |
 | Marketing Attribution & Incrementality | p-marketing | 128 | synthetic | yes | DS, marketing DA — geo holdout, budget allocator |
-| Clinical Evidence Console + FHIR Warehouse | p-clinical | 281 | synthetic | yes | healthcare DE/BA — FHIR, UAT plan |
+| Clinical Evidence Console + FHIR Warehouse | p-clinical | 295 | synthetic | yes | healthcare DE/BA — FHIR, UAT plan |
 | Customer Recommendation Engine | p-customer-rec | 814 | synthetic | yes | DS — recommender, pre-registered experiment |
 | HR Attrition Analytics | p-hr-attrition | 822 | synthetic | yes | DA, people analytics — survival analysis, SQL |
 | Supply Chain Analytics — dbt | p-dbt | 157 | synthetic | no | AE — dbt contracts, unit tests, SCD2, MetricFlow, Databricks |
