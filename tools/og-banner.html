@@ -1,0 +1,40 @@
+<!doctype html>
+<!-- Source for assets/og-banner.png, the 1200x630 image a link preview shows
+     (LinkedIn, Slack, iMessage). Render it with: node tools/render-og-banner.mjs
+     The project and live-demo counts below are read by check-headline-counts.mjs,
+     so the preview cannot drift from the manifest again (it once said 15 and 12). -->
+<html lang="en"><head><meta charset="utf-8"><title>og-banner source</title><style>
+@font-face{font-family:'SG';src:url(../assets/fonts/space-grotesk-latin.woff2) format('woff2');font-weight:300 700}
+@font-face{font-family:'JB';src:url(../assets/fonts/jetbrains-mono-latin.woff2) format('woff2')}
+html,body{margin:0;width:1200px;height:630px;overflow:hidden}
+body{position:relative;background:#080d11;color:#eff2f6;font-family:'SG',sans-serif}
+.bar{position:absolute;left:0;right:0;top:0;height:9px;background:#2aeae5}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(42,234,229,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(42,234,229,.05) 1px,transparent 1px);background-size:44px 44px}
+.glow{position:absolute;right:-160px;top:-200px;width:820px;height:620px;background:radial-gradient(closest-side,rgba(42,234,229,.14),transparent)}
+.wrap{position:absolute;left:74px;right:74px;top:64px}
+.eyebrow{font-family:'JB',monospace;font-size:19px;letter-spacing:.17em;color:#2aeae5}
+h1{margin:16px 0 0;font-size:84px;line-height:1;font-weight:500;letter-spacing:-.02em}
+.claim{display:flex;align-items:center;gap:14px;margin-top:34px;font-size:35px;font-weight:400;letter-spacing:-.01em}
+.tick{width:26px;height:26px;border-radius:50%;background:#7ad69a;color:#08200f;font-size:17px;font-weight:700;display:grid;place-items:center}
+.facts{margin-top:22px;font-size:21px;color:#b9c6cf}
+.facts b{color:#eff2f6;font-weight:600}
+.roles{display:flex;flex-wrap:wrap;gap:10px 10px;margin-top:30px;max-width:980px}
+.roles span{font-family:'JB',monospace;font-size:16px;color:#d5e2e8;border:1px solid rgba(42,234,229,.35);background:rgba(42,234,229,.06);border-radius:7px;padding:9px 13px}
+.rule{position:absolute;left:74px;right:74px;top:497px;height:1px;background:rgba(255,255,255,.12)}
+.stack{position:absolute;left:74px;top:553px;font-family:'JB',monospace;font-size:16px;letter-spacing:.12em;color:#e8b33c}
+.open{position:absolute;right:74px;top:520px;text-align:right;font-family:'JB',monospace}
+.open small{display:block;font-size:13px;letter-spacing:.16em;color:#8fa3ad}
+.open b{display:block;margin-top:10px;font-size:23px;font-weight:400;color:#2aeae5}
+</style></head><body>
+<div class="grid"></div><div class="glow"></div><div class="bar"></div>
+<div class="wrap">
+  <div class="eyebrow">DATA ANALYST · BI &amp; ANALYTICS ENGINEER</div>
+  <h1>Kush Patel</h1>
+  <div class="claim"><span class="tick">✓</span>When the numbers don’t agree, I’m the one they call.</div>
+  <div class="facts"><b>4+ years</b> in finance, sales and supply-chain analytics · <b data-og="projects">20</b> public projects · <b data-og="live-demos">14</b> live demos</div>
+  <div class="roles"><span>Data Analyst</span><span>BI / Power BI Developer</span><span>Analytics Engineer</span><span>Data Engineer</span><span>Business Analyst</span><span>Financial Analyst</span><span>Supply Chain Analyst</span><span>Data Scientist</span></div>
+</div>
+<div class="rule"></div>
+<div class="stack">POWER BI · SQL · PYTHON · MICROSOFT FABRIC · DBT</div>
+<div class="open"><small>OPEN TO ROLES ACROSS CANADA</small><b>kushpatel29.github.io</b></div>
+</body></html>

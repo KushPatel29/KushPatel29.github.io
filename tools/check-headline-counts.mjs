@@ -18,6 +18,9 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+/* The link-preview image is a PNG, so its numbers are checked in the
+   source it is rendered from (tools/render-og-banner.mjs). */
+const ogBanner = fs.readFileSync(path.join(ROOT, "tools", "og-banner.html"), "utf8");
 const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "portfolio-manifest.json"), "utf8"));
 const errors = [];
 const fail = (message) => errors.push(message);
@@ -49,6 +52,8 @@ const COUNT_CLAIMS = [
   ["role fit CI row", /\bAll (\d+) public projects run automated validation\b/g, manifestCount, plain],
   ["FAQ: projects", /\bAll (\d+) projects are public\b/g, manifestCount, plain],
   ["FAQ: live demos", /\b(\d+) also run as live demos\b/g, liveCount, plain],
+  ["link-preview image: projects", /data-og="projects">(\d+)</g, manifestCount, ogBanner],
+  ["link-preview image: live demos", /data-og="live-demos">(\d+)</g, liveCount, ogBanner],
 ];
 for (const [label, pattern, expected, source] of COUNT_CLAIMS) {
   const hits = [...source.matchAll(pattern)].map((m) => asNumber(m[1]));

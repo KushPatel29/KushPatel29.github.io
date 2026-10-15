@@ -435,7 +435,6 @@
 
     <!-- Code-native animation: lighter, sharper and more accessible than a GIF. -->
     <figure class="terminal" aria-labelledby="ask-terminal-title">
-      <div class="terminal-sweep" aria-hidden="true"></div>
       <figcaption class="terminal-bar">
         <span class="dot dot-red" aria-hidden="true"></span>
         <span class="dot dot-amber" aria-hidden="true"></span>
@@ -443,6 +442,7 @@
         <span class="terminal-title" id="ask-terminal-title">Ask Your Data · example query</span>
         <button type="button" id="terminal-motion" class="terminal-motion" aria-pressed="false" hidden>Pause animation</button>
       </figcaption>
+      <div class="terminal-sweep" aria-hidden="true"></div>
       <div class="terminal-body">
         <!-- The first exchange cycles through three verified golden questions.
              With JavaScript off or reduced motion, this remains a complete turn. -->
@@ -511,7 +511,7 @@ WHERE verdict = 'GO'</pre>
 
       <article class="fit-panel" id="fit-data-analyst" data-role="data-analyst" aria-labelledby="fit-h-data-analyst">
         <div class="fit-brief">
-          <p class="fit-role">DATA ANALYST <span class="fit-score" aria-label="Portfolio evidence score 9.6 out of 10">9.6 / 10</span></p>
+          <p class="fit-role">DATA ANALYST <span class="fit-score" role="img" aria-label="Portfolio evidence score 9.6 out of 10">9.6 / 10</span></p>
           <h3 id="fit-h-data-analyst">Answers the business can defend in the meeting.</h3>
           <p class="fit-pitch">I was the only analyst at a perishable-goods distributor, so I answered whatever Sales, Finance or the warehouse needed that week. The public projects work the same way: each one ends in a finding, not just a chart.</p>
           <p class="fit-start-label">OPEN THESE FIRST</p>
@@ -543,7 +543,7 @@ WHERE verdict = 'GO'</pre>
 
       <article class="fit-panel" id="fit-bi-developer" data-role="bi-developer" aria-labelledby="fit-h-bi-developer">
         <div class="fit-brief">
-          <p class="fit-role">BI / POWER BI DEVELOPER <span class="fit-score" aria-label="Portfolio evidence score 9.5 out of 10">9.5 / 10</span></p>
+          <p class="fit-role">BI / POWER BI DEVELOPER <span class="fit-score" role="img" aria-label="Portfolio evidence score 9.5 out of 10">9.5 / 10</span></p>
           <h3 id="fit-h-bi-developer">Reports people act on, with one definition behind every number.</h3>
           <p class="fit-pitch">I’ve owned Power BI end to end, from the star schema and DAX measure library to row-level security and the published report. In public, the reports live in Git as code, and tests check that every visual binds to a real field.</p>
           <p class="fit-start-label">OPEN THESE FIRST</p>
@@ -575,7 +575,7 @@ WHERE verdict = 'GO'</pre>
 
       <article class="fit-panel" id="fit-analytics-engineer" data-role="analytics-engineer" aria-labelledby="fit-h-analytics-engineer">
         <div class="fit-brief">
-          <p class="fit-role">ANALYTICS ENGINEER <span class="fit-score" aria-label="Portfolio evidence score 9.2 out of 10">9.2 / 10</span></p>
+          <p class="fit-role">ANALYTICS ENGINEER <span class="fit-score" role="img" aria-label="Portfolio evidence score 9.2 out of 10">9.2 / 10</span></p>
           <h3 id="fit-h-analytics-engineer">One definition per metric: versioned, tested, written down.</h3>
           <p class="fit-pitch">Analytics engineering is making one definition the only definition. In production, I got Sales, Finance and Supply Chain to agree on their KPIs and built them into the semantic model. In public, dbt contracts, unit tests and MetricFlow sit beside a contracted B.C. finance pipeline that normalizes 90 drifting source files.</p>
           <p class="fit-start-label">OPEN THESE FIRST</p>
@@ -599,7 +599,7 @@ WHERE verdict = 'GO'</pre>
             <tr data-source="paid"><th scope="row">Definitions agreed with the business</th><td>Worked with Sales, Finance and Supply Chain until P&amp;L, OTIF, inventory turns and days on hand each had exactly one definition.</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="project"><th scope="row">Data tests in CI</th><td>Schema contracts, quarantined bad rows and a quality gate, each proven by <a href="#p-control-tower">injecting the exact failure</a> it exists to catch.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">A cloud warehouse</th><td>The same <a href="#p-dbt">dbt project</a> built on Databricks (serverless SQL warehouse, Unity Catalog, Delta): 180 of 180 nodes green, and all 41 mart totals equal the DuckDB build.</td><td><span class="src src-project">Public project</span></td></tr>
-            <tr data-source="project"><th scope="row">Tests on messy real data</th><td>A <a href="#p-bc-finance">dbt project</a> on the Province’s filings: 31 data tests, a written list of the Province’s known defects, and a gold layer rebuilt identically in CI.<td><span class="src src-project">Public project</span></td></tr>
+            <tr data-source="project"><th scope="row">Tests on messy real data</th><td>A <a href="#p-bc-finance">dbt project</a> on the Province’s filings: 31 data tests, a written list of the Province’s known defects, and a gold layer rebuilt identically in CI.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">Git and CI for analytics code</th><td>All 20 public projects run automated validation in GitHub Actions; this repository's root workflow directly rebuilds Portfolio Intelligence.</td><td><span class="src src-project">Public project</span></td></tr>
           </tbody>
           <tfoot><tr data-paid="3" data-project="5" data-degree="0"><th scope="row">Tied out</th><td colspan="2"><span class="tie"><span>Paid roles</span><b>3</b></span><span class="tie"><span>Public projects</span><b>5</b></span></td></tr></tfoot>
@@ -608,7 +608,7 @@ WHERE verdict = 'GO'</pre>
 
       <article class="fit-panel" id="fit-data-engineer" data-role="data-engineer" aria-labelledby="fit-h-data-engineer">
         <div class="fit-brief">
-          <p class="fit-role">DATA ENGINEER <span class="fit-score" aria-label="Portfolio evidence score 9.3 out of 10">9.3 / 10</span></p>
+          <p class="fit-role">DATA ENGINEER <span class="fit-score" role="img" aria-label="Portfolio evidence score 9.3 out of 10">9.3 / 10</span></p>
           <h3 id="fit-h-data-engineer">Pipelines that fail loudly at the boundary, not quietly in a dashboard.</h3>
           <p class="fit-pitch">I’ve built Bronze→Silver→Gold pipelines in Microsoft Fabric, Azure Data Factory and Synapse with SQL and PySpark, and kept a legacy SSIS/SSRS estate running while migrating off it. The public pipelines add contracts, quarantine and quality gates, each tested by breaking the data on purpose.</p>
           <p class="fit-start-label">OPEN THESE FIRST</p>
@@ -639,7 +639,7 @@ WHERE verdict = 'GO'</pre>
 
       <article class="fit-panel" id="fit-business-analyst" data-role="business-analyst" aria-labelledby="fit-h-business-analyst">
         <div class="fit-brief">
-          <p class="fit-role">BUSINESS ANALYST <span class="fit-score" aria-label="Portfolio evidence score 9.3 out of 10">9.3 / 10</span></p>
+          <p class="fit-role">BUSINESS ANALYST <span class="fit-score" role="img" aria-label="Portfolio evidence score 9.3 out of 10">9.3 / 10</span></p>
           <h3 id="fit-h-business-analyst">From an unclear ask to a change people actually adopt.</h3>
           <p class="fit-pitch">I’ve spent my career between the people asking the question and the systems answering it: agreeing definitions, mapping the process, testing the change and getting it used. The public work includes the documents a BA actually produces, from charter and RACI to UAT plan and business case.</p>
           <p class="fit-start-label">OPEN THESE FIRST</p>
@@ -662,7 +662,7 @@ WHERE verdict = 'GO'</pre>
             <tr data-source="project"><th scope="row">Process mapping</th><td>A <a href="https://github.com/KushPatel29/supply-chain-control-tower/blob/master/docs/business_process_improvement_case.md" target="_blank" rel="noopener">replenishment and exception-management case ↗</a>: current and future state, handoffs, controls and measurable outcomes.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">UAT and acceptance</th><td>A <a href="https://github.com/KushPatel29/clinical-data-management/blob/main/output/uat_plan.md" target="_blank" rel="noopener">clinical-data UAT plan ↗</a> with roles, scenarios, defect handling and exit criteria; 12 UAT scenarios in <a href="#p-inventory">Inventory Analytics</a>.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">Business cases and options</th><td>A <a href="https://github.com/KushPatel29/legacy-to-fabric-migration/blob/master/docs/business-analysis/ASSET_CAPITAL_PROGRAM_BUSINESS_CASE.md" target="_blank" rel="noopener">ten-year asset capital case ↗</a> with three options, a <a href="https://github.com/KushPatel29/healthcare-claims-analytics/blob/master/output/health_intervention_decision_packet.md" target="_blank" rel="noopener">health-system decision packet ↗</a>, and <a href="#p-excel-fpa">finance models</a> that turn operating, capital, debt and reserve assumptions into explicit Base, Upside and Downside decisions.</td><td><span class="src src-project">Public project</span></td></tr>
-            <tr data-source="project"><th scope="row">Options with their cost</th><td>A <a href="#p-bc-finance">municipal plan</a> shows a council what closing the renewal gap costs in tax for each mix of borrowing and pace, before anyone chooses.<td><span class="src src-project">Public project</span></td></tr>
+            <tr data-source="project"><th scope="row">Options with their cost</th><td>A <a href="#p-bc-finance">municipal plan</a> shows a council what closing the renewal gap costs in tax for each mix of borrowing and pace, before anyone chooses.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="paid"><th scope="row">Change and adoption</th><td>Widened self-service Power BI across Sales, Finance and Supply Chain, with row-level security and masking keeping pace.</td><td><span class="src src-paid">Paid role</span></td></tr>
           </tbody>
           <tfoot><tr data-paid="3" data-project="4" data-degree="0"><th scope="row">Tied out</th><td colspan="2"><span class="tie"><span>Paid roles</span><b>3</b></span><span class="tie"><span>Public projects</span><b>4</b></span></td></tr></tfoot>
@@ -671,7 +671,7 @@ WHERE verdict = 'GO'</pre>
 
       <article class="fit-panel" id="fit-financial-analyst" data-role="financial-analyst" aria-labelledby="fit-h-financial-analyst">
         <div class="fit-brief">
-          <p class="fit-role">FINANCIAL ANALYST <span class="fit-score" aria-label="Portfolio evidence score 9.2 out of 10">9.2 / 10</span></p>
+          <p class="fit-role">FINANCIAL ANALYST <span class="fit-score" role="img" aria-label="Portfolio evidence score 9.2 out of 10">9.2 / 10</span></p>
           <h3 id="fit-h-financial-analyst">Every report treated like a close: it ties to source, or it doesn’t ship.</h3>
           <p class="fit-pitch">My first analytics job was a financial analyst’s: month-end GL/P&amp;L reconciliations and AP/AR reporting. At Two Rivers I automated those reconciliation controls, and my public finance work turns the same habit into tested engines.</p>
           <p class="fit-start-label">OPEN THESE FIRST</p>
@@ -695,8 +695,8 @@ WHERE verdict = 'GO'</pre>
             <tr data-source="project"><th scope="row">Controls and audit trail</th><td>A <a href="#p-gl-recon">close-certification engine</a> tests all 5,400 journal entries, enforces segregation of duties and blocks 43 of 60 account-periods rather than inventing sign-offs.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="paid"><th scope="row">Reporting automation</th><td>Python and SQL feeding Power BI replaced recurring manual analysis at <a href="#xp-shivam">Shivam</a>: about 40% less effort (internal estimate).</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="paid"><th scope="row">Excel, Power BI and Tableau</th><td>Excel and Power BI at <a href="#xp-shivam">Shivam</a>, Power BI finance reporting at <a href="#xp-two-rivers">Two Rivers</a>, and a <a href="#p-gl-recon">Tableau close scorecard</a> generated from script and checked against Python.</td><td><span class="src src-paid">Paid role</span></td></tr>
-            <tr data-source="project"><th scope="row">Public-sector budgeting</th><td>A <a href="#p-bc-finance">five-year plan</a> for any of 161 B.C. municipalities: tax increases, borrowing under the legal limit and reserves. For Fernie, closing the renewal gap by 2029 needs 3.7% a year.<td><span class="src src-project">Public project</span></td></tr>
-            <tr data-source="project"><th scope="row">Budgets, forecasts and scenarios</th><td><a href="#p-excel-fpa">Excel finance models</a>: a utility plan with an exact variance bridge and a four-year backtest, and a distributor model with price-volume-mix and working capital.<td><span class="src src-project">Public project</span></td></tr>
+            <tr data-source="project"><th scope="row">Public-sector budgeting</th><td>A <a href="#p-bc-finance">five-year plan</a> for any of 161 B.C. municipalities: tax increases, borrowing under the legal limit and reserves. For Fernie, closing the renewal gap by 2029 needs 3.7% a year.</td><td><span class="src src-project">Public project</span></td></tr>
+            <tr data-source="project"><th scope="row">Budgets, forecasts and scenarios</th><td><a href="#p-excel-fpa">Excel finance models</a>: a utility plan with an exact variance bridge and a four-year backtest, and a distributor model with price-volume-mix and working capital.</td><td><span class="src src-project">Public project</span></td></tr>
           </tbody>
           <tfoot><tr data-paid="5" data-project="3" data-degree="0"><th scope="row">Tied out</th><td colspan="2"><span class="tie"><span>Paid roles</span><b>5</b></span><span class="tie"><span>Public projects</span><b>3</b></span></td></tr></tfoot>
         </table>
@@ -704,7 +704,7 @@ WHERE verdict = 'GO'</pre>
 
       <article class="fit-panel" id="fit-supply-chain-analyst" data-role="supply-chain-analyst" aria-labelledby="fit-h-supply-chain-analyst">
         <div class="fit-brief">
-          <p class="fit-role">SUPPLY CHAIN &amp; OPERATIONS ANALYST <span class="fit-score" aria-label="Portfolio evidence score 9.5 out of 10">9.5 / 10</span></p>
+          <p class="fit-role">SUPPLY CHAIN &amp; OPERATIONS ANALYST <span class="fit-score" role="img" aria-label="Portfolio evidence score 9.5 out of 10">9.5 / 10</span></p>
           <h3 id="fit-h-supply-chain-analyst">The stock, the shelf and the ledger telling the same story.</h3>
           <p class="fit-pitch">I was the only analyst across a perishable-goods supply chain, integrating ERP, POS, WMS, workforce and API data for OTIF, FEFO, lot traceability, vendor scorecards and warehouse accuracy. The public work adds forecasting, inventory policy, disruption planning and the preserved Kestrel Bay distributor model.</p>
           <p class="fit-start-label">OPEN THESE FIRST</p>
@@ -735,7 +735,7 @@ WHERE verdict = 'GO'</pre>
 
       <article class="fit-panel" id="fit-data-scientist" data-role="data-scientist" aria-labelledby="fit-h-data-scientist">
         <div class="fit-brief">
-          <p class="fit-role">DATA SCIENTIST <span class="fit-score" aria-label="Portfolio evidence score 9.0 out of 10">9.0 / 10</span></p>
+          <p class="fit-role">DATA SCIENTIST <span class="fit-score" role="img" aria-label="Portfolio evidence score 9.0 out of 10">9.0 / 10</span></p>
           <h3 id="fit-h-data-scientist">Models that beat the boring baseline, or they don’t ship.</h3>
           <p class="fit-pitch">A master’s in applied machine intelligence and one rule: a model ships only if it beats a simple baseline on data it has never seen. Several of mine lost, and the write-ups say so.</p>
           <p class="fit-start-label">OPEN THESE FIRST</p>
@@ -813,8 +813,8 @@ WHERE verdict = 'GO'</pre>
 
         <div class="flagship-body">
           <div>
-            <details class="case-details"><summary>Read the case study</summary>
             <p class="feature-body"><strong class="report-label">Scope.</strong> A retail chain's merchandising and replenishment platform, not a dashboard: incremental ETL into a day-partitioned parquet lake, a DuckDB query layer, row-level security down to one manager's own store book, and sixteen pages published as a prerendered site with no runtime data requests. A new <strong>Data Product Control Room</strong> gives executives one place to verify release evidence before trusting the dashboards.</p>
+            <details class="case-details"><summary>Read the full case study</summary>
 
             <p class="feature-body"><strong class="report-label">Method.</strong> A machine-readable registry binds <strong>nine dbt-backed products</strong> to an accountable owner, steward, decision, grain, consumers, <strong>27 quality gates</strong>, freshness SLA and recovery target. The control room validates each mart against schema and SQL, maps all <strong>62 definitions — 47 implemented and 15 withheld</strong>, and reads the active dataset manifest for observed refresh, volume, coverage, source and version. Complete contracts plus current evidence produce GO; stale evidence produces REVIEW; missing or invalid proof produces NO-GO.</p>
 
@@ -864,9 +864,9 @@ WHERE verdict = 'GO'</pre>
                   <li><span>Concentration</span><b>HHI 181 (customers)</b></li>
                 </ul>
               </div>
-            </div>
+            </details>
           </div>
-        </details>
+        </div>
 
         <ul class="tags">
           <li>Python</li>
@@ -1479,7 +1479,7 @@ WHERE verdict = 'GO'</pre>
           <h3>Clinical Evidence Console + FHIR Warehouse</h3>
           <p class="outcome">49 defects planted in a trial database, 49 found, 0 missed. The reconciliation that proved it also exposed four protocol deviations the checks had let through.</p>
           <details class="case-details"><summary>Approach and evidence</summary><p class="card-text">A live Streamlit console connects trial operations to a 10,000-patient FHIR R4 warehouse on SQL Server 2022, generated the same way on every run. A release layer, CDM-REL-01, versions three cohorts, reconciles who is in each and the evidence counts, runs seven checks and hashes 12 required sources. It proves that a one-subject mismatch blocks the data cut. The current verdict is deliberately <em>REVIEW REQUIRED</em>. Five checks pass. The row-level quarantine log is not kept publicly, and the 80 generated UAT cases are not presented as run. Zero human approvals are faked.</p></details>
-          <div class="clinical-proof-strip" aria-label="Additional Clinical Evidence Console views">
+          <div class="clinical-proof-strip" role="group" aria-label="Additional Clinical Evidence Console views">
             <button type="button" class="card-zoom clinical-proof-shot" data-zoom="assets/clinical-dashboard/quality-site-102.jpg"
                     aria-label="Enlarge: SITE-102 query quality drilldown">
               <img src="assets/clinical-dashboard/quality-site-102.jpg" width="1280" height="720" loading="lazy" decoding="async"
@@ -2257,7 +2257,7 @@ WHERE verdict = 'GO'</pre>
 <dialog class="lightbox" id="lightbox" aria-label="Dashboard screenshot, full size">
   <div class="lightbox-inner">
     <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close full-size view">✕</button>
-    <img id="lightbox-img" alt="">
+    <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
     <p class="lightbox-caption" id="lightbox-caption"></p>
   </div>
 </dialog>
