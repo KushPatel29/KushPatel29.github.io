@@ -70,6 +70,22 @@
     update();
   }
 
+  /* ---------- 2b. Mobile quick-action bar ----------
+     On a phone the hero already shows "Match me to your role" and
+     "Download Resume". Showing the sticky bar on top of them hid the
+     primary CTA on first load, so the bar tucks away while the hero
+     buttons are on screen and slides in once they scroll out of view.
+     Without IntersectionObserver (or without JS) the bar simply stays. */
+
+  var mobileBar = document.querySelector(".mobile-bar");
+  var heroCtas = document.querySelector(".hero .cta-row");
+
+  if (mobileBar && heroCtas && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      mobileBar.classList.toggle("is-tucked", entries[0].isIntersecting);
+    }).observe(heroCtas);
+  }
+
   /* ---------- 3. Role fit ----------
      Eight panels, one per role family. Without this script they are a
      list of links followed by all eight panels; here they become tabs.

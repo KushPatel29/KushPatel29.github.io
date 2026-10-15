@@ -1698,6 +1698,15 @@ a.card-open::after {
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-top: 1px solid var(--line-2);
+  transition: transform 0.25s ease, opacity 0.25s ease, visibility 0s linear 0s;
+}
+/* Tucked while the hero's own Resume / Match buttons are visible (main.js 2b). */
+.mobile-bar.is-tucked {
+  transform: translateY(110%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.25s ease, visibility 0s linear 0.25s;
 }
 .mobile-bar-btn {
   flex: 1 1 0;
