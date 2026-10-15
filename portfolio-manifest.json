@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 21,
-    "automatedTests": 13920
+    "automatedTests": 13921
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -181,7 +181,7 @@
       "repository": "https://github.com/KushPatel29/decision-intelligence-platform",
       "liveApp": "https://corridor-decision-intelligence.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 243,
+      "testCount": 244,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "flagship",
