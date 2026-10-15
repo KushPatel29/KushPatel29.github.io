@@ -38,22 +38,30 @@ const liveCount = (manifest.projects ?? []).filter((item) => item.liveStatus ===
 const WORDS = {
   one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10,
   eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16,
-  seventeen: 17, eighteen: 18, nineteen: 19, twenty: 20,
+  seventeen: 17, eighteen: 18, nineteen: 19, twenty: 20, thirty: 30,
 };
-const asNumber = (token) => (/^\d+$/.test(token) ? Number(token) : WORDS[token.toLowerCase()]);
+/* "Twenty-one" is two words joined: add the parts. */
+const asNumber = (token) => (/^\d+$/.test(token)
+  ? Number(token)
+  : token.toLowerCase().split("-").reduce((sum, part) => sum + (WORDS[part] ?? NaN), 0));
 const plain = textOnly(html);
 const COUNT_CLAIMS = [
   ["hero project counter", /data-count="(\d+)" data-metric="projects"/g, manifestCount, html],
   ["hero live-demo counter", /data-count="(\d+)" data-metric="live-demos"/g, liveCount, html],
   ["description: public projects", /content="[^"]*?\b(\d+) public projects\b/g, manifestCount, html],
   ["description: live demos", /content="[^"]*?\b(\d+) live demos\b/g, liveCount, html],
-  ["work heading", /\b([A-Z][a-z]+) projects, each ending in a finding\b/g, manifestCount, plain],
-  ["work summary", /\b([A-Z][a-z]+) run live in the browser\b/g, liveCount, plain],
+  ["work heading", /\b([A-Z][a-z]+(?:-[a-z]+)?) projects, each ending in a finding\b/g, manifestCount, plain],
+  ["work summary", /\b([A-Z][a-z]+(?:-[a-z]+)?) run live in the browser\b/g, liveCount, plain],
   ["role fit CI row", /\bAll (\d+) public projects run automated validation\b/g, manifestCount, plain],
   ["FAQ: projects", /\bAll (\d+) projects are public\b/g, manifestCount, plain],
   ["FAQ: live demos", /\b(\d+) also run as live demos\b/g, liveCount, plain],
   ["link-preview image: projects", /data-og="projects">(\d+)</g, manifestCount, ogBanner],
   ["link-preview image: live demos", /data-og="live-demos">(\d+)</g, liveCount, ogBanner],
+  /* LinkedIn caches a preview image by its URL, so a re-rendered PNG at the
+     same address keeps showing the old numbers. The ?v= carries the counts:
+     change them and the URL changes with them. */
+  ["link-preview image URL: projects", /og-share\.png\?v=(\d+)-\d+"/g, manifestCount, html],
+  ["link-preview image URL: live demos", /og-share\.png\?v=\d+-(\d+)"/g, liveCount, html],
 ];
 for (const [label, pattern, expected, source] of COUNT_CLAIMS) {
   const hits = [...source.matchAll(pattern)].map((m) => asNumber(m[1]));

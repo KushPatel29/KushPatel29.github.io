@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-10-03",
+  "lastVerified": "2026-10-15",
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
-    "promotedProjects": 20,
-    "automatedTests": 13677
+    "promotedProjects": 21,
+    "automatedTests": 13920
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -172,6 +172,26 @@
         "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/reports/metrics.json",
         "https://github.com/KushPatel29/wildfire-prediction-app/tree/main/powerbi",
         "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/.github/workflows/forecast.yml"
+      ]
+    },
+    {
+      "id": "corridor-decision-intelligence",
+      "cardId": "p-corridor",
+      "title": "Corridor Decision Intelligence",
+      "repository": "https://github.com/KushPatel29/decision-intelligence-platform",
+      "liveApp": "https://corridor-decision-intelligence.streamlit.app/",
+      "liveStatus": "live-demo",
+      "testCount": 243,
+      "testCommand": "pytest",
+      "dataClassification": "synthetic",
+      "priority": "flagship",
+      "productShape": "Offer-targeting and pricing decision workspace with a certified optimizer, a policy trial and a decision API",
+      "primaryDecision": "Which eligible customers should get which offer this month, within budget and roadway capacity, and how much value does that plan truly create?",
+      "capabilities": ["data-science", "causal-inference", "experimentation", "optimization", "pricing", "customer-analytics"],
+      "evidence": [
+        "https://github.com/KushPatel29/decision-intelligence-platform#what-the-october-plan-decides",
+        "https://github.com/KushPatel29/decision-intelligence-platform/blob/main/docs/ab-testing-playbook.md",
+        "https://github.com/KushPatel29/decision-intelligence-platform/blob/main/docs/role-coverage.md"
       ]
     },
     {

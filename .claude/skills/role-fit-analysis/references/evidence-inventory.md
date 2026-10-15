@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
 inventory-verified: 2026-10-03
-manifest-totals: 20 projects · 13677 tests
+manifest-totals: 21 projects · 13920 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -102,7 +102,7 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Microsoft Fabric (Lakehouse, Warehouse, pipelines, notebooks) | PAID | Two Rivers | DP-600 in progress, not held |
 | Azure Data Factory, Azure Synapse | PAID | Two Rivers | — |
 | SQL Server | PAID | Two Rivers | — |
-| Databricks (SQL warehouse, serverless jobs, Unity Catalog, Delta) | PROJECT | control tower notebooks; dbt project built on Databricks | not in a job |
+| Databricks (SQL warehouse, serverless jobs, Unity Catalog, Delta) | PROJECT | control tower notebooks; dbt project built on Databricks; Corridor serverless job (PySpark features match DuckDB to 2.2e-11) | not in a job |
 | dbt Core (contracts, unit tests, snapshots, incremental) | PROJECT | Supply Chain Analytics — dbt; BC finance (31 tests) | **not production** (résumé says so) |
 | MetricFlow / semantic layer | PAID (Power BI semantic layer) + PROJECT (MetricFlow) | Two Rivers; dbt project | MetricFlow is project-only |
 | Apache Airflow | PROJECT | DAG in dbt project | **checked, not scheduled; not production** |
@@ -112,7 +112,7 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Data quality tests, contracts, quarantine, alerting | PAID+PROJECT | Two Rivers tests/alerts; control tower, BC finance contracts | — |
 | Migration with cutover validation | PAID+PROJECT | Two Rivers; Legacy-to-Fabric Migration repo | — |
 | REST API integration | PAID | Synerion time-and-attendance API | — |
-| Git, GitHub Actions CI, Docker | PROJECT | all 20 public projects run automated validation; Portfolio Intelligence runs in this repo's root workflow | Git use in paid work not stated |
+| Git, GitHub Actions CI, Docker | PROJECT | all 21 public projects run automated validation; Portfolio Intelligence runs in this repo's root workflow | Git use in paid work not stated |
 | Stakeholder engagement, requirements, KPI definitions, acceptance criteria | PAID | Two Rivers (Sales, Finance, Supply Chain); Shivam (portfolio/risk) | — |
 | Process mapping, UAT plans, traceability, business cases, RACI/RAID | PROJECT | inventory BA case (13 reqs, 12 UAT), clinical UAT plan, migration charter/RACI, supply-chain process case | documents are portfolio artifacts, not employer deliverables |
 | Change and adoption | PAID | widened Power BI self-service with RLS at Two Rivers | — |
@@ -123,8 +123,10 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Supply chain: OTIF, FEFO, lot trace, vendor scorecards, WMS accuracy | PAID+PROJECT | Two Rivers; control tower, inventory app | — |
 | Demand forecasting | PAID+PROJECT | Two Rivers SKU forecasting; inventory backtests | — |
 | Inventory policy / service-level optimisation | PROJECT | inventory app policy lab | — |
-| Customer analytics (cohorts, RFM, churn signals) | PAID | Two Rivers | — |
-| Statistics, hypothesis tests, experiments, causal inference | PROJECT+DEGREE | geo holdout, diff-in-diff, permutation test, survival analysis; MPS | no production A/B testing platform |
+| Customer analytics (cohorts, RFM, churn signals) | PAID+PROJECT | Two Rivers; Corridor (RFM segments, calibrated propensity, churn and attrition models) | — |
+| Statistics, hypothesis tests, experiments, causal inference | PROJECT+DEGREE | geo holdout, diff-in-diff, permutation test, survival analysis; Corridor ten-arm randomized offer trial, uplift learners and a randomized test of the targeting policy (+$1.40/customer, 95% CI $0.23 to $2.57); MPS | no production A/B testing platform; Corridor's trials run on simulated customers |
+| Mathematical optimization (mixed-integer programming, LP duals, HiGHS, Gurobi) | PROJECT | Corridor: one MIP over 112,563 customer-offer decisions, proven optimal (gap 1.5e-7), residual re-solved in Gurobi; inventory policy lab | synthetic data; Gurobi used under its size-limited licence |
+| Pricing, promotions and loyalty (elasticity, offer targeting, next best offer) | PROJECT | Corridor pricing studio and next-best-offer pages; pricing & costing analytics | synthetic toll-road operator; not affiliated with any real one |
 | Machine learning (XGBoost, logistic, anomaly, recommender) | PROJECT+DEGREE | wildfire, AML, recommender, HR | production ML only as the forecasting web apps |
 | LLM / text-to-SQL, governed AI | PROJECT+DEGREE | Ask Your Data | — |
 | GIS / geospatial | PROJECT | wildfire, control tower GIS | — |
@@ -184,6 +186,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |
 | Ask Your Data | p-ask-your-data | 1163 | synthetic-and-session-upload | yes | DS, AE — governed text-to-SQL, 46/0/12 contract |
 | Canada Wildfire Risk | p-wildfire | 111 | public-open-data | yes | DS — XGBoost, ROC-AUC 0.881 out of time, GitHub Actions |
+| Corridor Decision Intelligence | p-corridor | 243 | synthetic | yes | DS, pricing/loyalty DA — causal uplift from a ten-arm randomized trial, certified MIP over 112,563 customer-offer decisions (75% of the true-value ceiling vs 7% for propensity targeting), policy A/B test +$1.40/customer, Databricks + PySpark parity, FastAPI, Power BI |
 | Health System Decision Support | p-healthcare | 819 | synthetic | no | healthcare DA/BA — SPC, decision packet |
 | Pricing & Costing Analytics | p-pricing-analytics | 3182 | synthetic | yes | DA, FA — pocket-price waterfall, approval routing |
 | GL / P&L Reconciliation | p-gl-recon | 710 | synthetic | no | FA — close certification, SoD, Tableau + Power BI |

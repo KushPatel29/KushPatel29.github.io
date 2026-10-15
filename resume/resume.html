@@ -86,7 +86,7 @@
   <li>Data analyst and BI / analytics engineer with 4+ years turning raw operational and financial data (ERP, POS, WMS, workforce and REST feeds) into governed warehouse layers, Power BI reporting and decisions that Sales, Finance and Supply Chain can defend. Sole analyst across a perishable-goods supply chain; before that, a financial analyst running month-end GL/P&amp;L reconciliations.</li>
   <li>Builds dimensional models on cloud warehouses (Microsoft Fabric, Azure Synapse, SQL Server) with Bronze/Silver/Gold medallion layers, conformed dimensions and SCD Type 1/2, orchestrated in Azure Data Factory and Fabric pipelines (dbt and Airflow in project work, not production).</li>
   <li>Delivers Power BI end to end — semantic model, DAX measure library, RLS, publish-ready reports — and treats data quality as a control: automated reconciliation cut recurring discrepancies an estimated ~45% by fixing issues at the feed rather than in the report.</li>
-  <li>Twenty public projects carry <b>13,677 automated tests</b> in CI, fourteen with live demos, spanning BI, marketing measurement and revenue reconciliation, HubSpot CRM development, web analytics, analytics engineering, data engineering, forecasting, anomaly detection, text-to-SQL and business-analysis delivery (requirements, UAT, business cases).</li>
+  <li>Twenty-one public projects carry <b>13,920 automated tests</b> in CI, fifteen with live demos, spanning BI, marketing measurement and revenue reconciliation, HubSpot CRM development, web analytics, analytics engineering, data engineering, forecasting, experimentation and optimization, anomaly detection, text-to-SQL and business-analysis delivery (requirements, UAT, business cases).</li>
 </ul>
 
 <h2>Technical Skills</h2>
@@ -95,7 +95,7 @@
 <p class="skill"><b>Warehousing &amp; Lakehouse:</b> Microsoft Fabric (Lakehouse, Warehouse, OneLake, Direct Lake), Azure Synapse Analytics, SQL Server, PostgreSQL, Databricks (SQL warehouse, serverless jobs, Unity Catalog), DuckDB, Delta Lake, Snowflake (dbt profile, not yet run)</p>
 <p class="skill"><b>ETL / ELT &amp; Orchestration:</b> Azure Data Factory, Fabric Data Pipelines &amp; Dataflows Gen2, dbt Core, Apache Airflow, SSIS, SQL Server Agent, REST API integration, incremental and CDC-style loads, schema-drift contracts, quarantine-and-replay</p>
 <p class="skill"><b>Modelling &amp; Governance:</b> Kimball star schemas, conformed dimensions, SCD Type 1/2, metric catalogues with owner and grain, data lineage, RLS/RBAC and column masking, de-identification (k-anonymity), reconciliation and control totals, cutover validation</p>
-<p class="skill"><b>Analytics &amp; ML:</b> forecasting with rolling-origin backtests, classification (XGBoost, logistic regression), anomaly detection, survival analysis, recommender systems, geo holdouts and difference-in-differences, LLM text-to-SQL; always graded against a simple baseline</p>
+<p class="skill"><b>Analytics &amp; ML:</b> forecasting with rolling-origin backtests, classification (XGBoost, logistic regression), anomaly detection, survival analysis, recommender systems, randomized experiments and causal uplift, mixed-integer optimization (HiGHS, Gurobi), geo holdouts and difference-in-differences, LLM text-to-SQL; always graded against a simple baseline</p>
 <p class="skill"><b>Business Analysis:</b> stakeholder engagement, requirements and acceptance criteria, current/future-state mapping, requirements traceability, UAT, business cases and options analysis, RACI/RAID, change and adoption planning</p>
 <p class="skill"><b>Quality &amp; Delivery:</b> pytest, dbt tests, pandera contracts, referential-integrity checks, anomaly thresholds, Git, GitHub Actions, Docker</p>
 
@@ -181,6 +181,12 @@
   <div class="proj-head">Canada Wildfire Risk <span class="stack">— Python, XGBoost, GIS, Power BI, GitHub Actions &middot; 111 tests</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/wildfire-prediction-app">github.com/KushPatel29/wildfire-prediction-app</a> &middot; live: <a href="https://wildfire-prediction-app1.streamlit.app">wildfire-prediction-app1.streamlit.app</a></div>
   <p><b>Machine learning on real public data:</b> A first-prize 2024 hackathon project rebuilt as a daily seven-day ignition forecast from 164,707 recorded fires and 3,198 weather stations. Two calibrated XGBoost models, scored once on unseen 2020–2024 seasons, reach ROC-AUC 0.881 and put 57.5% of fires in each day's riskiest tenth of cells. GitHub Actions rebuilds the forecast twice a day.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">Corridor Decision Intelligence <span class="stack">— Python, DuckDB, causal ML, HiGHS/Gurobi, Databricks, Power BI, Streamlit &middot; 243 tests</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/decision-intelligence-platform">github.com/KushPatel29/decision-intelligence-platform</a> &middot; live: <a href="https://corridor-decision-intelligence.streamlit.app/">corridor-decision-intelligence.streamlit.app</a></div>
+  <p><b>Offer targeting, experiments and optimization:</b> Chooses which of 17,059 simulated toll-road customers get which of nine offers. Uplift models trained on a ten-arm randomized trial feed one mixed-integer program over 112,563 decisions, proven optimal. Scored against the simulator's truth, the plan reaches 75% of the perfect-knowledge ceiling, versus 7% for propensity targeting; a randomized test of the policy measured +$1.40 per customer.</p>
 </div>
 
 <h2>Education</h2>
