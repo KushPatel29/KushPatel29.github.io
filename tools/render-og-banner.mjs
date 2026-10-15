@@ -1,6 +1,6 @@
 /* ============================================================
    render-og-banner.mjs — renders tools/og-banner.html to
-   assets/og-banner.png (1200x630), the image link previews show.
+   assets/og-share.png (1200x630), the image link previews show.
    The counts in the source are held to the manifest by
    check-headline-counts.mjs, so re-run this whenever they change.
 
@@ -19,6 +19,6 @@ const browser = await chromium.launch(executablePath ? { executablePath } : {});
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
 await page.goto(pathToFileURL(path.join(ROOT, "tools", "og-banner.html")).href);
 await page.evaluate(() => document.fonts.ready);
-await page.screenshot({ path: path.join(ROOT, "assets", "og-banner.png") });
+await page.screenshot({ path: path.join(ROOT, "assets", "og-share.png") });
 await browser.close();
-console.log("✓ assets/og-banner.png rendered from tools/og-banner.html");
+console.log("✓ assets/og-share.png rendered from tools/og-banner.html");
