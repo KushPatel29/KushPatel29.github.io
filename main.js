@@ -357,6 +357,46 @@
     });
   });
 
+  /* ---------- 4b. Case-study tours: a clean poster, then native controls ----------
+     Paused, the native control bar sits over the caption burned into the
+     poster frame. Without JavaScript the controls stay; with it, the poster
+     shows whole under one play button, and the controls return on play. */
+  /* The posters are a quarter of a megabyte between them and sit far below
+     the fold. Loaded eagerly they slowed the hero headline by 1.4 s on a slow
+     phone connection, so each is attached only as its case study comes near. */
+  var showPoster = function (video) {
+    var src = video.getAttribute("data-poster");
+    if (src && !video.getAttribute("poster")) video.setAttribute("poster", src);
+  };
+  var posterWatch = "IntersectionObserver" in window
+    ? new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          showPoster(entry.target);
+          observer.unobserve(entry.target);
+        });
+      }, { rootMargin: "800px 0px" })
+    : null;
+
+  each(".tour video", function (video) {
+    if (posterWatch) posterWatch.observe(video); else showPoster(video);
+    var frame = video.parentNode;
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "tour-play";
+    button.setAttribute("aria-label", "Play the tour: " + (video.getAttribute("aria-label") || "case study"));
+    button.innerHTML = '<span class="tour-play-icon" aria-hidden="true">▶</span><span>Play the tour</span>';
+    video.controls = false;
+    frame.appendChild(button);
+    button.addEventListener("click", function () {
+      video.controls = true;
+      frame.removeChild(button);
+      var started = video.play();
+      if (started && started.catch) started.catch(function () { /* the controls are there to retry */ });
+      video.focus();
+    });
+  });
+
   /* ---------- 5. Sideways-scroll hint on the chip strip ---------- */
 
   var strips = [document.getElementById("filter-chips")].filter(Boolean);

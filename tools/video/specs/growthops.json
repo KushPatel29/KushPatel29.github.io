@@ -1,0 +1,219 @@
+{
+ "brand": "kushpatel29.github.io  ·  case study 1 of 3",
+ "who": "KUSH PATEL · DATA ANALYST · BI & ANALYTICS ENGINEER · VANCOUVER, BC",
+ "scenes": [
+  {
+   "type": "title",
+   "dur": 5,
+   "kicker": "CASE STUDY 1 OF 3 · BI & REPORTING · POWER BI · EXCEL",
+   "title": "GrowthOps OS",
+   "sub": "Ad platforms, the CRM and the bank each report a different revenue figure. **Which one is right?**"
+  },
+  {
+   "type": "image",
+   "dur": 7.5,
+   "chapter": "01 · THE QUESTION",
+   "img": "img/go_rev.png",
+   "from": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "to": [
+    0,
+    0.02,
+    1,
+    0.62
+   ],
+   "hl": [
+    0.016,
+    0.12,
+    0.984,
+    0.272
+   ],
+   "caption": "Ad platforms claim **$3.72M**. The CRM books **$3.32M**. The bank collected **$3.06M**. Which number is right?"
+  },
+  {
+   "type": "image",
+   "dur": 7.5,
+   "chapter": "02 · WHAT I FOUND",
+   "img": "img/go_rev.png",
+   "from": [
+    0,
+    0.5,
+    0.62,
+    1
+   ],
+   "to": [
+    0,
+    0.6,
+    0.52,
+    0.98
+   ],
+   "hl": [
+    0.02,
+    0.722,
+    0.42,
+    0.942
+   ],
+   "caption": "Every step from CRM bookings to cash is computed, so nothing is left unexplained: the residual is **$0**."
+  },
+  {
+   "type": "image",
+   "dur": 7,
+   "chapter": "02 · WHAT I FOUND",
+   "img": "img/go_rev.png",
+   "from": [
+    0.48,
+    0.6,
+    1,
+    0.9
+   ],
+   "to": [
+    0.5,
+    0.64,
+    0.98,
+    0.87
+   ],
+   "hl": [
+    0.512,
+    0.779,
+    0.86,
+    0.811
+   ],
+   "caption": "Meta reports **7.3×** return on ad spend. On the cash the business actually kept, it is **3.3×**."
+  },
+  {
+   "type": "image",
+   "dur": 8.5,
+   "chapter": "02 · WHAT I FOUND",
+   "img": "img/go_diag.png",
+   "from": [
+    0,
+    0.33,
+    1,
+    0.7
+   ],
+   "to": [
+    0,
+    0.36,
+    1,
+    0.67
+   ],
+   "hl": [
+    0.014,
+    0.385,
+    0.66,
+    0.487
+   ],
+   "caption": "Lead quality fell from **29.8%** to **20.4%**. The detector caught it within three days and traced **92%** of the drop to one new campaign."
+  },
+  {
+   "type": "image",
+   "dur": 6,
+   "chapter": "02 · WHAT I FOUND",
+   "img": "img/go_diag.png",
+   "from": [
+    0,
+    0.66,
+    1,
+    0.9
+   ],
+   "to": [
+    0,
+    0.69,
+    1,
+    0.88
+   ],
+   "hl": [
+    0.015,
+    0.733,
+    0.905,
+    0.752
+   ],
+   "caption": "That campaign, **meta_broad_v17**, lifted leads **61%** while their quality fell."
+  },
+  {
+   "type": "image",
+   "dur": 8,
+   "chapter": "03 · WHAT I BUILT",
+   "img": "img/go_exec.png",
+   "from": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "to": [
+    0,
+    0.08,
+    0.66,
+    0.7
+   ],
+   "hl": [
+    0.016,
+    0.29,
+    0.312,
+    0.632
+   ],
+   "caption": "A seven-page Power BI report generated from a specification, with **215** documented DAX measures. This summary is written in DAX."
+  },
+  {
+   "type": "image",
+   "dur": 8,
+   "chapter": "03 · WHAT I BUILT",
+   "img": "img/go_xl.png",
+   "from": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "to": [
+    0,
+    0,
+    1,
+    0.58
+   ],
+   "hl": [
+    0.018,
+    0.215,
+    0.158,
+    0.378
+   ],
+   "caption": "The Excel workbook is formulas over the same dbt marts, and reaches the same answer on its own: **$309,900** net cash, as in Power BI."
+  },
+  {
+   "type": "terminal",
+   "dur": 8.5,
+   "chapter": "04 · CHECK IT YOURSELF",
+   "title": "growthops-os — real output, recorded for this video",
+   "per": 0.38,
+   "lines": [
+    "$ pytest -v tests/test_reconciliation.py tests/test_diagnostics.py tests/test_bi.py tests/test_workflow.py -k \"…\"",
+    "tests/test_reconciliation.py::test_crm_bridge_ties_exactly_from_bookings_to_cash PASSED",
+    "tests/test_reconciliation.py::test_platform_bridge_ties_exactly_from_claims_to_warehouse PASSED",
+    "tests/test_reconciliation.py::test_platforms_overstate_and_net_cash_is_the_answer PASSED",
+    "tests/test_diagnostics.py::test_shift_share_decomposition_is_exact_on_a_known_example PASSED",
+    "tests/test_diagnostics.py::test_detector_recovers_every_planted_incident_with_the_right_root_cause PASSED",
+    "tests/test_bi.py::test_attribution_conserves_net_cash_to_the_cent PASSED",
+    "tests/test_bi.py::test_the_committed_workbook_was_calculated_and_reconciles PASSED",
+    "tests/test_workflow.py::test_backoff_worker_then_dead_letter_then_operator_replay PASSED",
+    "======================= 8 passed, 17 deselected in 5.33s ======================="
+   ],
+   "caption": "Tests hold every claim: both bridges tie exactly, the detector finds each planted incident, and the workbook reconciles."
+  },
+  {
+   "type": "end",
+   "dur": 6.5,
+   "kicker": "CHECK IT YOURSELF",
+   "cta": "Download the workbook and compare it with the Power BI report.",
+   "links": [
+    "kushpatel29.github.io/#p-growthops",
+    "github.com/KushPatel29/GrowthOps-OS"
+   ],
+   "note": "A fictional business on generated data, with problems planted on purpose so the analysis can be scored."
+  }
+ ]
+}

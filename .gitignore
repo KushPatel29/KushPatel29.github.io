@@ -21,3 +21,5 @@ artifacts/
 .cache/
 playwright-report/
 test-results/
+tools/video/img/
+tools/video/fonts/

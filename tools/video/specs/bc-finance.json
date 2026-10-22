@@ -1,0 +1,187 @@
+{
+ "brand": "kushpatel29.github.io  ·  case study 3 of 3",
+ "who": "KUSH PATEL · DATA ANALYST · BI & ANALYTICS ENGINEER · VANCOUVER, BC",
+ "scenes": [
+  {
+   "type": "title",
+   "dur": 5,
+   "kicker": "CASE STUDY 3 OF 3 · ANALYTICS ENGINEERING · REAL PUBLIC DATA",
+   "title": "B.C. Local-Government Finance",
+   "sub": "Is each municipality keeping up with its infrastructure, and **what would closing the gap cost in tax and borrowing?**"
+  },
+  {
+   "type": "terminal",
+   "dur": 7,
+   "chapter": "01 · THE DATA",
+   "title": "bc-local-government-finance — real output, recorded for this video",
+   "per": 0.5,
+   "lines": [
+    "$ python pipeline/extract.py",
+    "{'municipalities': 162, 'facts': 355417}",
+    "$ git diff --exit-code -- data/silver/",
+    "# no output: silver rebuilt byte for byte from the 90 contracted files"
+   ],
+   "caption": "**90** official Province of B.C. files, each held to a written contract, because they change shape from year to year."
+  },
+  {
+   "type": "terminal",
+   "dur": 8,
+   "chapter": "02 · WHAT I BUILT",
+   "title": "bc-local-government-finance — real output, recorded for this video",
+   "per": 0.42,
+   "lines": [
+    "$ dbt build --project-dir dbt --profiles-dir dbt",
+    "Running with dbt=1.11.12",
+    "8 of 45 PASS financial_position_identity ....................................... [PASS in 0.42s]",
+    "7 of 45 PASS expense_lines_add_up .............................................. [PASS in 0.43s]",
+    "6 of 45 PASS debt_rolls_forward ................................................ [PASS in 0.46s]",
+    "5 of 45 PASS asset_categories_add_to_total ..................................... [PASS in 0.47s]",
+    "# … 25 more data tests, all PASS",
+    "44 of 45 PASS not_null_mart_peer_benchmark_municipality_id ..................... [PASS in 0.08s]",
+    "45 of 45 PASS unique_mart_peer_benchmark_municipality_id ....................... [PASS in 0.09s]",
+    "Finished running 6 external models, 2 seeds, 4 table models, 31 data tests",
+    "  2 view models in 0 hours 0 minutes and 4.69 seconds (4.69s).",
+    "Completed successfully",
+    "Done. PASS=45 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=45"
+   ],
+   "caption": "A dbt model on DuckDB turns the filings into indicators, with **31** data tests. All pass."
+  },
+  {
+   "type": "image",
+   "dur": 8,
+   "chapter": "03 · WHAT I FOUND",
+   "img": "img/bc_prov.png",
+   "from": [
+    0,
+    0,
+    1,
+    0.62
+   ],
+   "to": [
+    0,
+    0.28,
+    0.62,
+    0.47
+   ],
+   "hl": [
+    0.012,
+    0.31,
+    0.47,
+    0.44
+   ],
+   "caption": "**68** municipalities invest less than their assets wear out. Together they are **$570M** a year short."
+  },
+  {
+   "type": "image",
+   "dur": 7.5,
+   "chapter": "03 · WHAT I FOUND",
+   "img": "img/bc_prov.png",
+   "from": [
+    0,
+    0.28,
+    0.62,
+    0.47
+   ],
+   "to": [
+    0,
+    0.36,
+    0.62,
+    0.48
+   ],
+   "hl": [
+    0.012,
+    0.425,
+    0.47,
+    0.442
+   ],
+   "caption": "The Province's own data has defects: its renewal-need field puts Vancouver at **41%** of replacement value a year. The pipeline screens it out and re-derives the need."
+  },
+  {
+   "type": "image",
+   "dur": 7.5,
+   "chapter": "04 · THE WORKBOOK",
+   "img": "img/bc_dash.png",
+   "from": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "to": [
+    0,
+    0.08,
+    0.88,
+    0.38
+   ],
+   "hl": [
+    0.016,
+    0.095,
+    0.866,
+    0.372
+   ],
+   "caption": "An Excel model a finance team would use: pick any of **161** municipalities and every sheet follows."
+  },
+  {
+   "type": "image",
+   "dur": 7.5,
+   "chapter": "04 · THE WORKBOOK",
+   "img": "img/bc_plan.png",
+   "from": [
+    0,
+    0,
+    1,
+    0.7
+   ],
+   "to": [
+    0,
+    0.4,
+    0.62,
+    0.56
+   ],
+   "hl": [
+    0.012,
+    0.513,
+    0.36,
+    0.537
+   ],
+   "caption": "For Fernie, closing the renewal gap by 2029 needs municipal tax increases averaging **3.7%** a year."
+  },
+  {
+   "type": "image",
+   "dur": 7.5,
+   "chapter": "05 · CHECK IT YOURSELF",
+   "img": "img/bc_checks.png",
+   "from": [
+    0,
+    0,
+    1,
+    0.62
+   ],
+   "to": [
+    0,
+    0,
+    0.62,
+    0.33
+   ],
+   "hl": [
+    0.012,
+    0.012,
+    0.53,
+    0.088
+   ],
+   "hlAt": 0.3,
+   "caption": "The workbook proves its own numbers against dbt: all **17** checks pass, and CI rebuilds the Gold layer byte for byte."
+  },
+  {
+   "type": "end",
+   "dur": 6.5,
+   "kicker": "CHECK IT YOURSELF",
+   "cta": "Download the workbook, or read the ten-page board pack.",
+   "links": [
+    "kushpatel29.github.io/#p-bc-finance",
+    "github.com/KushPatel29/bc-local-government-finance"
+   ],
+   "note": "Province of B.C. Local Government Statistics, Open Government Licence – British Columbia. Not affiliated with any municipality or the Province."
+  }
+ ]
+}

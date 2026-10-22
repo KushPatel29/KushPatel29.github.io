@@ -18,7 +18,9 @@ studies, each written as question → what I built → what I found → how to c
 it: **GrowthOps OS** (Power BI and Excel that tie out to the cent), **Supply
 Chain Control Tower** (a contract-tested PySpark/Delta pipeline under a Power BI
 control tower) and **B.C. Local-Government Finance** (dbt over 90 official
-filings, real public data). The other eighteen projects follow in brief,
+filings, real public data). Each case study opens with a 64–72 second
+captioned video tour (`assets/video/`, rendered by `tools/video/` from the
+project's real screenshots and test output). The other eighteen projects follow in brief,
 with the same `#p-…` anchors as before so links already sent still land.
 
 The page states no test totals and no self-assigned scores. Each repository

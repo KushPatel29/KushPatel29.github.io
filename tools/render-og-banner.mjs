@@ -16,9 +16,14 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const executablePath = process.env.PLAYWRIGHT_EXECUTABLE_PATH || undefined;
 
 const browser = await chromium.launch(executablePath ? { executablePath } : {});
-const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
-await page.goto(pathToFileURL(path.join(ROOT, "tools", "og-banner.html")).href);
+// --linkedin renders the LinkedIn profile background from the same palette instead.
+const linkedin = process.argv.includes("--linkedin");
+const [src, out, width, height] = linkedin
+  ? ["linkedin-banner.html", "linkedin-banner.png", 1584, 396]
+  : ["og-banner.html", "og-share.png", 1200, 630];
+const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
+await page.goto(pathToFileURL(path.join(ROOT, "tools", src)).href);
 await page.evaluate(() => document.fonts.ready);
-await page.screenshot({ path: path.join(ROOT, "assets", "og-share.png") });
+await page.screenshot({ path: path.join(ROOT, "assets", out) });
 await browser.close();
-console.log("✓ assets/og-share.png rendered from tools/og-banner.html");
+console.log(`✓ assets/${out} rendered from tools/${src}`);

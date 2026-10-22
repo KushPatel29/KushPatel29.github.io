@@ -20,7 +20,7 @@
 <meta property="og:url" content="https://kushpatel29.github.io/">
 <meta property="og:title" content="Kush Patel | Data Analyst · BI &amp; Analytics Engineer | Vancouver, Canada">
 <meta property="og:description" content="Data analyst and BI / analytics engineer with 4+ years in finance, sales and supply-chain reporting: Power BI, SQL, Python, Microsoft Fabric, Databricks and dbt. 21 public projects, 15 live demos, three on real public data.">
-<meta property="og:image" content="https://kushpatel29.github.io/assets/og-share.png?v=21-15">
+<meta property="og:image" content="https://kushpatel29.github.io/assets/og-share.png?v=21-15-r2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Kush Patel — data analyst, BI and analytics engineer in Vancouver, open to data roles across Canada">
@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kush Patel | Data Analyst · BI &amp; Analytics Engineer | Vancouver, Canada">
 <meta name="twitter:description" content="Data analyst and BI / analytics engineer with 4+ years in finance, sales and supply-chain reporting: Power BI, SQL, Python, Microsoft Fabric, Databricks and dbt. 21 public projects, 15 live demos, three on real public data.">
-<meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-share.png?v=21-15">
+<meta name="twitter:image" content="https://kushpatel29.github.io/assets/og-share.png?v=21-15-r2">
 <meta name="twitter:image:alt" content="Kush Patel — data analyst, BI and analytics engineer in Vancouver, open to data roles across Canada">
 
 <meta name="theme-color" content="#080d11" media="(prefers-color-scheme: dark)">
@@ -76,7 +76,7 @@
       "dateModified": "2026-10-22",
       "mainEntity": { "@id": "https://kushpatel29.github.io/#kushpatel" },
       "about": { "@id": "https://kushpatel29.github.io/#kushpatel" },
-      "primaryImageOfPage": "https://kushpatel29.github.io/assets/og-share.png?v=21-15"
+      "primaryImageOfPage": "https://kushpatel29.github.io/assets/og-share.png?v=21-15-r2"
     },
     {
       "@type": "Person",
@@ -426,7 +426,7 @@
       </div>
 
       <p class="lede lede-open">For 4+ years, Finance, Sales and Operations brought me the report that didn’t tie out. I find the cause, fix it at the source, and build the SQL, pipelines and Power BI reporting that keep it fixed.</p>
-      <p class="lede lede-2">Pick the role you’re hiring for below. Every requirement it usually lists is tied to where I’ve done it: a paid role, or a public project you can open and check.</p>
+      <p class="lede lede-2">Pick the role you’re hiring for below. Every requirement it usually lists is tied to where I’ve done it: a paid role, or a public project you can open and check. Short on time? <a class="lede-link" href="#featured">Watch three 70-second case-study tours ↓</a></p>
 
       <p class="availability">
         <span class="availability-dot" aria-hidden="true"></span>
@@ -675,8 +675,9 @@ WHERE verdict = 'GO'</pre>
             <tr data-source="paid"><th scope="row">Migration with validation</th><td>Refactored priority pipelines into Fabric notebooks, validating cutover with row counts, checksums and control totals so no report broke. In public: a <a href="#p-migration">GO/NO-GO gate</a> across 107 artifacts.</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="project"><th scope="row">Working at scale</th><td>A <a href="#p-control-tower">medallion pipeline</a> benchmarked at 10 million rows in Delta Lake, and a <a href="#p-dbt">dbt project</a> run on a Databricks SQL warehouse.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">CI/CD, contracts and orchestration</th><td>GitHub Actions on every repository, Docker images built in CI, an <a href="#p-dbt">Airflow DAG</a>, and a <a href="#p-bc-finance">90-file public-finance pipeline</a> that fails on unexpected headers or item labels.</td><td><span class="src src-project">Public project</span></td></tr>
+            <tr data-source="project"><th scope="row">Scheduled pipelines that keep running</th><td>A <a href="#p-wildfire">forecast pipeline</a> pulls Canada’s public fire and weather records and republishes on a GitHub Actions schedule twice a day, as it has since September; a monthly job re-checks the <a href="#p-bc-finance">Province’s B.C. files</a> for changes.</td><td><span class="src src-project">Public project</span></td></tr>
           </tbody>
-          <tfoot><tr data-paid="4" data-project="2" data-degree="0"><th scope="row">Tied out</th><td colspan="2"><span class="tie"><span>Paid roles</span><b>4</b></span><span class="tie"><span>Public projects</span><b>2</b></span></td></tr></tfoot>
+          <tfoot><tr data-paid="4" data-project="3" data-degree="0"><th scope="row">Tied out</th><td colspan="2"><span class="tie"><span>Paid roles</span><b>4</b></span><span class="tie"><span>Public projects</span><b>3</b></span></td></tr></tfoot>
         </table>
       </article>
 
@@ -820,12 +821,24 @@ WHERE verdict = 'GO'</pre>
     <div class="flagships" id="featured">
       <h3 class="work-subhead">Start with these three</h3>
       <article class="project flagship" id="p-growthops" data-tags="customer bi engineering ai business">
-        <button type="button" class="card-zoom flagship-shot" data-zoom="assets/growthops-pbi.jpg"
+        <div class="flagship-media">
+          <figure class="tour">
+            <div class="tour-frame">
+            <video controls preload="none" playsinline width="1280" height="720" data-poster="assets/video/growthops-tour-poster.jpg" aria-label="GrowthOps OS: a 72-second captioned tour of the revenue bridge, the lead-quality diagnosis, the Power BI report and the Excel workbook, and the tests that hold them">
+              <source src="assets/video/growthops-tour.mp4" type="video/mp4">
+              <source src="assets/video/growthops-tour.webm" type="video/webm">
+              <track kind="captions" src="assets/video/growthops-tour.vtt" srclang="en" label="English">
+            </video>
+            </div>
+            <figcaption><span class="tour-tag">▶ 72-second tour</span> Captioned, no sound needed. Every number in it is from the project's tested output.</figcaption>
+          </figure>
+          <button type="button" class="card-zoom flagship-shot" data-zoom="assets/growthops-pbi.jpg"
                 aria-label="Enlarge: the GrowthOps OS Power BI executive summary above the Excel dashboard, both for the last 28 days">
           <img src="assets/growthops-pbi.jpg" width="1200" height="1863" loading="lazy" decoding="async"
                alt="GrowthOps OS in Power BI and in Excel. Top, the Power BI executive summary: net cash $309,900 over the last 28 days, up 22%; ad spend $41,164; paid cost per lead $40.04, up 8%; paid MQL rate 19.8%, down 1.1 points; a summary written in DAX naming meta_broad_v17 as the weakest campaign and email bouncing at 3.4%; net cash and ad spend by month; cash return on ad spend by campaign with meta_broad_v17 in red. Below, the Excel dashboard for the same 28 days with the same figures, six KPI tiles against the prior window, three sentences written by formulas, a monthly chart and ROAS by platform">
           <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
         </button>
+        </div>
         <div class="flagship-copy">
           <p class="kicker">CASE STUDY 1 · BI &amp; REPORTING · POWER BI · EXCEL</p>
           <h3>GrowthOps OS</h3>
@@ -854,12 +867,24 @@ WHERE verdict = 'GO'</pre>
         </div>
       </article>
       <article class="project flagship" id="p-control-tower" data-tags="bi engineering supply business gis">
-        <button type="button" class="card-zoom flagship-shot" data-zoom="assets/control-tower.jpg"
+        <div class="flagship-media">
+          <figure class="tour">
+            <div class="tour-frame">
+            <video controls preload="none" playsinline width="1280" height="720" data-poster="assets/video/control-tower-tour-poster.jpg" aria-label="Supply Chain Control Tower: a 72-second captioned tour of the OTIF gap, where the stock sits, the three pipeline defences and the tests that break the data on purpose">
+              <source src="assets/video/control-tower-tour.mp4" type="video/mp4">
+              <source src="assets/video/control-tower-tour.webm" type="video/webm">
+              <track kind="captions" src="assets/video/control-tower-tour.vtt" srclang="en" label="English">
+            </video>
+            </div>
+            <figcaption><span class="tour-tag">▶ 72-second tour</span> Captioned, no sound needed. Every number in it is from the project's tested output.</figcaption>
+          </figure>
+          <button type="button" class="card-zoom flagship-shot" data-zoom="assets/control-tower.jpg"
                 aria-label="Enlarge: Supply Chain Control Tower executive overview dashboard">
           <img src="assets/control-tower.jpg" width="1600" height="900" loading="lazy" decoding="async"
                alt="Supply Chain Control Tower — executive overview dashboard in Power BI: $88.97M revenue, 22.7% gross margin, OTIF 90.4% against a 95% target and 22.8% of inventory value at expiry risk, beside the monthly revenue trend, margin by category and revenue by region">
           <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
         </button>
+        </div>
         <div class="flagship-copy">
           <p class="kicker">CASE STUDY 2 · DATA ENGINEERING · SUPPLY CHAIN · POWER BI</p>
           <h3>Supply Chain Control Tower</h3>
@@ -882,12 +907,24 @@ WHERE verdict = 'GO'</pre>
         </div>
       </article>
       <article class="project flagship" id="p-bc-finance" data-tags="finance engineering business">
-        <button type="button" class="card-zoom flagship-shot" data-zoom="assets/bc-finance-dashboard.jpg"
+        <div class="flagship-media">
+          <figure class="tour">
+            <div class="tour-frame">
+            <video controls preload="none" playsinline width="1280" height="720" data-poster="assets/video/bc-finance-tour-poster.jpg" aria-label="B.C. Local-Government Finance: a 64-second captioned tour of the contracted pipeline, the dbt build, the renewal finding and the Excel workbook's checks">
+              <source src="assets/video/bc-finance-tour.mp4" type="video/mp4">
+              <source src="assets/video/bc-finance-tour.webm" type="video/webm">
+              <track kind="captions" src="assets/video/bc-finance-tour.vtt" srclang="en" label="English">
+            </video>
+            </div>
+            <figcaption><span class="tour-tag">▶ 64-second tour</span> Captioned, no sound needed. Every number in it is from the project's tested output.</figcaption>
+          </figure>
+          <button type="button" class="card-zoom flagship-shot" data-zoom="assets/bc-finance-dashboard.jpg"
                 aria-label="Enlarge: Excel dashboard for Fernie with eight tiles against its peer tier, five sentences written by formulas, revenue by source and debt servicing against the legal limit">
           <img src="assets/bc-finance-dashboard.jpg" width="1138" height="1083" loading="lazy" decoding="async"
                alt="Excel dashboard for Fernie, B.C.: own-source revenue, debt limit used, reserves, asset life used, renewal reinvestment, taxes on a representative house, tax per resident and debt per resident, each against its peer tier; five sentences written by formulas; revenue by source 2019 to 2024; and debt servicing against the legal limit">
           <span class="zoom-hint" aria-hidden="true">⤢ VIEW FULL</span>
         </button>
+        </div>
         <div class="flagship-copy">
           <p class="kicker">CASE STUDY 3 · ANALYTICS ENGINEERING · REAL PUBLIC DATA</p>
           <h3>B.C. Local-Government Finance</h3>
@@ -987,9 +1024,9 @@ WHERE verdict = 'GO'</pre>
       <article class="project archive-item" id="p-aml-monitoring" data-tags="finance ai">
         <p class="archive-kicker">FINANCIAL CRIME · ANOMALY DETECTION</p>
         <h4>Transaction Monitoring</h4>
-        <p class="archive-outcome">A flat $10,000 rule finds 38 of 60 planted cases. Five explainable rules plus an anomaly model find all 60, while alerting on a third fewer entities.</p>
+        <p class="archive-outcome">A flat $10,000 rule finds 38 of 60 planted cases. Five explainable rules plus an anomaly model find all 60 while alerting on a third fewer entities, and each rule is mapped to FINTRAC’s indicators and reports.</p>
         <p class="archive-stack">Python · SQLite · scikit-learn · Streamlit</p>
-        <div class="archive-links"><a class="is-live" href="https://aml-transaction-monitoring.streamlit.app" target="_blank" rel="noopener">Live app <span aria-hidden="true">↗</span></a><a  href="https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/investigation_decision_packet.md" target="_blank" rel="noopener">Decision packet <span aria-hidden="true">↗</span></a><a  href="https://github.com/KushPatel29/aml-transaction-monitoring" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div>
+        <div class="archive-links"><a class="is-live" href="https://aml-transaction-monitoring.streamlit.app" target="_blank" rel="noopener">Live app <span aria-hidden="true">↗</span></a><a href="https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/analytic_brief_INV-ENT-01216.md" target="_blank" rel="noopener">Analytic brief <span aria-hidden="true">↗</span></a><a href="https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/docs/CANADIAN_REGULATORY_MAPPING.md" target="_blank" rel="noopener">FINTRAC mapping <span aria-hidden="true">↗</span></a><a href="https://github.com/KushPatel29/aml-transaction-monitoring" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div>
       </article>
       <article class="project archive-item" id="p-marketing" data-tags="customer ai">
         <p class="archive-kicker">MEASUREMENT · CAUSAL INFERENCE</p>
@@ -1139,7 +1176,7 @@ WHERE verdict = 'GO'</pre>
           </p>
           <h3>Shivam Investments</h3>
           <p class="xp-title">Financial Analyst — Data &amp; Reporting</p>
-          <p class="xp-where">PERMANENT FULL-TIME</p>
+          <p class="xp-where">PERMANENT FULL-TIME · VADODARA, INDIA · HYBRID</p>
           <p class="xp-scope">GL/P&amp;L · AP/AR · RECONCILIATION · AUTOMATION</p>
           <p class="xp-summary">Where the reconciliation habit started: close cycles tight enough that a manual mistake showed up as a real number in front of real people.</p>
           <ul class="tags">

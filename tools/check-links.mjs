@@ -95,7 +95,7 @@ function extractRefs(html) {
   const refs = new Set();
 
   // href="…" and src="…", single or double quoted.
-  for (const m of html.matchAll(/(?:href|src)\s*=\s*("([^"]*)"|'([^']*)')/gi)) {
+  for (const m of html.matchAll(/(?:href|src|poster)\s*=\s*("([^"]*)"|'([^']*)')/gi)) {
     refs.add((m[2] ?? m[3] ?? "").trim());
   }
 

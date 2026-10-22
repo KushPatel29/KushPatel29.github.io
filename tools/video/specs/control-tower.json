@@ -1,0 +1,231 @@
+{
+ "brand": "kushpatel29.github.io  ·  case study 2 of 3",
+ "who": "KUSH PATEL · DATA ANALYST · BI & ANALYTICS ENGINEER · VANCOUVER, BC",
+ "scenes": [
+  {
+   "type": "title",
+   "dur": 5,
+   "kicker": "CASE STUDY 2 OF 3 · DATA ENGINEERING · SUPPLY CHAIN",
+   "title": "Supply Chain Control Tower",
+   "sub": "A 90-store retail network is missing its service target. **Buy more stock, or move what it already has?**"
+  },
+  {
+   "type": "image",
+   "dur": 7,
+   "chapter": "01 · THE QUESTION",
+   "img": "img/ct01.png",
+   "from": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "to": [
+    0.28,
+    0.06,
+    1,
+    0.42
+   ],
+   "hl": [
+    0.516,
+    0.122,
+    0.75,
+    0.27
+   ],
+   "caption": "On-time-in-full delivery sits at **90.4%** against a **95%** target."
+  },
+  {
+   "type": "image",
+   "dur": 7.5,
+   "chapter": "02 · WHAT I FOUND",
+   "img": "img/ct07.png",
+   "from": [
+    0,
+    0.3,
+    0.6,
+    1
+   ],
+   "to": [
+    0,
+    0.42,
+    0.52,
+    1
+   ],
+   "hl": [
+    0.016,
+    0.64,
+    0.5,
+    0.978
+   ],
+   "caption": "Every region misses. Split into its two failures, **short-shipping, not lateness**, is the bigger one."
+  },
+  {
+   "type": "image",
+   "dur": 7.5,
+   "chapter": "02 · WHAT I FOUND",
+   "img": "img/ct04.png",
+   "from": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "to": [
+    0,
+    0,
+    0.75,
+    0.6
+   ],
+   "hl": [
+    0.266,
+    0.122,
+    0.5,
+    0.27
+   ],
+   "caption": "Over 13 weeks the replenishment gap grew **15.2%** while stock on hand barely moved. The stock is in the wrong place."
+  },
+  {
+   "type": "image",
+   "dur": 7,
+   "chapter": "02 · WHAT I FOUND",
+   "img": "img/ct04.png",
+   "from": [
+    0.25,
+    0,
+    1,
+    0.6
+   ],
+   "to": [
+    0.3,
+    0.04,
+    1,
+    0.55
+   ],
+   "hl": [
+    0.766,
+    0.122,
+    0.985,
+    0.27
+   ],
+   "caption": "**$96,330** of the gap is a transfer between warehouses, not a purchase order."
+  },
+  {
+   "type": "pipeline",
+   "dur": 8.5,
+   "chapter": "03 · WHAT I BUILT",
+   "source": "PYSPARK · DELTA LAKE · RUN AS A DATABRICKS JOB · BENCHMARKED AT 10M ROWS",
+   "stages": [
+    [
+     "Bronze",
+     "raw feeds, as received"
+    ],
+    [
+     "Silver",
+     "cleaned and conformed"
+    ],
+    [
+     "Gold",
+     "star schema for Power BI"
+    ]
+   ],
+   "guards": [
+    [
+     "DEFENCE 1",
+     "schema contract stops drift before Bronze"
+    ],
+    [
+     "DEFENCE 2",
+     "bad rows quarantined, replayable"
+    ],
+    [
+     "DEFENCE 3",
+     "quality gate guards Gold"
+    ]
+   ],
+   "caption": "A medallion pipeline with three defences, under an eight-page Power BI control tower."
+  },
+  {
+   "type": "terminal",
+   "dur": 9,
+   "chapter": "04 · CHECK IT YOURSELF",
+   "title": "supply-chain-control-tower — real output, recorded for this video",
+   "per": 0.36,
+   "lines": [
+    "$ pytest -v tests/test_data_contract.py tests/test_quarantine.py tests/test_pipeline_gate.py -k \"…\"",
+    "tests/test_data_contract.py::test_new_column_is_additive_not_breaking PASSED",
+    "tests/test_data_contract.py::test_missing_column_is_breaking PASSED",
+    "tests/test_data_contract.py::test_type_drift_is_breaking PASSED",
+    "tests/test_data_contract.py::test_pipeline_halts_pre_bronze_on_drift PASSED",
+    "tests/test_quarantine.py::test_toxic_rows_are_quarantined_not_fatal PASSED",
+    "tests/test_quarantine.py::test_quarantined_rows_never_reach_silver_or_gold PASSED",
+    "tests/test_quarantine.py::test_quarantine_flood_halts_publish PASSED",
+    "tests/test_quarantine.py::test_replay_releases_fixed_rows_only PASSED",
+    "tests/test_pipeline_gate.py::test_clean_run_publishes PASSED",
+    "tests/test_pipeline_gate.py::test_injected_critical_failure_halts_publish PASSED",
+    "======================= 10 passed, 5 deselected in 8.02s ======================="
+   ],
+   "caption": "Each defence is proven by breaking the data on purpose: drift halts the run, bad rows are quarantined, a failure blocks publishing."
+  },
+  {
+   "type": "image",
+   "dur": 7,
+   "chapter": "02 · WHAT I FOUND",
+   "img": "img/ct03.png",
+   "from": [
+    0,
+    0.5,
+    1,
+    1
+   ],
+   "to": [
+    0,
+    0.55,
+    1,
+    1
+   ],
+   "hl": [
+    0.016,
+    0.81,
+    0.985,
+    0.976
+   ],
+   "caption": "Suppliers are scored on what they did: **18 of 24** sit in a different band than their contract says."
+  },
+  {
+   "type": "image",
+   "dur": 7,
+   "chapter": "LIVE DECISION STUDIO",
+   "img": "img/ctgis.png",
+   "from": [
+    0.18,
+    0.06,
+    1,
+    0.9
+   ],
+   "to": [
+    0.2,
+    0.08,
+    0.98,
+    0.7
+   ],
+   "hl": [
+    0.234,
+    0.115,
+    0.8,
+    0.27
+   ],
+   "caption": "A live studio turns a disruption into owned actions: in the Mexico scenario, **13 SKUs** have no qualified alternate."
+  },
+  {
+   "type": "end",
+   "dur": 6.5,
+   "kicker": "CHECK IT YOURSELF",
+   "cta": "Read the case study, or open the live decision studio.",
+   "links": [
+    "kushpatel29.github.io/#p-control-tower",
+    "github.com/KushPatel29/supply-chain-control-tower"
+   ],
+   "note": "Run as a Databricks job, all **36** Gold measures matched the local pipeline to the cent. Synthetic data, labelled throughout."
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- Source for assets/linkedin-banner.png (1584x396), the LinkedIn profile
+     background. The profile photo covers the lower-left corner on desktop, so
+     everything sits right of x=520. Render: node tools/render-og-banner.mjs --linkedin -->
+<html lang="en"><head><meta charset="utf-8"><title>linkedin-banner source</title><style>
+@font-face{font-family:'SG';src:url(../assets/fonts/space-grotesk-latin.woff2) format('woff2');font-weight:300 700}
+@font-face{font-family:'JB';src:url(../assets/fonts/jetbrains-mono-latin.woff2) format('woff2')}
+html,body{margin:0;width:1584px;height:396px;overflow:hidden}
+body{position:relative;background:#080d11;color:#eff2f6;font-family:'SG',sans-serif}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(42,234,229,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(42,234,229,.05) 1px,transparent 1px);background-size:44px 44px}
+.glow{position:absolute;right:-120px;top:-240px;width:900px;height:640px;background:radial-gradient(closest-side,rgba(42,234,229,.15),transparent)}
+.bar{position:absolute;left:0;right:0;top:0;height:6px;background:#2aeae5}
+.wrap{position:absolute;left:540px;right:64px;top:52px}
+.eyebrow{font-family:'JB',monospace;font-size:17px;letter-spacing:.17em;color:#2aeae5}
+h1{margin:14px 0 0;font-size:50px;line-height:1.08;font-weight:500;letter-spacing:-.02em}
+.stack{margin-top:18px;font-family:'JB',monospace;font-size:17px;letter-spacing:.08em;color:#e8b33c}
+.foot{position:absolute;left:540px;right:64px;bottom:42px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.tours{white-space:nowrap;font-family:'JB',monospace;font-size:16px;font-weight:700;color:#080d11;background:#2aeae5;border-radius:8px;padding:10px 14px}
+.meta{white-space:nowrap;font-family:'JB',monospace;font-size:14px;letter-spacing:.12em;color:#9fb0b9}
+.url{white-space:nowrap;font-family:'JB',monospace;font-size:22px;color:#2aeae5}
+</style></head><body>
+<div class="grid"></div><div class="glow"></div><div class="bar"></div>
+<div class="wrap">
+  <div class="eyebrow">DATA ANALYST · BI / POWER BI DEVELOPER · ANALYTICS ENGINEER</div>
+  <h1>When the numbers don’t agree,<br>I’m the one they call.</h1>
+  <div class="stack">POWER BI · DAX · SQL · PYTHON · MICROSOFT FABRIC · DATABRICKS · DBT</div>
+</div>
+<div class="foot">
+  <span class="tours">▶ 3 video case studies</span>
+  <span class="meta">21 PUBLIC PROJECTS · OPEN ACROSS CANADA</span>
+  <span class="url">kushpatel29.github.io</span>
+</div>
+</body></html>

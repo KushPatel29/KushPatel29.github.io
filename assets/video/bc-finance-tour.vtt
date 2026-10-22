@@ -1,0 +1,38 @@
+WEBVTT
+
+1
+00:00:00.250 --> 00:00:04.800
+B.C. Local-Government Finance. Is each municipality keeping up with its infrastructure, and what would closing the gap cost in tax and borrowing?
+
+2
+00:00:05.250 --> 00:00:11.800
+90 official Province of B.C. files, each held to a written contract, because they change shape from year to year.
+
+3
+00:00:12.250 --> 00:00:19.800
+A dbt model on DuckDB turns the filings into indicators, with 31 data tests. All pass.
+
+4
+00:00:20.250 --> 00:00:27.800
+68 municipalities invest less than their assets wear out. Together they are $570M a year short.
+
+5
+00:00:28.250 --> 00:00:35.300
+The Province's own data has defects: its renewal-need field puts Vancouver at 41% of replacement value a year. The pipeline screens it out and re-derives the need.
+
+6
+00:00:35.750 --> 00:00:42.800
+An Excel model a finance team would use: pick any of 161 municipalities and every sheet follows.
+
+7
+00:00:43.250 --> 00:00:50.300
+For Fernie, closing the renewal gap by 2029 needs municipal tax increases averaging 3.7% a year.
+
+8
+00:00:50.750 --> 00:00:57.800
+The workbook proves its own numbers against dbt: all 17 checks pass, and CI rebuilds the Gold layer byte for byte.
+
+9
+00:00:58.250 --> 00:01:04.300
+Download the workbook, or read the ten-page board pack. Province of B.C. Local Government Statistics, Open Government Licence – British Columbia. Not affiliated with any municipality or the Province.
+

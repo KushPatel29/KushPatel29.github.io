@@ -1,0 +1,42 @@
+WEBVTT
+
+1
+00:00:00.250 --> 00:00:04.800
+Supply Chain Control Tower. A 90-store retail network is missing its service target. Buy more stock, or move what it already has?
+
+2
+00:00:05.250 --> 00:00:11.800
+On-time-in-full delivery sits at 90.4% against a 95% target.
+
+3
+00:00:12.250 --> 00:00:19.300
+Every region misses. Split into its two failures, short-shipping, not lateness, is the bigger one.
+
+4
+00:00:19.750 --> 00:00:26.800
+Over 13 weeks the replenishment gap grew 15.2% while stock on hand barely moved. The stock is in the wrong place.
+
+5
+00:00:27.250 --> 00:00:33.800
+$96,330 of the gap is a transfer between warehouses, not a purchase order.
+
+6
+00:00:34.250 --> 00:00:42.300
+A medallion pipeline with three defences, under an eight-page Power BI control tower.
+
+7
+00:00:42.750 --> 00:00:51.300
+Each defence is proven by breaking the data on purpose: drift halts the run, bad rows are quarantined, a failure blocks publishing.
+
+8
+00:00:51.750 --> 00:00:58.300
+Suppliers are scored on what they did: 18 of 24 sit in a different band than their contract says.
+
+9
+00:00:58.750 --> 00:01:05.300
+A live studio turns a disruption into owned actions: in the Mexico scenario, 13 SKUs have no qualified alternate.
+
+10
+00:01:05.750 --> 00:01:11.800
+Read the case study, or open the live decision studio. Run as a Databricks job, all 36 Gold measures matched the local pipeline to the cent. Synthetic data, labelled throughout.
+

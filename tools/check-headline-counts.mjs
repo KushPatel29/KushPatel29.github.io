@@ -60,8 +60,8 @@ const COUNT_CLAIMS = [
   /* LinkedIn caches a preview image by its URL, so a re-rendered PNG at the
      same address keeps showing the old numbers. The ?v= carries the counts:
      change them and the URL changes with them. */
-  ["link-preview image URL: projects", /og-share\.png\?v=(\d+)-\d+"/g, manifestCount, html],
-  ["link-preview image URL: live demos", /og-share\.png\?v=\d+-(\d+)"/g, liveCount, html],
+  ["link-preview image URL: projects", /og-share\.png\?v=(\d+)-\d+(?:-r\d+)?"/g, manifestCount, html],
+  ["link-preview image URL: live demos", /og-share\.png\?v=\d+-(\d+)(?:-r\d+)?"/g, liveCount, html],
 ];
 for (const [label, pattern, expected, source] of COUNT_CLAIMS) {
   const hits = [...source.matchAll(pattern)].map((m) => asNumber(m[1]));

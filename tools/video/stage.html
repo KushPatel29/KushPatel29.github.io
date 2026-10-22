@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: 'Space Grotesk'; font-weight: 300 700; src: url('fonts/space-grotesk-latin.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-weight: 100 800; src: url('fonts/jetbrains-mono-latin.woff2') format('woff2'); }
+:root {
+  --bg: #080d11; --fg: #eff2f6; --muted: #b4bbc4; --dim: #808a95;
+  --accent: #2aeae5; --amber: #e4b750; --ok: #8ce6a0;
+  --line: rgba(122,168,171,0.22); --panel: #0b1218;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; background: var(--bg); }
+body { font-family: 'Space Grotesk', system-ui, sans-serif; color: var(--fg); position: relative; }
+.grid { position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(122,168,171,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(122,168,171,0.05) 1px, transparent 1px);
+  background-size: 48px 48px; }
+.glow { position: absolute; inset: 0; background: radial-gradient(900px 420px at 15% 0%, rgba(0,58,60,0.55), transparent 70%); }
+#scene { position: absolute; inset: 0; }
+.mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+.top { position: absolute; left: 48px; right: 48px; top: 20px; height: 30px; display: flex; justify-content: space-between; align-items: center; }
+.chapter { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; letter-spacing: 0.16em; color: var(--amber); }
+.brand { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: var(--dim); }
+.frame { position: absolute; left: 48px; top: 64px; width: 1184px; height: 478px; overflow: hidden;
+  border: 1px solid var(--line); border-radius: 14px; background: #05090c; }
+.frame img { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+.hl { position: absolute; border: 3px solid var(--accent); border-radius: 10px;
+  box-shadow: 0 0 0 4000px rgba(3,7,10,0.58), 0 0 24px rgba(42,234,229,0.55); }
+.caption { position: absolute; left: 48px; right: 48px; top: 560px; height: 120px; display: flex; align-items: center;
+  font-size: 27px; line-height: 1.32; font-weight: 500; letter-spacing: -0.01em; color: var(--fg); }
+.caption b { color: var(--accent); font-weight: 700; }
+.progress { position: absolute; left: 0; bottom: 0; height: 4px; background: var(--accent); opacity: 0.85; }
+.fade { position: absolute; inset: 0; background: var(--bg); pointer-events: none; }
+/* title and end cards */
+.card { position: absolute; left: 96px; right: 96px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; }
+.kicker { font-family: 'JetBrains Mono', monospace; font-size: 17px; letter-spacing: 0.16em; color: var(--amber); font-weight: 700; }
+.title { margin-top: 20px; font-size: 78px; line-height: 1.02; font-weight: 600; letter-spacing: -0.03em; }
+.sub { margin-top: 26px; max-width: 980px; font-size: 32px; line-height: 1.32; color: var(--muted); border-left: 3px solid var(--accent); padding-left: 22px; }
+.who { margin-top: 44px; font-family: 'JetBrains Mono', monospace; font-size: 16px; letter-spacing: 0.06em; color: var(--dim); }
+.end-cta { margin-top: 26px; font-size: 40px; line-height: 1.25; font-weight: 600; letter-spacing: -0.02em; }
+.end-links { margin-top: 30px; font-family: 'JetBrains Mono', monospace; font-size: 22px; line-height: 1.7; color: var(--accent); }
+.end-note { margin-top: 30px; font-size: 20px; line-height: 1.45; color: var(--muted); max-width: 1000px; }
+/* terminal */
+.term { position: absolute; left: 48px; top: 64px; width: 1184px; height: 478px; border-radius: 14px; border: 1px solid var(--line); background: #03060a; overflow: hidden; }
+.term-bar { height: 38px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid rgba(122,168,171,0.14); }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.term-title { margin-left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--dim); }
+.term-body { padding: 16px 22px; font-family: 'JetBrains Mono', monospace; font-size: 16.5px; line-height: 1.62; white-space: pre; color: #d9dfe5; }
+.term-body .cmd { color: var(--accent); }
+.term-body .pass { color: var(--ok); }
+.term-body .dimline { color: var(--dim); }
+.term-body .sum { color: var(--ok); font-weight: 700; }
+/* pipeline diagram */
+.pipe { position: absolute; left: 48px; top: 64px; width: 1184px; height: 478px; border-radius: 14px; border: 1px solid var(--line); background: #05090c; }
+.stage-box { position: absolute; top: 150px; width: 230px; height: 150px; border-radius: 14px; border: 2px solid var(--line); background: #0b1218;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.stage-box .nm { font-size: 30px; font-weight: 600; }
+.stage-box .ds { margin-top: 8px; font-size: 16px; color: var(--muted); max-width: 190px; line-height: 1.35; }
+.guard { position: absolute; top: 330px; width: 250px; padding: 12px 14px; border-radius: 10px; border: 2px solid var(--accent); color: var(--fg);
+  font-size: 17px; line-height: 1.35; text-align: center; background: rgba(42,234,229,0.07); }
+.guard .gk { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--accent); display: block; margin-bottom: 4px; }
+.arrow { position: absolute; top: 216px; height: 3px; background: var(--dim); }
+.arrow::after { content: ''; position: absolute; right: -2px; top: -6px; border-left: 12px solid var(--dim); border-top: 7.5px solid transparent; border-bottom: 7.5px solid transparent; }
+.pipe-src { position: absolute; top: 60px; left: 0; right: 0; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--dim); letter-spacing: 0.06em; }
+</style>
+</head>
+<body>
+<div class="grid"></div><div class="glow"></div>
+<div id="scene"></div>
+<div class="progress" id="progress"></div>
+<div class="fade" id="fade"></div>
+<script>
+const FADE = 0.35;
+let SPEC = null, TOTAL = 0, starts = [], imgs = {};
+const ease = (x) => x < 0 ? 0 : x > 1 ? 1 : (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+const ramp = (t, a, b) => t <= a ? 0 : t >= b ? 1 : (t - a) / (b - a);
+const lerp = (a, b, k) => a + (b - a) * k;
+const rich = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+
+async function load(spec) {
+  SPEC = spec; TOTAL = 0; starts = [];
+  for (const sc of spec.scenes) { starts.push(TOTAL); TOTAL += sc.dur; }
+  const srcs = [...new Set(spec.scenes.filter((s) => s.img).map((s) => s.img))];
+  await Promise.all(srcs.map(async (src) => { const im = new Image(); im.src = src; await im.decode(); imgs[src] = im; }));
+  await document.fonts.ready;
+  return TOTAL;
+}
+
+function header(sc) {
+  return `<div class="top"><span class="chapter">${sc.chapter || ''}</span><span class="brand">${SPEC.brand}</span></div>`;
+}
+
+function renderImage(sc, u, el) {
+  const im = imgs[sc.img], W = im.naturalWidth, H = im.naturalHeight;
+  const k = ease(u);
+  const a = sc.from || [0, 0, 1, 1], b = sc.to || a;
+  const c = a.map((v, i) => lerp(v, b[i], k));
+  let cx0 = c[0] * W, cy0 = c[1] * H, cw = (c[2] - c[0]) * W, ch = (c[3] - c[1]) * H;
+  const FW = 1184, FH = 478, AR = FW / FH;
+  // Grow the crop to the frame's shape, then keep it inside the image, so the
+  // frame is filled with picture rather than black margins.
+  if (cw / ch < AR) { const nw = ch * AR; cx0 -= (nw - cw) / 2; cw = nw; } else { const nh = cw / AR; cy0 -= (nh - ch) / 2; ch = nh; }
+  if (cw > W) { cx0 = (W - cw) / 2; } else { cx0 = Math.max(0, Math.min(cx0, W - cw)); }
+  if (ch > H) { cy0 = (H - ch) / 2; } else { cy0 = Math.max(0, Math.min(cy0, H - ch)); }
+  const s = Math.min(FW / cw, FH / ch);
+  const tx = FW / 2 - (cx0 + cw / 2) * s, ty = FH / 2 - (cy0 + ch / 2) * s;
+  let hl = '';
+  if (sc.hl) {
+    const o = ramp(u, sc.hlAt ?? 0.22, (sc.hlAt ?? 0.22) + 0.12);
+    const [x0, y0, x1, y1] = sc.hl;
+    const L = tx + x0 * W * s, T = ty + y0 * H * s, R = tx + x1 * W * s, B = ty + y1 * H * s;
+    hl = `<div class="hl" style="left:${L - 6}px;top:${T - 6}px;width:${R - L + 12}px;height:${B - T + 12}px;opacity:${o}"></div>`;
+  }
+  el.innerHTML = header(sc) +
+    `<div class="frame"><img src="${sc.img}" width="${W}" height="${H}" style="transform:translate(${tx}px,${ty}px) scale(${s})">${hl}</div>` +
+    `<div class="caption" style="opacity:${ramp(u * sc.dur, 0.25, 0.75)}"><div>${rich(sc.caption)}</div></div>`;
+}
+
+function renderTerminal(sc, ts, el) {
+  const lines = sc.lines, startAt = 0.5, per = sc.per || 0.32;
+  const shown = Math.max(0, Math.min(lines.length, Math.floor((ts - startAt) / per) + 1));
+  const body = lines.slice(0, shown).map((l) => {
+    let cls = '';
+    if (l.startsWith('$ ')) cls = 'cmd'; else if (/PASSED|PASS |OK /.test(l)) cls = 'pass';
+    else if (/^(=+|Done\.|Completed|.*passed in)/.test(l)) cls = 'sum'; else if (l.startsWith('#')) cls = 'dimline';
+    const txt = l.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    return `<span class="${cls}">${txt}</span>`;
+  }).join('\n');
+  el.innerHTML = header(sc) +
+    `<div class="term"><div class="term-bar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span><span class="term-title">${sc.title || ''}</span></div><div class="term-body">${body}</div></div>` +
+    `<div class="caption" style="opacity:${ramp(ts, 0.25, 0.75)}"><div>${rich(sc.caption)}</div></div>`;
+}
+
+function renderPipeline(sc, ts, el) {
+  const xs = [90, 477, 864];
+  const names = sc.stages;
+  let html = `<div class="pipe"><div class="pipe-src">${sc.source}</div>`;
+  names.forEach((n, i) => {
+    const o = ramp(ts, 0.4 + i * 0.7, 0.8 + i * 0.7);
+    html += `<div class="stage-box" style="left:${xs[i]}px;opacity:${o}"><div class="nm">${n[0]}</div><div class="ds">${n[1]}</div></div>`;
+    if (i < names.length - 1) { const a = ramp(ts, 0.8 + i * 0.7, 1.1 + i * 0.7); html += `<div class="arrow" style="left:${xs[i] + 240}px;width:${147 * a}px;opacity:${a}"></div>`; }
+  });
+  sc.guards.forEach((g, i) => {
+    const o = ramp(ts, 2.6 + i * 0.6, 3.0 + i * 0.6);
+    html += `<div class="guard" style="left:${xs[i] + 115 - 125}px;opacity:${o}"><span class="gk">${g[0]}</span>${g[1]}</div>`;
+  });
+  html += '</div>';
+  el.innerHTML = header(sc) + html + `<div class="caption" style="opacity:${ramp(ts, 0.25, 0.75)}"><div>${rich(sc.caption)}</div></div>`;
+}
+
+function renderCard(sc, ts, el) {
+  if (sc.type === 'title') {
+    el.innerHTML = `<div class="card"><div class="kicker" style="opacity:${ramp(ts, 0.2, 0.6)}">${sc.kicker}</div>` +
+      `<div class="title" style="opacity:${ramp(ts, 0.4, 0.9)}">${sc.title}</div>` +
+      `<div class="sub" style="opacity:${ramp(ts, 1.0, 1.6)}">${rich(sc.sub)}</div>` +
+      `<div class="who" style="opacity:${ramp(ts, 1.6, 2.1)}">${SPEC.who}</div></div>`;
+  } else {
+    el.innerHTML = `<div class="card"><div class="kicker">${sc.kicker}</div>` +
+      `<div class="end-cta" style="opacity:${ramp(ts, 0.2, 0.7)}">${rich(sc.cta)}</div>` +
+      `<div class="end-links" style="opacity:${ramp(ts, 0.7, 1.2)}">${sc.links.join('<br>')}</div>` +
+      `<div class="end-note" style="opacity:${ramp(ts, 1.2, 1.7)}">${rich(sc.note)}</div>` +
+      `<div class="who" style="opacity:${ramp(ts, 1.4, 1.9)}">${SPEC.who}</div></div>`;
+  }
+}
+
+function render(t) {
+  let i = starts.length - 1;
+  while (i > 0 && t < starts[i]) i--;
+  const sc = SPEC.scenes[i], ts = t - starts[i], u = Math.min(1, ts / sc.dur);
+  const el = document.getElementById('scene');
+  if (sc.type === 'image') renderImage(sc, u, el);
+  else if (sc.type === 'terminal') renderTerminal(sc, ts, el);
+  else if (sc.type === 'pipeline') renderPipeline(sc, ts, el);
+  else renderCard(sc, ts, el);
+  const fin = ramp(ts, 0, FADE), fout = 1 - ramp(ts, sc.dur - FADE, sc.dur);
+  document.getElementById('fade').style.opacity = String(1 - Math.min(fin, fout));
+  document.getElementById('progress').style.width = (100 * t / TOTAL) + '%';
+}
+window.load = load; window.render = render;
+</script>
+</body>
+</html>

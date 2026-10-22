@@ -165,3 +165,26 @@ test("three case studies lead the work, and the page grades no one", async ({ pa
   await expect(page.locator("#featured")).toBeHidden();
   await expect(page.locator("#more-projects")).toBeVisible();
 });
+
+test("each case study has a captioned tour that plays from one button", async ({ page }) => {
+  await page.goto("/#featured");
+  const tours = page.locator("#featured .tour");
+  await expect(tours).toHaveCount(3);
+  for (const tour of await tours.all()) {
+    const video = tour.locator("video");
+    await expect(video.locator('track[kind="captions"]')).toHaveCount(1);
+    await expect(video.locator("source")).toHaveCount(2);
+    // A clean poster under one button; the native controls come back on play.
+    await expect(video).not.toHaveAttribute("controls", /.*/);
+    await expect(tour.locator(".tour-play")).toBeVisible();
+  }
+  // Posters load only near the case studies, never with the first screen.
+  await page.goto("/");
+  await expect(page.locator("#featured .tour video").first()).not.toHaveAttribute("poster", /.+/);
+  await page.locator("#featured .tour video").first().scrollIntoViewIfNeeded();
+  await expect(page.locator("#featured .tour video").first()).toHaveAttribute("poster", /tour-poster\.jpg$/);
+  const first = page.locator("#featured .tour").first();
+  await first.locator(".tour-play").click();
+  await expect(first.locator(".tour-play")).toHaveCount(0);
+  await expect(first.locator("video")).toHaveJSProperty("controls", true);
+});

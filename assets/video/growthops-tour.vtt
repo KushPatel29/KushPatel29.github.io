@@ -1,0 +1,42 @@
+WEBVTT
+
+1
+00:00:00.250 --> 00:00:04.800
+GrowthOps OS. Ad platforms, the CRM and the bank each report a different revenue figure. Which one is right?
+
+2
+00:00:05.250 --> 00:00:12.300
+Ad platforms claim $3.72M. The CRM books $3.32M. The bank collected $3.06M. Which number is right?
+
+3
+00:00:12.750 --> 00:00:19.800
+Every step from CRM bookings to cash is computed, so nothing is left unexplained: the residual is $0.
+
+4
+00:00:20.250 --> 00:00:26.800
+Meta reports 7.3× return on ad spend. On the cash the business actually kept, it is 3.3×.
+
+5
+00:00:27.250 --> 00:00:35.300
+Lead quality fell from 29.8% to 20.4%. The detector caught it within three days and traced 92% of the drop to one new campaign.
+
+6
+00:00:35.750 --> 00:00:41.300
+That campaign, meta_broad_v17, lifted leads 61% while their quality fell.
+
+7
+00:00:41.750 --> 00:00:49.300
+A seven-page Power BI report generated from a specification, with 215 documented DAX measures. This summary is written in DAX.
+
+8
+00:00:49.750 --> 00:00:57.300
+The Excel workbook is formulas over the same dbt marts, and reaches the same answer on its own: $309,900 net cash, as in Power BI.
+
+9
+00:00:57.750 --> 00:01:05.800
+Tests hold every claim: both bridges tie exactly, the detector finds each planted incident, and the workbook reconciles.
+
+10
+00:01:06.250 --> 00:01:12.300
+Download the workbook and compare it with the Power BI report. A fictional business on generated data, with problems planted on purpose so the analysis can be scored.
+
