@@ -84,9 +84,9 @@ if (!footer) {
   process.exit(1);
 }
 const footerText = footer[1];
-if (!/HAND-BUILT/i.test(footerText)) {
+if (!/NO FRAMEWORK/i.test(footerText)) {
   console.error(
-    '✗ the footer no longer carries the "HAND-BUILT" line this check reads.\n' +
+    '✗ the footer no longer carries the "NO FRAMEWORK" line this check reads.\n' +
       "  It cannot tell whether the privacy claim is true, so it is failing rather\n" +
       "  than reporting a pass it did not earn.\n"
   );

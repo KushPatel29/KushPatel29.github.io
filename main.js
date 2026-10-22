@@ -272,14 +272,10 @@
     if (countEl) countEl.textContent = "SHOWING " + shown + " / " + total + " PROJECTS";
     if (emptyEl) emptyEl.hidden = shown > 0;
 
-    var more = document.getElementById("more-projects");
-    if (more) {
-      if (tag !== "all") more.open = true;
-      var summary = more.querySelector("summary");
-      if (summary) summary.textContent = tag === "all"
-        ? "Nine more projects — web analytics, health, dbt, financial crime, marketing, recommendations, people analytics, clinical data and migration"
-        : "More projects matching this filter";
-    }
+    /* Hide a group heading when the filter leaves it empty. */
+    each(".flagships, .archive", function (group) {
+      group.hidden = !group.querySelector(".project:not(.is-filtered-out)");
+    });
 
     if (writeUrl) writeFilterToUrl(tag);
   }

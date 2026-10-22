@@ -49,9 +49,8 @@ Inside the portfolio repo, run:
 node .claude/skills/role-fit-analysis/scripts/evidence-snapshot.mjs
 ```
 
-It prints the current résumé, every promoted project, every Role fit row (tagged
-PAID / PROJECT / DEGREE) and the per-role evidence scores, all read from the
-published files. Then read `references/evidence-inventory.md` for what the
+It prints the current résumé, every promoted project and every Role fit row
+(tagged PAID / PROJECT / DEGREE), all read from the published files. Then read `references/evidence-inventory.md` for what the
 snapshot can't show. That means the capability tier table (§4), the list of
 things with **no** evidence (§5), and the qualifiers (§6).
 
@@ -172,9 +171,6 @@ Unknown rows score 0 until Kush answers. Recompute when Kush does.
 These thresholds are defaults. If judgment overrides one (e.g. a startup
 posting that lists ten "requirements" it plainly treats as preferences), say
 so and give the reason.
-
-The per-role scores in `role-readiness.json` describe the portfolio in
-general. They are not a fit score for this posting, so don't quote them as one.
 
 ## Step 5 — Only the highest-value résumé edits
 

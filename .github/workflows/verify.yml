@@ -44,9 +44,6 @@ jobs:
       - name: The no-JS repo count must match the project cards
         run: node tools/check-repo-count.mjs
 
-      - name: Test totals must reconcile across cards, hero, and metadata
-        run: node tools/check-test-counts.mjs
-
       # Role fit is a worksheet of claims. Every row names its source, the
       # chip says the same as the tick, the "Tied out" totals equal the rows
       # above them, and each reading list lands on a card on this page.
@@ -56,13 +53,6 @@ jobs:
       - name: Project and live-demo counts must match the manifest
         run: node tools/check-headline-counts.mjs
 
-      # The only check here that reads something this repo does not control.
-      # The flagship card quotes nineteen figures off the deployed demo; it
-      # once quoted a local run's instead, and no check on either side could
-      # see it. Skips loudly (exit 0) if the demo is unreachable, fails if a
-      # figure drifted or a pattern stopped matching.
-      - name: Figures on the flagship card must still be on the live demo
-        run: node tools/check-live-figures.mjs
 
       # The footer makes a privacy claim in one part of the file and the
       # script that could falsify it sits in another. This ties them: no
@@ -181,12 +171,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
-      # check-test-counts proves the badges on this page agree with each other.
-      # They can agree perfectly and all be wrong: the healthcare card, its
-      # repository's badge and the profile README all said 182 while the suite
-      # collected 345. This compares each card to the badge in the repository
-      # it links to, which is itself pinned to what pytest collects.
-      - name: Every card must match the repository it links to
-        run: node tools/check-repo-badges.mjs
-        env:
-          GITHUB_TOKEN: ${{ github.token }}

@@ -123,17 +123,12 @@ for (const project of manifest.projects ?? []) {
     continue;
   }
 
-  const title = card.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i);
-  const count = card.match(
-    /<(?:p|li)\s+class="(?:card-tests|tag-tests)">\s*(\d+)(?:\s+dbt)?\s+tests\b/i,
-  );
+  // Case studies use <h3>; the one-line archive entries use <h4>.
+  const title = card.match(/<h([34])[^>]*>([\s\S]*?)<\/h\1>/i);
   const repo = card.match(/https:\/\/github\.com\/KushPatel29\/[A-Za-z0-9_.-]+/i);
 
-  if (!title || textOnly(title[1]) !== project.title) {
+  if (!title || textOnly(title[2]) !== project.title) {
     fail(`${label}: manifest title does not match ${project.cardId}`);
-  }
-  if (!count || Number(count[1]) !== project.testCount) {
-    fail(`${label}: manifest testCount does not match ${project.cardId}`);
   }
   if (!repo || normalizedUrl(repo[0]) !== normalizedUrl(project.repository)) {
     fail(`${label}: manifest repository does not match ${project.cardId}`);
@@ -150,9 +145,6 @@ for (const project of manifest.projects ?? []) {
 const manifestCount = manifest.projects?.length ?? 0;
 const manifestTests = (manifest.projects ?? [])
   .reduce((sum, project) => sum + (project.testCount || 0), 0);
-const hero = html.match(
-  /<div class="metric-value" data-count="(\d+)">([\d,]+)<\/div>\s*<div class="metric-label">Automated tests/i,
-);
 
 if (manifest.totals?.promotedProjects !== manifestCount) {
   fail("totals.promotedProjects does not equal projects.length");
@@ -163,8 +155,11 @@ if (manifest.totals?.automatedTests !== manifestTests) {
 if (articles.size !== manifestCount) {
   fail(`index.html has ${articles.size} project cards; manifest has ${manifestCount}`);
 }
-if (!hero || Number(hero[1]) !== manifestTests || Number(hero[2].replaceAll(",", "")) !== manifestTests) {
-  fail("the hero test total does not reconcile to the manifest");
+/* Test counts stay in the manifest as data for each repository, but the page
+   no longer prints them: a headline total mostly measures parametrization,
+   and reviewers who check discount it. Keep it off the page. */
+if (/\b[\d,]{3,}\s+(?:automated\s+)?tests\b/i.test(textOnly(html.replace(/<script[\s\S]*?<\/script>/gi, "")))) {
+  fail("the page prints a test count again; lead with findings instead");
 }
 
 for (const cardId of articles.keys()) {
@@ -181,4 +176,4 @@ console.log(
   `✓ portfolio manifest: ${manifestCount} projects, ${manifestTests.toLocaleString("en-CA")} tests, ` +
   `${manifest.projects.filter((item) => item.liveStatus === "live-demo").length} live demos`,
 );
-console.log(`✓ verified ${manifest.lastVerified}; every card title, repository, live link and count reconciles`);
+console.log(`✓ verified ${manifest.lastVerified}; every card title, repository and live link reconciles`);

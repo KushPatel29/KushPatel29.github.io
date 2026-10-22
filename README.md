@@ -2,17 +2,31 @@
 
 My data analyst and BI / analytics engineer portfolio — live at **[kushpatel29.github.io](https://kushpatel29.github.io/)**.
 
-Hand-built static page: one HTML file, one stylesheet, one script. No
-framework, no production build step, no cookies. The dashboard screenshots are real
+A static page: one HTML file, one stylesheet, one script, written with AI
+coding assistants and checked by the contracts below. No framework, no
+production build step, no cookies. The dashboard screenshots are real
 captures from my repos. Reported project benchmarks and documented invariants
 are checked by the linked repository workflows. Project data is synthetic and
 dollar outcomes are modelled; employment improvements are internal estimates.
 Simulations and design-only work are labelled explicitly rather than presented
 as client or production experience.
 
-## New flagship: Portfolio Intelligence Platform
+## How the page is organised
 
-The portfolio now includes its own measurement-system case study: **[Portfolio
+A reviewer gives a portfolio about a minute, so the page leads with three case
+studies, each written as question → what I built → what I found → how to check
+it: **GrowthOps OS** (Power BI and Excel that tie out to the cent), **Supply
+Chain Control Tower** (a contract-tested PySpark/Delta pipeline under a Power BI
+control tower) and **B.C. Local-Government Finance** (dbt over 90 official
+filings, real public data). The other eighteen projects follow in brief,
+with the same `#p-…` anchors as before so links already sent still land.
+
+The page states no test totals and no self-assigned scores. Each repository
+still runs its tests in CI; the page leads with findings instead.
+
+## Portfolio Intelligence Platform
+
+The portfolio includes its own measurement-system case study: **[Portfolio
 Intelligence Platform](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/)**.
 It demonstrates acquisition, engagement and conversion calculations from a
 committed 20-event fixture, plus honest unavailable states for retention and
@@ -25,12 +39,12 @@ Its complete source, event contract, governed metric catalog, architecture,
 privacy boundary and reviewer setup are under
 [`projects/portfolio-intelligence-platform/`](projects/portfolio-intelligence-platform/README.md).
 
-## Role fit: one page, eight roles
+## Role fit: three roles up front, five more one click away
 
-The page is written for every role I apply to, and **Role fit** is how one page
-serves them all. A hiring manager picks the role they are filling — data analyst,
-BI / Power BI developer, analytics engineer, data engineer, business analyst,
-financial analyst, supply chain & operations analyst or data scientist — and
+**Role fit** leads with the three roles I'm targeting — data analyst, BI / Power
+BI developer and analytics engineer — with supply chain & operations, data
+engineer, business analyst, financial analyst and data scientist as a quieter
+second row. A hiring manager picks the role they are filling and
 gets that role's usual requirements, each tied to where I met it: a paid role, a
 public project or the master's. Each panel ends in a "Tied out" total, and
 `tools/check-role-fit.mjs` fails the build if a total stops matching its rows.
@@ -100,7 +114,7 @@ RESUME_SRC=tmp/role-fit/acme/resume.html RESUME_OUT=tmp/role-fit/acme/Kush-Patel
 - `DEPLOYMENT.md` — release, smoke-test and rollback runbook.
 - `portfolio-manifest.json` — the machine-readable control plane for every
   promoted project's title, repository, live-app status, data boundary,
-  test count, decision and evidence links.
+  priority (three flagships), test count as data, decision and evidence links.
 - `projects/portfolio-intelligence-platform/` — source and documentation for
   the portfolio's own governed web-analytics data product.
 
@@ -132,7 +146,8 @@ commit SHAs and Dependabot proposes reviewed updates.
 
 **`tools/check-portfolio-manifest.mjs`** reconciles all twenty-one project
 records to the actual HTML. A release fails when a card title, repository,
-live-app link, test count, total, or verification date drifts. It also requires
+live-app link or verification date drifts, or if the page starts printing a
+test total again. It also requires
 an explicit data classification, primary decision and product shape, keeping
 the portfolio's public claims and product strategy in one reviewable place.
 

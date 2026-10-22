@@ -11,11 +11,10 @@
      resume/resume.html       the résumé the site hands out
      portfolio-manifest.json  every promoted project and its status
      index.html               the Role fit rows (paid / project / degree)
-     role-readiness.json      the per-role portfolio evidence scores
 
    Usage (from anywhere inside the portfolio repo):
      node .claude/skills/role-fit-analysis/scripts/evidence-snapshot.mjs
-     node …/evidence-snapshot.mjs --only resume,projects,fit,scores
+     node …/evidence-snapshot.mjs --only resume,projects,fit
      node …/evidence-snapshot.mjs --root /path/to/KushPatel29.github.io
 
    Exit 2 when the repo cannot be found: fall back to
@@ -34,7 +33,7 @@ const flag = (name) => {
   return i >= 0 && argv[i + 1] && !argv[i + 1].startsWith("--") ? argv[i + 1] : null;
 };
 
-const SECTIONS = ["resume", "projects", "fit", "scores"];
+const SECTIONS = ["resume", "projects", "fit"];
 const only = (flag("--only") || SECTIONS.join(",")).split(",").map((s) => s.trim());
 const unknown = only.filter((s) => !SECTIONS.includes(s));
 if (unknown.length) {
@@ -146,28 +145,13 @@ if (only.includes("fit")) {
   say("## Role fit rows (index.html #fit) — each row is a published, sourced claim");
   const panels = [...html.matchAll(/<article class="fit-panel" id="fit-([a-z-]+)"[\s\S]*?<\/article>/g)];
   for (const [block, view] of panels) {
-    const score = block.match(/class="fit-score"[^>]*>([^<]+)</);
     say();
-    say(`### ${view}${score ? ` — portfolio evidence score ${decode(score[1])}` : ""}  (link view: ?role=${view}#fit)`);
+    say(`### ${view}  (link view: ?role=${view}#fit)`);
     for (const row of block.matchAll(/<tr data-source="([a-z]+)"><th scope="row">([\s\S]*?)<\/th><td>([\s\S]*?)<\/td>/g)) {
       say(`- [${row[1].toUpperCase()}] ${text(row[2])}: ${text(row[3])}`);
     }
   }
 }
 
-/* ---------- scores ---------- */
-if (only.includes("scores")) {
-  const raw = read("role-readiness.json");
-  say();
-  say("## Portfolio evidence scores (role-readiness.json)");
-  if (!raw) {
-    say("(missing)");
-  } else {
-    const r = JSON.parse(raw);
-    say(`${r.purpose} Weights: ${Object.entries(r.weights).map(([k, v]) => `${k} ${v}`).join(", ")}.`);
-    for (const role of r.roles) say(`- ${role.role}: ${role.score} — ${role.evidence.join("; ")}`);
-    say("These scores describe the portfolio in general; they are NOT a fit score for any specific posting.");
-  }
-}
 
 console.log(out.join("\n"));

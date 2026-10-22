@@ -29,7 +29,7 @@ const fail = (message) => failures.push(message);
 
 const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]));
 const tabs = new Map(
-  [...html.matchAll(/<a class="fit-tab" id="fit-tab-([a-z-]+)" href="#fit-([a-z-]+)">/g)]
+  [...html.matchAll(/<a class="fit-tab(?: fit-tab-more)?" id="fit-tab-([a-z-]+)" href="#fit-([a-z-]+)">/g)]
     .map((m) => [m[1], m[2]]),
 );
 const panels = [...html.matchAll(

@@ -69,7 +69,7 @@ exception reporting; standardised reporting pack; Excel.
 ## 3. Education and credentials
 
 - Northeastern University — MPS Analytics (Applied Machine Intelligence), GPA
-  3.76, Vancouver, Sep 2022 – Mar 2024. Coursework: machine learning, deep
+  3.76, Vancouver, Sep 2022 – Jun 2024. Coursework: machine learning, deep
   learning, NLP/LLMs, time-series forecasting, statistical inference, data
   mining, cloud data platforms. Capstone grew into Ask Your Data.
 - Gujarat Technological University — B.Eng. Computer Science, Aug 2017 – Aug 2021.

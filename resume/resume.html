@@ -70,6 +70,7 @@
   .edu { display: flex; justify-content: space-between; gap: 10pt; margin-bottom: 2.5pt; }
   .edu-when { font-size: 8.6pt; font-weight: 600; color: #45525a; white-space: nowrap; }
   .certs { font-size: 9.2pt; }
+  .more-work { margin: 4px 0 0; font-size: 9.2pt; line-height: 1.26; }
 </style>
 
 <header>
@@ -86,7 +87,7 @@
   <li>Data analyst and BI / analytics engineer with 4+ years turning raw operational and financial data (ERP, POS, WMS, workforce and REST feeds) into governed warehouse layers, Power BI reporting and decisions that Sales, Finance and Supply Chain can defend. Sole analyst across a perishable-goods supply chain; before that, a financial analyst running month-end GL/P&amp;L reconciliations.</li>
   <li>Builds dimensional models on cloud warehouses (Microsoft Fabric, Azure Synapse, SQL Server) with Bronze/Silver/Gold medallion layers, conformed dimensions and SCD Type 1/2, orchestrated in Azure Data Factory and Fabric pipelines (dbt and Airflow in project work, not production).</li>
   <li>Delivers Power BI end to end — semantic model, DAX measure library, RLS, publish-ready reports — and treats data quality as a control: automated reconciliation cut recurring discrepancies an estimated ~45% by fixing issues at the feed rather than in the report.</li>
-  <li>Twenty-one public projects carry <b>13,921 automated tests</b> in CI, fifteen with live demos, spanning BI, marketing measurement and revenue reconciliation, HubSpot CRM development, web analytics, analytics engineering, data engineering, forecasting, experimentation and optimization, anomaly detection, text-to-SQL and business-analysis delivery (requirements, UAT, business cases).</li>
+  <li>Three public case studies below: Power BI and Excel reporting that ties out to the cent, a contract-tested PySpark and Delta Lake pipeline, and a dbt model over 90 official B.C. filings. Eighteen more projects, fifteen with live demos, at <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a>.</li>
 </ul>
 
 <h2>Technical Skills</h2>
@@ -133,66 +134,38 @@
   </ul>
 </div>
 
-<h2>Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code, live demos and CI-tested results</span></h2>
+<h2>Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code, documents you can download and CI-tested results</span></h2>
 
 <div class="proj">
-  <div class="proj-head">Retail Analytics Platform <span class="stack">— Python, Flask, DuckDB, data products &amp; metric governance &middot; 1,431 tests</span></div>
-  <div class="proj-url"><a href="https://github.com/KushPatel29/wholesale-analytics-platform">github.com/KushPatel29/wholesale-analytics-platform</a> &middot; live: <a href="https://kushpatel29.github.io/wholesale-analytics-platform/">kushpatel29.github.io/wholesale-analytics-platform</a></div>
-  <p><b>BI platform and metric governance:</b> Four dashboard pages agreed on revenue to the cent while margin did not; one cause was $333,573 of cost charged to 3,056 order lines that never shipped. One catalogue of 62 governed metric definitions (47 implemented, 15 withheld with the reason stated) now sits behind every page, nine accountable data products carry 27 quality gates, and the KPI diff that exposed the gap fails the build.</p>
+  <div class="proj-head">GrowthOps OS <span class="stack">— Power BI (DAX), Excel, SQL, dbt, Python</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/GrowthOps-OS">github.com/KushPatel29/GrowthOps-OS</a> &middot; live: <a href="https://growthops-os.streamlit.app/">growthops-os.streamlit.app</a></div>
+  <p><b>Revenue reconciliation and BI:</b> Ad platforms claimed $3.72M in revenue; the business collected $3.06M, and two bridges explain every dollar between them. A seven-page Power BI report with 215 documented DAX measures and a formula-driven Excel workbook reach the same findings independently and agree to the cent: Meta&rsquo;s 7.3&times; return on ad spend is 3.3&times; on collected cash, and a nine-point drop in lead quality traces to one new campaign.</p>
 </div>
 
 <div class="proj">
-  <div class="proj-head">Supply Chain Control Tower <span class="stack">— Microsoft Fabric patterns run on Databricks, PySpark, Delta Lake, Power BI, Streamlit &middot; 836 tests</span></div>
+  <div class="proj-head">Supply Chain Control Tower <span class="stack">— PySpark, Delta Lake, Databricks, Power BI, SQL</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-control-tower">github.com/KushPatel29/supply-chain-control-tower</a> &middot; live: <a href="https://kush-network-risk-decision-room.streamlit.app/">kush-network-risk-decision-room.streamlit.app</a></div>
-  <p><b>Data platform and operations analytics:</b> A medallion pipeline defended in three layers — schema contracts before Bronze, row quarantine with replay, a quality gate on Gold — each proven in CI by injecting the failure it exists to catch, and benchmarked at 10M rows in Delta Lake. The eight-page Power BI control tower shows short-shipping, not lateness, is the bigger OTIF driver; a live studio routes disruption scenarios to owner-assigned actions.</p>
+  <p><b>Data engineering and operations analytics:</b> A Bronze/Silver/Gold pipeline defended in three layers (schema contracts before Bronze, row quarantine with replay, a quality gate on Gold), each proven in CI by injecting the failure it exists to catch, benchmarked at 10M rows and run as a Databricks job with all 36 Gold totals matching the local build to the cent. The eight-page Power BI control tower shows short-shipping, not lateness, is the bigger OTIF failure, and that 12% of the replenishment gap needs no purchase order.</p>
 </div>
 
 <div class="proj">
-  <div class="proj-head">Ask Your Data <span class="stack">— Python, DuckDB, LLM text-to-SQL, Streamlit, voice &middot; 1,163 tests</span></div>
-  <div class="proj-url"><a href="https://github.com/KushPatel29/ask-your-data">github.com/KushPatel29/ask-your-data</a> &middot; live: <a href="https://ask-your-data-kp.streamlit.app">ask-your-data-kp.streamlit.app</a></div>
-  <p><b>Grounded text-to-SQL:</b> Ask 71 tables across eleven business domains a question, typed or spoken, and every answer comes from a query that actually ran, with the SQL shown. A read-only guard and default-deny access policy sit in front of the warehouse; on a 58-question contract the keyless compiler scores 46 right, 0 wrong and 12 refused rather than guessed.</p>
-</div>
-
-<div class="proj">
-  <div class="proj-head">GL / P&amp;L Reconciliation <span class="stack">— SQL, Python, Power BI, Tableau &middot; 710 tests</span></div>
-  <div class="proj-url"><a href="https://github.com/KushPatel29/gl-reconciliation-dashboard">github.com/KushPatel29/gl-reconciliation-dashboard</a></div>
-  <p><b>Month-end close controls:</b> Classifies ERP-versus-subledger discrepancies, traces every dollar to source and tests all 5,400 journal entries against controls. A certification layer evaluates 60 account-periods against a versioned tolerance and SLA: 8 auto-certified, 9 routed to a named reviewer and 43 blocked, with segregation of duties enforced and no approval fabricated. The same engine reconciles a FOCUS-format cloud bill unmodified.</p>
-</div>
-
-<div class="proj">
-  <div class="proj-head">Finance Decision Models in Excel and Power BI <span class="stack">— Excel, Power Query, Power Pivot / DAX, Power BI (PBIP) &middot; 1,190 tests</span></div>
-  <div class="proj-url"><a href="https://github.com/KushPatel29/excel-fpa-model">github.com/KushPatel29/excel-fpa-model</a></div>
-  <p><b>Two decision models:</b> Portland General Electric plan-vs-actual from EIA, FERC and NOAA, published in Excel and a seven-page Power BI report, with a backtested load forecast; and the preserved Kestrel Bay distributor workbook for channel economics and working capital.</p>
-</div>
-
-<div class="proj">
-  <div class="proj-head">B.C. Local-Government Finance <span class="stack">— Python, dbt / DuckDB, Excel, Power Query &middot; 181 tests</span></div>
+  <div class="proj-head">B.C. Local-Government Finance <span class="stack">— SQL, dbt / DuckDB, Python, Excel, Power Query &middot; real public data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/bc-local-government-finance">github.com/KushPatel29/bc-local-government-finance</a></div>
-  <p><b>Public-sector finance on official filings:</b> 90 provincial files held to written contracts, a dbt model with 31 data tests, and an Excel plan for any of 161 municipalities. Found the 68 municipalities investing below renewal need are $570M a year short, and caught the Province's own data defects.</p>
+  <p><b>Analytics engineering on official filings:</b> 90 provincial files held to written contracts, a dbt model with 31 data tests, and an Excel planning model for any of 161 municipalities. Found that the 68 municipalities investing below renewal need are $570M a year short, and caught the Province&rsquo;s own data defects, including a population file where 77 of 161 rows belong to other places.</p>
 </div>
 
 <div class="proj">
-  <div class="proj-head">Inventory Analytics — Operations Decision Studio <span class="stack">— Python, Flask, Plotly, DuckDB, SQL, Docker &middot; 349 tests</span></div>
-  <div class="proj-url"><a href="https://github.com/KushPatel29/inventory-analytics-app">github.com/KushPatel29/inventory-analytics-app</a> &middot; live: <a href="https://kushpatel29.github.io/inventory-analytics-app/">kushpatel29.github.io/inventory-analytics-app</a></div>
-  <p><b>Forecasting and inventory policy:</b> A six-workspace planning app over a 420-SKU, seven-node network. Seven forecasting methods compete in rolling-origin backtests; a policy lab prices seven service targets on an annual cost frontier and screens network transfers before recommending a purchase, ending in 1,170 prioritized actions. A BA case traces 13 requirements and 12 UAT scenarios through to a pilot plan.</p>
+  <div class="proj-head">Finance Decision Models in Excel and Power BI <span class="stack">— Excel, Power Query, Power Pivot / DAX, Power BI &middot; real public data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/excel-fpa-model">github.com/KushPatel29/excel-fpa-model</a></div>
+  <p><b>FP&amp;A on public filings:</b> Portland General Electric&rsquo;s $100.9M miss against plan, split into weather, price and usage from EIA, FERC and NOAA data, published in Excel and a seven-page Power BI report that agree to the cent, with a backtested load forecast; and a distributor model for channel economics and working capital.</p>
 </div>
 
-<div class="proj">
-  <div class="proj-head">Canada Wildfire Risk <span class="stack">— Python, XGBoost, GIS, Power BI, GitHub Actions &middot; 111 tests</span></div>
-  <div class="proj-url"><a href="https://github.com/KushPatel29/wildfire-prediction-app">github.com/KushPatel29/wildfire-prediction-app</a> &middot; live: <a href="https://wildfire-prediction-app1.streamlit.app">wildfire-prediction-app1.streamlit.app</a></div>
-  <p><b>Machine learning on real public data:</b> A first-prize 2024 hackathon project rebuilt as a daily seven-day ignition forecast from 164,707 recorded fires and 3,198 weather stations. Two calibrated XGBoost models, scored once on unseen 2020–2024 seasons, reach ROC-AUC 0.881 and put 57.5% of fires in each day's riskiest tenth of cells. GitHub Actions rebuilds the forecast twice a day.</p>
-</div>
-
-<div class="proj">
-  <div class="proj-head">Corridor Decision Intelligence <span class="stack">— Python, DuckDB, causal ML, HiGHS/Gurobi, Databricks, Power BI, Streamlit &middot; 244 tests</span></div>
-  <div class="proj-url"><a href="https://github.com/KushPatel29/decision-intelligence-platform">github.com/KushPatel29/decision-intelligence-platform</a> &middot; live: <a href="https://corridor-decision-intelligence.streamlit.app/">corridor-decision-intelligence.streamlit.app</a></div>
-  <p><b>Offer targeting, experiments and optimization:</b> Chooses which of 17,059 simulated toll-road customers get which of nine offers. Uplift models trained on a ten-arm randomized trial feed one mixed-integer program over 112,563 decisions, proven optimal. Scored against the simulator's truth, the plan reaches 75% of the perfect-knowledge ceiling, versus 7% for propensity targeting; a randomized test of the policy measured +$1.40 per customer.</p>
-</div>
+<p class="more-work">More work at <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a>: retail analytics and metric governance, text-to-SQL, AML transaction monitoring, a live wildfire forecast on national fire data, GL close controls, pricing, inventory and dbt on Databricks.</p>
 
 <h2>Education</h2>
 <div class="edu">
   <span><b>Northeastern University</b> — Master of Professional Studies in Analytics (Applied Machine Intelligence), GPA 3.76/4.0 &middot; Vancouver, BC</span>
-  <span class="edu-when">Sep 2022 &ndash; Mar 2024</span>
+  <span class="edu-when">Sep 2022 &ndash; Jun 2024</span>
 </div>
 <div class="edu">
   <span><b>Gujarat Technological University</b> — Bachelor of Engineering, Computer Science &middot; India</span>
@@ -200,4 +173,4 @@
 </div>
 
 <h2>Awards &amp; Certifications</h2>
-<p class="certs"><b>First prize, 2024 wildfire-prediction hackathon</b> (<a href="https://github.com/KushPatel29/wildfire-prediction-app">now a live forecast</a>) &middot; Microsoft Certified: Fabric Analytics Engineer Associate (DP-600) — in progress &middot; Google Data Analytics Professional Certificate &middot; UC Davis SQL for Data Science &middot; IBM Python for Data Science, AI &amp; Development &middot; Databricks Lakehouse Fundamentals &middot; Power BI Data Modelling with DAX</p>
+<p class="certs"><b>First prize, 2024 wildfire-prediction hackathon</b> (<a href="https://github.com/KushPatel29/wildfire-prediction-app">now a live forecast</a>) &middot; Google Data Analytics Professional Certificate &middot; UC Davis SQL for Data Science &middot; IBM Python for Data Science, AI &amp; Development &middot; Databricks Lakehouse Fundamentals &middot; Power BI Data Modelling with DAX. Preparing for the Microsoft DP-600 (Fabric Analytics Engineer) exam.</p>

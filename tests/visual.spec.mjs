@@ -38,9 +38,10 @@ async function assertResponsiveShell(page, projectName) {
   expect(shell.panels, "exactly one role panel shows at a time").toHaveLength(1);
   expect(shell.panels[0].height).toBeGreaterThan(0);
 
-  // Four tabs to a row on a desktop, two on a phone.
+  // The three target roles share the first row on a desktop and stack on a
+  // phone; the other five sit in a quieter row below them.
   const firstRow = shell.tabs.filter((box) => Math.abs(box.top - shell.tabs[0].top) < 2).length;
-  expect(firstRow).toBe(projectName.includes("desktop") ? 4 : 2);
+  expect(firstRow).toBe(projectName.includes("desktop") ? 3 : 1);
 }
 
 test.beforeEach(async ({ page }) => {

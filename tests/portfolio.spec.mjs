@@ -143,3 +143,25 @@ test("every resume action points at the downloadable PDF", async ({ page }) => {
     await expect(links.nth(index)).toHaveAttribute("download", "");
   }
 });
+
+test("three case studies lead the work, and the page grades no one", async ({ page }) => {
+  await page.goto("/");
+  const manifest = JSON.parse(fs.readFileSync(new URL("../portfolio-manifest.json", import.meta.url), "utf8"));
+  const flagshipCards = manifest.projects.filter((p) => p.priority === "flagship").map((p) => p.cardId);
+
+  // The case studies are the manifest's flagships, in the first group, before the archive.
+  const caseStudies = await page.locator("#featured .project.flagship").evaluateAll((cards) => cards.map((c) => c.id));
+  expect(caseStudies.sort()).toEqual(flagshipCards.sort());
+  await expect(page.locator("#more-projects .project")).toHaveCount(PROJECT_COUNT - flagshipCards.length);
+
+  // No self-assigned scores and no headline test totals anywhere on the page.
+  await expect(page.locator(".fit-score")).toHaveCount(0);
+  const text = await page.locator("body").innerText();
+  expect(text).not.toMatch(/\b\d[\d,]{2,}\s+(?:automated\s+)?tests\b/i);
+  expect(text).not.toMatch(/\b\d{1,2}(?:\.\d)?\s*\/\s*10\b/);
+
+  // A filter that matches none of the case studies hides their heading too.
+  await page.getByRole("button", { name: "HEALTHCARE" }).click();
+  await expect(page.locator("#featured")).toBeHidden();
+  await expect(page.locator("#more-projects")).toBeVisible();
+});

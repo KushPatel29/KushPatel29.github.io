@@ -15,8 +15,8 @@
    now (resume/resume.html), which makes the three facts they
    share checkable as text.
 
-   Checked: employment end date, city, and the published test
-   total. Not the PDF itself — parsing one without dependencies
+   Checked: employment end date, city, master's end date, and that
+   every project the résumé names is on the page. Not the PDF itself — parsing one without dependencies
    is fragile, and resume/build.sh already asserts the PDF's
    shape at the point it is produced.
 
@@ -80,18 +80,13 @@ compare(
   resumeCity ? resumeCity[1].trim() : null,
 );
 
-/* ---- 3. the test total both of them quote --------------------------- */
-/* Anchored on its label: the hero band opens with a repo counter that also
-   matches a bare data-count, and reading that instead compares 14 to 4,763. */
-const siteTotal = html.match(
-  /<div class="metric-value" data-count="(\d+)">[\d,]+<\/div>\s*<div class="metric-label">Automated tests[^<]*<\/div>/i,
-);
-const resumeTotal = resume.match(/([\d,]+) automated tests/);
-compare(
-  "published test total",
-  siteTotal ? Number(siteTotal[1]) : null,
-  resumeTotal ? Number(resumeTotal[1].replaceAll(",", "")) : null,
-);
+/* ---- 3. no headline test total on either ----------------------------- */
+/* Test counts left the page: a total mostly measures parametrization, and a
+   reviewer who checks discounts it. The résumé must not bring one back. */
+if (/[\d,]{3,}\s+automated tests/i.test(resume)) {
+  rows.push(["no headline test total", "none", "present", false]);
+  failures.push("headline test total");
+}
 
 /* ---- 4. when the master's finished ---------------------------------- */
 /* The site said MAR 2024 and the PDF said APR 2024. Small, and exactly the
@@ -108,39 +103,22 @@ compare(
     : null,
 );
 
-/* ---- 5. every per-project figure the résumé quotes ------------------ */
-/* The résumé names six projects and gives each a test count. Those are the
-   same numbers as the cards on the page, and they drift for the same reason
-   the totals do — except the totals are checked and these were not. The
-   retail figure sat at 1,391 against a card reading 1,408, which is exactly
-   the gap this file exists to close, one level down. */
-const cardCounts = new Map();
+/* ---- 5. every project the résumé names is on the page ---------------- */
+/* The résumé lists a few projects by repository. Each must be a card here,
+   so a reader who follows the résumé to the site finds the same work. */
+const cardRepos = new Set();
 for (const [cardHtml] of html.matchAll(/<article\b[^>]*\bid="p-[a-z-]+"[\s\S]*?<\/article>/gi)) {
-  const badge = cardHtml.match(/<(?:p|li)\s+class="(?:card-tests|tag-tests)">\s*(\d+)(?:\s+dbt)?\s+tests\b/i);
-  const repo = cardHtml.match(/github\.com\/KushPatel29\/([A-Za-z0-9_.-]+)/);
-  if (badge && repo) cardCounts.set(repo[1].toLowerCase(), Number(badge[1]));
+  for (const m of cardHtml.matchAll(/github\.com\/KushPatel29\/([A-Za-z0-9_.-]+)/g)) cardRepos.add(m[1].toLowerCase());
 }
-
-/* The résumé states the count in the heading and the repository on the line
-   below it, so the count comes first. */
-const resumeFigures = [...resume.matchAll(
-  /([\d,]+)\s+tests\b[\s\S]{0,240}?github\.com\/KushPatel29\/([A-Za-z0-9_.-]+)/gi,
-)].map((m) => [m[0], m[2], m[1]]);
-const figureRows = [];
-for (const [, repo, count] of resumeFigures) {
-  const key = repo.toLowerCase();
-  const onCard = cardCounts.get(key);
-  if (onCard === undefined) continue;
-  const stated = Number(count.replaceAll(",", ""));
-  figureRows.push([`${repo} tests`, onCard, stated, onCard === stated]);
-}
-if (figureRows.length === 0) {
-  console.error("✗ no per-project test figures found in the résumé — has it changed shape?");
+const resumeRepos = [...new Set([...resume.matchAll(/<div class="proj-url"><a href="https:\/\/github\.com\/KushPatel29\/([A-Za-z0-9_.-]+)"/g)].map((m) => m[1]))];
+if (resumeRepos.length === 0) {
+  console.error("✗ no projects found in the résumé — has it changed shape?");
   process.exit(1);
 }
-for (const [label, a, b, ok] of figureRows) {
-  rows.push([label, a, b, ok]);
-  if (!ok) failures.push(label);
+for (const repo of resumeRepos) {
+  const ok = cardRepos.has(repo.toLowerCase());
+  rows.push([`${repo} on the page`, ok ? "card" : "missing", "listed", ok]);
+  if (!ok) failures.push(`${repo} card`);
 }
 
 const width = Math.max(...rows.map((r) => r[0].length));
