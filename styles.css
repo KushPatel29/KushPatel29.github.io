@@ -388,8 +388,17 @@ main {
   }
   /* Sized to the desktop render so a jump to a later anchor lands close
      before the section has painted; `auto` keeps the real height after. */
-  #business-analysis { contain-intrinsic-size: auto 1380px; }
-  #work { contain-intrinsic-size: auto 4700px; }
+  #business-analysis { contain-intrinsic-size: auto 1540px; }
+  #work { contain-intrinsic-size: auto 5550px; }
+}
+/* Measured after the case-study layout: the work section roughly doubles on
+   a phone, so a jump from the nav to Experience lands in the right place. */
+@supports (content-visibility: auto) {
+  @media (max-width: 1000px) { #work { contain-intrinsic-size: auto 6600px; } }
+  @media (max-width: 620px) {
+    #work { contain-intrinsic-size: auto 11100px; }
+    #business-analysis { contain-intrinsic-size: auto 2440px; }
+  }
 }
 
 .eyebrow {
