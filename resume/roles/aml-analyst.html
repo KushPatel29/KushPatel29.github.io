@@ -21,7 +21,7 @@
 </ul>
 
 <h2>Skills</h2>
-<p class="skill"><b>Financial Crime:</b> structuring and smurfing typologies, rule design and tuning, alert triage and prioritisation, investigation case files, analytic briefs, PCMLTFA and FINTRAC reporting (LCTR including the 24-hour rule, EFTR, suspicious transaction report timing), threshold versus suspicion</p>
+<p class="skill"><b>Financial Crime:</b> sanctions name screening (fuzzy matching, transliteration, threshold tuning), structuring and smurfing typologies, rule design and tuning, alert triage and prioritisation, investigation case files, analytic briefs, PCMLTFA and FINTRAC reporting (LCTR including the 24-hour rule, EFTR, suspicious transaction report timing), threshold versus suspicion</p>
 <p class="skill"><b>Detection Analytics:</b> SQL window functions for velocity and aggregation rules, entity-relative z-scores, anomaly detection (IsolationForest, Mahalanobis distance, gradient boosting), precision and recall by typology, cost curves for alert volume</p>
 <p class="skill"><b>Controls &amp; Audit:</b> reconciliation and control totals, journal-entry testing, segregation of duties, exception logs, evidence integrity, RLS/RBAC and column masking</p>
 <p class="skill"><b>Tools:</b> SQL (T-SQL, SQLite), Python (pandas, scikit-learn), Power BI, Excel, Streamlit, Tableau, Git</p>
@@ -68,6 +68,12 @@
   <div class="proj-head">FINTRAC mapping and an analytic brief <span class="stack">— PCMLTFA, LCTR, EFTR, STR &middot; synthetic case</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/docs/CANADIAN_REGULATORY_MAPPING.md">regulatory mapping</a> &middot; <a href="https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/analytic_brief_INV-ENT-01216.md">analytic brief INV-ENT-01216</a></div>
   <p><b>Threshold reports versus suspicion:</b> each rule mapped to FINTRAC&rsquo;s indicator categories and the report it relates to, including why a $10,000 threshold rule cannot see structuring. The brief works one case: six cash deposits on six consecutive days, each just under $10,000, totalling $53,374.51 in 4.9 days, nine times the subject&rsquo;s usual weekly cash; assessed as likely sized to avoid the threshold (moderate confidence), with the three facts needed before a reporting decision.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">Sanctions screening on Canada&rsquo;s real list <span class="stack">— Python, rapidfuzz &middot; real public list, synthetic customers</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/aml-transaction-monitoring#sanctions-screening-on-canadas-real-list">github.com/KushPatel29/aml-transaction-monitoring</a></div>
+  <p><b>Name screening that is measured, not assumed:</b> customer names screened against the Consolidated Canadian Autonomous Sanctions List (5,708 entries, 9,604 names with aliases, Cyrillic transliterated). The alert threshold is set on one half of the list by a rule fixed in advance and reported on the other: in October 2026 it caught 97.2% of the name variants customers type, at 10 alerts per 10,000 synthetic customers. The list is downloaded at run time and never stored.</p>
 </div>
 
 <div class="proj">

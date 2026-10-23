@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 21,
-    "automatedTests": 13976
+    "automatedTests": 14004
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -327,7 +327,7 @@
       "repository": "https://github.com/KushPatel29/aml-transaction-monitoring",
       "liveApp": "https://aml-transaction-monitoring.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 183,
+      "testCount": 211,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",

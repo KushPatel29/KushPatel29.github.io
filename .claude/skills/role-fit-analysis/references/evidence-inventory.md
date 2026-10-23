@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
 inventory-verified: 2026-10-03
-manifest-totals: 21 projects · 13976 tests
+manifest-totals: 21 projects · 14004 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -125,6 +125,7 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Demand forecasting | PAID+PROJECT | Two Rivers SKU forecasting; inventory backtests | — |
 | Inventory policy / service-level optimisation | PROJECT | inventory app policy lab | — |
 | Customer analytics (cohorts, RFM, churn signals) | PAID+PROJECT | Two Rivers; Corridor (RFM segments, calibrated propensity, churn and attrition models) | — |
+| Sanctions name screening (fuzzy matching, Cyrillic transliteration, threshold set on a dev half) | PROJECT | Transaction Monitoring `src/sanctions_screening.py` on the real Consolidated Canadian Autonomous Sanctions List (5,708 entries), list never committed | one list only (not UN or Criminal Code lists); no PEP screening, KYC or ongoing monitoring; customers are synthetic |
 | Statistics, hypothesis tests, experiments, causal inference | PROJECT+DEGREE | geo holdout, diff-in-diff, permutation test, survival analysis; Corridor ten-arm randomized offer trial, uplift learners and a randomized test of the targeting policy (+$1.40/customer, 95% CI $0.23 to $2.57); MPS | no production A/B testing platform; Corridor's trials run on simulated customers |
 | Mathematical optimization (mixed-integer programming, LP duals, HiGHS, Gurobi) | PROJECT | Corridor: one MIP over 112,563 customer-offer decisions, proven optimal (gap 1.5e-7), residual re-solved in Gurobi; inventory policy lab | synthetic data; Gurobi used under its size-limited licence |
 | Pricing, promotions and loyalty (elasticity, offer targeting, next best offer) | PROJECT | Corridor pricing studio and next-best-offer pages; pricing & costing analytics | synthetic toll-road operator; not affiliated with any real one |
@@ -194,7 +195,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | GL / P&L Reconciliation | p-gl-recon | 710 | synthetic | no | FA — close certification, SoD, Tableau + Power BI |
 | Finance Decision Models in Excel and Power BI | p-excel-fpa | 1190 | public-open-data-and-synthetic | no | FA, DA — utility plan-vs-actual, Excel + Power BI tie-out |
 | B.C. Local-Government Finance | p-bc-finance | 181 | public-open-data | no | AE, FA, public sector — 90 contracted files, dbt 31 tests |
-| Transaction Monitoring | p-aml-monitoring | 183 | synthetic | yes | DS, fincrime — 60/60 planted cases |
+| Transaction Monitoring | p-aml-monitoring | 211 | synthetic | yes | DS, fincrime — 60/60 planted cases; sanctions name screening on the real Consolidated Canadian Autonomous Sanctions List: threshold set on one half by a fixed rule, 97.2% of standard name variants caught on the held-out half at 10 alerts per 10,000 synthetic customers (Oct 2026) |
 | Marketing Attribution & Incrementality | p-marketing | 128 | synthetic | yes | DS, marketing DA — geo holdout, budget allocator |
 | Clinical Evidence Console + FHIR Warehouse | p-clinical | 295 | synthetic | yes | healthcare DE/BA — FHIR, UAT plan |
 | Customer Recommendation Engine | p-customer-rec | 814 | synthetic | yes | DS — recommender, pre-registered experiment |
