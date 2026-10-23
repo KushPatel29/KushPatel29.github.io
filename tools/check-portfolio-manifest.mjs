@@ -7,6 +7,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { publicationDate } from "./publication-date.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
@@ -43,7 +44,7 @@ const verified = new Date(`${manifest.lastVerified}T00:00:00Z`);
 if (Number.isNaN(verified.valueOf())) {
   fail("lastVerified must be an ISO date");
 } else {
-  const ageDays = Math.floor((Date.now() - verified.valueOf()) / 86_400_000);
+  const ageDays = Math.floor((new Date(`${publicationDate()}T00:00:00Z`).valueOf() - verified.valueOf()) / 86_400_000);
   if (ageDays < 0) fail("lastVerified cannot be in the future");
   if (ageDays > 45) fail(`manifest evidence is stale (${ageDays} days; maximum 45)`);
 }

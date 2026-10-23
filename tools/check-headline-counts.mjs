@@ -35,6 +35,7 @@ function textOnly(value) {
 
 const manifestCount = (manifest.projects ?? []).length;
 const liveCount = (manifest.projects ?? []).filter((item) => item.liveStatus === "live-demo").length;
+const publicDataCount = (manifest.projects ?? []).filter((item) => item.dataClassification.startsWith("public-open-data")).length;
 const WORDS = {
   one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10,
   eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16,
@@ -48,6 +49,8 @@ const plain = textOnly(html);
 const COUNT_CLAIMS = [
   ["hero project counter", /data-count="(\d+)" data-metric="projects"/g, manifestCount, html],
   ["hero live-demo counter", /data-count="(\d+)" data-metric="live-demos"/g, liveCount, html],
+  ["hero public-data counter", /data-count="(\d+)" data-metric="public-data"/g, publicDataCount, html],
+  ["no-JS public-data counter", /data-metric="public-data">(\d+)<\/div>/g, publicDataCount, html],
   ["description: public projects", /content="[^"]*?\b(\d+) public projects\b/g, manifestCount, html],
   ["description: live demos", /content="[^"]*?\b(\d+) live demos\b/g, liveCount, html],
   ["work heading", /\b([A-Z][a-z]+(?:-[a-z]+)?) projects, each ending in a finding\b/g, manifestCount, plain],

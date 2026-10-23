@@ -46,6 +46,15 @@ const RENDER_BUDGET_MS = 8 * 60_000;
 const RELOAD_AFTER_MS = 3 * 60_000;
 const SETTLE_MS = 15_000;
 
+/* Streamlit 1.56+ can omit stMainBlockContainer. Match actual rendered
+   elements in the main region on either layout; the app shell and sidebar
+   alone are never enough to declare a demo healthy. */
+export const MAIN_CONTENT_SELECTOR = [
+  "[data-testid='stMainBlockContainer'] [data-testid='stElementContainer']",
+  "[data-testid='stMain'] [data-testid='stElementContainer']",
+  "section.main [data-testid='stElementContainer']",
+].join(", ");
+
 function origin(url) {
   return url.replace(/\/+$/, "");
 }
@@ -150,7 +159,7 @@ async function visit(browser, url) {
        When the budget runs out, say what the frame was showing. */
     const app = page.frameLocator("iframe[title='streamlitApp']");
     const content = app
-      .locator("[data-testid='stMainBlockContainer'] [data-testid='stElementContainer']")
+      .locator(MAIN_CONTENT_SELECTOR)
       .first();
     const renderStarted = Date.now();
     let reloaded = false;

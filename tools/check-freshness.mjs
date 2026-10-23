@@ -15,6 +15,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { publicationDate } from "./publication-date.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -50,7 +51,7 @@ try {
     { cwd: ROOT, encoding: "utf8" }
   ).trim();
   lastChange = committedAt
-    ? new Date(Number(committedAt) * 1000).toISOString().slice(0, 10)
+    ? publicationDate(Number(committedAt) * 1000)
     : "";
 } catch (e) {
   console.log("• git unavailable or no history here — skipping the freshness check.");
@@ -77,7 +78,7 @@ if (shown < lastChange) {
 }
 
 /* A date in the future is a different kind of wrong. */
-const today = new Date().toISOString().slice(0, 10);
+const today = publicationDate();
 if (shown > today) {
   console.error(`\n✗ The footer claims a last-updated date in the future (${shown} > ${today}).\n`);
   process.exit(1);

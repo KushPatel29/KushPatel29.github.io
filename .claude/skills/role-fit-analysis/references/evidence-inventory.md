@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
 inventory-verified: 2026-10-03
-manifest-totals: 21 projects · 14119 tests
+manifest-totals: 21 projects · 14166 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -105,8 +105,8 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Databricks (SQL warehouse, serverless jobs, Unity Catalog, Delta) | PROJECT | control tower notebooks; dbt project built on Databricks; Corridor serverless job (PySpark features match DuckDB to 2.2e-11) | not in a job |
 | dbt Core (contracts, unit tests, snapshots, incremental) | PROJECT | Supply Chain Analytics — dbt; BC finance (31 tests) | **not production** (résumé says so) |
 | MetricFlow / semantic layer | PAID (Power BI semantic layer) + PROJECT (MetricFlow) | Two Rivers; dbt project | MetricFlow is project-only |
-| Apache Airflow | PROJECT | DAG in dbt project | **checked, not scheduled; not production** |
-| Snowflake (dbt Projects on Snowflake, Git repository object, COPY INTO from stage, INFER_SCHEMA) | PROJECT | Supply Chain Analytics — dbt: 180/180 nodes green, 41/41 mart totals equal DuckDB; Retail Analytics Platform: nine sources landed as Parquet and loaded with COPY INTO, 48/48 nodes, 107/107 measures reconciled with an independent pandas build; both on a Snowflake **trial account**, recorded runs with query IDs | not in a job; trial account; no Snowpark, Streams/Tasks, RBAC design or cost management |
+| Apache Airflow | PROJECT | DAG in dbt project | **runs nightly under the Airflow scheduler in CI; not an employer production deployment** |
+| Snowflake (dbt Projects on Snowflake, Git repository object, COPY INTO from stage, INFER_SCHEMA) | PROJECT | Supply Chain Analytics — dbt: 180/180 nodes green, 41/41 mart totals equal DuckDB; Retail Analytics Platform: nine sources landed as Parquet and loaded with COPY INTO, 48/48 nodes, 107/107 measures reconciled with an independent pandas build; both on a Snowflake **trial account**, recorded runs with query IDs | not in a job; trial account; Streams/Tasks late-arrival pipeline, Snowpark procedure, 36 access checks with secondary roles disabled, resource monitor; 94,758 lines and 5,979 aggregates reconciled; tasks suspended after the trial run |
 | DuckDB, PostgreSQL | PROJECT | several repos | — |
 | Dimensional modelling (Kimball, SCD1/2, conformed dims) | PAID+PROJECT | Two Rivers mart; dbt snapshots | — |
 | Data quality tests, contracts, quarantine, alerting | PAID+PROJECT | Two Rivers tests/alerts; control tower, BC finance contracts | — |
@@ -121,19 +121,19 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | AP/AR, DPO/DSO, working capital | PAID+PROJECT | Two Rivers, Shivam; Kestrel Bay model | — |
 | Variance, margin, price-volume-mix | PAID+PROJECT | Two Rivers margin KPIs; pricing, utility models | — |
 | Budgeting, forecasting, scenario models (FP&A) | PROJECT | utility and BC municipal Excel models; Kestrel Bay FY2027 budget cycle (`excel-fpa-model/budget_cycle`): top-down targets, bottom-up submissions by channel/category/department with hires, monthly phasing, a challenge round, gap-to-target and the price that closes it, a 3+9 reforecast with an EBITDA bridge | FP&A budgeting not a paid responsibility; synthetic company |
-| Three-statement model (monthly P&L, balance sheet, cash flow with a revolver) | PROJECT | Kestrel Bay FY2027 budget workbook: balance sheet balances and cash flow ties every month, revolver holds minimum cash, interest on the opening balance (no circularity); 73 tests hold it to a pandas twin | not in a job; no DCF or valuation |
+| Three-statement model (monthly P&L, balance sheet, cash flow with a revolver) | PROJECT | Kestrel Bay FY2027 budget workbook: balance sheet balances and cash flow ties every month, revolver holds minimum cash, interest on the opening balance (no circularity); 73 tests hold it to a pandas twin | not in a job; a separate lululemon DCF exists on real SEC filings, with explicit WACC, scenarios and terminal-value sensitivity |
 | Supply chain: OTIF, FEFO, lot trace, vendor scorecards, WMS accuracy | PAID+PROJECT | Two Rivers; control tower, inventory app | — |
 | Demand forecasting | PAID+PROJECT | Two Rivers SKU forecasting; inventory backtests | — |
 | Inventory policy / service-level optimisation | PROJECT | inventory app policy lab | — |
 | Customer analytics (cohorts, RFM, churn signals) | PAID+PROJECT | Two Rivers; Corridor (RFM segments, calibrated propensity, churn and attrition models) | — |
 | KYC / CDD: customer risk rating (onboarding and periodic refresh), EDD triggers, foreign-PEP handling, beneficial ownership (25%, indirect through holdings, loops) | PROJECT | Transaction Monitoring `src/kyc.py` on 1,500 synthetic customers and 450 ownership trees; 131 High at refresh; mapped to PCMLTFA obligations in the regulatory mapping | not in a job; synthetic KYC files; no ID verification, no real PEP or adverse-media lists |
 | Streaming (Kafka API / Redpanda), Terraform, Kubernetes | PROJECT | Transaction Monitoring `streaming/`: event-time windows, late and duplicate deliveries, at-least-once with idempotent alerts; Terraform deploys broker, two-replica consumer group and jobs to a kind cluster in GitHub Actions; a pod is killed mid-stream; stream must equal batch (51/51 structuring, 1,270/1,270 LCTR 24-hour rule) | CI cluster only, not production; one broker, no TLS/auth |
-| Sanctions name screening (fuzzy matching, Cyrillic transliteration, threshold set on a dev half) | PROJECT | Transaction Monitoring `src/sanctions_screening.py` on the real Consolidated Canadian Autonomous Sanctions List (5,708 entries), list never committed | one list only (not UN or Criminal Code lists); no PEP screening, KYC or ongoing monitoring; customers are synthetic |
+| Sanctions name screening (fuzzy matching, Cyrillic transliteration, threshold set on a dev half) | PROJECT | Transaction Monitoring `src/sanctions_screening.py` on the real Consolidated Canadian Autonomous Sanctions List (5,708 entries), list never committed | one list only (not UN or Criminal Code lists); no real PEP screening or ongoing monitoring; synthetic KYC risk rating is implemented separately; customers are synthetic |
 | Statistics, hypothesis tests, experiments, causal inference | PROJECT+DEGREE | geo holdout, diff-in-diff, permutation test, survival analysis; Corridor ten-arm randomized offer trial, uplift learners and a randomized test of the targeting policy (+$1.40/customer, 95% CI $0.23 to $2.57); MPS | no production A/B testing platform; Corridor's trials run on simulated customers |
 | Mathematical optimization (mixed-integer programming, LP duals, HiGHS, Gurobi) | PROJECT | Corridor: one MIP over 112,563 customer-offer decisions, proven optimal (gap 1.5e-7), residual re-solved in Gurobi; inventory policy lab | synthetic data; Gurobi used under its size-limited licence |
 | Pricing, promotions and loyalty (elasticity, offer targeting, next best offer) | PROJECT | Corridor pricing studio and next-best-offer pages; pricing & costing analytics | synthetic toll-road operator; not affiliated with any real one |
 | Machine learning (XGBoost, logistic, anomaly, recommender) | PROJECT+DEGREE | wildfire, AML, recommender, HR | production ML only as the forecasting web apps |
-| Model monitoring / prospective evaluation of a deployed model | PROJECT | wildfire track record: every forecast published twice a day is graded weekly against CWFIS satellite detections (first forecast per day, leads 2-7, two baselines, day-level bootstrap); first 30 days to 22 Oct 2026: ROC-AUC 0.734 (95% CI 0.691-0.777), ahead of both baselines on ranking, top-10% edge not yet distinguishable from zero | a public project, not an employer's model; no MLOps platform (MLflow, SageMaker) |
+| Model monitoring / prospective evaluation of a deployed model | PROJECT | wildfire track record: every forecast published twice a day is graded weekly against CWFIS satellite detections (first forecast per day, leads 2-7, two baselines, day-level bootstrap); first 30 days to 22 Oct 2026: ROC-AUC 0.734 (95% CI 0.691-0.777), ahead of both baselines on ranking, top-10% edge not yet distinguishable from zero | a public project, not an employer's model; MLflow tracks six historical model versions and prospective monitoring, with a local SQLite registry; no SageMaker or employer MLOps ownership |
 | LLM / text-to-SQL, governed AI | PROJECT+DEGREE | Ask Your Data | — |
 | GIS / geospatial | PROJECT | wildfire, control tower GIS | — |
 | Healthcare / FHIR / clinical data | PROJECT | health system, clinical console | **synthetic data**, no healthcare employer |
@@ -151,18 +151,24 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Short-link / UTM governance (Bitly-style) | PROJECT | GrowthOps OS link audit, `mart_link_hygiene`; campaign-link builder | synthetic links; no Bitly account |
 | Public-sector finance | PROJECT | BC local-government finance (public data) | — |
 
+| AWS Athena / S3 / Glue Data Catalog | PROJECT | Supply Chain Analytics `cloud/aws/`: actual Athena query on a pinned 20,000-row seed, eight warehouses, 32/32 measures equal an independent Decimal calculation; 1,425,165 bytes scanned, query ID recorded | personal free-plan account; private encrypted S3, seven-day object expiry and 10 MiB query scan cap; no employer AWS, Redshift or Glue ETL ownership |
+| BigQuery / GA4 ecommerce analysis | PROJECT | Marketing Attribution `ga4_bigquery/`: 4,295,584 public obfuscated events, 360,129 sessions, six SQL analyses with BigQuery job IDs, independent raw-event/session reconciliation; revenue deduplication, open and ordered funnels, attribution sensitivity and censored cohort retention | historical public sample (2020–2021); no company GA4 instrumentation or GCP platform ownership |
+| Confluence delivery documentation | PROJECT | Legacy-to-Fabric delivery pack published in Confluence, with reciprocal links to its 21 Jira issues and executable acceptance criteria | personal free site; no employer Confluence or Scrum experience |
+| DCF valuation | PROJECT | Excel FP&A `valuation/`: lululemon FY2025 SEC filings, five-year cash flows, three scenarios, WACC and terminal-growth sensitivities, formula workbook tied to a Python model | educational valuation dated 17 March 2026; not investment advice or paid valuation work |
+| Privacy impact assessment | PROJECT | AML `docs/PRIVACY_IMPACT_ASSESSMENT.md` and `governance/privacy_inventory.json`: 105 classified columns across 14 files; coverage and masking tests; 12 risks with remaining organizational controls stated | synthetic customer data; no privacy-officer approval or production compliance certification |
+
 ## 5. Not evidenced anywhere
 
 A requirement that names one of these is a **real gap** unless the user supplies
 new facts in the conversation (then treat the new fact as user-stated and say
-so): AWS (any service, incl. Redshift, S3, Glue), GCP / BigQuery, Snowflake
+so): AWS in a job, Redshift, Glue ETL jobs, Snowflake
 in a job, Looker (the product), Qlik, Alteryx, SAS, R, VBA/macros, SAP as a
 user (only SAP-shaped synthetic extracts), Oracle, NetSuite, Dynamics 365,
-Salesforce in a company's org (the Developer Edition deploy in §4 is PROJECT), HubSpot in a company's production portal (the developer-test-account builds in §4 are PROJECT), HubSpot marketplace/OAuth app publishing, GA4 / web analytics, Jira in a job, Confluence, Agile/Scrum
+Salesforce in a company's org (the Developer Edition deploy in §4 is PROJECT), HubSpot in a company's production portal (the developer-test-account builds in §4 are PROJECT), HubSpot marketplace/OAuth app publishing, GA4 instrumentation in a company, Jira or Confluence in a job, Agile/Scrum
 ceremonies, production streaming, Terraform or Kubernetes beyond CI, SSAS,
 dbt Cloud, Hadoop, data-catalog tools (Purview, Collibra, Alation), Lean / Six
 Sigma, formal BRDs or Agile user stories **in a job** (a public backlog exists, §4), HIPAA / PHIPA / PIPEDA compliance
-work, DCF valuation models, budgeting or three-statement models in a job, French or other languages,
+work in a job, budgeting or three-statement models in a job, French or other languages,
 Tableau in a job, dbt or Airflow in production, people management,
 CPA / CFA / CBAP / PMP / PL-300, industry experience outside food distribution
 and investment finance.
@@ -170,8 +176,8 @@ and investment finance.
 ## 6. Qualifiers that must survive any rewrite
 
 - ~45%, ~30%, ~40% are **internal estimates** (directional, not audited).
-- dbt and Airflow are **project work, not production**; Airflow is checked, not scheduled.
-- Snowflake, Databricks and Jira runs were on **free or trial accounts**, recorded once; not production.
+- dbt and Airflow are **project work, not production**; Airflow runs nightly under its scheduler on an ephemeral CI runner.
+- Snowflake and Databricks runs were on **free or trial accounts**; Jira and Confluence use a personal free site. BigQuery ran against Google’s public obfuscated GA4 export in a sandbox. None is paid production experience.
 - Kafka, Terraform and Kubernetes run in a **CI cluster**, not production.
 - KYC files and ownership trees are **synthetic**; the KYC policy weights are the project's own.
 - DP-600 is **in progress**.
@@ -193,17 +199,17 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Supply Chain Control Tower | p-control-tower | 836 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |
 | Ask Your Data | p-ask-your-data | 1170 | synthetic-and-session-upload | yes | DS, AE — governed text-to-SQL, 46/0/12 contract |
-| Canada Wildfire Risk | p-wildfire | 122 | public-open-data | yes | DS — XGBoost, ROC-AUC 0.881 out of time, GitHub Actions |
+| Canada Wildfire Risk | p-wildfire | 131 | public-open-data | yes | DS — XGBoost, ROC-AUC 0.881 out of time, GitHub Actions |
 | Corridor Decision Intelligence | p-corridor | 244 | synthetic | yes | DS, pricing/loyalty DA — causal uplift from a ten-arm randomized trial, certified MIP over 112,563 customer-offer decisions (75% of the true-value ceiling vs 7% for propensity targeting), policy A/B test +$1.40/customer, Databricks + PySpark parity, FastAPI, Power BI |
 | Health System Decision Support | p-healthcare | 819 | synthetic | no | healthcare DA/BA — SPC, decision packet |
 | Pricing & Costing Analytics | p-pricing-analytics | 3182 | synthetic | yes | DA, FA — pocket-price waterfall, approval routing |
 | GL / P&L Reconciliation | p-gl-recon | 710 | synthetic | no | FA — close certification, SoD, Tableau + Power BI |
 | Finance Decision Models in Excel and Power BI | p-excel-fpa | 1263 | public-open-data-and-synthetic | no | FA, DA — utility plan-vs-actual, Excel + Power BI tie-out |
 | B.C. Local-Government Finance | p-bc-finance | 181 | public-open-data | no | AE, FA, public sector — 90 contracted files, dbt 31 tests |
-| Transaction Monitoring | p-aml-monitoring | 244 | synthetic | yes | DS, fincrime — 60/60 planted cases; sanctions name screening on the real Consolidated Canadian Autonomous Sanctions List: threshold set on one half by a fixed rule, 97.2% of standard name variants caught on the held-out half at 10 alerts per 10,000 synthetic customers (Oct 2026) |
-| Marketing Attribution & Incrementality | p-marketing | 128 | synthetic | yes | DS, marketing DA — geo holdout, budget allocator |
+| Transaction Monitoring | p-aml-monitoring | 270 | synthetic | yes | DS, fincrime — 60/60 planted cases; sanctions name screening on the real Consolidated Canadian Autonomous Sanctions List: threshold set on one half by a fixed rule, 97.2% of standard name variants caught on the held-out half at 10 alerts per 10,000 synthetic customers (Oct 2026) |
+| Marketing Attribution & Incrementality | p-marketing | 138 | public-open-data-and-synthetic | yes | DS, marketing DA — geo holdout, budget allocator, real GA4 ecommerce analysis in BigQuery with reconciliation and job IDs |
 | Clinical Evidence Console + FHIR Warehouse | p-clinical | 295 | synthetic | yes | healthcare DE/BA — FHIR, UAT plan |
 | Customer Recommendation Engine | p-customer-rec | 814 | synthetic | yes | DS — recommender, pre-registered experiment |
 | HR Attrition Analytics | p-hr-attrition | 822 | synthetic | yes | DA, people analytics — survival analysis, SQL |
-| Supply Chain Analytics — dbt | p-dbt | 157 | synthetic | no | AE — dbt contracts, unit tests, SCD2, MetricFlow, Databricks and Snowflake runs reconciled to DuckDB |
-| Legacy-to-Fabric Migration | p-migration | 478 | synthetic | yes | DE, BA — GO/NO-GO cutover gate, charter, RACI, 16-story backlog with CI-executed acceptance criteria |
+| Supply Chain Analytics — dbt | p-dbt | 157 | synthetic | no | AE — dbt contracts, unit tests, SCD2, MetricFlow, Databricks and Snowflake runs reconciled to DuckDB; nightly Airflow scheduler in CI |
+| Legacy-to-Fabric Migration | p-migration | 480 | synthetic | yes | DE, BA — GO/NO-GO cutover gate, charter, RACI, 16-story backlog with CI-executed acceptance criteria |

@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-10-23",
+  "lastVerified": "2026-10-24",
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 21,
-    "automatedTests": 14119
+    "automatedTests": 14166
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -136,12 +136,18 @@
         "governance",
         "data-products",
         "data-contracts",
-        "release-assurance"
+        "release-assurance",
+        "snowflake",
+        "streams-and-tasks",
+        "snowpark",
+        "rbac",
+        "cost-controls"
       ],
       "evidence": [
         "https://kushpatel29.github.io/wholesale-analytics-platform/metrics/",
         "https://github.com/KushPatel29/wholesale-analytics-platform/blob/main/governance/data_products.yml",
-        "https://github.com/KushPatel29/wholesale-analytics-platform/blob/main/docs/data-product-control-room.md"
+        "https://github.com/KushPatel29/wholesale-analytics-platform/blob/main/docs/data-product-control-room.md",
+        "https://github.com/KushPatel29/wholesale-analytics-platform/blob/main/warehouse/snowflake/platform/evidence.json"
       ]
     },
     {
@@ -234,7 +240,7 @@
       "repository": "https://github.com/KushPatel29/wildfire-prediction-app",
       "liveApp": "https://wildfire-prediction-app1.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 122,
+      "testCount": 131,
       "testCommand": "pytest",
       "dataClassification": "public-open-data",
       "priority": "specialist",
@@ -246,12 +252,15 @@
         "gis",
         "model-assurance",
         "power-bi",
-        "open-data"
+        "open-data",
+        "mlflow",
+        "model-registry"
       ],
       "evidence": [
         "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/reports/metrics.json",
         "https://github.com/KushPatel29/wildfire-prediction-app/tree/main/powerbi",
-        "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/.github/workflows/forecast.yml"
+        "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/.github/workflows/forecast.yml",
+        "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/mlflow/summary.json"
       ]
     },
     {
@@ -396,7 +405,10 @@
         "power-bi",
         "public-sector-finance",
         "working-capital",
-        "data-contracts"
+        "data-contracts",
+        "budgeting",
+        "three-statement-model",
+        "dcf-valuation"
       ],
       "evidence": [
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/workbook/PGE_Utility_FPA_Model.xlsx",
@@ -404,7 +416,9 @@
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/examples/kestrel-bay/Kestrel_Bay_FPA_Model.xlsx",
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/docs/board_pack.pdf",
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/data/sources.json",
-        "https://github.com/KushPatel29/excel-fpa-model/blob/main/model/reference.py"
+        "https://github.com/KushPatel29/excel-fpa-model/blob/main/model/reference.py",
+        "https://github.com/KushPatel29/excel-fpa-model/tree/main/valuation",
+        "https://github.com/KushPatel29/excel-fpa-model/tree/main/budget_cycle"
       ]
     },
     {
@@ -442,7 +456,7 @@
       "repository": "https://github.com/KushPatel29/aml-transaction-monitoring",
       "liveApp": "https://aml-transaction-monitoring.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 244,
+      "testCount": 270,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
@@ -454,12 +468,19 @@
         "investigation",
         "explainability",
         "governance",
-        "streamlit"
+        "streamlit",
+        "kyc",
+        "privacy-impact-assessment"
       ],
       "evidence": [
         "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/investigation_decision_packet.md",
         "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/investigation_manifest.json",
-        "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/docs/INVESTIGATOR_WORKFLOW.md"
+        "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/docs/INVESTIGATOR_WORKFLOW.md",
+        "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/docs/PRIVACY_IMPACT_ASSESSMENT.md",
+        "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/governance/privacy_inventory.json"
+      ],
+      "supplementalDataSources": [
+        "Public Consolidated Canadian Autonomous Sanctions List for the separate name-screening evaluation; list not committed."
       ]
     },
     {
@@ -469,9 +490,9 @@
       "repository": "https://github.com/KushPatel29/marketing-attribution-analytics",
       "liveApp": "https://attribution-vs-truth.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 128,
+      "testCount": 138,
       "testCommand": "pytest",
-      "dataClassification": "synthetic",
+      "dataClassification": "public-open-data-and-synthetic",
       "priority": "specialist",
       "productShape": "Causal measurement laboratory and constrained budget allocator",
       "primaryDecision": "Which channel caused incremental value, and how should the next budget be allocated?",
@@ -482,12 +503,16 @@
         "budget-optimization",
         "decision-governance",
         "lookml",
-        "streamlit"
+        "streamlit",
+        "bigquery",
+        "ga4",
+        "ecommerce-analytics"
       ],
       "evidence": [
         "https://github.com/KushPatel29/marketing-attribution-analytics/blob/main/output/marketing_investment_memo.md",
         "https://github.com/KushPatel29/marketing-attribution-analytics/blob/main/output/marketing_investment_decision.json",
-        "https://github.com/KushPatel29/marketing-attribution-analytics/blob/main/docs/decision-room.md"
+        "https://github.com/KushPatel29/marketing-attribution-analytics/blob/main/docs/decision-room.md",
+        "https://github.com/KushPatel29/marketing-attribution-analytics/blob/main/ga4_bigquery/results.json"
       ]
     },
     {
@@ -598,13 +623,20 @@
         "analytics-engineering",
         "change-impact",
         "run-lineage",
-        "release-assurance"
+        "release-assurance",
+        "airflow-scheduler",
+        "aws-athena",
+        "s3",
+        "glue-data-catalog",
+        "independent-reconciliation"
       ],
       "evidence": [
         "https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/output/analytics_engineering_release_memo.md",
         "https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/output/analytics_engineering_release_packet.json",
         "https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/output/change_impact.csv",
-        "https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/docs/RELEASE_OPERATIONS.md"
+        "https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/docs/RELEASE_OPERATIONS.md",
+        "https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/orchestration/airflow/first_ci_run.json",
+        "https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/cloud/aws/run_receipt.json"
       ]
     },
     {
@@ -614,7 +646,7 @@
       "repository": "https://github.com/KushPatel29/legacy-to-fabric-migration",
       "liveApp": "https://kush-asset-management-decision-board.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 478,
+      "testCount": 480,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
@@ -625,7 +657,9 @@
         "asset-management",
         "gis",
         "migration",
-        "business-analysis"
+        "business-analysis",
+        "jira",
+        "confluence"
       ],
       "evidence": [
         "https://github.com/KushPatel29/legacy-to-fabric-migration/tree/master/examples/asset_management",

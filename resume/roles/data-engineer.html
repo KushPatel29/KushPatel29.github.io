@@ -15,14 +15,14 @@
 
 <h2>Summary</h2>
 <ul>
-  <li>Data engineer with 4+ years building and running pipelines on Azure: as sole analyst at a perishable-goods distributor, brought ERP, Square POS, workforce and REST API feeds into Bronze/Silver/Gold layers in Microsoft Fabric and Azure Data Factory/Synapse, in SQL and PySpark.</li>
+  <li>Analytics professional with 4+ years across financial reporting and operational analytics, including Azure pipeline ownership at Two Rivers: as sole analyst at a perishable-goods distributor, brought ERP, Square POS, workforce and REST API feeds into Bronze/Silver/Gold layers in Microsoft Fabric and Azure Data Factory/Synapse, in SQL and PySpark.</li>
   <li>Treats data quality as part of the pipeline, not a report on it: schema contracts at ingestion, quarantine and replay for bad rows, gates that stop a load, and reconciliation at the feed that cut recurring discrepancies an estimated ~45%.</li>
   <li>Migrated a legacy SQL Server, SSIS and SSRS estate to Fabric without breaking a report, validating cutover with row counts, checksums and control totals; in public, the same discipline as a row-for-row GO/NO-GO gate across 107 artifacts.</li>
 </ul>
 
 <h2>Technical Skills</h2>
-<p class="skill"><b>Pipelines &amp; Orchestration:</b> ETL and ELT in Azure Data Factory, Microsoft Fabric Data Pipelines, notebooks and Dataflows Gen2, Azure Synapse, SSIS, SQL Server Agent, GitHub Actions schedules, Databricks jobs; Kafka (Redpanda) streaming with event-time windows; Airflow DAG checked in CI, not run in production</p>
-<p class="skill"><b>Processing &amp; Storage:</b> SQL (T-SQL, window functions, CTEs), PySpark, Python (pandas, requests), Delta Lake, Microsoft Fabric (Lakehouse, Warehouse, OneLake), Databricks (Unity Catalog, SQL warehouse), Snowflake (stages, COPY INTO, dbt Projects on Snowflake), SQL Server, PostgreSQL, DuckDB, Parquet</p>
+<p class="skill"><b>Pipelines &amp; Orchestration:</b> ETL and ELT in Azure Data Factory, Microsoft Fabric Data Pipelines, notebooks and Dataflows Gen2, Azure Synapse, SSIS, SQL Server Agent, GitHub Actions schedules, Databricks jobs; Kafka (Redpanda) streaming with event-time windows; Airflow scheduler running nightly in CI, not employer production</p>
+<p class="skill"><b>Processing &amp; Storage:</b> SQL (T-SQL, window functions, CTEs), PySpark, Python (pandas, requests), Delta Lake, Microsoft Fabric (Lakehouse, Warehouse, OneLake), Databricks (Unity Catalog, SQL warehouse), Snowflake (stages, dbt, Streams/Tasks, Snowpark; trial projects), SQL Server, PostgreSQL, DuckDB, Parquet; AWS Athena / S3 / Glue Data Catalog (project run)</p>
 <p class="skill"><b>Ingestion:</b> REST APIs (including the Synerion time-and-attendance API), ERP and POS extracts, public data APIs and file feeds, incremental and CDC-style loads, schema-drift handling</p>
 <p class="skill"><b>Data Quality &amp; Reliability:</b> schema contracts, row quarantine and replay, quality gates, reconciliation and control totals, referential-integrity and freshness tests, injected-failure tests, pipeline alerting and exception logs, idempotent reruns</p>
 <p class="skill"><b>Modelling &amp; Serving:</b> Kimball star schemas, conformed dimensions, SCD Type 1/2, dbt Core (contracts, incremental, snapshots), Power BI semantic models with RLS/OLS</p>
@@ -88,7 +88,7 @@
 <div class="proj">
   <div class="proj-head">Supply Chain Analytics — dbt <span class="stack">— dbt Core, Databricks, Snowflake, DuckDB &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-analytics-dbt">github.com/KushPatel29/supply-chain-analytics-dbt</a></div>
-  <p><b>Same project, three engines:</b> built on DuckDB, on a Databricks serverless SQL warehouse and inside Snowflake with dbt Projects on Snowflake: 180 of 180 nodes green and all 41 mart totals equal across all three, with contracts, incremental facts and SCD2 snapshots.</p>
+  <p><b>Same project, three engines:</b> built on DuckDB, on a Databricks serverless SQL warehouse and inside Snowflake with dbt Projects on Snowflake: 180 of 180 nodes green and all 41 mart totals equal across all three, with contracts, incremental facts and SCD2 snapshots. An AWS Athena run on private S3 data reconciles 32 warehouse measures to Python, under a 10 MiB scan cap. Airflow runs the build nightly under its scheduler in CI; separate Snowflake Streams/Tasks and Snowpark checks reconcile 94,758 retail lines after duplicates and corrections.</p>
 </div>
 
 <h2>Education</h2>

@@ -24,9 +24,13 @@ no headline test totals) and requires each variant's PDF to be offered on the pa
 ## Rebuild
 
 ```bash
+node resume/render-all.mjs    # portable Windows/macOS/Linux renderer
 bash resume/build-all.sh      # every PDF
 bash resume/build.sh          # just assets/Kush-Patel-Resume.pdf
 ```
+
+The Node renderer uses this site's pinned Playwright browser. Run the PDF ATS
+checks and visually inspect the two rendered pages after any content change.
 
 Chrome renders it; nothing else is required. `build.sh` inlines `resume.css` into
 a temporary copy first, so a source copied elsewhere for one application renders

@@ -38,7 +38,7 @@ h2 {
   border-bottom: .7pt solid #b9c3c8;
 }
 ul { margin: 0; padding-left: 12pt; }
-li { margin: 0 0 1.8pt; }
+li { margin: 0 0 1.8pt; break-inside: avoid; page-break-inside: avoid; }
 p { margin: 0 0 3pt; }
 
 /* ---------- experience ---------- */
