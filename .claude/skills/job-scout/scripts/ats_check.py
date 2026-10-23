@@ -31,7 +31,10 @@ try:
 except ImportError:
     sys.exit("error: pypdf is missing; run .claude/skills/job-scout/scripts/setup.sh and use its PYTHON")
 
-HEADINGS = ["summary", "technical skills", "professional experience", "education"]
+# Each entry is one section an ATS looks for, with the headings that name it.
+# "Skills" and "Technical Skills" are both standard; a BA or finance résumé
+# should not have to call its skills "technical" to pass.
+HEADINGS = [("summary",), ("technical skills", "skills"), ("professional experience",), ("education",)]
 EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+")
 SPLIT = re.compile(r"\b(?![AI]\b)[A-Z] [A-Z]{3,}\b")
 PHONE = re.compile(r"\+?1?[\s(.-]*\d{3}[\s).-]*\d{3}[\s.-]*\d{4}")
@@ -64,7 +67,7 @@ def main() -> int:
         "selectable text (>4000 chars)": len(text) > 4000,
         "no embedded images": images == 0,
         "no split words": not SPLIT.search(text),
-        "standard headings": all(h in flat for h in HEADINGS),
+        "standard headings": all(any(h in flat for h in names) for names in HEADINGS),
         "email in text": bool(EMAIL.search(text)),
         "phone in text": bool(PHONE.search(text)),
         "all keywords present": all(kw_hits.values()) if keywords else True,
@@ -76,7 +79,7 @@ def main() -> int:
         "characters": len(text),
         "images": images,
         "split_words": SPLIT.findall(text),
-        "missing_headings": [h for h in HEADINGS if h not in flat],
+        "missing_headings": [names[0] for names in HEADINGS if not any(h in flat for h in names)],
         "keywords_missing": [k for k, hit in kw_hits.items() if not hit],
         "checks": checks,
         "passed": all(checks.values()),

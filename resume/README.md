@@ -37,6 +37,13 @@ role view links its own variant.
 
 - **Two pages.** `build.sh` fails if it is not, because a résumé that spills onto
   a third page is a résumé nobody finishes reading.
+- **A font with a real text layer.** `resume.css` asks for Carlito first, then
+  Calibri, which shares its metrics, so a Windows build lays out identically. The
+  stylesheet used to lead with Segoe UI; where that is missing, Chrome fell back to
+  Inter and embedded it as a Type 3 font whose punctuation extracted as
+  private-use characters, so an applicant-tracking system could not read the phone
+  number, "4+ years" or any hyphen. CI now runs the job-scout ATS check on every
+  PDF.
 - **Single column, real text, standard headings.** Applicant tracking systems
   parse this file before a person sees it; multi-column layouts and text baked
   into images are the two reliable ways to be filtered out.

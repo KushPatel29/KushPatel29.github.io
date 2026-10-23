@@ -17,14 +17,14 @@
 <ul>
   <li>Data scientist with an MPS in Analytics (Applied Machine Intelligence, GPA 3.76) and 4+ years of paid analytics in supply chain and finance, including SKU-level demand forecasting deployed as Python web apps for a perishable-goods distributor.</li>
   <li>Runs a live wildfire forecast for Canada twice a day and grades every published forecast against what satellites saw afterwards: ROC-AUC 0.734 (95% CI 0.691&ndash;0.777) over its first 30 days, ahead of both baselines on ranking, with its top-10% edge reported as not yet distinguishable from zero.</li>
-  <li>Experiments and causal inference: uplift models from a ten-arm randomized trial, a proven-optimal targeting plan, and a randomized test of the policy itself (+$1.40 per customer, 95% CI $0.23 to $2.57); a geo holdout where six attribution models miss a known answer.</li>
+  <li>Experiments and causal inference: uplift models from a ten-arm randomized trial, a proven-optimal targeting plan, and an A/B test of the policy itself against business as usual (+$1.40 per customer, 95% CI $0.23 to $2.57); a geo holdout where six attribution models miss a known answer.</li>
   <li>A model ships only if it beats a simple baseline on data it has never seen, and the losses are published: a learned ranker lost to collaborative filtering (81.2% vs 84.9% recall@10) and a gradient-boosted forecaster lost to a moving average (19.6% vs 18.5% WAPE).</li>
 </ul>
 
 <h2>Technical Skills</h2>
 <p class="skill"><b>Modelling:</b> gradient boosting (XGBoost, HistGradientBoosting), logistic and Poisson models, isotonic calibration, anomaly detection (IsolationForest, Mahalanobis distance), recommender systems (item-neighbourhood collaborative filtering, two-stage retrieval and ranking), survival analysis, time-series forecasting</p>
 <p class="skill"><b>Evaluation:</b> season and out-of-time splits, rolling-origin backtests, ROC-AUC, PR-AUC, top-decile capture and lift, WAPE, recall@k, calibration curves, bootstrap intervals over clustered units, prospective grading of published forecasts, fairness screens</p>
-<p class="skill"><b>Experiments &amp; Causal Inference:</b> randomized trials, uplift modelling, geo holdouts, difference-in-differences, permutation tests, pre-registered decision rules, power analysis</p>
+<p class="skill"><b>Experiments &amp; Causal Inference:</b> randomized trials and A/B tests, uplift modelling, geo holdouts, difference-in-differences, permutation tests, pre-registered decision rules, power analysis</p>
 <p class="skill"><b>Optimization &amp; Decisions:</b> mixed-integer programming (HiGHS, Gurobi), LP duals, cost-of-service trade-offs, decision memos with owners and rollback triggers</p>
 <p class="skill"><b>LLM &amp; NLP:</b> grounded text-to-SQL with retrieval over a semantic layer, ONNX embeddings, Claude API, answer verification against returned rows, on-device speech (faster-whisper, Piper)</p>
 <p class="skill"><b>Data &amp; Engineering:</b> Python (pandas, NumPy, scikit-learn), SQL (T-SQL, window functions, CTEs), PySpark, Databricks, DuckDB, Microsoft Fabric, dbt, FastAPI, Streamlit, GitHub Actions (scheduled scoring), Docker, pytest, Power BI</p>

@@ -69,6 +69,21 @@ jobs:
       - name: The résumé must not contradict the page that links it
         run: node tools/check-resume.mjs
 
+      # An applicant-tracking system reads the PDF's text layer, not the page.
+      # Every résumé had been rendered in a fallback font that Chrome embeds as
+      # Type 3 with private-use code points: the phone number, "4+ years" and
+      # every hyphen were unreadable, and nothing checked the PDFs themselves.
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      - name: Every résumé PDF must parse the way an ATS reads it
+        run: |
+          pip install pypdf==5.9.0
+          for pdf in assets/Kush-Patel-Resume*.pdf; do
+            python .claude/skills/job-scout/scripts/ats_check.py "$pdf"
+          done
+
       # The job-fit skill tells a hiring decision what Kush can prove. Its
       # fallback evidence ledger is a copy of the manifest and résumé, and a
       # copy drifts; this holds it to the originals.
