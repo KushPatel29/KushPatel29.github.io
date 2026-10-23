@@ -1,0 +1,105 @@
+<meta charset="utf-8">
+<meta name="resume-pdf" content="Kush-Patel-Resume-Data-Engineer.pdf">
+<meta name="resume-role" content="data-engineer">
+<title>Kush Patel — Resume (Data Engineer)</title>
+<link rel="stylesheet" href="../resume.css">
+
+<header>
+  <h1>Kush Patel</h1>
+  <p class="role">Data Engineer &nbsp;|&nbsp; ELT Pipelines &middot; Lakehouse &middot; Data Quality &middot; Migration &nbsp;|&nbsp; SQL &middot; PySpark &middot; Microsoft Fabric &middot; Azure Data Factory &middot; Databricks</p>
+  <p class="contact">
+    <span class="item">Vancouver, BC</span><span class="sep">|</span><span class="item"><a href="tel:+17786371602">+1 (778) 637-1602</a></span><span class="sep">|</span><span class="item"><a href="mailto:dharma.patel552@gmail.com">dharma.patel552@gmail.com</a></span><span class="sep">|</span><span class="item"><a href="https://www.linkedin.com/in/kush-patel-48885719b/">linkedin.com/in/kush-patel-48885719b</a></span><span class="sep">|</span><span class="item"><a href="https://github.com/KushPatel29">github.com/KushPatel29</a></span><span class="sep">|</span><span class="item"><a href="https://kushpatel29.github.io/#fit-data-engineer">kushpatel29.github.io</a></span>
+  </p>
+  <p class="avail">Open to remote and relocation across Canada &middot; Legally eligible to work in Canada &middot; Available immediately</p>
+</header>
+
+<h2>Summary</h2>
+<ul>
+  <li>Data engineer with 4+ years building and running pipelines on Azure: as sole analyst at a perishable-goods distributor, brought ERP, Square POS, workforce and REST API feeds into Bronze/Silver/Gold layers in Microsoft Fabric and Azure Data Factory/Synapse, in SQL and PySpark.</li>
+  <li>Treats data quality as part of the pipeline, not a report on it: schema contracts at ingestion, quarantine and replay for bad rows, gates that stop a load, and reconciliation at the feed that cut recurring discrepancies an estimated ~45%.</li>
+  <li>Migrated a legacy SQL Server, SSIS and SSRS estate to Fabric without breaking a report, validating cutover with row counts, checksums and control totals; in public, the same discipline as a row-for-row GO/NO-GO gate across 107 artifacts.</li>
+</ul>
+
+<h2>Technical Skills</h2>
+<p class="skill"><b>Pipelines &amp; Orchestration:</b> Azure Data Factory, Microsoft Fabric Data Pipelines, notebooks and Dataflows Gen2, Azure Synapse, SSIS, SQL Server Agent, GitHub Actions schedules, Databricks jobs; Airflow DAG checked in CI, not run in production</p>
+<p class="skill"><b>Processing &amp; Storage:</b> SQL (T-SQL, window functions, CTEs), PySpark, Python (pandas, requests), Delta Lake, Microsoft Fabric (Lakehouse, Warehouse, OneLake), Databricks (Unity Catalog, SQL warehouse), SQL Server, PostgreSQL, DuckDB, Parquet</p>
+<p class="skill"><b>Ingestion:</b> REST APIs (including the Synerion time-and-attendance API), ERP and POS extracts, public data APIs and file feeds, incremental and CDC-style loads, schema-drift handling</p>
+<p class="skill"><b>Data Quality &amp; Reliability:</b> schema contracts, row quarantine and replay, quality gates, reconciliation and control totals, referential-integrity and freshness tests, injected-failure tests, pipeline alerting and exception logs, idempotent reruns</p>
+<p class="skill"><b>Modelling &amp; Serving:</b> Kimball star schemas, conformed dimensions, SCD Type 1/2, dbt Core (contracts, incremental, snapshots), Power BI semantic models with RLS/OLS</p>
+<p class="skill"><b>Delivery:</b> Git, GitHub Actions CI, Docker, pinned dependencies with an SBOM, pytest, cutover runbooks with disable-not-delete rollback</p>
+
+<h2>Professional Experience</h2>
+
+<div class="job">
+  <div class="job-head">
+    <span class="job-org">Two Rivers Specialty Meats</span>
+    <span class="job-when">Dec 2023 &ndash; Jun 2026 &middot; North Vancouver, BC</span>
+  </div>
+  <p class="job-title">Data Analyst — Operations, Logistics &amp; Enterprise Reporting</p>
+  <ul>
+    <li>Engineered cloud ELT in Microsoft Fabric and Azure Data Factory/Synapse using SQL and PySpark, with incremental loads, parameterised transforms and structured error handling.</li>
+    <li>Integrated ERP, Square POS, workforce (Synerion API) and REST feeds into curated Bronze/Silver/Gold datasets serving analysis, BI dashboards and operational reporting, as the company&rsquo;s sole analyst.</li>
+    <li>Owned the legacy SQL Server estate through migration: maintained SSIS packages and SSRS paginated reports while refactoring priority pipelines to Fabric notebooks, validating cutover with row counts, checksums and control totals so no reporting was disrupted.</li>
+    <li>Built automated data-quality tests across the mart (schema, completeness, uniqueness, referential integrity) with anomaly thresholds, exception logging and pipeline alerting.</li>
+    <li>Built reconciliation controls comparing source against curated totals for GL/P&amp;L and inventory valuation, cutting discrepancies an estimated ~45% and reporting errors ~30% by fixing issues at the feed (internal figures, directional rather than audited).</li>
+    <li>Designed the enterprise data mart (star schemas, conformed dimensions, SCDs) and served it through a Power BI semantic model secured with RLS/RBAC and column masking.</li>
+    <li>Delivered FEFO and lot-level traceability and SKU-level demand forecasting as Python web apps for procurement.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <span class="job-org">Shivam Investments</span>
+    <span class="job-when">Dec 2020 &ndash; Jul 2022 &middot; Vadodara, India (hybrid)</span>
+  </div>
+  <p class="job-title">Financial Analyst — Data &amp; Reporting</p>
+  <ul>
+    <li>Automated recurring data preparation with Python (pandas) and SQL views feeding Power BI, replacing manual spreadsheet consolidation and cutting manual effort an estimated ~40%.</li>
+    <li>Reconciled GL/P&amp;L figures across sources and maintained traceable reporting for portfolio and risk stakeholders.</li>
+  </ul>
+</div>
+
+<h2>Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code and CI-tested results; synthetic data is labelled</span></h2>
+
+<div class="proj">
+  <div class="proj-head">Supply Chain Control Tower <span class="stack">— PySpark, Delta Lake, Databricks, SQL, Power BI &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-control-tower">github.com/KushPatel29/supply-chain-control-tower</a> &middot; live: <a href="https://kush-network-risk-decision-room.streamlit.app/">kush-network-risk-decision-room.streamlit.app</a></div>
+  <p><b>A medallion pipeline defended in three layers:</b> schema contracts before Bronze, row quarantine with replay, and a quality gate on Gold, each proven in CI by injecting the failure it exists to catch. Benchmarked at 10M rows and run as a Databricks job, with all 36 Gold totals matching the local build to the cent.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">Legacy-to-Fabric Migration <span class="stack">— SSIS, SSRS, PySpark, Microsoft Fabric, Python &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/legacy-to-fabric-migration">github.com/KushPatel29/legacy-to-fabric-migration</a> &middot; live: <a href="https://kush-asset-management-decision-board.streamlit.app/">kush-asset-management-decision-board.streamlit.app</a></div>
+  <p><b>Cutover that has to prove itself:</b> the move from SSIS/SSRS to Fabric waits on a row-for-row GO/NO-GO gate across 107 artifacts comparing row counts, keys, values, control totals and checksums. The gate is cent-exact and conjunctive, an empty output never passes, and tests break the data on purpose to prove it catches dropped rows, shifted values and errors that cancel out.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">Canada Wildfire Risk <span class="stack">— Python, requests, Parquet, GitHub Actions &middot; real public data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/wildfire-prediction-app">github.com/KushPatel29/wildfire-prediction-app</a> &middot; live: <a href="https://wildfire-prediction-app1.streamlit.app">wildfire-prediction-app1.streamlit.app</a></div>
+  <p><b>A scheduled pipeline that keeps running:</b> pulls CWFIS station observations and an Open-Meteo forecast twice a day since September, rebuilds a seven-day forecast for 753 grid cells, and publishes it to a release and a public data branch. A weekly job grades every published forecast against satellite hotspots and commits the result. Found and fixed an index-alignment bug that had put 97.7% of fires in the wrong cell.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">B.C. Local-Government Finance <span class="stack">— Python, dbt / DuckDB, SQL, Excel &middot; real public data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/bc-local-government-finance">github.com/KushPatel29/bc-local-government-finance</a></div>
+  <p><b>Ingesting files that change shape:</b> 90 Province of B.C. files, each held to a written contract that fails on unexpected headers or item labels; a monthly job re-checks the source for changes; a dbt model with 31 data tests over a gold layer rebuilt identically in CI. Caught the Province&rsquo;s own defects, including a population file where 77 of 161 rows belong to other places.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">Supply Chain Analytics — dbt <span class="stack">— dbt Core, Databricks, DuckDB &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-analytics-dbt">github.com/KushPatel29/supply-chain-analytics-dbt</a></div>
+  <p><b>Same project, two engines:</b> built on DuckDB and on a Databricks serverless SQL warehouse with Unity Catalog: 180 of 180 nodes green and all 41 mart totals equal across the two, with contracts, incremental facts and SCD2 snapshots.</p>
+</div>
+
+<h2>Education</h2>
+<div class="edu">
+  <span><b>Northeastern University</b> — Master of Professional Studies in Analytics (Applied Machine Intelligence), GPA 3.76/4.0 &middot; Vancouver, BC</span>
+  <span class="edu-when">Sep 2022 &ndash; Jun 2024</span>
+</div>
+<div class="edu">
+  <span><b>Gujarat Technological University</b> — Bachelor of Engineering, Computer Science &middot; India</span>
+  <span class="edu-when">Aug 2017 &ndash; Aug 2021</span>
+</div>
+
+<h2>Certifications</h2>
+<p class="certs">Databricks Lakehouse Fundamentals &middot; UC Davis SQL for Data Science &middot; IBM Python for Data Science, AI &amp; Development &middot; Power BI Data Modelling with DAX &middot; Google Data Analytics Professional Certificate. Preparing for the Microsoft DP-600 (Fabric Analytics Engineer) exam.</p>

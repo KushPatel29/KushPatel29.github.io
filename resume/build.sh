@@ -6,6 +6,8 @@
 # over the PDF the site hands out:
 #   RESUME_SRC=tmp/role-fit/acme/resume.html RESUME_OUT=tmp/role-fit/acme/Kush-Patel-Resume.pdf bash resume/build.sh
 #
+# The role variants in resume/roles/ are built by resume/build-all.sh.
+#
 # The page count is asserted rather than assumed. The previous résumé grew to
 # three pages without anyone noticing, and the third held four lines.
 set -euo pipefail
@@ -29,9 +31,26 @@ for candidate in \
 done
 [ -n "$chrome" ] || { echo "error: no Chrome or Chromium found" >&2; exit 1; }
 
+# Every source shares resume/resume.css. Inline it into a temporary copy, so a
+# source copied anywhere (tmp/role-fit/<company>/ for one application) renders
+# exactly like the one in this folder instead of losing its stylesheet.
+py="${PYTHON:-python}"
+tmpdir="$(mktemp -d)"
+trap 'rm -rf "$tmpdir"' EXIT
+"$py" - "$src" "$here/resume.css" "$tmpdir/resume.html" <<'PY'
+import re, sys
+src, css, out = sys.argv[1:4]
+html = open(src, encoding="utf-8").read()
+style = "<style>\n" + open(css, encoding="utf-8").read() + "</style>"
+html, n = re.subn(r'<link rel="stylesheet" href="[^"]*resume\.css">', lambda _: style, html)
+if n != 1 and "<style>" not in html:
+    sys.exit(f"error: {src} links no resume.css and has no <style> of its own")
+open(out, "w", encoding="utf-8").write(html)
+PY
+
 # Windows Chrome needs a file:// URL with a drive letter, not an MSYS path.
-srcdir="$(cd "$(dirname "$src")" && (pwd -W 2>/dev/null || pwd))"
-url="file:///${srcdir}/$(basename "$src")"
+srcdir="$(cd "$tmpdir" && (pwd -W 2>/dev/null || pwd))"
+url="file:///${srcdir}/resume.html"
 
 # Chrome refuses to start as root without --no-sandbox, which is how CI
 # containers and cloud sessions run it. A desktop never takes this branch.
@@ -44,11 +63,11 @@ sandbox=()
 [ -s "$out" ] || { echo "error: no PDF was written" >&2; exit 1; }
 
 # PYTHON picks the interpreter that has pypdf (a venv, for example).
-py="${PYTHON:-python}"
 pages="$("$py" -c "import pypdf,sys; print(len(pypdf.PdfReader(sys.argv[1]).pages))" "$out")"
 echo "rendered $(basename "$out") — ${pages} page(s)"
-if [ "$pages" -ne 2 ]; then
-  echo "error: expected 2 pages, got ${pages}. Tighten the source before shipping." >&2
+want="${RESUME_PAGES:-2}"
+if [ "$pages" -ne "$want" ]; then
+  echo "error: expected ${want} pages, got ${pages}. Tighten the source before shipping." >&2
   exit 1
 fi
 

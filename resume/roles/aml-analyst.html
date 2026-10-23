@@ -1,0 +1,96 @@
+<meta charset="utf-8">
+<meta name="resume-pdf" content="Kush-Patel-Resume-AML-Analyst.pdf">
+<meta name="resume-role" content="aml-analyst">
+<title>Kush Patel — Resume (AML / Financial Crime Analyst)</title>
+<link rel="stylesheet" href="../resume.css">
+
+<header>
+  <h1>Kush Patel</h1>
+  <p class="role">AML / Financial Crime Analyst &nbsp;|&nbsp; Transaction Monitoring &middot; Investigations &middot; FINTRAC Reporting &middot; Controls &nbsp;|&nbsp; SQL &middot; Python &middot; Power BI</p>
+  <p class="contact">
+    <span class="item">Vancouver, BC</span><span class="sep">|</span><span class="item"><a href="tel:+17786371602">+1 (778) 637-1602</a></span><span class="sep">|</span><span class="item"><a href="mailto:dharma.patel552@gmail.com">dharma.patel552@gmail.com</a></span><span class="sep">|</span><span class="item"><a href="https://www.linkedin.com/in/kush-patel-48885719b/">linkedin.com/in/kush-patel-48885719b</a></span><span class="sep">|</span><span class="item"><a href="https://github.com/KushPatel29">github.com/KushPatel29</a></span><span class="sep">|</span><span class="item"><a href="https://kushpatel29.github.io/#p-aml-monitoring">kushpatel29.github.io</a></span>
+  </p>
+  <p class="avail">Open to remote and relocation across Canada &middot; Legally eligible to work in Canada &middot; Available immediately</p>
+</header>
+
+<h2>Summary</h2>
+<ul>
+  <li>Analyst with 4+ years in finance and controls: month-end GL/P&amp;L reconciliations and risk reporting at an investment firm, then reconciliation controls, exception logging and access controls as sole analyst at a distributor, cutting recurring discrepancies an estimated ~45%.</li>
+  <li>Built a transaction-monitoring system on synthetic data that finds all 60 planted cases where a flat $10,000 rule finds 38, while alerting on a third fewer entities, with each rule mapped to FINTRAC&rsquo;s indicator categories and reporting obligations.</li>
+  <li>Writes for the reviewer: an analytic brief on a structuring case with a bottom line, key judgments with confidence levels, alternatives considered, a reporting position and the facts still needed before a decision.</li>
+</ul>
+
+<h2>Skills</h2>
+<p class="skill"><b>Financial Crime:</b> structuring and smurfing typologies, rule design and tuning, alert triage and prioritisation, investigation case files, analytic briefs, PCMLTFA and FINTRAC reporting (LCTR including the 24-hour rule, EFTR, STR timing), threshold versus suspicion</p>
+<p class="skill"><b>Detection Analytics:</b> SQL window functions for velocity and aggregation rules, entity-relative z-scores, anomaly detection (IsolationForest, Mahalanobis distance, gradient boosting), precision and recall by typology, cost curves for alert volume</p>
+<p class="skill"><b>Controls &amp; Audit:</b> reconciliation and control totals, journal-entry testing, segregation of duties, exception logs, evidence integrity, RLS/RBAC and column masking</p>
+<p class="skill"><b>Tools:</b> SQL (T-SQL, SQLite), Python (pandas, scikit-learn), Power BI, Excel, Streamlit, Tableau, Git</p>
+
+<h2>Professional Experience</h2>
+
+<div class="job">
+  <div class="job-head">
+    <span class="job-org">Two Rivers Specialty Meats</span>
+    <span class="job-when">Dec 2023 &ndash; Jun 2026 &middot; North Vancouver, BC</span>
+  </div>
+  <p class="job-title">Data Analyst — Operations, Logistics &amp; Enterprise Reporting</p>
+  <ul>
+    <li>Built reconciliation controls comparing source against curated totals for GL/P&amp;L and inventory valuation, cutting discrepancies an estimated ~45% and reporting errors ~30% by resolving them at the feed (internal figures, directional rather than audited).</li>
+    <li>Automated data-quality tests (schema, completeness, uniqueness, referential integrity) with anomaly thresholds, exception logging and pipeline alerting.</li>
+    <li>Delivered AP and AR aging, invoice-match exceptions and credit-exposure reporting for Finance.</li>
+    <li>Implemented FEFO and lot-level traceability for recall readiness.</li>
+    <li>Secured self-service reporting as access widened with row-level security, RBAC and column masking.</li>
+    <li>As sole analyst, integrated ERP, Square POS, workforce and REST API feeds into one curated data mart in Microsoft Fabric and Azure Data Factory.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <span class="job-org">Shivam Investments</span>
+    <span class="job-when">Dec 2020 &ndash; Jul 2022 &middot; Vadodara, India (hybrid)</span>
+  </div>
+  <p class="job-title">Financial Analyst — Data &amp; Reporting</p>
+  <ul>
+    <li>Performed monthly GL/P&amp;L reconciliations across sources and investigated discrepancies to keep financial reporting accurate and traceable.</li>
+    <li>Delivered Power BI dashboards for portfolio and risk stakeholders with auditable measure definitions, and automated recurring analysis with Python and SQL, cutting manual effort an estimated ~40%.</li>
+  </ul>
+</div>
+
+<h2>Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code; all entities and transactions are synthetic</span></h2>
+
+<div class="proj">
+  <div class="proj-head">Transaction Monitoring <span class="stack">— SQL, Python, scikit-learn, SQLite, Streamlit &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/aml-transaction-monitoring">github.com/KushPatel29/aml-transaction-monitoring</a> &middot; live: <a href="https://aml-transaction-monitoring.streamlit.app">aml-transaction-monitoring.streamlit.app</a></div>
+  <p><b>Layered detection over 100,299 transactions and 1,500 entities:</b> five explainable rules plus an anomaly model find 60 of 60 planted cases where a flat $10,000 rule finds 38, alerting on 366 entities instead of 555. The alerts become 366 controlled investigations, 78 of them P0 with a four-hour review clock, worked against five typology hypotheses that each name a lawful lookalike and the evidence that tells them apart. Scores prioritise evidence; they never decide suspicion, and the record shows zero dispositions and zero filings.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">FINTRAC mapping and an analytic brief <span class="stack">— PCMLTFA, LCTR, EFTR, STR &middot; synthetic case</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/docs/CANADIAN_REGULATORY_MAPPING.md">regulatory mapping</a> &middot; <a href="https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/analytic_brief_INV-ENT-01216.md">analytic brief INV-ENT-01216</a></div>
+  <p><b>Threshold reports versus suspicion:</b> each rule mapped to FINTRAC&rsquo;s indicator categories and the report it relates to, including why a $10,000 threshold rule cannot see structuring. The brief works one case: six cash deposits on six consecutive days, each just under $10,000, totalling $53,374.51 in 4.9 days, nine times the subject&rsquo;s usual weekly cash; assessed as likely sized to avoid the threshold (moderate confidence), with the three facts needed before a reporting decision.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">GL / P&amp;L Reconciliation <span class="stack">— T-SQL, SQLite, Power BI, Tableau &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/gl-reconciliation-dashboard">github.com/KushPatel29/gl-reconciliation-dashboard</a></div>
+  <p><b>Controls that refuse to fake a sign-off:</b> a close-certification engine tests all 5,400 journal entries and enforces segregation of duties; at month-end 8 of 60 account-periods certify, 9 go to a named reviewer and 43 are blocked.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">Ask Your Data <span class="stack">— Python, DuckDB, Claude API &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/ask-your-data">github.com/KushPatel29/ask-your-data</a> &middot; live: <a href="https://ask-your-data-kp.streamlit.app">ask-your-data-kp.streamlit.app</a></div>
+  <p><b>Questions over monitoring data, answered with the SQL shown:</b> text-to-SQL over 71 tables including an AML domain, behind a read-only guard and a default-deny access policy; on a 58-question contract it answers 46 correctly, gets none wrong and refuses 12 rather than guess.</p>
+</div>
+
+<h2>Education</h2>
+<div class="edu">
+  <span><b>Northeastern University</b> — Master of Professional Studies in Analytics (Applied Machine Intelligence), GPA 3.76/4.0 &middot; Vancouver, BC</span>
+  <span class="edu-when">Sep 2022 &ndash; Jun 2024</span>
+</div>
+<div class="edu">
+  <span><b>Gujarat Technological University</b> — Bachelor of Engineering, Computer Science &middot; India</span>
+  <span class="edu-when">Aug 2017 &ndash; Aug 2021</span>
+</div>
+
+<h2>Certifications</h2>
+<p class="certs">Google Data Analytics Professional Certificate &middot; UC Davis SQL for Data Science &middot; IBM Python for Data Science, AI &amp; Development &middot; Power BI Data Modelling with DAX &middot; Databricks Lakehouse Fundamentals.</p>

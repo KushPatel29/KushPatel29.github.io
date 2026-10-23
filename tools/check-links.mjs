@@ -217,15 +217,20 @@ for (const extra of EXTRA_PATHS) {
   await checkPath(extra, "required file");
 }
 
-/* B1: the three resume CTAs, by exact path. */
+/* B1: the general resume CTAs, by exact path. A role panel may also offer
+   that role's variant (assets/Kush-Patel-Resume-<Role>.pdf, built from
+   resume/roles/); anything else that says "Resume" is a stray. Existence of
+   every one of them is already checked above, like any other href. */
 const indexHtml = pageHtml.get("index.html") ?? "";
 const resumeLinks = [...indexHtml.matchAll(/href\s*=\s*"([^"]*Resume[^"]*)"/gi)].map((m) => m[1]);
-const wrongPath = resumeLinks.filter((h) => h !== RESUME_PATH);
+const ROLE_RESUME = /^assets\/Kush-Patel-Resume-[A-Z][A-Za-z-]+\.pdf$/;
+const wrongPath = resumeLinks.filter((h) => h !== RESUME_PATH && !ROLE_RESUME.test(h));
 if (wrongPath.length) {
-  failures.push(`resume links must all be "${RESUME_PATH}", found: ${wrongPath.join(", ")}`);
+  failures.push(`resume links must be "${RESUME_PATH}" or a role variant, found: ${wrongPath.join(", ")}`);
 }
-if (resumeLinks.length < RESUME_MIN_LINKS) {
-  failures.push(`expected at least ${RESUME_MIN_LINKS} resume links, found ${resumeLinks.length}`);
+const generalLinks = resumeLinks.filter((h) => h === RESUME_PATH).length;
+if (generalLinks < RESUME_MIN_LINKS) {
+  failures.push(`expected at least ${RESUME_MIN_LINKS} links to ${RESUME_PATH}, found ${generalLinks}`);
 }
 
 server.close();
@@ -234,7 +239,7 @@ server.close();
 
 console.log(`checked ${linkCount} references across ${pageHtml.size} page(s), ` +
             `${checkedPaths.size} unique paths`);
-console.log(`resume CTAs found: ${resumeLinks.length} (all -> ${RESUME_PATH})`);
+console.log(`resume CTAs found: ${generalLinks} general -> ${RESUME_PATH}, ${resumeLinks.length - generalLinks} role variant(s)`);
 
 if (failures.length) {
   console.error(`\n✗ ${failures.length} broken reference(s):\n`);

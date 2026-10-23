@@ -202,13 +202,19 @@ Edits come in three shapes, in rough order of value:
 Mark each edit **this application** (a tailored copy) or **promote to master
 résumé**. Promote only when it is true, helps two or more role families, and
 the two-page limit still holds. A master-résumé change must also keep
-`tools/check-resume.mjs` passing, and then needs `bash resume/build.sh`.
+`tools/check-resume.mjs` passing, and then needs `bash resume/build-all.sh` (a fact that changes in one source changes in every variant).
 
-When Kush asks for the tailored résumé itself:
+When Kush asks for the tailored résumé itself, start from the variant for the
+role family, not the general résumé: `resume/roles/data-scientist.html`,
+`analytics-engineer.html`, `data-engineer.html`, `business-analyst.html`,
+`financial-analyst.html` or `aml-analyst.html`; `resume/resume.html` for data
+analyst, BI and supply-chain roles. Each is already ordered and worded for its
+family and held to the same facts by `tools/check-resume.mjs`, so the
+application edits stay small.
 
 ```bash
 mkdir -p tmp/role-fit/<company-slug>
-cp resume/resume.html tmp/role-fit/<company-slug>/resume.html
+cp resume/roles/<variant>.html tmp/role-fit/<company-slug>/resume.html   # or resume/resume.html
 # apply the edits to the copy, then:
 RESUME_SRC=tmp/role-fit/<company-slug>/resume.html \
 RESUME_OUT=tmp/role-fit/<company-slug>/Kush-Patel-Resume.pdf bash resume/build.sh

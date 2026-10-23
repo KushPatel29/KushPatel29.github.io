@@ -135,12 +135,31 @@ test("the compact menu is a keyboard-operable disclosure", async ({ page }, test
   await expect(menu.locator("summary")).toBeFocused();
 });
 
-test("every resume action points at the downloadable PDF", async ({ page }) => {
+test("every resume action downloads a PDF, and each role view offers the one for its role", async ({ page, request }) => {
   await page.goto("/");
-  const links = page.locator('a[href="assets/Kush-Patel-Resume.pdf"]');
-  await expect(links).toHaveCount(5);
-  for (let index = 0; index < await links.count(); index += 1) {
-    await expect(links.nth(index)).toHaveAttribute("download", "");
+  // The five general calls to action, plus the role views whose résumé is the main one.
+  const general = page.locator('a[href="assets/Kush-Patel-Resume.pdf"]');
+  expect(await general.count()).toBeGreaterThanOrEqual(5);
+
+  const resumeLinks = page.locator('a[href^="assets/Kush-Patel-Resume"]');
+  const hrefs = new Set();
+  for (let index = 0; index < await resumeLinks.count(); index += 1) {
+    const link = resumeLinks.nth(index);
+    await expect(link).toHaveAttribute("download", "");
+    const href = await link.getAttribute("href");
+    expect(href).toMatch(/^assets\/Kush-Patel-Resume(-[A-Z][A-Za-z-]+)?\.pdf$/);
+    hrefs.add(href);
+  }
+
+  // One résumé button per role view, and each file is a real PDF.
+  const panels = page.locator(".fit-panel");
+  for (let index = 0; index < await panels.count(); index += 1) {
+    await expect(panels.nth(index).locator("a.btn-resume[download]")).toHaveCount(1);
+  }
+  for (const href of hrefs) {
+    const response = await request.get(href);
+    expect(response.status(), href).toBe(200);
+    expect((await response.body()).subarray(0, 5).toString(), href).toBe("%PDF-");
   }
 });
 

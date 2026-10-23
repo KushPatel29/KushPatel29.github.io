@@ -134,8 +134,9 @@ me".
 
 For each posting, with `<slug>` from `job-key.mjs`:
 
-1. **Tailored résumé.** Copy `resume/resume.html` to
-   `tmp/role-fit/<slug>/resume.html`. Apply the role-fit Step 5 edits there,
+1. **Tailored résumé.** Copy the variant for the posting's role family
+   (`resume/roles/<variant>.html`; `resume/resume.html` for data analyst, BI
+   and supply-chain postings) to `tmp/role-fit/<slug>/resume.html`. Apply the role-fit Step 5 edits there,
    at most three, and only when they close a real visible-fit gap. Then
    build:
    ```bash

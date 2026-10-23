@@ -1,0 +1,107 @@
+<meta charset="utf-8">
+<meta name="resume-pdf" content="Kush-Patel-Resume-Analytics-Engineer.pdf">
+<meta name="resume-role" content="analytics-engineer">
+<title>Kush Patel — Resume (Analytics Engineer)</title>
+<link rel="stylesheet" href="../resume.css">
+
+<header>
+  <h1>Kush Patel</h1>
+  <p class="role">Analytics Engineer &nbsp;|&nbsp; dbt &middot; Dimensional Modelling &middot; Metric Layers &middot; Data Tests &nbsp;|&nbsp; SQL &middot; Python &middot; Databricks &middot; Microsoft Fabric &middot; Power BI</p>
+  <p class="contact">
+    <span class="item">Vancouver, BC</span><span class="sep">|</span><span class="item"><a href="tel:+17786371602">+1 (778) 637-1602</a></span><span class="sep">|</span><span class="item"><a href="mailto:dharma.patel552@gmail.com">dharma.patel552@gmail.com</a></span><span class="sep">|</span><span class="item"><a href="https://www.linkedin.com/in/kush-patel-48885719b/">linkedin.com/in/kush-patel-48885719b</a></span><span class="sep">|</span><span class="item"><a href="https://github.com/KushPatel29">github.com/KushPatel29</a></span><span class="sep">|</span><span class="item"><a href="https://kushpatel29.github.io/#fit-analytics-engineer">kushpatel29.github.io</a></span>
+  </p>
+  <p class="avail">Open to remote and relocation across Canada &middot; Legally eligible to work in Canada &middot; Available immediately</p>
+</header>
+
+<h2>Summary</h2>
+<ul>
+  <li>Analytics engineer with 4+ years turning ERP, POS, workforce and API feeds into governed models that Sales, Finance and Supply Chain report from. As sole analyst at a perishable-goods distributor, built the star-schema data mart, the Power BI semantic layer and the reconciliation tests behind it.</li>
+  <li>Works the way analytics engineering is meant to: one versioned definition per metric, tests that fail the build rather than a dashboard that quietly drifts, and changes that name every downstream model they touch. Reconciliation at the feed cut recurring discrepancies an estimated ~45%.</li>
+  <li>dbt in public projects (not yet in production): contracts, unit tests, incremental models, SCD2 snapshots and MetricFlow metrics, built on DuckDB and on a Databricks SQL warehouse with all 41 mart totals equal across the two.</li>
+</ul>
+
+<h2>Technical Skills</h2>
+<p class="skill"><b>Transformation &amp; Modelling:</b> dbt Core (model contracts, unit tests, data tests, incremental models, snapshots, exposures, downstream impact on every build), SQL (T-SQL, window functions, CTEs), Kimball star schemas, conformed dimensions, SCD Type 1/2, medallion Bronze/Silver/Gold</p>
+<p class="skill"><b>Metric &amp; Semantic Layers:</b> MetricFlow, Power BI semantic models (DAX measure libraries, RLS/OLS, TMDL/PBIR), metric catalogues with owner, grain and definition, KPI parity checks across reports</p>
+<p class="skill"><b>Warehouses &amp; Lakehouses:</b> Microsoft Fabric (Lakehouse, Warehouse, OneLake), Azure Synapse, SQL Server, Databricks (SQL warehouse, Unity Catalog, Delta Lake), DuckDB, PostgreSQL; Snowflake profile written, not yet run</p>
+<p class="skill"><b>Quality &amp; Delivery:</b> schema contracts, quarantine-and-replay, reconciliation and control totals, referential-integrity and freshness tests, pytest, pandera, Git, GitHub Actions CI, Docker; Airflow DAG checked in CI, not scheduled</p>
+<p class="skill"><b>Pipelines &amp; Languages:</b> Azure Data Factory, Fabric Data Pipelines and Dataflows Gen2, SSIS, PySpark, Python (pandas), REST API ingestion, incremental and CDC-style loads</p>
+<p class="skill"><b>Consumption:</b> Power BI, Excel (Power Query, Power Pivot), Tableau, Streamlit; requirements, KPI definitions and acceptance criteria agreed with the business</p>
+
+<h2>Professional Experience</h2>
+
+<div class="job">
+  <div class="job-head">
+    <span class="job-org">Two Rivers Specialty Meats</span>
+    <span class="job-when">Dec 2023 &ndash; Jun 2026 &middot; North Vancouver, BC</span>
+  </div>
+  <p class="job-title">Data Analyst — Operations, Logistics &amp; Enterprise Reporting</p>
+  <ul>
+    <li>Designed and built the enterprise data mart: star schemas, conformed dimensions and slowly changing dimensions, producing reliable data products sliced by SKU, supplier, region, customer and channel.</li>
+    <li>Integrated ERP, Square POS, workforce (Synerion API) and REST feeds into curated Bronze/Silver/Gold datasets in Microsoft Fabric and Azure Data Factory/Synapse, with SQL and PySpark, incremental loads and parameterised transforms.</li>
+    <li>Partnered with Sales, Finance and Supply Chain until revenue, COGS, gross margin, OTIF, inventory turns and days on hand each had one documented definition and acceptance criteria, then owned the Power BI semantic model and DAX measure library that served them.</li>
+    <li>Built reconciliation controls comparing source against curated totals for GL/P&amp;L and inventory valuation, cutting discrepancies an estimated ~45% and reporting errors ~30% by fixing issues at the feed rather than in the report (internal figures, directional rather than audited).</li>
+    <li>Automated data-quality tests across the mart (schema, completeness, uniqueness, referential integrity) with anomaly thresholds, exception logging and pipeline alerting.</li>
+    <li>Owned the legacy SQL Server estate through migration: maintained SSIS and SSRS while refactoring priority pipelines to Fabric notebooks, validating cutover with row counts, checksums and control totals so no report broke.</li>
+    <li>Secured self-service as it widened with RLS/RBAC and column masking.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <span class="job-org">Shivam Investments</span>
+    <span class="job-when">Dec 2020 &ndash; Jul 2022 &middot; Vadodara, India (hybrid)</span>
+  </div>
+  <p class="job-title">Financial Analyst — Data &amp; Reporting</p>
+  <ul>
+    <li>Built SQL views and Python (pandas) preparation feeding Power BI, replacing manual spreadsheet consolidation and cutting manual effort an estimated ~40%.</li>
+    <li>Delivered Power BI dashboards with auditable measure definitions for portfolio and risk stakeholders, and reconciled GL/P&amp;L figures across sources.</li>
+  </ul>
+</div>
+
+<h2>Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code and CI-tested results; synthetic data is labelled</span></h2>
+
+<div class="proj">
+  <div class="proj-head">Supply Chain Analytics — dbt <span class="stack">— dbt Core, Databricks, DuckDB, MetricFlow &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-analytics-dbt">github.com/KushPatel29/supply-chain-analytics-dbt</a> &middot; docs: <a href="https://kushpatel29.github.io/dbt-docs/">kushpatel29.github.io/dbt-docs</a></div>
+  <p><b>One versioned definition of revenue:</b> staging-to-marts dbt with an enforced contract on the executive mart, unit tests, incremental facts and SCD2 snapshots; MetricFlow metrics reconcile to the marts they summarise, and every build names the downstream models a change touches. The same project built on a Databricks serverless SQL warehouse: 180 of 180 nodes green, all 41 mart totals equal to the DuckDB build.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">B.C. Local-Government Finance <span class="stack">— dbt / DuckDB, SQL, Python, Excel &middot; real public data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/bc-local-government-finance">github.com/KushPatel29/bc-local-government-finance</a></div>
+  <p><b>dbt on messy official data:</b> 90 provincial files held to written contracts because their shape changes year to year, a dbt model with 31 data tests, and a gold layer rebuilt identically in CI. Found the 68 municipalities investing below renewal need are $570M a year short, and caught the Province&rsquo;s own defects, including a population file where 77 of 161 rows belong to other places.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">Retail Analytics Platform <span class="stack">— Python, DuckDB / SQL, Flask, Plotly &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/wholesale-analytics-platform">github.com/KushPatel29/wholesale-analytics-platform</a> &middot; live: <a href="https://kushpatel29.github.io/wholesale-analytics-platform/">kushpatel29.github.io/wholesale-analytics-platform</a></div>
+  <p><b>Metric governance that fails the build:</b> four dashboard pages agreed on revenue to the cent while margin did not; $333,573 of cost sat on 3,056 order lines that never shipped. One catalogue of 62 metric definitions now sits behind every page, and the KPI diff that exposed the gap fails the build.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">Supply Chain Control Tower <span class="stack">— PySpark, Delta Lake, Databricks, Power BI, SQL</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-control-tower">github.com/KushPatel29/supply-chain-control-tower</a> &middot; live: <a href="https://kush-network-risk-decision-room.streamlit.app/">kush-network-risk-decision-room.streamlit.app</a></div>
+  <p><b>Tests that prove what they guard:</b> schema contracts before Bronze, row quarantine with replay and a quality gate on Gold, each proven in CI by injecting the failure it exists to catch; benchmarked at 10M rows and run as a Databricks job with all 36 Gold totals matching the local build to the cent.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">GrowthOps OS <span class="stack">— dbt, SQL, Power BI (DAX), Excel, Python &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/GrowthOps-OS">github.com/KushPatel29/GrowthOps-OS</a> &middot; live: <a href="https://growthops-os.streamlit.app/">growthops-os.streamlit.app</a></div>
+  <p><b>Marts that three tools agree on:</b> dbt marts over ad-platform, CRM and payment data explain every dollar between $3.72M claimed and $3.06M collected; a Power BI report with more than 200 documented DAX measures and a formula-driven Excel workbook reach the same answer and tie out to the cent.</p>
+</div>
+
+<p class="more-work">More at <a href="https://kushpatel29.github.io/#fit-analytics-engineer">kushpatel29.github.io</a>: a legacy-to-Fabric migration gated by row-for-row validation across 107 artifacts, and a web-analytics case study where tested dbt relations generate every KPI on the page.</p>
+
+<h2>Education</h2>
+<div class="edu">
+  <span><b>Northeastern University</b> — Master of Professional Studies in Analytics (Applied Machine Intelligence), GPA 3.76/4.0 &middot; Vancouver, BC</span>
+  <span class="edu-when">Sep 2022 &ndash; Jun 2024</span>
+</div>
+<div class="edu">
+  <span><b>Gujarat Technological University</b> — Bachelor of Engineering, Computer Science &middot; India</span>
+  <span class="edu-when">Aug 2017 &ndash; Aug 2021</span>
+</div>
+
+<h2>Certifications</h2>
+<p class="certs">Databricks Lakehouse Fundamentals &middot; Power BI Data Modelling with DAX &middot; UC Davis SQL for Data Science &middot; Google Data Analytics Professional Certificate &middot; IBM Python for Data Science, AI &amp; Development. Preparing for the Microsoft DP-600 (Fabric Analytics Engineer) exam. First prize, 2024 wildfire-prediction hackathon.</p>

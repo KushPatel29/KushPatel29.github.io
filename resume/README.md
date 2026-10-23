@@ -11,14 +11,27 @@ Rivers role was current and put the wrong city in the header, while the site sai
 otherwise on the same screen, and it named none of the twelve projects the rest
 of the portfolio is built on.
 
+## Role variants
+
+`roles/*.html` are the same person, dates and projects, ordered and worded for one
+role family each: data scientist, analytics engineer, data engineer, business
+analyst, financial analyst, and AML / financial-crime analyst. `resume.html` stays
+the general résumé for data analyst, BI and supply-chain roles. All of them share
+`resume.css`, and `tools/check-resume.mjs` holds every one to the facts the site
+states (end dates, city, the master's dates, each listed project being on the page,
+no headline test totals) and requires each variant's PDF to be offered on the page.
+
 ## Rebuild
 
 ```bash
-bash resume/build.sh
+bash resume/build-all.sh      # every PDF
+bash resume/build.sh          # just assets/Kush-Patel-Resume.pdf
 ```
 
-Chrome renders it; nothing else is required. The output is written straight to
-`assets/Kush-Patel-Resume.pdf`, which five calls-to-action on the site link to.
+Chrome renders it; nothing else is required. `build.sh` inlines `resume.css` into
+a temporary copy first, so a source copied elsewhere for one application renders
+identically. The general PDF is what the site's calls to action link to; each
+role view links its own variant.
 
 ## Rules it is built to
 

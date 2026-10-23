@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
 inventory-verified: 2026-10-03
-manifest-totals: 21 projects · 13928 tests
+manifest-totals: 21 projects · 13976 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -115,6 +115,7 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Git, GitHub Actions CI, Docker | PROJECT | all 21 public projects run automated validation; Portfolio Intelligence runs in this repo's root workflow | Git use in paid work not stated |
 | Stakeholder engagement, requirements, KPI definitions, acceptance criteria | PAID | Two Rivers (Sales, Finance, Supply Chain); Shivam (portfolio/risk) | — |
 | Process mapping, UAT plans, traceability, business cases, RACI/RAID | PROJECT | inventory BA case (13 reqs, 12 UAT), clinical UAT plan, migration charter/RACI, supply-chain process case | documents are portfolio artifacts, not employer deliverables |
+| Agile user stories, Given/When/Then acceptance criteria, product backlog | PROJECT | Legacy-to-Fabric `docs/business-analysis/BACKLOG_AND_ACCEPTANCE.md`: 5 epics, 16 stories, 30 criteria each executed by a named CI test, the rest labelled manual UAT; Jira CSV import generated from the page | not in a job; the CSV has **never been loaded into Jira**; no Scrum ceremonies |
 | Change and adoption | PAID | widened Power BI self-service with RLS at Two Rivers | — |
 | GL/P&L reconciliation, month-end close | PAID+PROJECT | Shivam, Two Rivers; GL recon repo | — |
 | AP/AR, DPO/DSO, working capital | PAID+PROJECT | Two Rivers, Shivam; Kestrel Bay model | — |
@@ -128,6 +129,7 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Mathematical optimization (mixed-integer programming, LP duals, HiGHS, Gurobi) | PROJECT | Corridor: one MIP over 112,563 customer-offer decisions, proven optimal (gap 1.5e-7), residual re-solved in Gurobi; inventory policy lab | synthetic data; Gurobi used under its size-limited licence |
 | Pricing, promotions and loyalty (elasticity, offer targeting, next best offer) | PROJECT | Corridor pricing studio and next-best-offer pages; pricing & costing analytics | synthetic toll-road operator; not affiliated with any real one |
 | Machine learning (XGBoost, logistic, anomaly, recommender) | PROJECT+DEGREE | wildfire, AML, recommender, HR | production ML only as the forecasting web apps |
+| Model monitoring / prospective evaluation of a deployed model | PROJECT | wildfire track record: every forecast published twice a day is graded weekly against CWFIS satellite detections (first forecast per day, leads 2-7, two baselines, day-level bootstrap); first 30 days to 22 Oct 2026: ROC-AUC 0.734 (95% CI 0.691-0.777), ahead of both baselines on ranking, top-10% edge not yet distinguishable from zero | a public project, not an employer's model; no MLOps platform (MLflow, SageMaker) |
 | LLM / text-to-SQL, governed AI | PROJECT+DEGREE | Ask Your Data | — |
 | GIS / geospatial | PROJECT | wildfire, control tower GIS | — |
 | Healthcare / FHIR / clinical data | PROJECT | health system, clinical console | **synthetic data**, no healthcare employer |
@@ -155,7 +157,7 @@ user (only SAP-shaped synthetic extracts), Oracle, NetSuite, Dynamics 365,
 Salesforce as an org (deploys, Apex, Flows, Lightning; the SFDX metadata in §4 is generated, never deployed), HubSpot in a company's production portal (the developer-test-account builds in §4 are PROJECT), HubSpot marketplace/OAuth app publishing, GA4 / web analytics, Jira, Confluence, Agile/Scrum
 ceremonies, Kafka or production streaming, Terraform / IaC, Kubernetes, SSAS,
 dbt Cloud, Hadoop, data-catalog tools (Purview, Collibra, Alation), Lean / Six
-Sigma, formal BRDs or Agile user stories, HIPAA / PHIPA / PIPEDA compliance
+Sigma, formal BRDs or Agile user stories **in a job** (a public backlog exists, §4), HIPAA / PHIPA / PIPEDA compliance
 work, three-statement or DCF valuation models, French or other languages,
 Tableau in a job, dbt or Airflow in production, people management,
 CPA / CFA / CBAP / PMP / PL-300, industry experience outside food distribution
@@ -185,7 +187,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Supply Chain Control Tower | p-control-tower | 836 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |
 | Ask Your Data | p-ask-your-data | 1170 | synthetic-and-session-upload | yes | DS, AE — governed text-to-SQL, 46/0/12 contract |
-| Canada Wildfire Risk | p-wildfire | 111 | public-open-data | yes | DS — XGBoost, ROC-AUC 0.881 out of time, GitHub Actions |
+| Canada Wildfire Risk | p-wildfire | 122 | public-open-data | yes | DS — XGBoost, ROC-AUC 0.881 out of time, GitHub Actions |
 | Corridor Decision Intelligence | p-corridor | 244 | synthetic | yes | DS, pricing/loyalty DA — causal uplift from a ten-arm randomized trial, certified MIP over 112,563 customer-offer decisions (75% of the true-value ceiling vs 7% for propensity targeting), policy A/B test +$1.40/customer, Databricks + PySpark parity, FastAPI, Power BI |
 | Health System Decision Support | p-healthcare | 819 | synthetic | no | healthcare DA/BA — SPC, decision packet |
 | Pricing & Costing Analytics | p-pricing-analytics | 3182 | synthetic | yes | DA, FA — pocket-price waterfall, approval routing |
@@ -198,4 +200,4 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Customer Recommendation Engine | p-customer-rec | 814 | synthetic | yes | DS — recommender, pre-registered experiment |
 | HR Attrition Analytics | p-hr-attrition | 822 | synthetic | yes | DA, people analytics — survival analysis, SQL |
 | Supply Chain Analytics — dbt | p-dbt | 157 | synthetic | no | AE — dbt contracts, unit tests, SCD2, MetricFlow, Databricks |
-| Legacy-to-Fabric Migration | p-migration | 440 | synthetic | yes | DE, BA — GO/NO-GO cutover gate, charter, RACI |
+| Legacy-to-Fabric Migration | p-migration | 477 | synthetic | yes | DE, BA — GO/NO-GO cutover gate, charter, RACI, 16-story backlog with CI-executed acceptance criteria |
