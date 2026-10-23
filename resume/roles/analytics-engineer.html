@@ -23,7 +23,7 @@
 <h2>Technical Skills</h2>
 <p class="skill"><b>Transformation &amp; Modelling:</b> dbt Core (model contracts, unit tests, data tests, incremental models, snapshots, exposures, downstream impact on every build), SQL (T-SQL, window functions, CTEs), Kimball star schemas, conformed dimensions, SCD Type 1/2, medallion Bronze/Silver/Gold</p>
 <p class="skill"><b>Metric &amp; Semantic Layers:</b> MetricFlow, Power BI semantic models (DAX measure libraries, RLS/OLS, TMDL/PBIR), metric catalogues with owner, grain and definition, KPI parity checks across reports</p>
-<p class="skill"><b>Warehouses &amp; Lakehouses:</b> Microsoft Fabric (Lakehouse, Warehouse, OneLake), Azure Synapse, SQL Server, Databricks (SQL warehouse, Unity Catalog, Delta Lake), DuckDB, PostgreSQL; Snowflake profile written, not yet run</p>
+<p class="skill"><b>Warehouses &amp; Lakehouses:</b> Microsoft Fabric (Lakehouse, Warehouse, OneLake), Azure Synapse, SQL Server, Databricks (SQL warehouse, Unity Catalog, Delta Lake), Snowflake (dbt Projects on Snowflake, Git integration, COPY INTO from stage), DuckDB, PostgreSQL</p>
 <p class="skill"><b>Quality &amp; Delivery:</b> schema contracts, quarantine-and-replay, reconciliation and control totals, referential-integrity and freshness tests, pytest, pandera, Git, GitHub Actions CI, Docker; Airflow DAG checked in CI, not scheduled</p>
 <p class="skill"><b>Pipelines &amp; Languages:</b> Azure Data Factory, Fabric Data Pipelines and Dataflows Gen2, SSIS, PySpark, Python (pandas), REST API ingestion, incremental and CDC-style loads</p>
 <p class="skill"><b>Consumption:</b> Power BI, Excel (Power Query, Power Pivot), Tableau, Streamlit; requirements, KPI definitions and acceptance criteria agreed with the business</p>
@@ -62,9 +62,9 @@
 <h2>Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code and CI-tested results; synthetic data is labelled</span></h2>
 
 <div class="proj">
-  <div class="proj-head">Supply Chain Analytics — dbt <span class="stack">— dbt Core, Databricks, DuckDB, MetricFlow &middot; synthetic data</span></div>
+  <div class="proj-head">Supply Chain Analytics — dbt <span class="stack">— dbt Core, Databricks, Snowflake, DuckDB, MetricFlow &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-analytics-dbt">github.com/KushPatel29/supply-chain-analytics-dbt</a> &middot; docs: <a href="https://kushpatel29.github.io/dbt-docs/">kushpatel29.github.io/dbt-docs</a></div>
-  <p><b>One versioned definition of revenue:</b> staging-to-marts dbt with an enforced contract on the executive mart, unit tests, incremental facts and SCD2 snapshots; MetricFlow metrics reconcile to the marts they summarise, and every build names the downstream models a change touches. The same project built on a Databricks serverless SQL warehouse: 180 of 180 nodes green, all 41 mart totals equal to the DuckDB build.</p>
+  <p><b>One versioned definition of revenue:</b> staging-to-marts dbt with an enforced contract on the executive mart, unit tests, incremental facts and SCD2 snapshots; MetricFlow metrics reconcile to the marts they summarise, and every build names the downstream models a change touches. The same project built on Databricks and on Snowflake: 180 of 180 nodes green on each, and all 41 mart totals equal to the DuckDB build on both.</p>
 </div>
 
 <div class="proj">
@@ -74,9 +74,9 @@
 </div>
 
 <div class="proj">
-  <div class="proj-head">Retail Analytics Platform <span class="stack">— Python, DuckDB / SQL, Flask, Plotly &middot; synthetic data</span></div>
+  <div class="proj-head">Retail Analytics Platform <span class="stack">— Python, DuckDB / SQL, dbt on Snowflake, Flask &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/wholesale-analytics-platform">github.com/KushPatel29/wholesale-analytics-platform</a> &middot; live: <a href="https://kushpatel29.github.io/wholesale-analytics-platform/">kushpatel29.github.io/wholesale-analytics-platform</a></div>
-  <p><b>Metric governance that fails the build:</b> four dashboard pages agreed on revenue to the cent while margin did not; $333,573 of cost sat on 3,056 order lines that never shipped. One catalogue of 62 metric definitions now sits behind every page, and the KPI diff that exposed the gap fails the build.</p>
+  <p><b>Metric governance that fails the build:</b> four dashboard pages agreed on revenue to the cent while margin did not; $333,573 of cost sat on 3,056 order lines that never shipped. One catalogue of 62 metric definitions now sits behind every page, and the KPI diff that exposed the gap fails the build. The governed marts first ran on Snowflake, which exposed three source defects; 48 of 48 nodes green and 107 of 107 measures reconciled with an independent pandas build.</p>
 </div>
 
 <div class="proj">

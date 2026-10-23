@@ -613,7 +613,7 @@ WHERE verdict = 'GO'</pre>
             <tr data-source="paid"><th scope="row">A semantic or metric layer</th><td>Owned the production Power BI semantic layer. In public, <a href="#p-dbt">MetricFlow metrics</a> reconcile to the marts they summarise.</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="paid"><th scope="row">Definitions agreed with the business</th><td>Worked with Sales, Finance and Supply Chain until P&amp;L, OTIF, inventory turns and days on hand each had exactly one definition.</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="project"><th scope="row">Data tests in CI</th><td>Schema contracts, quarantined bad rows and a quality gate, each proven by <a href="#p-control-tower">injecting the exact failure</a> it exists to catch.</td><td><span class="src src-project">Public project</span></td></tr>
-            <tr data-source="project"><th scope="row">A cloud warehouse</th><td>The same <a href="#p-dbt">dbt project</a> built on Databricks (serverless SQL warehouse, Unity Catalog, Delta): 180 of 180 nodes green, and all 41 mart totals equal the DuckDB build.</td><td><span class="src src-project">Public project</span></td></tr>
+            <tr data-source="project"><th scope="row">A cloud warehouse</th><td>The same <a href="#p-dbt">dbt project</a> built on Databricks (serverless SQL warehouse, Unity Catalog) and on Snowflake (dbt Projects on Snowflake): 180 of 180 nodes green on each, and all 41 mart totals equal the DuckDB build on both. A <a href="#p-wholesale">retail platform’s</a> Snowflake marts ran for the first time too: 48 of 48 nodes green, 107 of 107 measures reconciled with an independent pandas build.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">Tests on messy real data</th><td>A <a href="#p-bc-finance">dbt project</a> on the Province’s filings: 31 data tests, a written list of the Province’s known defects, and a gold layer rebuilt identically in CI.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">Git and CI for analytics code</th><td>All 21 public projects run automated validation in GitHub Actions; this repository's root workflow directly rebuilds Portfolio Intelligence.</td><td><span class="src src-project">Public project</span></td></tr>
           </tbody>
@@ -680,9 +680,10 @@ WHERE verdict = 'GO'</pre>
             <tr data-source="paid"><th scope="row">Migration with validation</th><td>Refactored priority pipelines into Fabric notebooks, validating cutover with row counts, checksums and control totals so no report broke. In public: a <a href="#p-migration">GO/NO-GO gate</a> across 107 artifacts.</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="project"><th scope="row">Working at scale</th><td>A <a href="#p-control-tower">medallion pipeline</a> benchmarked at 10 million rows in Delta Lake, and a <a href="#p-dbt">dbt project</a> run on a Databricks SQL warehouse.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">CI/CD, contracts and orchestration</th><td>GitHub Actions on every repository, Docker images built in CI, an <a href="#p-dbt">Airflow DAG</a>, and a <a href="#p-bc-finance">90-file public-finance pipeline</a> that fails on unexpected headers or item labels.</td><td><span class="src src-project">Public project</span></td></tr>
+            <tr data-source="project"><th scope="row">Streaming, Terraform and Kubernetes</th><td>An <a href="#p-aml-monitoring">AML monitor on a Kafka stream</a> (Redpanda): event-time windows, late and duplicate deliveries, at-least-once with idempotent alerts. Terraform deploys it to a Kubernetes cluster in CI, a pod is killed mid-stream, and the run passes only if the stream flags exactly what the batch flags.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">Scheduled pipelines that keep running</th><td>A <a href="#p-wildfire">forecast pipeline</a> pulls Canada’s public fire and weather records and republishes on a GitHub Actions schedule twice a day, as it has since September; a monthly job re-checks the <a href="#p-bc-finance">Province’s B.C. files</a> for changes.</td><td><span class="src src-project">Public project</span></td></tr>
           </tbody>
-          <tfoot><tr data-paid="4" data-project="3" data-degree="0"><th scope="row">Tied out</th><td colspan="2"><span class="tie"><span>Paid roles</span><b>4</b></span><span class="tie"><span>Public projects</span><b>3</b></span></td></tr></tfoot>
+          <tfoot><tr data-paid="4" data-project="4" data-degree="0"><th scope="row">Tied out</th><td colspan="2"><span class="tie"><span>Paid roles</span><b>4</b></span><span class="tie"><span>Public projects</span><b>4</b></span></td></tr></tfoot>
         </table>
       </article>
 
@@ -710,7 +711,7 @@ WHERE verdict = 'GO'</pre>
             <tr data-source="paid"><th scope="row">Requirements and stakeholders</th><td>Worked with Sales, Finance and Supply Chain at <a href="#xp-two-rivers">Two Rivers</a> until each KPI had one definition, documented with acceptance criteria.</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="paid"><th scope="row">Root-cause analysis</th><td>Traced recurring GL/P&amp;L and inventory discrepancies back to their feeds instead of patching reports: about 45% fewer (internal estimate).</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="project"><th scope="row">Process mapping</th><td>A <a href="https://github.com/KushPatel29/supply-chain-control-tower/blob/master/docs/business_process_improvement_case.md" target="_blank" rel="noopener">replenishment and exception-management case ↗</a>: current and future state, handoffs, controls and measurable outcomes.</td><td><span class="src src-project">Public project</span></td></tr>
-            <tr data-source="project"><th scope="row">User stories and a backlog</th><td>A <a href="https://github.com/KushPatel29/legacy-to-fabric-migration/blob/master/docs/business-analysis/BACKLOG_AND_ACCEPTANCE.md" target="_blank" rel="noopener">migration backlog ↗</a>: 16 user stories with Given/When/Then criteria, 30 of which name the CI test that runs them, and a Jira CSV import built from the same page.</td><td><span class="src src-project">Public project</span></td></tr>
+            <tr data-source="project"><th scope="row">User stories and a backlog</th><td>A <a href="https://github.com/KushPatel29/legacy-to-fabric-migration/blob/master/docs/business-analysis/BACKLOG_AND_ACCEPTANCE.md" target="_blank" rel="noopener">migration backlog ↗</a>: 16 user stories with Given/When/Then criteria, 30 of which name the CI test that runs them, loaded into a Jira Cloud Scrum project through the REST API: 5 epics, 16 stories, ten Done because every criterion runs in CI.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">UAT and acceptance</th><td>A <a href="https://github.com/KushPatel29/clinical-data-management/blob/main/output/uat_plan.md" target="_blank" rel="noopener">clinical-data UAT plan ↗</a> with roles, scenarios, defect handling and exit criteria; 12 UAT scenarios in <a href="#p-inventory">Inventory Analytics</a>.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">Business cases and options</th><td>A <a href="https://github.com/KushPatel29/legacy-to-fabric-migration/blob/master/docs/business-analysis/ASSET_CAPITAL_PROGRAM_BUSINESS_CASE.md" target="_blank" rel="noopener">ten-year asset capital case ↗</a> with three options, a <a href="https://github.com/KushPatel29/healthcare-claims-analytics/blob/master/output/health_intervention_decision_packet.md" target="_blank" rel="noopener">health-system decision packet ↗</a>, and <a href="#p-excel-fpa">finance models</a> that turn operating, capital, debt and reserve assumptions into explicit Base, Upside and Downside decisions.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">Options with their cost</th><td>A <a href="#p-bc-finance">municipal plan</a> shows a council what closing the renewal gap costs in tax for each mix of borrowing and pace, before anyone chooses.</td><td><span class="src src-project">Public project</span></td></tr>
@@ -748,7 +749,7 @@ WHERE verdict = 'GO'</pre>
             <tr data-source="paid"><th scope="row">Reporting automation</th><td>Python and SQL feeding Power BI replaced recurring manual analysis at <a href="#xp-shivam">Shivam</a>: about 40% less effort (internal estimate).</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="paid"><th scope="row">Excel, Power BI and Tableau</th><td>Excel and Power BI at <a href="#xp-shivam">Shivam</a>, Power BI finance reporting at <a href="#xp-two-rivers">Two Rivers</a>, and a <a href="#p-gl-recon">Tableau close scorecard</a> generated from script and checked against Python.</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="project"><th scope="row">Public-sector budgeting</th><td>A <a href="#p-bc-finance">five-year plan</a> for any of 161 B.C. municipalities: tax increases, borrowing under the legal limit and reserves. For Fernie, closing the renewal gap by 2029 needs 3.7% a year.</td><td><span class="src src-project">Public project</span></td></tr>
-            <tr data-source="project"><th scope="row">Budgets, forecasts and scenarios</th><td><a href="#p-excel-fpa">Excel finance models</a>: a utility plan with an exact variance bridge and a four-year backtest, and a distributor model with price-volume-mix and working capital.</td><td><span class="src src-project">Public project</span></td></tr>
+            <tr data-source="project"><th scope="row">Budgets, forecasts and scenarios</th><td><a href="#p-excel-fpa">Excel finance models</a>: a utility plan with an exact variance bridge and a four-year backtest; a distributor model with price-volume-mix and working capital; and that distributor’s full budget cycle, from top-down targets and bottom-up submissions through a challenge round to three linked monthly statements and a 3+9 reforecast.</td><td><span class="src src-project">Public project</span></td></tr>
           </tbody>
           <tfoot><tr data-paid="5" data-project="3" data-degree="0"><th scope="row">Tied out</th><td colspan="2"><span class="tie"><span>Paid roles</span><b>5</b></span><span class="tie"><span>Public projects</span><b>3</b></span></td></tr></tfoot>
         </table>
@@ -971,21 +972,21 @@ WHERE verdict = 'GO'</pre>
       <article class="project archive-item" id="p-wholesale" data-tags="bi engineering supply finance customer">
         <p class="archive-kicker">BI PLATFORM · METRIC GOVERNANCE · INSTANT DEMO</p>
         <h4>Retail Analytics Platform</h4>
-        <p class="archive-outcome">Revenue matched to the cent across four dashboard pages while margin did not: $333,573 of cost sat on 3,056 order lines that never shipped. The KPI diff that exposed it now fails the build.</p>
-        <p class="archive-stack">Python · Flask · DuckDB · Plotly</p>
+        <p class="archive-outcome">Revenue matched to the cent across four dashboard pages while margin did not: $333,573 of cost sat on 3,056 order lines that never shipped. The KPI diff that exposed it now fails the build. Its governed dbt marts were first run on Snowflake, where loading the app’s data exposed three defects the parse never could.</p>
+        <p class="archive-stack">Python · Flask · DuckDB · dbt on Snowflake · Plotly</p>
         <div class="archive-links"><a class="is-live" href="https://kushpatel29.github.io/wholesale-analytics-platform/" target="_blank" rel="noopener">Live dashboards <span aria-hidden="true">↗</span></a><a  href="https://kushpatel29.github.io/wholesale-analytics-platform/metrics/" target="_blank" rel="noopener">Metric catalogue <span aria-hidden="true">↗</span></a><a  href="https://github.com/KushPatel29/wholesale-analytics-platform" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div>
       </article>
       <article class="project archive-item" id="p-dbt" data-tags="engineering supply">
-        <p class="archive-kicker">ANALYTICS ENGINEERING · DBT ON DATABRICKS</p>
+        <p class="archive-kicker">ANALYTICS ENGINEERING · DBT ON DATABRICKS AND SNOWFLAKE</p>
         <h4>Supply Chain Analytics — dbt</h4>
-        <p class="archive-outcome">Finance and Ops stop arguing about revenue, because there is one versioned definition. Every build names the downstream models a change touches.</p>
-        <p class="archive-stack">dbt · Databricks · MetricFlow · Airflow</p>
+        <p class="archive-outcome">Finance and Ops stop arguing about revenue, because there is one versioned definition. Every build names the downstream models a change touches, and the same project builds on DuckDB, Databricks and Snowflake to the same totals.</p>
+        <p class="archive-stack">dbt · Databricks · Snowflake · MetricFlow · Airflow</p>
         <div class="archive-links"><a  href="dbt-docs/">dbt docs <span aria-hidden="true">→</span></a><a  href="https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/output/analytics_engineering_release_memo.md" target="_blank" rel="noopener">Release memo <span aria-hidden="true">↗</span></a><a  href="https://github.com/KushPatel29/supply-chain-analytics-dbt" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div>
       </article>
       <article class="project archive-item" id="p-excel-fpa" data-tags="finance business bi energy">
         <p class="archive-kicker">EXCEL · POWER BI · FP&amp;A · PUBLIC FILINGS</p>
         <h4>Finance Decision Models in Excel and Power BI</h4>
-        <p class="archive-outcome">Portland General Electric’s $100.9M miss against plan, split into weather, price and usage, in Excel and Power BI on public filings. Beside it, a distributor model for channel economics and working capital.</p>
+        <p class="archive-outcome">Portland General Electric’s $100.9M miss against plan, split into weather, price and usage, in Excel and Power BI on public filings. Beside it, a distributor model for channel economics and working capital, and that distributor’s FY2027 budget cycle with three linked statements and a 3+9 reforecast.</p>
         <p class="archive-stack">Excel · Power Query · Power Pivot / DAX · Power BI</p>
         <div class="archive-links"><a  href="https://github.com/KushPatel29/excel-fpa-model/raw/main/workbook/PGE_Utility_FPA_Model.xlsx">Workbook (.xlsx) <span aria-hidden="true">↓</span></a><a  href="https://github.com/KushPatel29/excel-fpa-model/blob/main/docs/board_pack.pdf" target="_blank" rel="noopener">Board pack <span aria-hidden="true">↗</span></a><a  href="https://github.com/KushPatel29/excel-fpa-model" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div>
       </article>
@@ -1034,8 +1035,8 @@ WHERE verdict = 'GO'</pre>
       <article class="project archive-item" id="p-aml-monitoring" data-tags="finance ai">
         <p class="archive-kicker">FINANCIAL CRIME · ANOMALY DETECTION</p>
         <h4>Transaction Monitoring</h4>
-        <p class="archive-outcome">A flat $10,000 rule finds 38 of 60 planted cases. Five explainable rules plus an anomaly model find all 60 while alerting on a third fewer entities, and each rule is mapped to FINTRAC’s indicators and reports. Customer names are screened against Canada’s real sanctions list, scored on a held-out half.</p>
-        <p class="archive-stack">Python · SQLite · scikit-learn · Streamlit</p>
+        <p class="archive-outcome">A flat $10,000 rule finds 38 of 60 planted cases. Five explainable rules plus an anomaly model find all 60 while alerting on a third fewer entities, and each rule is mapped to FINTRAC’s indicators and reports. Customer names are screened against Canada’s real sanctions list, scored on a held-out half. KYC rates every customer and traces beneficial owners through holding companies, and two rules run on a Kafka stream on Kubernetes.</p>
+        <p class="archive-stack">Python · SQLite · scikit-learn · Kafka · Terraform · Kubernetes</p>
         <div class="archive-links"><a class="is-live" href="https://aml-transaction-monitoring.streamlit.app" target="_blank" rel="noopener">Live app <span aria-hidden="true">↗</span></a><a href="https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/analytic_brief_INV-ENT-01216.md" target="_blank" rel="noopener">Analytic brief <span aria-hidden="true">↗</span></a><a href="https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/docs/CANADIAN_REGULATORY_MAPPING.md" target="_blank" rel="noopener">FINTRAC mapping <span aria-hidden="true">↗</span></a><a href="assets/Kush-Patel-Resume-AML-Analyst.pdf" download>Résumé for AML roles <span aria-hidden="true">↓</span></a><a href="https://github.com/KushPatel29/aml-transaction-monitoring" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div>
       </article>
       <article class="project archive-item" id="p-marketing" data-tags="customer ai">
@@ -1327,6 +1328,7 @@ WHERE verdict = 'GO'</pre>
           <li>Power Pivot &amp; CUBEVALUE</li>
           <li>Excel dynamic arrays &amp; LAMBDA</li>
           <li>What-if data tables</li>
+          <li>Budget cycle &amp; three-statement models</li>
           <li>Object-level security</li>
           <li>PBIP / TMDL in Git</li>
           <li>Streamlit</li>
@@ -1353,7 +1355,7 @@ WHERE verdict = 'GO'</pre>
           <li>Databricks SQL warehouse</li>
           <li>DuckDB</li>
           <li>SQLite</li>
-          <li>Snowflake (profile only)</li>
+          <li>Snowflake (dbt Projects on Snowflake)</li>
         </ul>
       </div>
 
@@ -1375,6 +1377,9 @@ WHERE verdict = 'GO'</pre>
         <ul class="skill-list skill-list-project">
           <li>Delta Lake</li>
           <li>Airflow (DAG validated, not scheduled)</li>
+          <li>Kafka / Redpanda streaming</li>
+          <li>Terraform</li>
+          <li>Kubernetes (in CI)</li>
           <li>Docker</li>
           <li>GitHub Actions CI</li>
           <li>FastAPI</li>
@@ -1422,6 +1427,7 @@ WHERE verdict = 'GO'</pre>
           <li>Injected-failure tests</li>
           <li>k-anonymity</li>
           <li>Fairness testing</li>
+          <li>KYC risk rating &amp; beneficial ownership</li>
         </ul>
       </div>
 
@@ -1441,6 +1447,7 @@ WHERE verdict = 'GO'</pre>
           <li>UAT planning</li>
           <li>Business cases &amp; options</li>
           <li>RACI &amp; RAID</li>
+          <li>Jira (backlog via REST API)</li>
           <li>Change &amp; adoption plans</li>
           <li>GIS data QA</li>
           <li>SharePoint &amp; Power Automate design</li>
@@ -1449,7 +1456,7 @@ WHERE verdict = 'GO'</pre>
 
     </div>
 
-    <p class="skill-honest-foot">Where a tool only partly ran, the chip says so: the Airflow DAG is imported and checked in CI but never scheduled, and the Snowflake profile has never touched a live account.</p>
+    <p class="skill-honest-foot">Where a tool only partly ran, the chip says so: the Airflow DAG is imported and checked in CI but never scheduled, and Kubernetes means a throwaway cluster in CI, not a production one. Snowflake, Databricks and Jira runs were on free trial accounts.</p>
   </section>
 <section id="education" class="section" aria-label="Education and credentials">
     <p class="eyebrow">EDUCATION &amp; CREDENTIALS</p>

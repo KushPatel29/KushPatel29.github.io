@@ -21,12 +21,12 @@
 </ul>
 
 <h2>Technical Skills</h2>
-<p class="skill"><b>Pipelines &amp; Orchestration:</b> ETL and ELT in Azure Data Factory, Microsoft Fabric Data Pipelines, notebooks and Dataflows Gen2, Azure Synapse, SSIS, SQL Server Agent, GitHub Actions schedules, Databricks jobs; Airflow DAG checked in CI, not run in production</p>
-<p class="skill"><b>Processing &amp; Storage:</b> SQL (T-SQL, window functions, CTEs), PySpark, Python (pandas, requests), Delta Lake, Microsoft Fabric (Lakehouse, Warehouse, OneLake), Databricks (Unity Catalog, SQL warehouse), SQL Server, PostgreSQL, DuckDB, Parquet</p>
+<p class="skill"><b>Pipelines &amp; Orchestration:</b> ETL and ELT in Azure Data Factory, Microsoft Fabric Data Pipelines, notebooks and Dataflows Gen2, Azure Synapse, SSIS, SQL Server Agent, GitHub Actions schedules, Databricks jobs; Kafka (Redpanda) streaming with event-time windows; Airflow DAG checked in CI, not run in production</p>
+<p class="skill"><b>Processing &amp; Storage:</b> SQL (T-SQL, window functions, CTEs), PySpark, Python (pandas, requests), Delta Lake, Microsoft Fabric (Lakehouse, Warehouse, OneLake), Databricks (Unity Catalog, SQL warehouse), Snowflake (stages, COPY INTO, dbt Projects on Snowflake), SQL Server, PostgreSQL, DuckDB, Parquet</p>
 <p class="skill"><b>Ingestion:</b> REST APIs (including the Synerion time-and-attendance API), ERP and POS extracts, public data APIs and file feeds, incremental and CDC-style loads, schema-drift handling</p>
 <p class="skill"><b>Data Quality &amp; Reliability:</b> schema contracts, row quarantine and replay, quality gates, reconciliation and control totals, referential-integrity and freshness tests, injected-failure tests, pipeline alerting and exception logs, idempotent reruns</p>
 <p class="skill"><b>Modelling &amp; Serving:</b> Kimball star schemas, conformed dimensions, SCD Type 1/2, dbt Core (contracts, incremental, snapshots), Power BI semantic models with RLS/OLS</p>
-<p class="skill"><b>Delivery:</b> Git, GitHub Actions CI, Docker, pinned dependencies with an SBOM, pytest, cutover runbooks with disable-not-delete rollback</p>
+<p class="skill"><b>Delivery:</b> Git, GitHub Actions CI, Docker, Terraform, Kubernetes (kind, in CI), pinned dependencies with an SBOM, pytest, cutover runbooks with disable-not-delete rollback</p>
 
 <h2>Professional Experience</h2>
 
@@ -80,15 +80,15 @@
 </div>
 
 <div class="proj">
-  <div class="proj-head">B.C. Local-Government Finance <span class="stack">— Python, dbt / DuckDB, SQL, Excel &middot; real public data</span></div>
-  <div class="proj-url"><a href="https://github.com/KushPatel29/bc-local-government-finance">github.com/KushPatel29/bc-local-government-finance</a></div>
-  <p><b>Ingesting files that change shape:</b> 90 Province of B.C. files, each held to a written contract that fails on unexpected headers or item labels; a monthly job re-checks the source for changes; a dbt model with 31 data tests over a gold layer rebuilt identically in CI. Caught the Province&rsquo;s own defects, including a population file where 77 of 161 rows belong to other places.</p>
+  <div class="proj-head">Real-time Transaction Monitoring <span class="stack">— Kafka (Redpanda), Python, Terraform, Kubernetes &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/aml-transaction-monitoring#real-time-on-kubernetes">github.com/KushPatel29/aml-transaction-monitoring</a></div>
+  <p><b>A stream held to its batch:</b> two windowed rules run in event time over 100,795 deliveries that arrive late and twice; at-least-once delivery with idempotent, window-keyed alerts on a compacted topic. Terraform deploys the broker, a two-replica consumer group and its jobs to a Kubernetes cluster in CI, a pod is killed mid-stream, and the run passes only if the stream flags exactly what the batch flags: 51 of 51 and 1,270 of 1,270.</p>
 </div>
 
 <div class="proj">
-  <div class="proj-head">Supply Chain Analytics — dbt <span class="stack">— dbt Core, Databricks, DuckDB &middot; synthetic data</span></div>
+  <div class="proj-head">Supply Chain Analytics — dbt <span class="stack">— dbt Core, Databricks, Snowflake, DuckDB &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-analytics-dbt">github.com/KushPatel29/supply-chain-analytics-dbt</a></div>
-  <p><b>Same project, two engines:</b> built on DuckDB and on a Databricks serverless SQL warehouse with Unity Catalog: 180 of 180 nodes green and all 41 mart totals equal across the two, with contracts, incremental facts and SCD2 snapshots.</p>
+  <p><b>Same project, three engines:</b> built on DuckDB, on a Databricks serverless SQL warehouse and inside Snowflake with dbt Projects on Snowflake: 180 of 180 nodes green and all 41 mart totals equal across all three, with contracts, incremental facts and SCD2 snapshots.</p>
 </div>
 
 <h2>Education</h2>

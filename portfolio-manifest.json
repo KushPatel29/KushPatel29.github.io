@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 21,
-    "automatedTests": 14004
+    "automatedTests": 14119
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -28,7 +28,16 @@
       "priority": "specialist",
       "productShape": "Reproducible synthetic web-analytics fixture, tested transformation path, and evidence-bound public case study",
       "primaryDecision": "Can every displayed analytics value be traced to tested modeled output without implying production traffic?",
-      "capabilities": ["web-analytics", "analytics-engineering", "dbt", "duckdb", "synthetic-fixture", "metric-governance", "browser-instrumentation", "privacy"],
+      "capabilities": [
+        "web-analytics",
+        "analytics-engineering",
+        "dbt",
+        "duckdb",
+        "synthetic-fixture",
+        "metric-governance",
+        "browser-instrumentation",
+        "privacy"
+      ],
       "evidence": [
         "https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/",
         "https://github.com/KushPatel29/kushpatel29.github.io/tree/main/projects/portfolio-intelligence-platform",
@@ -48,7 +57,25 @@
       "priority": "flagship",
       "productShape": "Growth and revenue measurement system with exact reconciliation, change diagnostics, lifecycle automation and a claim-validated morning brief",
       "primaryDecision": "Which revenue number is right, what changed and why, and what should the growth team do this morning?",
-      "capabilities": ["marketing", "attribution", "revenue-reconciliation", "anomaly-detection", "experimentation", "email-analytics", "utm-governance", "crm-migration", "hubspot-mapping", "workflow-automation", "dbt", "keyless-rag", "production-operations", "streamlit", "power-bi", "dax", "excel"],
+      "capabilities": [
+        "marketing",
+        "attribution",
+        "revenue-reconciliation",
+        "anomaly-detection",
+        "experimentation",
+        "email-analytics",
+        "utm-governance",
+        "crm-migration",
+        "hubspot-mapping",
+        "workflow-automation",
+        "dbt",
+        "keyless-rag",
+        "production-operations",
+        "streamlit",
+        "power-bi",
+        "dax",
+        "excel"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/GrowthOps-OS/blob/main/docs/power-bi-handoff.md",
         "https://github.com/KushPatel29/GrowthOps-OS/blob/main/docs/case-study.md",
@@ -69,7 +96,20 @@
       "priority": "specialist",
       "productShape": "CRM-as-code for four businesses in HubSpot developer test accounts: a schema engine, a keyed record loader, a private app per business with CRM cards, app functions, a workflow action and signed webhooks, and the same model compiled to Salesforce metadata",
       "primaryDecision": "What does each business's CRM need, and can it be built, loaded and rerun from code without duplicating records or overwriting what people have changed?",
-      "capabilities": ["hubspot", "crm-development", "custom-objects", "ui-extensions", "app-functions", "workflow-actions", "webhooks", "oauth", "crm-as-code", "salesforce-metadata", "apex", "lightning-web-components"],
+      "capabilities": [
+        "hubspot",
+        "crm-development",
+        "custom-objects",
+        "ui-extensions",
+        "app-functions",
+        "workflow-actions",
+        "webhooks",
+        "oauth",
+        "crm-as-code",
+        "salesforce-metadata",
+        "apex",
+        "lightning-web-components"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/hubspot-crm-platform/blob/main/README.md",
         "https://github.com/KushPatel29/hubspot-crm-platform/blob/main/docs/live-evidence.md",
@@ -83,13 +123,21 @@
       "repository": "https://github.com/KushPatel29/wholesale-analytics-platform",
       "liveApp": "https://kushpatel29.github.io/wholesale-analytics-platform/",
       "liveStatus": "live-demo",
-      "testCount": 1431,
+      "testCount": 1439,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
       "productShape": "Governed multi-role analytics platform with a data-product control room and static executive briefing",
       "primaryDecision": "Is this data release trustworthy, and which commercial or operating exception requires action now?",
-      "capabilities": ["business-analysis", "analytics-engineering", "decision-support", "governance", "data-products", "data-contracts", "release-assurance"],
+      "capabilities": [
+        "business-analysis",
+        "analytics-engineering",
+        "decision-support",
+        "governance",
+        "data-products",
+        "data-contracts",
+        "release-assurance"
+      ],
       "evidence": [
         "https://kushpatel29.github.io/wholesale-analytics-platform/metrics/",
         "https://github.com/KushPatel29/wholesale-analytics-platform/blob/main/governance/data_products.yml",
@@ -109,7 +157,15 @@
       "priority": "flagship",
       "productShape": "Event-driven operational control tower with GIS scenario and incident-command workspaces",
       "primaryDecision": "Which network disruption should be escalated, and which recovery action is defensible?",
-      "capabilities": ["supply-chain", "gis", "streaming", "power-bi", "business-analysis", "incident-response", "decision-governance"],
+      "capabilities": [
+        "supply-chain",
+        "gis",
+        "streaming",
+        "power-bi",
+        "business-analysis",
+        "incident-response",
+        "decision-governance"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/supply-chain-control-tower/blob/master/docs/business_process_improvement_case.md",
         "https://github.com/KushPatel29/supply-chain-control-tower/blob/master/docs/gis_network_analysis.md",
@@ -129,7 +185,15 @@
       "priority": "specialist",
       "productShape": "Planner workbench with governed network policy lab and inventory action register",
       "primaryDecision": "Should a planner buy, transfer, count, expedite, hold, or review inventory?",
-      "capabilities": ["inventory", "forecasting", "operations", "policy-simulation", "service-cost-frontier", "duckdb", "business-analysis"],
+      "capabilities": [
+        "inventory",
+        "forecasting",
+        "operations",
+        "policy-simulation",
+        "service-cost-frontier",
+        "duckdb",
+        "business-analysis"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/inventory-analytics-app/blob/main/docs/business-analysis-and-interview-guide.md",
         "https://github.com/KushPatel29/inventory-analytics-app/blob/main/invapp/analytics/policy_simulation.py"
@@ -148,7 +212,16 @@
       "priority": "specialist",
       "productShape": "Governed analytical copilot with an auditable compiler and evaluation lab",
       "primaryDecision": "Can this business question be answered safely, reproducibly, and with traceable SQL?",
-      "capabilities": ["governed-ai", "text-to-sql", "semantic-layer", "model-assurance", "role-policy", "red-team", "duckdb", "responsible-ai"],
+      "capabilities": [
+        "governed-ai",
+        "text-to-sql",
+        "semantic-layer",
+        "model-assurance",
+        "role-policy",
+        "red-team",
+        "duckdb",
+        "responsible-ai"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/ask-your-data/blob/main/docs/ASSURANCE_CASE.md",
         "https://github.com/KushPatel29/ask-your-data/blob/main/evals/assurance_release.yaml"
@@ -167,7 +240,14 @@
       "priority": "specialist",
       "productShape": "Daily seven-day wildfire ignition-risk forecast with an out-of-time model card, a satellite-graded season check and a generated Power BI dashboard",
       "primaryDecision": "Which of Canada's 771 fire cells should be watched this week, and how much better is that ranking than fire weather or climatology alone?",
-      "capabilities": ["forecasting", "machine-learning", "gis", "model-assurance", "power-bi", "open-data"],
+      "capabilities": [
+        "forecasting",
+        "machine-learning",
+        "gis",
+        "model-assurance",
+        "power-bi",
+        "open-data"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/reports/metrics.json",
         "https://github.com/KushPatel29/wildfire-prediction-app/tree/main/powerbi",
@@ -187,7 +267,14 @@
       "priority": "specialist",
       "productShape": "Offer-targeting and pricing decision workspace with a certified optimizer, a policy trial and a decision API",
       "primaryDecision": "Which eligible customers should get which offer this month, within budget and roadway capacity, and how much value does that plan truly create?",
-      "capabilities": ["data-science", "causal-inference", "experimentation", "optimization", "pricing", "customer-analytics"],
+      "capabilities": [
+        "data-science",
+        "causal-inference",
+        "experimentation",
+        "optimization",
+        "pricing",
+        "customer-analytics"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/decision-intelligence-platform#what-the-october-plan-decides",
         "https://github.com/KushPatel29/decision-intelligence-platform/blob/main/docs/ab-testing-playbook.md",
@@ -207,7 +294,18 @@
       "priority": "specialist",
       "productShape": "Governed health-system intervention release and revenue-cycle prevention evidence pack",
       "primaryDecision": "Should transitional care be approved, under which costing perspective and implementation conditions, and is the evidence ready for release?",
-      "capabilities": ["healthcare", "decision-assurance", "measure-governance", "equity-monitoring", "small-cell-policy", "spc", "health-economics", "revenue-cycle", "power-bi", "business-analysis"],
+      "capabilities": [
+        "healthcare",
+        "decision-assurance",
+        "measure-governance",
+        "equity-monitoring",
+        "small-cell-policy",
+        "spc",
+        "health-economics",
+        "revenue-cycle",
+        "power-bi",
+        "business-analysis"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/healthcare-claims-analytics/blob/master/output/health_intervention_decision_packet.md",
         "https://github.com/KushPatel29/healthcare-claims-analytics/blob/master/output/evidence_release_gates.csv",
@@ -227,7 +325,16 @@
       "priority": "specialist",
       "productShape": "Governed pricing decision room with approval routing and post-change realization monitoring",
       "primaryDecision": "Which price proposal can enter human review, who owns it, and did an approved historical move reach pocket price?",
-      "capabilities": ["pricing", "costing", "decision-governance", "approval-routing", "price-realization", "causal-boundaries", "power-bi", "streamlit"],
+      "capabilities": [
+        "pricing",
+        "costing",
+        "decision-governance",
+        "approval-routing",
+        "price-realization",
+        "causal-boundaries",
+        "power-bi",
+        "streamlit"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/pricing-costing-analytics/blob/main/output/pricing_decision_packet.md",
         "https://github.com/KushPatel29/pricing-costing-analytics/blob/main/output/pricing_decision_manifest.json",
@@ -247,7 +354,15 @@
       "priority": "specialist",
       "productShape": "Risk-tiered period-close certification and exception-resolution control",
       "primaryDecision": "Can this account-period be certified, which independent review is required, or what evidence blocks close?",
-      "capabilities": ["finance", "reconciliation", "close-certification", "segregation-of-duties", "controls", "power-bi", "tableau"],
+      "capabilities": [
+        "finance",
+        "reconciliation",
+        "close-certification",
+        "segregation-of-duties",
+        "controls",
+        "power-bi",
+        "tableau"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/output/close_certification_packet.md",
         "https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/governance/close_certification_policy.json",
@@ -261,7 +376,7 @@
       "repository": "https://github.com/KushPatel29/excel-fpa-model",
       "liveApp": null,
       "liveStatus": "repository-only",
-      "testCount": 1190,
+      "testCount": 1263,
       "testCommand": "pytest",
       "dataClassification": "public-open-data-and-synthetic",
       "priority": "specialist",
@@ -327,13 +442,20 @@
       "repository": "https://github.com/KushPatel29/aml-transaction-monitoring",
       "liveApp": "https://aml-transaction-monitoring.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 211,
+      "testCount": 244,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
       "productShape": "Investigator case workbench with entity-centred evidence",
       "primaryDecision": "Which alert deserves investigation, and what evidence supports its disposition?",
-      "capabilities": ["aml", "machine-learning", "investigation", "explainability", "governance", "streamlit"],
+      "capabilities": [
+        "aml",
+        "machine-learning",
+        "investigation",
+        "explainability",
+        "governance",
+        "streamlit"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/investigation_decision_packet.md",
         "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/investigation_manifest.json",
@@ -353,7 +475,15 @@
       "priority": "specialist",
       "productShape": "Causal measurement laboratory and constrained budget allocator",
       "primaryDecision": "Which channel caused incremental value, and how should the next budget be allocated?",
-      "capabilities": ["marketing", "causal-inference", "experimentation", "budget-optimization", "decision-governance", "lookml", "streamlit"],
+      "capabilities": [
+        "marketing",
+        "causal-inference",
+        "experimentation",
+        "budget-optimization",
+        "decision-governance",
+        "lookml",
+        "streamlit"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/marketing-attribution-analytics/blob/main/output/marketing_investment_memo.md",
         "https://github.com/KushPatel29/marketing-attribution-analytics/blob/main/output/marketing_investment_decision.json",
@@ -373,7 +503,16 @@
       "priority": "specialist",
       "productShape": "FHIR ingestion and governed clinical data-cut release console",
       "primaryDecision": "Can this versioned clinical data cut be released, which evidence still requires review, or what source change must close it?",
-      "capabilities": ["fhir", "clinical-data", "cohort-versioning", "release-governance", "reverification", "sql-server", "data-quality", "streamlit"],
+      "capabilities": [
+        "fhir",
+        "clinical-data",
+        "cohort-versioning",
+        "release-governance",
+        "reverification",
+        "sql-server",
+        "data-quality",
+        "streamlit"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/clinical-data-management/blob/main/output/clinical_evidence_release_packet.md",
         "https://github.com/KushPatel29/clinical-data-management/blob/main/governance/evidence_release_policy.json",
@@ -394,7 +533,16 @@
       "priority": "specialist",
       "productShape": "Governed recommendation release room, resilient API, experimentation console and representative-assist surface",
       "primaryDecision": "Which eligible next-best item should be offered, why, and under which guardrails?",
-      "capabilities": ["recommendations", "multi-objective-evaluation", "slice-analysis", "fastapi", "safe-fallback", "mlflow", "experimentation", "power-bi"],
+      "capabilities": [
+        "recommendations",
+        "multi-objective-evaluation",
+        "slice-analysis",
+        "fastapi",
+        "safe-fallback",
+        "mlflow",
+        "experimentation",
+        "power-bi"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/Customer-Recommendation-Engine/blob/main/output/recommendation_release_memo.md",
         "https://github.com/KushPatel29/Customer-Recommendation-Engine/blob/main/output/recommendation_release_packet.json",
@@ -414,7 +562,15 @@
       "priority": "specialist",
       "productShape": "Responsible aggregate workforce decision-support and intervention tracker",
       "primaryDecision": "Which aggregate workforce risk merits a supportive, measurable, non-punitive intervention?",
-      "capabilities": ["workforce-analytics", "survival-analysis", "responsible-ai", "power-bi", "intervention-governance", "nist-ai-rmf", "release-assurance"],
+      "capabilities": [
+        "workforce-analytics",
+        "survival-analysis",
+        "responsible-ai",
+        "power-bi",
+        "intervention-governance",
+        "nist-ai-rmf",
+        "release-assurance"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/hr-attrition-analytics/blob/master/output/responsible_use_decision_packet.md",
         "https://github.com/KushPatel29/hr-attrition-analytics/blob/master/output/responsible_use_manifest.json",
@@ -434,7 +590,16 @@
       "priority": "specialist",
       "productShape": "Contracted analytics release control room",
       "primaryDecision": "Can this metric or model change ship without breaking governed downstream consumers?",
-      "capabilities": ["dbt", "metricflow", "airflow", "data-contracts", "analytics-engineering", "change-impact", "run-lineage", "release-assurance"],
+      "capabilities": [
+        "dbt",
+        "metricflow",
+        "airflow",
+        "data-contracts",
+        "analytics-engineering",
+        "change-impact",
+        "run-lineage",
+        "release-assurance"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/output/analytics_engineering_release_memo.md",
         "https://github.com/KushPatel29/supply-chain-analytics-dbt/blob/master/output/analytics_engineering_release_packet.json",
@@ -449,13 +614,19 @@
       "repository": "https://github.com/KushPatel29/legacy-to-fabric-migration",
       "liveApp": "https://kush-asset-management-decision-board.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 477,
+      "testCount": 478,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
       "productShape": "Migration command centre and municipal asset-capital decision board",
       "primaryDecision": "Can the migration safely proceed, and which asset intervention best protects service within funding constraints?",
-      "capabilities": ["microsoft-fabric", "asset-management", "gis", "migration", "business-analysis"],
+      "capabilities": [
+        "microsoft-fabric",
+        "asset-management",
+        "gis",
+        "migration",
+        "business-analysis"
+      ],
       "evidence": [
         "https://github.com/KushPatel29/legacy-to-fabric-migration/tree/master/examples/asset_management",
         "https://github.com/KushPatel29/legacy-to-fabric-migration/tree/master/examples/gis_asset_integration",

@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
 inventory-verified: 2026-10-03
-manifest-totals: 21 projects · 14004 tests
+manifest-totals: 21 projects · 14119 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -106,7 +106,7 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | dbt Core (contracts, unit tests, snapshots, incremental) | PROJECT | Supply Chain Analytics — dbt; BC finance (31 tests) | **not production** (résumé says so) |
 | MetricFlow / semantic layer | PAID (Power BI semantic layer) + PROJECT (MetricFlow) | Two Rivers; dbt project | MetricFlow is project-only |
 | Apache Airflow | PROJECT | DAG in dbt project | **checked, not scheduled; not production** |
-| Snowflake | none executed | dbt profile exists | **"never run" — treat as real gap** |
+| Snowflake (dbt Projects on Snowflake, Git repository object, COPY INTO from stage, INFER_SCHEMA) | PROJECT | Supply Chain Analytics — dbt: 180/180 nodes green, 41/41 mart totals equal DuckDB; Retail Analytics Platform: nine sources landed as Parquet and loaded with COPY INTO, 48/48 nodes, 107/107 measures reconciled with an independent pandas build; both on a Snowflake **trial account**, recorded runs with query IDs | not in a job; trial account; no Snowpark, Streams/Tasks, RBAC design or cost management |
 | DuckDB, PostgreSQL | PROJECT | several repos | — |
 | Dimensional modelling (Kimball, SCD1/2, conformed dims) | PAID+PROJECT | Two Rivers mart; dbt snapshots | — |
 | Data quality tests, contracts, quarantine, alerting | PAID+PROJECT | Two Rivers tests/alerts; control tower, BC finance contracts | — |
@@ -115,16 +115,19 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Git, GitHub Actions CI, Docker | PROJECT | all 21 public projects run automated validation; Portfolio Intelligence runs in this repo's root workflow | Git use in paid work not stated |
 | Stakeholder engagement, requirements, KPI definitions, acceptance criteria | PAID | Two Rivers (Sales, Finance, Supply Chain); Shivam (portfolio/risk) | — |
 | Process mapping, UAT plans, traceability, business cases, RACI/RAID | PROJECT | inventory BA case (13 reqs, 12 UAT), clinical UAT plan, migration charter/RACI, supply-chain process case | documents are portfolio artifacts, not employer deliverables |
-| Agile user stories, Given/When/Then acceptance criteria, product backlog | PROJECT | Legacy-to-Fabric `docs/business-analysis/BACKLOG_AND_ACCEPTANCE.md`: 5 epics, 16 stories, 30 criteria each executed by a named CI test, the rest labelled manual UAT; Jira CSV import generated from the page | not in a job; the CSV has **never been loaded into Jira**; no Scrum ceremonies |
+| Agile user stories, Given/When/Then acceptance criteria, product backlog | PROJECT | Legacy-to-Fabric `docs/business-analysis/BACKLOG_AND_ACCEPTANCE.md`: 5 epics, 16 stories, 30 criteria each executed by a named CI test, the rest labelled manual UAT; loaded into a **Jira Cloud** Scrum project (free site) through the REST API by `jira_rest.py`: ten stories Done because every criterion runs in CI, six in To Do | not in a job; Jira used on a personal free site; no Scrum ceremonies, sprints or team velocity |
 | Change and adoption | PAID | widened Power BI self-service with RLS at Two Rivers | — |
 | GL/P&L reconciliation, month-end close | PAID+PROJECT | Shivam, Two Rivers; GL recon repo | — |
 | AP/AR, DPO/DSO, working capital | PAID+PROJECT | Two Rivers, Shivam; Kestrel Bay model | — |
 | Variance, margin, price-volume-mix | PAID+PROJECT | Two Rivers margin KPIs; pricing, utility models | — |
-| Budgeting, forecasting, scenario models (FP&A) | PROJECT | utility and BC municipal Excel models | FP&A budgeting not a paid responsibility |
+| Budgeting, forecasting, scenario models (FP&A) | PROJECT | utility and BC municipal Excel models; Kestrel Bay FY2027 budget cycle (`excel-fpa-model/budget_cycle`): top-down targets, bottom-up submissions by channel/category/department with hires, monthly phasing, a challenge round, gap-to-target and the price that closes it, a 3+9 reforecast with an EBITDA bridge | FP&A budgeting not a paid responsibility; synthetic company |
+| Three-statement model (monthly P&L, balance sheet, cash flow with a revolver) | PROJECT | Kestrel Bay FY2027 budget workbook: balance sheet balances and cash flow ties every month, revolver holds minimum cash, interest on the opening balance (no circularity); 73 tests hold it to a pandas twin | not in a job; no DCF or valuation |
 | Supply chain: OTIF, FEFO, lot trace, vendor scorecards, WMS accuracy | PAID+PROJECT | Two Rivers; control tower, inventory app | — |
 | Demand forecasting | PAID+PROJECT | Two Rivers SKU forecasting; inventory backtests | — |
 | Inventory policy / service-level optimisation | PROJECT | inventory app policy lab | — |
 | Customer analytics (cohorts, RFM, churn signals) | PAID+PROJECT | Two Rivers; Corridor (RFM segments, calibrated propensity, churn and attrition models) | — |
+| KYC / CDD: customer risk rating (onboarding and periodic refresh), EDD triggers, foreign-PEP handling, beneficial ownership (25%, indirect through holdings, loops) | PROJECT | Transaction Monitoring `src/kyc.py` on 1,500 synthetic customers and 450 ownership trees; 131 High at refresh; mapped to PCMLTFA obligations in the regulatory mapping | not in a job; synthetic KYC files; no ID verification, no real PEP or adverse-media lists |
+| Streaming (Kafka API / Redpanda), Terraform, Kubernetes | PROJECT | Transaction Monitoring `streaming/`: event-time windows, late and duplicate deliveries, at-least-once with idempotent alerts; Terraform deploys broker, two-replica consumer group and jobs to a kind cluster in GitHub Actions; a pod is killed mid-stream; stream must equal batch (51/51 structuring, 1,270/1,270 LCTR 24-hour rule) | CI cluster only, not production; one broker, no TLS/auth |
 | Sanctions name screening (fuzzy matching, Cyrillic transliteration, threshold set on a dev half) | PROJECT | Transaction Monitoring `src/sanctions_screening.py` on the real Consolidated Canadian Autonomous Sanctions List (5,708 entries), list never committed | one list only (not UN or Criminal Code lists); no PEP screening, KYC or ongoing monitoring; customers are synthetic |
 | Statistics, hypothesis tests, experiments, causal inference | PROJECT+DEGREE | geo holdout, diff-in-diff, permutation test, survival analysis; Corridor ten-arm randomized offer trial, uplift learners and a randomized test of the targeting policy (+$1.40/customer, 95% CI $0.23 to $2.57); MPS | no production A/B testing platform; Corridor's trials run on simulated customers |
 | Mathematical optimization (mixed-integer programming, LP duals, HiGHS, Gurobi) | PROJECT | Corridor: one MIP over 112,563 customer-offer decisions, proven optimal (gap 1.5e-7), residual re-solved in Gurobi; inventory policy lab | synthetic data; Gurobi used under its size-limited licence |
@@ -153,13 +156,13 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 A requirement that names one of these is a **real gap** unless the user supplies
 new facts in the conversation (then treat the new fact as user-stated and say
 so): AWS (any service, incl. Redshift, S3, Glue), GCP / BigQuery, Snowflake
-execution, Looker (the product), Qlik, Alteryx, SAS, R, VBA/macros, SAP as a
+in a job, Looker (the product), Qlik, Alteryx, SAS, R, VBA/macros, SAP as a
 user (only SAP-shaped synthetic extracts), Oracle, NetSuite, Dynamics 365,
-Salesforce as an org (deploys, Apex, Flows, Lightning; the SFDX metadata in §4 is generated, never deployed), HubSpot in a company's production portal (the developer-test-account builds in §4 are PROJECT), HubSpot marketplace/OAuth app publishing, GA4 / web analytics, Jira, Confluence, Agile/Scrum
-ceremonies, Kafka or production streaming, Terraform / IaC, Kubernetes, SSAS,
+Salesforce as an org (deploys, Apex, Flows, Lightning; the SFDX metadata in §4 is generated, never deployed), HubSpot in a company's production portal (the developer-test-account builds in §4 are PROJECT), HubSpot marketplace/OAuth app publishing, GA4 / web analytics, Jira in a job, Confluence, Agile/Scrum
+ceremonies, production streaming, Terraform or Kubernetes beyond CI, SSAS,
 dbt Cloud, Hadoop, data-catalog tools (Purview, Collibra, Alation), Lean / Six
 Sigma, formal BRDs or Agile user stories **in a job** (a public backlog exists, §4), HIPAA / PHIPA / PIPEDA compliance
-work, three-statement or DCF valuation models, French or other languages,
+work, DCF valuation models, budgeting or three-statement models in a job, French or other languages,
 Tableau in a job, dbt or Airflow in production, people management,
 CPA / CFA / CBAP / PMP / PL-300, industry experience outside food distribution
 and investment finance.
@@ -168,7 +171,9 @@ and investment finance.
 
 - ~45%, ~30%, ~40% are **internal estimates** (directional, not audited).
 - dbt and Airflow are **project work, not production**; Airflow is checked, not scheduled.
-- Snowflake is **profile only, never run**.
+- Snowflake, Databricks and Jira runs were on **free or trial accounts**, recorded once; not production.
+- Kafka, Terraform and Kubernetes run in a **CI cluster**, not production.
+- KYC files and ownership trees are **synthetic**; the KYC policy weights are the project's own.
 - DP-600 is **in progress**.
 - Project data is **synthetic** unless the manifest says public-open-data; dollar outcomes in projects are **modelled**.
 - Portfolio BA documents are **portfolio artifacts**, not employer deliverables.
@@ -184,7 +189,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Portfolio Intelligence Platform | p-portfolio-intelligence | 15 | synthetic | yes | AE, DA — 20-event fixture, dbt-to-JSON lineage, metric governance, explicit unavailable states |
 | GrowthOps OS | p-growthops | 673 | synthetic | yes | marketing/growth DA, revenue ops, AE, BI — generated 7-page Power BI report (215 DAX measures, SVG KPI tiles, DAX-written summary) and a formula-driven Excel workbook with a campaign scorecard, agreeing to the cent; platform vs CRM vs cash reconciliation, anomaly root cause, paid efficiency to cost per booked call, email analytics and deliverability, UTM/short-link and CRM hygiene, HubSpot in a developer test account (portal build, two-way sync under a field contract, approved change sets, signed webhooks, products/line items/tickets), written daily update, webhook automation with a retry/alert worker, keyless local RAG ask-your-data, production operations (auth, signed webhooks, metrics, backups, containers) |
 | HubSpot CRM Platform | p-hubspot-crm | 178 | synthetic | no | CRM developer, HubSpot developer, RevOps engineering — CRM-as-code for four businesses (custom objects, pipelines, association labels, keyed loads rerun to zero writes), a private app per business with React CRM cards, app functions, a custom workflow action and signed webhooks, all live in developer test accounts; an idempotency key against duplicate deals (checked live); an OAuth connector; the same model compiled to Salesforce SFDX metadata, with the guardrail in Apex, an LWC and a Flow, deployed to a Developer Edition org with Batch Apex, an Apex REST API, custom metadata and a Lightning record page (25 Apex tests pass there; the same records loaded by key and re-planned to zero; every deal scored through the API as Python scores it) |
-| Retail Analytics Platform | p-wholesale | 1431 | synthetic | yes | DA, AE, BI — metric governance, 62 governed metrics, margin root cause |
+| Retail Analytics Platform | p-wholesale | 1439 | synthetic | yes | DA, AE, BI — metric governance, 62 governed metrics, margin root cause |
 | Supply Chain Control Tower | p-control-tower | 836 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |
 | Ask Your Data | p-ask-your-data | 1170 | synthetic-and-session-upload | yes | DS, AE — governed text-to-SQL, 46/0/12 contract |
@@ -193,12 +198,12 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Health System Decision Support | p-healthcare | 819 | synthetic | no | healthcare DA/BA — SPC, decision packet |
 | Pricing & Costing Analytics | p-pricing-analytics | 3182 | synthetic | yes | DA, FA — pocket-price waterfall, approval routing |
 | GL / P&L Reconciliation | p-gl-recon | 710 | synthetic | no | FA — close certification, SoD, Tableau + Power BI |
-| Finance Decision Models in Excel and Power BI | p-excel-fpa | 1190 | public-open-data-and-synthetic | no | FA, DA — utility plan-vs-actual, Excel + Power BI tie-out |
+| Finance Decision Models in Excel and Power BI | p-excel-fpa | 1263 | public-open-data-and-synthetic | no | FA, DA — utility plan-vs-actual, Excel + Power BI tie-out |
 | B.C. Local-Government Finance | p-bc-finance | 181 | public-open-data | no | AE, FA, public sector — 90 contracted files, dbt 31 tests |
-| Transaction Monitoring | p-aml-monitoring | 211 | synthetic | yes | DS, fincrime — 60/60 planted cases; sanctions name screening on the real Consolidated Canadian Autonomous Sanctions List: threshold set on one half by a fixed rule, 97.2% of standard name variants caught on the held-out half at 10 alerts per 10,000 synthetic customers (Oct 2026) |
+| Transaction Monitoring | p-aml-monitoring | 244 | synthetic | yes | DS, fincrime — 60/60 planted cases; sanctions name screening on the real Consolidated Canadian Autonomous Sanctions List: threshold set on one half by a fixed rule, 97.2% of standard name variants caught on the held-out half at 10 alerts per 10,000 synthetic customers (Oct 2026) |
 | Marketing Attribution & Incrementality | p-marketing | 128 | synthetic | yes | DS, marketing DA — geo holdout, budget allocator |
 | Clinical Evidence Console + FHIR Warehouse | p-clinical | 295 | synthetic | yes | healthcare DE/BA — FHIR, UAT plan |
 | Customer Recommendation Engine | p-customer-rec | 814 | synthetic | yes | DS — recommender, pre-registered experiment |
 | HR Attrition Analytics | p-hr-attrition | 822 | synthetic | yes | DA, people analytics — survival analysis, SQL |
-| Supply Chain Analytics — dbt | p-dbt | 157 | synthetic | no | AE — dbt contracts, unit tests, SCD2, MetricFlow, Databricks |
-| Legacy-to-Fabric Migration | p-migration | 477 | synthetic | yes | DE, BA — GO/NO-GO cutover gate, charter, RACI, 16-story backlog with CI-executed acceptance criteria |
+| Supply Chain Analytics — dbt | p-dbt | 157 | synthetic | no | AE — dbt contracts, unit tests, SCD2, MetricFlow, Databricks and Snowflake runs reconciled to DuckDB |
+| Legacy-to-Fabric Migration | p-migration | 478 | synthetic | yes | DE, BA — GO/NO-GO cutover gate, charter, RACI, 16-story backlog with CI-executed acceptance criteria |

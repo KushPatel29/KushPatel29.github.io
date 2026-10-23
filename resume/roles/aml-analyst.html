@@ -6,7 +6,7 @@
 
 <header>
   <h1>Kush Patel</h1>
-  <p class="role">AML / Financial Crime Analyst &nbsp;|&nbsp; Transaction Monitoring &middot; Investigations &middot; FINTRAC Reporting &middot; Controls &nbsp;|&nbsp; SQL &middot; Python &middot; Power BI</p>
+  <p class="role">AML / Financial Crime Analyst &nbsp;|&nbsp; Transaction Monitoring &middot; KYC / CDD &middot; Investigations &middot; FINTRAC Reporting &nbsp;|&nbsp; SQL &middot; Python &middot; Power BI</p>
   <p class="contact">
     <span class="item">Vancouver, BC</span><span class="sep">|</span><span class="item"><a href="tel:+17786371602">+1 (778) 637-1602</a></span><span class="sep">|</span><span class="item"><a href="mailto:dharma.patel552@gmail.com">dharma.patel552@gmail.com</a></span><span class="sep">|</span><span class="item"><a href="https://www.linkedin.com/in/kush-patel-48885719b/">linkedin.com/in/kush-patel-48885719b</a></span><span class="sep">|</span><span class="item"><a href="https://github.com/KushPatel29">github.com/KushPatel29</a></span><span class="sep">|</span><span class="item"><a href="https://kushpatel29.github.io/#p-aml-monitoring">kushpatel29.github.io</a></span>
   </p>
@@ -21,10 +21,10 @@
 </ul>
 
 <h2>Skills</h2>
-<p class="skill"><b>Financial Crime:</b> sanctions name screening (fuzzy matching, transliteration, threshold tuning), structuring and smurfing typologies, rule design and tuning, alert triage and prioritisation, investigation case files, analytic briefs, PCMLTFA and FINTRAC reporting (LCTR including the 24-hour rule, EFTR, suspicious transaction report timing), threshold versus suspicion</p>
+<p class="skill"><b>Financial Crime:</b> KYC/CDD (customer risk rating, EDD triggers, PEP handling, beneficial ownership at 25% direct and indirect), sanctions name screening (fuzzy matching, transliteration, threshold tuning), structuring and smurfing typologies, rule design and tuning, alert triage and prioritisation, investigation case files, analytic briefs, PCMLTFA and FINTRAC reporting (LCTR including the 24-hour rule, EFTR, suspicious transaction report timing), threshold versus suspicion</p>
 <p class="skill"><b>Detection Analytics:</b> SQL window functions for velocity and aggregation rules, entity-relative z-scores, anomaly detection (IsolationForest, Mahalanobis distance, gradient boosting), precision and recall by typology, cost curves for alert volume</p>
 <p class="skill"><b>Controls &amp; Audit:</b> reconciliation and control totals, journal-entry testing, segregation of duties, exception logs, evidence integrity, RLS/RBAC and column masking</p>
-<p class="skill"><b>Tools:</b> SQL (T-SQL, SQLite), Python (pandas, scikit-learn), Power BI, Excel, Streamlit, Tableau, Git</p>
+<p class="skill"><b>Tools:</b> SQL (T-SQL, SQLite), Python (pandas, scikit-learn), Power BI, Excel, Streamlit, Tableau, Git; Kafka streaming</p>
 
 <h2>Professional Experience</h2>
 
@@ -77,16 +77,17 @@
 </div>
 
 <div class="proj">
+  <div class="proj-head">KYC: customer risk rating and beneficial ownership <span class="stack">— Python, pandas &middot; synthetic customers</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/aml-transaction-monitoring#know-your-customer-risk-rating-edd-and-beneficial-ownership">github.com/KushPatel29/aml-transaction-monitoring</a></div>
+  <p><b>Who stands behind the account:</b> 1,500 customers rated at onboarding and at a yearly refresh on stated factors, each rating with its reasons; a foreign PEP is high risk whatever the score, and every high-risk client is flagged for enhanced due diligence. For 450 businesses, beneficial owners traced through holding companies by multiplying shares down every chain to the 25% line, with opaque jurisdictions, loops and no-25%-owner cases flagged. Only 11 of the 60 planted-case customers rated high: a rating decides scrutiny, not suspicion.</p>
+</div>
+
+<div class="proj">
   <div class="proj-head">GL / P&amp;L Reconciliation <span class="stack">— T-SQL, SQLite, Power BI, Tableau &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/gl-reconciliation-dashboard">github.com/KushPatel29/gl-reconciliation-dashboard</a></div>
   <p><b>Controls that refuse to fake a sign-off:</b> a close-certification engine tests all 5,400 journal entries and enforces segregation of duties; at month-end 8 of 60 account-periods certify, 9 go to a named reviewer and 43 are blocked.</p>
 </div>
 
-<div class="proj">
-  <div class="proj-head">Ask Your Data <span class="stack">— Python, DuckDB, Claude API &middot; synthetic data</span></div>
-  <div class="proj-url"><a href="https://github.com/KushPatel29/ask-your-data">github.com/KushPatel29/ask-your-data</a> &middot; live: <a href="https://ask-your-data-kp.streamlit.app">ask-your-data-kp.streamlit.app</a></div>
-  <p><b>Questions over monitoring data, answered with the SQL shown:</b> text-to-SQL over 71 tables including an AML domain, behind a read-only guard and a default-deny access policy; on a 58-question contract it answers 46 correctly, gets none wrong and refuses 12 rather than guess.</p>
-</div>
 
 <h2>Education</h2>
 <div class="edu">
