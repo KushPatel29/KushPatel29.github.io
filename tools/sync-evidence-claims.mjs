@@ -70,6 +70,10 @@ else if (withWildfire !== expected) throw new Error("Wildfire card drifted from 
 const wildfireProject = manifest.projects.find(p => p.id === "canada-wildfire-risk");
 if (!wildfireProject.primaryDecision.includes(`${w.gridCells} fire cells`)) throw new Error("Wildfire manifest grid differs from the reviewed model");
 if (/HubSpot run as a production integration/.test(expected)) throw new Error("Describe the executed HubSpot developer-account integration without implying customer production tenure");
+const de = fs.readFileSync(path.join(ROOT, "resume/roles/data-engineer.html"), "utf8");
+if (/grades every published forecast|every published forecast graded afterwards/.test(expected + de)) {
+  throw new Error("Forecast grading must retain its sampling scope: first eligible forecast per station day, current grid, leads 2–7");
+}
 const tableau = manifest.projects.find(p => p.id === "gl-reconciliation");
 if (!tableau.liveApp.startsWith("https://public.tableau.com/views/")) throw new Error("Tableau's primary demo must open the verified direct view");
 if (process.argv.includes("--verify-upstream")) {
