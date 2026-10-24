@@ -48,11 +48,13 @@ const SETTLE_MS = 15_000;
 
 /* Streamlit 1.56+ can omit stMainBlockContainer. Match actual rendered
    elements in the main region on either layout; the app shell and sidebar
-   alone are never enough to declare a demo healthy. */
+   alone are never enough to declare a demo healthy. Streamlit can put an
+   invisible style-only element first; select a visible main element before
+   taking .first(), so that hidden CSS cannot mask the page behind it. */
 export const MAIN_CONTENT_SELECTOR = [
-  "[data-testid='stMainBlockContainer'] [data-testid='stElementContainer']",
-  "[data-testid='stMain'] [data-testid='stElementContainer']",
-  "section.main [data-testid='stElementContainer']",
+  "[data-testid='stMainBlockContainer'] [data-testid='stElementContainer']:visible",
+  "[data-testid='stMain'] [data-testid='stElementContainer']:visible",
+  "section.main [data-testid='stElementContainer']:visible",
 ].join(", ");
 
 function origin(url) {
