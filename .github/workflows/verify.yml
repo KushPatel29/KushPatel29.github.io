@@ -146,6 +146,8 @@ jobs:
 
   portfolio-intelligence:
     name: Portfolio Intelligence dbt contract
+    env:
+      DBT_SEND_ANONYMOUS_USAGE_STATS: "false"
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     defaults:
