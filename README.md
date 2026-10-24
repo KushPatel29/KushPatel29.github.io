@@ -153,6 +153,13 @@ immutable source and the current HR export. CI rejects stale facts, an unqualifi
 utility planning baseline, or wording that turns the proposed recommender pilot
 into a completed experiment.
 
+The wildfire card is generated from `evidence/wildfire-evaluation.json`: the grid
+and first 30 graded target days, dated through 22 October 2026. The same check
+holds its point estimate, interval and uncertain top-decile advantage to four
+hashed files at an immutable upstream revision. This is a frozen observed window,
+separate from historical backtests; it does not claim unobserved future outcomes.
+The developer-account HubSpot integration is described as project execution.
+
 The scheduled demo check also runs `pnpm test:live-tableau`: the direct Tableau
 view must draw both charts at desktop and narrow widths. An HTTP 200 metadata
 page is insufficient. Screenshots are retained for diagnosis.

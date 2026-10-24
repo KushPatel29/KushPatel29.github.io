@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-10-24",
+  "lastVerified": "2026-10-25",
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
@@ -74,7 +74,7 @@
         "workflow-automation",
         "dbt",
         "keyless-rag",
-        "production-operations",
+        "operational-controls",
         "streamlit",
         "power-bi",
         "dax",
@@ -249,7 +249,7 @@
       "dataClassification": "public-open-data",
       "priority": "specialist",
       "productShape": "Daily seven-day wildfire ignition-risk forecast with an out-of-time model card, a satellite-graded season check and a generated Power BI dashboard",
-      "primaryDecision": "Which of Canada's 771 fire cells should be watched this week, and how much better is that ranking than fire weather or climatology alone?",
+      "primaryDecision": "Which of Canada's 753 fire cells should be watched this week, and how much better is that ranking than fire weather or climatology alone?",
       "capabilities": [
         "forecasting",
         "machine-learning",

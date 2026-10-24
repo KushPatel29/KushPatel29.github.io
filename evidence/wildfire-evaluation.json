@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "repository": "KushPatel29/wildfire-prediction-app",
+    "revision": "d982e4b31b534c955cc11312d65307bbcfeb8555",
+    "sources": [
+      {
+        "path": "README.md",
+        "sha256": "2b3c53b467f870b62840e93225ab87313315114bc1a4231a2489423afe5ddb82"
+      },
+      {
+        "path": "models/cells.parquet",
+        "sha256": "11e3aa40de88e19403cf92f9f6eb5d3625159038b8571ead4510ca43398aa41d"
+      },
+      {
+        "path": "reports/metrics.json",
+        "sha256": "f100c14424855cfd6f2455359fb279bebd660c08537fd21dbe88f2aa30f461cd"
+      },
+      {
+        "path": "data/published/track_record.json",
+        "sha256": "b0e878091aef19d16345dd9645d4fabb97311aa63bbba8f7e9d7c756166acc7f"
+      }
+    ]
+  },
+  "evidence": {
+    "gridCells": 753,
+    "historicalRocAuc": 0.8814280911343455,
+    "targetDays": 30,
+    "lastTargetDay": "2026-10-22",
+    "rocAuc": 0.7341572662998792,
+    "rocAucInterval": [
+      0.6905183342032148,
+      0.7774413948233455
+    ],
+    "topDecileCapture": 0.28213689482470783,
+    "captureEdgeOnNormalInterval": [
+      -0.04718465045592704,
+      0.1391861360289195
+    ],
+    "captureEdgeOnNextDoorInterval": [
+      -0.10091772029540266,
+      0.046647164072284836
+    ]
+  }
+}
