@@ -233,6 +233,7 @@ test("account timezone edge buckets are retained and reconcile without relabelli
     [
       { day: "2026-10-17", daily: 1 },
       { day: "2026-10-24", daily: 2 },
+      { day: "2026-10-25", daily: 0 },
     ],
     new Date("2026-10-18T00:00Z"),
     new Date("2026-10-24T12:00Z"),

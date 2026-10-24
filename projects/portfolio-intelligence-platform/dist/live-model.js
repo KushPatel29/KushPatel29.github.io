@@ -245,6 +245,14 @@ export function normalizeDaily(stats, start, end, expected) {
       row.day > high.toISOString().slice(0, 10)
     )
       throw Error("Invalid or duplicate daily counts received");
+    // Account-timezone padding can include an empty adjacent date. Keep real edge activity,
+    // but do not present a provider-padded future zero as an observed day.
+    if (
+      row.daily === 0 &&
+      (row.day < start.toISOString().slice(0, 10) ||
+        row.day > end.toISOString().slice(0, 10))
+    )
+      continue;
     values.set(row.day, row.daily);
   }
   const daily = [];

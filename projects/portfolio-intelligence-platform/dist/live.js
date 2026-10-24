@@ -306,6 +306,7 @@ try {
   token = localStorage.getItem(KEY) || "";
 } catch {}
 if (token) {
+  $("#connection-form").hidden = true;
   refresh();
   startTimer();
 }
