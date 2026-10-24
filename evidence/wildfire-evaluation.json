@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "upstream": {
     "repository": "KushPatel29/wildfire-prediction-app",
-    "revision": "d982e4b31b534c955cc11312d65307bbcfeb8555",
+    "revision": "1790b922985e7ac1bab58af66d1860203be3bdcc",
     "sources": [
       {
         "path": "README.md",
-        "sha256": "2b3c53b467f870b62840e93225ab87313315114bc1a4231a2489423afe5ddb82"
+        "sha256": "9cd4ec67980a953d7ff3f1b028601a930eb1272b9fb0c62fa785e04d6a8a4e85"
       },
       {
         "path": "models/cells.parquet",
