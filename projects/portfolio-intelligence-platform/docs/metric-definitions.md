@@ -1,4 +1,6 @@
-# Governed metric catalog
+# Synthetic case-study metric catalog
+
+This catalog defines the seeded dbt case study only. Real visits, attention and countries use the separate [live analytics definitions](live-analytics.md); live collection has no persistent visitor ID or reconstructed 30-minute sessions.
 
 Every published value has a definition, grain, owner, exclusion policy, and freshness expectation. Only acquisition, engagement, conversion, and fixture-health values are populated. Retention and experience values remain unavailable because the four-day seed has no cohort history or real-user monitoring data.
 

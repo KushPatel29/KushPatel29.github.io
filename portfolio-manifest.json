@@ -359,7 +359,7 @@
       "cardId": "p-gl-recon",
       "title": "GL / P&L Reconciliation",
       "repository": "https://github.com/KushPatel29/gl-reconciliation-dashboard",
-      "liveApp": "https://public.tableau.com/app/profile/kush.patel4990/viz/GLCloseControls-SyntheticData/Closecontrolsoverview",
+      "liveApp": "https://public.tableau.com/views/GLCloseControls-SyntheticData/Closecontrolsoverview?:showVizHome=no",
       "liveStatus": "live-demo",
       "testCount": 710,
       "testCommand": "pytest",

@@ -22,7 +22,7 @@ This project treats those questions as a small analytics product, with collectio
 4. Open **Lineage** to see definitions, grain, ownership, freshness, and source-to-mart paths.
 5. Review **Quality** for the 15-test gate and the local-to-production architecture.
 
-## Architecture
+## Synthetic case-study architecture
 
 ```mermaid
 flowchart LR
@@ -98,7 +98,8 @@ Preview the data product:
 python -m http.server 4173
 ```
 
-Then open `http://localhost:4173/dist/`.
+Then open **`http://localhost:4173/dist/case-study.html`** for the public synthetic demo.
+The separate owner connection screen is at `http://localhost:4173/dist/` and requires the owner’s read-only key.
 
 Reproduce the analytics pipeline with the free DuckDB adapter:
 

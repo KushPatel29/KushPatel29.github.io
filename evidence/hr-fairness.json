@@ -1,0 +1,49 @@
+{
+  "upstream": {
+    "repository": "KushPatel29/hr-attrition-analytics",
+    "branch": "master",
+    "revision": "5704a85dee0450de3b5acf97277f4dcb3c5091fb",
+    "path": "output/fairness_evidence.json",
+    "sha256": "6dd947ce80d7b9604230a597c1c98af373f22283e33093f04b6ce2510165253e"
+  },
+  "evidence": {
+    "schema_version": 1,
+    "snapshot_date": "2026-06-30",
+    "data_classification": "synthetic",
+    "scored_population": 2151,
+    "source": {
+      "path": "output/fairness_audit.csv",
+      "hash_normalization": "UTF-8 with CRLF normalized to LF",
+      "sha256": "10ffda584be1e4f1083a03f6d0e3c023aa01be847b4f9dba228eec74a1afb8e9"
+    },
+    "screen": {
+      "ratio_band": [
+        0.8,
+        1.25
+      ],
+      "minimum_group_n": 30,
+      "significance_level": 0.05
+    },
+    "warnings": [
+      {
+        "attribute": "gender",
+        "group": "Non-binary",
+        "n": 85,
+        "n_high": 17,
+        "reference_group": "Male",
+        "reference_n": 1125,
+        "reference_n_high": 149,
+        "di_ratio": 1.51,
+        "p_value": 0.0999,
+        "verdict": "outside band, not significant — monitor"
+      }
+    ],
+    "interpretation": "A non-significant result does not establish the absence of bias. Unresolved disparities remain visible for monitoring and human review.",
+    "authority": "Synthetic model-screening evidence only; no employment action or legal compliance conclusion is authorized.",
+    "display": {
+      "stat": "p = 0.0999",
+      "title": "The fairness screen still needs review",
+      "summary": "Synthetic snapshot 2026-06-30: Non-binary: 17 of 85 high-risk flags, versus 149 of 1,125 in the Male reference group (ratio 1.510; Fisher p = 0.0999). A non-significant result does not establish the absence of bias. Unresolved disparities remain visible for monitoring and human review."
+    }
+  }
+}

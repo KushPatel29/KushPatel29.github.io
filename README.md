@@ -145,6 +145,17 @@ worth sending: each tag shows up as a campaign in the dashboard.
 
 ## CI
 
+The fairness example is generated from `evidence/hr-fairness.json`, a dated,
+hashed snapshot of the HR project's audit. `node tools/sync-evidence-claims.mjs
+--write` refreshes the displayed block; `--verify-upstream` compares both the
+immutable source and the current HR export. CI rejects stale facts, an unqualified
+utility planning baseline, or wording that turns the proposed recommender pilot
+into a completed experiment.
+
+The scheduled demo check also runs `pnpm test:live-tableau`: the direct Tableau
+view must draw both charts at desktop and narrow widths. An HTTP 200 metadata
+page is insufficient. Screenshots are retained for diagnosis.
+
 `.github/workflows/verify.yml` runs content, browser, accessibility, visual and
 Lighthouse gates on every push and PR to `main`, plus a weekly run for checks
 that depend on other people's servers. Third-party Actions are pinned to full

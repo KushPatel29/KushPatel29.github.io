@@ -50,3 +50,16 @@ jobs:
 
       - name: Visit every demo, waking the ones that sleep
         run: node tools/wake-streamlit-demos.mjs
+
+      - name: The public Tableau demo must draw its charts
+        if: always()
+        run: node tools/check-tableau-demo.mjs
+
+      - name: Preserve live Tableau screenshots
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: tableau-render-check
+          path: artifacts/live-demos/
+          if-no-files-found: ignore
+          retention-days: 7

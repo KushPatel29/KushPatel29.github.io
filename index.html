@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- ============================================================
      Built by Kush Patel, with AI coding assistants. No framework, no
-     build step, no tracker. Project workflows check their documented benchmarks.
+     build step, cookie-free analytics. Project workflows check their documented benchmarks.
      All portfolio content is accessible in the HTML, with optional
      JavaScript enhancements for filtering, animation and previews.
      ============================================================ -->
@@ -38,7 +38,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080d11'/%3E%3Crect x='6' y='6' width='52' height='52' rx='11' fill='none' stroke='%232aeae5' stroke-width='3'/%3E%3Ctext x='32' y='44' font-family='monospace' font-size='30' font-weight='700' fill='%232aeae5' text-anchor='middle'%3EKP%3C/text%3E%3C/svg%3E">
 
 <!-- Fonts are served from this repo, not fonts.gstatic.com. The footer
-     says "no tracker" and a Google Fonts embed would hand every
+     uses locally hosted fonts; a Google Fonts embed would hand every
      visitor's IP to a third party before first paint. Preloaded because
      they're referenced from inside styles.css, which the browser can't
      see until that sheet has parsed. -->
@@ -563,7 +563,7 @@ WHERE verdict = 'GO'</pre>
           <ol class="fit-start">
             <li><a href="#p-growthops"><strong>GrowthOps OS</strong><span>A 7-page Power BI report and an Excel workbook that agree to the cent.</span></a></li>
             <li><a href="#p-control-tower"><strong>Supply Chain Control Tower</strong><span>An eight-page Power BI control tower over a tested pipeline.</span></a></li>
-            <li><a href="#p-excel-fpa"><strong>Utility FP&amp;A in Excel and Power BI</strong><span>A utility’s $100.9M miss against plan, split into weather, price and usage.</span></a></li>
+            <li><a href="#p-excel-fpa"><strong>Utility FP&amp;A in Excel and Power BI</strong><span>Public utility revenue $100.9M below an independently modelled plan, with an exact variance bridge.</span></a></li>
           </ol>
           <div class="fit-actions">
             <a class="btn btn-primary btn-mono" href="mailto:dharma.patel552@gmail.com?subject=BI%20Developer%20role">EMAIL ME ABOUT THIS ROLE</a>
@@ -780,7 +780,7 @@ WHERE verdict = 'GO'</pre>
             <tr data-source="project"><th scope="row">Deployed forecasts and model tracking</th><td>A <a href="#p-wildfire">forecast</a> rebuilt twice a day by a scheduled workflow, and a weekly job that grades every published forecast against satellite detections. First 30 days: ROC-AUC 0.734 (95% CI 0.691 to 0.777), ahead of both baselines on ranking; its top-10% edge is not yet distinguishable from zero. <a href="https://github.com/KushPatel29/wildfire-prediction-app/blob/main/mlflow/summary.json" target="_blank" rel="noopener">MLflow records model versions and monitoring runs ↗</a>; this is a public deployment, not employer MLOps.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="paid"><th scope="row">Forecasting</th><td>SKU demand forecasting in production at <a href="#xp-two-rivers">Two Rivers</a>. In public, a gradient-boosted forecaster lost to a <a href="#method">moving average</a> (19.6% vs 18.5% WAPE), so the moving average shipped.</td><td><span class="src src-paid">Paid role</span></td></tr>
             <tr data-source="project"><th scope="row">Anomaly detection</th><td>Five explainable rules plus an <a href="#p-aml-monitoring">anomaly model</a> find all 60 planted cases; a flat $10,000 rule finds 38.</td><td><span class="src src-project">Public project</span></td></tr>
-            <tr data-source="project"><th scope="row">Experiments and causal inference</th><td>Uplift models trained on a ten-arm randomized offer trial pick <a href="#p-corridor">who gets which offer</a>; the policy itself was then randomized against business as usual (+$1.40 per customer, 95% CI $0.23 to $2.57). Also a powered <a href="#p-marketing">geo holdout</a>, and a <a href="#p-customer-rec">recommender</a> decided by a pre-registered experiment.</td><td><span class="src src-project">Public project</span></td></tr>
+            <tr data-source="project"><th scope="row">Experiments and causal inference</th><td>In a synthetic simulation, uplift models trained on a ten-arm randomized offer trial pick <a href="#p-corridor">who gets which offer</a>; the policy itself was then randomized against business as usual (+$1.40 per customer, 95% CI $0.23 to $2.57). Also a synthetic <a href="#p-marketing">geo holdout</a>, and a <a href="#p-customer-rec">recommender</a> with a proposed, pre-registered randomized pilot; online commercial lift remains unmeasured.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="project"><th scope="row">LLM applications</th><td>Grounded <a href="#p-ask-your-data">text-to-SQL</a>: 46 right, 0 wrong and 12 refused on a 58-question contract, behind a read-only guard.</td><td><span class="src src-project">Public project</span></td></tr>
             <tr data-source="degree"><th scope="row">Statistics and ML foundations</th><td><a href="#education">MPS in Analytics (Applied Machine Intelligence)</a>, Northeastern, GPA 3.76: machine learning, deep learning, NLP, time series and statistical inference.</td><td><span class="src src-degree">Master’s</span></td></tr>
           </tbody>
@@ -987,7 +987,7 @@ WHERE verdict = 'GO'</pre>
       <article class="project archive-item" id="p-excel-fpa" data-tags="finance business bi energy">
         <p class="archive-kicker">EXCEL · POWER BI · FP&amp;A · PUBLIC FILINGS</p>
         <h4>Finance Decision Models in Excel and Power BI</h4>
-        <p class="archive-outcome">Portland General Electric’s $100.9M miss against plan, split into weather, price and usage, in Excel and Power BI on public filings. Beside it, a distributor model for channel economics and working capital, that distributor’s budget cycle with three linked statements and a 3+9 reforecast, and a lululemon DCF traced to SEC filings.</p>
+        <p class="archive-outcome">Portland General Electric’s H1 2026 revenue was $100.9M below an independently modelled plan, split into weather, price and usage, in Excel and Power BI on public filings. Beside it, a distributor model for channel economics and working capital, that distributor’s budget cycle with three linked statements and a 3+9 reforecast, and a lululemon DCF traced to SEC filings.</p>
         <p class="archive-stack">Excel · Power Query · Power Pivot / DAX · Power BI</p>
         <div class="archive-links"><a  href="https://github.com/KushPatel29/excel-fpa-model/raw/main/workbook/PGE_Utility_FPA_Model.xlsx">Workbook (.xlsx) <span aria-hidden="true">↓</span></a><a  href="https://github.com/KushPatel29/excel-fpa-model/blob/main/docs/board_pack.pdf" target="_blank" rel="noopener">Board pack <span aria-hidden="true">↗</span></a><a  href="https://github.com/KushPatel29/excel-fpa-model" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a><a href="https://github.com/KushPatel29/excel-fpa-model/tree/main/valuation" target="_blank" rel="noopener">DCF valuation <span aria-hidden="true">↗</span></a></div>
       </article>
@@ -996,7 +996,7 @@ WHERE verdict = 'GO'</pre>
         <h4>GL / P&amp;L Reconciliation</h4>
         <p class="archive-outcome">At month-end, 8 of 60 account-periods certify themselves, 9 go to a named reviewer and 43 are blocked. No approval is invented to make the close look finished.</p>
         <p class="archive-stack">T-SQL · SQLite · Power BI · Tableau</p>
-        <div class="archive-links"><a class="is-live" href="https://public.tableau.com/app/profile/kush.patel4990/viz/GLCloseControls-SyntheticData/Closecontrolsoverview" target="_blank" rel="noopener">Tableau Public <span aria-hidden="true">↗</span></a><a  href="https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/output/close_certification_packet.md" target="_blank" rel="noopener">Close packet <span aria-hidden="true">↗</span></a><a  href="https://github.com/KushPatel29/gl-reconciliation-dashboard" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div>
+        <div class="archive-links"><a class="is-live" href="https://public.tableau.com/views/GLCloseControls-SyntheticData/Closecontrolsoverview?:showVizHome=no" target="_blank" rel="noopener">Tableau Public <span aria-hidden="true">↗</span></a><a  href="https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/output/close_certification_packet.md" target="_blank" rel="noopener">Close packet <span aria-hidden="true">↗</span></a><a  href="https://github.com/KushPatel29/gl-reconciliation-dashboard" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div>
       </article>
       <article class="project archive-item" id="p-pricing-analytics" data-tags="bi finance supply">
         <p class="archive-kicker">PRICING &amp; MARGIN</p>
@@ -1050,7 +1050,7 @@ WHERE verdict = 'GO'</pre>
       <article class="project archive-item" id="p-customer-rec" data-tags="customer ai">
         <p class="archive-kicker">RECOMMENDER SYSTEMS</p>
         <h4>Customer Recommendation Engine</h4>
-        <p class="archive-outcome">The two-stage ranker lost to plain collaborative filtering, 81.2% to 84.9% recall@10, so the simple model ships. A randomized pilot, not offline recall, decides what it is worth.</p>
+        <p class="archive-outcome">The two-stage ranker lost to plain collaborative filtering, 81.2% to 84.9% recall@10, so the simple model ships. A proposed, pre-registered randomized pilot would measure commercial lift; no online lift has been established.</p>
         <p class="archive-stack">scikit-learn · FastAPI · Experimentation · Streamlit</p>
         <div class="archive-links"><a class="is-live" href="https://cross-sell-rep-console.streamlit.app" target="_blank" rel="noopener">Live app <span aria-hidden="true">↗</span></a><a  href="https://github.com/KushPatel29/Customer-Recommendation-Engine/blob/main/output/recommendation_release_memo.md" target="_blank" rel="noopener">Release memo <span aria-hidden="true">↗</span></a><a  href="https://github.com/KushPatel29/Customer-Recommendation-Engine" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div>
       </article>
@@ -1244,9 +1244,11 @@ WHERE verdict = 'GO'</pre>
         <p>A gradient-boosted multi-step forecaster lost to a moving average on WAPE. The moving average ships; the challenger's defeat is written into the README rather than quietly deleted.</p>
       </div>
       <div class="loss">
-        <p class="loss-stat">p ≈ 0.23</p>
-        <h3>The alarm I could not clear</h3>
-        <p>A fairness screen fired on the attrition model. Fisher's exact came back at p ≈ 0.23, which is <em>not</em> evidence the disparity is noise — a non-significant result on a small group means the sample cannot settle the question, not that there is nothing there. So the ratio and its uncertainty stay published and the group stays on a monitor list, rather than the alarm being written off.</p>
+<!-- fairness-evidence:start -->
+        <p class="loss-stat">p = 0.0999</p>
+        <h3>The fairness screen still needs review</h3>
+        <p>Synthetic snapshot 2026-06-30: Non-binary: 17 of 85 high-risk flags, versus 149 of 1,125 in the Male reference group (ratio 1.510; Fisher p = 0.0999). A non-significant result does not establish the absence of bias. Unresolved disparities remain visible for monitoring and human review. <a href="https://github.com/KushPatel29/hr-attrition-analytics/blob/5704a85dee0450de3b5acf97277f4dcb3c5091fb/output/fairness_evidence.json" target="_blank" rel="noopener">Audit counts and limitations ↗</a></p>
+        <!-- fairness-evidence:end -->
       </div>
     </div>
 

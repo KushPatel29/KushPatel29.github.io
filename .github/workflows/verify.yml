@@ -53,6 +53,9 @@ jobs:
       - name: Project evidence and public-data classifications must reconcile
         run: node tools/check-portfolio-manifest.mjs
 
+      - name: Published facts must match their source snapshot and retain scope
+        run: node tools/sync-evidence-claims.mjs --verify-upstream
+
       - name: Project and live-demo counts must match the manifest
         run: node tools/check-headline-counts.mjs
 
