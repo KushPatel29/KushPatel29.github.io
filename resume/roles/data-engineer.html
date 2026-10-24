@@ -1,30 +1,34 @@
+<!doctype html>
 <meta charset="utf-8">
 <meta name="resume-pdf" content="Kush-Patel-Resume-Data-Engineer.pdf">
 <meta name="resume-role" content="data-engineer">
 <title>Kush Patel — Resume (Data Engineer)</title>
 <link rel="stylesheet" href="../resume.css">
 
+<div class="resume-page" data-page="1">
 <header>
   <h1>Kush Patel</h1>
-  <p class="role">Data Engineer &nbsp;|&nbsp; ELT Pipelines &middot; Lakehouse &middot; Data Quality &middot; Migration &nbsp;|&nbsp; SQL &middot; PySpark &middot; Microsoft Fabric &middot; Azure Data Factory &middot; Databricks</p>
+  <p class="role">Data Engineer &nbsp;|&nbsp; SQL &middot; PySpark &middot; Microsoft Fabric &middot; Azure Data Factory &middot; Databricks</p>
   <p class="contact">
     <span class="item">Vancouver, BC</span><span class="sep">|</span><span class="item"><a href="tel:+17786371602">+1 (778) 637-1602</a></span><span class="sep">|</span><span class="item"><a href="mailto:dharma.patel552@gmail.com">dharma.patel552@gmail.com</a></span><span class="sep">|</span><span class="item"><a href="https://www.linkedin.com/in/kush-patel-48885719b/">linkedin.com/in/kush-patel-48885719b</a></span><span class="sep">|</span><span class="item"><a href="https://github.com/KushPatel29">github.com/KushPatel29</a></span><span class="sep">|</span><span class="item"><a href="https://kushpatel29.github.io/#fit-data-engineer">kushpatel29.github.io</a></span>
   </p>
   <p class="avail">Open to remote and relocation across Canada &middot; Legally eligible to work in Canada &middot; Available immediately</p>
 </header>
-
+<section class="resume-section">
 <h2>Summary</h2>
 <ul>
   <li>Analytics professional with 4+ years across finance and operations, including Azure/Fabric pipeline ownership as sole analyst at a perishable-goods distributor. Integrated ERP, POS, workforce and API feeds using SQL and PySpark.</li>
   <li>Public engineering evidence demonstrates quarantine/replay, failure gates, migration reconciliation and scheduled execution. Snowflake/AWS runs use personal accounts; Airflow, Kafka, Terraform and Kubernetes evidence is project/CI execution, separate from enterprise operations.</li>
 </ul>
-
+</section>
+<section class="resume-section">
 <h2>Technical Skills</h2>
 <p class="skill"><b>Pipelines:</b> Azure Data Factory, Fabric pipelines/notebooks/Dataflows Gen2, Azure Synapse, SSIS, SQL Server Agent; REST ingestion, incremental loads and schema-drift handling.</p>
 <p class="skill"><b>Processing &amp; models:</b> SQL/T-SQL, PySpark, Python/pandas, Delta Lake, SQL Server, Fabric Lakehouse/Warehouse; star schemas, SCD Type 1/2 and Power BI semantic models.</p>
 <p class="skill"><b>Reliability:</b> Contracts, quarantine/replay, quality gates, control totals, freshness, idempotent reruns, exception logs, alerts, cutover checks and rollback runbooks.</p>
 <p class="skill"><b>Project platforms:</b> Databricks, Snowflake/dbt/Streams/Tasks/Snowpark, DuckDB, AWS Athena/S3/Glue; Airflow scheduler, Redpanda/Kafka, Terraform and Kubernetes in CI; GitHub Actions, Docker and pytest.</p>
-
+</section>
+<section class="resume-section">
 <h2>Professional Experience</h2>
 
 <div class="job">
@@ -54,37 +58,47 @@
   <li>Automated recurring preparation with Python and SQL views, replacing spreadsheet consolidation and cutting manual effort an estimated ~40% (internal directional estimate).</li>
 </ul>
 </div>
+<footer class="resume-footer"><span>Kush Patel · <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a></span><span>1 / 2</span></footer>
+</section>
+</div>
 
+<div class="resume-page" data-page="2">
+<section class="resume-section">
 <h2 class="projects-heading">Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code and CI-tested results; synthetic data is labelled</span></h2>
 
 <div class="proj">
   <div class="proj-head">Supply Chain Control Tower <span class="stack">— PySpark, Delta Lake, Databricks, SQL, Power BI &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-control-tower">github.com/KushPatel29/supply-chain-control-tower</a> &middot; live: <a href="https://kush-network-risk-decision-room.streamlit.app/">kush-network-risk-decision-room.streamlit.app</a></div>
-  <p><b>Failure-tested medallion pipeline:</b> Schema contracts before Bronze, quarantine/replay and a Gold quality gate, proven by injected failures. Benchmarked at 10M rows; a Databricks job reconciles all 36 Gold measures to the local build. Synthetic distribution data.</p>
+  <p><b>A medallion pipeline defended in three layers:</b> schema contracts before Bronze, row quarantine with replay, and a quality gate on Gold, each proven in CI by injecting the failure it exists to catch. Benchmarked at 10M rows and run as a Databricks job, with all 36 Gold totals matching the local build to the cent.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">Legacy-to-Fabric Migration <span class="stack">— SSIS, SSRS, PySpark, Microsoft Fabric, Python &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/legacy-to-fabric-migration">github.com/KushPatel29/legacy-to-fabric-migration</a> &middot; live: <a href="https://kush-asset-management-decision-board.streamlit.app/">kush-asset-management-decision-board.streamlit.app</a></div>
-  <p><b>Defensible cutover:</b> Row-for-row GO/NO-GO validation across 107 artifacts checks counts, keys, values, totals and checksums. Empty output fails; negative tests cover dropped rows, shifted values and cancelling errors. Synthetic migration scenario.</p>
+  <p><b>Cutover that has to prove itself:</b> the move from SSIS/SSRS to Fabric waits on a row-for-row GO/NO-GO gate across 107 artifacts comparing row counts, keys, values, control totals and checksums. The gate is cent-exact and conjunctive, an empty output never passes, and tests break the data on purpose to prove it catches dropped rows, shifted values and errors that cancel out.</p>
 </div>
 
-
+<div class="proj">
+  <div class="proj-head">Canada Wildfire Risk <span class="stack">— Python, requests, Parquet, GitHub Actions &middot; real public data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/wildfire-prediction-app">github.com/KushPatel29/wildfire-prediction-app</a> &middot; live: <a href="https://wildfire-prediction-app1.streamlit.app">wildfire-prediction-app1.streamlit.app</a></div>
+  <p><b>A scheduled pipeline that keeps running:</b> pulls CWFIS station observations and an Open-Meteo forecast twice a day since September, rebuilds a seven-day forecast for 753 grid cells, and publishes it to a release and a public data branch. A weekly job grades every published forecast against satellite hotspots and commits the result. Found and fixed an index-alignment bug that had put 97.7% of fires in the wrong cell.</p>
+</div>
 
 <div class="proj">
   <div class="proj-head">Real-time Transaction Monitoring <span class="stack">— Kafka (Redpanda), Python, Terraform, Kubernetes &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/aml-transaction-monitoring#real-time-on-kubernetes">github.com/KushPatel29/aml-transaction-monitoring</a></div>
-  <p><b>Recovery and batch parity:</b> Two event-time rules process 100,795 late/duplicate deliveries with idempotent alerts. Terraform deploys a broker and consumer group to Kubernetes in CI. A pod is killed mid-stream; success requires exact batch/stream parity: 51/51 and 1,270/1,270. Synthetic events; no enterprise cluster claim.</p>
+  <p><b>A stream held to its batch:</b> two windowed rules run in event time over 100,795 deliveries that arrive late and twice; at-least-once delivery with idempotent, window-keyed alerts on a compacted topic. Terraform deploys the broker, a two-replica consumer group and its jobs to a Kubernetes cluster in CI, a pod is killed mid-stream, and the run passes only if the stream flags exactly what the batch flags: 51 of 51 and 1,270 of 1,270.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">Supply Chain Analytics — dbt <span class="stack">— dbt Core, Databricks, Snowflake, DuckDB &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-analytics-dbt">github.com/KushPatel29/supply-chain-analytics-dbt</a></div>
-  <p><b>Cross-engine execution:</b> DuckDB, Databricks and Snowflake builds reconcile all 41 mart totals. Airflow runs nightly under its scheduler in ephemeral CI. A bounded Athena query on private S3 reconciles 32 measures under a 10 MiB scan cap; Snowflake platform checks separately replay 94,758 retail lines.</p>
+  <p><b>Same project, three engines:</b> built on DuckDB, on a Databricks serverless SQL warehouse and inside Snowflake with dbt Projects on Snowflake: 180 of 180 nodes green and all 41 mart totals equal across all three, with contracts, incremental facts and SCD2 snapshots. An AWS Athena run on private S3 data reconciles 32 warehouse measures to Python, under a 10 MiB scan cap. Airflow runs the build nightly under its scheduler in CI; separate Snowflake Streams/Tasks and Snowpark checks reconcile 94,758 retail lines after duplicates and corrections.</p>
 </div>
 
 <p class="more-work">A twice-daily public-data forecast pipeline and weekly outcome grading are available at <a href="https://kushpatel29.github.io/?role=data-engineer#fit">kushpatel29.github.io</a>. Receipts distinguish scheduled CI from manual cloud runs.</p>
-
+</section>
+<section class="resume-section">
 <h2>Education</h2>
 <div class="edu">
   <span><b>Northeastern University</b> — Master of Professional Studies in Analytics (Applied Machine Intelligence), GPA 3.76/4.0 &middot; Vancouver, BC</span>
@@ -94,6 +108,10 @@
   <span><b>Gujarat Technological University</b> — Bachelor of Engineering, Computer Science &middot; India</span>
   <span class="edu-when">Aug 2017 &ndash; Aug 2021</span>
 </div>
-
+</section>
+<section class="resume-section">
 <h2>Certifications</h2>
 <p class="certs">Databricks Lakehouse Fundamentals &middot; UC Davis SQL for Data Science &middot; IBM Python for Data Science, AI &amp; Development &middot; Power BI Data Modelling with DAX &middot; Google Data Analytics Professional Certificate. Preparing for the Microsoft DP-600 (Fabric Analytics Engineer) exam.</p>
+</section>
+<footer class="resume-footer"><span>Kush Patel · <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a></span><span>2 / 2</span></footer>
+</div>

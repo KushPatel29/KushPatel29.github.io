@@ -1,9 +1,11 @@
+<!doctype html>
 <meta charset="utf-8">
 <meta name="resume-pdf" content="Kush-Patel-Resume-AML-Analyst.pdf">
 <meta name="resume-role" content="aml-analyst">
 <title>Kush Patel — Resume (AML / Financial Crime Analyst)</title>
 <link rel="stylesheet" href="../resume.css">
 
+<div class="resume-page" data-page="1">
 <header>
   <h1>Kush Patel</h1>
   <p class="role">AML / Financial Crime Analyst &nbsp;|&nbsp; Transaction Monitoring &middot; KYC / CDD &middot; Investigations &middot; FINTRAC Reporting &nbsp;|&nbsp; SQL &middot; Python &middot; Power BI</p>
@@ -12,19 +14,21 @@
   </p>
   <p class="avail">Open to remote and relocation across Canada &middot; Legally eligible to work in Canada &middot; Available immediately</p>
 </header>
-
+<section class="resume-section">
 <h2>Summary</h2>
 <ul>
   <li>Finance and controls analyst transitioning toward AML analytics, with 4+ years of paid reconciliation, risk reporting, data-quality and access-control work across financial reporting and distribution operations.</li>
   <li>Built synthetic transaction monitoring, investigator briefs and KYC/CDD workflows, plus measured screening against a real public sanctions list. Alerts prioritise review; the demonstration records no completed dispositions or regulatory filings.</li>
 </ul>
-
+</section>
+<section class="resume-section">
 <h2>Skills</h2>
-<p class="skill"><b>AML project methods:</b> KYC/CDD, risk rating, EDD/PEP triggers, direct/indirect beneficial ownership, sanctions matching, rule tuning, alert triage and analytic briefs; FINTRAC/PCMLTFA mapping in educational artifacts.</p>
-<p class="skill"><b>Detection:</b> SQL velocity/window rules, anomaly detection, precision/recall, threshold and alert-volume trade-offs; Python/pandas/scikit-learn and SQLite.</p>
-<p class="skill"><b>Controls:</b> Reconciliation, control totals, exception logs, evidence integrity, RLS/RBAC and masking; journal/segregation checks and privacy inventory in projects.</p>
-<p class="skill"><b>Tools:</b> SQL/T-SQL, Power BI, Excel, Python, Streamlit and Git; synthetic Kafka streaming and recovery exercised in CI.</p>
-
+<p class="skill"><b>Financial Crime (project methods):</b> KYC/CDD (customer risk rating, EDD triggers, PEP handling, beneficial ownership at 25% direct and indirect), sanctions name screening (fuzzy matching, transliteration, threshold tuning), structuring and smurfing typologies, rule design and tuning, alert triage and prioritisation, investigation case files, analytic briefs, PCMLTFA and FINTRAC reporting (LCTR including the 24-hour rule, EFTR, suspicious transaction report timing), threshold versus suspicion</p>
+<p class="skill"><b>Detection Analytics:</b> SQL window functions for velocity and aggregation rules, entity-relative z-scores, anomaly detection (IsolationForest, Mahalanobis distance, gradient boosting), precision and recall by typology, cost curves for alert volume</p>
+<p class="skill"><b>Controls &amp; Audit:</b> reconciliation and control totals, journal-entry testing, segregation of duties, exception logs, evidence integrity, RLS/RBAC and column masking</p>
+<p class="skill"><b>Tools:</b> SQL (T-SQL, SQLite), Python (pandas, scikit-learn), Power BI, Excel, Streamlit, Tableau, Git; Kafka streaming</p>
+</section>
+<section class="resume-section">
 <h2>Professional Experience</h2>
 
 <div class="job">
@@ -53,35 +57,47 @@
   <li>Automated recurring preparation with Python and SQL views, replacing spreadsheet consolidation and cutting manual effort an estimated ~40% (internal directional estimate).</li>
 </ul>
 </div>
+<footer class="resume-footer"><span>Kush Patel · <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a></span><span>1 / 2</span></footer>
+</section>
+</div>
 
+<div class="resume-page" data-page="2">
+<section class="resume-section">
 <h2 class="projects-heading">Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code; all entities and transactions are synthetic</span></h2>
 
 <div class="proj">
   <div class="proj-head">Transaction Monitoring <span class="stack">— SQL, Python, scikit-learn, SQLite, Streamlit &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/aml-transaction-monitoring">github.com/KushPatel29/aml-transaction-monitoring</a> &middot; live: <a href="https://aml-transaction-monitoring.streamlit.app">aml-transaction-monitoring.streamlit.app</a></div>
-  <p><b>Explainable monitoring:</b> Five rules plus an anomaly model find all 60 planted cases in 100,299 synthetic transactions, versus 38 for a flat $10,000 rule. Alerted entities fall from 555 to 366. Controlled investigation records distinguish evidence from suspicion; no dispositions or filings are claimed.</p>
+  <p><b>Layered detection over 100,299 transactions and 1,500 entities:</b> five explainable rules plus an anomaly model find 60 of 60 planted cases where a flat $10,000 rule finds 38, alerting on 366 entities instead of 555. The alerts become 366 controlled investigations, 78 of them P0 with a four-hour review clock, worked against five typology hypotheses that each name a lawful lookalike and the evidence that tells them apart. Scores prioritise evidence; they never decide suspicion, and the record shows zero dispositions and zero filings.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">FINTRAC mapping and an analytic brief <span class="stack">— PCMLTFA, LCTR, EFTR, STR &middot; synthetic case</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/docs/CANADIAN_REGULATORY_MAPPING.md">regulatory mapping</a> &middot; <a href="https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/analytic_brief_INV-ENT-01216.md">analytic brief INV-ENT-01216</a></div>
-  <p><b>Reviewable reasoning:</b> Mapped rules to reporting/indicator categories and documented a synthetic structuring case: $53,374.51 over 4.9 days, about nine times usual weekly cash. The brief states confidence, lawful alternatives and facts needed before a reporting decision.</p>
+  <p><b>Threshold reports versus suspicion:</b> each rule mapped to FINTRAC&rsquo;s indicator categories and the report it relates to, including why a $10,000 threshold rule cannot see structuring. The brief works one case: six cash deposits on six consecutive days, each just under $10,000, totalling $53,374.51 in 4.9 days, nine times the subject&rsquo;s usual weekly cash; assessed as likely sized to avoid the threshold (moderate confidence), with the three facts needed before a reporting decision.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">Sanctions screening on Canada&rsquo;s real list <span class="stack">— Python, rapidfuzz &middot; real public list, synthetic customers</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/aml-transaction-monitoring#sanctions-screening-on-canadas-real-list">github.com/KushPatel29/aml-transaction-monitoring</a></div>
-  <p><b>Held-out screening:</b> Set the fuzzy-match threshold on one half of Canada&rsquo;s public sanctions list, then tested the other. October 2026 results: 97.2% of generated name variants detected at 10 alerts per 10,000 synthetic customers. The list is downloaded at runtime, not committed.</p>
+  <p><b>Name screening that is measured, not assumed:</b> customer names screened against the Consolidated Canadian Autonomous Sanctions List (5,708 entries, 9,604 names with aliases, Cyrillic transliterated). The alert threshold is set on one half of the list by a rule fixed in advance and reported on the other: in October 2026 it caught 97.2% of the name variants customers type, at 10 alerts per 10,000 synthetic customers. The list is downloaded at run time and never stored.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">KYC: customer risk rating and beneficial ownership <span class="stack">— Python, pandas &middot; synthetic customers</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/aml-transaction-monitoring#know-your-customer-risk-rating-edd-and-beneficial-ownership">github.com/KushPatel29/aml-transaction-monitoring</a></div>
-  <p><b>Risk and ownership:</b> Rated 1,500 synthetic customers at onboarding and annual refresh, with PEP/EDD controls and reasons. Traced 450 businesses through ownership chains to the 25% line, flagging loops and opaque structures. A risk rating governs scrutiny, not suspicion.</p>
+  <p><b>Who stands behind the account:</b> 1,500 customers rated at onboarding and at a yearly refresh on stated factors, each rating with its reasons; a foreign PEP is high risk whatever the score, and every high-risk client is flagged for enhanced due diligence. For 450 businesses, beneficial owners traced through holding companies by multiplying shares down every chain to the 25% line, with opaque jurisdictions, loops and no-25%-owner cases flagged. Only 11 of the 60 planted-case customers rated high: a rating decides scrutiny, not suspicion.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">GL / P&amp;L Reconciliation <span class="stack">— T-SQL, SQLite, Power BI, Tableau &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/gl-reconciliation-dashboard">github.com/KushPatel29/gl-reconciliation-dashboard</a></div>
+  <p><b>Controls that refuse to fake a sign-off:</b> a close-certification engine tests all 5,400 journal entries and enforces segregation of duties; at month-end 8 of 60 account-periods certify, 9 go to a named reviewer and 43 are blocked.</p>
 </div>
 
 <p class="more-work">A PIPEDA-structured project assessment classifies 105 columns across 14 files, tests masked outputs and identifies organizational controls required before real-client use. GL close and streaming-recovery evidence: <a href="https://kushpatel29.github.io/#p-aml-monitoring">kushpatel29.github.io</a>.</p>
-
+</section>
+<section class="resume-section">
 <h2>Education</h2>
 <div class="edu">
   <span><b>Northeastern University</b> — Master of Professional Studies in Analytics (Applied Machine Intelligence), GPA 3.76/4.0 &middot; Vancouver, BC</span>
@@ -91,6 +107,10 @@
   <span><b>Gujarat Technological University</b> — Bachelor of Engineering, Computer Science &middot; India</span>
   <span class="edu-when">Aug 2017 &ndash; Aug 2021</span>
 </div>
-
+</section>
+<section class="resume-section">
 <h2>Certifications</h2>
 <p class="certs">Google Data Analytics Professional Certificate &middot; UC Davis SQL for Data Science &middot; IBM Python for Data Science, AI &amp; Development &middot; Power BI Data Modelling with DAX &middot; Databricks Lakehouse Fundamentals.</p>
+</section>
+<footer class="resume-footer"><span>Kush Patel · <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a></span><span>2 / 2</span></footer>
+</div>

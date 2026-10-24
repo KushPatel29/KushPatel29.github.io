@@ -1,30 +1,34 @@
+<!doctype html>
 <meta charset="utf-8">
 <meta name="resume-pdf" content="Kush-Patel-Resume-Analytics-Engineer.pdf">
 <meta name="resume-role" content="analytics-engineer">
 <title>Kush Patel — Resume (Analytics Engineer)</title>
 <link rel="stylesheet" href="../resume.css">
 
+<div class="resume-page" data-page="1">
 <header>
   <h1>Kush Patel</h1>
-  <p class="role">Analytics Engineer &nbsp;|&nbsp; dbt &middot; Dimensional Modelling &middot; Metric Layers &middot; Data Tests &nbsp;|&nbsp; SQL &middot; Python &middot; Databricks &middot; Microsoft Fabric &middot; Power BI</p>
+  <p class="role">Analytics Engineer &nbsp;|&nbsp; SQL &middot; dbt &middot; Data Modelling &middot; Microsoft Fabric &middot; Databricks &middot; Power BI</p>
   <p class="contact">
     <span class="item">Vancouver, BC</span><span class="sep">|</span><span class="item"><a href="tel:+17786371602">+1 (778) 637-1602</a></span><span class="sep">|</span><span class="item"><a href="mailto:dharma.patel552@gmail.com">dharma.patel552@gmail.com</a></span><span class="sep">|</span><span class="item"><a href="https://www.linkedin.com/in/kush-patel-48885719b/">linkedin.com/in/kush-patel-48885719b</a></span><span class="sep">|</span><span class="item"><a href="https://github.com/KushPatel29">github.com/KushPatel29</a></span><span class="sep">|</span><span class="item"><a href="https://kushpatel29.github.io/#fit-analytics-engineer">kushpatel29.github.io</a></span>
   </p>
   <p class="avail">Open to remote and relocation across Canada &middot; Legally eligible to work in Canada &middot; Available immediately</p>
 </header>
-
+<section class="resume-section">
 <h2>Summary</h2>
 <ul>
   <li>Analytics professional with 4+ years across operations and finance. Built the star-schema data mart, Power BI semantic layer and source reconciliation as sole analyst at a perishable-goods distributor.</li>
   <li>Public analytics-engineering work adds dbt contracts, unit tests, incremental models, SCD2 and governed metrics, executed on DuckDB, Databricks and Snowflake. dbt and Airflow evidence is project-based, separate from paid Azure/Fabric delivery.</li>
 </ul>
-
+</section>
+<section class="resume-section">
 <h2>Technical Skills</h2>
 <p class="skill"><b>Modelling:</b> SQL/T-SQL, Kimball star schemas, conformed dimensions, SCD Type 1/2, medallion layers; dbt contracts, unit/data tests, snapshots, incrementals, exposures and downstream impact.</p>
 <p class="skill"><b>Metrics &amp; quality:</b> MetricFlow; Power BI DAX, semantic models, RLS/OLS, TMDL/PBIR; metric grain/owner definitions, reconciliation, freshness, quarantine/replay and pytest.</p>
 <p class="skill"><b>Paid platform scope:</b> Microsoft Fabric, Azure Data Factory/Synapse, SQL Server, SSIS/SSRS, SQL, PySpark, Python/pandas and REST ingestion.</p>
 <p class="skill"><b>Project execution:</b> DuckDB, Databricks SQL/Unity Catalog, Snowflake dbt/Streams/Tasks/Snowpark/RBAC; AWS Athena/S3/Glue; Airflow nightly scheduler in CI, GitHub Actions and Docker. Personal free/trial accounts, not enterprise operating tenure.</p>
-
+</section>
+<section class="resume-section">
 <h2>Professional Experience</h2>
 
 <div class="job">
@@ -54,37 +58,47 @@
   <li>Automated recurring preparation with Python and SQL views, replacing spreadsheet consolidation and cutting manual effort an estimated ~40% (internal directional estimate).</li>
 </ul>
 </div>
+<footer class="resume-footer"><span>Kush Patel · <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a></span><span>1 / 2</span></footer>
+</section>
+</div>
 
+<div class="resume-page" data-page="2">
+<section class="resume-section">
 <h2 class="projects-heading">Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code and CI-tested results; synthetic data is labelled</span></h2>
 
 <div class="proj">
   <div class="proj-head">Supply Chain Analytics — dbt <span class="stack">— dbt Core, Databricks, Snowflake, DuckDB, AWS Athena / S3 / Glue Data Catalog (project run), MetricFlow &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-analytics-dbt">github.com/KushPatel29/supply-chain-analytics-dbt</a> &middot; docs: <a href="https://kushpatel29.github.io/dbt-docs/">kushpatel29.github.io/dbt-docs</a></div>
-  <p><b>Governed data product:</b> Enforced executive-mart contract, unit tests, incremental facts, SCD2 snapshots and MetricFlow reconciliation. Executed on Databricks and Snowflake with 180/180 nodes green on each and all 41 totals equal to DuckDB. Airflow runs nightly under its scheduler in ephemeral CI. A bounded AWS Athena/S3 run independently reconciles 32 measures.</p>
+  <p><b>One versioned definition of revenue:</b> staging-to-marts dbt with an enforced contract on the executive mart, unit tests, incremental facts and SCD2 snapshots; MetricFlow metrics reconcile to the marts they summarise, and every build names the downstream models a change touches. The same project built on Databricks and on Snowflake: 180 of 180 nodes green on each, and all 41 mart totals equal to the DuckDB build on both. Airflow runs it nightly under its own scheduler in CI. A bounded AWS Athena / S3 run independently reconciles all 32 warehouse measures.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">B.C. Local-Government Finance <span class="stack">— dbt / DuckDB, SQL, Python, Excel &middot; real public data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/bc-local-government-finance">github.com/KushPatel29/bc-local-government-finance</a></div>
-  <p><b>Contracts on real public data:</b> Validated 90 changing provincial files, built dbt models with 31 data tests and rebuilt Gold identically in CI. Found a $570M annual renewal shortfall across 68 municipalities and exposed a population file with 77 of 161 rows assigned to the wrong places.</p>
+  <p><b>dbt on messy official data:</b> 90 provincial files held to written contracts because their shape changes year to year, a dbt model with 31 data tests, and a gold layer rebuilt identically in CI. Found the 68 municipalities investing below renewal need are $570M a year short, and caught the Province&rsquo;s own defects, including a population file where 77 of 161 rows belong to other places.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">Retail Analytics Platform <span class="stack">— Python, DuckDB / SQL, dbt on Snowflake, Flask &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/wholesale-analytics-platform">github.com/KushPatel29/wholesale-analytics-platform</a> &middot; live: <a href="https://kushpatel29.github.io/wholesale-analytics-platform/">kushpatel29.github.io/wholesale-analytics-platform</a></div>
-  <p><b>Metric governance:</b> Traced a margin mismatch to $333,573 of cost on 3,056 unshipped lines. Governed 62 definitions, including explicitly unavailable metrics. Snowflake execution exposed three source defects; 48/48 nodes passed and 107 measures reconciled to an independent pandas build. Synthetic data.</p>
+  <p><b>Metric governance that fails the build:</b> four dashboard pages agreed on revenue to the cent while margin did not; $333,573 of cost sat on 3,056 order lines that never shipped. One catalogue of 62 metric definitions now sits behind every page, and the KPI diff that exposed the gap fails the build. The governed marts first ran on Snowflake, which exposed three source defects; 48 of 48 nodes green and 107 of 107 measures reconciled with an independent pandas build.</p>
 </div>
 
-
+<div class="proj">
+  <div class="proj-head">Supply Chain Control Tower <span class="stack">— PySpark, Delta Lake, Databricks, Power BI, SQL</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-control-tower">github.com/KushPatel29/supply-chain-control-tower</a> &middot; live: <a href="https://kush-network-risk-decision-room.streamlit.app/">kush-network-risk-decision-room.streamlit.app</a></div>
+  <p><b>Tests that prove what they guard:</b> schema contracts before Bronze, row quarantine with replay and a quality gate on Gold, each proven in CI by injecting the failure it exists to catch; benchmarked at 10M rows and run as a Databricks job with all 36 Gold totals matching the local build to the cent.</p>
+</div>
 
 <div class="proj">
   <div class="proj-head">GrowthOps OS <span class="stack">— dbt, SQL, Power BI (DAX), Excel, Python &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/GrowthOps-OS">github.com/KushPatel29/GrowthOps-OS</a> &middot; live: <a href="https://growthops-os.streamlit.app/">growthops-os.streamlit.app</a></div>
-  <p><b>Independent consumers:</b> Synthetic ad, CRM and payment marts bridge $3.72M claimed revenue to $3.06M cash. Power BI and a formula-driven Excel workbook independently tie to the same totals, demonstrating metric consistency across tools.</p>
+  <p><b>Marts that three tools agree on:</b> dbt marts over ad-platform, CRM and payment data explain every dollar between $3.72M claimed and $3.06M collected; a Power BI report with more than 200 documented DAX measures and a formula-driven Excel workbook reach the same answer and tie out to the cent.</p>
 </div>
 
 <p class="more-work">Further pipeline and migration evidence: <a href="https://kushpatel29.github.io/?role=analytics-engineer#fit">kushpatel29.github.io</a>. All cloud execution receipts identify account scope and dated runs.</p>
-
+</section>
+<section class="resume-section">
 <h2>Education</h2>
 <div class="edu">
   <span><b>Northeastern University</b> — Master of Professional Studies in Analytics (Applied Machine Intelligence), GPA 3.76/4.0 &middot; Vancouver, BC</span>
@@ -94,6 +108,10 @@
   <span><b>Gujarat Technological University</b> — Bachelor of Engineering, Computer Science &middot; India</span>
   <span class="edu-when">Aug 2017 &ndash; Aug 2021</span>
 </div>
-
+</section>
+<section class="resume-section">
 <h2>Certifications</h2>
 <p class="certs">Databricks Lakehouse Fundamentals &middot; Power BI Data Modelling with DAX &middot; UC Davis SQL for Data Science &middot; Google Data Analytics Professional Certificate &middot; IBM Python for Data Science, AI &amp; Development. Preparing for the Microsoft DP-600 (Fabric Analytics Engineer) exam. First prize, 2024 wildfire-prediction hackathon.</p>
+</section>
+<footer class="resume-footer"><span>Kush Patel · <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a></span><span>2 / 2</span></footer>
+</div>

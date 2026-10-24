@@ -1,9 +1,11 @@
+<!doctype html>
 <meta charset="utf-8">
 <meta name="resume-pdf" content="Kush-Patel-Resume-Financial-Analyst.pdf">
 <meta name="resume-role" content="financial-analyst">
 <title>Kush Patel — Resume (Financial Analyst)</title>
 <link rel="stylesheet" href="../resume.css">
 
+<div class="resume-page" data-page="1">
 <header>
   <h1>Kush Patel</h1>
   <p class="role">Financial Analyst &nbsp;|&nbsp; FP&amp;A &middot; Variance Analysis &middot; Reconciliation &amp; Close &middot; Working Capital &nbsp;|&nbsp; Excel &middot; Power BI &middot; SQL &middot; Python</p>
@@ -12,19 +14,22 @@
   </p>
   <p class="avail">Open to remote and relocation across Canada &middot; Legally eligible to work in Canada &middot; Available immediately</p>
 </header>
-
+<section class="resume-section">
 <h2>Summary</h2>
 <ul>
   <li>Financial-reporting and analytics professional with 4+ years across month-end GL/P&amp;L reconciliation, risk reporting and distribution operations. Builds traceable margin, working-capital and close reporting in Excel, Power BI, SQL and Python.</li>
   <li>Public finance models include a utility variance bridge on official data, a synthetic distributor budget and three statements, and a dated DCF from SEC filings. These demonstrate modelling capability, separate from paid budgeting or investment ownership.</li>
 </ul>
-
+</section>
+<section class="resume-section">
 <h2>Skills</h2>
-<p class="skill"><b>Planning &amp; modelling:</b> Budget/actual variance bridges, price-volume-mix, driver forecasts and scenarios; project work in annual budget cycles, monthly three-statement models, 3+9 reforecasts and DCF/WACC sensitivities.</p>
-<p class="skill"><b>Controls &amp; working capital:</b> GL/P&amp;L reconciliation, control totals, exception logs, AP/AR aging, DSO/DPO, invoice-match exceptions, inventory valuation and gross margin; journal/segregation tests in projects.</p>
-<p class="skill"><b>Excel:</b> Power Query, Power Pivot/DAX, dynamic arrays, LAMBDA, what-if data tables and formula-driven models checked against independent calculations.</p>
-<p class="skill"><b>Reporting &amp; data:</b> Power BI/DAX/RLS, SQL/T-SQL, Python/pandas, Microsoft Fabric, SSRS and Tableau.</p>
-
+<p class="skill"><b>FP&amp;A &amp; Modelling (project evidence):</b> annual budget cycle (top-down targets, bottom-up submissions, challenge round, monthly phasing), three-statement models with a revolver, 3+9 reforecasts, budget versus actual and variance bridges, price-volume-mix, driver-based forecasts with backtests, scenarios, five-year operating and capital plans; DCF valuation with WACC and terminal-value sensitivities (project)</p>
+<p class="skill"><b>Close &amp; Controls:</b> GL/P&amp;L and subledger reconciliation, journal-entry testing, segregation of duties, control totals, exception logs, close certification with named reviewers</p>
+<p class="skill"><b>Working Capital &amp; Margin:</b> AP and AR aging, DSO and DPO, invoice-match exceptions, credit exposure, COGS and gross margin, pocket-price waterfalls, inventory valuation</p>
+<p class="skill"><b>Excel:</b> Power Query, Power Pivot / DAX, dynamic arrays, LAMBDA, data tables, LINEST, formula-driven models that tie out to a reporting layer</p>
+<p class="skill"><b>Reporting &amp; Data:</b> Power BI (DAX, RLS), Tableau, SQL (T-SQL), Python (pandas), Microsoft Fabric, SSRS paginated reports</p>
+</section>
+<section class="resume-section">
 <h2>Professional Experience</h2>
 
 <div class="job">
@@ -53,35 +58,53 @@
   <li>Automated recurring preparation with Python and SQL views, replacing spreadsheet consolidation and cutting manual effort an estimated ~40% (internal directional estimate).</li>
 </ul>
 </div>
+<footer class="resume-footer"><span>Kush Patel · <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a></span><span>1 / 2</span></footer>
+</section>
+</div>
 
+<div class="resume-page" data-page="2">
+<section class="resume-section">
 <h2 class="projects-heading">Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public models and code; synthetic data is labelled</span></h2>
 
 <div class="proj">
   <div class="proj-head">Finance Decision Models in Excel and Power BI <span class="stack">— Excel, Power Query, Power Pivot / DAX, Power BI &middot; real public data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/excel-fpa-model">github.com/KushPatel29/excel-fpa-model</a> &middot; workbook: <a href="https://github.com/KushPatel29/excel-fpa-model/raw/main/workbook/PGE_Utility_FPA_Model.xlsx">PGE_Utility_FPA_Model.xlsx</a></div>
-  <p><b>Variance and planning:</b> Split Portland General Electric&rsquo;s $100.9M miss against plan into weather, price and usage using public EIA/FERC/NOAA data. Excel and Power BI agree to the cent. A separate synthetic distributor budget challenges submissions, phases three linked statements and bridges a 3+9 reforecast. Includes a dated lululemon DCF from SEC filings with bear/base/bull cases and WACC/growth sensitivities, independently checked in Python.</p>
+  <p><b>Variance on public filings:</b> Portland General Electric&rsquo;s $100.9M miss against plan, split into weather, price and usage from EIA, FERC and NOAA data with an exact variance bridge and a four-year load-forecast backtest, published in Excel and a seven-page Power BI report that agree to the cent. Beside it, a synthetic distributor model for price-volume-mix and working capital, and that distributor&rsquo;s FY2027 budget cycle: bottom-up EBITDA lands $926K short of target, a challenge round closes $335K, the rest needs 1.28% more price; three linked monthly statements balance every month; a 3+9 reforecast bridges a $671K miss.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">GL / P&amp;L Reconciliation <span class="stack">— T-SQL, SQLite, Power BI, Tableau &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/gl-reconciliation-dashboard">github.com/KushPatel29/gl-reconciliation-dashboard</a></div>
-  <p><b>Close controls:</b> On synthetic data, tested 5,400 journal entries and enforced segregation of duties. Of 60 account-periods, 8 certify, 9 require review and 43 stay blocked. The Tableau Public view supports period-to-account filtering; sign-offs are not invented.</p>
+  <p><b>A close that will not fake its sign-offs:</b> a close-certification engine tests all 5,400 journal entries and enforces segregation of duties. At month-end 8 of 60 account-periods certify, 9 go to a named reviewer and 43 are blocked; no approval is invented to make the close look finished.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">Pricing &amp; Costing Analytics <span class="stack">— Python, DuckDB, Power BI, Streamlit &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/pricing-costing-analytics">github.com/KushPatel29/pricing-costing-analytics</a> &middot; live: <a href="https://cost-to-price-calculator.streamlit.app">cost-to-price-calculator.streamlit.app</a></div>
-  <p><b>Margin decisions:</b> A synthetic pocket-price waterfall identifies 18.2% leakage from list price, ranks recovery opportunities and routes proposed changes to named approval roles.</p>
+  <p><b>Margin leakage, priced:</b> a pocket-price waterfall shows 18.2% of list price never arriving, ranks which points to recover, and routes each price change to the person who must approve it.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">B.C. Local-Government Finance <span class="stack">— Excel, Power Query, dbt / DuckDB, Python &middot; real public data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/bc-local-government-finance">github.com/KushPatel29/bc-local-government-finance</a></div>
-  <p><b>Public-sector planning:</b> An Excel model for 161 municipalities compares renewal, borrowing and tax over five years. For Fernie, closing the modelled gap by 2029 needs 3.7% annual tax growth; the assumptions and source-data defects are explicit.</p>
+  <p><b>Public-sector budgeting:</b> a five-year plan for any of 161 B.C. municipalities covering tax increases, borrowing under the legal limit and reserves; for Fernie, closing the infrastructure renewal gap by 2029 needs 3.7% a year. Across the province, the 68 municipalities investing below renewal need are $570M a year short.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">GrowthOps OS <span class="stack">— Excel, Power BI (DAX), SQL, dbt &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/GrowthOps-OS">github.com/KushPatel29/GrowthOps-OS</a> &middot; live: <a href="https://growthops-os.streamlit.app/">growthops-os.streamlit.app</a></div>
+  <p><b>Revenue reconciliation:</b> ad platforms claimed $3.72M; the business collected $3.06M. Two bridges explain every dollar between them, and a formula-driven Excel workbook and a Power BI report reach the same answer independently.</p>
+</div>
+
+<div class="proj">
+<div class="proj-head">lululemon DCF <span class="stack">- Excel, Python · real SEC filings</span></div>
+<div class="proj-url"><a href="https://github.com/KushPatel29/excel-fpa-model/tree/main/valuation">github.com/KushPatel29/excel-fpa-model/tree/main/valuation</a></div>
+<p ><b>Valuation project:</b> <a href="https://github.com/KushPatel29/excel-fpa-model/tree/main/valuation">lululemon DCF</a> from SEC filings: five-year forecasts, bear/base/bull cases and a WACC/growth sensitivity grid; formula outputs held to a Python model. Educational valuation, not paid investment analysis.</p>
 </div>
 
 <p class="more-work">Revenue-to-cash reconciliation and further finance evidence at <a href="https://kushpatel29.github.io/?role=financial-analyst#fit">kushpatel29.github.io</a>. Valuation is educational, not paid investment analysis.</p>
-
+</section>
+<section class="resume-section">
 <h2>Education</h2>
 <div class="edu">
   <span><b>Northeastern University</b> — Master of Professional Studies in Analytics (Applied Machine Intelligence), GPA 3.76/4.0 &middot; Vancouver, BC</span>
@@ -91,6 +114,10 @@
   <span><b>Gujarat Technological University</b> — Bachelor of Engineering, Computer Science &middot; India</span>
   <span class="edu-when">Aug 2017 &ndash; Aug 2021</span>
 </div>
-
+</section>
+<section class="resume-section">
 <h2>Certifications</h2>
 <p class="certs">Power BI Data Modelling with DAX &middot; Google Data Analytics Professional Certificate &middot; UC Davis SQL for Data Science &middot; IBM Python for Data Science, AI &amp; Development &middot; Databricks Lakehouse Fundamentals.</p>
+</section>
+<footer class="resume-footer"><span>Kush Patel · <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a></span><span>2 / 2</span></footer>
+</div>

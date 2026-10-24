@@ -1,9 +1,11 @@
+<!doctype html>
 <meta charset="utf-8">
 <meta name="resume-pdf" content="Kush-Patel-Resume-Data-Scientist.pdf">
 <meta name="resume-role" content="data-scientist">
 <title>Kush Patel — Resume (Data Scientist)</title>
 <link rel="stylesheet" href="../resume.css">
 
+<div class="resume-page" data-page="1">
 <header>
   <h1>Kush Patel</h1>
   <p class="role">Data Scientist &nbsp;|&nbsp; Applied ML &middot; Forecasting &middot; Experimentation &middot; Causal Inference &nbsp;|&nbsp; Python &middot; SQL &middot; XGBoost &middot; scikit-learn</p>
@@ -12,19 +14,21 @@
   </p>
   <p class="avail">Open to remote and relocation across Canada &middot; Legally eligible to work in Canada &middot; Available immediately</p>
 </header>
-
+<section class="resume-section">
 <h2>Summary</h2>
 <ul>
   <li>Applied-ML candidate with an MPS in Analytics (Applied Machine Intelligence, GPA 3.76) and 4+ years of paid operations/finance analytics, including SKU forecasting deployed as Python web apps.</li>
   <li>Runs a public wildfire forecast with prospective outcome grading. Public experiments and causal-optimization cases use labelled synthetic data; model selection compares simple baselines. Lifecycle evidence includes a local MLflow registry and scheduled public forecasts.</li>
 </ul>
-
+</section>
+<section class="resume-section">
 <h2>Technical Skills</h2>
 <p class="skill"><b>Models:</b> Python/pandas/NumPy/scikit-learn, XGBoost, logistic/Poisson models, isotonic calibration, anomaly detection, collaborative filtering and time-series forecasting.</p>
 <p class="skill"><b>Evaluation:</b> Out-of-time/season splits, rolling-origin backtests, ROC/PR-AUC, top-decile capture, WAPE, recall@k, calibration and cluster bootstrap intervals.</p>
 <p class="skill"><b>Experiments &amp; decisions:</b> Randomized A/B tests, uplift, geo holdouts, difference-in-differences, power analysis and mixed-integer optimization (HiGHS/Gurobi), demonstrated in projects.</p>
 <p class="skill"><b>Data &amp; lifecycle:</b> SQL/T-SQL, PySpark, Databricks, DuckDB, Fabric, dbt, FastAPI, Streamlit, Docker, pytest and scheduled GitHub Actions; local MLflow registry with retrospective versions and prospective monitoring.</p>
-
+</section>
+<section class="resume-section">
 <h2>Professional Experience</h2>
 
 <div class="job">
@@ -54,35 +58,47 @@
   <li>Automated recurring preparation with Python and SQL views, replacing spreadsheet consolidation and cutting manual effort an estimated ~40% (internal directional estimate).</li>
 </ul>
 </div>
+<footer class="resume-footer"><span>Kush Patel · <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a></span><span>1 / 2</span></footer>
+</section>
+</div>
 
+<div class="resume-page" data-page="2">
+<section class="resume-section">
 <h2 class="projects-heading">Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code and CI-tested results; synthetic data is labelled</span></h2>
 
 <div class="proj">
   <div class="proj-head">Canada Wildfire Risk <span class="stack">— Python, XGBoost, scikit-learn, GitHub Actions &middot; real public data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/wildfire-prediction-app">github.com/KushPatel29/wildfire-prediction-app</a> &middot; live: <a href="https://wildfire-prediction-app1.streamlit.app">wildfire-prediction-app1.streamlit.app</a></div>
-  <p><b>Prospective validation:</b> Models cover 753 cells and 4.0M historical cell-days. Historical season-split ROC-AUC is 0.881; the first 30 prospective target days score 0.734 (95% CI 0.691&ndash;0.777), ahead of two baselines on ranking while top-decile superiority remains unresolved. Forecasts publish twice daily and are graded weekly using whole-day bootstrap intervals. Fixed an index-alignment bug that misplaced 97.7% of fires.</p>
+  <p><b>Public forecasts, graded against outcomes:</b> calibrated classifier and Poisson models over 753 cells and 4.0M cell-days of fire and station-weather records. Historical season-split ROC-AUC 0.881; the first 30 prospective days score 0.734 (95% CI 0.691&ndash;0.777), ahead of two baselines on ranking while the top-decile edge remains unresolved. Forecasts rebuild twice daily and are graded weekly against satellite detections using whole-day bootstrap intervals. Found and fixed an index-alignment bug that had put 97.7% of fires in the wrong cell.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">Corridor Decision Intelligence <span class="stack">— Python, DuckDB, PySpark on Databricks, HiGHS / Gurobi, FastAPI &middot; synthetic customers</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/decision-intelligence-platform">github.com/KushPatel29/decision-intelligence-platform</a> &middot; live: <a href="https://corridor-decision-intelligence.streamlit.app/">corridor-decision-intelligence.streamlit.app</a></div>
-  <p><b>Causal policy evaluation:</b> In a synthetic ten-arm randomized trial, uplift models feed a mixed-integer programme over 112,563 customer-offer decisions. A randomized policy comparison estimates +$1.40 per customer (95% CI $0.23&ndash;$2.57); this is simulated uplift, not client revenue. Databricks features reconcile within 2.2e-11.</p>
+  <p><b>Causal ML and decision optimization:</b> uplift models trained on a ten-arm randomized offer trial feed one mixed-integer program over 112,563 customer-offer decisions, solved to proven optimality. The plan captures 75% of the perfect-knowledge value ceiling against 7% for propensity targeting, and the policy was itself randomized against business as usual in the simulation: +$1.40 per customer (95% CI $0.23 to $2.57). Features reproduced in PySpark on Databricks to within <span style="white-space:nowrap">2.2e-11</span>.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">Marketing Attribution &amp; Incrementality <span class="stack">— Python, SQL, causal inference &middot; synthetic data with a known answer</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/marketing-attribution-analytics">github.com/KushPatel29/marketing-attribution-analytics</a> &middot; live: <a href="https://attribution-vs-truth.streamlit.app">attribution-vs-truth.streamlit.app</a></div>
-  <p><b>Counterfactual measurement:</b> Six attribution models miss a known synthetic answer; last-touch assigns direct about a quarter of conversions versus a true 1.9%. A geo holdout supports experiment-calibrated decisions. Separate public GA4 analysis executed in BigQuery reconciles 4.3M events and exposes duplicate-purchase and tagging-order defects.</p>
+  <p><b>Measurement that survives a known truth:</b> six attribution models chase an answer built into the data and none finds it (last-touch gives &ldquo;direct&rdquo; a quarter of conversions; its true share is 1.9%). A powered geo holdout does, so the budget plan is calibrated on the experiment rather than on attribution.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">Customer Recommendation Engine <span class="stack">— scikit-learn, FastAPI, Streamlit &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/Customer-Recommendation-Engine">github.com/KushPatel29/Customer-Recommendation-Engine</a> &middot; live: <a href="https://cross-sell-rep-console.streamlit.app">cross-sell-rep-console.streamlit.app</a></div>
-  <p><b>Baseline discipline:</b> A learned ranker scores 81.2% recall@10 versus 84.9% for item-neighbourhood collaborative filtering on the synthetic warm-customer holdout. The simpler model is served. A proposed randomized pilot, not offline recall, would measure business lift.</p>
+  <p><b>Choosing the simpler model on evidence:</b> a two-stage learned ranker scored 81.2% recall@10 on a warm-customer holdout and plain item-neighbourhood collaborative filtering scored 84.9% (popularity 75.4%), so the simple model ships, and a randomized pilot rather than offline recall decides what it is worth.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">Ask Your Data <span class="stack">— Python, DuckDB, ONNX embeddings, Claude API, Streamlit &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/ask-your-data">github.com/KushPatel29/ask-your-data</a> &middot; live: <a href="https://ask-your-data-kp.streamlit.app">ask-your-data-kp.streamlit.app</a></div>
+  <p><b>An LLM application that refuses rather than guesses:</b> text-to-SQL over 71 tables in 11 domains, asked by voice or text. A keyless compiler binds questions to a profiled semantic layer; with a key, Claude writes the SQL through the same read-only guard, and its prose is checked against the returned rows. On a 58-question contract: 46 right, 0 wrong, 12 refused.</p>
 </div>
 
 <p class="more-work">Additional anomaly detection, grounded text-to-SQL and fairness/survival cases at <a href="https://kushpatel29.github.io/?role=data-scientist#fit">kushpatel29.github.io</a>. MLflow records six historical wildfire versions retrospectively and ongoing prospective-monitoring runs in a local registry.</p>
-
+</section>
+<section class="resume-section">
 <h2>Education</h2>
 <div class="edu">
   <span><b>Northeastern University</b> — Master of Professional Studies in Analytics (Applied Machine Intelligence), GPA 3.76/4.0 &middot; Vancouver, BC</span>
@@ -93,6 +109,10 @@
   <span><b>Gujarat Technological University</b> — Bachelor of Engineering, Computer Science &middot; India</span>
   <span class="edu-when">Aug 2017 &ndash; Aug 2021</span>
 </div>
-
+</section>
+<section class="resume-section">
 <h2>Awards &amp; Certifications</h2>
 <p class="certs"><b>First prize, 2024 wildfire-prediction hackathon</b> (<a href="https://github.com/KushPatel29/wildfire-prediction-app">now a live forecast</a>) &middot; IBM Python for Data Science, AI &amp; Development &middot; Google Data Analytics Professional Certificate &middot; UC Davis SQL for Data Science &middot; Databricks Lakehouse Fundamentals &middot; Power BI Data Modelling with DAX.</p>
+</section>
+<footer class="resume-footer"><span>Kush Patel · <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a></span><span>2 / 2</span></footer>
+</div>

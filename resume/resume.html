@@ -1,7 +1,9 @@
+<!doctype html>
 <meta charset="utf-8">
 <title>Kush Patel — Resume</title>
 <link rel="stylesheet" href="resume.css">
 
+<div class="resume-page" data-page="1">
 <header>
   <h1>Kush Patel</h1>
   <p class="role">Data Analyst &nbsp;|&nbsp; BI &amp; Analytics Engineer &nbsp;|&nbsp; Power BI &middot; SQL &middot; Python &middot; Microsoft Fabric &middot; Databricks &middot; dbt</p>
@@ -10,19 +12,21 @@
   </p>
   <p class="avail">Open to remote and relocation across Canada &middot; Legally eligible to work in Canada &middot; Available immediately</p>
 </header>
-
+<section class="resume-section">
 <h2>Summary</h2>
 <ul>
-  <li>Data analyst and BI / analytics engineer with 4+ years across operations and financial reporting. Sole analyst at a perishable-goods distributor; previously a financial analyst performing month-end GL/P&amp;L reconciliation.</li>
-  <li>Builds governed SQL models, Azure/Fabric pipelines and Power BI reporting for Sales, Finance and Supply Chain. Public cases show independent reconciliation, tested failure handling and decisions on real public or clearly labelled synthetic data.</li>
+  <li>Data analyst and BI / analytics engineer with 4+ years in operations and financial reporting. Previously sole analyst at a perishable-goods distributor and financial analyst handling month-end GL/P&amp;L reconciliation.</li>
+  <li>Builds governed SQL models, Azure/Fabric pipelines and Power BI reporting for Sales, Finance and Supply Chain. Public projects demonstrate independently checked results.</li>
 </ul>
-
+</section>
+<section class="resume-section">
 <h2>Technical Skills</h2>
 <p class="skill"><b>Analysis &amp; BI:</b> SQL (T-SQL, CTEs, window functions), Power BI (DAX, Power Query, semantic models, RLS/OLS), Excel (Power Pivot, dynamic arrays, LAMBDA, what-if tables), Python/pandas, Tableau, SSRS.</p>
 <p class="skill"><b>Data platforms:</b> Microsoft Fabric, Azure Data Factory/Synapse, SQL Server, PySpark, Delta Lake; star schemas, conformed dimensions, SCD Type 1/2, incremental loads and API ingestion.</p>
 <p class="skill"><b>Controls &amp; delivery:</b> KPI definitions, reconciliation, data-quality gates, cutover validation, access controls, requirements and UAT; Git, pytest and GitHub Actions in public projects.</p>
 <p class="skill"><b>Project execution:</b> dbt on DuckDB, Databricks and Snowflake; Airflow scheduler in nightly CI; Snowflake Streams/Tasks, Snowpark and RBAC; bounded AWS Athena/S3/Glue run. Free/trial accounts and CI are separate from employer production.</p>
-
+</section>
+<section class="resume-section">
 <h2>Professional Experience</h2>
 
 <div class="job">
@@ -53,29 +57,47 @@
   <li>Automated recurring preparation with Python and SQL views, replacing spreadsheet consolidation and cutting manual effort an estimated ~40% (internal directional estimate).</li>
 </ul>
 </div>
+<footer class="resume-footer"><span>Kush Patel · <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a></span><span>1 / 2</span></footer>
+</section>
+</div>
 
+<div class="resume-page" data-page="2">
+<section class="resume-section">
 <h2 class="projects-heading">Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code, documents you can download and CI-tested results</span></h2>
 
 <div class="proj">
   <div class="proj-head">GrowthOps OS <span class="stack">— Power BI (DAX), Excel, SQL, dbt, Python</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/GrowthOps-OS">github.com/KushPatel29/GrowthOps-OS</a> &middot; live: <a href="https://growthops-os.streamlit.app/">growthops-os.streamlit.app</a></div>
-  <p><b>Revenue reconciliation:</b> On synthetic business data, explained the bridge from $3.72M claimed revenue to $3.06M collected cash. A seven-page Power BI report and formula-driven Excel workbook agree independently to the cent. Meta ROAS falls from 7.3&times; claimed to 3.3&times; on cash; a lead-quality decline traces to one campaign.</p>
+  <p><b>Revenue reconciliation and BI:</b> Ad platforms claimed $3.72M in revenue; the business collected $3.06M, and two bridges explain every dollar between them. On synthetic business data, a seven-page Power BI report with more than 200 documented DAX measures and a formula-driven Excel workbook reach the same findings independently and agree to the cent: Meta&rsquo;s 7.3&times; return on ad spend is 3.3&times; on collected cash, and a nine-point drop in lead quality traces to one new campaign.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">Supply Chain Control Tower <span class="stack">— PySpark, Delta Lake, Databricks, Power BI, SQL</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-control-tower">github.com/KushPatel29/supply-chain-control-tower</a> &middot; live: <a href="https://kush-network-risk-decision-room.streamlit.app/">kush-network-risk-decision-room.streamlit.app</a></div>
-  <p><b>Pipeline and operations decisions:</b> Synthetic distribution data passes schema contracts, quarantine/replay and a Gold quality gate, each tested with injected failures. Benchmarked at 10M rows; all 36 Gold measures reconciled on Databricks. An eight-page Power BI report separates short-shipping from lateness and identifies replenishment gaps addressable without buying stock.</p>
+  <p><b>Data engineering and operations analytics:</b> On synthetic distribution data, a Bronze/Silver/Gold pipeline defended in three layers (schema contracts before Bronze, row quarantine with replay, a quality gate on Gold), each proven in CI by injecting the failure it exists to catch, benchmarked at 10M rows and run as a Databricks job with all 36 Gold totals matching the local build to the cent. The eight-page Power BI control tower shows short-shipping, not lateness, is the bigger OTIF failure, and that 12% of the replenishment gap needs no purchase order.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">B.C. Local-Government Finance <span class="stack">— SQL, dbt / DuckDB, Python, Excel, Power Query &middot; real public data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/bc-local-government-finance">github.com/KushPatel29/bc-local-government-finance</a></div>
-  <p><b>Real public-data analysis:</b> Contract-checked 90 provincial files and built dbt models with 31 data tests plus an Excel plan for 161 municipalities. Estimated a $570M annual renewal shortfall across 68 municipalities and caught a population file assigning 77 of 161 rows to the wrong places.</p>
+  <p><b>Analytics engineering on official filings:</b> 90 provincial files held to written contracts, a dbt model with 31 data tests, and an Excel planning model for any of 161 municipalities. Found that the 68 municipalities investing below renewal need are $570M a year short, and caught the Province&rsquo;s own data defects, including a population file where 77 of 161 rows belong to other places.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">Finance Decision Models in Excel and Power BI <span class="stack">— Excel, Power Query, Power Pivot / DAX, Power BI &middot; real public data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/excel-fpa-model">github.com/KushPatel29/excel-fpa-model</a></div>
+  <p><b>FP&amp;A on public filings:</b> Portland General Electric&rsquo;s $100.9M miss against plan, split into weather, price and usage from EIA, FERC and NOAA data, published in Excel and a seven-page Power BI report that agree to the cent, with a backtested load forecast; and a separate synthetic distributor model for channel economics and working capital.</p>
+</div>
+
+<div class="proj">
+  <div class="proj-head">Retail Analytics Platform <span class="stack">— Python, DuckDB / SQL, dbt on Snowflake, Flask &middot; synthetic data</span></div>
+  <div class="proj-url"><a href="https://github.com/KushPatel29/wholesale-analytics-platform">github.com/KushPatel29/wholesale-analytics-platform</a> &middot; live: <a href="https://kushpatel29.github.io/wholesale-analytics-platform/">kushpatel29.github.io/wholesale-analytics-platform</a></div>
+  <p><b>Metric governance:</b> Traced a margin mismatch to $333,573 of cost on 3,056 unshipped lines. Governed 62 definitions, including explicitly unavailable metrics. Snowflake execution exposed three source defects; 48/48 nodes passed and 107 measures reconciled to an independent pandas build. Synthetic data.</p>
 </div>
 
 <p class="more-work">21 public projects and 16 hosted demos, including FP&amp;A, retail metric governance and prospectively graded wildfire forecasts, at <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a>. Three captioned flagship tours explain the question, result and checks.</p>
-
+</section>
+<section class="resume-section">
 <h2>Education</h2>
 <div class="edu">
   <span><b>Northeastern University</b> — Master of Professional Studies in Analytics (Applied Machine Intelligence), GPA 3.76/4.0 &middot; Vancouver, BC</span>
@@ -85,6 +107,10 @@
   <span><b>Gujarat Technological University</b> — Bachelor of Engineering, Computer Science &middot; India</span>
   <span class="edu-when">Aug 2017 &ndash; Aug 2021</span>
 </div>
-
+</section>
+<section class="resume-section">
 <h2>Awards &amp; Certifications</h2>
 <p class="certs"><b>First prize, 2024 wildfire-prediction hackathon</b> (<a href="https://github.com/KushPatel29/wildfire-prediction-app">now a live forecast</a>) &middot; Google Data Analytics Professional Certificate &middot; UC Davis SQL for Data Science &middot; IBM Python for Data Science, AI &amp; Development &middot; Databricks Lakehouse Fundamentals &middot; Power BI Data Modelling with DAX. Preparing for the Microsoft DP-600 (Fabric Analytics Engineer) exam.</p>
+</section>
+<footer class="resume-footer"><span>Kush Patel · <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a></span><span>2 / 2</span></footer>
+</div>
