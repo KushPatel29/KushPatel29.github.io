@@ -14,7 +14,7 @@ breaks as (
         *,
         case
             when previous_event_timestamp is null then 1
-            when {{ datediff_minutes('previous_event_timestamp', 'event_timestamp') }} >= 30 then 1
+            when event_timestamp - previous_event_timestamp >= interval 30 minute then 1
             else 0
         end as is_new_session
     from ordered
@@ -33,5 +33,6 @@ numbered as (
 
 select
     md5(concat(anonymous_user_id, '-', cast(session_number as varchar))) as session_id,
+    row_number() over (partition by anonymous_user_id, session_number order by event_timestamp, event_id) as event_position,
     *
 from numbered

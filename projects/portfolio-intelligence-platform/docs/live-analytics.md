@@ -24,7 +24,7 @@ from GoatCounter. The owner page does not load third-party collection scripts.
 |---|---|
 | Homepage visits | `/stats/total` filtered to path `/`, excluding events. GoatCounter's approximate eight-hour visit deduplication; not identified people or lifetime uniques. |
 | Section attention | Sum of event counts × 15 seconds for registered `pi-time-15s:<area>` paths. One area receives each foreground interval. |
-| Most-read area | Registered area with most measured attention in the selected UTC period. No ranking before events exist. |
+| Most measured area | Registered area with most measured attention in the selected period. No ranking before events exist; no proof of reading. |
 | Résumé interest | Deduplicated `pi-action:resume` link interactions, not download completion. |
 | Countries | `/stats/locations` filtered to homepage `/`; coarse network-derived estimates, affected by proxies/VPNs. No GPS or exact addresses. |
 | Project interest | Deduplicated `pi-project-click:<project>` events, not proof of deep reading. |
@@ -68,3 +68,13 @@ https://kushpatel.goatcounter.com/ without this custom connection.
 Sources: [API](https://www.goatcounter.com/help/api),
 [JavaScript API](https://www.goatcounter.com/help/js),
 [visit/session semantics](https://www.goatcounter.com/help/sessions).
+
+## Version 2 reliability and comparison contract
+
+Optional comparisons use equal complete UTC-day windows, excluding today. Live headline windows still include a partial today, so comparison totals are shown separately, with their own dates and denominator. A zero baseline makes percentage change unavailable; a volume change does not establish significance or causation.
+
+The API uses inclusive hourly buckets. Live windows include today's hours; complete-day comparison ends before the next midnight. Daily display buckets follow the native account timezone and may include an adjacent calendar edge date; the request boundaries remain UTC. Country statistics use provider day buckets, so country percentages or conversion rates against hourly totals are not inferred.
+
+Reads are serialized with at least 300 ms between requests, at most two retries on 429/5xx and a 20-second per-request timeout. Path pagination stops at 20 pages and rejects repeated/invalid IDs. Negative, fractional and unsafe counts are refused; daily counts must reconcile to the homepage total. Window changes abort old reads and generation checks block stale overwrites. Comparison failure does not hide an otherwise valid live snapshot.
+
+The interface distinguishes retrieved, stale, disconnected, incomplete and empty states. JSON/CSV downloads include retrieval/selection and stale-state context, never the API key. Daily tables remain available alongside charts. Browser storage is still opt-in and same-origin readable; no new authentication or wider permission is introduced by this upgrade.

@@ -2,7 +2,7 @@ module.exports = {
   ci: {
     collect: {
       staticDistDir: ".",
-      url: ["/"],
+      url: ["/", "/projects/portfolio-intelligence-platform/dist/case-study.html", "/projects/portfolio-intelligence-platform/dist/"],
       numberOfRuns: 3,
       settings: {
         chromeFlags: "--headless --no-sandbox --disable-dev-shm-usage",

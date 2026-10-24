@@ -163,10 +163,19 @@ jobs:
           node-version: "22"
 
       - name: Install the pinned free-tier adapter
-        run: pip install dbt-duckdb==1.9.2
+        run: pip install -r requirements.txt
 
-      - name: Build all 20 nodes, including 15 data tests
+      - name: Verify the entirely synthetic source fixture
+        run: python scripts/generate_fixture.py --check
+
+      - name: Build all 40 nodes, including 31 data tests
         run: dbt build --project-dir dbt --profiles-dir dbt
+
+      - name: Independently verify every session, ordered journey, project pair and cohort
+        run: python scripts/verify_warehouse.py
+
+      - name: Reject four planted analytical defects in disposable copies
+        run: python scripts/exercise_quality_gates.py
 
       - name: Export the dashboard fixture from tested relations
         run: python scripts/export_dashboard.py
@@ -175,7 +184,7 @@ jobs:
         run: git diff --exit-code -- dist/data/dashboard.json
 
       - name: Check browser instrumentation and dashboard JavaScript
-        run: node --check dist/app.js && node --check dist/live.js && node --check dist/live-model.js && node --check analytics/live-tracking.js && node --check analytics/tracking.js && node --check analytics/web-vitals.js && node scripts/check_public_contract.mjs
+        run: node --check dist/app.js && node --check dist/live.js && node --check dist/live-model.js && node --check dist/api-client.js && node --check analytics/live-tracking.js && node --check analytics/tracking.js && node --check analytics/web-vitals.js && node scripts/check_public_contract.mjs
 
   demos:
     name: External links and live demos

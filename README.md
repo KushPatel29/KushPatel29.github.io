@@ -37,9 +37,10 @@ account: real homepage visits, active section/project time and approximate visit
 countries, refreshed every minute. A read-only site-scoped key stays in the owner's
 browser; no credential or live visitor data is published in the repository.
 The separate [dbt case study](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/case-study.html)
-preserves acquisition, engagement and conversion calculations from a committed
-20-event synthetic fixture and its 15 data tests. GA4/PostHog and BigQuery remain
-reference integrations. Live measurements and fixture values never share a data source.
+provides working 30/60/90-day filters over 1,460 entirely synthetic delivered events,
+ordered journeys, first-touch attribution and censored weekly retention. Its 31 dbt
+tests are complemented by an independent Python oracle over every session, project
+pair and cohort. Live measurements and fixture values never share a data source.
 
 Its complete source, event contract, governed metric catalog, architecture,
 privacy boundary and reviewer setup are under

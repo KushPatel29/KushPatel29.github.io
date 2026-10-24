@@ -1,103 +1,202 @@
-let fixture = null;
-let metadata = {};
-
-const definitions = {
-  unique_visitors: { title:"Eligible fixture users", body:"Distinct pseudonymous users remaining after bot, internal, and synthetic exclusions in the deterministic seed.", grain:"User × fixture", owner:"Analytics Engineering" },
-  engagement_rate: { title:"Engagement rate", body:"Sessions with 60 engaged seconds, two page views, or a governed high-intent action divided by eligible sessions.", grain:"Session × fixture", owner:"Product Analytics" },
-  project_view_rate: { title:"Project view rate", body:"Eligible sessions containing at least one project_viewed event divided by eligible sessions.", grain:"Session × fixture", owner:"Portfolio Analytics" },
-  high_intent_rate: { title:"High-intent rate", body:"Eligible sessions containing a resume, LinkedIn, or contact action, counted once per session.", grain:"Session × fixture", owner:"Portfolio Analytics" }
+const $ = (s) => document.querySelector(s);
+const pct = (n, d) => (d ? `${((100 * n) / d).toFixed(1)}%` : "Unavailable");
+const names = {
+  growthops: "GrowthOps OS",
+  "control-tower": "Supply Chain Control Tower",
+  "bc-finance": "B.C. Finance",
+  wildfire: "Canada Wildfire Risk",
 };
-
-function pct(n, d) { return `${d ? (100 * n / d).toFixed(1) : "0.0"}%`; }
-function minutes(seconds) { return `${Math.floor(seconds / 60)}m ${seconds % 60}s`; }
-
-function metricFamilies(data) {
-  const facts = data.facts;
-  const sessions = Number(data.sessions);
-  return {
-    acquisition: [["Eligible users",data.visitors,"dbt-modeled fixture"],["New users","—","first-seen history not modeled"],["Sessions",data.sessions,"30-minute inactivity rule"],["Sessions / user",(sessions/Number(data.visitors)).toFixed(2),"fixture frequency"],["Organic share",data.sources.find(x=>x[0]==="google")?.[2]||"0.0%","source field in seed"],["Campaign conversion","—","campaign IDs not present"]],
-    engagement: [["Engaged sessions",String(Math.round(sessions*parseFloat(data.engagement)/100)),"tested session rule"],["Engagement rate",data.engagement,"engaged / eligible"],["Avg engaged time",minutes(Math.round(facts.engagedSeconds/sessions)),"event seconds / session"],["Page views / session",(facts.pageviews/sessions).toFixed(2),"governed page views"],["Scroll completion","—","event not present in fixture"],["Project view rate",data.projectRate,"project sessions / sessions"]],
-    conversion: [["High-intent rate",data.conversion,"deduplicated by session"],["Resume session rate",pct(facts.resumeSessions,sessions),"view or download"],["Contact rate",pct(facts.contactSessions,sessions),"contact sessions / sessions"],["GitHub CTR","—","event not present in fixture"],["Funnel completion",data.funnel.contact[1],"landing to contact"],["Attribution lift","—","experiment not modeled"]],
-    retention: [["Returning-user rate","—","requires prior-period history"],["W1 retention","—","four-day fixture is insufficient"],["W4 retention","—","four-day fixture is insufficient"],["Return frequency","—","requires cohort window"],["Evaluator return","—","requires cohort window"],["Median return","—","requires cohort window"]],
-    experience: [["LCP p75","—","collector implemented; no RUM data"],["INP p75","—","collector implemented; no RUM data"],["CLS p75","—","collector implemented; no RUM data"],["FCP p75","—","collector implemented; no RUM data"],["TTFB p75","—","collector implemented; no RUM data"],["Error-free sessions","—","no provider activated"]],
-    health: [["dbt data tests","15 / 15","root CI contract"],["Raw event rows",String(metadata.eventRows),"deterministic seed"],["Eligible events",String(metadata.eligibleEvents),"after exclusions"],["Excluded events",String(metadata.excludedEvents),"bot, internal, synthetic"],["Duplicate event IDs",String(metadata.duplicateEventIds),"dedupe key check"],["Direct PII fields","0","contract prohibition"]]
-  };
+let payload;
+function cell(row, value, tag = "td") {
+  const node = document.createElement(tag);
+  node.textContent = value;
+  row.append(node);
+  return node;
 }
-
-function renderMetricFamily(family) {
-  const data = fixture;
-  const target = document.querySelector("#metric-catalog");
-  if (!data || !target) return;
-  target.innerHTML = metricFamilies(data)[family].map(([name,value,note]) => `<article><span>${name}</span><strong>${value}</strong><small>${note}</small></article>`).join("");
-}
-
-function renderProjects(rows) {
-  document.querySelector("#project-rows").innerHTML = rows.map((row,index) => `<div class="project-row" role="row"><span class="project-name" role="cell"><span class="project-rank">0${index+1}</span><span><b>${row[0]}</b><small>${row[1]}</small></span></span><span role="cell">${row[2]}</span><span role="cell">${row[3]}</span><span class="rate-cell" role="cell"><span class="mini-bar"><i style="width:${parseFloat(row[4])}%"></i></span>${row[4]}</span></div>`).join("");
-}
-
-function renderSources(data) {
-  const classes = ["c1","c2","c3","c4","c5"];
-  const labels = {google:"Organic search",linkedin:"LinkedIn","(direct)":"Direct",github:"GitHub"};
-  document.querySelector("#traffic-legend").innerHTML = data.sources.map((row,index) => `<li><i class="${classes[index]}"></i><span>${labels[row[0]]||row[0]}</span><b>${row[2]}</b></li>`).join("");
-}
-
-/* Sparklines come only from the fixture's daily rows. A day without sessions
-   has no rate, so it is drawn as a gap rather than as an invented value. */
-const sparkSeries = {
-  visitors: day => day.users,
-  engagement: day => day.sessions ? 100 * day.engagedSessions / day.sessions : null,
-  projectRate: day => day.sessions ? 100 * day.projectSessions / day.sessions : null,
-  conversion: day => day.sessions ? 100 * day.highIntentSessions / day.sessions : null
-};
-function renderSparklines(days) {
-  document.querySelectorAll("[data-spark]").forEach(svg => {
-    const pick = sparkSeries[svg.dataset.spark];
-    if (!pick || !days.length) return;
-    const values = days.map(pick);
-    const isCount = svg.dataset.spark === "visitors";
-    const max = isCount ? Math.max(1, ...values.filter(v => v !== null)) : 100;
-    const x = i => days.length === 1 ? 90 : 4 + i * (172 / (days.length - 1));
-    const y = v => 38 - (v / max) * 34;
-    const segments = [];
-    let current = [];
-    values.forEach((v, i) => { if (v === null) { if (current.length) segments.push(current); current = []; } else current.push(`${x(i).toFixed(1)} ${y(v).toFixed(1)}`); });
-    if (current.length) segments.push(current);
-    const line = segments.map(points => `M${points.join(" L")}`).join(" ");
-    const dots = values.map((v, i) => v === null ? "" : `<circle cx="${x(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="2.5"/>`).join("");
-    svg.innerHTML = `${line ? `<path d="${line}"/>` : ""}${dots}`;
-    const name = svg.getAttribute("aria-label").split(" by day")[0];
-    const spoken = days.map((day, i) => `${day.date.slice(5)}: ${values[i] === null ? "no sessions" : isCount ? values[i] : `${values[i].toFixed(0)}%`}`).join(", ");
-    svg.setAttribute("aria-label", `${name} by day, ${spoken}`);
+function table(selector, values) {
+  const body = $(selector);
+  body.replaceChildren();
+  values.forEach((values) => {
+    const row = document.createElement("tr");
+    values.forEach((value) => cell(row, value));
+    body.append(row);
   });
 }
-
-function render(data) {
-  if (!data) return;
-  ["visitors","sessions","engagement","projectRate","conversion"].forEach(key => document.querySelectorAll(`[data-metric="${key}"]`).forEach(el => el.textContent=data[key]));
-  Object.entries(data.changes).forEach(([key,value]) => { const el=document.querySelector(`[data-change="${key}"]`); if(el) el.textContent=value; });
-  Object.entries(data.funnel).forEach(([key,[count,rate]]) => { const value=document.querySelector(`[data-funnel-value="${key}"]`); const rateEl=document.querySelector(`[data-funnel-rate="${key}"]`); if(value) value.textContent=count; if(rateEl) rateEl.textContent=rate; const bar=value?.closest(".funnel-row")?.querySelector(".bar-track i"); if(bar) bar.style.setProperty("--w",rate); });
-  renderProjects(data.projects); renderSources(data); renderSparklines(data.daily || []);
-  const active=document.querySelector("[data-metric-tab][aria-selected='true']"); renderMetricFamily(active?.dataset.metricTab||"acquisition");
+function bars(selector, values) {
+  const list = $(selector);
+  list.replaceChildren();
+  const max = Math.max(1, ...values.map((x) => x[1]));
+  for (const [label, count] of values) {
+    const li = document.createElement("li");
+    const name = document.createElement("span");
+    name.textContent = label;
+    const value = document.createElement("strong");
+    value.textContent = count.toLocaleString();
+    const meter = document.createElement("meter");
+    meter.min = 0;
+    meter.max = max;
+    meter.value = count;
+    meter.setAttribute("aria-label", `${label}: ${count}`);
+    li.append(name, value, meter);
+    list.append(li);
+  }
 }
-
-document.querySelectorAll("[data-metric-tab]").forEach(button => button.addEventListener("click",()=>{ document.querySelectorAll("[data-metric-tab]").forEach(item=>{item.classList.toggle("selected",item===button);item.setAttribute("aria-selected",item===button?"true":"false")});renderMetricFamily(button.dataset.metricTab); }));
-
-const dialog=document.querySelector("#definition-dialog");
-document.querySelectorAll(".info").forEach(button=>button.addEventListener("click",()=>{ const item=definitions[button.dataset.definition];dialog.querySelector("#dialog-title").textContent=item.title;dialog.querySelector("#dialog-description").textContent=item.body;dialog.querySelector("#dialog-meta").innerHTML=`<div><span>GRAIN</span><b>${item.grain}</b></div><div><span>OWNER</span><b>${item.owner}</b></div>`;dialog.showModal(); }));
-
-const lineage = {
-  resume_conversion:["Resume conversion rate","sessions_with_resume_action / eligible_sessions","50.0%","Three of six eligible fixture sessions include a resume view or download."],
-  engagement_rate:["Engagement rate","engaged_sessions / eligible_sessions","100.0%","All six fixture sessions meet the engagement rule; this is not a production benchmark."],
-  project_depth:["Average project depth","distinct_project_views / project_sessions","1.0","Five project views occur across five project-viewing fixture sessions."],
-  contact_rate:["Contact conversion rate","sessions_with_contact_action / eligible_sessions","16.7%","One of six eligible fixture sessions contains a contact action."]
-};
-function renderLineage(key){const [title,formula,value,note]=lineage[key];document.querySelector("#lineage-detail").innerHTML=`<div class="definition-head"><div><p class="kicker">METRIC CONTRACT</p><h3>${title}</h3></div><span class="certified">✓ Fixture-backed</span></div><p class="formula"><code>${formula}</code></p><div class="contract-grid"><div><span>VALUE</span><b>${value}</b></div><div><span>OWNER</span><b>Analytics Engineering</b></div><div><span>GRAIN</span><b>Session × fixture</b></div><div><span>FRESHNESS</span><b>Commit-bound</b></div></div><div class="lineage-flow" aria-label="Metric lineage"><button type="button"><small>SOURCE</small><b>raw_events seed</b></button><i>→</i><button type="button"><small>STAGING</small><b>stg_events</b></button><i>→</i><button type="button"><small>FACT</small><b>fct_sessions</b></button><i>→</i><button type="button" class="active-node"><small>MART</small><b>mart_conversion</b></button></div><p class="contract-note">${note} The root CI rebuilds and verifies this value.</p>`;}
-document.querySelectorAll("[data-lineage]").forEach(button=>button.addEventListener("click",()=>{document.querySelectorAll("[data-lineage]").forEach(item=>item.setAttribute("aria-selected","false"));button.setAttribute("aria-selected","true");renderLineage(button.dataset.lineage);}));
-
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)document.querySelectorAll("nav a").forEach(link=>link.classList.toggle("active",link.getAttribute("href")===`#${entry.target.id}`));}),{rootMargin:"-30% 0px -60%",threshold:0});
-document.querySelectorAll("main section[id]").forEach(section=>observer.observe(section));
-
-document.querySelectorAll("[data-consent]").forEach(button=>button.addEventListener("click",()=>{ const choice=button.dataset.consent;localStorage.setItem("analytics_consent",choice);document.querySelector("#consent-status").textContent=choice==="granted"?"Local demo events enabled":"Telemetry remains off";if(choice==="granted"){window.portfolioAnalytics?.track("consent_updated",{consent_source:"dashboard_control"});window.portfolioAnalytics?.track("page_viewed",{page_title:document.title});}}));
-if(localStorage.getItem("analytics_consent")==="granted"){document.querySelector("#consent-status").textContent="Local demo events enabled";window.portfolioAnalytics?.track("page_viewed",{page_title:document.title});}
-
-fetch("./data/dashboard.json").then(response=>{if(!response.ok)throw new Error("fixture unavailable");return response.json();}).then(payload=>{metadata=payload.metadata;fixture=payload.fixture;document.querySelector("#fixture-meta").textContent=`${metadata.eventRows} modeled events · ${metadata.eligibleEvents} eligible · through ${metadata.dataThrough}`;document.querySelector("#fixture-window").textContent=`Fixture window · ${metadata.windowDays} days · ${metadata.windowStart} to ${metadata.windowEnd}`;render(fixture);}).catch(()=>{document.querySelector("#fixture-meta").textContent="Fixture failed to load; inspect the committed JSON.";});
+function render() {
+  const d = payload.windows[$("#fixture-range").value],
+    f = d.facts;
+  for (const [key, value] of Object.entries({
+    visitors: f.users,
+    sessions: f.sessions,
+    engagement: pct(f.engagedSessions, f.sessions),
+    conversion: pct(f.intentSessions, f.sessions),
+  }))
+    document
+      .querySelectorAll(`[data-metric="${key}"]`)
+      .forEach((n) => (n.textContent = value));
+  $("#fixture-window").textContent = `${d.start} to ${d.end} · UTC · synthetic`;
+  $("#funnel-rows").replaceChildren();
+  for (const [key, label] of [
+    ["landing", "Page viewed"],
+    ["project", "Then project viewed"],
+    ["caseStudy", "Then case study viewed"],
+    ["intent", "Then high-intent action"],
+  ]) {
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    span.textContent = label;
+    const b = document.createElement("strong");
+    b.textContent = `${d.funnel[key]} / ${f.sessions} (${pct(d.funnel[key], f.sessions)})`;
+    const meter = document.createElement("meter");
+    meter.min = 0;
+    meter.max = Math.max(1, f.sessions);
+    meter.value = d.funnel[key];
+    meter.setAttribute(
+      "aria-label",
+      `${label}: ${d.funnel[key]} of ${f.sessions}`,
+    );
+    li.append(span, b, meter);
+    $("#funnel-rows").append(li);
+  }
+  bars(
+    "#source-rows",
+    d.sources.map((s) => [
+      `${s.source} · ${pct(s.sessions, f.sessions)}`,
+      s.sessions,
+    ]),
+  );
+  table(
+    "#project-rows",
+    d.projects.map((p) => [
+      names[p.project_id] || p.project_id,
+      p.sessions,
+      `${p.deepSessions} / ${p.sessions} (${pct(p.deepSessions, p.sessions)})`,
+      `${p.actionSessions} / ${p.sessions} (${pct(p.actionSessions, p.sessions)})`,
+    ]),
+  );
+  table(
+    "#daily-table",
+    d.daily.map((x) => [x.day, x.sessions, x.users]),
+  );
+  const chart = $("#fixture-chart");
+  chart.replaceChildren();
+  const max = Math.max(1, ...d.daily.map((x) => x.sessions));
+  for (const day of d.daily) {
+    const wrap = document.createElement("div");
+    wrap.className = "day";
+    wrap.title = `${day.day}: ${day.sessions} sessions`;
+    const bar = document.createElement("i");
+    bar.style.height = `${(100 * day.sessions) / max}%`;
+    wrap.append(bar);
+    chart.append(wrap);
+  }
+  chart.setAttribute(
+    "aria-label",
+    `${d.daily.length} days. ${f.sessions} sessions; detailed daily counts available below.`,
+  );
+}
+function renderEvidence() {
+  const m = payload.metadata;
+  $("#fixture-meta").textContent =
+    `${m.rawEvents.toLocaleString()} delivered events · ${m.dataTests} dbt tests · ${m.windowDays} days`;
+  $("#quality-summary").textContent =
+    `${m.dataTests} / ${m.dataTests} data tests passed across ${m.dbtNodes} dbt nodes. An independent Python oracle checks every session partition, first touch and ordered journey in CI.`;
+  bars(
+    "#quality-rows",
+    payload.quality.map((q) => [q.disposition.replaceAll("_", " "), q.rows]),
+  );
+  $("#seed-hash").textContent = `Fixture seed SHA-256: ${m.seedSha256}`;
+  const groups = new Map();
+  for (const row of payload.cohorts) {
+    if (!groups.has(row.cohort)) groups.set(row.cohort, []);
+    groups.get(row.cohort).push(row);
+  }
+  const body = $("#cohort-rows");
+  body.replaceChildren();
+  for (const [cohort, rows] of groups) {
+    const tr = document.createElement("tr");
+    const th = cell(tr, cohort, "th");
+    th.scope = "row";
+    cell(tr, rows[0].cohort_users);
+    for (const row of rows) {
+      const td = cell(
+        tr,
+        row.is_mature
+          ? `${row.retained_users}/${row.cohort_users} · ${pct(row.retained_users, row.cohort_users)}`
+          : "—",
+      );
+      if (!row.is_mature) {
+        td.className = "unavailable";
+        td.title = "Incomplete observation week";
+      } else
+        td.style.background = `rgba(8,105,94,${0.04 + 0.2 * row.retention_rate})`;
+    }
+    body.append(tr);
+  }
+}
+$("#fixture-range").addEventListener("change", () => {
+  if (payload) render();
+});
+$("#fixture-export").addEventListener("click", () => {
+  if (!payload) return;
+  const blob = new Blob(
+    [
+      JSON.stringify(
+        {
+          metadata: payload.metadata,
+          selectedWindow: payload.windows[$("#fixture-range").value],
+          cohorts: payload.cohorts,
+          quality: payload.quality,
+        },
+        null,
+        2,
+      ),
+    ],
+    { type: "application/json" },
+  );
+  const url = URL.createObjectURL(blob),
+    a = document.createElement("a");
+  a.href = url;
+  a.download = "synthetic-portfolio-analysis.json";
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+fetch("./data/dashboard.json")
+  .then((r) => {
+    if (!r.ok) throw Error("Unavailable");
+    return r.json();
+  })
+  .then((data) => {
+    if (
+      data.metadata?.schemaVersion !== 2 ||
+      data.metadata?.classification !== "synthetic_fixture"
+    )
+      throw Error("Invalid contract");
+    payload = data;
+    render();
+    renderEvidence();
+  })
+  .catch(() => {
+    $("#fixture-meta").textContent =
+      "Aggregate unavailable or incompatible. Rebuild the documented pipeline; no fallback data is shown.";
+    $("#fixture-export").disabled = true;
+  });

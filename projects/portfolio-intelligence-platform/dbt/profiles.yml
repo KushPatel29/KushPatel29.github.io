@@ -5,11 +5,3 @@ portfolio_intelligence:
       type: duckdb
       path: portfolio_intelligence.duckdb
       threads: 4
-    prod:
-      type: bigquery
-      method: oauth
-      project: "{{ env_var('GCP_PROJECT_ID') }}"
-      dataset: portfolio_analytics
-      threads: 4
-      location: US
-      priority: interactive

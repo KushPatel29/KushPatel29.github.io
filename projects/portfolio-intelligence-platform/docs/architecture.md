@@ -1,39 +1,26 @@
-# Architecture
+# Architecture and operating decisions
 
-## Design goals
+## Two independent paths
 
-- Keep collection lightweight and consent-aware.
-- Preserve immutable raw events and apply exclusions downstream.
-- Make transformations reproducible locally without a paid cloud account.
-- Define each public KPI once and publish only aggregated data.
-- Treat quality, freshness, cost, and privacy as product requirements.
+Live: homepage -> GoatCounter -> read-only owner browser. Public: generated synthetic CSV -> DuckDB/dbt -> checked aggregate JSON -> static workbench. There is no live-data proxy, public visitor export, shared identity or fixture fallback.
 
-## Data flow
+The static owner design avoids storing an API key in a public backend, keeps operating cost at zero for this small use case and reuses the account already collecting visits. Its tradeoff is owner-browser authentication: a remembered key is readable by any script on the portfolio origin. The CSP limits the dashboard's script sources, but does not provide a separate security origin or protection from every browser extension. A dedicated backend with an access-controlled identity boundary would be a different deployment, not a feature silently implied here.
 
-1. A browser event contract validates names and required properties.
-2. The implemented browser dispatcher emits local custom events after consent; optional GA4 and PostHog hooks are present but not configured.
-3. A committed 20-event CSV is the only executed source. BigQuery is an untested reference target.
-4. dbt on DuckDB types, deduplicates, excludes ineligible events, and normalizes sources.
-5. Intermediate models reconstruct sessions, journeys, and attribution.
-6. Facts and marts aggregate engagement and conversion behavior.
-7. Tests gate the export consumed by the public dashboard.
+DuckDB makes the analytical pipeline executable by a reviewer. Eight models separate delivery accounting, contract validity, eligible events, sessions and decision-specific marts. Full rebuilds are deliberate for this bounded 1,460-row fixture. Incremental production ingestion, streaming guarantees, cloud deployment and large-scale benchmarks are not claimed.
 
-## Environments
+## Refresh and failure behavior
 
-| Environment | Purpose | Warehouse | Data |
-|---|---|---|---|
-| CI | Pull-request validation | DuckDB | deterministic seed |
-| Demo | Public portfolio showcase | static aggregate | synthetic and labeled |
-| Reference target | Future genuine analytics | BigQuery profile (not run) | none |
+The owner page refreshes every 60 seconds while visible and avoids overlapping timer reads. Changing a window cancels the old request; generation checks prevent late results overwriting the new selection. Requests have timeouts, pacing, bounded retries on 429/5xx and bounded/progress-checked path pagination. Counts must be non-negative integers and daily totals must reconcile before a new snapshot is accepted. Optional comparison failure is isolated from an otherwise valid live snapshot.
 
-## Incremental strategy
+Missing credentials and invalid/incomplete responses show explicit errors. A same-window failed refresh can retain a labelled stale snapshot; a changed window clears old data. JSON export includes retrieval time, source, selected dates and stale/retrieved status. CSV includes daily counts and that same status. Exports are local downloads and contain no key.
 
-The rolling three-day merge is a proposed production pattern, not an implemented model in this fixture. The executed DuckDB models rebuild the small deterministic seed in full.
+## Recovery / release runbook
 
-## Cost controls
+1. For a collection gap, inspect DNT/GPC, opt-out, active focus, short visits and the native GoatCounter account before concluding the count is zero. Historical attention cannot be reconstructed.
+2. For 401/403, verify the account and the existing site's Read statistics permission; reconnect or revoke a compromised key in the native account. Never commit it.
+3. For 429/5xx, let bounded retries complete, then retry later or use the native dashboard. Do not increase request frequency to force recovery.
+4. For count reconciliation or pagination errors, preserve the last labelled snapshot, inspect the provider's documented API and fix the contract. Never substitute fixture values.
+5. For a failed warehouse build, do not export. Reproduce with the pinned runtime, inspect `dbt/target/run_results.json`, fix the model or source and rerun the independent oracle.
+6. For a bad deployment, revert the release commit, wait for the Pages workflow, verify deployed bytes and recheck both pages. Stored owner keys are not part of Git or deployment artifacts.
 
-- Partition facts by event or session date.
-- Cluster frequent filters such as event name, project ID, and source.
-- Require partition filters on production marts.
-- Export only aggregated dashboard payloads.
-- Keep CI on local DuckDB.
+Primary provider references: [API and rate limits](https://www.goatcounter.com/help/api), [OpenAPI contract](https://www.goatcounter.com/api.json), [visit definition](https://www.goatcounter.com/help/sessions). API v0 can change; the adapter validates responses instead of trusting them blindly. There is no claimed service uptime SLO or server-processing freshness guarantee.

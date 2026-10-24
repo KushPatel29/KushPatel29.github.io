@@ -1,141 +1,1926 @@
 {
   "metadata": {
-    "label": "Synthetic dbt fixture \u2014 not real visitor traffic",
-    "eventRows": 20,
-    "eligibleEvents": 17,
-    "excludedEvents": 3,
-    "eligibleUsers": 5,
-    "duplicateEventIds": 0,
-    "dataThrough": "2026-09-23",
-    "windowStart": "2026-09-20",
-    "windowEnd": "2026-09-23",
-    "windowDays": 4
+    "schemaVersion": 2,
+    "classification": "synthetic_fixture",
+    "label": "Synthetic case study \u2014 not real portfolio visitors",
+    "windowStart": "2026-07-26",
+    "windowEnd": "2026-10-23",
+    "windowDays": 90,
+    "rawEvents": 1460,
+    "dataTests": 31,
+    "seedSha256": "e96940be0c23cf16875c30145b294d667991e61f6a0568129c6d61d42a220ddf",
+    "dbtNodes": 40,
+    "generatorSeed": 29,
+    "sourceSha256": {
+      "models/intermediate/int_sessions.sql": "c2b89eb54aaf94438465b5620e867643da4a7733cac5ec8c1bed3232e051570c",
+      "models/marts/fct_journeys.sql": "380abae2d69bf6a9d54d2cfd94543826920185a7b23bf2acbb93df4315bbab31",
+      "models/marts/fct_sessions.sql": "15835f8d2df2c5f59d66bf1614a3fbd347a5457335fd7beb6d47e76f0c639345",
+      "models/marts/mart_conversion.sql": "2b2326fa2cb79c6761f60fc4a59a9d5c4d6854b3501af4cac231dda0f63f5e93",
+      "models/marts/mart_project_engagement.sql": "738e745658315923f5f47ee4fd5aea15c28fb5cf6c4dd96f2d97050952eb25d4",
+      "models/marts/mart_retention.sql": "d44c6153b0fd9c67cea8c1fbad7993bcf27f755067aebfd4eb41161ef28ca2e2",
+      "models/staging/stg_event_audit.sql": "90eea2fa3e8f77c728d2a4f3470f953873658ecc1674a4c9e3c1f8bdfdfd68c1",
+      "models/staging/stg_events.sql": "3d9f533859307f374d43fcfb697715d455e2d45f697f99c7cc94cc4a9eb5fe09",
+      "seeds/raw_events.csv": "7f1fdea00084d2f3369b4071e0b2e9cdb43699c3cdf9b1ad11e33ab3abb8f5f1"
+    },
+    "sourceHashConvention": "UTF-8, LF normalized, surrounding whitespace stripped (dbt)"
   },
-  "fixture": {
-    "visitors": "5",
-    "sessions": "6",
-    "engagement": "100.0%",
-    "projectRate": "83.3%",
-    "conversion": "83.3%",
-    "changes": {
-      "visitors": "fixture",
-      "engagement": "fixture",
-      "projectRate": "fixture",
-      "conversion": "fixture"
-    },
-    "funnel": {
-      "landing": [
-        6,
-        "100.0%"
+  "windows": {
+    "30": {
+      "start": "2026-09-24",
+      "end": "2026-10-23",
+      "facts": {
+        "sessions": 206,
+        "users": 117,
+        "engagedSessions": 135,
+        "projectSessions": 150,
+        "intentSessions": 58,
+        "resumeSessions": 44,
+        "contactSessions": 14,
+        "engagedSeconds": 15649
+      },
+      "funnel": {
+        "sessions": 206,
+        "landing": 206,
+        "project": 150,
+        "caseStudy": 79,
+        "intent": 36
+      },
+      "projects": [
+        {
+          "project_id": "bc-finance",
+          "sessions": 44,
+          "deepSessions": 27,
+          "actionSessions": 13,
+          "seconds": 2392
+        },
+        {
+          "project_id": "wildfire",
+          "sessions": 39,
+          "deepSessions": 24,
+          "actionSessions": 19,
+          "seconds": 1976
+        },
+        {
+          "project_id": "growthops",
+          "sessions": 37,
+          "deepSessions": 24,
+          "actionSessions": 13,
+          "seconds": 1890
+        },
+        {
+          "project_id": "control-tower",
+          "sessions": 30,
+          "deepSessions": 13,
+          "actionSessions": 13,
+          "seconds": 1404
+        }
       ],
-      "project": [
-        5,
-        "83.3%"
+      "sources": [
+        {
+          "source": "linkedin",
+          "sessions": 56,
+          "intentSessions": 20
+        },
+        {
+          "source": "(direct)",
+          "sessions": 54,
+          "intentSessions": 15
+        },
+        {
+          "source": "github",
+          "sessions": 52,
+          "intentSessions": 12
+        },
+        {
+          "source": "google",
+          "sessions": 44,
+          "intentSessions": 11
+        }
       ],
-      "caseStudy": [
-        1,
-        "16.7%"
-      ],
-      "resume": [
-        3,
-        "50.0%"
-      ],
-      "contact": [
-        1,
-        "16.7%"
+      "daily": [
+        {
+          "day": "2026-09-24",
+          "sessions": 11,
+          "users": 11,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-25",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-09-26",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-27",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-28",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-29",
+          "sessions": 2,
+          "users": 2,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-30",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-10-01",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-10-02",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-10-03",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-04",
+          "sessions": 17,
+          "users": 17,
+          "intentSessions": 7
+        },
+        {
+          "day": "2026-10-05",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-06",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-10-07",
+          "sessions": 2,
+          "users": 2,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-10-08",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-09",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-10-10",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-10-11",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-10-12",
+          "sessions": 11,
+          "users": 11,
+          "intentSessions": 4
+        },
+        {
+          "day": "2026-10-13",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-10-14",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-15",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-10-16",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-17",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-10-18",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-19",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 4
+        },
+        {
+          "day": "2026-10-20",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 5
+        },
+        {
+          "day": "2026-10-21",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-22",
+          "sessions": 11,
+          "users": 11,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-10-23",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 0
+        }
       ]
     },
-    "projects": [
-      [
-        "Retail Analytics Platform",
-        "BI & metric governance",
-        2,
-        "50.0%",
-        "100.0%"
+    "60": {
+      "start": "2026-08-25",
+      "end": "2026-10-23",
+      "facts": {
+        "sessions": 422,
+        "users": 174,
+        "engagedSessions": 281,
+        "projectSessions": 316,
+        "intentSessions": 120,
+        "resumeSessions": 86,
+        "contactSessions": 34,
+        "engagedSeconds": 32584
+      },
+      "funnel": {
+        "sessions": 422,
+        "landing": 422,
+        "project": 316,
+        "caseStudy": 170,
+        "intent": 69
+      },
+      "projects": [
+        {
+          "project_id": "wildfire",
+          "sessions": 88,
+          "deepSessions": 53,
+          "actionSessions": 34,
+          "seconds": 4417
+        },
+        {
+          "project_id": "bc-finance",
+          "sessions": 81,
+          "deepSessions": 47,
+          "actionSessions": 31,
+          "seconds": 4036
+        },
+        {
+          "project_id": "growthops",
+          "sessions": 81,
+          "deepSessions": 48,
+          "actionSessions": 30,
+          "seconds": 4064
+        },
+        {
+          "project_id": "control-tower",
+          "sessions": 66,
+          "deepSessions": 34,
+          "actionSessions": 25,
+          "seconds": 3115
+        }
       ],
-      [
-        "Customer Intelligence",
-        "Product analytics",
-        1,
-        "100.0%",
-        "100.0%"
+      "sources": [
+        {
+          "source": "linkedin",
+          "sessions": 121,
+          "intentSessions": 38
+        },
+        {
+          "source": "google",
+          "sessions": 110,
+          "intentSessions": 35
+        },
+        {
+          "source": "(direct)",
+          "sessions": 97,
+          "intentSessions": 24
+        },
+        {
+          "source": "github",
+          "sessions": 94,
+          "intentSessions": 23
+        }
       ],
-      [
-        "Mobility Operations",
-        "Operations analytics",
-        1,
-        "100.0%",
-        "0.0%"
-      ],
-      [
-        "Canada Wildfire Risk",
-        "ML & geospatial",
-        1,
-        "100.0%",
-        "100.0%"
+      "daily": [
+        {
+          "day": "2026-08-25",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-08-26",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-08-27",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-08-28",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-08-29",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-08-30",
+          "sessions": 10,
+          "users": 10,
+          "intentSessions": 5
+        },
+        {
+          "day": "2026-08-31",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-01",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-02",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-03",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-04",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-05",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-06",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-07",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-08",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-09",
+          "sessions": 10,
+          "users": 10,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-09-10",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 6
+        },
+        {
+          "day": "2026-09-11",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-12",
+          "sessions": 10,
+          "users": 10,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-13",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-14",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-15",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-16",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-17",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-18",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-09-19",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-20",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-21",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-22",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-23",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-24",
+          "sessions": 11,
+          "users": 11,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-25",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-09-26",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-27",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-28",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-29",
+          "sessions": 2,
+          "users": 2,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-30",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-10-01",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-10-02",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-10-03",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-04",
+          "sessions": 17,
+          "users": 17,
+          "intentSessions": 7
+        },
+        {
+          "day": "2026-10-05",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-06",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-10-07",
+          "sessions": 2,
+          "users": 2,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-10-08",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-09",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-10-10",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-10-11",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-10-12",
+          "sessions": 11,
+          "users": 11,
+          "intentSessions": 4
+        },
+        {
+          "day": "2026-10-13",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-10-14",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-15",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-10-16",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-17",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-10-18",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-19",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 4
+        },
+        {
+          "day": "2026-10-20",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 5
+        },
+        {
+          "day": "2026-10-21",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-22",
+          "sessions": 11,
+          "users": 11,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-10-23",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 0
+        }
       ]
-    ],
-    "sources": [
-      [
-        "google",
-        3,
-        "50.0%"
-      ],
-      [
-        "(direct)",
-        1,
-        "16.7%"
-      ],
-      [
-        "github",
-        1,
-        "16.7%"
-      ],
-      [
-        "linkedin",
-        1,
-        "16.7%"
-      ]
-    ],
-    "facts": {
-      "pageviews": 6,
-      "engagedSeconds": 511,
-      "resumeSessions": 3,
-      "contactSessions": 1
     },
-    "daily": [
-      {
-        "date": "2026-09-20",
-        "sessions": 2,
-        "users": 2,
-        "engagedSessions": 2,
-        "projectSessions": 2,
-        "highIntentSessions": 2
+    "90": {
+      "start": "2026-07-26",
+      "end": "2026-10-23",
+      "facts": {
+        "sessions": 568,
+        "users": 183,
+        "engagedSessions": 387,
+        "projectSessions": 436,
+        "intentSessions": 162,
+        "resumeSessions": 114,
+        "contactSessions": 48,
+        "engagedSeconds": 44860
       },
-      {
-        "date": "2026-09-21",
-        "sessions": 2,
-        "users": 2,
-        "engagedSessions": 2,
-        "projectSessions": 2,
-        "highIntentSessions": 2
+      "funnel": {
+        "sessions": 568,
+        "landing": 568,
+        "project": 436,
+        "caseStudy": 233,
+        "intent": 88
       },
-      {
-        "date": "2026-09-22",
-        "sessions": 0,
-        "users": 0,
-        "engagedSessions": 0,
-        "projectSessions": 0,
-        "highIntentSessions": 0
-      },
-      {
-        "date": "2026-09-23",
-        "sessions": 2,
-        "users": 1,
-        "engagedSessions": 2,
-        "projectSessions": 1,
-        "highIntentSessions": 1
-      }
-    ]
-  }
+      "projects": [
+        {
+          "project_id": "bc-finance",
+          "sessions": 116,
+          "deepSessions": 67,
+          "actionSessions": 44,
+          "seconds": 5751
+        },
+        {
+          "project_id": "growthops",
+          "sessions": 113,
+          "deepSessions": 70,
+          "actionSessions": 41,
+          "seconds": 5790
+        },
+        {
+          "project_id": "wildfire",
+          "sessions": 113,
+          "deepSessions": 68,
+          "actionSessions": 43,
+          "seconds": 5758
+        },
+        {
+          "project_id": "control-tower",
+          "sessions": 94,
+          "deepSessions": 49,
+          "actionSessions": 33,
+          "seconds": 4587
+        }
+      ],
+      "sources": [
+        {
+          "source": "linkedin",
+          "sessions": 155,
+          "intentSessions": 44
+        },
+        {
+          "source": "google",
+          "sessions": 148,
+          "intentSessions": 46
+        },
+        {
+          "source": "(direct)",
+          "sessions": 135,
+          "intentSessions": 42
+        },
+        {
+          "source": "github",
+          "sessions": 130,
+          "intentSessions": 30
+        }
+      ],
+      "daily": [
+        {
+          "day": "2026-07-26",
+          "sessions": 3,
+          "users": 3,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-07-27",
+          "sessions": 0,
+          "users": 0,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-07-28",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-07-29",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-07-30",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-07-31",
+          "sessions": 1,
+          "users": 1,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-08-01",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 5
+        },
+        {
+          "day": "2026-08-02",
+          "sessions": 2,
+          "users": 2,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-08-03",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-08-04",
+          "sessions": 1,
+          "users": 1,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-08-05",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 4
+        },
+        {
+          "day": "2026-08-06",
+          "sessions": 1,
+          "users": 1,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-08-07",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-08-08",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-08-09",
+          "sessions": 3,
+          "users": 3,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-08-10",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-08-11",
+          "sessions": 1,
+          "users": 1,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-08-12",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-08-13",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-08-14",
+          "sessions": 11,
+          "users": 11,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-08-15",
+          "sessions": 3,
+          "users": 3,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-08-16",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 4
+        },
+        {
+          "day": "2026-08-17",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-08-18",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-08-19",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-08-20",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-08-21",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-08-22",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-08-23",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-08-24",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-08-25",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-08-26",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-08-27",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-08-28",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-08-29",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-08-30",
+          "sessions": 10,
+          "users": 10,
+          "intentSessions": 5
+        },
+        {
+          "day": "2026-08-31",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-01",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-02",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-03",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-04",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-05",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-06",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-07",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-08",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-09",
+          "sessions": 10,
+          "users": 10,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-09-10",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 6
+        },
+        {
+          "day": "2026-09-11",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-12",
+          "sessions": 10,
+          "users": 10,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-13",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-14",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-15",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-16",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-17",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-18",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-09-19",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-20",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-21",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-22",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-23",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-24",
+          "sessions": 11,
+          "users": 11,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-25",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-09-26",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-27",
+          "sessions": 8,
+          "users": 8,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-09-28",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-09-29",
+          "sessions": 2,
+          "users": 2,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-09-30",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-10-01",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-10-02",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-10-03",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-04",
+          "sessions": 17,
+          "users": 17,
+          "intentSessions": 7
+        },
+        {
+          "day": "2026-10-05",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-06",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-10-07",
+          "sessions": 2,
+          "users": 2,
+          "intentSessions": 0
+        },
+        {
+          "day": "2026-10-08",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-09",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-10-10",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-10-11",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-10-12",
+          "sessions": 11,
+          "users": 11,
+          "intentSessions": 4
+        },
+        {
+          "day": "2026-10-13",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-10-14",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-15",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-10-16",
+          "sessions": 5,
+          "users": 5,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-17",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 3
+        },
+        {
+          "day": "2026-10-18",
+          "sessions": 7,
+          "users": 7,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-19",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 4
+        },
+        {
+          "day": "2026-10-20",
+          "sessions": 9,
+          "users": 9,
+          "intentSessions": 5
+        },
+        {
+          "day": "2026-10-21",
+          "sessions": 4,
+          "users": 4,
+          "intentSessions": 1
+        },
+        {
+          "day": "2026-10-22",
+          "sessions": 11,
+          "users": 11,
+          "intentSessions": 2
+        },
+        {
+          "day": "2026-10-23",
+          "sessions": 6,
+          "users": 6,
+          "intentSessions": 0
+        }
+      ]
+    }
+  },
+  "cohorts": [
+    {
+      "cohort": "2026-07-20",
+      "cohort_users": 3,
+      "week_number": 0,
+      "is_mature": true,
+      "retained_users": 3,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-07-20",
+      "cohort_users": 3,
+      "week_number": 1,
+      "is_mature": true,
+      "retained_users": 3,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-07-20",
+      "cohort_users": 3,
+      "week_number": 2,
+      "is_mature": true,
+      "retained_users": 0,
+      "retention_rate": 0.0
+    },
+    {
+      "cohort": "2026-07-20",
+      "cohort_users": 3,
+      "week_number": 3,
+      "is_mature": true,
+      "retained_users": 0,
+      "retention_rate": 0.0
+    },
+    {
+      "cohort": "2026-07-20",
+      "cohort_users": 3,
+      "week_number": 4,
+      "is_mature": true,
+      "retained_users": 3,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-07-27",
+      "cohort_users": 15,
+      "week_number": 0,
+      "is_mature": true,
+      "retained_users": 15,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-07-27",
+      "cohort_users": 15,
+      "week_number": 1,
+      "is_mature": true,
+      "retained_users": 7,
+      "retention_rate": 0.4666666666666667
+    },
+    {
+      "cohort": "2026-07-27",
+      "cohort_users": 15,
+      "week_number": 2,
+      "is_mature": true,
+      "retained_users": 8,
+      "retention_rate": 0.5333333333333333
+    },
+    {
+      "cohort": "2026-07-27",
+      "cohort_users": 15,
+      "week_number": 3,
+      "is_mature": true,
+      "retained_users": 7,
+      "retention_rate": 0.4666666666666667
+    },
+    {
+      "cohort": "2026-07-27",
+      "cohort_users": 15,
+      "week_number": 4,
+      "is_mature": true,
+      "retained_users": 10,
+      "retention_rate": 0.6666666666666666
+    },
+    {
+      "cohort": "2026-08-03",
+      "cohort_users": 14,
+      "week_number": 0,
+      "is_mature": true,
+      "retained_users": 14,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-08-03",
+      "cohort_users": 14,
+      "week_number": 1,
+      "is_mature": true,
+      "retained_users": 7,
+      "retention_rate": 0.5
+    },
+    {
+      "cohort": "2026-08-03",
+      "cohort_users": 14,
+      "week_number": 2,
+      "is_mature": true,
+      "retained_users": 8,
+      "retention_rate": 0.5714285714285714
+    },
+    {
+      "cohort": "2026-08-03",
+      "cohort_users": 14,
+      "week_number": 3,
+      "is_mature": true,
+      "retained_users": 7,
+      "retention_rate": 0.5
+    },
+    {
+      "cohort": "2026-08-03",
+      "cohort_users": 14,
+      "week_number": 4,
+      "is_mature": true,
+      "retained_users": 8,
+      "retention_rate": 0.5714285714285714
+    },
+    {
+      "cohort": "2026-08-10",
+      "cohort_users": 17,
+      "week_number": 0,
+      "is_mature": true,
+      "retained_users": 17,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-08-10",
+      "cohort_users": 17,
+      "week_number": 1,
+      "is_mature": true,
+      "retained_users": 12,
+      "retention_rate": 0.7058823529411765
+    },
+    {
+      "cohort": "2026-08-10",
+      "cohort_users": 17,
+      "week_number": 2,
+      "is_mature": true,
+      "retained_users": 7,
+      "retention_rate": 0.4117647058823529
+    },
+    {
+      "cohort": "2026-08-10",
+      "cohort_users": 17,
+      "week_number": 3,
+      "is_mature": true,
+      "retained_users": 8,
+      "retention_rate": 0.47058823529411764
+    },
+    {
+      "cohort": "2026-08-10",
+      "cohort_users": 17,
+      "week_number": 4,
+      "is_mature": true,
+      "retained_users": 8,
+      "retention_rate": 0.47058823529411764
+    },
+    {
+      "cohort": "2026-08-17",
+      "cohort_users": 13,
+      "week_number": 0,
+      "is_mature": true,
+      "retained_users": 13,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-08-17",
+      "cohort_users": 13,
+      "week_number": 1,
+      "is_mature": true,
+      "retained_users": 8,
+      "retention_rate": 0.6153846153846154
+    },
+    {
+      "cohort": "2026-08-17",
+      "cohort_users": 13,
+      "week_number": 2,
+      "is_mature": true,
+      "retained_users": 8,
+      "retention_rate": 0.6153846153846154
+    },
+    {
+      "cohort": "2026-08-17",
+      "cohort_users": 13,
+      "week_number": 3,
+      "is_mature": true,
+      "retained_users": 4,
+      "retention_rate": 0.3076923076923077
+    },
+    {
+      "cohort": "2026-08-17",
+      "cohort_users": 13,
+      "week_number": 4,
+      "is_mature": true,
+      "retained_users": 5,
+      "retention_rate": 0.38461538461538464
+    },
+    {
+      "cohort": "2026-08-24",
+      "cohort_users": 10,
+      "week_number": 0,
+      "is_mature": true,
+      "retained_users": 10,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-08-24",
+      "cohort_users": 10,
+      "week_number": 1,
+      "is_mature": true,
+      "retained_users": 4,
+      "retention_rate": 0.4
+    },
+    {
+      "cohort": "2026-08-24",
+      "cohort_users": 10,
+      "week_number": 2,
+      "is_mature": true,
+      "retained_users": 5,
+      "retention_rate": 0.5
+    },
+    {
+      "cohort": "2026-08-24",
+      "cohort_users": 10,
+      "week_number": 3,
+      "is_mature": true,
+      "retained_users": 5,
+      "retention_rate": 0.5
+    },
+    {
+      "cohort": "2026-08-24",
+      "cohort_users": 10,
+      "week_number": 4,
+      "is_mature": true,
+      "retained_users": 5,
+      "retention_rate": 0.5
+    },
+    {
+      "cohort": "2026-08-31",
+      "cohort_users": 13,
+      "week_number": 0,
+      "is_mature": true,
+      "retained_users": 13,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-08-31",
+      "cohort_users": 13,
+      "week_number": 1,
+      "is_mature": true,
+      "retained_users": 9,
+      "retention_rate": 0.6923076923076923
+    },
+    {
+      "cohort": "2026-08-31",
+      "cohort_users": 13,
+      "week_number": 2,
+      "is_mature": true,
+      "retained_users": 2,
+      "retention_rate": 0.15384615384615385
+    },
+    {
+      "cohort": "2026-08-31",
+      "cohort_users": 13,
+      "week_number": 3,
+      "is_mature": true,
+      "retained_users": 7,
+      "retention_rate": 0.5384615384615384
+    },
+    {
+      "cohort": "2026-08-31",
+      "cohort_users": 13,
+      "week_number": 4,
+      "is_mature": true,
+      "retained_users": 7,
+      "retention_rate": 0.5384615384615384
+    },
+    {
+      "cohort": "2026-09-07",
+      "cohort_users": 20,
+      "week_number": 0,
+      "is_mature": true,
+      "retained_users": 20,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-09-07",
+      "cohort_users": 20,
+      "week_number": 1,
+      "is_mature": true,
+      "retained_users": 7,
+      "retention_rate": 0.35
+    },
+    {
+      "cohort": "2026-09-07",
+      "cohort_users": 20,
+      "week_number": 2,
+      "is_mature": true,
+      "retained_users": 7,
+      "retention_rate": 0.35
+    },
+    {
+      "cohort": "2026-09-07",
+      "cohort_users": 20,
+      "week_number": 3,
+      "is_mature": true,
+      "retained_users": 6,
+      "retention_rate": 0.3
+    },
+    {
+      "cohort": "2026-09-07",
+      "cohort_users": 20,
+      "week_number": 4,
+      "is_mature": true,
+      "retained_users": 5,
+      "retention_rate": 0.25
+    },
+    {
+      "cohort": "2026-09-14",
+      "cohort_users": 16,
+      "week_number": 0,
+      "is_mature": true,
+      "retained_users": 16,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-09-14",
+      "cohort_users": 16,
+      "week_number": 1,
+      "is_mature": true,
+      "retained_users": 9,
+      "retention_rate": 0.5625
+    },
+    {
+      "cohort": "2026-09-14",
+      "cohort_users": 16,
+      "week_number": 2,
+      "is_mature": true,
+      "retained_users": 8,
+      "retention_rate": 0.5
+    },
+    {
+      "cohort": "2026-09-14",
+      "cohort_users": 16,
+      "week_number": 3,
+      "is_mature": true,
+      "retained_users": 2,
+      "retention_rate": 0.125
+    },
+    {
+      "cohort": "2026-09-14",
+      "cohort_users": 16,
+      "week_number": 4,
+      "is_mature": true,
+      "retained_users": 3,
+      "retention_rate": 0.1875
+    },
+    {
+      "cohort": "2026-09-21",
+      "cohort_users": 14,
+      "week_number": 0,
+      "is_mature": true,
+      "retained_users": 14,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-09-21",
+      "cohort_users": 14,
+      "week_number": 1,
+      "is_mature": true,
+      "retained_users": 2,
+      "retention_rate": 0.14285714285714285
+    },
+    {
+      "cohort": "2026-09-21",
+      "cohort_users": 14,
+      "week_number": 2,
+      "is_mature": true,
+      "retained_users": 4,
+      "retention_rate": 0.2857142857142857
+    },
+    {
+      "cohort": "2026-09-21",
+      "cohort_users": 14,
+      "week_number": 3,
+      "is_mature": true,
+      "retained_users": 8,
+      "retention_rate": 0.5714285714285714
+    },
+    {
+      "cohort": "2026-09-21",
+      "cohort_users": 14,
+      "week_number": 4,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-09-28",
+      "cohort_users": 19,
+      "week_number": 0,
+      "is_mature": true,
+      "retained_users": 19,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-09-28",
+      "cohort_users": 19,
+      "week_number": 1,
+      "is_mature": true,
+      "retained_users": 11,
+      "retention_rate": 0.5789473684210527
+    },
+    {
+      "cohort": "2026-09-28",
+      "cohort_users": 19,
+      "week_number": 2,
+      "is_mature": true,
+      "retained_users": 9,
+      "retention_rate": 0.47368421052631576
+    },
+    {
+      "cohort": "2026-09-28",
+      "cohort_users": 19,
+      "week_number": 3,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-09-28",
+      "cohort_users": 19,
+      "week_number": 4,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-10-05",
+      "cohort_users": 8,
+      "week_number": 0,
+      "is_mature": true,
+      "retained_users": 8,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-10-05",
+      "cohort_users": 8,
+      "week_number": 1,
+      "is_mature": true,
+      "retained_users": 5,
+      "retention_rate": 0.625
+    },
+    {
+      "cohort": "2026-10-05",
+      "cohort_users": 8,
+      "week_number": 2,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-10-05",
+      "cohort_users": 8,
+      "week_number": 3,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-10-05",
+      "cohort_users": 8,
+      "week_number": 4,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-10-12",
+      "cohort_users": 11,
+      "week_number": 0,
+      "is_mature": true,
+      "retained_users": 11,
+      "retention_rate": 1.0
+    },
+    {
+      "cohort": "2026-10-12",
+      "cohort_users": 11,
+      "week_number": 1,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-10-12",
+      "cohort_users": 11,
+      "week_number": 2,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-10-12",
+      "cohort_users": 11,
+      "week_number": 3,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-10-12",
+      "cohort_users": 11,
+      "week_number": 4,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-10-19",
+      "cohort_users": 10,
+      "week_number": 0,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-10-19",
+      "cohort_users": 10,
+      "week_number": 1,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-10-19",
+      "cohort_users": 10,
+      "week_number": 2,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-10-19",
+      "cohort_users": 10,
+      "week_number": 3,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    },
+    {
+      "cohort": "2026-10-19",
+      "cohort_users": 10,
+      "week_number": 4,
+      "is_mature": false,
+      "retained_users": null,
+      "retention_rate": null
+    }
+  ],
+  "quality": [
+    {
+      "disposition": "bot",
+      "rows": 1
+    },
+    {
+      "disposition": "consent_denied",
+      "rows": 1
+    },
+    {
+      "disposition": "duplicate",
+      "rows": 12
+    },
+    {
+      "disposition": "eligible",
+      "rows": 1441
+    },
+    {
+      "disposition": "internal",
+      "rows": 1
+    },
+    {
+      "disposition": "invalid_contract",
+      "rows": 3
+    },
+    {
+      "disposition": "test_marker",
+      "rows": 1
+    }
+  ]
 }

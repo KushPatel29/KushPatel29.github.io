@@ -1,19 +1,15 @@
-# Privacy design
+# Privacy design and threat model
 
-## Principles
+The public evidence workbench fetches only committed synthetic aggregates. It sends no analytics events, requests no identity consent and stores no visitor identifier. The homepage's live collector is separate: cookie-free GoatCounter page/event counts, static area IDs, sampled attention and coarse countries. DNT/GPC, internal automation and owner opt-outs suppress it. No form content, keystrokes, raw query strings, raw referrer paths or precise location are collected by that code.
 
-- No analytics provider activates before consent where consent is legally required.
-- No direct identifiers or free-form form contents are sent to analytics.
-- Query strings are stripped or allowlisted before page paths are recorded.
-- Live statistics stay private in GoatCounter and the authenticated owner's browser. Neither raw events nor real aggregates are published in the repository.
-- No session replay is enabled.
-- Internal, bot, synthetic, and monitoring traffic remains traceable but ineligible.
-- If a provider is activated later, its deletion and retention settings must be configured before collection begins.
+| Threat | Implemented control | Residual boundary |
+|---|---|---|
+| API key exposed in source or URLs | Owner enters an existing read-only site-scoped key; Authorization header directly to HTTPS provider | Key is readable in the running owner browser; no claim of secret isolation from browser extensions |
+| Persisted credential stolen by same-origin script | Memory-only default, explicit Remember choice, disclosure, Disconnect clearing, self-only dashboard scripts and restricted CSP connections | localStorage is not encrypted secret storage; use a trusted device and revoke compromised keys |
+| Real traffic disclosed publicly | No provider credentials/data committed; separate source paths; synthetic JSON labelled and checked | Owner exports are private local files that the owner must handle appropriately |
+| Synthetic values shown as live | Owner view never fetches fixture JSON; failures stay errors/stale states | Tests validate this boundary, not all possible browser compromises |
+| Misleading inferred identity or behavior | Visits are approximate; countries coarse; no person-level joining, causal conversion claims or historic dwell reconstruction | VPNs, blocking, deduplication and inactivity sampling affect coverage |
+| Unsafe returned labels | Browser rendering uses textContent rather than interpolated provider HTML | CSP and response checks complement, rather than replace, safe rendering |
+| Overcollection via optional reference adapter | Not loaded by either dashboard; consent and property allowlist guard the reference dispatcher | Activating a future provider requires its own privacy and measurement review |
 
-## Public and private boundaries
-
-The public dbt case study is synthetic, so its small fictional sample is displayed with that explicit disclosure. The live dashboard requires the owner's read-only key and shows no real values before connection. Geography is never shown below country level. There is no public live-data export. A deliberate owner-initiated summary download stays on the owner's machine.
-
-## Demo boundary
-
-`dist/case-study.html` reads `dist/data/dashboard.json`, generated from the committed 20-event seed after dbt passes. Its consent demo has no configured GA4/PostHog provider, so those demo events do not leave the browser. The default `dist/index.html` instead reads the private GoatCounter API, as documented in [the live measurement contract](live-analytics.md). No fixture values are used as live fallbacks.
+No jurisdictional compliance certification, legal determination or anonymization guarantee is asserted. Retention is controlled by the native provider/account; this static project cannot enforce provider deletion or retention. Owner-browser storage and a separate production identity boundary remain explicit architectural tradeoffs.

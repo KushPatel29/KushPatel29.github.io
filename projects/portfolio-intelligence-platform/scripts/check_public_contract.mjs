@@ -1,46 +1,66 @@
 import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const html = fs.readFileSync(path.join(root, "dist", "case-study.html"), "utf8");
-const app = fs.readFileSync(path.join(root, "dist", "app.js"), "utf8");
-const data = JSON.parse(fs.readFileSync(path.join(root, "dist", "data", "dashboard.json"), "utf8"));
-const errors = [];
-const requireText = (source, text, label) => { if (!source.includes(text)) errors.push(`${label}: missing ${text}`); };
-
-for (const token of ["1,284", "58.1%", "12.3%", "Pipeline healthy", "kush007.chatgpt.site"]) {
-  if (html.includes(token) || app.includes(token)) errors.push(`unsupported public token remains: ${token}`);
+const root = new URL("../", import.meta.url),
+  data = JSON.parse(
+    fs.readFileSync(new URL("dist/data/dashboard.json", root), "utf8"),
+  );
+const html = fs.readFileSync(new URL("dist/case-study.html", root), "utf8");
+const fail = (m) => {
+  throw Error(m);
+};
+for(const file of ['dist/index.html','dist/case-study.html']){
+  const pageUrl=new URL(file,root),source=fs.readFileSync(pageUrl,'utf8');
+  for(const [,href] of source.matchAll(/(?:href|src)="([^"]+)"/g)){
+    if(/^(?:https?:|data:|#)/.test(href))continue;
+    if(!fs.existsSync(new URL(href,pageUrl)))fail(`Missing project link or asset: ${href}`);
+  }
 }
-requireText(html, "SYNTHETIC CASE STUDY", "disclosure");
-requireText(html, "not from real portfolio visitors", "disclosure");
-requireText(html, "../analytics/tracking.js", "instrumentation");
-requireText(html, "REFERENCE ADAPTERS · NOT ACTIVATED", "provider boundary");
-requireText(app, 'fetch("./data/dashboard.json")', "generated-data binding");
-
-if (data.metadata.eventRows !== 20) errors.push("fixture must contain exactly 20 raw events");
-if (data.metadata.eligibleEvents !== 17 || data.metadata.excludedEvents !== 3) errors.push("fixture eligibility counts drifted");
-const fixture = data.fixture;
-if (fixture?.visitors !== "5" || fixture?.sessions !== "6") errors.push("headline fixture metrics drifted");
-
-// Every trend the page draws must come from the fixture's daily rows: no
-// hard-coded sparkline paths, and the daily rows must add up to the window.
-for (const [, body] of html.matchAll(/<svg class="sparkline[^"]*"[^>]*>([\s\S]*?)<\/svg>/g)) {
-  if (body.trim()) errors.push("a sparkline carries hard-coded drawing instead of fixture data");
+for (const text of [
+  "SYNTHETIC CASE STUDY",
+  "not from real portfolio visitors",
+  "REFERENCE ADAPTERS · NOT ACTIVATED",
+])
+  if (!html.includes(text)) fail("Missing disclosure: " + text);
+if (
+  data.metadata.schemaVersion !== 2 ||
+  data.metadata.classification !== "synthetic_fixture" ||
+  data.metadata.windowDays !== 90 ||
+  data.metadata.dataTests !== 31
+)
+  fail("Unreviewed fixture contract");
+if (data.quality.reduce((s, x) => s + x.rows, 0) !== data.metadata.rawEvents)
+  fail("Delivered-event accounting does not reconcile");
+for (const [days, w] of Object.entries(data.windows)) {
+  if (
+    w.daily.length !== Number(days) ||
+    w.daily.reduce((s, x) => s + x.sessions, 0) !== w.facts.sessions
+  )
+    fail("Daily/window reconciliation failed");
+  const f = w.funnel;
+  if (
+    !(
+      w.facts.sessions >= f.landing &&
+      f.landing >= f.project &&
+      f.project >= f.caseStudy &&
+      f.caseStudy >= f.intent
+    )
+  )
+    fail("Invalid ordered funnel");
+  if (w.sources.reduce((s, x) => s + x.sessions, 0) !== w.facts.sessions)
+    fail("Attribution denominator mismatch");
+  for (const p of w.projects)
+    if (p.deepSessions > p.sessions || p.actionSessions > p.sessions)
+      fail("Inflated project rate");
 }
-requireText(app, "renderSparklines(data.daily", "sparkline binding");
-const daily = fixture?.daily || [];
-if (daily.length !== data.metadata.windowDays) errors.push(`daily rows (${daily.length}) do not cover the ${data.metadata.windowDays}-day window`);
-const total = key => daily.reduce((sum, day) => sum + day[key], 0);
-if (String(total("sessions")) !== fixture?.sessions) errors.push("daily sessions do not add up to the fixture total");
-
-// One fixture window means one set of numbers: a date-range control that
-// cannot change anything reads as broken or staged.
-if (/data-range=/.test(html)) errors.push("a date-range control is back, but the fixture has a single window");
-
-if (errors.length) {
-  console.error(`✗ public analytics contract has ${errors.length} error(s):`);
-  errors.forEach(error => console.error(`  - ${error}`));
-  process.exit(1);
-}
-console.log("✓ public analytics contract: dbt fixture, disclosures, provider boundary, generated-data binding and data-driven sparklines agree");
+if (
+  !data.cohorts.some((c) => !c.is_mature) ||
+  !data.cohorts.some((c) => c.is_mature && c.week_number === 4)
+)
+  fail("Fixture does not exercise mature and censored retention");
+for (const c of data.cohorts)
+  if (!c.is_mature && (c.retained_users !== null || c.retention_rate !== null))
+    fail("Immature cohort presented as observed");
+if (html.includes("../analytics/tracking.js"))
+  fail("Public fixture must not collect visitor identifiers");
+console.log(
+  "Public aggregate contract passed: accounting, denominators, ordered journey, cohort censoring and synthetic boundary.",
+);

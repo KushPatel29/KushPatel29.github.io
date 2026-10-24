@@ -1,0 +1,4 @@
+# Executed locally and in CI; avoid a silent warehouse/runtime upgrade.
+dbt-core==1.11.12
+dbt-duckdb==1.9.2
+duckdb==1.5.4

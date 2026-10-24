@@ -1,69 +1,336 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Private live portfolio analytics: real visits, section attention and approximate visitor countries. Connect your read-only GoatCounter account; the dbt demonstration stays separate.">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self' https://kushpatel.goatcounter.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'self'; form-action 'none'">
-  <meta name="referrer" content="no-referrer">
-  <meta name="theme-color" content="#0b1c2c">
-  <title>Live Portfolio Intelligence — Kush Patel</title>
-  <link rel="canonical" href="https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/">
-  <link rel="stylesheet" href="./live.css">
-</head>
-<body class="locked">
-  <a class="skip" href="#overview">Skip to analytics</a>
-  <header>
-    <a href="./">PORTFOLIO <b>INTELLIGENCE</b></a>
-    <nav aria-label="Primary navigation"><a href="#attention">Attention</a><a href="#locations">Locations</a><a href="#pages">Pages</a><a href="./case-study.html">dbt case study ↗</a></nav>
-  </header>
-  <main id="overview">
-    <span class="tag">PRIVATE OWNER VIEW · REAL TRAFFIC</span>
-    <p class="eyebrow">Kush Patel / portfolio analytics</p>
-    <h1>See what earns<br>your visitors’ attention.</h1>
-    <p class="lede">Real homepage visits, time spent on sections and projects, and approximate countries. Your live data stays private. The synthetic dbt demonstration has its own <a href="./case-study.html">case study</a>.</p>
-    <form id="connection-form" class="connect">
-      <h2>Connect your analytics</h2>
-      <p>Use a <strong>Read statistics</strong> API key for <strong>kushpatel.goatcounter.com</strong>. The key goes directly to GoatCounter over HTTPS. It is never committed to this site or sent to a proxy.</p>
-      <label for="api-key">Read-only API key</label>
-      <div class="connect-row"><input id="api-key" type="password" autocomplete="off" spellcheck="false" required placeholder="Paste your read-only key"><button type="submit">Connect live analytics</button><a class="button secondary" href="https://kushpatel.goatcounter.com/user/api" target="_blank" rel="noopener noreferrer">Manage key ↗</a></div>
-      <label class="remember"><input id="remember" type="checkbox">Remember this connection on this browser</label>
-      <small>Optional browser storage is readable by scripts on this portfolio origin. Use it only on your own device. “Disconnect” removes the saved key. Without it, the key lasts until reload.</small>
-    </form>
-    <div class="toolbar">
-      <label for="range">Period</label><select id="range"><option value="1">Today (UTC)</option><option value="7">Last 7 days</option><option value="30" selected>Last 30 days</option><option value="90">Last 90 days</option></select>
-      <button id="refresh" type="button">Refresh</button><button id="disconnect" type="button" class="secondary" hidden>Disconnect</button><button id="export" type="button" class="secondary">Export summary</button>
-      <small id="updated">Not connected</small>
-    </div>
-    <p id="live-status" role="status" aria-live="polite">Connect to display real values. No demo numbers are shown here.</p>
-    <p id="live-window">Date range uses UTC.</p>
-    <div class="metrics" aria-label="Live headline metrics">
-      <article class="metric"><h2>Homepage visits</h2><div class="value" id="visits">—</div><small>GoatCounter’s estimated visits; repeat loads within its session window are deduplicated.</small></article>
-      <article class="metric"><h2>Measured attention</h2><div class="value" id="attention-total">—</div><small>Active, visible time in 15-second blocks. Starts with this tracking release.</small></article>
-      <article class="metric"><h2>Most-read area</h2><div class="value" id="most-read">—</div><small>The section or project with the most measured attention.</small></article>
-      <article class="metric"><h2>Résumé interest</h2><div class="value" id="resume-actions">—</div><small>Deduplicated résumé-link interactions, not verified completed downloads.</small></article>
-    </div>
-    <div class="grid">
-      <div>
-        <section class="panel" id="attention" aria-labelledby="attention-title"><p class="eyebrow">Content engagement</p><h2 id="attention-title">Where visitors spend time</h2><p>One section gets credit at a time. Background tabs, unfocused windows and inactivity over 60 seconds don’t contribute; a playing video remains active.</p><ul class="rows" id="attention-rows"><li class="empty">Connect to see section attention.</li></ul></section>
-        <section class="panel" aria-labelledby="trend-title"><p class="eyebrow">Traffic over time</p><h2 id="trend-title">Homepage visits by day</h2><div id="visit-chart" class="chart" role="img" aria-label="Connect to see daily visits"></div><div class="chart-label"><span id="daily-start">—</span><span id="daily-end">—</span></div></section>
-        <section class="panel" id="pages" aria-labelledby="pages-title"><p class="eyebrow">Pages recorded by GoatCounter</p><h2 id="pages-title">Page visits</h2><p>Only pages with instrumentation appear. Events and attention heartbeats are excluded.</p><ul class="rows" id="page-rows"><li class="empty">Connect to see recorded pages.</li></ul></section>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Private live portfolio analytics: real visits, section attention and approximate visitor countries. Connect your read-only GoatCounter account; the dbt demonstration stays separate."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; connect-src 'self' https://kushpatel.goatcounter.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'self'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#0b1c2c" />
+    <title>Live Portfolio Intelligence — Kush Patel</title>
+    <link
+      rel="canonical"
+      href="https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/"
+    />
+    <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+    <link rel="preload" href="./assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./live.css" />
+  </head>
+  <body class="locked">
+    <a class="skip" href="#overview">Skip to analytics</a>
+    <header>
+      <a href="./">PORTFOLIO <b>INTELLIGENCE</b></a>
+      <nav aria-label="Primary navigation">
+        <a href="#attention">Attention</a><a href="#locations">Locations</a
+        ><a href="#pages">Pages</a
+        ><a href="./case-study.html">dbt case study ↗</a>
+      </nav>
+    </header>
+    <main id="overview">
+      <span class="tag">PRIVATE OWNER VIEW · REAL TRAFFIC</span>
+      <p class="eyebrow">Kush Patel / portfolio analytics</p>
+      <h1>See the visits.<br />Find the attention.</h1>
+      <p class="lede">
+        Real homepage visits, time spent on sections and projects, and
+        approximate countries. Your live data stays private. The synthetic dbt
+        demonstration has its own <a href="./case-study.html">case study</a>.
+      </p>
+      <form id="connection-form" class="connect">
+        <h2>Connect your analytics</h2>
+        <p>
+          Use a <strong>Read statistics</strong> API key for
+          <strong>kushpatel.goatcounter.com</strong>. The key goes directly to
+          GoatCounter over HTTPS. It is never committed to this site or sent to
+          a proxy.
+        </p>
+        <label for="api-key">Read-only API key</label>
+        <div class="connect-row">
+          <input
+            id="api-key"
+            type="password"
+            autocomplete="off"
+            spellcheck="false"
+            required
+            placeholder="Paste your read-only key"
+          /><button type="submit">Connect live analytics</button
+          ><a
+            class="button secondary"
+            href="https://kushpatel.goatcounter.com/user/api"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Manage key ↗</a
+          >
+        </div>
+        <label class="remember"
+          ><input id="remember" type="checkbox" />Remember this connection on
+          this browser</label
+        >
+        <small
+          >Optional browser storage is readable by scripts on this portfolio
+          origin. Use it only on your own device. “Disconnect” removes the saved
+          key. Without it, the key lasts until reload.</small
+        >
+      </form>
+      <div class="toolbar">
+        <label for="range">Period</label
+        ><select id="range">
+          <option value="1">Today (UTC)</option>
+          <option value="7">Last 7 days</option>
+          <option value="30" selected>Last 30 days</option>
+          <option value="90">Last 90 days</option>
+        </select>
+        <button id="refresh" type="button">Refresh</button
+        ><button id="disconnect" type="button" class="secondary" hidden>
+          Disconnect</button
+        ><button id="export" type="button" class="secondary" disabled>
+          Export summary</button
+        ><button id="export-csv" type="button" class="secondary" disabled>
+          Export daily CSV
+        </button>
+        <small id="updated">Not connected</small>
       </div>
-      <div>
-        <section class="panel" id="locations" aria-labelledby="locations-title"><p class="eyebrow">Approximate geography</p><h2 id="locations-title">Visitor countries</h2><p id="location-note">Country-level estimates for homepage visits. No GPS, exact addresses or visitor identity.</p><ul class="rows" id="country-rows"><li class="empty">Connect to see countries.</li></ul></section>
-        <section class="panel" aria-labelledby="projects-title"><p class="eyebrow">Project interest</p><h2 id="projects-title">Projects visitors open</h2><p>Deduplicated link interactions on homepage project cards. A click does not prove a deep read.</p><ul class="rows" id="project-rows-live"><li class="empty">Connect to see project interest.</li></ul></section>
-        <aside class="panel"><h2>Your full analytics account</h2><p>For referrers, devices and the native dashboard, open your existing private GoatCounter account.</p><a class="button secondary" href="https://kushpatel.goatcounter.com/" target="_blank" rel="noopener noreferrer">Open GoatCounter ↗</a></aside>
+      <p id="live-status" role="status" aria-live="polite">
+        Connect to display real values. No demo numbers are shown here.
+      </p>
+      <p id="live-window">Date range uses UTC.</p>
+      <p class="note">
+        Daily chart labels follow your GoatCounter account timezone. Countries
+        use provider day buckets; they are not individual locations.
+      </p>
+      <label class="remember"
+        ><input id="compare" type="checkbox" />Compare complete UTC days with
+        the preceding equal window</label
+      >
+      <section
+        class="notice"
+        id="comparison"
+        hidden
+        aria-labelledby="comparison-title"
+      >
+        <h2 id="comparison-title">Complete-day comparison</h2>
+        <p id="comparison-result"></p>
+        <p id="comparison-window" class="note"></p>
+        <p class="note">
+          Separate from the live headline window above. Today is excluded from
+          both comparison windows. A change describes traffic volume; it does
+          not establish an effect or statistical significance.
+        </p>
+      </section>
+      <div class="metrics" aria-label="Live headline metrics">
+        <article class="metric">
+          <h2>Homepage visits</h2>
+          <div class="value" id="visits">—</div>
+          <small
+            >GoatCounter’s estimated visits; repeat loads within its session
+            window are deduplicated.</small
+          >
+        </article>
+        <article class="metric">
+          <h2>Measured attention</h2>
+          <div class="value" id="attention-total">—</div>
+          <small
+            >Active, visible time in 15-second blocks. Starts with this tracking
+            release.</small
+          >
+        </article>
+        <article class="metric">
+          <h2>Most measured area</h2>
+          <div class="value" id="most-read">—</div>
+          <small
+            >The section or project with the most measured attention; this does
+            not prove reading.</small
+          >
+        </article>
+        <article class="metric">
+          <h2>Résumé interest</h2>
+          <div class="value" id="resume-actions">—</div>
+          <small
+            >Deduplicated résumé-link interactions, not verified completed
+            downloads.</small
+          >
+        </article>
       </div>
-    </div>
-    <section class="notice" aria-labelledby="measurement-title"><h2 id="measurement-title">What these numbers mean</h2><div class="definitions">
-      <div><h3>Visits are estimates of people</h3><p>GoatCounter deduplicates within an approximately eight-hour session window. These are not verified identities or lifetime unique people. Old visits may include your own previous reviews.</p></div>
-      <div><h3>Attention is sampled time</h3><p>Each event represents 15 active seconds. Up to 14 seconds per area and page load may go unrecorded. It estimates attention, not eye tracking; older visits have no section-time history.</p></div>
-      <div><h3>No silent demo fallback</h3><p>Access failures and failed refreshes show an error and the last successful update time. Real analytics never falls back to the fixture.</p></div>
-      <div><h3>Cookie-free and minimal</h3><p>Collection respects Do Not Track and Global Privacy Control. No form input, full query strings, keystrokes or precise location is collected. Owner review can use <code>?analytics=off</code> on the homepage.</p></div>
-    </div><details><summary>Definitions and implementation</summary><p><a href="../docs/live-analytics.md">Read the measurement and privacy contract</a> · <a href="https://www.goatcounter.com/help/sessions" target="_blank" rel="noopener noreferrer">GoatCounter visit definition</a></p></details></section>
-    <noscript><p class="notice">This private dashboard needs JavaScript to connect. You can still <a href="https://kushpatel.goatcounter.com/">open GoatCounter directly</a>.</p></noscript>
-  </main>
-  <footer>Kush Patel · <a href="../../../">Portfolio</a> · <a href="./case-study.html">Synthetic dbt case study</a> · Live traffic is visible only after connecting.</footer>
-  <script type="module" src="./live.js"></script>
-</body>
+      <div class="grid">
+        <div>
+          <section
+            class="panel"
+            id="attention"
+            aria-labelledby="attention-title"
+          >
+            <p class="eyebrow">Content engagement</p>
+            <h2 id="attention-title">Where visitors spend time</h2>
+            <p>
+              One section gets credit at a time. Background tabs, unfocused
+              windows and inactivity over 60 seconds don’t contribute; a playing
+              video remains active.
+            </p>
+            <ul class="rows" id="attention-rows">
+              <li class="empty">Connect to see section attention.</li>
+            </ul>
+          </section>
+          <section class="panel" aria-labelledby="trend-title">
+            <p class="eyebrow">Traffic over time</p>
+            <h2 id="trend-title">Homepage visits by day</h2>
+            <div
+              id="visit-chart"
+              class="chart"
+              role="img"
+              aria-label="Connect to see daily visits"
+            ></div>
+            <div class="chart-label">
+              <span id="daily-start">—</span><span id="daily-end">—</span>
+            </div>
+            <details>
+              <summary>View daily counts</summary>
+              <table>
+                <caption>
+                  Daily visits in the GoatCounter account timezone
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">Visits</th>
+                  </tr>
+                </thead>
+                <tbody id="live-daily-table"></tbody>
+              </table>
+            </details>
+          </section>
+          <section class="panel" id="pages" aria-labelledby="pages-title">
+            <p class="eyebrow">Pages recorded by GoatCounter</p>
+            <h2 id="pages-title">Page visits</h2>
+            <p>
+              Only pages with instrumentation appear. Events and attention
+              heartbeats are excluded.
+            </p>
+            <ul class="rows" id="page-rows">
+              <li class="empty">Connect to see recorded pages.</li>
+            </ul>
+          </section>
+        </div>
+        <div>
+          <section
+            class="panel"
+            id="locations"
+            aria-labelledby="locations-title"
+          >
+            <p class="eyebrow">Approximate geography</p>
+            <h2 id="locations-title">Visitor countries</h2>
+            <p id="location-note">
+              Country-level estimates for homepage visits. No GPS, exact
+              addresses or visitor identity.
+            </p>
+            <ul class="rows" id="country-rows">
+              <li class="empty">Connect to see countries.</li>
+            </ul>
+          </section>
+          <section class="panel" aria-labelledby="projects-title">
+            <p class="eyebrow">Project interest</p>
+            <h2 id="projects-title">Projects visitors open</h2>
+            <p>
+              Deduplicated link interactions on homepage project cards. A click
+              does not prove a deep read.
+            </p>
+            <ul class="rows" id="project-rows-live">
+              <li class="empty">Connect to see project interest.</li>
+            </ul>
+          </section>
+          <aside class="panel">
+            <h2>Your full analytics account</h2>
+            <p>
+              For referrers, devices and the native dashboard, open your
+              existing private GoatCounter account.
+            </p>
+            <a
+              class="button secondary"
+              href="https://kushpatel.goatcounter.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Open GoatCounter ↗</a
+            >
+          </aside>
+        </div>
+      </div>
+      <section class="notice" aria-labelledby="coverage-title">
+        <h2 id="coverage-title">Measurement coverage</h2>
+        <p id="coverage-status">Connect to inspect measurement coverage.</p>
+        <p id="quality-status" class="note">
+          No API response accepted for this window.
+        </p>
+      </section>
+      <section class="notice" aria-labelledby="measurement-title">
+        <h2 id="measurement-title">What these numbers mean</h2>
+        <div class="definitions">
+          <div>
+            <h3>Visits are estimates of people</h3>
+            <p>
+              GoatCounter deduplicates within an approximately eight-hour
+              session window. These are not verified identities or lifetime
+              unique people. Old visits may include your own previous reviews.
+            </p>
+          </div>
+          <div>
+            <h3>Attention is sampled time</h3>
+            <p>
+              Each event represents 15 active seconds. Up to 14 seconds per area
+              and page load may go unrecorded. It estimates attention, not eye
+              tracking; older visits have no section-time history.
+            </p>
+          </div>
+          <div>
+            <h3>No silent demo fallback</h3>
+            <p>
+              Access failures and failed refreshes show an error and the last
+              successful update time. Real analytics never falls back to the
+              fixture.
+            </p>
+          </div>
+          <div>
+            <h3>Cookie-free and minimal</h3>
+            <p>
+              Collection respects Do Not Track and Global Privacy Control. No
+              form input, full query strings, keystrokes or precise location is
+              collected. Owner review can use <code>?analytics=off</code> on the
+              homepage.
+            </p>
+          </div>
+        </div>
+        <details>
+          <summary>Definitions and implementation</summary>
+          <p>
+            <a href="../docs/live-analytics.md"
+              >Read the measurement and privacy contract</a
+            >
+            ·
+            <a
+              href="https://www.goatcounter.com/help/sessions"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GoatCounter visit definition</a
+            >
+          </p>
+        </details>
+      </section>
+      <noscript
+        ><p class="notice">
+          This private dashboard needs JavaScript to connect. You can still
+          <a href="https://kushpatel.goatcounter.com/"
+            >open GoatCounter directly</a
+          >.
+        </p></noscript
+      >
+    </main>
+    <footer>
+      Kush Patel · <a href="../../../">Portfolio</a> ·
+      <a href="./case-study.html">Synthetic dbt case study</a> · Live traffic is
+      visible only after connecting.
+    </footer>
+    <script type="module" src="./live.js"></script>
+  </body>
 </html>

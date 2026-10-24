@@ -34,3 +34,45 @@ models:
         tests: [not_null, unique]
       - name: sessions
         tests: [not_null]
+
+  - name: stg_event_audit
+    description: Delivered synthetic events, including duplicates and rejections.
+    columns:
+      - name: disposition
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [eligible,duplicate,invalid_contract,consent_denied,bot,internal,test_marker]
+      - name: data_origin
+        tests:
+          - accepted_values:
+              arguments:
+                values: [synthetic_fixture]
+  - name: fct_journeys
+    description: Ordered same-session landing, project, case study and high-intent journey.
+    columns:
+      - name: session_id
+        tests: [not_null,unique]
+  - name: mart_project_engagement
+    description: One row per session and project; downstream action is association, not attribution.
+    columns:
+      - name: project_id
+        tests: [not_null]
+      - name: seconds
+        tests: [not_null]
+  - name: mart_retention
+    description: First-observed weekly cohorts, censoring incomplete weeks.
+    columns:
+      - name: cohort
+        tests: [not_null]
+      - name: week_number
+        tests:
+          - accepted_values:
+              arguments:
+                values: [0,1,2,3,4]
+                quote: false
+      - name: cohort_users
+        tests: [not_null]
+      - name: is_mature
+        tests: [not_null]

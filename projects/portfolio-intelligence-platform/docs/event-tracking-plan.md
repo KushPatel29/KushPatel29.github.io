@@ -1,51 +1,25 @@
-# Event tracking plan
+# Event contracts and activation boundaries
 
-All event names use `snake_case`. Required properties are validated before dispatch. Event payloads must not contain names, email addresses, resume contents, free-form messages, IP addresses, or other direct identifiers.
+## Executed live collector
 
-| Event | Trigger | Required properties |
+`analytics/live-tracking.js` is loaded by the homepage. It uses cookie-free GoatCounter aggregate events:
+
+| Path | Meaning | Guardrail |
 |---|---|---|
-| `page_viewed` | Route becomes visible | `page_path`, `page_title` |
-| `project_impression` | Project card is at least 50% visible | `project_id`, `position` |
-| `project_viewed` | Project detail is opened | `project_id`, `project_category`, `entry_source` |
-| `project_demo_clicked` | Live demo CTA is selected | `project_id` |
-| `project_github_clicked` | Repository CTA is selected | `project_id` |
-| `case_study_viewed` | Case study opens | `project_id` |
-| `case_study_completed` | Reader reaches 90% | `project_id`, `engaged_seconds` |
-| `resume_viewed` | Resume preview opens | `source_page` |
-| `resume_downloaded` | Resume download starts | `source_page` |
-| `linkedin_clicked` | LinkedIn CTA is selected | `source_page` |
-| `contact_clicked` | Contact CTA is selected | `source_page`, `contact_method` |
-| `navigation_used` | Primary navigation is used | `destination`, `source_page` |
-| `scroll_depth_reached` | 25, 50, 75, or 100% threshold is crossed | `depth`, `page_path` |
-| `outbound_link_clicked` | External link is selected | `link_domain`, `link_context` |
-| `web_vital_recorded` | LCP, CLS, INP, FCP, or TTFB finalizes | `metric_name`, `metric_value`, `rating` |
-| `javascript_error_recorded` | Runtime error or unhandled rejection occurs | `error_type` |
-| `consent_updated` | Analytics consent changes to granted | `consent_state`, `consent_source` |
+| `/` page hit | Estimated homepage visit | Native visit deduplication; not an identified person |
+| `pi-time-15s:<registered-area>` | One complete 15-second active-attention block | One foreground area only; focused/visible, recent activity or playing video; static area IDs |
+| `pi-project-click:<registered-project>` | Project-card link interaction | Deduplicated native event; not a read or conversion |
+| `pi-action:resume` / `pi-action:contact` | Résumé/email-link interest | Does not establish completed download, message or application |
+| `qa:*` | Explicit integration test namespace | Excluded from live metrics; QA mode suppresses automatic real page hit |
 
-## Common context
+DNT/GPC, automation, owner opt-out and `?analytics=off` suppress collection. Referrers are reduced to origin; no visitor ID, free text, input content, precise location or raw query string is added.
 
-Every eligible event receives:
+## Synthetic warehouse contract v2
 
-- `event_id`: UUID generated once per event
-- `event_version`: contract version
-- `occurred_at`: UTC ISO-8601 timestamp
-- `anonymous_user_id`: first-party pseudonymous identifier
-- `session_id`: first-party session identifier
-- `page_path`: path only, with sensitive query parameters removed
-- `consent_state`: `granted` or `denied`
-- `is_internal`, `is_synthetic`: explicit downstream eligibility flags
+The deterministic CSV contains event ID, simulated user, event name, event/receipt timestamp, page/project, source/medium, bot/internal/test flags, event seconds, consent state, version and `data_origin=synthetic_fixture`.
 
-Error telemetry is deliberately coarse: it records an error category, never exception messages, stack traces, URLs with query strings, or form content. Web-vital values are behavioral performance measurements and contain no user-entered data.
+Seven analytical event names are accepted: page/project/case-study viewed, résumé viewed/downloaded, LinkedIn clicked and contact clicked. An ID and simulated user must exist; event time must parse; seconds must be non-negative; page paths start with `/` and contain no query or fragment; project events require a project ID. Contract version is exactly 2. Duplicates are ranked by earliest receipt timestamp with deterministic tie-breakers. Invalid contracts are retained in the audit, not session facts.
 
-## Quality controls
+## Unactivated reference code
 
-- Reject unregistered event names at dispatch time.
-- Deduplicate on `event_id` before sessionization.
-- Quarantine events whose contract version is unsupported.
-- Monitor missing IDs, consent state, attribution fields, and timestamps.
-- Apply bot, internal, synthetic, and automated-test exclusions only in governed models; preserve raw lineage.
-- Reprocess a rolling three-day window to capture late-arriving exports without double counting.
-
-## Ownership and change control
-
-Analytics Engineering owns the contract. Breaking changes require a version bump, updated model tests, and a migration note. New optional properties are backward-compatible.
+`analytics/tracking.js` and `analytics/web-vitals.js` are reference experiments; neither dashboard loads them. The dispatcher requires locally granted consent, respects DNT/GPC, and refuses unregistered properties or attempts to override its base context. It is not an executed GA4/PostHog integration. Its observer emits experimental raw observations and does not implement complete official CLS/INP algorithms. It cannot support real-user p75 claims. A future activation requires a separate event/schema, privacy, provider and measurement validation pass.

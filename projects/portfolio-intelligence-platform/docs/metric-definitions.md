@@ -1,86 +1,27 @@
-# Synthetic case-study metric catalog
+# Metric contracts
 
-This catalog defines the seeded dbt case study only. Real visits, attention and countries use the separate [live analytics definitions](live-analytics.md); live collection has no persistent visitor ID or reconstructed 30-minute sessions.
+## Public workbench: entirely synthetic
 
-Every published value has a definition, grain, owner, exclusion policy, and freshness expectation. Only acquisition, engagement, conversion, and fixture-health values are populated. Retention and experience values remain unavailable because the four-day seed has no cohort history or real-user monitoring data.
+Owner: portfolio analytics. Freshness: fixed, commit-bound fixture, 26 July–23 October 2026. This is not a live feed. `data_origin=synthetic_fixture` applies to every delivery. Row flags model hypothetical exclusion rules and do not make unflagged rows real traffic.
 
-## Eligibility and identity
-
-An eligible event has analytics consent granted and is not bot, internal, synthetic, or an automated test. An eligible session contains at least one eligible event. Anonymous visitors use a first-party pseudonymous identifier; sessions expire after 30 minutes of inactivity. Session conversions are deduplicated and rates are recomputed from base counts, never summed from daily percentages.
-
-## Acquisition
-
-| Metric | Definition | Grain / owner |
+| Measure | Grain and denominator | Important boundary |
 |---|---|---|
-| Users | Distinct eligible anonymous users | period / Analytics Engineering |
-| New users | Users whose first eligible event falls in the period | period / Growth Analytics |
-| Sessions | Distinct reconstructed eligible sessions | day / Analytics Engineering |
-| Sessions per user | Eligible sessions divided by users | period / Growth Analytics |
-| Channel share | Sessions attributed to a channel divided by sessions | channel-day / Growth Analytics |
-| Campaign conversion | Campaign sessions with a high-intent action divided by campaign sessions | campaign-day / Growth Analytics |
+| Eligible event | Canonical event ID, valid v2 contract, granted consent, no bot/internal/test marker | Duplicate deliveries and invalid contracts have explicit audit dispositions |
+| Session | User and sequential inactivity partition | Exact elapsed seconds >=1,800 start a new session; timestamps tie-break on event ID |
+| Window | Session-start date in the selected 30/60/90 days, UTC | All child events use the selected session population, including a session crossing midnight |
+| Eligible users | Distinct simulated users across selected sessions | Never sum daily distinct users into a period user count |
+| Acquisition / landing | First event's source, medium and page | First event in time, not lexicographic minimum or last direct touch |
+| Engagement rate | Sessions with >=60 event seconds, >=2 page views or a high-intent action / eligible sessions | A method demonstration, not an attention measurement of real visitors |
+| High intent | Résumé view/download, LinkedIn or contact action, once per session | An action is not a completed download, application, message or hire |
+| Ordered journey | Page -> project -> case study -> high intent, strictly increasing event positions, same session | Stage counts / all eligible sessions. Independent action totals are not substituted |
+| Project sessions | Distinct session-project pairs | Repeated views do not add denominator rows |
+| Deep session-project | Sum of project's view-event seconds >=45 / project sessions | Hypothetical event duration in synthetic data |
+| Later-action rate | Session-project pairs with a high-intent event after the first project view / project sessions | Association, not causal attribution or lift; one session may evaluate several projects |
+| Weekly retention | Active users in week N / fixed first-observed Monday cohort | Complete calendar weeks only; incomplete cells are NULL, not zero. W0 may start before the fixture boundary; these are first-observed cohorts, not known lifetime acquisition |
+| Event accounting | One mutually exclusive disposition per delivery | Raw = eligible + duplicate + invalid + consent denied + bot + internal + test marker |
 
-Attribution uses first touch for acquisition, session source for visit reporting, and last non-direct for conversion reporting. Direct traffic never overwrites a known campaign within the lookback window.
+Retention always uses the full 90-day fixture history, independently labelled beneath the window selector. Ratios are calculated from counts, never averaged from displayed percentages. A zero requires a complete observation interval; unavailable cells stay unavailable.
 
-## Engagement and content
+## Live owner dashboard
 
-| Metric | Definition | Grain / owner |
-|---|---|---|
-| Engaged sessions | Sessions with 60+ foreground seconds, 2+ content views, or a high-intent action | day / Product Analytics |
-| Engagement rate | Engaged sessions divided by eligible sessions | day / Product Analytics |
-| Average engaged time | Foreground engaged milliseconds divided by eligible sessions | day / Product Analytics |
-| Views per session | Governed page and project views divided by sessions | day / Content Analytics |
-| Scroll completion | Eligible page views reaching 90% depth divided by page views | page-day / Content Analytics |
-| Project view rate | Sessions with `project_viewed` divided by eligible sessions | day / Portfolio Analytics |
-| Average project depth | Distinct projects viewed divided by project sessions | day / Content Analytics |
-| Case-study completion | Completed case studies divided by opened case studies | project-day / Content Analytics |
-
-## Conversion and journey
-
-| Metric | Definition | Grain / owner |
-|---|---|---|
-| High-intent rate | Sessions with resume, GitHub, LinkedIn, or contact action divided by sessions | day / Portfolio Analytics |
-| Resume view rate | Sessions with a resume view divided by sessions | day / Portfolio Analytics |
-| Resume download rate | Sessions with a resume download divided by sessions | day / Portfolio Analytics |
-| GitHub click-through rate | Sessions with a project repository click divided by project sessions | project-day / Portfolio Analytics |
-| Contact conversion | Sessions with a contact action divided by sessions | day / Portfolio Analytics |
-| Funnel completion | Sessions reaching the selected terminal step divided by sessions entering step one | journey-day / Product Analytics |
-
-## Retention
-
-| Metric | Definition | Grain / owner |
-|---|---|---|
-| Returning-user rate | Users observed before the period divided by users in the period | period / Product Analytics |
-| Week-N retention | Acquisition-cohort users active in week N divided by week-zero cohort users | cohort-week / Product Analytics |
-| Return frequency | Sessions from returning users divided by returning users | period / Product Analytics |
-| Evaluator return rate | Technical-evaluator users returning within 28 days divided by evaluator users | cohort / Portfolio Analytics |
-| Median days to return | Median elapsed whole days between consecutive eligible sessions | period / Product Analytics |
-
-## Experience and reliability
-
-Core Web Vitals are reported at the 75th percentile, segmented by device class. “Good” thresholds follow the public Web Vitals guidance: LCP ≤ 2.5 s, INP ≤ 200 ms, and CLS ≤ 0.10.
-
-| Metric | Definition | Grain / owner |
-|---|---|---|
-| LCP p75 | 75th percentile Largest Contentful Paint | device-period / Web Performance |
-| INP p75 | 75th percentile Interaction to Next Paint | device-period / Web Performance |
-| CLS p75 | 75th percentile Cumulative Layout Shift | device-period / Web Performance |
-| FCP p75 | 75th percentile First Contentful Paint | device-period / Web Performance |
-| TTFB p75 | 75th percentile time to first response byte | device-period / Web Performance |
-| Good-CWV visit share | Assessed visits passing all available Core Web Vitals divided by assessed visits | period / Web Performance |
-| Error-free sessions | Sessions without a captured JavaScript error divided by sessions | day / Web Performance |
-
-## Data health guardrails
-
-| Metric | Service level |
-|---|---|
-| Event-contract coverage | 100% of accepted events match a versioned contract |
-| Consent-state coverage | 100% of accepted events include consent state |
-| Known attribution | ≥ 95% of eligible sessions resolve source and medium |
-| Duplicate-event rate | < 1% by `event_id` |
-| Late-arrival rate | < 2% after the daily processing cutoff |
-| Freshness | production marts updated within 24 hours |
-| Direct PII | zero names, emails, messages, IP addresses, or resume contents |
-
-## Change control
-
-Analytics Engineering owns the semantic contract. A breaking definition or property change requires an event-version increment, migration note, updated dbt tests, and approval from the metric owner. Dashboard labels must point to the same versioned definition used by downstream models.
+The independent [live measurement contract](live-analytics.md) defines approximate visits, 15-second attention samples, link interactions, country estimates, retrieval freshness and complete-day comparisons. Synthetic warehouse sessions and real GoatCounter visit deduplication are different definitions. They must not be joined or compared as if they shared identity.

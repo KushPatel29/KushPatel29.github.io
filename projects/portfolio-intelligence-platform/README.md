@@ -1,166 +1,80 @@
 # Portfolio Intelligence Platform
 
-![dbt tests](https://img.shields.io/badge/dbt%20tests-15%20passing-08695e)
+[![Site verification](https://github.com/KushPatel29/KushPatel29.github.io/actions/workflows/verify.yml/badge.svg)](https://github.com/KushPatel29/KushPatel29.github.io/actions/workflows/verify.yml)
 
-**[Public dbt case study - no sign-in](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/case-study.html) · [Private owner dashboard](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/)**
+**[Explore the public workbench](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/case-study.html) · [Open private live analytics](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/)**
 
-A web analytics system with two explicit data paths. The private owner dashboard reads real portfolio visits, active section/project attention and approximate countries directly from the existing GoatCounter account, refreshing every 60 seconds. Its read-only credential stays in the owner's browser; no key or live visitor data is published. The separate public dbt case study uses a clearly labeled synthetic dataset. No demo value is presented as real visitor behavior.
+Which work earns attention, and can the numbers be trusted? This project answers the first question with private real-traffic analytics and the second with a reproducible analytics engineering case. The two paths have separate data sources, identifiers and measurement contracts. Neither falls back to the other.
 
-See [live analytics setup, definitions and privacy boundaries](docs/live-analytics.md). Historical section time is unavailable: attention collection starts with this release. Visits are estimates rather than verified people; location is coarse country-level. The remaining sections document the synthetic case-study pipeline.
-
-## Why this exists
-
-Page-view counters do not answer the questions a hiring portfolio actually creates: Which work earns attention? Where do evaluators stop? Do technical visitors return? Is the site fast for real users? Can anyone trust the numbers?
-
-This project treats those questions as a small analytics product, with collection, identity, modeling, semantics, reliability, privacy, and presentation designed together.
-
-## Two-minute reviewer tour
-
-1. Open the public case study and inspect the labelled four-day fixture, acquisition, funnel and project views. It requires no API key. The private owner dashboard has its own live date-range controls.
-2. Open **Metrics** to switch among acquisition, engagement, conversion, retention, experience, and data-health families.
-3. Inspect the explicit unavailable states for retention and Core Web Vitals—the fixture does not pretend to contain evidence it lacks.
-4. Open **Lineage** to see definitions, grain, ownership, freshness, and source-to-mart paths.
-5. Review **Quality** for the 15-test gate and the local-to-production architecture.
-
-## Synthetic case-study architecture
-
-```mermaid
-flowchart LR
-  B[Browser] -->|versioned, consented events| R{Router}
-  R -. unactivated adapter .-> G[GA4 reference]
-  R -. unactivated adapter .-> P[PostHog reference]
-  B --> W[Web Vitals + error signals]
-  G -. untested target .-> BQ[(BigQuery profile)]
-  B[Browser] --> SEED[20-event fixture]
-  SEED --> S[dbt staging on DuckDB]
-  S --> I[sessionization + eligibility]
-  I --> F[facts + conversion marts]
-  F --> Q{15 quality tests}
-  Q -->|pass| D[governed aggregate]
-  D --> UI[public data product]
-  P -. product exploration .-> I
-```
-
-The implemented path runs on DuckDB in the repository's root CI. GA4, PostHog, and BigQuery are clearly marked reference integration points: no provider ID is configured and no claim of provider experience is made.
-
-## Modern measurement coverage
-
-| Family | Governed measures |
-|---|---|
-| Acquisition | users, new users, sessions, sessions/user, channel share, campaign conversion |
-| Engagement | engaged sessions/rate/time, views/session, scroll completion, project depth |
-| Conversion | high intent, resume view/download, GitHub CTR, contact rate, funnel completion |
-| Retention | definitions and honest unavailable states; four days is insufficient for W1/W4 cohorts |
-| Experience | collectors and thresholds implemented; values unavailable because no RUM provider is active |
-| Data health | contract/consent coverage, attribution coverage, duplicates, late arrivals, exclusions |
-
-Exact formulas, grains, owners, exclusions, and service levels live in [`docs/metric-definitions.md`](docs/metric-definitions.md). The UI, documentation, and warehouse semantics use the same vocabulary.
-
-## Credibility by design
-
-- **Privacy boundary:** direct identifiers, free-form input, IP addresses, and query-string content are prohibited.
-- **Consent first:** provider dispatch is disabled until analytics consent is granted.
-- **Explicit identity:** pseudonymous visitor IDs and 30-minute inactivity sessions are first-party and versioned.
-- **Honest demo:** `is_synthetic`, `is_internal`, bot, and automated-test flags preserve lineage while excluding ineligible rows.
-- **Session-safe math:** conversions are deduplicated; period rates are recomputed from counts rather than averaged.
-- **Performance as analytics:** LCP, INP, CLS, FCP, TTFB, and privacy-safe error categories share the event contract.
-- **Controlled change:** breaking event or metric changes require versioning, migrations, tests, and owner review.
-
-## Free-tier stack
-
-| Layer | Tool | Reason |
+| Path | Implemented behavior | Boundary |
 |---|---|---|
-| Collection | allowlisted browser dispatcher | implemented locally; GA4/PostHog hooks remain unactivated references |
-| Performance | PerformanceObserver | native Web Vitals and error-health capture without a paid SDK |
-| Warehouse | DuckDB implemented / BigQuery profile only | reproducible evidence without implying the cloud target has run |
-| Transformation | dbt Core | documented SQL lineage, tests, modular models, adapter portability |
-| Automation | root GitHub Actions workflow | rebuilds dbt, regenerates JSON, and rejects output drift |
-| Data product | semantic HTML, CSS, vanilla JS | fast, accessible, dependency-light public experience |
-| Hosting | GitHub Pages | HTTPS public code/UI; live data is read privately from GoatCounter |
+| Private owner dashboard | Real homepage visits, sampled section/project attention, approximate countries, complete-day comparisons, daily tables and JSON/CSV exports | Read-only GoatCounter API; no visitor identities, individual funnels or retrospective dwell-time reconstruction |
+| Public evidence workbench | Working 30/60/90-day filters, first-touch acquisition, ordered journeys, session-project engagement, weekly retention with censored cells, event accounting and provenance | All 1,460 delivered events are generated synthetic data, not portfolio visitors |
 
-No paid tool is required to review or run the project locally.
+## Inspect it in two minutes
 
-## Repository map
+1. Open the public workbench without signing in. The full fixture produces **568 sessions from 1,441 eligible events**.
+2. Switch from 90 to 30 days. Counts, sources, daily bars, project rates and the ordered journey change together.
+3. Inspect an immature retention cell: it stays unavailable instead of becoming a misleading zero.
+4. Open Quality & lineage: 12 duplicate deliveries, three invalid contracts and four consent/bot/internal/test exclusions reconcile to the source. The test-marker flag simulates an exclusion scenario; the entire dataset is synthetic regardless of that flag.
+5. Read the [independent Python oracle](scripts/verify_warehouse.py), which checks every session, first touch, journey, session-project pair and cohort against the SQL output.
 
-```text
-analytics/       Consent-aware dispatcher and Web Vitals collection
-dbt/             Seed, staging, sessions, facts, mart, macros, and tests
-dist/            Deployed interactive analytics data product
-docs/            Architecture, data model, event plan, metrics, and privacy
-scripts/         Deterministic export from tested dbt relations to dashboard JSON
-```
+## What the upgrade fixed
 
-## Run it in under five minutes
+- Landing pages and acquisition sources now come from the **chronological first event**, not alphabetical `min()`.
+- Inactivity uses exact elapsed time: 29m59.999s stays in-session; exactly 30m starts another.
+- A funnel stage requires the preceding stage in the same session, in order. Separate action totals cannot masquerade as a journey.
+- Repeated project events are reduced to a session-project grain before rate calculation. Only later actions count as downstream association; no causal lift is claimed.
+- Cohort denominators are fixed at first observed week. An incomplete calendar week is NULL, including when some activity is already observed.
+- Live reads validate integer counts, pagination progress and daily reconciliation; retries are bounded and stale responses cannot overwrite a newer window.
+- Comparisons use two equal **complete UTC-day** windows, separate from live headlines that include a partial today. Zero baselines have no percentage change.
 
-Preview the data product:
+## Reproduce the warehouse
 
-```bash
-python -m http.server 4173
-```
-
-Then open **`http://localhost:4173/dist/case-study.html`** for the public synthetic demo.
-The separate owner connection screen is at `http://localhost:4173/dist/` and requires the owner’s read-only key.
-
-Reproduce the analytics pipeline with the free DuckDB adapter:
+Python 3.12 and Node 22 or newer. From this directory:
 
 ```bash
 python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux: source .venv/bin/activate
-pip install dbt-duckdb==1.9.2
-dbt seed --project-dir dbt --profiles-dir dbt
+# Activate .venv (Windows: .venv\Scripts\activate; macOS/Linux: source .venv/bin/activate)
+pip install -r requirements.txt
+python scripts/generate_fixture.py --check
 dbt build --project-dir dbt --profiles-dir dbt
+python scripts/verify_warehouse.py
+python scripts/exercise_quality_gates.py
+python scripts/export_dashboard.py
+node scripts/check_public_contract.mjs
+python -m http.server 4173
 ```
 
-Expected gate: **PASS across 20 dbt nodes, including 15 data tests**. The suite covers uniqueness, nullability, accepted values, session ordering, conversion bounds, and business-rule integrity. Root CI then runs `scripts/export_dashboard.py` and fails if `dist/data/dashboard.json` changes.
+Open `http://localhost:4173/dist/case-study.html`. Expected build: **40 nodes including 31 data tests**, all passing. Eight SQL models and one seed produce committed deterministic aggregates; CI rejects export drift. Runtime versions are pinned in `requirements.txt`. To deliberately change the fixture, run `generate_fixture.py` without `--check`, then rebuild and review the differences.
 
-## Data model and contract
+From the repository root, `pnpm test:unit` checks API and collection behavior; `pnpm test:e2e` exercises both interfaces, privacy/storage choices, failure states, keyboard-accessible native controls and mobile layouts. The repository's verify workflow also rebuilds dbt and runs the independent oracle.
 
-```text
-raw_events (committed deterministic seed)
-  └─ stg_events            normalized and typed events
-      └─ int_sessions      30-minute reconstruction + eligibility
-          ├─ fct_sessions  one row per session
-          └─ mart_conversion
+```mermaid
+flowchart LR
+  H[Homepage] -->|cookie-free aggregate events| G[GoatCounter]
+  G -->|read-only HTTPS API| O[Private owner dashboard]
+  F[Seeded synthetic generator] --> R[raw_events]
+  R --> A[Contract audit and deduplication]
+  A --> S[Eligible exact-time sessions]
+  S --> M[Journey / project / cohort marts]
+  M --> Q[31 dbt tests + independent Python oracle]
+  Q --> J[Deterministic aggregate JSON]
+  J --> W[Public evidence workbench]
 ```
 
-The browser accepts only registered `snake_case` event names. Every payload adds a UUID, contract version, UTC timestamp, pseudonymous visitor ID, session ID, clean page path, consent state, and explicit internal/synthetic flags. See [`docs/event-tracking-plan.md`](docs/event-tracking-plan.md) and [`docs/data-model.md`](docs/data-model.md).
+## Live connection and reliability
 
-## Optional reference-provider activation
+Use the existing site-scoped **Read statistics** key, as described in [live analytics](docs/live-analytics.md). It travels only in the Authorization header to GoatCounter, not in URLs or this repository. Memory-only is the default; remembering the key is an explicit owner choice on a trusted browser. Disconnect clears the stored key and displayed data.
 
-GoatCounter is the implemented live provider; its independent owner view does not use the fixture's session models. The optional GA4/PostHog adapters and BigQuery target below remain scaffolded. To activate those additional providers:
+Requests are serialized below the provider's documented four-per-second limit. HTTP 429/5xx responses get at most two retries, with bounded delay. Individual requests have a 20-second timeout. Pagination is bounded at 20 pages and rejects repeated IDs. Failed refreshes retain visibly stale values only for the same selection; switching windows clears them. No real traffic is inserted to populate charts. Retrieval time is not a provider processing timestamp.
 
-1. Create GA4 and PostHog projects and place only their public browser identifiers behind the consent manager.
-2. Enable GA4’s BigQuery export in a dedicated raw dataset.
-3. Configure least-privilege dbt credentials through environment secrets.
-4. Validate internal, bot, test, and synthetic filters against known fixtures.
-5. Replace the demo aggregate only after privacy review and a passing production build.
-6. Add freshness and volume alerts before relying on the metrics operationally.
+Daily chart labels follow the GoatCounter account timezone, while request and comparison boundaries use UTC. Country day buckets may not share hourly visit boundaries; the dashboard displays counts without inferring conversion rates or percentages from mismatched grains.
 
-Never commit provider secrets or publish person-level event exports.
+## Evidence and limits
 
-## Verification checklist
+[Validation record](docs/validation-report.md) · [Metric definitions](docs/metric-definitions.md) · [Data model](docs/data-model.md) · [Architecture/recovery](docs/architecture.md) · [Privacy/threat model](docs/privacy-design.md)
 
-- [x] Interactive 30 / 90 / 365-day views
-- [x] Six-family modern metric explorer
-- [x] Core Web Vitals collectors and metric contracts
-- [ ] Real p75 Web Vitals — unavailable until a consented RUM provider is activated
-- [ ] Weekly retention cohorts — unavailable in a four-day fixture
-- [x] Metric contracts and interactive lineage
-- [x] Consent-aware allowlisted dispatcher with unactivated provider hooks
-- [x] Reproducible DuckDB/dbt pipeline
-- [x] Fifteen automated data tests
-- [x] Responsive and keyboard-accessible interface
-- [x] Clearly labeled synthetic public data
-- [x] Production activation and privacy boundary documented
-
-## Deliberate limitations
-
-- The public dbt case study uses a fixed synthetic aggregate. The default owner dashboard instead requires a private read-only GoatCounter connection and never falls back to that fixture.
-- GA4, PostHog, and BigQuery have never been run for this project. They are reference hooks and a profile, not evidence of hands-on provider use.
-- DuckDB exercises the transformation contract; production-scale partitioning and clustering are BigQuery concerns documented in [`docs/architecture.md`](docs/architecture.md).
-- The live collector is cookie-free, respects DNT/GPC and sends no form content or precise location. Its measurement limitations and owner-storage tradeoff are documented separately.
-
-## License
+This is a personal analytics product, not evidence of enterprise traffic scale, paid adoption or statistically established conversion lift. Real retention, person-level paths and real-user p75 Web Vitals are unavailable. Unactivated GA4/PostHog/observer reference files under `analytics/` are not loaded by either dashboard. The experimental observer does not implement complete official INP/CLS algorithms. BigQuery is a future design option, not an executed target in this project. The public workbench itself performs no collection or visitor storage.
 
 Released under the [MIT License](LICENSE).

@@ -1,5 +1,5 @@
 with source as (
-    select * from {{ ref('raw_events') }}
+    select * from {{ ref('stg_event_audit') }} where duplicate_rank=1 and coalesce(is_contract_valid,false)
 ),
 
 typed as (
@@ -7,8 +7,8 @@ typed as (
         cast(event_id as varchar) as event_id,
         cast(anonymous_user_id as varchar) as anonymous_user_id,
         lower(trim(event_name)) as event_name,
-        cast(event_timestamp as timestamp) as event_timestamp,
-        cast(event_timestamp as date) as event_date,
+        occurred_at as event_timestamp,
+        cast(occurred_at as date) as event_date,
         coalesce(nullif(page_path, ''), '/') as page_path,
         nullif(project_id, '') as project_id,
         coalesce(nullif(source, ''), '(direct)') as source,
@@ -17,12 +17,11 @@ typed as (
         cast(is_internal as boolean) as is_internal,
         cast(is_synthetic as boolean) as is_synthetic,
         greatest(cast(engagement_seconds as integer), 0) as engagement_seconds,
-        row_number() over (partition by event_id order by event_timestamp) as duplicate_rank
+        consent_state,contract_version,data_origin
     from source
 )
 
 select
     *,
-    not (is_bot or is_internal or is_synthetic) as is_analytics_eligible
+    consent_state='granted' and not (is_bot or is_internal or is_synthetic) as is_analytics_eligible
 from typed
-where duplicate_rank = 1

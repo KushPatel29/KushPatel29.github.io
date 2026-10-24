@@ -1,300 +1,280 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio Intelligence is Kush Patel's end-to-end analytics engineering data product: governed metrics, behavioral funnels, dbt lineage, and data quality in one public dashboard.">
-  <meta name="theme-color" content="#07111f">
-  <title>Portfolio Intelligence — Kush Patel</title>
-  <link rel="canonical" href="https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/case-study.html">
-  <meta property="og:title" content="Portfolio Intelligence — Kush Patel">
-  <meta property="og:description" content="An end-to-end analytics engineering data product with behavioral funnels, governed metrics, dbt lineage, and data quality.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/">
-  <link rel="preload" href="./assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2307111f'/%3E%3Cpath d='M7 23V15h4v8H7Zm7 0V9h4v14h-4Zm7 0V5h4v18h-4Z' fill='%2344e0bd'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to analytics</a>
-  <div class="noise" aria-hidden="true"></div>
-  <header class="topbar">
-    <a class="brand" href="#overview" aria-label="Portfolio Intelligence home">
-      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span>PORTFOLIO <b>INTELLIGENCE</b></span>
-    </a>
-    <nav aria-label="Primary navigation">
-      <a href="./">Live owner view</a>
-      <a class="active" href="#overview">Overview</a>
-      <a href="#journeys">Journeys</a>
-      <a href="#measurement">Metrics</a>
-      <a href="#lineage">Lineage</a>
-      <a href="#quality">Quality</a>
-    </nav>
-    <div class="top-actions">
-      <span class="live-pill"><span class="pulse" aria-hidden="true"></span> CI-verified fixture</span>
-      <a class="icon-button" href="https://github.com/kushpatel29" aria-label="Kush Patel on GitHub" target="_blank" rel="noreferrer">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7A11.5 11.5 0 0 0 8.36 23.1c.58.1.79-.25.79-.56v-2.2c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.74-1.55-2.57-.3-5.27-1.29-5.27-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18a10.97 10.97 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.71 5.39-5.29 5.68.42.36.79 1.06.79 2.14v3.23c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/></svg>
-      </a>
-    </div>
-  </header>
-
-  <aside class="fixture-disclosure" role="note"><strong>SYNTHETIC CASE STUDY</strong><span>Every displayed traffic value comes from the committed 20-event dbt fixture—not from real portfolio visitors.</span></aside>
-  <main id="main">
-    <section class="hero section-shell" id="overview" aria-labelledby="overview-title">
-      <div class="eyebrow-row">
-        <p class="eyebrow">Analytics engineering data product</p>
-        <p class="as-of">DBT FIXTURE <span>•</span> <span id="fixture-meta">20 modeled events · loading tested output</span></p>
-      </div>
-      <div class="hero-heading">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="A reproducible analytics engineering case: ordered journeys, first-touch acquisition, censored retention cohorts and independent SQL/Python checks."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; connect-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'self'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <title>Portfolio Intelligence | Evidence workbench</title>
+    <link
+      rel="canonical"
+      href="https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/case-study.html"
+    />
+    <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+    <link rel="preload" href="./assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./live.css" />
+  </head>
+  <body class="case-study">
+    <a class="skip" href="#overview">Skip to analytics</a>
+    <header>
+      <a href="./case-study.html">Portfolio <b>Intelligence</b></a>
+      <nav aria-label="Primary navigation">
+        <a href="./">Live owner view</a><a href="#journeys">Journeys</a
+        ><a href="#retention">Retention</a
+        ><a href="#quality">Quality &amp; lineage</a
+        ><a
+          href="https://github.com/KushPatel29/KushPatel29.github.io/tree/main/projects/portfolio-intelligence-platform"
+          >Source</a
+        >
+      </nav>
+    </header>
+    <main id="overview">
+      <div class="intro-grid">
         <div>
-          <h1 id="overview-title">Behavior, modeled.<br><span>Decisions, explained.</span></h1>
-          <p>A reproducible measurement case study: one small synthetic event fixture, transformed and tested in dbt, then exported to this static dashboard.</p>
+          <span class="tag">SYNTHETIC CASE STUDY</span>
+          <h1>Portfolio analytics,<br />open to inspection.</h1>
+          <p class="lede">
+            Explore acquisition, ordered journeys and returning cohorts from an
+            entirely synthetic event stream. These results are
+            <strong>not from real portfolio visitors</strong>. Your private
+            real-traffic dashboard is <a href="./">a separate view</a>.
+          </p>
         </div>
-        <p class="fixture-window" id="fixture-window">Fixture window · loading</p>
-      </div>
-
-      <div class="metric-grid" aria-label="Headline metrics">
-        <article class="metric-card accent-card">
-          <div class="metric-label"><span>Unique visitors</span><button class="info" data-definition="unique_visitors" aria-label="View unique visitors definition">i</button></div>
-          <div class="metric-value" data-metric="visitors">5</div>
-          <div class="metric-foot"><span class="up" data-change="visitors">fixture</span><span>eligible users</span></div>
-          <svg class="sparkline" data-spark="visitors" viewBox="0 0 180 42" role="img" aria-label="Unique visitors by day: loading"></svg>
-        </article>
-        <article class="metric-card">
-          <div class="metric-label"><span>Engagement rate</span><button class="info" data-definition="engagement_rate" aria-label="View engagement rate definition">i</button></div>
-          <div class="metric-value" data-metric="engagement">100.0%</div>
-          <div class="metric-foot"><span class="up" data-change="engagement">fixture</span><span>engaged sessions</span></div>
-          <svg class="sparkline blue" data-spark="engagement" viewBox="0 0 180 42" role="img" aria-label="Engagement rate by day: loading"></svg>
-        </article>
-        <article class="metric-card">
-          <div class="metric-label"><span>Project view rate</span><button class="info" data-definition="project_view_rate" aria-label="View project view rate definition">i</button></div>
-          <div class="metric-value" data-metric="projectRate">83.3%</div>
-          <div class="metric-foot"><span class="up" data-change="projectRate">fixture</span><span>of eligible sessions</span></div>
-          <svg class="sparkline violet" data-spark="projectRate" viewBox="0 0 180 42" role="img" aria-label="Project view rate by day: loading"></svg>
-        </article>
-        <article class="metric-card">
-          <div class="metric-label"><span>High-intent rate</span><button class="info" data-definition="high_intent_rate" aria-label="View high-intent rate definition">i</button></div>
-          <div class="metric-value" data-metric="conversion">83.3%</div>
-          <div class="metric-foot"><span class="up" data-change="conversion">fixture</span><span>resume, LinkedIn, contact</span></div>
-          <svg class="sparkline amber" data-spark="conversion" viewBox="0 0 180 42" role="img" aria-label="High intent rate by day: loading"></svg>
-        </article>
-      </div>
-
-      <div class="primary-grid">
-        <article class="panel funnel-panel">
-          <div class="panel-head">
-            <div><p class="kicker">RECRUITER JOURNEY</p><h2>Sessions reaching each step</h2></div>
-            <span class="panel-meta">Steps are not nested</span>
-          </div>
-          <div class="funnel" id="funnel-chart" aria-label="Recruiter conversion funnel">
-            <div class="funnel-row"><div class="funnel-copy"><strong>Landing</strong><span data-funnel-value="landing">6</span></div><div class="bar-track"><i style="--w:100%"></i></div><b>100%</b></div>
-            <div class="funnel-row"><div class="funnel-copy"><strong>Project viewed</strong><span data-funnel-value="project">5</span></div><div class="bar-track"><i style="--w:83.3%"></i></div><b data-funnel-rate="project">83.3%</b></div>
-            <div class="funnel-row"><div class="funnel-copy"><strong>Case study</strong><span data-funnel-value="caseStudy">1</span></div><div class="bar-track"><i style="--w:16.7%"></i></div><b data-funnel-rate="caseStudy">16.7%</b></div>
-            <div class="funnel-row"><div class="funnel-copy"><strong>Resume</strong><span data-funnel-value="resume">3</span></div><div class="bar-track"><i style="--w:50%"></i></div><b data-funnel-rate="resume">50.0%</b></div>
-            <div class="funnel-row"><div class="funnel-copy"><strong>Contact</strong><span data-funnel-value="contact">1</span></div><div class="bar-track"><i style="--w:16.7%"></i></div><b data-funnel-rate="contact">16.7%</b></div>
-          </div>
-          <div class="funnel-insight"><span aria-hidden="true">↗</span><p><strong>Fixture interpretation only</strong><br>These six sessions demonstrate the calculation path; the sample is too small for behavioral conclusions.</p></div>
-        </article>
-
-        <article class="panel acquisition-panel">
-          <div class="panel-head">
-            <div><p class="kicker">ACQUISITION</p><h2>Traffic mix</h2></div>
-            <span class="panel-meta">Last non-direct</span>
-          </div>
-          <div class="donut-wrap">
-            <div class="donut" id="traffic-donut" role="img" aria-label="Traffic source distribution"><div><strong data-metric="sessions">6</strong><span>sessions</span></div></div>
-            <ul class="legend" id="traffic-legend">
-              <li><i class="c1"></i><span>Organic search</span><b>50.0%</b></li>
-              <li><i class="c2"></i><span>Direct</span><b>16.7%</b></li>
-              <li><i class="c3"></i><span>GitHub</span><b>16.7%</b></li>
-              <li><i class="c4"></i><span>LinkedIn</span><b>16.7%</b></li>
-            </ul>
-          </div>
-          <div class="source-note"><span>01</span><p><b>Source distribution</b> is present to prove attribution modeling—not to infer channel performance from six sessions.</p></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-shell data-section" id="journeys" aria-labelledby="journey-title">
-      <div class="section-heading">
-        <div><p class="eyebrow">Behavioral analytics</p><h2 id="journey-title">What visitors evaluate</h2></div>
-        <p>Project interest joined with journey depth and downstream action—not vanity pageviews.</p>
-      </div>
-      <div class="project-layout">
-        <article class="panel project-panel">
-          <div class="panel-head"><div><p class="kicker">PROJECT PERFORMANCE</p><h3>Content that moves decisions</h3></div><span class="panel-meta">Ranked by intent score</span></div>
-          <div class="project-table" role="table" aria-label="Project performance" tabindex="0">
-            <div class="project-row project-header" role="row"><span role="columnheader">Project</span><span role="columnheader">Views</span><span role="columnheader">Deep read</span><span role="columnheader">Action rate</span></div>
-            <div id="project-rows"></div>
-          </div>
-        </article>
-        <aside class="insight-stack">
-          <article class="signal-card teal"><p class="kicker">MODELED OUTPUT</p><strong>17 / 20</strong><p>fixture events remain after one bot, one internal, and one synthetic row are excluded.</p><span>Modeled in <code>stg_events</code></span></article>
-          <article class="signal-card dark"><p class="kicker">EVIDENCE BOUNDARY</p><div class="journey-mini"><span>Seed</span><i>→</i><span>dbt</span><i>→</i><span>JSON</span></div><strong>6</strong><p>eligible sessions prove the transformation path, not visitor behavior.</p></article>
+        <aside class="readout">
+          <h2>Reproduce the decision</h2>
+          <p>
+            Change the window. Inspect the denominator. Trace a result to SQL.
+            Challenge it with an independent Python calculation.
+          </p>
+          <a href="../docs/validation-report.md">Read the validation record</a>
+          <p id="fixture-meta" role="status">Loading committed aggregates…</p>
         </aside>
       </div>
-
-      <article class="panel path-panel">
-        <div class="panel-head"><div><p class="kicker">JOURNEY MODEL</p><h3>Fixture paths to high intent</h3></div><span class="panel-meta">Method demonstration</span></div>
-        <div class="paths" id="paths-chart">
-          <div class="path-start"><span>Eligible sessions</span><b>6</b></div>
-          <div class="path-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-          <div class="path-outcomes">
-            <div><span>Project viewed</span><b>5</b></div>
-            <div><span>Resume action</span><b>3</b></div>
-            <div><span>Case study viewed</span><b>1</b></div>
-            <div><span>Contact action</span><b>1</b></div>
+      <div class="toolbar">
+        <label for="fixture-range">Analysis window</label
+        ><select id="fixture-range">
+          <option value="30">Last 30 fixture days</option>
+          <option value="60">Last 60 fixture days</option>
+          <option value="90" selected>All 90 fixture days</option></select
+        ><button type="button" id="fixture-export" class="secondary">
+          Export synthetic aggregates</button
+        ><small id="fixture-window"
+          >Fixed historical window; not a live feed.</small
+        >
+      </div>
+      <div class="metrics" aria-label="Synthetic headline metrics">
+        <article class="metric">
+          <h2>Eligible users</h2>
+          <div class="value" data-metric="visitors">—</div>
+          <small>Distinct simulated users in selected sessions.</small>
+        </article>
+        <article class="metric">
+          <h2>Eligible sessions</h2>
+          <div class="value" data-metric="sessions">—</div>
+          <small>New session at exactly 30 minutes of inactivity.</small>
+        </article>
+        <article class="metric">
+          <h2>Engagement rate</h2>
+          <div class="value" data-metric="engagement">—</div>
+          <small>60 active seconds, 2 views or a high-intent action.</small>
+        </article>
+        <article class="metric">
+          <h2>High-intent rate</h2>
+          <div class="value" data-metric="conversion">—</div>
+          <small>Résumé, LinkedIn or contact action; once per session.</small>
+        </article>
+      </div>
+      <section class="panel" aria-labelledby="trend-title">
+        <h2 id="trend-title">Sessions across the selected window</h2>
+        <p>
+          Zero-activity days are included. Daily users must not be summed to
+          obtain period users.
+        </p>
+        <div
+          id="fixture-chart"
+          class="chart"
+          role="img"
+          aria-label="Loading daily sessions"
+        ></div>
+        <details>
+          <summary>View daily counts</summary>
+          <div
+            class="table-wrap"
+            tabindex="0"
+            role="region"
+            aria-label="Daily synthetic counts"
+          >
+            <table>
+              <caption>
+                Sessions and distinct users by UTC day
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Day</th>
+                  <th scope="col">Sessions</th>
+                  <th scope="col">Users</th>
+                </tr>
+              </thead>
+              <tbody id="daily-table"></tbody>
+            </table>
           </div>
+        </details>
+      </section>
+      <div class="grid" id="journeys">
+        <section class="panel" aria-labelledby="journey-title">
+          <h2 id="journey-title">An ordered journey, not four counters</h2>
+          <p>
+            Same session, strictly increasing event positions. A contact action
+            before a project does not become a downstream conversion.
+          </p>
+          <ol class="funnel" id="funnel-rows"></ol>
+          <p class="note">
+            Rates use all eligible sessions. Visitors can take other paths; this
+            sequence describes one journey and does not explain causation.
+          </p>
+        </section>
+        <section class="panel" aria-labelledby="source-title">
+          <h2 id="source-title">Where sessions begin</h2>
+          <p>
+            Acquisition and landing page use the first event in time, with event
+            ID as the tie-breaker. Later direct events cannot overwrite that
+            source.
+          </p>
+          <ul class="rows" id="source-rows"></ul>
+        </section>
+      </div>
+      <section class="panel" aria-labelledby="project-title">
+        <h2 id="project-title">Project attention and later actions</h2>
+        <p>
+          One session-project pair per row. Repeated project views do not
+          inflate the denominator. A later action is associated with a project;
+          it is not attributed lift.
+        </p>
+        <div
+          class="table-wrap"
+          tabindex="0"
+          role="region"
+          aria-label="Project performance"
+        >
+          <table>
+            <caption>
+              Selected window; deep means at least 45 summed project-event
+              seconds
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Project</th>
+                <th scope="col">Sessions</th>
+                <th scope="col">Deep sessions</th>
+                <th scope="col">Later-action sessions</th>
+              </tr>
+            </thead>
+            <tbody id="project-rows"></tbody>
+          </table>
         </div>
-      </article>
-    </section>
-
-    <section class="section-shell measurement-section" id="measurement" aria-labelledby="measurement-title">
-      <div class="section-heading">
-        <div><p class="section-intro-label">Measurement system</p><h2 id="measurement-title">The metrics modern teams actually need</h2></div>
-        <p>Acquisition, engagement, conversion, retention, experience, and collection health—defined at the right grain and connected to action.</p>
-      </div>
-
-      <div class="metric-switcher" role="tablist" aria-label="Metric families">
-        <button type="button" role="tab" aria-selected="true" data-metric-tab="acquisition">Acquisition</button>
-        <button type="button" role="tab" aria-selected="false" data-metric-tab="engagement">Engagement</button>
-        <button type="button" role="tab" aria-selected="false" data-metric-tab="conversion">Conversion</button>
-        <button type="button" role="tab" aria-selected="false" data-metric-tab="retention">Retention</button>
-        <button type="button" role="tab" aria-selected="false" data-metric-tab="experience">Experience</button>
-        <button type="button" role="tab" aria-selected="false" data-metric-tab="health">Data health</button>
-      </div>
-      <div class="metric-catalog-grid" id="metric-catalog" role="tabpanel" aria-live="polite">
-        <article><span>Eligible users</span><strong>5</strong><small>dbt-modeled fixture</small></article>
-        <article><span>New users</span><strong>—</strong><small>first-seen history not modeled</small></article>
-        <article><span>Sessions</span><strong>6</strong><small>30-minute inactivity rule</small></article>
-        <article><span>Sessions / user</span><strong>1.20</strong><small>fixture frequency</small></article>
-        <article><span>Organic share</span><strong>50.0%</strong><small>source field in seed</small></article>
-        <article><span>Campaign conversion</span><strong>—</strong><small>campaign IDs not present</small></article>
-      </div>
-
-      <div class="modern-grid">
-        <article class="modern-panel vitals-panel">
-          <div class="modern-head"><div><span>Page experience</span><h3>Core Web Vitals, p75</h3></div><b>Not collected</b></div>
-          <div class="vital-list">
-            <div><span><i class="vital-watch"></i>LCP</span><strong>—</strong><small>collector implemented</small></div>
-            <div><span><i class="vital-watch"></i>INP</span><strong>—</strong><small>collector implemented</small></div>
-            <div><span><i class="vital-watch"></i>CLS</span><strong>—</strong><small>collector implemented</small></div>
-            <div><span><i class="vital-watch"></i>TTFB</span><strong>—</strong><small>collector implemented</small></div>
-            <div><span><i class="vital-watch"></i>FCP</span><strong>—</strong><small>no RUM provider activated</small></div>
-          </div>
-        </article>
-
-        <article class="modern-panel cohort-panel">
-          <div class="modern-head"><div><span>Retention</span><h3>Return cohort</h3></div><b>Insufficient history</b></div>
-          <div class="cohort-table" role="table" aria-label="Weekly visitor retention cohorts" tabindex="0">
-            <div class="cohort-row cohort-header" role="row"><span role="columnheader">Cohort</span><span role="columnheader">W0</span><span role="columnheader">W1</span><span role="columnheader">W2</span><span role="columnheader">W3</span><span role="columnheader">W4</span></div>
-            <div class="cohort-row" role="row"><span role="cell">Fixture</span><b role="cell" class="h5">5 users</b><b role="cell" class="empty">—</b><b role="cell" class="empty">—</b><b role="cell" class="empty">—</b><b role="cell" class="empty">—</b></div>
-          </div>
-          <p class="modern-note">The committed fixture spans four days. Retention remains intentionally unavailable until a multi-week cohort exists.</p>
-        </article>
-
-        <article class="modern-panel health-panel">
-          <div class="modern-head"><div><span>Collection quality</span><h3>Can this fixture be reproduced?</h3></div><b>CI verified</b></div>
-          <div class="health-bars">
-            <div><p><span>dbt data tests</span><b>15 / 15</b></p><i><em style="--w:100%"></em></i></div>
-            <div><p><span>Eligible fixture events</span><b>17 / 20</b></p><i><em style="--w:85%"></em></i></div>
-            <div><p><span>Duplicate event IDs</span><b>0</b></p><i><em style="--w:100%"></em></i></div>
-            <div><p><span>Direct PII fields</span><b>0</b></p><i><em style="--w:100%"></em></i></div>
-          </div>
-          <div class="health-foot"><span>1 bot excluded</span><span>1 internal excluded</span><span>1 synthetic event excluded</span></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-shell lineage-section" id="lineage" aria-labelledby="lineage-title">
-      <div class="section-heading inverse">
-        <div><p class="eyebrow">Metric governance</p><h2 id="lineage-title">Every number has a trail</h2></div>
-        <p>Select a metric to inspect its definition, owner, transformation path, and freshness contract.</p>
-      </div>
-      <div class="lineage-workbench">
-        <div class="metric-list" role="tablist" aria-label="Metric definitions">
-          <button role="tab" aria-selected="true" data-lineage="resume_conversion">Resume conversion rate <span>→</span></button>
-          <button role="tab" aria-selected="false" data-lineage="engagement_rate">Engagement rate <span>→</span></button>
-          <button role="tab" aria-selected="false" data-lineage="project_depth">Project depth <span>→</span></button>
-          <button role="tab" aria-selected="false" data-lineage="contact_rate">Contact rate <span>→</span></button>
+      </section>
+      <section class="panel" id="retention" aria-labelledby="retention-title">
+        <h2 id="retention-title">
+          Return cohorts with an observation boundary
+        </h2>
+        <p>
+          Full 90-day fixture history, independent of the analysis selector.
+          Monday-based cohorts are defined by first observed activity. Each cell
+          shows returning users / cohort users. Incomplete weeks remain
+          unavailable, even if activity has already arrived.
+        </p>
+        <div
+          class="table-wrap"
+          tabindex="0"
+          role="region"
+          aria-label="Weekly synthetic retention"
+        >
+          <table>
+            <caption>
+              Observed weekly return, not cumulative retention or real evaluator
+              behavior
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">First observed week</th>
+                <th scope="col">Users</th>
+                <th scope="col">W0</th>
+                <th scope="col">W1</th>
+                <th scope="col">W2</th>
+                <th scope="col">W3</th>
+                <th scope="col">W4</th>
+              </tr>
+            </thead>
+            <tbody id="cohort-rows"></tbody>
+          </table>
         </div>
-        <article class="lineage-detail" id="lineage-detail" aria-live="polite">
-          <div class="definition-head"><div><p class="kicker">METRIC CONTRACT</p><h3>Resume conversion rate</h3></div><span class="certified">✓ Fixture-backed</span></div>
-          <p class="formula"><code>sessions_with_resume_action / eligible_sessions</code></p>
-          <div class="contract-grid"><div><span>VALUE</span><b>50.0%</b></div><div><span>OWNER</span><b>Analytics Engineering</b></div><div><span>GRAIN</span><b>Session × fixture</b></div><div><span>FRESHNESS</span><b>Commit-bound</b></div></div>
-          <div class="lineage-flow" aria-label="Metric lineage">
-            <button type="button"><small>SOURCE</small><b>raw_events seed</b></button><i>→</i><button type="button"><small>STAGING</small><b>stg_events</b></button><i>→</i><button type="button"><small>FACT</small><b>fct_sessions</b></button><i>→</i><button type="button" class="active-node"><small>MART</small><b>mart_conversion</b></button>
-          </div>
-          <p class="contract-note">Three of six eligible fixture sessions contain a resume view or download. This proves the formula and lineage, not a production conversion benchmark.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-shell quality-section" id="quality" aria-labelledby="quality-title">
-      <div class="section-heading">
-        <div><p class="eyebrow">Reliability & DataOps</p><h2 id="quality-title">Built to be trusted</h2></div>
-        <p>Tests, contracts, incremental processing, and transparent demo boundaries are part of the product—not footnotes.</p>
-      </div>
-      <div class="quality-grid">
-        <article class="quality-score">
-          <div class="score-ring"><strong>15</strong><span>/ 15</span></div>
-          <div><p class="kicker">DATA TESTS PASSING IN ROOT CI</p><h3>Fixture contract verified</h3><p>The root workflow rebuilds all models, reruns every assertion, regenerates the JSON, and fails if the committed dashboard data drifts.</p></div>
-        </article>
-        <article class="test-list panel">
-          <div class="test-row"><span class="check">✓</span><div><b>Generic dbt assertions</b><small>Unique, not-null, accepted values</small></div><strong>13/13</strong></div>
-          <div class="test-row"><span class="check">✓</span><div><b>Singular business rules</b><small>Session order and conversion bounds</small></div><strong>2/2</strong></div>
-          <div class="test-row"><span class="check">✓</span><div><b>Generated-data contract</b><small>CI rejects dashboard JSON drift</small></div><strong>ENFORCED</strong></div>
-        </article>
-      </div>
-
-      <div class="architecture" aria-label="Data platform architecture">
-        <div class="arch-head"><p class="kicker">IMPLEMENTED FIXTURE + REFERENCE TARGETS</p><span>Free-tier and reproducible</span></div>
-        <div class="arch-flow">
-          <div class="arch-group sources"><small>REFERENCE ADAPTERS · NOT ACTIVATED</small><div><span>GA4</span><span>PostHog</span><span>Web Vitals</span></div></div>
-          <i>→</i>
-          <div class="arch-node"><small>REFERENCE TARGET · NOT RUN</small><b>BigQuery</b><span>profile only</span></div>
-          <i>→</i>
-          <div class="arch-node featured"><small>IMPLEMENTED + RUN</small><b>DuckDB + dbt Core</b><span>seed → staging → marts</span></div>
-          <i>→</i>
-          <div class="arch-node"><small>CONSUME</small><b>Data product</b><span>metrics / lineage</span></div>
+        <p class="note">
+          A zero is an observed absence; an em dash means the full week has not
+          elapsed. The fixture cannot establish real-world retention or business
+          lift.
+        </p>
+      </section>
+      <section class="panel" id="quality" aria-labelledby="quality-title">
+        <h2 id="quality-title">Trust is an accounting identity</h2>
+        <p id="quality-summary">Loading validation evidence…</p>
+        <ul class="rows" id="quality-rows"></ul>
+        <p>
+          Every delivered row has one disposition. Duplicate IDs, invalid
+          contracts, bot, internal, test-marker and consent-denied events stay
+          out of eligible sessions.
+        </p>
+        <div class="lineage">
+          <code>raw_events</code><span>→</span><code>stg_event_audit</code
+          ><span>→</span><code>stg_events</code><span>→</span
+          ><code>int_sessions</code><span>→</span
+          ><code>session / journey / cohort marts</code><span>→</span
+          ><code>verified JSON</code>
         </div>
-        <div class="orchestration"><span>GitHub Actions</span><i></i><span>root CI: dbt build + export + drift gate</span></div>
-      </div>
-
-      <div class="principles">
-        <article><span>01</span><h3>Privacy by design</h3><p>Consent-aware activation, anonymous identifiers, least-data collection, and no public individual-level data.</p></article>
-        <article><span>02</span><h3>Real and demo stay separate</h3><p>This showcase uses a labeled synthetic dataset. Production models exclude synthetic traffic through explicit flags.</p></article>
-        <article><span>03</span><h3>Cost-aware engineering</h3><p>Partition pruning, incremental merges, rolling late-arrival windows, and aggregate exports minimize scan volume.</p></article>
-      </div>
-      <aside class="consent-panel" aria-labelledby="consent-title"><div><span>LOCAL INSTRUMENTATION DEMO</span><h3 id="consent-title">No analytics provider is connected</h3><p>The allowlisted dispatcher can emit browser-local demo events only after your choice. Nothing leaves this page because GA4 and PostHog are not configured.</p></div><div class="consent-actions"><button type="button" data-consent="granted">Enable local demo events</button><button type="button" data-consent="denied">Keep telemetry off</button><small id="consent-status">Telemetry is off by default</small></div></aside>
-    </section>
-
-    <section class="closing">
-      <div class="section-shell closing-inner">
-        <p class="eyebrow">Portfolio intelligence platform</p>
-        <h2>A transparent analytics engineering case study.</h2>
-        <p>Versioned fixture → tested transformations → generated metrics → explicit evidence limits.</p>
-        <div class="closing-actions">
-          <a href="https://github.com/kushpatel29" target="_blank" rel="noreferrer">Explore GitHub <span>↗</span></a>
-          <a href="#lineage" class="secondary">Inspect metric lineage <span>→</span></a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <dialog id="definition-dialog" aria-labelledby="dialog-title">
-    <form method="dialog"><button class="dialog-close" aria-label="Close definition">×</button></form>
-    <p class="kicker">GOVERNED METRIC</p>
-    <h2 id="dialog-title">Metric definition</h2>
-    <p id="dialog-description"></p>
-    <div class="dialog-meta" id="dialog-meta"></div>
-  </dialog>
-
-  <footer><div><span>KP / 2026</span><p>Designed and engineered by <strong>Kush Patel</strong></p></div><p>Demo data • privacy-first • reproducible models</p></footer>
-  <script src="../analytics/tracking.js"></script>
-  <script src="../analytics/web-vitals.js"></script>
-  <script src="./app.js"></script>
-</body>
+        <details>
+          <summary>Inspect provenance and metric contracts</summary>
+          <p id="seed-hash" class="hash"></p>
+          <p>
+            <a href="../dbt/models/schema.yml">Model contracts</a> ·
+            <a href="../docs/metric-definitions.md">Definitions</a> ·
+            <a href="../scripts/verify_warehouse.py"
+              >Independent Python oracle</a
+            >
+            · <a href="../docs/architecture.md">Architecture &amp; recovery</a>
+          </p>
+        </details>
+      </section>
+      <section class="notice">
+        <h2>What this case does not claim</h2>
+        <p><strong>REFERENCE ADAPTERS · NOT ACTIVATED</strong></p>
+        <p>
+          GA4, PostHog and BigQuery references are not execution evidence. Real
+          p75 Web Vitals, visitor-level funnels and real retention are
+          unavailable. The live owner view uses cookie-free GoatCounter
+          aggregates; it cannot reconstruct individual journeys. This page sends
+          no analytics events and stores no visitor identifiers.
+        </p>
+      </section>
+      <noscript
+        ><p class="notice">
+          JavaScript is required for the interactive views.
+          <a href="./data/dashboard.json"
+            >Read the committed synthetic aggregate</a
+          >
+          or <a href="../README.md">reproduce the pipeline</a>.
+        </p></noscript
+      >
+    </main>
+    <footer>
+      Kush Patel · <a href="../../../">Portfolio</a> · Entire case-study dataset
+      is synthetic · <a href="../docs/privacy-design.md">Privacy design</a>
+    </footer>
+    <script type="module" src="./app.js"></script>
+  </body>
 </html>

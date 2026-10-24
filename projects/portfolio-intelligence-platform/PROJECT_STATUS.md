@@ -1,21 +1,7 @@
-# Project status
+# Project status — version 2
 
-**LIVE OWNER VIEW ADDED — 2026-10-24**
+Implemented: private live visits/attention/countries, complete-day comparisons, request pacing/retry/cancellation, response validation, labelled stale states, daily table/CSV and provenance-bearing JSON. A separate public evidence workbench has functioning 30/60/90-day controls, chronological acquisition, ordered journeys, session-project engagement, censored cohorts and delivery accounting.
 
-Portfolio Intelligence now has a private live GoatCounter owner dashboard and a separate public synthetic dbt case study. Live visits, approximate countries and the daily trend read the existing account; section attention and project interactions begin with this release.
+Executed warehouse evidence: 1,460 synthetic delivered events -> 1,441 eligible events -> 568 sessions and 436 session-project pairs. Build: eight models, one seed, 31 data tests (40 nodes). Independent Python checks all session/event assignments, first touches, journeys, project pairs and cohort maturity/counts. Browser checks cover both interfaces at desktop and phone sizes; CI rebuilds the exported JSON.
 
-## Completion evidence
-
-- Public analytics data product with six modern measurement families
-- Consent-aware local dispatcher and Core Web Vitals instrumentation; provider hooks are unactivated references
-- Reproducible DuckDB/dbt transformation path
-- 15 automated data tests across 20 dbt nodes
-- Metric, event, architecture, model, privacy, and activation documentation
-- Synthetic-data disclosure and explicit production-data boundary
-- Portfolio integration with repository-owned GitHub Pages and source links
-- Private live owner dashboard, 60-second refresh and real API binding
-- Site-scoped Read statistics credential; optional owner-browser storage, never committed
-- Cookie-free section attention, project links and résumé-interest events; DNT/GPC and internal QA exclusions
-- Eight live unit tests plus desktop/mobile API, storage, error-state and accessibility checks
-
-GA4, PostHog, BigQuery, real retention and real-user Web Vitals remain outside this project's execution evidence. The dbt fixture does not model live GoatCounter traffic. See `docs/live-analytics.md` for the live measurement contract and limitations. No credential or real visitor dataset is committed.
+Not claimed: real visitor identities, observed live retention, causal lift, historical section time, real p75 Core Web Vitals, executed GA4/PostHog/BigQuery integrations, enterprise traffic scale or paid adoption. Experimental observer/reference adapters are not loaded by the dashboards. The live and synthetic paths remain separate. Final release verification is recorded in `docs/validation-report.md`.

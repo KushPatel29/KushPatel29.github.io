@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 21,
-    "automatedTests": 14166
+    "automatedTests": 14182
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -23,11 +23,11 @@
       "liveApp": "https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/case-study.html",
       "ownerDashboardUrl": "https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/",
       "liveStatus": "live-demo",
-      "testCount": 15,
+      "testCount": 31,
       "testCommand": "dbt build --project-dir dbt --profiles-dir dbt",
       "dataClassification": "synthetic-with-private-live-analytics",
       "priority": "specialist",
-      "productShape": "Private live GoatCounter analytics for visits, section attention and approximate countries, alongside a separate reproducible synthetic dbt case study",
+      "productShape": "Private live analytics with complete-day comparisons and coverage diagnostics; a separate 90-day synthetic dbt workbench with ordered journeys, censored retention and independent Python reconciliation",
       "primaryDecision": "How many estimated visits does the portfolio receive, which content earns active attention, and which countries do visitors come from?",
       "capabilities": [
         "web-analytics",

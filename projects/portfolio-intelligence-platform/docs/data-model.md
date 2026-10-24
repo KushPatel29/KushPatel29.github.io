@@ -1,27 +1,19 @@
-# Data model
+# Executed data model
 
-## Raw and staging
+DuckDB only. BigQuery syntax, production partitioning and enterprise throughput have not been exercised here.
 
-- `raw_events`: append-only event source used by the demo target
-- `stg_events`: typed, deduplicated, normalized event records
+| Relation | Grain | Responsibility |
+|---|---|---|
+| `raw_events` | Delivered event, including replay | All generated data, deterministic shuffled delivery order |
+| `stg_event_audit` | Delivered row | Safe timestamp/count conversion, v2 contract validation, deterministic earliest-delivery dedup rank, mutually exclusive disposition |
+| `stg_events` | Canonical valid event ID | Normalized types; explicit analytics eligibility with consent and bot/internal/test exclusions |
+| `int_sessions` | Eligible event in reconstructed session | Exact 30-minute inactivity, stable event positions and session keys |
+| `fct_sessions` | Session | First chronological touch, start/end, deduplicated session outcomes, engagement rule |
+| `fct_journeys` | Session | Ordered page/project/case/high-intent positions; absent prior stages keep downstream positions NULL |
+| `mart_conversion` | Session-start day | Session conversion counts and rates, retained as a daily semantic mart |
+| `mart_project_engagement` | Session-project | Repeated-view reduction, summed project seconds, later-action association |
+| `mart_retention` | Cohort-week, W0–W4 | Fixed cohort denominator, mature-week censoring, distinct retained users |
 
-## Intermediate
+The exported JSON contains only synthetic aggregates, schema version 2, fixed observation dates and a normalized seed SHA-256. It contains no API key, visitor-level event export or real telemetry. The exporter requires a successful dbt gate; CI reruns the generator check, full build, independent oracle and output-drift check.
 
-- `int_sessions`: 30-minute inactivity sessionization
-- `int_attribution`: first-touch, session, and last non-direct source logic
-- `int_project_engagement`: deduplicated project interactions
-- `int_journeys`: ordered session steps and time to action
-
-## Marts
-
-- `fct_events`: eligible event fact
-- `fct_sessions`: one row per reconstructed session
-- `fct_project_engagement`: session-project behavioral fact
-- `fct_web_vitals`: performance observation fact
-- `mart_conversion`: governed daily conversion metrics
-- `mart_acquisition`: source/medium performance
-- `mart_content`: project reach, depth, and downstream action
-
-## Stable keys
-
-`event_id` is generated client-side. `session_id` is derived from anonymous user ID and the cumulative session-break number. Project and page dimensions use stable, human-readable business keys.
+`verify_warehouse.py` constructs sessions independently with Python datetime deltas, not the SQL session model. It compares every event/session assignment and first touch, walks each ordered journey, recomputes session-project actions and weekly cohorts, and asserts the planted exact-boundary and reversed-action probes.
