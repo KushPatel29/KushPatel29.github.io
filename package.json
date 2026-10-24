@@ -16,8 +16,8 @@
     "test": "pnpm test:contracts && pnpm test:unit && pnpm test:e2e"
   },
   "devDependencies": {
-    "@axe-core/playwright": "4.13.0",
+    "@axe-core/playwright": "4.14.0",
     "@lhci/cli": "0.15.1",
-    "@playwright/test": "1.63.0"
+    "@playwright/test": "1.64.1"
   }
 }
