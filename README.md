@@ -30,12 +30,14 @@ still runs its tests in CI; the page leads with findings instead.
 
 The portfolio includes its own measurement-system case study: **[Portfolio
 Intelligence Platform](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/)**.
-It demonstrates acquisition, engagement and conversion calculations from a
-committed 20-event fixture, plus honest unavailable states for retention and
-Core Web Vitals where the sample has no evidence. A consent-aware provider
-adapter and BigQuery profile are reference designs, explicitly not activated.
-The implemented DuckDB/dbt path and generated dashboard output run in root CI
-with 15 automated data tests. No number is presented as real portfolio traffic.
+It opens a private owner dashboard connected directly to the existing GoatCounter
+account: real homepage visits, active section/project time and approximate visitor
+countries, refreshed every minute. A read-only site-scoped key stays in the owner's
+browser; no credential or live visitor data is published in the repository.
+The separate [dbt case study](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/case-study.html)
+preserves acquisition, engagement and conversion calculations from a committed
+20-event synthetic fixture and its 15 data tests. GA4/PostHog and BigQuery remain
+reference integrations. Live measurements and fixture values never share a data source.
 
 Its complete source, event contract, governed metric catalog, architecture,
 privacy boundary and reviewer setup are under

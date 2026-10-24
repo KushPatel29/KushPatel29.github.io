@@ -131,7 +131,7 @@
       "codeRepository": "https://github.com/KushPatel29/kushpatel29.github.io/tree/main/projects/portfolio-intelligence-platform",
       "author": { "@id": "https://kushpatel29.github.io/#kushpatel" },
       "sameAs": "https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/",
-      "description": "A reproducible web analytics case study built from a committed twenty-event synthetic fixture. DuckDB and dbt produce tested session and conversion models, root CI regenerates the public dashboard data, and unavailable retention or performance measures remain visibly unavailable instead of being invented.",
+      "description": "A private live portfolio analytics dashboard reads real visits, active section attention and approximate countries directly from GoatCounter. A separate twenty-event synthetic DuckDB/dbt case study preserves tested session models, governed definitions and explicit evidence boundaries.",
       "keywords": "web analytics, product analytics, analytics engineering, dbt, DuckDB, synthetic fixture, Core Web Vitals instrumentation, attribution, metric governance, data quality, privacy"
     },
     {
@@ -406,7 +406,7 @@
 <main id="top">
 
   <!-- ============ HERO ============ -->
-  <section class="hero" aria-label="Introduction">
+  <section class="hero" id="intro" aria-label="Introduction">
     <div class="hero-copy">
       <p class="eyebrow-pill">
         <span class="pulse-dot" aria-hidden="true"></span>
@@ -1091,9 +1091,9 @@ WHERE verdict = 'GO'</pre>
       <article class="project archive-item" id="p-portfolio-intelligence" data-tags="bi engineering customer business">
         <p class="archive-kicker">WEB ANALYTICS · METRIC GOVERNANCE</p>
         <h4>Portfolio Intelligence Platform</h4>
-        <p class="archive-outcome">A transparent analytics engineering case study: tested dbt relations generate every displayed KPI from one committed 20-event synthetic fixture.</p>
-        <p class="archive-stack">dbt Core · DuckDB · GitHub Actions · Event contracts</p>
-        <div class="archive-links"><a class="is-live" href="projects/portfolio-intelligence-platform/dist/">Case study <span aria-hidden="true">→</span></a><a  href="https://github.com/KushPatel29/kushpatel29.github.io/tree/main/projects/portfolio-intelligence-platform" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div>
+        <p class="archive-outcome">Private live analytics for this portfolio: real visits, section and project attention, and approximate visitor countries. A separate 20-event synthetic dbt case study demonstrates the tested modelling path.</p>
+        <p class="archive-stack">GoatCounter · JavaScript · dbt Core · DuckDB · Event contracts</p>
+        <div class="archive-links"><a class="is-live" href="projects/portfolio-intelligence-platform/dist/">Live analytics <span aria-hidden="true">→</span></a><a href="projects/portfolio-intelligence-platform/dist/case-study.html">dbt case study <span aria-hidden="true">→</span></a><a  href="https://github.com/KushPatel29/kushpatel29.github.io/tree/main/projects/portfolio-intelligence-platform" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div>
       </article>
       </div>
     </div>
@@ -1822,10 +1822,11 @@ WHERE verdict = 'GO'</pre>
 </dialog>
 
 <script src="main.js" defer></script>
+<script src="projects/portfolio-intelligence-platform/analytics/live-tracking.js"></script>
 
 <!-- ============================================================
      Visit counting. GoatCounter: no cookies, no fingerprint, no
-     cross-site identity, and nothing that needs a consent banner.
+     cross-site identity. The live collector respects browser privacy signals.
      It records a path, a referrer, a coarse country and a screen
      size. It cannot tell you who someone is, and neither can
      anything else that is honest about it.
@@ -1844,6 +1845,9 @@ WHERE verdict = 'GO'</pre>
     var SITE_CODE = "kushpatel";
     if (!/^[a-z0-9][a-z0-9-]{1,48}$/.test(SITE_CODE)) return;      // not configured yet
     if (!/^(www\.)?kushpatel29\.github\.io$/.test(location.hostname)) return;  // not the live site
+    if (navigator.webdriver || navigator.doNotTrack === "1" || navigator.globalPrivacyControl) return;
+    if (new URLSearchParams(location.search).get("analytics") === "off") return;
+    try { if (localStorage.getItem("portfolio_tracking_disabled") === "1") return; } catch {}
 
     var s = document.createElement("script");
     s.async = true;

@@ -1,8 +1,8 @@
 # Project status
 
-**COMPLETE — 2026-09-25**
+**LIVE OWNER VIEW ADDED — 2026-10-24**
 
-The Portfolio Intelligence Platform is implemented, documented, tested, and published as a public portfolio showcase.
+Portfolio Intelligence now has a private live GoatCounter owner dashboard and a separate public synthetic dbt case study. Live visits, approximate countries and the daily trend read the existing account; section attention and project interactions begin with this release.
 
 ## Completion evidence
 
@@ -13,5 +13,9 @@ The Portfolio Intelligence Platform is implemented, documented, tested, and publ
 - Metric, event, architecture, model, privacy, and activation documentation
 - Synthetic-data disclosure and explicit production-data boundary
 - Portfolio integration with repository-owned GitHub Pages and source links
+- Private live owner dashboard, 60-second refresh and real API binding
+- Site-scoped Read statistics credential; optional owner-browser storage, never committed
+- Cookie-free section attention, project links and résumé-interest events; DNT/GPC and internal QA exclusions
+- Eight live unit tests plus desktop/mobile API, storage, error-state and accessibility checks
 
-The completed scope is the reproducible fixture-to-dashboard case study. GA4, PostHog, BigQuery, real retention, and real-user Web Vitals are explicitly outside the evidence boundary; no provider ID or credential is committed.
+GA4, PostHog, BigQuery, real retention and real-user Web Vitals remain outside this project's execution evidence. The dbt fixture does not model live GoatCounter traffic. See `docs/live-analytics.md` for the live measurement contract and limitations. No credential or real visitor dataset is committed.

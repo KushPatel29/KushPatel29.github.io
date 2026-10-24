@@ -2,9 +2,11 @@
 
 ![dbt tests](https://img.shields.io/badge/dbt%20tests-15%20passing-08695e)
 
-**Status: complete · [Open the GitHub Pages case study](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/)**
+**[Private live owner dashboard](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/) · [Synthetic dbt case study](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/case-study.html)**
 
-A portfolio-grade web analytics system that joins consent-aware browser instrumentation, governed event and metric contracts, reproducible dbt models, automated quality gates, and an interactive executive dashboard. The public experience uses a clearly labeled synthetic dataset; no demo values are presented as real visitor behavior.
+A web analytics system with two explicit data paths. The private owner dashboard reads real portfolio visits, active section/project attention and approximate countries directly from the existing GoatCounter account, refreshing every 60 seconds. Its read-only credential stays in the owner's browser; no key or live visitor data is published. The separate public dbt case study uses a clearly labeled synthetic dataset. No demo value is presented as real visitor behavior.
+
+See [live analytics setup, definitions and privacy boundaries](docs/live-analytics.md). Historical section time is unavailable: attention collection starts with this release. Visits are estimates rather than verified people; location is coarse country-level. The remaining sections document the synthetic case-study pipeline.
 
 ## Why this exists
 
@@ -74,7 +76,7 @@ Exact formulas, grains, owners, exclusions, and service levels live in [`docs/me
 | Transformation | dbt Core | documented SQL lineage, tests, modular models, adapter portability |
 | Automation | root GitHub Actions workflow | rebuilds dbt, regenerates JSON, and rejects output drift |
 | Data product | semantic HTML, CSS, vanilla JS | fast, accessible, dependency-light public experience |
-| Hosting | ChatGPT Sites | HTTPS public showcase with no paid infrastructure |
+| Hosting | GitHub Pages | HTTPS public code/UI; live data is read privately from GoatCounter |
 
 No paid tool is required to review or run the project locally.
 
@@ -123,9 +125,9 @@ raw_events (committed deterministic seed)
 
 The browser accepts only registered `snake_case` event names. Every payload adds a UUID, contract version, UTC timestamp, pseudonymous visitor ID, session ID, clean page path, consent state, and explicit internal/synthetic flags. See [`docs/event-tracking-plan.md`](docs/event-tracking-plan.md) and [`docs/data-model.md`](docs/data-model.md).
 
-## Production activation
+## Optional reference-provider activation
 
-The adapters and warehouse target are intentionally scaffolded, not silently connected to personal accounts. To activate genuine traffic:
+GoatCounter is the implemented live provider; its independent owner view does not use the fixture's session models. The optional GA4/PostHog adapters and BigQuery target below remain scaffolded. To activate those additional providers:
 
 1. Create GA4 and PostHog projects and place only their public browser identifiers behind the consent manager.
 2. Enable GA4’s BigQuery export in a dedicated raw dataset.
@@ -153,10 +155,10 @@ Never commit provider secrets or publish person-level event exports.
 
 ## Deliberate limitations
 
-- Public dashboard values are a fixed synthetic aggregate, so the demo remains deterministic and privacy-safe.
+- The public dbt case study uses a fixed synthetic aggregate. The default owner dashboard instead requires a private read-only GoatCounter connection and never falls back to that fixture.
 - GA4, PostHog, and BigQuery have never been run for this project. They are reference hooks and a profile, not evidence of hands-on provider use.
 - DuckDB exercises the transformation contract; production-scale partitioning and clustering are BigQuery concerns documented in [`docs/architecture.md`](docs/architecture.md).
-- A real deployment should add consent-mode UI appropriate to its jurisdiction and legal review.
+- The live collector is cookie-free, respects DNT/GPC and sends no form content or precise location. Its measurement limitations and owner-storage tradeoff are documented separately.
 
 ## License
 

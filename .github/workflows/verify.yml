@@ -127,7 +127,7 @@ jobs:
         run: pnpm exec playwright install --with-deps chromium
 
       - name: Exercise recruiter flows, accessibility and visual contracts
-        run: pnpm test:e2e
+        run: pnpm test:unit && pnpm test:e2e
 
       - name: Enforce Lighthouse budgets
         run: pnpm test:lighthouse
@@ -172,7 +172,7 @@ jobs:
         run: git diff --exit-code -- dist/data/dashboard.json
 
       - name: Check browser instrumentation and dashboard JavaScript
-        run: node --check dist/app.js && node --check analytics/tracking.js && node --check analytics/web-vitals.js && node scripts/check_public_contract.mjs
+        run: node --check dist/app.js && node --check dist/live.js && node --check dist/live-model.js && node --check analytics/live-tracking.js && node --check analytics/tracking.js && node --check analytics/web-vitals.js && node scripts/check_public_contract.mjs
 
   demos:
     name: External links and live demos

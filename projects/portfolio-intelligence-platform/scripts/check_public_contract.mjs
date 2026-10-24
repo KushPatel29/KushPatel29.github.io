@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const html = fs.readFileSync(path.join(root, "dist", "index.html"), "utf8");
+const html = fs.readFileSync(path.join(root, "dist", "case-study.html"), "utf8");
 const app = fs.readFileSync(path.join(root, "dist", "app.js"), "utf8");
 const data = JSON.parse(fs.readFileSync(path.join(root, "dist", "data", "dashboard.json"), "utf8"));
 const errors = [];

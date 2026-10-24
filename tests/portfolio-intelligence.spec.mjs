@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
 test("Portfolio Intelligence exposes only fixture-backed evidence", async ({ page }) => {
-  await page.goto("/projects/portfolio-intelligence-platform/dist/");
+  await page.goto("/projects/portfolio-intelligence-platform/dist/case-study.html");
   await expect(page.getByText("SYNTHETIC CASE STUDY", { exact: true })).toBeVisible();
   await expect(page.locator("[data-metric='visitors']")).toHaveText("5");
   await expect(page.locator("[data-metric='sessions']")).toHaveText("6");
@@ -30,7 +30,7 @@ test("Portfolio Intelligence exposes only fixture-backed evidence", async ({ pag
 test("Portfolio Intelligence fits a phone screen without sideways scrolling", async ({ page }) => {
   for (const width of [360, 390]) {
     await page.setViewportSize({ width, height: 800 });
-    await page.goto("/projects/portfolio-intelligence-platform/dist/");
+    await page.goto("/projects/portfolio-intelligence-platform/dist/case-study.html");
     await expect(page.locator("[data-metric='visitors']")).toHaveText("5");
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(overflow, `page is ${overflow}px wider than a ${width}px screen`).toBeLessThanOrEqual(0);

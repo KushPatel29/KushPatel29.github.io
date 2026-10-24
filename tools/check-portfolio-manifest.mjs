@@ -66,6 +66,7 @@ const allowedPriority = new Set(["flagship", "specialist"]);
 const allowedClassification = new Set([
   "synthetic",
   "synthetic-and-session-upload",
+  "synthetic-with-private-live-analytics",
   "public-open-data",
   "public-open-data-and-synthetic",
 ]);
