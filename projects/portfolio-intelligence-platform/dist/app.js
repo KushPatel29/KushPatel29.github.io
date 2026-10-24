@@ -180,7 +180,7 @@ $("#fixture-export").addEventListener("click", () => {
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
-fetch("./data/dashboard.json")
+fetch("./data/dashboard.json", {cache:'no-cache'})
   .then((r) => {
     if (!r.ok) throw Error("Unavailable");
     return r.json();

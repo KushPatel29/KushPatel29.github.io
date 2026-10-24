@@ -16,3 +16,5 @@ Assessment: **share with the stated measurement and scope limits**. This is a re
 Public results are labelled synthetic beside the controls and every data export includes classification/provenance. Real analytics stays behind the existing owner's read-only connection. Daily bars start at zero; detailed data tables accompany charts. Incomplete retention weeks are em dashes, not zeros. Live country counts are not converted into rates against potentially different hourly/day boundaries.
 
 The owner API timestamp is a retrieval timestamp, not evidence of provider processing completeness. Real traffic/attention may be empty, delayed, blocked or approximate. The public fixture models methods; it cannot establish real retention, hiring conversion or causal commercial lift. No paid experience, stakeholder sign-off or independent endorsement was added.
+
+Live Chrome verification also exposed stale cached module dependencies after deployment. HTML, CSS and the full owner-module chain now carry content fingerprints checked in CI; public aggregate requests revalidate their data. The read-only owner connection was reused without creating or broadening credentials.

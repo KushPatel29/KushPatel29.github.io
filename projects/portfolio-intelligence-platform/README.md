@@ -50,6 +50,8 @@ Open `http://localhost:4173/dist/case-study.html`. Expected build: **40 nodes in
 
 From the repository root, `pnpm test:unit` checks API and collection behavior; `pnpm test:e2e` exercises both interfaces, privacy/storage choices, failure states, keyboard-accessible native controls and mobile layouts. The repository's verify workflow also rebuilds dbt and runs the independent oracle.
 
+After editing browser assets, run `python scripts/stamp_assets.py --write` and review the fingerprint changes. CI checks the complete HTML/CSS/module dependency chain, so a cached parent cannot silently retain an old child module. Public aggregate fetches revalidate their data rather than using an unexpired older fixture.
+
 ```mermaid
 flowchart LR
   H[Homepage] -->|cookie-free aggregate events| G[GoatCounter]

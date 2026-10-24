@@ -1,5 +1,5 @@
-import { statsClient } from "./api-client.js";
-export { SITE } from "./api-client.js";
+import { statsClient } from "./api-client.js?v=8f1f2f5f1470";
+export { SITE } from "./api-client.js?v=8f1f2f5f1470";
 export const QUANTUM_SECONDS = 15;
 export const AREA_LABELS = {
   intro: "Introduction",

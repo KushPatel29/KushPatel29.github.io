@@ -168,7 +168,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Verify the entirely synthetic source fixture
-        run: python scripts/generate_fixture.py --check
+        run: python scripts/generate_fixture.py --check && python scripts/stamp_assets.py --check
 
       - name: Build all 40 nodes, including 31 data tests
         run: dbt build --project-dir dbt --profiles-dir dbt

@@ -11,7 +11,8 @@ for(const file of ['dist/index.html','dist/case-study.html']){
   const pageUrl=new URL(file,root),source=fs.readFileSync(pageUrl,'utf8');
   for(const [,href] of source.matchAll(/(?:href|src)="([^"]+)"/g)){
     if(/^(?:https?:|data:|#)/.test(href))continue;
-    if(!fs.existsSync(new URL(href,pageUrl)))fail(`Missing project link or asset: ${href}`);
+    const target=new URL(href,pageUrl);target.search='';target.hash='';
+    if(!fs.existsSync(target))fail(`Missing project link or asset: ${href}`);
   }
 }
 for (const text of [
