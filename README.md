@@ -156,7 +156,7 @@ the portfolio's public claims and product strategy in one reviewable place.
 **`tools/check-role-fit.mjs`** reads every Role fit panel and fails if a row
 has no source, if its chip disagrees with its tick, if the "Tied out" totals
 differ from the rows above them, or if a reading-list link lands nowhere.
-**`tools/check-headline-counts.mjs`** holds the "21 projects / 15 live demos"
+**`tools/check-headline-counts.mjs`** holds the "21 projects / 16 live demos"
 figures — hero band, link-preview descriptions and prose headings, digits or
 words — to the manifest.
 

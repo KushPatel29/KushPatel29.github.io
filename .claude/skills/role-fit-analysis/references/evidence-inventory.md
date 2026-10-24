@@ -96,7 +96,7 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Incremental refresh | PAID | Two Rivers | — |
 | SSRS paginated reports, SSIS | PAID | Two Rivers legacy estate | maintained + migrated, not greenfield |
 | Excel (Power Query, Power Pivot, dynamic arrays, LAMBDA, data tables, LINEST) | PAID (general) + PROJECT (advanced) | Shivam; excel-fpa-model, bc-local-government-finance, GrowthOps OS (window-driven workbook, campaign scorecard) | advanced features are shown in projects |
-| Tableau | PROJECT | GL recon Tableau close scorecard generated from script | not used in a job |
+| Tableau | PROJECT | GL recon generated desktop workbook plus published compact Tableau Public view of the tested control extract; 60 account-periods, 43 outside 0.5% tolerance, monthly filter action | not used in a job; the compact web view is separate from the seven-sheet generated desktop workbook |
 | Python (pandas, NumPy, scikit-learn) | PAID+PROJECT | Shivam automation; Two Rivers forecasting web apps; all repos | — |
 | PySpark | PAID+PROJECT | Two Rivers Fabric/Synapse; control tower on Databricks | — |
 | Microsoft Fabric (Lakehouse, Warehouse, pipelines, notebooks) | PAID | Two Rivers | DP-600 in progress, not held |
@@ -203,7 +203,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Corridor Decision Intelligence | p-corridor | 244 | synthetic | yes | DS, pricing/loyalty DA — causal uplift from a ten-arm randomized trial, certified MIP over 112,563 customer-offer decisions (75% of the true-value ceiling vs 7% for propensity targeting), policy A/B test +$1.40/customer, Databricks + PySpark parity, FastAPI, Power BI |
 | Health System Decision Support | p-healthcare | 819 | synthetic | no | healthcare DA/BA — SPC, decision packet |
 | Pricing & Costing Analytics | p-pricing-analytics | 3182 | synthetic | yes | DA, FA — pocket-price waterfall, approval routing |
-| GL / P&L Reconciliation | p-gl-recon | 710 | synthetic | no | FA — close certification, SoD, Tableau + Power BI |
+| GL / P&L Reconciliation | p-gl-recon | 710 | synthetic | yes | FA — close certification, SoD, Tableau + Power BI |
 | Finance Decision Models in Excel and Power BI | p-excel-fpa | 1263 | public-open-data-and-synthetic | no | FA, DA — utility plan-vs-actual, Excel + Power BI tie-out |
 | B.C. Local-Government Finance | p-bc-finance | 181 | public-open-data | no | AE, FA, public sector — 90 contracted files, dbt 31 tests |
 | Transaction Monitoring | p-aml-monitoring | 270 | synthetic | yes | DS, fincrime — 60/60 planted cases; sanctions name screening on the real Consolidated Canadian Autonomous Sanctions List: threshold set on one half by a fixed rule, 97.2% of standard name variants caught on the held-out half at 10 alerts per 10,000 synthetic customers (Oct 2026) |

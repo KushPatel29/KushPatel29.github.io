@@ -355,8 +355,8 @@
       "cardId": "p-gl-recon",
       "title": "GL / P&L Reconciliation",
       "repository": "https://github.com/KushPatel29/gl-reconciliation-dashboard",
-      "liveApp": null,
-      "liveStatus": "repository-only",
+      "liveApp": "https://public.tableau.com/app/profile/kush.patel4990/viz/GLCloseControls-SyntheticData/Closecontrolsoverview",
+      "liveStatus": "live-demo",
       "testCount": 710,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
@@ -375,7 +375,8 @@
       "evidence": [
         "https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/output/close_certification_packet.md",
         "https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/governance/close_certification_policy.json",
-        "https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/docs/CLOSE_CERTIFICATION_RUNBOOK.md"
+        "https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/docs/CLOSE_CERTIFICATION_RUNBOOK.md",
+        "https://github.com/KushPatel29/gl-reconciliation-dashboard/blob/master/tableau/publication.json"
       ]
     },
     {
