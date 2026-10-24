@@ -6,8 +6,9 @@ A static page: one HTML file, one stylesheet, one script, written with AI
 coding assistants and checked by the contracts below. No framework, no
 production build step, no cookies. The dashboard screenshots are real
 captures from my repos. Reported project benchmarks and documented invariants
-are checked by the linked repository workflows. Project data is synthetic and
-dollar outcomes are modelled; employment improvements are internal estimates.
+are checked by the linked repository workflows. Synthetic cases label their
+modelled outcomes; public-data cases identify their sources. Employment
+improvements are internal estimates.
 Simulations and design-only work are labelled explicitly rather than presented
 as client or production experience.
 
@@ -29,8 +30,9 @@ still runs its tests in CI; the page leads with findings instead.
 ## Portfolio Intelligence Platform
 
 The portfolio includes its own measurement-system case study: **[Portfolio
-Intelligence Platform](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/)**.
-It opens a private owner dashboard connected directly to the existing GoatCounter
+Intelligence Platform public case study](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/case-study.html)**.
+Reviewers can inspect the synthetic dbt pipeline without a login or API key.
+The separately labelled [owner dashboard](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/) connects directly to the existing GoatCounter
 account: real homepage visits, active section/project time and approximate visitor
 countries, refreshed every minute. A read-only site-scoped key stays in the owner's
 browser; no credential or live visitor data is published in the repository.

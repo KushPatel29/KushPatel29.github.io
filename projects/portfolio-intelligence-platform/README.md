@@ -2,7 +2,7 @@
 
 ![dbt tests](https://img.shields.io/badge/dbt%20tests-15%20passing-08695e)
 
-**[Private live owner dashboard](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/) · [Synthetic dbt case study](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/case-study.html)**
+**[Public dbt case study - no sign-in](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/case-study.html) · [Private owner dashboard](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/)**
 
 A web analytics system with two explicit data paths. The private owner dashboard reads real portfolio visits, active section/project attention and approximate countries directly from the existing GoatCounter account, refreshing every 60 seconds. Its read-only credential stays in the owner's browser; no key or live visitor data is published. The separate public dbt case study uses a clearly labeled synthetic dataset. No demo value is presented as real visitor behavior.
 
@@ -16,7 +16,7 @@ This project treats those questions as a small analytics product, with collectio
 
 ## Two-minute reviewer tour
 
-1. Change the 30 / 90 / 365-day range and inspect the KPI, acquisition, funnel, and project views.
+1. Open the public case study and inspect the labelled four-day fixture, acquisition, funnel and project views. It requires no API key. The private owner dashboard has its own live date-range controls.
 2. Open **Metrics** to switch among acquisition, engagement, conversion, retention, experience, and data-health families.
 3. Inspect the explicit unavailable states for retention and Core Web Vitals—the fixture does not pretend to contain evidence it lacks.
 4. Open **Lineage** to see definitions, grain, ownership, freshness, and source-to-mart paths.

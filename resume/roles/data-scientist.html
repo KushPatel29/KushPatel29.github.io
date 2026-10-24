@@ -15,19 +15,15 @@
 
 <h2>Summary</h2>
 <ul>
-  <li>Data scientist with an MPS in Analytics (Applied Machine Intelligence, GPA 3.76) and 4+ years of paid analytics in supply chain and finance, including SKU-level demand forecasting deployed as Python web apps for a perishable-goods distributor.</li>
-  <li>Runs a live wildfire forecast for Canada twice a day and grades every published forecast against what satellites saw afterwards: ROC-AUC 0.734 (95% CI 0.691&ndash;0.777) over its first 30 days, ahead of both baselines on ranking, with its top-10% edge reported as not yet distinguishable from zero.</li>
-  <li>Experiments and causal inference: uplift models from a ten-arm randomized trial, a proven-optimal targeting plan, and an A/B test of the policy itself against business as usual (+$1.40 per customer, 95% CI $0.23 to $2.57); a geo holdout where six attribution models miss a known answer.</li>
-  <li>A model ships only if it beats a simple baseline on data it has never seen, and the losses are published: a learned ranker lost to collaborative filtering (81.2% vs 84.9% recall@10) and a gradient-boosted forecaster lost to a moving average (19.6% vs 18.5% WAPE).</li>
+  <li>Applied-ML candidate with an MPS in Analytics (Applied Machine Intelligence, GPA 3.76) and 4+ years of paid operations/finance analytics, including SKU forecasting deployed as Python web apps.</li>
+  <li>Runs a public wildfire forecast with prospective outcome grading. Public experiments and causal-optimization cases use labelled synthetic data; model selection compares simple baselines. Lifecycle evidence includes a local MLflow registry and scheduled public forecasts.</li>
 </ul>
 
 <h2>Technical Skills</h2>
-<p class="skill"><b>Modelling:</b> gradient boosting (XGBoost, HistGradientBoosting), logistic and Poisson models, isotonic calibration, anomaly detection (IsolationForest, Mahalanobis distance), recommender systems (item-neighbourhood collaborative filtering, two-stage retrieval and ranking), survival analysis, time-series forecasting</p>
-<p class="skill"><b>Evaluation:</b> season and out-of-time splits, rolling-origin backtests, ROC-AUC, PR-AUC, top-decile capture and lift, WAPE, recall@k, calibration curves, bootstrap intervals over clustered units, prospective grading of published forecasts, fairness screens</p>
-<p class="skill"><b>Experiments &amp; Causal Inference:</b> randomized trials and A/B tests, uplift modelling, geo holdouts, difference-in-differences, permutation tests, pre-registered decision rules, power analysis</p>
-<p class="skill"><b>Optimization &amp; Decisions:</b> mixed-integer programming (HiGHS, Gurobi), LP duals, cost-of-service trade-offs, decision memos with owners and rollback triggers</p>
-<p class="skill"><b>LLM &amp; NLP:</b> grounded text-to-SQL with retrieval over a semantic layer, ONNX embeddings, Claude API, answer verification against returned rows, on-device speech (faster-whisper, Piper)</p>
-<p class="skill"><b>Data &amp; Engineering:</b> Python (pandas, NumPy, scikit-learn), SQL (T-SQL, window functions, CTEs), PySpark, Databricks, DuckDB, Microsoft Fabric, dbt, FastAPI, Streamlit, GitHub Actions (scheduled scoring), Docker, pytest, Power BI</p>
+<p class="skill"><b>Models:</b> Python/pandas/NumPy/scikit-learn, XGBoost, logistic/Poisson models, isotonic calibration, anomaly detection, collaborative filtering and time-series forecasting.</p>
+<p class="skill"><b>Evaluation:</b> Out-of-time/season splits, rolling-origin backtests, ROC/PR-AUC, top-decile capture, WAPE, recall@k, calibration and cluster bootstrap intervals.</p>
+<p class="skill"><b>Experiments &amp; decisions:</b> Randomized A/B tests, uplift, geo holdouts, difference-in-differences, power analysis and mixed-integer optimization (HiGHS/Gurobi), demonstrated in projects.</p>
+<p class="skill"><b>Data &amp; lifecycle:</b> SQL/T-SQL, PySpark, Databricks, DuckDB, Fabric, dbt, FastAPI, Streamlit, Docker, pytest and scheduled GitHub Actions; local MLflow registry with retrospective versions and prospective monitoring.</p>
 
 <h2>Professional Experience</h2>
 
@@ -38,14 +34,13 @@
   </div>
   <p class="job-title">Data Analyst — Operations, Logistics &amp; Enterprise Reporting</p>
   <ul>
-    <li>Built SKU-level demand forecasting deployed as Python web apps for procurement, supporting fewer stock-outs and less perishable waste, alongside FEFO and lot-level traceability for recall readiness.</li>
-    <li>Delivered customer intelligence for Sales: inactivity signals, lost-account tracking and rep coverage reporting.</li>
-    <li>Sole analyst for a perishable-goods distributor: integrated ERP, Square POS, workforce and REST API feeds into curated Bronze/Silver/Gold datasets serving analysis, dashboards and operational reporting.</li>
-    <li>Built reconciliation controls comparing source against curated totals for GL/P&amp;L and inventory valuation, cutting discrepancies an estimated ~45% and reporting errors ~30% by fixing issues at the feed (internal figures, directional rather than audited).</li>
-    <li>Automated data-quality tests across the mart (schema, completeness, uniqueness, referential integrity), with anomaly thresholds, exception logging and pipeline alerting.</li>
-    <li>Engineered ELT in Microsoft Fabric and Azure Data Factory/Synapse using SQL and PySpark, and owned the Power BI semantic model and DAX measure library that Sales, Finance and Supply Chain used.</li>
-    <li>Defined governed KPIs with Sales, Finance and Supply Chain (revenue, COGS, gross margin, OTIF, inventory turns, days on hand) with documented definitions and acceptance criteria.</li>
-  </ul>
+  <li>Built SKU demand forecasts as Python web apps for procurement, alongside FEFO and lot-level traceability to support fewer stock-outs and less perishable waste.</li>
+  <li>Delivered customer inactivity, lost-account and rep-coverage analysis for Sales.</li>
+  <li>As sole analyst, integrated ERP, Square POS, workforce and REST feeds into Bronze/Silver/Gold datasets using Microsoft Fabric, Azure Data Factory/Synapse, SQL and PySpark.</li>
+  <li>Built source-to-mart GL/P&amp;L and inventory controls, cutting discrepancies an estimated ~45% and reporting errors ~30% (internal directional estimates, not audited).</li>
+  <li>Automated schema, completeness, uniqueness and referential-integrity checks, with anomaly thresholds, exception logs and pipeline alerts.</li>
+  <li>Owned the Power BI semantic model and DAX library; agreed KPI definitions and acceptance criteria with Sales, Finance and Supply Chain.</li>
+</ul>
 </div>
 
 <div class="job">
@@ -55,52 +50,38 @@
   </div>
   <p class="job-title">Financial Analyst — Data &amp; Reporting</p>
   <ul>
-    <li>Automated recurring analysis with Python (pandas) and SQL views feeding Power BI, replacing manual spreadsheet consolidation and cutting manual effort an estimated ~40%.</li>
-    <li>Gathered requirements from portfolio and risk stakeholders and delivered Power BI dashboards with auditable measure definitions; performed GL/P&amp;L reconciliations and investigated discrepancies.</li>
-  </ul>
+  <li>Gathered requirements from portfolio and risk stakeholders; delivered Power BI dashboards with auditable measure definitions and reconciled GL/P&amp;L figures across sources.</li>
+  <li>Automated recurring preparation with Python and SQL views, replacing spreadsheet consolidation and cutting manual effort an estimated ~40% (internal directional estimate).</li>
+</ul>
 </div>
 
-<h2>Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code and CI-tested results; synthetic data is labelled</span></h2>
+<h2 class="projects-heading">Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code and CI-tested results; synthetic data is labelled</span></h2>
 
 <div class="proj">
   <div class="proj-head">Canada Wildfire Risk <span class="stack">— Python, XGBoost, scikit-learn, GitHub Actions &middot; real public data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/wildfire-prediction-app">github.com/KushPatel29/wildfire-prediction-app</a> &middot; live: <a href="https://wildfire-prediction-app1.streamlit.app">wildfire-prediction-app1.streamlit.app</a></div>
-  <p><b>Public forecasts, graded against outcomes:</b> calibrated classifier and Poisson models over 753 cells and 4.0M cell-days of fire and station-weather records. Historical season-split ROC-AUC 0.881; the first 30 prospective days score 0.734 (95% CI 0.691&ndash;0.777), ahead of two baselines on ranking while the top-decile edge remains unresolved. Forecasts rebuild twice daily and are graded weekly against satellite detections using whole-day bootstrap intervals. Found and fixed an index-alignment bug that had put 97.7% of fires in the wrong cell.</p>
+  <p><b>Prospective validation:</b> Models cover 753 cells and 4.0M historical cell-days. Historical season-split ROC-AUC is 0.881; the first 30 prospective target days score 0.734 (95% CI 0.691&ndash;0.777), ahead of two baselines on ranking while top-decile superiority remains unresolved. Forecasts publish twice daily and are graded weekly using whole-day bootstrap intervals. Fixed an index-alignment bug that misplaced 97.7% of fires.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">Corridor Decision Intelligence <span class="stack">— Python, DuckDB, PySpark on Databricks, HiGHS / Gurobi, FastAPI &middot; synthetic customers</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/decision-intelligence-platform">github.com/KushPatel29/decision-intelligence-platform</a> &middot; live: <a href="https://corridor-decision-intelligence.streamlit.app/">corridor-decision-intelligence.streamlit.app</a></div>
-  <p><b>Causal ML and decision optimization:</b> uplift models trained on a ten-arm randomized offer trial feed one mixed-integer program over 112,563 customer-offer decisions, solved to proven optimality. The plan captures 75% of the perfect-knowledge value ceiling against 7% for propensity targeting, and the policy was itself randomized against business as usual: +$1.40 per customer (95% CI $0.23 to $2.57). Features reproduced in PySpark on Databricks to within 2.2e-11.</p>
+  <p><b>Causal policy evaluation:</b> In a synthetic ten-arm randomized trial, uplift models feed a mixed-integer programme over 112,563 customer-offer decisions. A randomized policy comparison estimates +$1.40 per customer (95% CI $0.23&ndash;$2.57); this is simulated uplift, not client revenue. Databricks features reconcile within 2.2e-11.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">Marketing Attribution &amp; Incrementality <span class="stack">— Python, SQL, causal inference &middot; synthetic data with a known answer</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/marketing-attribution-analytics">github.com/KushPatel29/marketing-attribution-analytics</a> &middot; live: <a href="https://attribution-vs-truth.streamlit.app">attribution-vs-truth.streamlit.app</a></div>
-  <p><b>Measurement that survives a known truth:</b> six attribution models chase an answer built into the data and none finds it (last-touch gives &ldquo;direct&rdquo; a quarter of conversions; its true share is 1.9%). A powered geo holdout does, so the budget plan is calibrated on the experiment rather than on attribution.</p>
+  <p><b>Counterfactual measurement:</b> Six attribution models miss a known synthetic answer; last-touch assigns direct about a quarter of conversions versus a true 1.9%. A geo holdout supports experiment-calibrated decisions. Separate public GA4 analysis executed in BigQuery reconciles 4.3M events and exposes duplicate-purchase and tagging-order defects.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">Customer Recommendation Engine <span class="stack">— scikit-learn, FastAPI, Streamlit &middot; synthetic data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/Customer-Recommendation-Engine">github.com/KushPatel29/Customer-Recommendation-Engine</a> &middot; live: <a href="https://cross-sell-rep-console.streamlit.app">cross-sell-rep-console.streamlit.app</a></div>
-  <p><b>Choosing the simpler model on evidence:</b> a two-stage learned ranker scored 81.2% recall@10 on a warm-customer holdout and plain item-neighbourhood collaborative filtering scored 84.9% (popularity 75.4%), so the simple model ships, and a randomized pilot rather than offline recall decides what it is worth.</p>
+  <p><b>Baseline discipline:</b> A learned ranker scores 81.2% recall@10 versus 84.9% for item-neighbourhood collaborative filtering on the synthetic warm-customer holdout. The simpler model is served. A proposed randomized pilot, not offline recall, would measure business lift.</p>
 </div>
 
-<div class="proj">
-  <div class="proj-head">Transaction Monitoring <span class="stack">— Python, scikit-learn, SQLite, Streamlit &middot; synthetic data</span></div>
-  <div class="proj-url"><a href="https://github.com/KushPatel29/aml-transaction-monitoring">github.com/KushPatel29/aml-transaction-monitoring</a> &middot; live: <a href="https://aml-transaction-monitoring.streamlit.app">aml-transaction-monitoring.streamlit.app</a></div>
-  <p><b>Anomaly detection with an audit trail:</b> five explainable rules plus an anomaly model chosen in a bake-off (IsolationForest, Mahalanobis distance, gradient boosting) find all 60 planted cases where a flat $10,000 rule finds 38, while alerting on a third fewer entities.</p>
-</div>
-
-<div class="proj">
-  <div class="proj-head">Ask Your Data <span class="stack">— Python, DuckDB, ONNX embeddings, Claude API, Streamlit &middot; synthetic data</span></div>
-  <div class="proj-url"><a href="https://github.com/KushPatel29/ask-your-data">github.com/KushPatel29/ask-your-data</a> &middot; live: <a href="https://ask-your-data-kp.streamlit.app">ask-your-data-kp.streamlit.app</a></div>
-  <p><b>An LLM application that refuses rather than guesses:</b> text-to-SQL over 71 tables in 11 domains, asked by voice or text. A keyless compiler binds questions to a profiled semantic layer; with a key, Claude writes the SQL through the same read-only guard, and its prose is checked against the returned rows. On a 58-question contract: 46 right, 0 wrong, 12 refused.</p>
-</div>
-
-<p class="more-work">More at <a href="https://kushpatel29.github.io/#fit-data-scientist">kushpatel29.github.io</a>: an attrition model with no protected attributes and a fairness screen, survival analysis, and revenue and supply-chain analytics in Power BI.</p>
-
-<p class="skill"><b>Model lifecycle (project):</b> MLflow training runs and a local SQLite registry preserve six historical wildfire model versions, evaluation artifacts and prospective-monitoring runs; the live forecast is graded against satellite observations. No employer MLOps platform is claimed.</p>
+<p class="more-work">Additional anomaly detection, grounded text-to-SQL and fairness/survival cases at <a href="https://kushpatel29.github.io/?role=data-scientist#fit">kushpatel29.github.io</a>. MLflow records six historical wildfire versions retrospectively and ongoing prospective-monitoring runs in a local registry.</p>
 
 <h2>Education</h2>
 <div class="edu">

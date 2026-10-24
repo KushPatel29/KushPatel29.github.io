@@ -13,21 +13,15 @@
 
 <h2>Summary</h2>
 <ul>
-  <li>Data analyst and BI / analytics engineer with 4+ years turning raw operational and financial data (ERP, POS, WMS, workforce and REST feeds) into governed warehouse layers, Power BI reporting and decisions that Sales, Finance and Supply Chain can defend. Sole analyst across a perishable-goods supply chain; before that, a financial analyst running month-end GL/P&amp;L reconciliations.</li>
-  <li>Builds dimensional models on cloud warehouses (Microsoft Fabric, Azure Synapse, SQL Server) with Bronze/Silver/Gold medallion layers, conformed dimensions and SCD Type 1/2, orchestrated in Azure Data Factory and Fabric pipelines (dbt and Airflow in project work, not production).</li>
-  <li>Delivers Power BI end to end — semantic model, DAX measure library, RLS, publish-ready reports — and treats data quality as a control: automated reconciliation cut recurring discrepancies an estimated ~45% by fixing issues at the feed rather than in the report.</li>
-  <li>Three public case studies below, each with a 70-second video tour: Power BI and Excel reporting that ties out to the cent, a contract-tested PySpark and Delta Lake pipeline, and a dbt model over 90 official B.C. filings. Explore 21 public projects and 16 hosted demos at <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a>.</li>
+  <li>Data analyst and BI / analytics engineer with 4+ years across operations and financial reporting. Sole analyst at a perishable-goods distributor; previously a financial analyst performing month-end GL/P&amp;L reconciliation.</li>
+  <li>Builds governed SQL models, Azure/Fabric pipelines and Power BI reporting for Sales, Finance and Supply Chain. Public cases show independent reconciliation, tested failure handling and decisions on real public or clearly labelled synthetic data.</li>
 </ul>
 
 <h2>Technical Skills</h2>
-<p class="skill"><b>BI &amp; Data Visualization:</b> Power BI (DAX, Power Query/M, semantic models, row-level security (RLS/OLS), incremental refresh, TMDL/PBIR), SSRS paginated reports, Tableau, Excel (Power Pivot, dynamic arrays, LAMBDA, what-if data tables), Streamlit, Plotly</p>
-<p class="skill"><b>Languages:</b> SQL (T-SQL, window functions, CTEs), Python (pandas, NumPy, scikit-learn, Flask, FastAPI), PySpark, DAX, M</p>
-<p class="skill"><b>Warehousing &amp; Lakehouse:</b> Microsoft Fabric (Lakehouse, Warehouse, OneLake, Direct Lake), Azure Synapse Analytics, SQL Server, PostgreSQL, Databricks (SQL warehouse, serverless jobs, Unity Catalog), Snowflake (dbt, Streams/Tasks, Snowpark; trial projects), DuckDB, Delta Lake</p>
-<p class="skill"><b>ETL / ELT &amp; Orchestration:</b> Azure Data Factory, Fabric Data Pipelines &amp; Dataflows Gen2, dbt Core, Apache Airflow, SSIS, SQL Server Agent, REST API integration, incremental and CDC-style loads, schema-drift contracts, quarantine-and-replay</p>
-<p class="skill"><b>Modelling &amp; Governance:</b> Kimball star schemas, conformed dimensions, SCD Type 1/2, metric catalogues with owner and grain, data lineage, RLS/RBAC and column masking, de-identification (k-anonymity), reconciliation and control totals, cutover validation</p>
-<p class="skill"><b>Analytics &amp; ML:</b> forecasting with rolling-origin backtests, classification (XGBoost, logistic regression), anomaly detection, survival analysis, recommender systems, randomized experiments and causal uplift, mixed-integer optimization (HiGHS, Gurobi), geo holdouts and difference-in-differences, LLM text-to-SQL; always graded against a simple baseline</p>
-<p class="skill"><b>Business Analysis:</b> stakeholder engagement, requirements and acceptance criteria, current/future-state mapping, requirements traceability, UAT, business cases and options analysis, RACI/RAID, change and adoption planning</p>
-<p class="skill"><b>Quality &amp; Delivery:</b> pytest, dbt tests, pandera contracts, referential-integrity checks, anomaly thresholds, Git, GitHub Actions, Docker; Kafka (Redpanda) streaming, Terraform and Kubernetes in CI; Jira and Confluence (personal project)</p>
+<p class="skill"><b>Analysis &amp; BI:</b> SQL (T-SQL, CTEs, window functions), Power BI (DAX, Power Query, semantic models, RLS/OLS), Excel (Power Pivot, dynamic arrays, LAMBDA, what-if tables), Python/pandas, Tableau, SSRS.</p>
+<p class="skill"><b>Data platforms:</b> Microsoft Fabric, Azure Data Factory/Synapse, SQL Server, PySpark, Delta Lake; star schemas, conformed dimensions, SCD Type 1/2, incremental loads and API ingestion.</p>
+<p class="skill"><b>Controls &amp; delivery:</b> KPI definitions, reconciliation, data-quality gates, cutover validation, access controls, requirements and UAT; Git, pytest and GitHub Actions in public projects.</p>
+<p class="skill"><b>Project execution:</b> dbt on DuckDB, Databricks and Snowflake; Airflow scheduler in nightly CI; Snowflake Streams/Tasks, Snowpark and RBAC; bounded AWS Athena/S3/Glue run. Free/trial accounts and CI are separate from employer production.</p>
 
 <h2>Professional Experience</h2>
 
@@ -38,16 +32,14 @@
   </div>
   <p class="job-title">Data Analyst — Operations, Logistics &amp; Enterprise Reporting</p>
   <ul>
-    <li>Sole analyst for a perishable-goods distributor: integrated ERP, Square POS, workforce and REST API feeds into curated Bronze/Silver/Gold datasets serving ad hoc analysis, BI dashboards and operational reporting.</li>
-    <li>Designed and built the enterprise data mart applying star schemas, conformed dimensions and slowly changing dimensions, producing reliable data products sliced by SKU, supplier, region, customer and channel.</li>
-    <li>Owned Power BI end to end — semantic model design, a standardised DAX measure library, drill-through and publish-ready reports — giving Sales, Finance and Supply Chain self-service access without analyst dependency.</li>
-    <li>Engineered cloud-native ELT in Microsoft Fabric and Azure Data Factory/Synapse using SQL and PySpark, with incremental loads, parameterised transforms and structured error handling.</li>
-    <li>Built reconciliation controls comparing source against curated totals for GL/P&amp;L and inventory valuation, cutting discrepancies an estimated ~45% and reporting errors ~30% by resolving issues at the feed level rather than patching reports (internal figures, directional rather than audited).</li>
-    <li>Maintained data quality across the mart: automated schema, completeness, uniqueness and referential-integrity tests, anomaly thresholds, exception logging and pipeline alerting.</li>
-    <li>Implemented FEFO and lot-level traceability for recall readiness, delivered customer intelligence reporting (inactivity signals, lost-account tracking, rep coverage), and built SKU-level demand forecasting deployed as Python web apps that reduced stock-outs and perishable waste.</li>
-    <li>Owned the legacy SQL Server estate through migration: maintained SSIS packages and SSRS paginated reports while refactoring priority pipelines to Fabric notebooks, validating cutover with row counts, checksums and control totals so no reporting was disrupted.</li>
-    <li>Partnered with Sales, Finance and Supply Chain to define governed KPIs (revenue, COGS, gross margin, OTIF, inventory turns, days on hand) with documented definitions and acceptance criteria, secured with RLS/RBAC and column masking as self-serve access widened.</li>
-  </ul>
+  <li>As sole analyst, integrated ERP, Square POS, workforce and REST feeds into Bronze/Silver/Gold datasets using Microsoft Fabric, Azure Data Factory/Synapse, SQL and PySpark.</li>
+  <li>Designed the enterprise data mart with star schemas, conformed dimensions and slowly changing dimensions for SKU, supplier, customer, region and channel reporting.</li>
+  <li>Owned the Power BI semantic model, DAX library and drill-through reporting; defined revenue, margin, OTIF and inventory KPIs with Sales, Finance and Supply Chain, secured with RLS/RBAC and column masking.</li>
+  <li>Built source-to-mart GL/P&amp;L and inventory controls, cutting discrepancies an estimated ~45% and reporting errors ~30% (internal directional estimates, not audited).</li>
+  <li>Automated schema, completeness, uniqueness and referential-integrity checks, with anomaly thresholds, exception logs and pipeline alerts.</li>
+  <li>Maintained SSIS and SSRS while moving priority SQL Server pipelines to Fabric notebooks; validated cutover with row counts, checksums and control totals.</li>
+  <li>Delivered FEFO and lot-level traceability, customer inactivity and rep-coverage reporting, and SKU demand forecasts as Python web apps supporting procurement and lower perishable waste.</li>
+</ul>
 </div>
 
 <div class="job">
@@ -57,39 +49,32 @@
   </div>
   <p class="job-title">Financial Analyst — Data &amp; Reporting</p>
   <ul>
-    <li>Gathered reporting requirements from portfolio and risk stakeholders and delivered Power BI dashboards with drill-through and auditable measure definitions.</li>
-    <li>Automated recurring analysis with Python (pandas) and SQL views feeding Power BI, replacing manual spreadsheet consolidation and cutting manual effort an estimated ~40%.</li>
-    <li>Performed GL/P&amp;L reconciliations across sources and investigated discrepancies to maintain finance-grade accuracy.</li>
-  </ul>
+  <li>Gathered requirements from portfolio and risk stakeholders; delivered Power BI dashboards with auditable measure definitions and reconciled GL/P&amp;L figures across sources.</li>
+  <li>Automated recurring preparation with Python and SQL views, replacing spreadsheet consolidation and cutting manual effort an estimated ~40% (internal directional estimate).</li>
+</ul>
 </div>
 
-<h2>Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code, documents you can download and CI-tested results</span></h2>
+<h2 class="projects-heading">Selected Projects <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:8.4pt;color:#45525a;">— public code, documents you can download and CI-tested results</span></h2>
 
 <div class="proj">
   <div class="proj-head">GrowthOps OS <span class="stack">— Power BI (DAX), Excel, SQL, dbt, Python</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/GrowthOps-OS">github.com/KushPatel29/GrowthOps-OS</a> &middot; live: <a href="https://growthops-os.streamlit.app/">growthops-os.streamlit.app</a></div>
-  <p><b>Revenue reconciliation and BI:</b> Ad platforms claimed $3.72M in revenue; the business collected $3.06M, and two bridges explain every dollar between them. A seven-page Power BI report with more than 200 documented DAX measures and a formula-driven Excel workbook reach the same findings independently and agree to the cent: Meta&rsquo;s 7.3&times; return on ad spend is 3.3&times; on collected cash, and a nine-point drop in lead quality traces to one new campaign.</p>
+  <p><b>Revenue reconciliation:</b> On synthetic business data, explained the bridge from $3.72M claimed revenue to $3.06M collected cash. A seven-page Power BI report and formula-driven Excel workbook agree independently to the cent. Meta ROAS falls from 7.3&times; claimed to 3.3&times; on cash; a lead-quality decline traces to one campaign.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">Supply Chain Control Tower <span class="stack">— PySpark, Delta Lake, Databricks, Power BI, SQL</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/supply-chain-control-tower">github.com/KushPatel29/supply-chain-control-tower</a> &middot; live: <a href="https://kush-network-risk-decision-room.streamlit.app/">kush-network-risk-decision-room.streamlit.app</a></div>
-  <p><b>Data engineering and operations analytics:</b> A Bronze/Silver/Gold pipeline defended in three layers (schema contracts before Bronze, row quarantine with replay, a quality gate on Gold), each proven in CI by injecting the failure it exists to catch, benchmarked at 10M rows and run as a Databricks job with all 36 Gold totals matching the local build to the cent. The eight-page Power BI control tower shows short-shipping, not lateness, is the bigger OTIF failure, and that 12% of the replenishment gap needs no purchase order.</p>
+  <p><b>Pipeline and operations decisions:</b> Synthetic distribution data passes schema contracts, quarantine/replay and a Gold quality gate, each tested with injected failures. Benchmarked at 10M rows; all 36 Gold measures reconciled on Databricks. An eight-page Power BI report separates short-shipping from lateness and identifies replenishment gaps addressable without buying stock.</p>
 </div>
 
 <div class="proj">
   <div class="proj-head">B.C. Local-Government Finance <span class="stack">— SQL, dbt / DuckDB, Python, Excel, Power Query &middot; real public data</span></div>
   <div class="proj-url"><a href="https://github.com/KushPatel29/bc-local-government-finance">github.com/KushPatel29/bc-local-government-finance</a></div>
-  <p><b>Analytics engineering on official filings:</b> 90 provincial files held to written contracts, a dbt model with 31 data tests, and an Excel planning model for any of 161 municipalities. Found that the 68 municipalities investing below renewal need are $570M a year short, and caught the Province&rsquo;s own data defects, including a population file where 77 of 161 rows belong to other places.</p>
+  <p><b>Real public-data analysis:</b> Contract-checked 90 provincial files and built dbt models with 31 data tests plus an Excel plan for 161 municipalities. Estimated a $570M annual renewal shortfall across 68 municipalities and caught a population file assigning 77 of 161 rows to the wrong places.</p>
 </div>
 
-<div class="proj">
-  <div class="proj-head">Finance Decision Models in Excel and Power BI <span class="stack">— Excel, Power Query, Power Pivot / DAX, Power BI &middot; real public data</span></div>
-  <div class="proj-url"><a href="https://github.com/KushPatel29/excel-fpa-model">github.com/KushPatel29/excel-fpa-model</a></div>
-  <p><b>FP&amp;A on public filings:</b> Portland General Electric&rsquo;s $100.9M miss against plan, split into weather, price and usage from EIA, FERC and NOAA data, published in Excel and a seven-page Power BI report that agree to the cent, with a backtested load forecast; and a distributor model for channel economics and working capital.</p>
-</div>
-
-<p class="more-work">More work at <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a>: retail analytics and metric governance, text-to-SQL, AML transaction monitoring, a live wildfire forecast on national fire data, GL close controls, pricing, inventory and dbt on Databricks.</p>
+<p class="more-work">21 public projects and 16 hosted demos, including FP&amp;A, retail metric governance and prospectively graded wildfire forecasts, at <a href="https://kushpatel29.github.io/">kushpatel29.github.io</a>. Three captioned flagship tours explain the question, result and checks.</p>
 
 <h2>Education</h2>
 <div class="edu">
