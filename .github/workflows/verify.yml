@@ -162,7 +162,7 @@ jobs:
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: "22"
+          node-version: '22'
 
       - name: Install the pinned free-tier adapter
         run: pip install -r requirements.txt
@@ -175,6 +175,11 @@ jobs:
 
       - name: Independently verify every session, ordered journey, project pair and cohort
         run: python scripts/verify_warehouse.py
+
+      - name: Independently verify experiment planning and confidence intervals
+        run: |
+          python scripts/verify_experiments.py
+          git diff --exit-code -- docs/experiment-verification.json
 
       - name: Reject four planted analytical defects in disposable copies
         run: python scripts/exercise_quality_gates.py

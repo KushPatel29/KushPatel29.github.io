@@ -20,7 +20,7 @@ const block = `${START}\n        <p class="loss-stat">${escape(evidence.display.
   + `        <h3>${escape(evidence.display.title)}</h3>\n`
   + `        <p>${escape(evidence.display.summary)} <a href="${source}" target="_blank" rel="noopener">Audit counts and limitations ↗</a></p>\n        ${END}`;
 const file = path.join(ROOT, "index.html");
-const html = fs.readFileSync(file, "utf8");
+const html = fs.readFileSync(file, "utf8").replaceAll("\r\n", "\n");
 if (html.split(START).length !== 2 || html.split(END).length !== 2) throw new Error("Exactly one fairness block is required");
 const a = html.indexOf(START), b = html.indexOf(END) + END.length;
 const expected = html.slice(0, a) + block + html.slice(b);

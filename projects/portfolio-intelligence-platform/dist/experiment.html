@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Plan a fixed-horizon experiment and challenge synthetic results with sample-size, allocation and guardrail checks." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'self'; form-action 'none'" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Experiment decisions | Portfolio Intelligence</title>
+  <link rel="canonical" href="https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/experiment.html" />
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./live.css?v=b26a2187136d" />
+</head>
+<body class="case-study">
+  <a class="skip" href="#experiment">Skip to experiment planning</a>
+  <header><a href="./case-study.html">Portfolio <b>Intelligence</b></a>
+    <nav aria-label="Primary navigation"><a href="./case-study.html">Evidence workbench</a><a href="./">Live owner view</a><a href="../docs/experimentation.md">Method and limits</a></nav>
+  </header>
+  <main id="experiment">
+    <div class="intro-grid"><div><h1>Is there enough evidence<br />to change the experience?</h1>
+      <p class="lede">Plan the sample before looking for a winner. Challenge a promising result against assignment quality, uncertainty and user-experience harm.</p>
+    </div><aside class="readout"><h2>Planning and synthetic examples</h2>
+      <p>No real experiment is running. This page collects no events, stores no identifiers and never reads your live analytics.</p>
+      <p>GoatCounter visits are aggregate estimates. They do not establish independent randomized participants or unique-user conversion rates.</p>
+    </aside></div>
+    <section class="panel" aria-labelledby="design-title"><h2 id="design-title">Define a meaningful change</h2>
+      <form id="experiment-plan" class="experiment-form">
+        <label>Baseline conversion (%)<input name="baseline" type="number" min="0.01" max="99" step="0.01" value="5" /></label>
+        <label>Minimum effect (percentage points)<input name="effect" type="number" min="0.01" max="50" step="0.01" value="1" /></label>
+        <label>Independent participants per day<input name="daily" type="number" min="1" max="1000000" step="1" value="20" /></label>
+        <label>Challenge a synthetic result<select name="scenario"><option value="incomplete">Promising result, incomplete sample</option><option value="allocation">Unequal assignment needs investigation</option><option value="guardrail">Conversion rises, error guardrail fails</option><option value="review">Complete sample and acceptable guardrail</option></select></label>
+        <button type="submit">Recalculate</button>
+      </form>
+      <p id="experiment-error" role="alert"></p>
+      <p id="plan-result" role="status"></p>
+      <p>Equal 50/50 allocation, two-sided 5% significance, 80% power; normal approximation. Daily traffic is a planning assumption. The outcome window must mature after enrollment.</p>
+    </section>
+    <section class="panel" aria-labelledby="decision-title"><h2 id="decision-title">A result must pass more than one check</h2>
+      <p id="experiment-decision" role="status"></p><p id="experiment-primary"></p><p id="experiment-quality"></p>
+      <p>Intervals use Wilson/Newcombe differences. Allocation mismatch uses a chi-square check at 0.1%. The error guardrail requires its upper interval below a predeclared 0.50 percentage-point harm margin.</p>
+      <p>Examples assume independent randomized users, one binary outcome per user, a fixed horizon and mature outcomes. Aggregate counts cannot prove those assumptions. Do not repeatedly peek, change the metric after seeing results, or interpret a failed quality check as product lift.</p>
+    </section>
+    <section class="notice"><h2>Before a real test</h2><p>Write the hypothesis, randomization unit, primary metric, guardrails, exclusion rules, exposure contract, sample size, horizon and stopping policy. Verify assignment and event delivery, then obtain the required privacy and product approvals. Low traffic can make a usability study more informative than an underpowered A/B test.</p>
+      <p><a href="../docs/experimentation.md">Review the reproducible statistical checks and instrumentation boundary</a>.</p></section>
+    <noscript><p class="notice">JavaScript is needed for calculations. The method and limits remain available in the linked documentation.</p></noscript>
+  </main>
+  <footer>Kush Patel · <a href="../../../">Portfolio</a> · All experiment examples are synthetic</footer>
+  <script type="module" src="./experiment.js?v=5a39fdda9219"></script>
+</body>
+</html>

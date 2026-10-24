@@ -11,6 +11,10 @@
   --teal: #08695e;
   --paper: #f3f6f5;
 }
+.experiment-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); align-items: end; gap: 1rem; }
+.experiment-form label { display: grid; align-content: start; gap: .4rem; }
+.experiment-form input, .experiment-form select { width: 100%; min-width: 0; padding: .65rem; }
+.experiment-form button { align-self: end; min-height: 44px; }
 * {
   box-sizing: border-box;
 }

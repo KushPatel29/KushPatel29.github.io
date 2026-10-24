@@ -6,6 +6,8 @@
 
 Which work earns attention, and can the numbers be trusted? This project answers the first question with private real-traffic analytics and the second with a reproducible analytics engineering case. The two paths have separate data sources, identifiers and measurement contracts. Neither falls back to the other.
 
+**[Plan and challenge an experiment](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/experiment.html)** — sample size, assignment quality, Wilson/Newcombe uncertainty and an error guardrail, checked independently against SciPy/statsmodels. Examples are wholly synthetic; no real A/B test or additional tracking is activated. [Method and verification](docs/experimentation.md).
+
 | Path | Implemented behavior | Boundary |
 |---|---|---|
 | Private owner dashboard | Real homepage visits, sampled section/project attention, approximate countries, complete-day comparisons, daily tables and JSON/CSV exports | Read-only GoatCounter API; no visitor identities, individual funnels or retrospective dwell-time reconstruction |

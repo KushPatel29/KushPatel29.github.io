@@ -7,7 +7,7 @@ const html = fs.readFileSync(new URL("dist/case-study.html", root), "utf8");
 const fail = (m) => {
   throw Error(m);
 };
-for(const file of ['dist/index.html','dist/case-study.html']){
+for(const file of ['dist/index.html','dist/case-study.html','dist/experiment.html']){
   const pageUrl=new URL(file,root),source=fs.readFileSync(pageUrl,'utf8');
   for(const [,href] of source.matchAll(/(?:href|src)="([^"]+)"/g)){
     if(/^(?:https?:|data:|#)/.test(href))continue;
