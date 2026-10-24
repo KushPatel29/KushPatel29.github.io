@@ -1,6 +1,6 @@
 # Evidence inventory — Kush Patel
 
-inventory-verified: 2026-10-03
+inventory-verified: 2026-10-24
 manifest-totals: 21 projects · 14166 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
