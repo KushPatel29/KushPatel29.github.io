@@ -4,6 +4,10 @@
 
 Start with the question and result, then follow one calculation to its source and independent check. These are public portfolio artifacts built with AI coding assistance. Paid work is described separately in the résumé. GrowthOps and the control tower use synthetic businesses; the B.C. case uses official public files. Reproducing a calculation does not establish adoption or client impact.
 
+For performance, recovery, experiment and decision controls, use the
+[development evidence map](development-proof.md). It links runnable additions
+to the existing projects and names the human or platform evidence still pending.
+
 ## GrowthOps: which revenue number is right?
 
 Ad platforms claim $3.72M while the synthetic business collects $3.06M. The useful result is the explanation of that difference, not a claim that a dashboard created revenue.

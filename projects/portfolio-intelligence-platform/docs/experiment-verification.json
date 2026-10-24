@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "classification": "synthetic_statistical_verification",
+  "references": "SciPy normal quantiles/chi-square survival and statsmodels Newcombe intervals",
+  "planning_cases_verified": 3,
+  "quantiles_verified": 5,
+  "synthetic_decision_cases_verified": 4,
+  "intervals_verified": 8,
+  "all_checks_passed": true,
+  "boundary": "Numerical verification is not evidence that a real randomized experiment occurred."
+}

@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
 inventory-verified: 2026-10-25
-manifest-totals: 21 projects · 14182 tests
+manifest-totals: 21 projects · 14281 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -196,20 +196,49 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | GrowthOps OS | p-growthops | 673 | synthetic | yes | marketing/growth DA, revenue ops, AE, BI — generated 7-page Power BI report (215 DAX measures, SVG KPI tiles, DAX-written summary) and a formula-driven Excel workbook with a campaign scorecard, agreeing to the cent; platform vs CRM vs cash reconciliation, anomaly root cause, paid efficiency to cost per booked call, email analytics and deliverability, UTM/short-link and CRM hygiene, HubSpot in a developer test account (portal build, two-way sync under a field contract, approved change sets, signed webhooks, products/line items/tickets), written daily update, webhook automation with a retry/alert worker, keyless local RAG ask-your-data, tested operational controls (auth, signed webhooks, metrics, backups, containers; no employer production tenure) |
 | HubSpot CRM Platform | p-hubspot-crm | 178 | synthetic | no | CRM developer, HubSpot developer, RevOps engineering — CRM-as-code for four businesses (custom objects, pipelines, association labels, keyed loads rerun to zero writes), a private app per business with React CRM cards, app functions, a custom workflow action and signed webhooks, all live in developer test accounts; an idempotency key against duplicate deals (checked live); an OAuth connector; the same model compiled to Salesforce SFDX metadata, with the guardrail in Apex, an LWC and a Flow, deployed to a Developer Edition org with Batch Apex, an Apex REST API, custom metadata and a Lightning record page (25 Apex tests pass there; the same records loaded by key and re-planned to zero; every deal scored through the API as Python scores it) |
 | Retail Analytics Platform | p-wholesale | 1439 | synthetic | yes | DA, AE, BI — metric governance, 62 governed metrics, margin root cause |
-| Supply Chain Control Tower | p-control-tower | 836 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
+| Supply Chain Control Tower | p-control-tower | 852 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |
 | Ask Your Data | p-ask-your-data | 1170 | synthetic-and-session-upload | yes | DS, AE — governed text-to-SQL, 46/0/12 contract |
-| Canada Wildfire Risk | p-wildfire | 131 | public-open-data | yes | DS — XGBoost, ROC-AUC 0.881 out of time, GitHub Actions |
+| Canada Wildfire Risk | p-wildfire | 143 | public-open-data | yes | DS — XGBoost, ROC-AUC 0.881 out of time, GitHub Actions |
 | Corridor Decision Intelligence | p-corridor | 244 | synthetic | yes | DS, pricing/loyalty DA — causal uplift from a ten-arm randomized trial, certified MIP over 112,563 customer-offer decisions (75% of the true-value ceiling vs 7% for propensity targeting), policy A/B test +$1.40/customer, Databricks + PySpark parity, FastAPI, Power BI |
 | Health System Decision Support | p-healthcare | 819 | synthetic | no | healthcare DA/BA — SPC, decision packet |
 | Pricing & Costing Analytics | p-pricing-analytics | 3182 | synthetic | yes | DA, FA — pocket-price waterfall, approval routing |
 | GL / P&L Reconciliation | p-gl-recon | 710 | synthetic | yes | FA — close certification, SoD, Tableau + Power BI |
-| Finance Decision Models in Excel and Power BI | p-excel-fpa | 1263 | public-open-data-and-synthetic | no | FA, DA — utility plan-vs-actual, Excel + Power BI tie-out |
+| Finance Decision Models in Excel and Power BI | p-excel-fpa | 1320 | public-open-data-and-synthetic | no | FA, DA — utility plan-vs-actual, Excel + Power BI tie-out |
 | B.C. Local-Government Finance | p-bc-finance | 181 | public-open-data | no | AE, FA, public sector — 90 contracted files, dbt 31 tests |
-| Transaction Monitoring | p-aml-monitoring | 270 | synthetic | yes | DS, fincrime — 60/60 planted cases; sanctions name screening on the real Consolidated Canadian Autonomous Sanctions List: threshold set on one half by a fixed rule, 97.2% of standard name variants caught on the held-out half at 10 alerts per 10,000 synthetic customers (Oct 2026) |
+| Transaction Monitoring | p-aml-monitoring | 279 | synthetic | yes | DS, fincrime — 60/60 planted cases; sanctions name screening on the real Consolidated Canadian Autonomous Sanctions List: threshold set on one half by a fixed rule, 97.2% of standard name variants caught on the held-out half at 10 alerts per 10,000 synthetic customers (Oct 2026) |
 | Marketing Attribution & Incrementality | p-marketing | 138 | public-open-data-and-synthetic | yes | DS, marketing DA — geo holdout, budget allocator, real GA4 ecommerce analysis in BigQuery with reconciliation and job IDs |
 | Clinical Evidence Console + FHIR Warehouse | p-clinical | 295 | synthetic | yes | healthcare DE/BA — FHIR, UAT plan |
 | Customer Recommendation Engine | p-customer-rec | 814 | synthetic | yes | DS — recommender, pre-registered experiment |
 | HR Attrition Analytics | p-hr-attrition | 822 | synthetic | yes | DA, people analytics — survival analysis, SQL |
 | Supply Chain Analytics — dbt | p-dbt | 157 | synthetic | no | AE — dbt contracts, unit tests, SCD2, MetricFlow, Databricks and Snowflake runs reconciled to DuckDB; nightly Airflow scheduler in CI |
-| Legacy-to-Fabric Migration | p-migration | 480 | synthetic | yes | DE, BA — GO/NO-GO cutover gate, charter, RACI, 16-story backlog with CI-executed acceptance criteria |
+| Legacy-to-Fabric Migration | p-migration | 485 | synthetic | yes | DE, BA — GO/NO-GO cutover gate, charter, RACI, 16-story backlog with CI-executed acceptance criteria |
+
+## 8. Development execution added on 25 October 2026
+
+These add PROJECT evidence, not paid tenure or independent acceptance:
+
+- Control tower: repeated equivalent-result local SQL profiling and a constrained
+  S&OP policy challenge. Existing Desktop VertiPaq storage optimization is already
+  documented in `docs/MODEL_OPTIMIZATION.md`; DAX query-latency timing remains
+  separate. `benchmarks/spark_tuning.json` records an executed Spark 4.0.1
+  local[2] CI comparison on 200,000 rows, independent integer totals, actual
+  partition skew and repeated join timings; this is not managed-cluster tenure.
+- dbt: actual DuckDB subprocess drill for an old correction, explicit bounded
+  backfill, idempotence, breaking-schema failure, recovery and full-rebuild parity.
+- Migration: current PBIP candidate hash, six still-pending manual UAT criteria,
+  stale-review/defect checks and a local manifest-stage/rollback rehearsal.
+- FP&A: four synthetic budget-driver sensitivities with cash/debt consequences,
+  balanced monthly statements and a generated decision memo. Workbooks preserved.
+- Wildfire: actual MLflow alias replay in a disposable registry copy, degradation
+  and hash rejection, rollback, and observed prospective lead slices with assumed
+  costs and day-clustered uncertainty. No live model change or new training.
+- AML: source-referenced synthetic training draft, lawful alternative, unresolved
+  evidence and a nondecisional quality gate. Zero independent reviews/filings.
+- Portfolio Intelligence: a no-collection experiment planner with power/SRM,
+  Wilson/Newcombe intervals and a guardrail, numerically checked against
+  SciPy/statsmodels. All experiment examples are synthetic; real A/B remains off.
+
+Licensed Service publication, actual Power Apps/Automate execution, managed
+Spark/cloud operating tenure, independent UAT and human interview performance
+remain distinct requirements. Do not infer them from these modules.

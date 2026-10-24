@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 21,
-    "automatedTests": 14182
+    "automatedTests": 14281
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -27,7 +27,7 @@
       "testCommand": "dbt build --project-dir dbt --profiles-dir dbt",
       "dataClassification": "synthetic-with-private-live-analytics",
       "priority": "specialist",
-      "productShape": "Private live analytics with complete-day comparisons and coverage diagnostics; a separate 90-day synthetic dbt workbench with ordered journeys, censored retention and independent Python reconciliation",
+      "productShape": "Private live analytics with complete-day comparisons and coverage diagnostics; separate synthetic dbt journey/retention workbench and fixed-horizon experiment planner with independent statistical checks",
       "primaryDecision": "How many estimated visits does the portfolio receive, which content earns active attention, and which countries do visitors come from?",
       "capabilities": [
         "web-analytics",
@@ -40,12 +40,16 @@
         "synthetic-fixture",
         "metric-governance",
         "browser-instrumentation",
-        "privacy"
+        "privacy",
+        "experiment-planning",
+        "sample-ratio-checks",
+        "guardrails"
       ],
       "evidence": [
         "https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/",
         "https://github.com/KushPatel29/kushpatel29.github.io/tree/main/projects/portfolio-intelligence-platform",
-        "https://github.com/KushPatel29/kushpatel29.github.io/blob/main/projects/portfolio-intelligence-platform/docs/metric-definitions.md"
+        "https://github.com/KushPatel29/kushpatel29.github.io/blob/main/projects/portfolio-intelligence-platform/docs/metric-definitions.md",
+        "https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/experiment.html"
       ]
     },
     {
@@ -161,7 +165,7 @@
       "repository": "https://github.com/KushPatel29/supply-chain-control-tower",
       "liveApp": "https://kush-network-risk-decision-room.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 836,
+      "testCount": 852,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "flagship",
@@ -174,12 +178,17 @@
         "power-bi",
         "business-analysis",
         "incident-response",
-        "decision-governance"
+        "decision-governance",
+        "sql-performance",
+        "service-policy-review",
+        "spark-join-profiling"
       ],
       "evidence": [
         "https://github.com/KushPatel29/supply-chain-control-tower/blob/master/docs/business_process_improvement_case.md",
         "https://github.com/KushPatel29/supply-chain-control-tower/blob/master/docs/gis_network_analysis.md",
-        "https://github.com/KushPatel29/supply-chain-control-tower/blob/master/app/incident_command.py"
+        "https://github.com/KushPatel29/supply-chain-control-tower/blob/master/app/incident_command.py",
+        "https://github.com/KushPatel29/supply-chain-control-tower/blob/master/benchmarks/QUERY_PERFORMANCE.md",
+        "https://github.com/KushPatel29/supply-chain-control-tower/blob/master/benchmarks/spark_tuning.json"
       ]
     },
     {
@@ -244,7 +253,7 @@
       "repository": "https://github.com/KushPatel29/wildfire-prediction-app",
       "liveApp": "https://wildfire-prediction-app1.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 131,
+      "testCount": 143,
       "testCommand": "pytest",
       "dataClassification": "public-open-data",
       "priority": "specialist",
@@ -258,13 +267,16 @@
         "power-bi",
         "open-data",
         "mlflow",
-        "model-registry"
+        "model-registry",
+        "model-release-replay",
+        "decision-cost-monitoring"
       ],
       "evidence": [
         "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/reports/metrics.json",
         "https://github.com/KushPatel29/wildfire-prediction-app/tree/main/powerbi",
         "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/.github/workflows/forecast.yml",
-        "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/mlflow/summary.json"
+        "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/mlflow/summary.json",
+        "https://github.com/KushPatel29/wildfire-prediction-app/blob/main/docs/RELEASE_RECOVERY.md"
       ]
     },
     {
@@ -390,7 +402,7 @@
       "repository": "https://github.com/KushPatel29/excel-fpa-model",
       "liveApp": null,
       "liveStatus": "repository-only",
-      "testCount": 1263,
+      "testCount": 1320,
       "testCommand": "pytest",
       "dataClassification": "public-open-data-and-synthetic",
       "priority": "specialist",
@@ -413,7 +425,9 @@
         "data-contracts",
         "budgeting",
         "three-statement-model",
-        "dcf-valuation"
+        "dcf-valuation",
+        "forecast-challenge",
+        "working-capital-sensitivity"
       ],
       "evidence": [
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/workbook/PGE_Utility_FPA_Model.xlsx",
@@ -423,7 +437,8 @@
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/data/sources.json",
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/model/reference.py",
         "https://github.com/KushPatel29/excel-fpa-model/tree/main/valuation",
-        "https://github.com/KushPatel29/excel-fpa-model/tree/main/budget_cycle"
+        "https://github.com/KushPatel29/excel-fpa-model/tree/main/budget_cycle",
+        "https://github.com/KushPatel29/excel-fpa-model/blob/main/budget_cycle/challenge_output/DECISION_MEMO.md"
       ]
     },
     {
@@ -461,7 +476,7 @@
       "repository": "https://github.com/KushPatel29/aml-transaction-monitoring",
       "liveApp": "https://aml-transaction-monitoring.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 270,
+      "testCount": 279,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
@@ -475,14 +490,16 @@
         "governance",
         "streamlit",
         "kyc",
-        "privacy-impact-assessment"
+        "privacy-impact-assessment",
+        "investigation-review-quality"
       ],
       "evidence": [
         "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/investigation_decision_packet.md",
         "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/results/investigation_manifest.json",
         "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/docs/INVESTIGATOR_WORKFLOW.md",
         "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/docs/PRIVACY_IMPACT_ASSESSMENT.md",
-        "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/governance/privacy_inventory.json"
+        "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/governance/privacy_inventory.json",
+        "https://github.com/KushPatel29/aml-transaction-monitoring/blob/main/docs/INVESTIGATION_QUALITY_REVIEW.md"
       ],
       "supplementalDataSources": [
         "Public Consolidated Canadian Autonomous Sanctions List for the separate name-screening evaluation; list not committed."
@@ -651,7 +668,7 @@
       "repository": "https://github.com/KushPatel29/legacy-to-fabric-migration",
       "liveApp": "https://kush-asset-management-decision-board.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 480,
+      "testCount": 485,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
@@ -664,12 +681,15 @@
         "migration",
         "business-analysis",
         "jira",
-        "confluence"
+        "confluence",
+        "candidate-bound-uat",
+        "offline-release-recovery"
       ],
       "evidence": [
         "https://github.com/KushPatel29/legacy-to-fabric-migration/tree/master/examples/asset_management",
         "https://github.com/KushPatel29/legacy-to-fabric-migration/tree/master/examples/gis_asset_integration",
-        "https://github.com/KushPatel29/legacy-to-fabric-migration/blob/master/docs/business-analysis/ASSET_CAPITAL_PROGRAM_BUSINESS_CASE.md"
+        "https://github.com/KushPatel29/legacy-to-fabric-migration/blob/master/docs/business-analysis/ASSET_CAPITAL_PROGRAM_BUSINESS_CASE.md",
+        "https://github.com/KushPatel29/legacy-to-fabric-migration/blob/master/docs/business-analysis/MANUAL_UAT_EXECUTION.md"
       ]
     }
   ]
