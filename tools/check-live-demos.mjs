@@ -83,6 +83,16 @@ function externalLinks() {
   for (const [url, where] of OFF_PAGE_DEMOS) {
     if (!found.has(url)) found.set(url, where);
   }
+  // Evidence metadata is another reviewer route. A moved workbook can leave
+  // the homepage healthy while its manifest still points at a deleted file.
+  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "portfolio-manifest.json"), "utf8"));
+  for (const project of manifest.projects) {
+    for (const evidence of project.evidence || []) {
+      if (!/^https?:\/\//i.test(evidence)) continue;
+      const url = evidence.replace(/#.*$/, "");
+      if (!found.has(url)) found.set(url, `manifest:${project.id}`);
+    }
+  }
   return [...found.entries()].sort();
 }
 
