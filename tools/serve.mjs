@@ -14,9 +14,12 @@ const types = new Map([
   [".jpeg", "image/jpeg"],
   [".js", "text/javascript; charset=utf-8"],
   [".mjs", "text/javascript; charset=utf-8"],
+  [".mp4", "video/mp4"],
   [".pdf", "application/pdf"],
   [".png", "image/png"],
   [".svg", "image/svg+xml"],
+  [".vtt", "text/vtt; charset=utf-8"],
+  [".webm", "video/webm"],
   [".woff2", "font/woff2"],
   [".xml", "application/xml; charset=utf-8"],
 ]);
@@ -45,8 +48,16 @@ async function fileFor(requestPath) {
 }
 
 const server = createServer(async (request, response) => {
-  const url = new URL(request.url || "/", `http://${request.headers.host || HOST}`);
-  const file = await fileFor(url.pathname);
+  let file;
+  try {
+    // Only the path is needed; an invalid Host header must not stop the server.
+    const url = new URL(request.url || "/", "http://127.0.0.1");
+    file = await fileFor(url.pathname);
+  } catch {
+    response.writeHead(400, { ...headers, "content-type": "text/plain; charset=utf-8" });
+    response.end(request.method === "HEAD" ? undefined : "Invalid request path");
+    return;
+  }
 
   if (!file) {
     const notFound = await readFile(path.join(ROOT, "404.html"));
