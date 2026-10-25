@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 21,
-    "automatedTests": 14319
+    "automatedTests": 14351
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -542,7 +542,7 @@
       "repository": "https://github.com/KushPatel29/clinical-data-management",
       "liveApp": "https://kush-clinical-data-dashboard.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 298,
+      "testCount": 330,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
