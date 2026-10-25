@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-10-25",
+  "lastVerified": "2026-10-26",
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 21,
-    "automatedTests": 14460
+    "automatedTests": 14496
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -59,7 +59,7 @@
       "repository": "https://github.com/KushPatel29/GrowthOps-OS",
       "liveApp": "https://growthops-os.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 677,
+      "testCount": 699,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "flagship",
@@ -286,7 +286,7 @@
       "repository": "https://github.com/KushPatel29/decision-intelligence-platform",
       "liveApp": "https://corridor-decision-intelligence.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 244,
+      "testCount": 258,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",

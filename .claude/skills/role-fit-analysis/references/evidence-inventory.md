@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
-inventory-verified: 2026-10-25
-manifest-totals: 21 projects · 14460 tests
+inventory-verified: 2026-10-26
+manifest-totals: 21 projects · 14496 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -193,14 +193,14 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Project | Anchor | Tests | Data | Live | Strongest for |
 |---|---|---|---|---|---|
 | Portfolio Intelligence Platform | p-portfolio-intelligence | 31 | synthetic-with-private-live-analytics | yes | AE, DA — private live GoatCounter visits, section attention and countries; separate 90-day synthetic workbench, ordered journeys, censored retention and independent Python reconciliation |
-| GrowthOps OS | p-growthops | 677 | synthetic | yes | marketing/growth DA, revenue ops, AE, BI — generated 7-page Power BI report (215 DAX measures, SVG KPI tiles, DAX-written summary) and a formula-driven Excel workbook with a campaign scorecard, agreeing to the cent; platform vs CRM vs cash reconciliation, anomaly root cause, paid efficiency to cost per booked call, email analytics and deliverability, UTM/short-link and CRM hygiene, HubSpot in a developer test account (portal build, two-way sync under a field contract, approved change sets, signed webhooks, products/line items/tickets), written daily update, webhook automation with a retry/alert worker, keyless local RAG ask-your-data, tested operational controls (auth, signed webhooks, metrics, backups, containers; no employer production tenure) |
+| GrowthOps OS | p-growthops | 699 | synthetic | yes | marketing/growth DA, revenue ops, AE, BI — generated 7-page Power BI report (215 DAX measures, SVG KPI tiles, DAX-written summary) and a formula-driven Excel workbook with a campaign scorecard, agreeing to the cent; platform vs CRM vs cash reconciliation, anomaly root cause, paid efficiency to cost per booked call, email analytics and deliverability, UTM/short-link and CRM hygiene, HubSpot in a developer test account (portal build, two-way sync under a field contract, approved change sets, signed webhooks, products/line items/tickets), written daily update, webhook automation with a retry/alert worker, keyless local RAG ask-your-data, tested operational controls (auth, signed webhooks, metrics, backups, containers; no employer production tenure) |
 | HubSpot CRM Platform | p-hubspot-crm | 180 | synthetic | no | CRM developer, HubSpot developer, RevOps engineering — CRM-as-code for four businesses (custom objects, pipelines, association labels, keyed loads rerun to zero writes), a private app per business with React CRM cards, app functions, a custom workflow action and signed webhooks, all live in developer test accounts; an idempotency key against duplicate deals (checked live); an OAuth connector; the same model compiled to Salesforce SFDX metadata, with the guardrail in Apex, an LWC and a Flow, deployed to a Developer Edition org with Batch Apex, an Apex REST API, custom metadata and a Lightning record page (25 Apex tests pass there; the same records loaded by key and re-planned to zero; every deal scored through the API as Python scores it) |
 | Retail Analytics Platform | p-wholesale | 1499 | synthetic | yes | DA, AE, BI — metric governance, 62 governed metrics, margin root cause |
 | Supply Chain Control Tower | p-control-tower | 852 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |
 | Ask Your Data | p-ask-your-data | 1170 | synthetic-and-session-upload | yes | DS, AE — governed text-to-SQL, 46/0/12 contract |
 | Canada Wildfire Risk | p-wildfire | 143 | public-open-data | yes | DS — XGBoost, ROC-AUC 0.881 out of time, GitHub Actions |
-| Corridor Decision Intelligence | p-corridor | 244 | synthetic | yes | DS, pricing/loyalty DA — causal uplift from a ten-arm randomized trial, certified MIP over 112,563 customer-offer decisions (75% of the true-value ceiling vs 7% for propensity targeting), policy A/B test +$1.40/customer, Databricks + PySpark parity, FastAPI, Power BI |
+| Corridor Decision Intelligence | p-corridor | 258 | synthetic | yes | DS, pricing/loyalty DA — causal uplift from a ten-arm randomized trial, certified MIP over 112,563 customer-offer decisions (75% of the true-value ceiling vs 7% for propensity targeting), policy A/B test +$1.40/customer, Databricks + PySpark parity, FastAPI, Power BI |
 | Health System Decision Support | p-healthcare | 819 | synthetic | no | healthcare DA/BA — SPC, decision packet |
 | Pricing & Costing Analytics | p-pricing-analytics | 3182 | synthetic | yes | DA, FA — pocket-price waterfall, approval routing |
 | GL / P&L Reconciliation | p-gl-recon | 710 | synthetic | yes | FA — close certification, SoD, Tableau + Power BI |
