@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
 inventory-verified: 2026-10-25
-manifest-totals: 21 projects · 14292 tests
+manifest-totals: 21 projects · 14310 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -209,7 +209,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Transaction Monitoring | p-aml-monitoring | 279 | synthetic | yes | DS, fincrime — 60/60 planted cases; sanctions name screening on the real Consolidated Canadian Autonomous Sanctions List: threshold set on one half by a fixed rule, 97.2% of standard name variants caught on the held-out half at 10 alerts per 10,000 synthetic customers (Oct 2026) |
 | Marketing Attribution & Incrementality | p-marketing | 138 | public-open-data-and-synthetic | yes | DS, marketing DA — geo holdout, budget allocator, real GA4 ecommerce analysis in BigQuery with reconciliation and job IDs |
 | Clinical Evidence Console + FHIR Warehouse | p-clinical | 295 | synthetic | yes | healthcare DE/BA — FHIR, UAT plan |
-| Customer Recommendation Engine | p-customer-rec | 814 | synthetic | yes | DS — recommender, pre-registered experiment |
+| Customer Recommendation Engine | p-customer-rec | 832 | synthetic | yes | DS — recommender, pre-registered experiment |
 | HR Attrition Analytics | p-hr-attrition | 822 | synthetic | yes | DA, people analytics — survival analysis, SQL |
 | Supply Chain Analytics — dbt | p-dbt | 157 | synthetic | no | AE — dbt contracts, unit tests, SCD2, MetricFlow, Databricks and Snowflake runs reconciled to DuckDB; nightly Airflow scheduler in CI |
 | Legacy-to-Fabric Migration | p-migration | 485 | synthetic | yes | DE, BA — GO/NO-GO cutover gate, charter, RACI, 16-story backlog with CI-executed acceptance criteria |

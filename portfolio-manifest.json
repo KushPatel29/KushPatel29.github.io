@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 21,
-    "automatedTests": 14292
+    "automatedTests": 14310
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -572,7 +572,7 @@
       "repository": "https://github.com/KushPatel29/Customer-Recommendation-Engine",
       "liveApp": "https://cross-sell-rep-console.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 814,
+      "testCount": 832,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
