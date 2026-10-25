@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 21,
-    "automatedTests": 14281
+    "automatedTests": 14292
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -131,7 +131,7 @@
       "repository": "https://github.com/KushPatel29/wholesale-analytics-platform",
       "liveApp": "https://kushpatel29.github.io/wholesale-analytics-platform/",
       "liveStatus": "live-demo",
-      "testCount": 1439,
+      "testCount": 1450,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
@@ -420,7 +420,6 @@
         "scenario-analysis",
         "energy",
         "power-bi",
-        "public-sector-finance",
         "working-capital",
         "data-contracts",
         "budgeting",
@@ -431,7 +430,6 @@
       ],
       "evidence": [
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/workbook/PGE_Utility_FPA_Model.xlsx",
-        "https://github.com/KushPatel29/excel-fpa-model/blob/main/examples/bc-local-government/BC_Local_Government_Finance_Model.xlsx",
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/examples/kestrel-bay/Kestrel_Bay_FPA_Model.xlsx",
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/docs/board_pack.pdf",
         "https://github.com/KushPatel29/excel-fpa-model/blob/main/data/sources.json",

@@ -1,6 +1,6 @@
 # Experiment design, quality and interpretation
 
-[Open the interactive planner](../dist/experiment.html).
+[Open the interactive planner](https://kushpatel29.github.io/projects/portfolio-intelligence-platform/dist/experiment.html).
 
 The hypothesis is that a clearer project-evidence route increases a predeclared
 binary intent outcome without unacceptable navigation errors. This is a planning
