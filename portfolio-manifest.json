@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 21,
-    "automatedTests": 14310
+    "automatedTests": 14319
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -59,7 +59,7 @@
       "repository": "https://github.com/KushPatel29/GrowthOps-OS",
       "liveApp": "https://growthops-os.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 673,
+      "testCount": 677,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "flagship",
@@ -98,7 +98,7 @@
       "repository": "https://github.com/KushPatel29/hubspot-crm-platform",
       "liveApp": null,
       "liveStatus": "repository-only",
-      "testCount": 178,
+      "testCount": 180,
       "testCommand": "pytest && npm test --prefix hubspot && npm test --prefix salesforce/meridian",
       "dataClassification": "synthetic",
       "priority": "specialist",
@@ -542,7 +542,7 @@
       "repository": "https://github.com/KushPatel29/clinical-data-management",
       "liveApp": "https://kush-clinical-data-dashboard.streamlit.app/",
       "liveStatus": "live-demo",
-      "testCount": 295,
+      "testCount": 298,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
