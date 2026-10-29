@@ -76,7 +76,7 @@ exception reporting; standardised reporting pack; Excel.
 - Award: first prize, 2024 wildfire-prediction hackathon (team).
 - Completed: Google Data Analytics Professional Certificate (Oct 2023); UC
   Davis SQL for Data Science (Jan 2025); IBM Python for Data Science, AI &
-  Development (Nov 2023); Databricks Lakehouse Fundamentals (accreditation);
+  Development (Nov 2023); Databricks Fundamentals (accreditation);
   Power BI Data Modelling with DAX; Northeastern Data Visualization &
   Storytelling Basics (Apr 2023).
 - **In progress, not held:** Microsoft DP-600 (Fabric Analytics Engineer
