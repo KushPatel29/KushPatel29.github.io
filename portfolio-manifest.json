@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 21,
-    "automatedTests": 14519
+    "automatedTests": 14566
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -225,7 +225,7 @@
       "repository": "https://github.com/KushPatel29/ask-your-data",
       "liveApp": "https://ask-your-data-kp.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 1170,
+      "testCount": 1217,
       "testCommand": "pytest",
       "dataClassification": "synthetic-and-session-upload",
       "priority": "specialist",
