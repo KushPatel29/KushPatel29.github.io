@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "upstream": {
     "repository": "KushPatel29/wildfire-prediction-app",
-    "revision": "1790b922985e7ac1bab58af66d1860203be3bdcc",
+    "revision": "a2517ee8f7dbd1ff04993d50f002a368bf9b4804",
     "sources": [
       {
         "path": "README.md",
-        "sha256": "9cd4ec67980a953d7ff3f1b028601a930eb1272b9fb0c62fa785e04d6a8a4e85"
+        "sha256": "3788976e81b231e46e6f7f6c735f366abf2557ef4b9a20f27f4fd232c707598a"
       },
       {
         "path": "models/cells.parquet",
@@ -18,28 +18,28 @@
       },
       {
         "path": "data/published/track_record.json",
-        "sha256": "b0e878091aef19d16345dd9645d4fabb97311aa63bbba8f7e9d7c756166acc7f"
+        "sha256": "e0073ea8650a5c7e6738d7cdd7e68d668ea0dcf0bf016d6db97979d508415f7c"
       }
     ]
   },
   "evidence": {
     "gridCells": 753,
     "historicalRocAuc": 0.8814280911343455,
-    "targetDays": 30,
-    "lastTargetDay": "2026-10-22",
-    "rocAuc": 0.7341572662998792,
+    "targetDays": 36,
+    "lastTargetDay": "2026-10-28",
+    "rocAuc": 0.7336305327415105,
     "rocAucInterval": [
-      0.6905183342032148,
-      0.7774413948233455
+      0.6959345325573472,
+      0.7704546481170942
     ],
-    "topDecileCapture": 0.28213689482470783,
+    "topDecileCapture": 0.2865090403337969,
     "captureEdgeOnNormalInterval": [
-      -0.04718465045592704,
-      0.1391861360289195
+      -0.04032651013203075,
+      0.1227244426591685
     ],
     "captureEdgeOnNextDoorInterval": [
-      -0.10091772029540266,
-      0.046647164072284836
+      -0.08670387621899155,
+      0.04750373919233441
     ]
   }
 }

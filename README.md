@@ -154,7 +154,7 @@ utility planning baseline, or wording that turns the proposed recommender pilot
 into a completed experiment.
 
 The wildfire card is generated from `evidence/wildfire-evaluation.json`: the grid
-and first 30 graded target days, dated through 22 October 2026. The same check
+and first 36 graded target days, dated through 28 October 2026. The same check
 holds its point estimate, interval and uncertain top-decile advantage to four
 hashed files at an immutable upstream revision. This is a frozen observed window,
 separate from historical backtests; it does not claim unobserved future outcomes.

@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
 inventory-verified: 2026-10-26
-manifest-totals: 21 projects · 14518 tests
+manifest-totals: 21 projects · 14519 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -133,7 +133,7 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Mathematical optimization (mixed-integer programming, LP duals, HiGHS, Gurobi) | PROJECT | Corridor: one MIP over 112,563 customer-offer decisions, proven optimal (gap 1.5e-7), residual re-solved in Gurobi; inventory policy lab | synthetic data; Gurobi used under its size-limited licence |
 | Pricing, promotions and loyalty (elasticity, offer targeting, next best offer) | PROJECT | Corridor pricing studio and next-best-offer pages; pricing & costing analytics | synthetic toll-road operator; not affiliated with any real one |
 | Machine learning (XGBoost, logistic, anomaly, recommender) | PROJECT+DEGREE | wildfire, AML, recommender, HR | production ML only as the forecasting web apps |
-| Model monitoring / prospective evaluation of a deployed model | PROJECT | wildfire track record: twice-daily publication; weekly grading of the first published forecast per station day on the current grid against CWFIS satellite detections (leads 2-7, two baselines, day-level bootstrap); first 30 days to 22 Oct 2026: ROC-AUC 0.734 (95% CI 0.691-0.777), ahead of both baselines on ranking, top-10% edge not yet distinguishable from zero | a public project, not an employer's model; MLflow tracks six historical model versions and prospective monitoring, with a local SQLite registry; no SageMaker or employer MLOps ownership |
+| Model monitoring / prospective evaluation of a deployed model | PROJECT | wildfire track record: twice-daily publication; weekly grading of the first published forecast per station day on the current grid against CWFIS satellite detections (leads 2-7, two baselines, day-level bootstrap); first 36 days to 28 Oct 2026: ROC-AUC 0.734 (95% CI 0.696-0.770), ahead of both baselines on ranking, top-10% edge not yet distinguishable from zero | a public project, not an employer's model; MLflow tracks six historical model versions and prospective monitoring, with a local SQLite registry; no SageMaker or employer MLOps ownership |
 | LLM / text-to-SQL, governed AI | PROJECT+DEGREE | Ask Your Data | — |
 | GIS / geospatial | PROJECT | wildfire, control tower GIS | — |
 | Healthcare / FHIR / clinical data | PROJECT | health system, clinical console | **synthetic data**, no healthcare employer |
@@ -199,7 +199,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Supply Chain Control Tower | p-control-tower | 852 | synthetic | yes | DE, BI, SC — medallion on Databricks, 10M-row benchmark, 8-page Power BI |
 | Inventory Analytics · Operations Decision Studio | p-inventory | 349 | synthetic-and-session-upload | yes | SC, BA — forecasting backtests, policy lab, 13 reqs / 12 UAT |
 | Ask Your Data | p-ask-your-data | 1170 | synthetic-and-session-upload | yes | DS, AE — governed text-to-SQL, 46/0/12 contract |
-| Canada Wildfire Risk | p-wildfire | 143 | public-open-data | yes | DS — XGBoost, ROC-AUC 0.881 out of time, GitHub Actions |
+| Canada Wildfire Risk | p-wildfire | 144 | public-open-data | yes | DS — XGBoost, ROC-AUC 0.881 out of time, GitHub Actions |
 | Corridor Decision Intelligence | p-corridor | 280 | synthetic | yes | DS, pricing/loyalty DA — causal uplift from a ten-arm randomized trial, certified MIP over 112,563 customer-offer decisions (75% of the true-value ceiling vs 7% for propensity targeting), policy A/B test +$1.40/customer, Databricks + PySpark parity, FastAPI, Power BI |
 | Health System Decision Support | p-healthcare | 819 | synthetic | no | healthcare DA/BA — SPC, decision packet |
 | Pricing & Costing Analytics | p-pricing-analytics | 3182 | synthetic | yes | DA, FA — pocket-price waterfall, approval routing |
