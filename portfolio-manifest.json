@@ -5,7 +5,7 @@
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
     "promotedProjects": 21,
-    "automatedTests": 14573
+    "automatedTests": 14592
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -344,7 +344,7 @@
       "repository": "https://github.com/KushPatel29/pricing-costing-analytics",
       "liveApp": "https://cost-to-price-calculator.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 3182,
+      "testCount": 3200,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",
@@ -474,7 +474,7 @@
       "repository": "https://github.com/KushPatel29/aml-transaction-monitoring",
       "liveApp": "https://aml-transaction-monitoring.streamlit.app",
       "liveStatus": "live-demo",
-      "testCount": 279,
+      "testCount": 280,
       "testCommand": "pytest",
       "dataClassification": "synthetic",
       "priority": "specialist",

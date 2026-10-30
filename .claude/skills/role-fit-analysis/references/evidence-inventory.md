@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
 inventory-verified: 2026-10-26
-manifest-totals: 21 projects · 14573 tests
+manifest-totals: 21 projects · 14592 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -202,11 +202,11 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Canada Wildfire Risk | p-wildfire | 144 | public-open-data | yes | DS — XGBoost, ROC-AUC 0.881 out of time, GitHub Actions |
 | Corridor Decision Intelligence | p-corridor | 281 | synthetic | yes | DS, pricing/loyalty DA — causal uplift from a ten-arm randomized trial, certified MIP over 112,563 customer-offer decisions (75% of the true-value ceiling vs 7% for propensity targeting), policy A/B test +$1.40/customer, Databricks + PySpark parity, FastAPI, Power BI |
 | Health System Decision Support | p-healthcare | 819 | synthetic | no | healthcare DA/BA — SPC, decision packet |
-| Pricing & Costing Analytics | p-pricing-analytics | 3182 | synthetic | yes | DA, FA — pocket-price waterfall, approval routing |
+| Pricing & Costing Analytics | p-pricing-analytics | 3200 | synthetic | yes | DA, FA — pocket-price waterfall, approval routing |
 | GL / P&L Reconciliation | p-gl-recon | 710 | synthetic | yes | FA — close certification, SoD, Tableau + Power BI |
 | Finance Decision Models in Excel and Power BI | p-excel-fpa | 1320 | public-open-data-and-synthetic | no | FA, DA — utility plan-vs-actual, Excel + Power BI tie-out |
 | B.C. Local-Government Finance | p-bc-finance | 181 | public-open-data | no | AE, FA, public sector — 90 contracted files, dbt 31 tests |
-| Transaction Monitoring | p-aml-monitoring | 279 | synthetic | yes | DS, fincrime — 60/60 planted cases; sanctions name screening on the real Consolidated Canadian Autonomous Sanctions List: threshold set on one half by a fixed rule, 97.2% of standard name variants caught on the held-out half at 10 alerts per 10,000 synthetic customers (Oct 2026) |
+| Transaction Monitoring | p-aml-monitoring | 280 | synthetic | yes | DS, fincrime — 60/60 planted cases; sanctions name screening on the real Consolidated Canadian Autonomous Sanctions List: threshold set on one half by a fixed rule, 97.2% of standard name variants caught on the held-out half at 10 alerts per 10,000 synthetic customers (Oct 2026) |
 | Marketing Attribution & Incrementality | p-marketing | 138 | public-open-data-and-synthetic | yes | DS, marketing DA — geo holdout, budget allocator, real GA4 ecommerce analysis in BigQuery with reconciliation and job IDs |
 | Clinical Evidence Console + FHIR Warehouse | p-clinical | 390 | synthetic | yes | healthcare DE/BA — FHIR, UAT plan |
 | Customer Recommendation Engine | p-customer-rec | 832 | synthetic | yes | DS — recommender, pre-registered experiment |
