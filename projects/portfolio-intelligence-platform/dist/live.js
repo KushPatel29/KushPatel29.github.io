@@ -1,4 +1,4 @@
-import { readAnalytics } from "./live-model.js?v=40e4b83dd091";
+import { readAnalytics } from "./live-model.js?v=3c5ad3c661e2";
 const $ = (s) => document.querySelector(s),
   KEY = "portfolio_owner_read_key";
 let token = "",
