@@ -1,7 +1,7 @@
 # Evidence inventory — Kush Patel
 
 inventory-verified: 2026-10-26
-manifest-totals: 21 projects · 14643 tests
+manifest-totals: 22 projects · 14744 tests
 
 This ledger is the fallback when `scripts/evidence-snapshot.mjs` cannot run (no
 repo checkout). When the snapshot runs, the snapshot wins wherever the two
@@ -91,7 +91,7 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Capability | Tier | Evidence | Boundary |
 |---|---|---|---|
 | SQL (T-SQL, joins, window functions, CTEs) | PAID+PROJECT | Two Rivers daily; HR and GL repos run committed SQL | T-SQL dialect in paid work |
-| Power BI (DAX, Power Query/M, semantic models) | PAID+PROJECT | Two Rivers, Shivam; PBIP/TMDL in Git (control tower, pricing, utility, GrowthOps) | — |
+| Power BI (DAX, Power Query/M, semantic models) | PAID+PROJECT | Two Rivers, Shivam; PBIP/TMDL in Git (control tower, pricing, utility, GrowthOps, Market Pulse) | — |
 | RLS/RBAC, column masking | PAID | Two Rivers | — |
 | Incremental refresh | PAID | Two Rivers | — |
 | SSRS paginated reports, SSIS | PAID | Two Rivers legacy estate | maintained + migrated, not greenfield |
@@ -119,7 +119,7 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | Change and adoption | PAID | widened Power BI self-service with RLS at Two Rivers | — |
 | GL/P&L reconciliation, month-end close | PAID+PROJECT | Shivam, Two Rivers; GL recon repo | — |
 | AP/AR, DPO/DSO, working capital | PAID+PROJECT | Two Rivers, Shivam; Kestrel Bay model | — |
-| Variance, margin, price-volume-mix | PAID+PROJECT | Two Rivers margin KPIs; pricing, utility models | — |
+| Variance, margin, price-volume-mix | PAID+PROJECT | Two Rivers margin KPIs; pricing, utility, Market Pulse models (item-level PVM bridge, margin variance by cause) | — |
 | Budgeting, forecasting, scenario models (FP&A) | PROJECT | utility and BC municipal Excel models; Kestrel Bay FY2027 budget cycle (`excel-fpa-model/budget_cycle`): top-down targets, bottom-up submissions by channel/category/department with hires, monthly phasing, a challenge round, gap-to-target and the price that closes it, a 3+9 reforecast with an EBITDA bridge | FP&A budgeting not a paid responsibility; synthetic company |
 | Three-statement model (monthly P&L, balance sheet, cash flow with a revolver) | PROJECT | Kestrel Bay FY2027 budget workbook: balance sheet balances and cash flow ties every month, revolver holds minimum cash, interest on the opening balance (no circularity); 73 tests hold it to a pandas twin | not in a job; a separate lululemon DCF exists on real SEC filings, with explicit WACC, scenarios and terminal-value sensitivity |
 | Supply chain: OTIF, FEFO, lot trace, vendor scorecards, WMS accuracy | PAID+PROJECT | Two Rivers; control tower, inventory app | — |
@@ -155,6 +155,8 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 | BigQuery / GA4 ecommerce analysis | PROJECT | Marketing Attribution `ga4_bigquery/`: 4,295,584 public obfuscated events, 360,129 sessions, six SQL analyses with BigQuery job IDs, independent raw-event/session reconciliation; revenue deduplication, open and ordered funnels, attribution sensitivity and censored cohort retention | historical public sample (2020–2021); no company GA4 instrumentation or GCP platform ownership |
 | Confluence delivery documentation | PROJECT | Legacy-to-Fabric delivery pack published in Confluence, with reciprocal links to its 21 Jira issues and executable acceptance criteria | personal free site; no employer Confluence or Scrum experience |
 | DCF valuation | PROJECT | Excel FP&A `valuation/`: lululemon FY2025 SEC filings, five-year cash flows, three scenarios, WACC and terminal-growth sensitivities, formula workbook tied to a Python model | educational valuation dated 17 March 2026; not investment advice or paid valuation work |
+| Excel VBA / macros | PROJECT | Toronto Produce Market Pulse `excel_vba/`: monthly pack macro (refresh, every reconciliation check, summary sheet, dated PDF export, run log, Outlook draft) and validated ERP price-list CSV export; imported, compiled and run in desktop Excel, including a deliberately failed check that blocks the export | no VBA in a job; one workbook |
+| Revenue growth management (price-volume-mix, promotion ROI, trade spend) | PROJECT | Toronto Produce Market Pulse: item-level gross-margin bridge 2019–2023 in Python, Excel (waterfall, zero check) and DAX; 105 promotion events scored for lift, break-even lift, trade spend and ROI against a planted truth | synthetic shipments and promotions on real terminal costs; no syndicated (Nielsen/Circana) or retailer POS data |
 | Privacy impact assessment | PROJECT | AML `docs/PRIVACY_IMPACT_ASSESSMENT.md` and `governance/privacy_inventory.json`: 105 classified columns across 14 files; coverage and masking tests; 12 risks with remaining organizational controls stated | synthetic customer data; no privacy-officer approval or production compliance certification |
 
 ## 5. Not evidenced anywhere
@@ -162,7 +164,7 @@ marked PAID+PROJECT has both; cite the paid evidence first.
 A requirement that names one of these is a **real gap** unless the user supplies
 new facts in the conversation (then treat the new fact as user-stated and say
 so): AWS in a job, Redshift, Glue ETL jobs, Snowflake
-in a job, Looker (the product), Qlik, Alteryx, SAS, R, VBA/macros, SAP as a
+in a job, Looker (the product), Qlik, Alteryx, SAS, R, VBA/macros in a job (project only, §4), SAP as a
 user (only SAP-shaped synthetic extracts), Oracle, NetSuite, Dynamics 365,
 Salesforce in a company's org (the Developer Edition deploy in §4 is PROJECT), HubSpot in a company's production portal (the developer-test-account builds in §4 are PROJECT), HubSpot marketplace/OAuth app publishing, GA4 instrumentation in a company, Jira or Confluence in a job, Agile/Scrum
 ceremonies, production streaming, Terraform or Kubernetes beyond CI, SSAS,
@@ -212,6 +214,7 @@ Mirrors `portfolio-manifest.json` (checked by `tools/check-role-fit-skill.mjs`).
 | Customer Recommendation Engine | p-customer-rec | 833 | synthetic | yes | DS — recommender, pre-registered experiment |
 | HR Attrition Analytics | p-hr-attrition | 823 | synthetic | yes | DA, people analytics — survival analysis, SQL |
 | Supply Chain Analytics — dbt | p-dbt | 157 | synthetic | no | AE — dbt contracts, unit tests, SCD2, MetricFlow, Databricks and Snowflake runs reconciled to DuckDB; nightly Airflow scheduler in CI |
+| Toronto Produce Market Pulse | p-market-pulse | 101 | public-open-data-and-synthetic | yes | pricing/commercial DA, FA, BI — 68,593 real Toronto wholesale prices; pricing-policy replay, customer terms, margin variance by cause, price-volume-mix bridge, promotion break-even and ROI; Excel with VBA monthly pack; Power BI model in TMDL (38 measures, dynamic RLS, fr-CA translations) opened and queried in Desktop |
 | Legacy-to-Fabric Migration | p-migration | 486 | synthetic | yes | DE, BA — GO/NO-GO cutover gate, charter, RACI, 16-story backlog with CI-executed acceptance criteria |
 
 ## 8. Development execution added on 25 October 2026

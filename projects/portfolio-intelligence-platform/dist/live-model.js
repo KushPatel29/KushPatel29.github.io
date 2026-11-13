@@ -35,6 +35,7 @@ export const AREA_LABELS = {
   "p-clinical": "Clinical Data",
   "p-hubspot-crm": "HubSpot CRM",
   "p-portfolio-intelligence": "Portfolio Intelligence",
+  "p-market-pulse": "Market Pulse",
 };
 
 export function modelHits(hits) {

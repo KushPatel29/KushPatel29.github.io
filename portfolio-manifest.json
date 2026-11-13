@@ -4,8 +4,8 @@
   "owner": "Kush Patel",
   "portfolio": "https://kushpatel29.github.io/",
   "totals": {
-    "promotedProjects": 21,
-    "automatedTests": 14643
+    "promotedProjects": 22,
+    "automatedTests": 14744
   },
   "claimPolicy": {
     "implemented": "Public code and current evidence are reproducible.",
@@ -688,6 +688,39 @@
         "https://github.com/KushPatel29/legacy-to-fabric-migration/tree/master/examples/gis_asset_integration",
         "https://github.com/KushPatel29/legacy-to-fabric-migration/blob/master/docs/business-analysis/ASSET_CAPITAL_PROGRAM_BUSINESS_CASE.md",
         "https://github.com/KushPatel29/legacy-to-fabric-migration/blob/master/docs/business-analysis/MANUAL_UAT_EXECUTION.md"
+      ]
+    },
+    {
+      "id": "toronto-produce-market-pulse",
+      "cardId": "p-market-pulse",
+      "title": "Toronto Produce Market Pulse",
+      "repository": "https://github.com/KushPatel29/toronto-produce-market-pulse",
+      "liveApp": "https://toronto-fresh-market-pulse.streamlit.app",
+      "liveStatus": "live-demo",
+      "testCount": 101,
+      "testCommand": "python -m pytest -q",
+      "dataClassification": "public-open-data-and-synthetic",
+      "priority": "specialist",
+      "productShape": "Eleven-tab Streamlit app with Excel workbooks, a VBA monthly pack, a Power BI semantic model in TMDL and a seven-slide briefing, all generated from one reconciled pipeline",
+      "primaryDecision": "Which prices should move this week, how often should each item reprice, and what drove gross margin and promotion returns?",
+      "capabilities": [
+        "pricing-analytics",
+        "margin-variance",
+        "price-volume-mix",
+        "promotion-roi",
+        "excel-vba",
+        "power-bi-tmdl",
+        "row-level-security",
+        "sql",
+        "forecasting",
+        "public-data"
+      ],
+      "evidence": [
+        "https://github.com/KushPatel29/toronto-produce-market-pulse/blob/main/README.md",
+        "https://github.com/KushPatel29/toronto-produce-market-pulse/blob/main/docs/ROLE_COVERAGE.md",
+        "https://github.com/KushPatel29/toronto-produce-market-pulse/blob/main/powerbi/README.md",
+        "https://github.com/KushPatel29/toronto-produce-market-pulse/blob/main/excel_vba/README.md",
+        "https://github.com/KushPatel29/toronto-produce-market-pulse/actions/workflows/quality.yml"
       ]
     }
   ]

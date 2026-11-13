@@ -169,7 +169,7 @@ Lighthouse gates on every push and PR to `main`, plus a weekly run for checks
 that depend on other people's servers. Third-party Actions are pinned to full
 commit SHAs and Dependabot proposes reviewed updates.
 
-**`tools/check-portfolio-manifest.mjs`** reconciles all twenty-one project
+**`tools/check-portfolio-manifest.mjs`** reconciles all twenty-two project
 records to the actual HTML. A release fails when a card title, repository,
 live-app link or verification date drifts, or if the page starts printing a
 test total again. It also requires
@@ -179,7 +179,7 @@ the portfolio's public claims and product strategy in one reviewable place.
 **`tools/check-role-fit.mjs`** reads every Role fit panel and fails if a row
 has no source, if its chip disagrees with its tick, if the "Tied out" totals
 differ from the rows above them, or if a reading-list link lands nowhere.
-**`tools/check-headline-counts.mjs`** holds the "21 projects / 16 live demos"
+**`tools/check-headline-counts.mjs`** holds the "22 projects / 17 live demos"
 figures — hero band, link-preview descriptions and prose headings, digits or
 words — to the manifest.
 
